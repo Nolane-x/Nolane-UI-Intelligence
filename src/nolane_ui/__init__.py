@@ -1,9 +1,14 @@
 """Deterministic invariants for Nolane UI Intelligence."""
 
 from .validators import (
+    mandatory_routes_for_profile,
     validate_completion_packet,
+    validate_industry_atlas,
+    validate_mandatory_routes,
     validate_repository,
+    validate_research_saturation,
     validate_skill_graph,
+    validate_source_ledger,
     validate_state_matrix,
     validate_tokens,
 )
@@ -14,4 +19,9 @@ __all__ = [
     "validate_skill_graph",
     "validate_state_matrix",
     "validate_tokens",
+    "validate_industry_atlas",
+    "validate_source_ledger",
+    "validate_research_saturation",
+    "validate_mandatory_routes",
+    "mandatory_routes_for_profile",
 ]
