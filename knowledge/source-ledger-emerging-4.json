@@ -1,7 +1,7 @@
 {
   "version": 2,
   "reviewed_at": "2026-08-12",
-  "authority_classes": ["regulatory-guidance", "standards-draft"],
+  "authority_classes": ["regulatory-guidance", "standards-draft", "normative-standard"],
   "sources": [
     {
       "id": "faa-flight-deck-human-factors-2026",
@@ -54,6 +54,19 @@
       "reviewed_at": "2026-08-12",
       "license_note": "Paywalled draft; only public status/abstract synthesized; never treated as a released conformance requirement",
       "mechanisms_absorbed": ["user assistance is a distinct cross-platform HCI concern", "assistance selection usage and dependencies require explicit design"]
+    },
+    {
+      "id": "iec-80601-2-78-2019-amd1-2024",
+      "title": "IEC 80601-2-78:2019+AMD1:2024 — Medical robots for rehabilitation, assessment, compensation or alleviation",
+      "publisher": "IEC",
+      "url": "https://webstore.iec.ch/en/publication/93014",
+      "authority": "normative-standard",
+      "status": "Published International Standard consolidated version; amendment publication 2024-03-12; stability date 2028",
+      "domains": ["medical-robotics", "rehabilitation", "physical-human-robot-interaction", "safety"],
+      "drift": "high",
+      "reviewed_at": "2026-08-12",
+      "license_note": "Paywalled IEC standard; only public product metadata and scope synthesized",
+      "mechanisms_absorbed": ["rehabilitation robots that physically interact with patients require basic-safety and essential-performance treatment", "user-facing rehabilitation-robot UI composes medical safety, robotics, accessibility and physical/multisensory interaction rather than requiring a duplicate UI owner"]
     }
   ]
 }
