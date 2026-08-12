@@ -6,6 +6,13 @@
     {"path":"evals/v2/coverage/emerging-domains.json","kind":"cases"},
     {"path":"evals/v2/coverage/standardized-emerging-domains-2.json","kind":"cases"},
     {"path":"evals/v2/coverage/standardized-emerging-domains-3.json","kind":"cases"},
-    {"path":"evals/v2/coverage/standardized-emerging-domains-4.json","kind":"cases"}
+    {"path":"evals/v2/coverage/standardized-emerging-domains-4.json","kind":"cases"},
+    {"path":"evals/v2/platforms/cases.json","kind":"cases"},
+    {"path":"evals/v2/human-factors/cases.json","kind":"cases"},
+    {"path":"evals/v2/accessibility-critics/cases.json","kind":"cases"},
+    {"path":"evals/v2/ai-agent/cases.json","kind":"cases"},
+    {"path":"evals/v2/modalities/cases.json","kind":"cases"},
+    {"path":"evals/v2/resilience-system/cases.json","kind":"cases"},
+    {"path":"evals/v2/trust-safety/cases.json","kind":"cases"}
   ]
 }
