@@ -161,6 +161,93 @@ def validate_bounded_saturation(record: dict[str, Any], final_evidence: dict[str
     }
 
 
+def validate_research_radar(radar: dict[str, Any], ledgers: Iterable[dict[str, Any]]) -> dict[str, Any]:
+    """Make high-drift research reopen policy machine-checkable.
+
+    Every very-high-drift source in the supplied ledgers must be watched. Radar
+    entries must point to real ledger sources and contain an actionable cadence,
+    trigger, and reason. High-drift sources not marked very-high remain eligible
+    for optional proactive watches but do not fail this minimum gate.
+    """
+    errors: list[str] = []
+    warnings: list[str] = []
+    sources: dict[str, dict[str, Any]] = {}
+
+    for ledger_index, ledger in enumerate(ledgers):
+        if not isinstance(ledger, dict):
+            errors.append(f"source ledger {ledger_index} must be an object")
+            continue
+        for source in ledger.get("sources", []):
+            if not isinstance(source, dict):
+                errors.append(f"source ledger {ledger_index} contains non-object source")
+                continue
+            source_id = source.get("id")
+            if not isinstance(source_id, str) or not source_id.strip():
+                errors.append(f"source ledger {ledger_index} contains source without id")
+                continue
+            if source_id in sources:
+                errors.append(f"duplicate source id across ledgers: {source_id}")
+            sources[source_id] = source
+
+    if not isinstance(radar, dict):
+        return {
+            "valid": False,
+            "errors": errors + ["research radar must be an object"],
+            "warnings": warnings,
+            "missing_very_high_drift": [],
+            "watched_count": 0,
+        }
+    if not isinstance(radar.get("as_of"), str) or not radar["as_of"].strip():
+        errors.append("research radar requires non-empty as_of")
+    if not isinstance(radar.get("policy"), str) or not radar["policy"].strip():
+        errors.append("research radar requires non-empty policy")
+
+    watch = radar.get("watch")
+    if not isinstance(watch, list) or not watch:
+        errors.append("research radar requires non-empty watch list")
+        watch = []
+
+    watched_ids: set[str] = set()
+    for index, item in enumerate(watch):
+        if not isinstance(item, dict):
+            errors.append(f"research radar watch {index} must be an object")
+            continue
+        source_id = item.get("source_id")
+        if not isinstance(source_id, str) or not source_id.strip():
+            errors.append(f"research radar watch {index} requires source_id")
+            continue
+        if source_id in watched_ids:
+            errors.append(f"duplicate research radar watch for {source_id}")
+        watched_ids.add(source_id)
+        if source_id not in sources:
+            errors.append(f"research radar watch references unknown source {source_id}")
+        for field in ("cadence", "trigger", "reason"):
+            value = item.get(field)
+            if not isinstance(value, str) or not value.strip():
+                errors.append(f"research radar watch {source_id} requires {field}")
+
+    very_high = {source_id for source_id, source in sources.items() if source.get("drift") == "very-high"}
+    missing_very_high = sorted(very_high - watched_ids)
+    for source_id in missing_very_high:
+        errors.append(f"very-high-drift source is not watched: {source_id}")
+
+    high_unwatched = sorted(
+        source_id for source_id, source in sources.items()
+        if source.get("drift") == "high" and source_id not in watched_ids
+    )
+    if high_unwatched:
+        warnings.append(f"high-drift sources not proactively watched: {high_unwatched}")
+
+    return {
+        "valid": not errors,
+        "errors": errors,
+        "warnings": warnings,
+        "missing_very_high_drift": missing_very_high,
+        "watched_count": len(watched_ids),
+        "source_count": len(sources),
+    }
+
+
 def _load(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -223,8 +310,10 @@ def validate_repository(root: Path | str) -> dict[str, Any]:
     except Exception as exc:
         errors.append(f"invalid industry atlas/graph: {exc}")
 
+    all_ledgers: list[dict[str, Any]] = []
     try:
         ledger = _load(root / "knowledge/source-ledger.json")
+        all_ledgers.append(ledger)
         ledger_result = validate_source_ledger(ledger)
         errors.extend(f"source ledger: {item}" for item in ledger_result["errors"])
         warnings.extend(f"source ledger: {item}" for item in ledger_result["warnings"])
@@ -236,12 +325,21 @@ def validate_repository(root: Path | str) -> dict[str, Any]:
             ("-4", "fourth emerging source ledger", "fourth_emerging_research_source_count"),
         ]:
             path = root / f"knowledge/source-ledger-emerging{suffix}.json"
-            result = validate_source_ledger(_load(path))
+            extension_ledger = _load(path)
+            all_ledgers.append(extension_ledger)
+            result = validate_source_ledger(extension_ledger)
             errors.extend(f"{label}: {item}" for item in result["errors"])
             warnings.extend(f"{label}: {item}" for item in result["warnings"])
             metrics[metric] = result["source_count"]
+
+        radar = _load(root / "knowledge/research-radar.json")
+        radar_result = validate_research_radar(radar, all_ledgers)
+        errors.extend(f"research radar: {item}" for item in radar_result["errors"])
+        warnings.extend(f"research radar: {item}" for item in radar_result["warnings"])
+        metrics["research_radar_watches"] = radar_result["watched_count"]
+        metrics["research_radar_source_count"] = radar_result["source_count"]
     except Exception as exc:
-        errors.append(f"invalid source ledger: {exc}")
+        errors.append(f"invalid source ledger or research radar: {exc}")
 
     try:
         saturation = _load(root / "knowledge/research-saturation.json")
@@ -286,5 +384,5 @@ __all__ = [
     "validate_completion_packet", "validate_repository", "validate_skill_graph",
     "validate_state_matrix", "validate_tokens", "validate_industry_atlas",
     "validate_source_ledger", "validate_research_saturation", "validate_bounded_saturation",
-    "validate_mandatory_routes", "mandatory_routes_for_profile",
+    "validate_research_radar", "validate_mandatory_routes", "mandatory_routes_for_profile",
 ]
