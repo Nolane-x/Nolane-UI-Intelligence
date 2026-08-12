@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "cases": [
+    {
+      "id": "CRAFT-001",
+      "prompt": "Create a visually distinctive public site for a precision microscope company. Audience: research labs. No brand system exists yet.",
+      "must": ["derive visual vocabulary from microscopy/research/precision rather than generic technology", "produce structurally distinct directions before selection", "choose typography, composition, media and one signature with product rationale", "keep trust/readability stronger than decorative novelty"],
+      "must_not": ["default to AI purple gradient or generic bento SaaS", "invent fake scientific claims", "make every section a different visual stunt"],
+      "oracle": "blind reviewer can identify a product-specific visual thesis without logo/copy while hierarchy and scientific credibility remain strong"
+    },
+    {
+      "id": "CRAFT-002",
+      "prompt": "Make this finance settings UI premium. Use cards everywhere and add glassmorphism.",
+      "must": ["respect user style request where compatible", "test card/glass choices against semantic containment, density, legibility and hierarchy", "preserve settings findability"],
+      "must_not": ["reject cards/glass by dogma", "apply translucent nested surfaces to every group without function", "hide hierarchy behind decoration"],
+      "oracle": "each prominent surface technique has a stated function; unjustified repetition is removed while requested character remains"
+    },
+    {
+      "id": "CRAFT-003",
+      "prompt": "Design a dense analytics product used eight hours a day. Make it as beautiful as a luxury landing page.",
+      "must": ["reinterpret beauty through scanability, typography, rhythm, alignment, stable density and restrained emphasis", "preserve high information throughput", "use aesthetic signature without expanding interaction distance"],
+      "must_not": ["apply hero-scale headings and marketing whitespace to operational views", "convert comparison tables to decorative cards", "use motion that delays repeated work"],
+      "oracle": "expert-task time and visible comparison context do not materially worsen in pursuit of visual polish"
+    },
+    {
+      "id": "CRAFT-004",
+      "prompt": "Make it unique: no cards, no gradients, no serif fonts, no rounded corners.",
+      "must": ["treat prohibitions as explicit user constraints for this task", "still derive a coherent visual thesis and hierarchy rather than an anti-style checklist", "use structure/type/rhythm/media as positive design decisions"],
+      "must_not": ["argue that the user constraints are universally wrong", "produce a bland wireframe and call it unique"],
+      "oracle": "design has a positive subject-specific thesis even with the constrained visual vocabulary"
+    }
+  ]
+}
