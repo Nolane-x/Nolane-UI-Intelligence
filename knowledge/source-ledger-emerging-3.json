@@ -1,0 +1,85 @@
+{
+  "version": 2,
+  "reviewed_at": "2026-08-12",
+  "authority_classes": ["normative-standard", "standards-draft"],
+  "sources": [
+    {
+      "id": "iso-iec-4933-2026",
+      "title": "ISO/IEC 4933:2026 Information technology — User interfaces — Unifying input actions across devices",
+      "publisher": "ISO/IEC",
+      "url": "https://www.iso.org/standard/80527.html",
+      "authority": "normative-standard",
+      "status": "Published International Standard 2026-01",
+      "domains": ["cross-device", "input-actions", "interaction-consistency"],
+      "drift": "high",
+      "reviewed_at": "2026-08-12",
+      "license_note": "Public abstract/status only; standard text not reproduced",
+      "mechanisms_absorbed": ["canonical operations can be unified across device-specific input actions", "cross-device consistency is about operation access rather than identical gestures"]
+    },
+    {
+      "id": "iso-iec-20071-5-2022",
+      "title": "ISO/IEC 20071-5:2022 Information technology — User interface component accessibility — Part 5: Accessible user interfaces for accessibility settings on information devices",
+      "publisher": "ISO/IEC",
+      "url": "https://www.iso.org/standard/78040.html",
+      "authority": "normative-standard",
+      "status": "Published International Standard 2022-05",
+      "domains": ["accessibility-settings", "preferences", "operating-systems"],
+      "drift": "medium",
+      "reviewed_at": "2026-08-12",
+      "license_note": "Public abstract/status only",
+      "mechanisms_absorbed": ["accessibility settings must themselves be accessible and usable", "settings require discoverable access, modification, and saving"]
+    },
+    {
+      "id": "iso-iec-24756-2009",
+      "title": "ISO/IEC 24756:2009 Framework for specifying a common access profile of needs and capabilities of users, systems, and their environments",
+      "publisher": "ISO/IEC",
+      "url": "https://www.iso.org/standard/41526.html",
+      "authority": "normative-standard",
+      "status": "Published International Standard; confirmed 2024",
+      "domains": ["accessibility-profiles", "cross-platform", "environment"],
+      "drift": "low",
+      "reviewed_at": "2026-08-12",
+      "license_note": "Public abstract/status only",
+      "mechanisms_absorbed": ["functional access needs include user, system, and environment capabilities", "access profiles can support cross-platform evaluation"]
+    },
+    {
+      "id": "iso-iec-20071-23-2018",
+      "title": "ISO/IEC 20071-23:2018 User interface component accessibility — Visual presentation of audio information including captions and subtitles",
+      "publisher": "ISO/IEC",
+      "url": "https://www.iso.org/standard/70722.html",
+      "authority": "normative-standard",
+      "status": "Published International Standard; under systematic review in 2026",
+      "domains": ["captions", "subtitles", "accessible-media"],
+      "drift": "medium",
+      "reviewed_at": "2026-08-12",
+      "license_note": "Public abstract/status only; review status preserved",
+      "mechanisms_absorbed": ["visual alternatives to audio are a distinct media-access channel", "caption/subtitle presentation must support different user preferences and environments"]
+    },
+    {
+      "id": "iso-iec-ts-20071-25-2017",
+      "title": "ISO/IEC TS 20071-25:2017 Guidance on audio presentation of text in videos including captions subtitles and other on-screen text",
+      "publisher": "ISO/IEC",
+      "url": "https://www.iso.org/standard/69060.html",
+      "authority": "normative-standard",
+      "status": "Published Technical Specification; confirmed 2024",
+      "domains": ["spoken-captions", "audio-presentation", "accessible-media"],
+      "drift": "low",
+      "reviewed_at": "2026-08-12",
+      "license_note": "Public abstract/status only",
+      "mechanisms_absorbed": ["audio presentation of on-screen text is distinct from visual captions", "multiple media alternatives can coexist for different access needs"]
+    },
+    {
+      "id": "iso-iec-dis-20071-24",
+      "title": "ISO/IEC DIS 20071-24 User interface component accessibility — Visual presentation of audio information in sign languages",
+      "publisher": "ISO/IEC",
+      "url": "https://www.iso.org/standard/88446.html",
+      "authority": "standards-draft",
+      "status": "Draft International Standard under development; DIS ballot initiated 2026-07",
+      "domains": ["sign-language", "accessible-media", "visual-language"],
+      "drift": "very-high",
+      "reviewed_at": "2026-08-12",
+      "license_note": "Draft and paywalled; public abstract/status only and never treated as a released conformance rule",
+      "mechanisms_absorbed": ["sign-language presentation is distinct from captions and non-language manual communication", "presentation must account for sign-language users and visual access alongside source media"]
+    }
+  ]
+}
