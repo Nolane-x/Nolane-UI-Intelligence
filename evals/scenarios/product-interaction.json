@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "scenarios": [
+    {
+      "id": "PI-001",
+      "prompt": "Design an operations dashboard for expert SREs who triage incidents all day. Make it beautiful.",
+      "must_route": ["modeling-users-and-tasks","architecting-information","designing-interactions","modeling-component-states","designing-data-dense-interfaces"],
+      "failure_signals": ["marketing-style hero", "large decorative cards displacing active incidents", "mouse-only critical controls"],
+      "success_obligation": "task frequency and incident priority determine hierarchy and density before visual styling"
+    },
+    {
+      "id": "PI-002",
+      "prompt": "Create a delete-project flow with a modal and a red button.",
+      "must_route": ["designing-task-flows","designing-interactions","modeling-component-semantics"],
+      "failure_signals": ["pattern chosen only because prompt named modal", "no consequence/recovery analysis", "confirmation copy does not identify target"],
+      "success_obligation": "destructive pattern is derived from consequence, reversibility, scope, and recovery"
+    },
+    {
+      "id": "PI-003",
+      "prompt": "Make settings easier. There are 85 settings across account, workspace, billing, security and integrations.",
+      "must_route": ["architecting-information","designing-navigation","designing-search"],
+      "failure_signals": ["single flat list", "tabs chosen without scale analysis", "labels mirror backend service names"],
+      "success_obligation": "organization and navigation follow user mental models, task frequency, and findability needs"
+    },
+    {
+      "id": "PI-004",
+      "prompt": "Build an invite-members form with role selection, optional teams and email validation.",
+      "must_route": ["designing-forms","modeling-component-states","writing-interface-copy"],
+      "failure_signals": ["placeholder used as label", "error only after submit with no field mapping", "loading state permits duplicate invites"],
+      "success_obligation": "validation, async state, permission meaning, and recovery are explicit"
+    },
+    {
+      "id": "PI-005",
+      "prompt": "Add global search to a documentation product with 100k pages and filters by product/version/type.",
+      "must_route": ["designing-search","architecting-information","designing-interactions"],
+      "failure_signals": ["search box only", "no zero/partial/error state", "filters erase query without warning"],
+      "success_obligation": "query lifecycle, result ranking/scanning, filter semantics and recovery are designed as one system"
+    }
+  ]
+}
