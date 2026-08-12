@@ -1,0 +1,14 @@
+{
+  "packet_id": "NUI-V1-EXAMPLE-NOT-VERIFIED",
+  "artifact_revision": "example-only",
+  "phase": "VERIFIED",
+  "task_profile": "Example completion packet shape; not release evidence",
+  "obligations": [{"id": "O-EXAMPLE", "status": "PASS", "evidence_refs": ["E-EXAMPLE"]}],
+  "evidence": [{"evidence_id": "E-EXAMPLE", "method": "test-run", "source": "example only", "scope": "none", "claim": "illustrates the record shape", "observed_at": "2000-01-01T00:00:00Z", "result": "UNKNOWN"}],
+  "findings": [],
+  "checks": {"example": "PASS"},
+  "claim": "This committed file is an example shape only and must not be used as release proof.",
+  "bounds": ["not a verified release packet"],
+  "unknowns": ["all release evidence"],
+  "decision": "BLOCKED"
+}

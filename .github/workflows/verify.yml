@@ -28,5 +28,23 @@ jobs:
       - name: Run unit and contract tests
         run: python -m unittest discover -s tests -v
 
-      - name: Validate repository and bounded completion packet
-        run: python scripts/nui-validate . --packet artifacts/v1-completion-packet.json
+      - name: Generate fresh bounded completion packet
+        run: |
+          python scripts/nui-release-packet \
+            --output /tmp/nui-v1-completion-packet.json \
+            --revision "$GITHUB_SHA" \
+            --source "GitHub Actions run $GITHUB_RUN_ID"
+
+      - name: Validate repository and exact-revision completion packet
+        run: |
+          python scripts/nui-validate . \
+            --packet /tmp/nui-v1-completion-packet.json \
+            --revision "$GITHUB_SHA"
+
+      - name: Upload verified completion packet
+        uses: actions/upload-artifact@v4
+        with:
+          name: nui-v1-completion-packet
+          path: /tmp/nui-v1-completion-packet.json
+          if-no-files-found: error
+          retention-days: 90

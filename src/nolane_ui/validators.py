@@ -14,6 +14,7 @@ from typing import Any, Iterable
 ALLOWED_TOKEN_TIERS = {"primitive", "semantic", "component", "context"}
 RELEASE_OBLIGATION_STATUSES = {"PASS", "ACCEPTED_RISK"}
 RESOLVED_FINDING_STATUSES = {"repaired", "accepted-risk", "not-reproducible"}
+EVIDENCE_RESULTS = {"PASS", "FAIL", "UNKNOWN"}
 BANNED_PLACEHOLDERS = re.compile(r"\b(TODO|TBD|fill this in|implement later)\b", re.I)
 
 
@@ -57,7 +58,6 @@ def validate_skill_graph(graph: dict[str, Any], skill_names: Iterable[str]) -> l
     for name in sorted(undeclared):
         errors.append(f"skill {name} exists on disk but is not declared in graph")
 
-    # Parent graph must be acyclic.
     for start in declared:
         seen: set[str] = set()
         current: str | None = start
@@ -135,9 +135,8 @@ def validate_tokens(model: dict[str, Any]) -> dict[str, Any]:
         while current is not None and current in tokens:
             if current in index:
                 cycle = order[index[current] :] + [current]
-                canonical = tuple(cycle)
-                if not any(set(c) == set(cycle) for c in cycles):
-                    cycles.append(list(canonical))
+                if not any(set(existing) == set(cycle) for existing in cycles):
+                    cycles.append(cycle)
                 break
             index[current] = len(order)
             order.append(current)
@@ -151,32 +150,96 @@ def validate_tokens(model: dict[str, Any]) -> dict[str, Any]:
     return {"valid": not errors, "errors": errors, "invalid_tiers": sorted(invalid_tiers), "cycles": cycles}
 
 
-def validate_completion_packet(packet: dict[str, Any], root: Path | str) -> dict[str, Any]:
+def validate_completion_packet(
+    packet: dict[str, Any], root: Path | str, expected_revision: str | None = None
+) -> dict[str, Any]:
+    """Validate evidence-bound release claims.
+
+    The packet may contain failing/unknown evidence as historical context. What it
+    may not do is close a PASS obligation with anything other than explicitly
+    referenced PASS evidence. Accepted risk preserves its evidence and requires a
+    named authority instead of laundering a failure into PASS.
+    """
+
     errors: list[str] = []
     required = {
-        "packet_id", "phase", "task_profile", "obligations", "evidence",
-        "findings", "checks", "claim", "bounds", "unknowns",
+        "packet_id", "artifact_revision", "phase", "task_profile", "obligations",
+        "evidence", "findings", "checks", "claim", "bounds", "unknowns", "decision",
     }
     missing = sorted(required - set(packet))
     if missing:
         errors.append(f"completion packet missing fields: {missing}")
 
+    artifact_revision = packet.get("artifact_revision")
+    if not isinstance(artifact_revision, str) or not artifact_revision.strip():
+        errors.append("artifact_revision must be a non-empty string")
+    if expected_revision is not None and artifact_revision != expected_revision:
+        errors.append(
+            f"artifact_revision {artifact_revision!r} does not match expected revision {expected_revision!r}"
+        )
+
     if packet.get("phase") != "VERIFIED":
         errors.append("completion packet phase must be VERIFIED")
 
-    for obligation in packet.get("obligations", []):
-        status = obligation.get("status") if isinstance(obligation, dict) else None
-        if status not in RELEASE_OBLIGATION_STATUSES:
-            oid = obligation.get("id", "<unknown>") if isinstance(obligation, dict) else "<invalid>"
-            errors.append(f"obligation {oid} is unresolved with status {status}")
-
+    evidence_by_id: dict[str, dict[str, Any]] = {}
+    evidence_required = {"evidence_id", "method", "source", "scope", "claim", "observed_at", "result"}
     for evidence in packet.get("evidence", []):
-        result = evidence.get("result") if isinstance(evidence, dict) else None
-        eid = evidence.get("evidence_id", "<unknown>") if isinstance(evidence, dict) else "<invalid>"
-        if result == "UNKNOWN":
-            errors.append(f"evidence {eid} is UNKNOWN and cannot close a release obligation")
-        elif result != "PASS":
-            errors.append(f"evidence {eid} is not PASS: {result}")
+        if not isinstance(evidence, dict):
+            errors.append("evidence record must be an object")
+            continue
+        missing_evidence = sorted(evidence_required - set(evidence))
+        if missing_evidence:
+            errors.append(
+                f"evidence {evidence.get('evidence_id', '<unknown>')} missing fields: {missing_evidence}"
+            )
+            continue
+        eid = evidence.get("evidence_id")
+        if not isinstance(eid, str) or not eid:
+            errors.append("evidence_id must be a non-empty string")
+            continue
+        if eid in evidence_by_id:
+            errors.append(f"duplicate evidence_id {eid}")
+        evidence_by_id[eid] = evidence
+        if evidence.get("result") not in EVIDENCE_RESULTS:
+            errors.append(f"evidence {eid} has invalid result {evidence.get('result')}")
+
+    accepted_risk = False
+    for obligation in packet.get("obligations", []):
+        if not isinstance(obligation, dict):
+            errors.append("obligation record must be an object")
+            continue
+        oid = obligation.get("id", "<unknown>")
+        status = obligation.get("status")
+        if status not in RELEASE_OBLIGATION_STATUSES:
+            errors.append(f"obligation {oid} is unresolved with status {status}")
+            continue
+
+        refs = obligation.get("evidence_refs")
+        if not isinstance(refs, list) or not refs:
+            errors.append(f"obligation {oid} must reference release evidence")
+            refs = []
+        missing_refs = [ref for ref in refs if ref not in evidence_by_id]
+        if missing_refs:
+            errors.append(f"obligation {oid} references missing evidence {missing_refs}")
+        referenced = [evidence_by_id[ref] for ref in refs if ref in evidence_by_id]
+
+        if status == "PASS":
+            for evidence in referenced:
+                if evidence.get("result") != "PASS":
+                    errors.append(
+                        f"obligation {oid} is PASS but evidence {evidence.get('evidence_id')} is {evidence.get('result')}"
+                    )
+
+        if status == "ACCEPTED_RISK":
+            accepted_risk = True
+            acceptance = obligation.get("acceptance")
+            if not isinstance(acceptance, dict):
+                errors.append(f"accepted-risk obligation {oid} is missing acceptance authority")
+            else:
+                for key in ("accepted_by", "authority", "scope"):
+                    value = acceptance.get(key)
+                    if not isinstance(value, str) or not value.strip():
+                        errors.append(f"accepted-risk obligation {oid} acceptance is missing {key}")
 
     for finding in packet.get("findings", []):
         if not isinstance(finding, dict):
@@ -194,14 +257,21 @@ def validate_completion_packet(packet: dict[str, Any], root: Path | str) -> dict
         errors.append("completion claim must include at least one explicit bound")
 
     checks = packet.get("checks")
-    if not isinstance(checks, dict) or any(value != "PASS" for value in checks.values()):
+    if not isinstance(checks, dict) or not checks:
+        errors.append("completion packet must declare deterministic checks")
+    elif any(value != "PASS" for value in checks.values()):
         errors.append("all declared deterministic checks must be PASS")
 
-    accepted_risk = any(
-        isinstance(item, dict) and item.get("status") == "ACCEPTED_RISK"
-        for item in packet.get("obligations", [])
-    )
-    decision = "BLOCKED" if errors else ("PASS_WITH_ACCEPTED_RISK" if accepted_risk else "PASS")
+    expected_decision = "BLOCKED" if errors else ("PASS_WITH_ACCEPTED_RISK" if accepted_risk else "PASS")
+    declared_decision = packet.get("decision")
+    if declared_decision not in {"PASS", "PASS_WITH_ACCEPTED_RISK", "BLOCKED"}:
+        errors.append(f"declared decision is missing or invalid: {declared_decision}")
+    elif declared_decision != expected_decision:
+        errors.append(
+            f"declared decision {declared_decision} does not match computed decision {expected_decision}"
+        )
+
+    decision = "BLOCKED" if errors else expected_decision
     return {"decision": decision, "errors": errors, "root": str(Path(root))}
 
 
@@ -211,9 +281,11 @@ def validate_repository(root: Path | str) -> dict[str, Any]:
     warnings: list[str] = []
 
     required_paths = [
-        "README.md", "AGENTS.md", "nui.config.json", "skills/skill-graph.json",
+        "README.md", "AGENTS.md", "LICENSE", "nui.config.json", "skills/skill-graph.json",
         "schemas/ui-task-profile.schema.json", "schemas/finding.schema.json",
         "schemas/evidence.schema.json", "schemas/completion-packet.schema.json",
+        "adapters/capabilities.json", "docs/INSTALL.md", "docs/USAGE.md",
+        "docs/research/SOURCES.md", "docs/research/SYNTHESIS.md", "evals/rubric.json",
     ]
     for relative in required_paths:
         if not (root / relative).is_file():

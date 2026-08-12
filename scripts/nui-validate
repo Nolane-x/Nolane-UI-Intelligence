@@ -14,6 +14,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Validate Nolane UI Intelligence deterministic invariants")
     parser.add_argument("root", nargs="?", default=str(ROOT))
     parser.add_argument("--packet", help="Optional completion packet JSON to gate")
+    parser.add_argument("--revision", help="Require packet artifact_revision to equal this exact revision")
     args = parser.parse_args()
 
     root = Path(args.root).resolve()
@@ -26,7 +27,7 @@ def main() -> int:
         if not packet_path.is_absolute():
             packet_path = root / packet_path
         packet = json.loads(packet_path.read_text(encoding="utf-8"))
-        packet_result = validate_completion_packet(packet, root)
+        packet_result = validate_completion_packet(packet, root, expected_revision=args.revision)
         result["completion_packet"] = packet_result
         valid = valid and packet_result["decision"] in {"PASS", "PASS_WITH_ACCEPTED_RISK"}
 
