@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "cases": [
+    {"id":"keyboard-reachability","prompt":"A pro editor has hundreds of commands but only pointer-accessible toolbar buttons.","must_route":["designing-keyboard-power-user-ux"],"must_detect":["command reachability","shortcut discovery","focus restoration"]},
+    {"id":"imprecise-touch","prompt":"A phone app puts destructive icon buttons 16px apart and relies on hover tooltips.","must_route":["designing-pointer-touch-pen-input"],"must_detect":["target geometry","no-hover discovery","pointer cancellation"]},
+    {"id":"drag-only","prompt":"Cards can only be reordered by dragging.","must_route":["designing-accessible-drag-and-drop","designing-alternative-input"],"must_detect":["single-pointer alternative","keyboard alternative","position announcement"]},
+    {"id":"tv-focus-trap","prompt":"A streaming TV grid opens a modal whose close button cannot be reached by D-pad.","must_route":["designing-gamepad-remote-focus"],"must_detect":["directional focus graph","escape path","focus return"]},
+    {"id":"voice-ambiguity","prompt":"A voice assistant executes 'send it' when two drafts are visible.","must_route":["designing-voice-conversational-ui","designing-high-stakes-decisions"],"must_detect":["referent ambiguity","confirmation proportional to consequence"]},
+    {"id":"xr-gaze-fatigue","prompt":"Every gaze target activates after a short dwell with no hand confirmation.","must_route":["designing-gaze-hand-spatial-input"],"must_detect":["Midas-touch risk","dwell fatigue","intent separation"]},
+    {"id":"haptic-exclusive","prompt":"Critical failure is communicated only by a vibration pattern.","must_route":["designing-haptics-and-multisensory-feedback"],"must_detect":["redundant channel","environmental availability"]},
+    {"id":"switch-control","prompt":"A complex tool has custom canvas controls omitted from sequential navigation.","must_route":["designing-alternative-input"],"must_detect":["complete reachability","grouping","operation without precision pointer"]}
+  ]
+}
