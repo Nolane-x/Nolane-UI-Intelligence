@@ -28,11 +28,13 @@ if __package__:
     from . import industry as _industry
     from . import emerging as _emerging
     from . import emerging2 as _emerging2
+    from . import emerging3 as _emerging3
 else:
     _legacy = _load_sibling("validators_legacy.py", "nui_validators_legacy")
     _industry = _load_sibling("industry.py", "nui_industry")
     _emerging = _load_sibling("emerging.py", "nui_emerging")
     _emerging2 = _load_sibling("emerging2.py", "nui_emerging2")
+    _emerging3 = _load_sibling("emerging3.py", "nui_emerging3")
 
 validate_completion_packet = _legacy.validate_completion_packet
 validate_skill_graph = _legacy.validate_skill_graph
@@ -48,6 +50,7 @@ def mandatory_routes_for_profile(profile: dict[str, Any]) -> set[str]:
         _industry.mandatory_routes_for_profile(profile)
         | _emerging.mandatory_emerging_routes(profile)
         | _emerging2.mandatory_standardized_emerging_routes(profile)
+        | _emerging3.mandatory_third_extension_routes(profile)
     )
 
 
@@ -84,6 +87,10 @@ def validate_repository(root: Path | str) -> dict[str, Any]:
         "knowledge/ui-domain-atlas-emerging-2.json",
         "knowledge/source-ledger-emerging-2.json",
         "evals/v2/coverage/standardized-emerging-domains-2.json",
+        "knowledge/emerging-skill-manifest-3.json",
+        "knowledge/ui-domain-atlas-emerging-3.json",
+        "knowledge/source-ledger-emerging-3.json",
+        "evals/v2/coverage/standardized-emerging-domains-3.json",
     ]
     for relative in required_v2:
         if not (root / relative).is_file():
@@ -108,6 +115,11 @@ def validate_repository(root: Path | str) -> dict[str, Any]:
         extension2_result = validate_industry_atlas(extension2, graph)
         errors.extend(f"standardized emerging atlas: {item}" for item in extension2_result["errors"])
         metrics["standardized_emerging_coverage_cells"] = extension2_result["coverage_cell_count"]
+
+        extension3 = _load(root / "knowledge/ui-domain-atlas-emerging-3.json")
+        extension3_result = validate_industry_atlas(extension3, graph)
+        errors.extend(f"third emerging atlas: {item}" for item in extension3_result["errors"])
+        metrics["third_emerging_coverage_cells"] = extension3_result["coverage_cell_count"]
     except Exception as exc:
         errors.append(f"invalid industry atlas/graph: {exc}")
 
@@ -129,6 +141,12 @@ def validate_repository(root: Path | str) -> dict[str, Any]:
         errors.extend(f"standardized emerging source ledger: {item}" for item in emerging2_result["errors"])
         warnings.extend(f"standardized emerging source ledger: {item}" for item in emerging2_result["warnings"])
         metrics["standardized_emerging_research_source_count"] = emerging2_result["source_count"]
+
+        emerging3_ledger = _load(root / "knowledge/source-ledger-emerging-3.json")
+        emerging3_result = validate_source_ledger(emerging3_ledger)
+        errors.extend(f"third emerging source ledger: {item}" for item in emerging3_result["errors"])
+        warnings.extend(f"third emerging source ledger: {item}" for item in emerging3_result["warnings"])
+        metrics["third_emerging_research_source_count"] = emerging3_result["source_count"]
     except Exception as exc:
         errors.append(f"invalid source ledger: {exc}")
 
@@ -145,6 +163,7 @@ def validate_repository(root: Path | str) -> dict[str, Any]:
             _load(root / "knowledge/v2-skill-manifest.json"),
             _load(root / "knowledge/emerging-skill-manifest.json"),
             _load(root / "knowledge/emerging-skill-manifest-2.json"),
+            _load(root / "knowledge/emerging-skill-manifest-3.json"),
         ]
         all_items = [item for manifest in manifests for item in manifest.get("skills", [])]
         metrics["v2_skill_count"] = len(all_items)
