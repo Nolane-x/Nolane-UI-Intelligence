@@ -1,40 +1,40 @@
 {
   "version": 2,
   "wave_id": "ui-industry-expansion-2026-08-12",
-  "as_of": "2026-08-12T12:42:00+07:00",
+  "as_of": "2026-08-12T12:55:00+07:00",
   "decision": "OPEN",
   "evidence": {
     "breadth": {
       "status": "IN_PROGRESS",
       "criterion": "every mandatory atlas cell has primary authority coverage plus owner and verifier skills",
-      "observed": "core atlas plus two adversarial extensions now cover 32 machine-validated cells; final novelty sweep remains open"
+      "observed": "core plus three adversarial atlas extensions now model 36 explicit coverage cells; extension three adds cross-device action equivalence, accessibility settings, accessible media, and sign-language presentation, with another novelty sweep still required"
     },
     "depth": {
       "status": "IN_PROGRESS",
       "criterion": "high-risk and high-drift domains use multiple independent primary sources where available",
-      "observed": "medical, accessibility, AI, security, platform, automotive, robotics, BCI, control-room, affective, avatar, and AAC authorities are represented; final cross-domain contradiction review remains open"
+      "observed": "research now spans accessibility, AI, safety, platform, automotive, robotics, BCI, control-room, affective, avatar, AAC, cross-device actions, accessibility settings, captions/subtitles, spoken media alternatives, and sign-language presentation; final cross-domain depth review remains open"
     },
     "contradictions": {
       "status": "IN_PROGRESS",
       "criterion": "conflicting standards or guidance are resolved by scope/authority or preserved as explicit alternatives",
-      "observed": "WCAG 3 draft versus WCAG 2.2 normative status is separated; ISO drafts are distinguished from published standards; visual platform trends remain contextual rather than universal"
+      "observed": "WCAG 3 remains draft while WCAG 2.2 remains the web conformance baseline; ISO draft versus published status is preserved; sign language is separated from AAC symbols and captions; platform visual trends remain contextual rather than universal"
     },
     "novelty": {
       "status": "IN_PROGRESS",
-      "criterion": "a final adversarial search wave adds no material new decision mechanism or uncovered mandatory domain class",
-      "observed": "recent sweeps discovered robotics, ambient intelligence, BCI, control-room HMI, affective UI, avatar representation, and AAC; another primary-source sweep is required before bounded saturation can be claimed"
+      "criterion": "a final adversarial primary-source search wave adds no material new decision mechanism or uncovered mandatory domain class that cannot be decomposed into existing faculties",
+      "observed": "the third sweep still discovered four non-decomposable decision classes, so saturation cannot yet be claimed; another sweep must challenge aviation/industrial/tangible/immersive-media/assistive-system boundaries and record whether findings decompose cleanly"
     },
     "freshness": {
       "status": "PASS",
       "criterion": "high-drift sources have reviewed_at plus radar cadence",
-      "observed": "high-drift standards, platform, AI, and accessibility sources are dated and tracked by the research radar"
+      "observed": "high-drift standards, platform, AI, accessibility, BCI, avatar, affective, and sign-language sources are dated and tracked; drafts are not promoted to released requirements"
     }
   },
   "reopen_conditions": [
     "new normative or regulatory guidance",
     "new platform surface or input modality",
     "new material specialist UI decision class",
-    "material AI/generative-UI standard change",
+    "material AI or generative-UI standard change",
     "new empirical evidence invalidates a mechanism",
     "mandatory atlas cell becomes unowned or unverifiable"
   ]
