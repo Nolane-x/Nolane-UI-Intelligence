@@ -1,0 +1,34 @@
+{
+  "version": 2,
+  "wave": "adversarial-saturation-extension-3",
+  "skills": [
+    {
+      "name": "designing-cross-device-action-equivalence",
+      "family": "system",
+      "parent": "routing-ui-work",
+      "output": "cross-device-action-contract",
+      "ownership": "preserve operation semantics and predictable action vocabulary across devices and modalities without forcing identical gestures, controls, or platform conventions"
+    },
+    {
+      "name": "designing-accessibility-settings-and-profiles",
+      "family": "inclusive-specialist",
+      "parent": "designing-accessible-interfaces",
+      "output": "accessibility-settings-contract",
+      "ownership": "make accessibility settings themselves discoverable, operable, recoverable, portable, context-aware, privacy-bounded, and usable before the preferred accessibility feature is active"
+    },
+    {
+      "name": "designing-accessible-media-alternatives",
+      "family": "inclusive-specialist",
+      "parent": "designing-accessible-interfaces",
+      "output": "accessible-media-contract",
+      "ownership": "design captions subtitles transcripts audio description spoken on-screen text and synchronized media alternatives as selectable equivalent information channels"
+    },
+    {
+      "name": "designing-sign-language-presentation",
+      "family": "inclusive-specialist",
+      "parent": "designing-accessible-media-alternatives",
+      "output": "sign-language-presentation-contract",
+      "ownership": "design sign-language visual presentation as a natural-language access channel with linguistic integrity, readable framing, timing, signer identity, user preference, and coexistence with source media"
+    }
+  ]
+}
