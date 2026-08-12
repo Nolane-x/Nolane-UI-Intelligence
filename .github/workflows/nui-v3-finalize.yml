@@ -1,0 +1,73 @@
+name: NUI v3 Finalization Gate
+
+on:
+  push:
+    branches:
+      - build/ui-closure-intelligence-v3
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact branch head
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Reject transport/bootstrap residue
+        shell: bash
+        run: |
+          set -euo pipefail
+          if compgen -G '.nui-v3-payload.part*' > /dev/null; then
+            echo 'ERROR: payload transport files remain in branch tree.'
+            exit 1
+          fi
+          if [ -e .github/workflows/nui-v3-bootstrap.yml ]; then
+            echo 'ERROR: bootstrap workflow remains in branch tree.'
+            exit 1
+          fi
+
+      - name: Verify v3 structural invariants
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f knowledge/v3-skill-manifest.json
+          test -f knowledge/source-ledger-closure-v3.json
+          test -f evals/v3/manifest.json
+          test -f src/nolane_ui/closure.py
+          test -f src/nolane_ui/visual_intelligence.py
+          test -f schemas/functional-closure.schema.json
+          test -f schemas/ui-specification-bundle.schema.json
+          PYTHONPATH=src python -m unittest discover -s tests -v
+          python scripts/nui-validate .
+
+      - name: Remove finalization gate and push clean head
+        id: clean
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'NUI v3 automation'
+          git config user.email 'actions@users.noreply.github.com'
+          rm -f .github/workflows/nui-v3-finalize.yml
+          git add -A
+          git commit -m 'chore: remove NUI v3 finalization gate'
+          git push origin HEAD:${GITHUB_REF_NAME}
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Enable guarded auto-merge for PR 5
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CLEAN_SHA: ${{ steps.clean.outputs.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh pr merge 5 \
+            --repo Nolane-x/Nolane-UI-Intelligence \
+            --squash \
+            --auto \
+            --delete-branch \
+            --match-head-commit "$CLEAN_SHA"
