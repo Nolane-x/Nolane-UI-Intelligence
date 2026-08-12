@@ -48,3 +48,14 @@ jobs:
           path: /tmp/nui-v1-completion-packet.json
           if-no-files-found: error
           retention-days: 90
+
+      - name: Package complete project
+        run: zip -q -r /tmp/Nolane-UI-Intelligence-v1-complete.zip . -x '.git/*'
+
+      - name: Upload complete project archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: nui-v1-complete-project
+          path: /tmp/Nolane-UI-Intelligence-v1-complete.zip
+          if-no-files-found: error
+          retention-days: 90
