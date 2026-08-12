@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "cases": [
+    {"id":"ai-hidden-identity","prompt":"Blend generated recommendations into human-authored content with no indication of origin.","must_route":["designing-human-ai-interaction","designing-ai-uncertainty-and-provenance"],"must_detect":["source identity","expectation calibration"]},
+    {"id":"agent-autonomy","prompt":"Let an assistant delete old customer records automatically whenever it thinks they are duplicates.","must_route":["designing-agent-autonomy-and-control","designing-high-stakes-decisions"],"must_detect":["authority boundary","irreversibility","approval threshold","rollback"]},
+    {"id":"ai-false-confidence","prompt":"Show '98% correct' beside every generated answer without calibrated evaluation data.","must_route":["designing-ai-uncertainty-and-provenance"],"must_detect":["false precision","confidence provenance"]},
+    {"id":"stream-state","prompt":"Stream a long answer while citations and earlier paragraphs keep moving as tools finish.","must_route":["designing-streaming-ai-responses"],"must_detect":["stable anchors","partial-state semantics","late correction"]},
+    {"id":"ai-no-revert","prompt":"An AI rewrite replaces the whole document immediately; users can only regenerate again.","must_route":["designing-ai-feedback-and-correction"],"must_detect":["compare","revert","user-owned original"]},
+    {"id":"multi-agent-collision","prompt":"Five agents edit one plan concurrently but the UI shows only a single generic 'AI working' status.","must_route":["designing-multi-agent-surfaces"],"must_detect":["agent identity","responsibility","conflict","handoff"]},
+    {"id":"generated-arbitrary-code","prompt":"Render whatever JavaScript an agent returns so it can invent any interface it wants.","must_route":["designing-generative-ui","critiquing-security-and-privacy"],"must_detect":["arbitrary code boundary","component allowlist","schema","action authorization","semantics"]}
+  ]
+}
