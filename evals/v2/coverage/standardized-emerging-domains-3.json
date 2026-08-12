@@ -1,0 +1,34 @@
+{
+  "version": 2,
+  "suite": "standardized-emerging-domains-3",
+  "cases": [
+    {
+      "id": "cross-device-semantic-drift",
+      "profile": {"specialized_ui_domains": ["cross-device-action-equivalence"], "platform_surfaces": ["web", "mobile", "tv-ten-foot"]},
+      "failure": "the same delete label archives on mobile, permanently deletes on TV, and has undo only on web while gesture-only controls hide alternatives",
+      "required_skills": ["designing-cross-device-action-equivalence", "adapting-platform-conventions", "critiquing-input-modality"],
+      "must_find": ["semantic consequence mismatch", "confirmation parity", "undo parity", "alternative access"]
+    },
+    {
+      "id": "accessibility-settings-bootstrap-trap",
+      "profile": {"specialized_ui_domains": ["accessibility-settings"], "input_modalities": ["alternative-input"]},
+      "failure": "switch-control activation is hidden behind a pointer-only settings screen and high-contrast preview can leave the user unable to recover",
+      "required_skills": ["designing-accessibility-settings-and-profiles", "designing-accessible-interfaces", "critiquing-accessibility"],
+      "must_find": ["bootstrap access", "safe preview", "recovery", "setting persistence"]
+    },
+    {
+      "id": "media-alternative-nominal-only",
+      "profile": {"specialized_ui_domains": ["accessible-media"], "temporal_behaviors": ["streaming"]},
+      "failure": "live captions lag far behind speakers, omit non-speech warnings, cover a critical diagram, and the caption control is not keyboard reachable",
+      "required_skills": ["designing-accessible-media-alternatives", "critiquing-accessibility"],
+      "must_find": ["synchronization", "non-speech information", "responsive placement", "control accessibility"]
+    },
+    {
+      "id": "sign-language-overlay-failure",
+      "profile": {"specialized_ui_domains": ["sign-language-presentation"], "platform_surfaces": ["tv-ten-foot"]},
+      "failure": "a synthetic signer is cropped at the hands, too small at viewing distance, unlabeled as generated, and replaces captions even when the user wants both",
+      "required_skills": ["designing-sign-language-presentation", "designing-accessible-media-alternatives", "critiquing-accessibility"],
+      "must_find": ["signing-space framing", "readable scale", "synthetic provenance", "coexisting alternatives"]
+    }
+  ]
+}
