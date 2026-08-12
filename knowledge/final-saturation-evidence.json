@@ -54,7 +54,7 @@
           "reason": "Natural-user-interface usability evaluation changes evaluation evidence, not the underlying modality ownership."
         },
         {
-          "source_id": "iso-cd-9241-812",
+          "source_id": "iso-9241-812-draft",
           "status": "committee-draft",
           "mapped_skills": ["designing-human-ai-interaction", "designing-agent-autonomy-and-control", "designing-robotic-teleoperation-interfaces", "designing-ambient-context-aware-interfaces", "designing-affective-adaptive-interfaces", "designing-multi-agent-surfaces"],
           "reason": "The draft's intelligent-system categories independently reproduce the AI, robot, ambient, adaptive and multi-system boundaries already modeled by NUI."
@@ -78,8 +78,8 @@
           "reason": "Scene-based immersive media contributes rendering and multimodal media structure; user-facing decisions decompose into spatial, media and haptic faculties."
         },
         {
-          "source_id": "iec-80601-2-78-2019-and-draft-ed2",
-          "status": "published-plus-draft-revision",
+          "source_id": "iec-80601-2-78-2019-amd1-2024",
+          "status": "published",
           "mapped_skills": ["designing-medical-safety-critical-ui", "designing-robotic-teleoperation-interfaces", "designing-accessible-interfaces", "designing-haptics-and-multisensory-feedback", "critiquing-human-factors-and-safety"],
           "reason": "Rehabilitation robots add medical safety and physical patient interaction to robotics; those authorities already compose without a separate UI decision owner."
         },
@@ -90,7 +90,7 @@
           "reason": "Multimodal customer-service architecture combines existing modality, cross-device and temporal interaction contracts."
         },
         {
-          "source_id": "apple-generative-ai-hig-2026",
+          "source_id": "apple-generative-ai",
           "status": "current-platform-guidance",
           "mapped_skills": ["designing-human-ai-interaction", "designing-ai-feedback-and-correction", "designing-ai-uncertainty-and-provenance", "critiquing-ai-trust-and-agency"],
           "reason": "Current Apple guidance on refinement and feedback strengthens the existing human-AI correction and agency contracts rather than creating a new faculty."
