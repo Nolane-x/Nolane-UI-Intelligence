@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "suite": "standardized-emerging-domains-4",
+  "cases": [
+    {
+      "id": "flight-deck-mode-confusion",
+      "profile": {"platform_surfaces": ["flight-deck"], "risk_class": "safety-critical", "temporal_behaviors": ["realtime"], "ai_role": "assistive"},
+      "failure": "automation changes mode after a target edit without salient mode/target feedback, alerts accumulate without response priority, and simulator tests cover only nominal cruise",
+      "required_skills": ["designing-flight-deck-interfaces", "engineering-human-factors", "designing-high-stakes-decisions", "critiquing-human-factors-and-safety"],
+      "must_find": ["automation-mode awareness", "alert response model", "design-related error", "phase-of-flight evidence", "degraded and high-workload testing"]
+    },
+    {
+      "id": "help-layer-masks-bad-ui",
+      "profile": {"specialized_ui_domains": ["in-product-assistance"], "platform_surfaces": ["web"]},
+      "failure": "ambiguous controls are left unchanged while hover-only tooltips explain them, troubleshooting destroys task state, and an AI helper executes repair actions without normal permission/undo rules",
+      "required_skills": ["designing-in-product-assistance", "critiquing-user-experience"],
+      "must_find": ["fix primary UI first", "task-context preservation", "accessible help trigger", "automation authority boundary", "stale help ownership"]
+    }
+  ]
+}
