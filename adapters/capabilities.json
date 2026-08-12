@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "runtimes": ["generic","codex","claude-code","gemini-cli","cursor","opencode"],
+  "capabilities": {
+    "file-read": {
+      "fallback": "Ask the runtime for the smallest relevant file excerpt; if files are inaccessible, keep repository-dependent claims UNKNOWN.",
+      "runtimes": {
+        "generic": "native file/read tool when exposed",
+        "codex": "native workspace file inspection",
+        "claude-code": "native workspace file inspection",
+        "gemini-cli": "native workspace file inspection",
+        "cursor": "workspace/context file inspection",
+        "opencode": "native workspace file inspection"
+      }
+    },
+    "file-write": {
+      "fallback": "Produce a patch/spec rather than claiming mutation; release remains BLOCKED for tasks requiring applied changes.",
+      "runtimes": {
+        "generic": "native file mutation tool when exposed",
+        "codex": "workspace editing",
+        "claude-code": "workspace editing",
+        "gemini-cli": "workspace editing",
+        "cursor": "workspace editing",
+        "opencode": "workspace editing"
+      }
+    },
+    "test-execution": {
+      "fallback": "Provide exact commands but record tests as UNEXECUTED; do not convert expected output into evidence.",
+      "runtimes": {
+        "generic": "shell/test tool when exposed",
+        "codex": "terminal/test execution",
+        "claude-code": "terminal/test execution",
+        "gemini-cli": "terminal/test execution",
+        "cursor": "terminal/agent execution when exposed",
+        "opencode": "terminal/test execution"
+      }
+    },
+    "browser-inspection": {
+      "fallback": "Use inspectable screenshots or static artifact analysis and narrow runtime/interaction claims.",
+      "runtimes": {
+        "generic": "browser automation tool when exposed",
+        "codex": "preferred browser capability available to the runtime; fall back to Playwright only when native inspection is unavailable",
+        "claude-code": "browser MCP/automation when configured",
+        "gemini-cli": "browser/Chrome tooling when configured",
+        "cursor": "browser/automation integration when configured",
+        "opencode": "browser/MCP tooling when configured"
+      }
+    },
+    "screenshot-capture": {
+      "fallback": "Request/provide an external capture; fidelity claims remain UNKNOWN without an inspectable render.",
+      "runtimes": {
+        "generic": "screenshot tool when exposed",
+        "codex": "runtime browser screenshot/capture capability",
+        "claude-code": "browser/MCP screenshot capability when configured",
+        "gemini-cli": "browser/Chrome screenshot capability when configured",
+        "cursor": "browser integration screenshot when configured",
+        "opencode": "browser/MCP screenshot when configured"
+      }
+    },
+    "semantic-tree": {
+      "fallback": "Inspect source semantics plus keyboard behavior if possible; mark assistive-technology runtime behavior UNKNOWN.",
+      "runtimes": {
+        "generic": "accessibility/semantic tree tool when exposed",
+        "codex": "browser accessibility snapshot/semantic inspection when supported",
+        "claude-code": "browser/Playwright/MCP accessibility snapshot when configured",
+        "gemini-cli": "browser accessibility inspection when configured",
+        "cursor": "browser/Playwright/MCP accessibility inspection when configured",
+        "opencode": "browser/Playwright/MCP accessibility inspection when configured"
+      }
+    },
+    "subagent-review": {
+      "fallback": "Use a fresh logical critic pass with generator context minimized; disclose that reviewer independence is weaker.",
+      "runtimes": {
+        "generic": "fresh-context worker/subagent when exposed",
+        "codex": "subagent/parallel worker capability when exposed",
+        "claude-code": "subagent capability",
+        "gemini-cli": "subagent/worker capability when exposed",
+        "cursor": "independent agent/review context when exposed",
+        "opencode": "subagent/worker capability when exposed"
+      }
+    },
+    "component-retrieval": {
+      "fallback": "Inspect the local component system directly; do not invent a library component that was not verified.",
+      "runtimes": {
+        "generic": "component registry/MCP when exposed",
+        "codex": "registry/MCP such as project-configured component tooling",
+        "claude-code": "registry/MCP such as project-configured component tooling",
+        "gemini-cli": "registry/MCP when configured",
+        "cursor": "registry/MCP when configured",
+        "opencode": "registry/MCP when configured"
+      }
+    }
+  }
+}

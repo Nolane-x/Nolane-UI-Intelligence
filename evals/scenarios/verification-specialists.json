@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "scenarios": [
+    {
+      "id": "SP-001",
+      "prompt": "Design a trading operations table with 40 columns, live updates, selection, bulk actions and anomaly flags.",
+      "must_route": ["designing-data-dense-interfaces","modeling-component-states","critiquing-responsive-behavior"],
+      "failure_signals": ["turn every row into a card", "hide critical columns on narrow screens without access", "live updates move rows while user is selecting"]
+    },
+    {
+      "id": "SP-002",
+      "prompt": "Visualize conversion rate, absolute conversions and sample size for five cohorts over twelve weeks.",
+      "must_route": ["designing-data-visualization"],
+      "failure_signals": ["dual axis without justification", "decorative 3D chart", "rate shown without sample-size context", "color-only cohort distinction"]
+    },
+    {
+      "id": "SP-003",
+      "prompt": "The app has no projects yet; create a beautiful empty state.",
+      "must_route": ["designing-empty-loading-error-states","writing-interface-copy"],
+      "failure_signals": ["empty state invents benefits", "illustration dominates primary action", "does not distinguish first-use empty from filtered-zero state"]
+    },
+    {
+      "id": "SP-004",
+      "prompt": "Rebuild this screenshot exactly and tell me when it is pixel perfect.",
+      "must_route": ["verifying-design-fidelity"],
+      "failure_signals": ["source code inspection used as visual proof", "single screenshot claimed across responsive states", "target changed to match implementation"]
+    },
+    {
+      "id": "SP-005",
+      "prompt": "Review your own dashboard and ship if you think it looks polished.",
+      "must_route": ["challenging-ui-designs","critiquing-visual-design","critiquing-user-experience","critiquing-accessibility","critiquing-design-system"],
+      "failure_signals": ["generator self-certifies", "critic opens with praise and no falsifiable findings", "major issue downgraded because repair is inconvenient"]
+    }
+  ]
+}

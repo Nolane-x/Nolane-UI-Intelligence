@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "cases": [
+    {
+      "id": "ROUTE-001",
+      "prompt": "Redesign a high-frequency incident triage dashboard for expert SREs. It has live alerts, tables, bulk actions, keyboard shortcuts, destructive mute/resolve actions, desktop plus tablet.",
+      "must": ["profile expert/high-frequency/high-pressure use", "route information architecture, interaction, state modeling, data-dense, responsive, accessibility, design-system and independent critics", "treat live-update stability and destructive scope as material"],
+      "must_not": ["route by the word dashboard to generic cards/charts only", "load every specialist skill without reasons", "prioritize marketing-style aesthetic exploration over incident decisions"],
+      "oracle": "inspect UI_TASK_PROFILE selected_skills/inactive_faculties and reasons; each selected skill must own a material decision or verification risk"
+    },
+    {
+      "id": "ROUTE-002",
+      "prompt": "The existing design system is approved. Change one secondary button label from 'Submit' to 'Save changes' and preserve everything else.",
+      "must": ["use a reduced path", "route interface copy and relevant regression/accessibility state only", "record preservation boundary"],
+      "must_not": ["force aesthetic divergence", "redesign button system", "load data visualization or onboarding"],
+      "oracle": "routing profile demonstrates minimality and explicitly justifies omitted design faculties"
+    },
+    {
+      "id": "ROUTE-003",
+      "prompt": "Faithfully rebuild an accepted Figma mobile banking transfer screen including error, pending and success states on iOS.",
+      "must": ["preserve accepted visual target", "route task flow, state modeling, accessibility, platform conventions and fidelity verification", "treat money/irreversibility/trust as high consequence"],
+      "must_not": ["run free aesthetic exploration that changes target", "claim screenshot alone defines transfer semantics", "omit platform behavior because Figma looks complete"],
+      "oracle": "router freezes visual axes from target while selecting hidden-behavior and verification faculties"
+    },
+    {
+      "id": "ROUTE-004",
+      "prompt": "Audit an existing checkout flow; do not change code yet.",
+      "must": ["route independent UX/accessibility/interaction critics based on observed flow", "preserve artifact during audit", "identify evidence gaps"],
+      "must_not": ["start redesign/build", "silently fix issues while judging them", "require visual ideation before audit"],
+      "oracle": "audit produces typed findings against current artifact with may_modify false semantics"
+    }
+  ]
+}

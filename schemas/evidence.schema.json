@@ -1,0 +1,17 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"nui://schemas/evidence",
+  "type":"object",
+  "required":["evidence_id","method","source","scope","claim","observed_at","result"],
+  "properties":{
+    "evidence_id":{"type":"string","minLength":1},
+    "method":{"enum":["direct-measurement","browser-observation","screenshot-comparison","automated-audit","interaction-test","semantic-tree","token-validation","manual-inspection","test-run"]},
+    "source":{"type":"string","minLength":1},
+    "scope":{"type":"string","minLength":1},
+    "claim":{"type":"string","minLength":1},
+    "observed_at":{"type":"string","minLength":1},
+    "result":{"enum":["PASS","FAIL","UNKNOWN"]},
+    "artifact_digest":{"type":"string"},
+    "notes":{"type":"string"}
+  }
+}

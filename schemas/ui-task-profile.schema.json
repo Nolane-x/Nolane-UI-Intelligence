@@ -1,0 +1,19 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"nui://schemas/ui-task-profile",
+  "type":"object",
+  "required":["intent","surface","platforms","users","information","interaction","visual","constraints","references","selected_skills"],
+  "properties":{
+    "intent":{"type":"array","items":{"type":"string"},"minItems":1},
+    "surface":{"type":"object","required":["family"]},
+    "platforms":{"type":"array","items":{"type":"string"},"minItems":1},
+    "users":{"type":"object"},
+    "information":{"type":"object"},
+    "interaction":{"type":"object"},
+    "visual":{"type":"object"},
+    "constraints":{"type":"object"},
+    "references":{"type":"object"},
+    "selected_skills":{"type":"array","items":{"type":"string"},"minItems":1},
+    "inactive_faculties":{"type":"array","items":{"type":"object","required":["faculty","reason"]}}
+  }
+}

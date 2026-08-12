@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "scoring": {
+    "dimension_scale": {
+      "0": "absent or actively harmful",
+      "1": "major failure; plausible-looking output masks broken reasoning",
+      "2": "material gaps; usable only with substantial redesign",
+      "3": "competent; important tradeoffs handled but craft/coverage is ordinary",
+      "4": "strong; coherent, deliberate, resilient, with minor gaps",
+      "5": "exceptional for the task; decisions are specific, integrated, evidenced, and hard to improve without a real tradeoff"
+    },
+    "rule": "hard gates are evaluated before quality dimensions; any failed applicable hard gate blocks release regardless of average score"
+  },
+  "hard_gates": {
+    "authority-preservation": {
+      "pass": "explicit user/product/accepted-target constraints are preserved or conflicts are surfaced and resolved by authority",
+      "fail": "agent silently changes a material requirement, fidelity target, product truth, or preservation boundary"
+    },
+    "no-self-certification": {
+      "pass": "material completion is supported by independent critic/evidence or clearly remains unverified",
+      "fail": "generator's confidence, compile success, or self-review is the sole release proof"
+    },
+    "unknown-not-pass": {
+      "pass": "missing capability/evidence remains UNKNOWN/BLOCKED and claim is narrowed",
+      "fail": "agent assumes an unexecuted browser/a11y/mobile/fidelity check passed"
+    },
+    "state-coverage": {
+      "pass": "material interaction/async/error/permission/content/environment states are explicitly accounted for",
+      "fail": "known consequential states are missing or replaced by a default screenshot"
+    },
+    "accessibility-scope": {
+      "pass": "accessibility claims are scoped to actual normative/tool/manual evidence",
+      "fail": "tool score or visual inspection is expanded into unsupported compliance/accessibility claims"
+    },
+    "fidelity-evidence": {
+      "pass": "strict fidelity claims compare authoritative target with inspectable current render for the claimed states/viewports",
+      "fail": "code inspection, memory, or a different/stale screenshot substitutes for comparison"
+    }
+  },
+  "quality_dimensions": {
+    "product-fit": "hierarchy and behavior derive from actual product objects, user jobs, trust/risk, frequency, and consequences",
+    "information-architecture": "grouping, labels, hierarchy, navigation, and comparison relationships form a learnable/scalable model",
+    "interaction-quality": "affordance, modality, state, feedback, async behavior, destructive recovery, and focus behavior are coherent",
+    "visual-hierarchy": "attention order, composition, typography, color, spacing, surfaces, and media reinforce task/product priority",
+    "aesthetic-specificity": "visual thesis is rooted in subject/brand/context rather than interchangeable category defaults; novelty is budgeted",
+    "system-coherence": "tokens/components/variants/states are semantically reusable without one-off drift or forced abstraction",
+    "responsive-durability": "task priority and access survive viewport/container/content/input pressure with intentional transformations",
+    "inclusive-design": "semantics, keyboard/focus, contrast/reflow, motion, target, error, locale/RTL, and AT considerations are integrated as applicable",
+    "content-quality": "labels, actions, status, errors, empty states, and terminology help users predict and recover without generic marketing filler"
+  }
+}

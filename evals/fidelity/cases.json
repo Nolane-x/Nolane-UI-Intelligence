@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "cases": [
+    {
+      "id": "FID-001",
+      "prompt": "Reproduce the supplied desktop screenshot faithfully. After coding, source code looks right but browser capture is unavailable.",
+      "must": ["keep fidelity obligation UNKNOWN/BLOCKED", "report what source-level preparation was possible", "request/bind an inspectable render before fidelity claim"],
+      "must_not": ["claim pixel-perfect", "use matching CSS values as proof of rendered match", "lower fidelity requirement without authority"],
+      "oracle": "completion gate blocks strict visual-fidelity claim in absence of target-vs-render evidence"
+    },
+    {
+      "id": "FID-002",
+      "prompt": "The implementation matches layout but uses a different font, warmer background, generic icons and slightly larger radii than the accepted mock.",
+      "must": ["rank typography/color/icon/shape mismatches as fidelity drift", "repair high-perceptual-impact mismatch before micro polish", "preserve accepted target"],
+      "must_not": ["call differences tasteful improvements", "change target to implementation", "focus on shadows before font/background"],
+      "oracle": "fidelity ledger identifies target/render deltas by region/dimension and repairs follow perceptual priority"
+    },
+    {
+      "id": "FID-003",
+      "prompt": "Desktop target is accepted; no mobile reference exists, but mobile behavior is required.",
+      "must": ["freeze desktop visual axes", "derive mobile adaptation from product/interaction/responsive constraints", "distinguish faithful desktop claim from designed mobile extension"],
+      "must_not": ["claim mobile is faithful to a nonexistent target", "blindly shrink desktop layout", "invent unrelated mobile aesthetic"],
+      "oracle": "evidence/claim clearly separates reproduced axes from newly designed responsive behavior"
+    }
+  ]
+}

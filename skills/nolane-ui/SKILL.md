@@ -1,0 +1,54 @@
+---
+name: nolane-ui
+description: Use when Nolane UI has been bootstrapped and the task needs lifecycle ownership, phase control, recovery, or a bounded completion claim.
+---
+
+# Nolane UI Lifecycle Controller
+
+## Overview
+`nolane-ui` owns the observable lifecycle. It does not design screens itself. It coordinates contracts, routing, obligations, evidence, critics, recovery, and closure so specialist skills cannot quietly lower the bar.
+
+## Parent Contract
+**Required parent:** `using-nolane-ui`.
+
+Receive the original task, known context, available references, runtime capabilities, and any explicit reduced-scope justification. Preserve user authority verbatim where it changes design behavior.
+
+## Canonical states
+`INTAKE → CONTRACTED → ROUTED → DISCOVERED → ARCHITECTED → DIVERGED → DESIGN_SELECTED → SYSTEMIZED → SPECIFIED → IMPLEMENTABLE → RENDERED → CRITIQUED → VERIFIED → RELEASED`
+
+Exception states: `RECOVERY`, `BLOCKED`.
+
+A phase transition is a claim. Record the artifact/evidence that justifies it. Do not advance because “the next step is obvious.”
+
+## Procedure
+1. **INTAKE:** identify requested outcome, mutation scope, target fidelity, supplied references, and runtime capabilities. Keep unknowns explicit.
+2. Invoke `ui-contracting`. Do not route specialist design work until authority, success, constraints, and non-goals are compiled.
+3. Invoke `routing-ui-work`. Record selected faculties and justified inactive faculties.
+4. Invoke `compiling-ui-obligations` before implementation. Every consequential design claim needs an observable obligation.
+5. Move through design phases only when the selected skills have returned their declared artifacts. `DIVERGED` is required when aesthetic or structural exploration is valuable; it can be omitted only with a recorded reason such as an accepted reference/design system that already fixes the direction.
+6. `IMPLEMENTABLE` means the design is sufficiently specified to build without inventing material product or visual decisions in code.
+7. `RENDERED` requires an inspectable implementation or prototype, not source code alone.
+8. Invoke `challenging-ui-designs` after a material render/spec exists. Criticism must be evidence-bound and logically separate from generation.
+9. Invoke `binding-ui-evidence` for every release-relevant observation.
+10. Invoke `gating-ui-completion`. Only a passing gate may transition `VERIFIED → RELEASED`.
+
+## Transition invariants
+- Risk/strictness may increase as new facts appear; they may not silently decrease.
+- A failed check is preserved. Repair creates new evidence; it does not erase the failure record.
+- A changed artifact invalidates evidence whose scope materially overlaps the change.
+- If a requirement changes, return to the earliest phase whose assumptions it invalidates.
+- A reference accepted as authoritative freezes only the axes it actually specifies; unspecified behavior still requires design reasoning.
+
+## Output: lifecycle record
+Return a compact record with `task_id`, `current_phase`, `contract_ref`, `task_profile_ref`, `obligation_refs`, `artifact_refs`, `evidence_refs`, `open_findings`, `unknowns`, `blocked_reason`, and `next_allowed_actions`.
+
+## Rationalization table
+| Rationalization | Required response |
+|---|---|
+| “The user approved the idea, so verification is unnecessary.” | Approval fixes intent; it does not prove implementation quality. |
+| “This is only UI, not risky.” | UI can create irreversible user errors, exclusion, deception, or lost work. Route by consequence, not label. |
+| “The design emerged during coding.” | If material decisions were invented during build, return to `SPECIFIED`, record them, then re-verify. |
+| “I already inspected it once.” | Evidence is scoped and can become stale after overlapping changes. |
+
+## Stop conditions
+Stop in `BLOCKED` when a required capability or authoritative input is unavailable and guessing would change a material requirement. Stop in `RECOVERY` when an obligation fails, evidence conflicts, the design target changes, or a critic finds a release blocker.

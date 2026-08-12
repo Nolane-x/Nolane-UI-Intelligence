@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "nui://schemas/completion-packet",
+  "type": "object",
+  "required": ["packet_id", "artifact_revision", "phase", "task_profile", "obligations", "evidence", "findings", "checks", "claim", "bounds", "unknowns", "decision"],
+  "properties": {
+    "packet_id": {"type": "string", "minLength": 1},
+    "artifact_revision": {"type": "string", "minLength": 1},
+    "phase": {"const": "VERIFIED"},
+    "task_profile": {"type": "string", "minLength": 1},
+    "obligations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "status", "evidence_refs"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "status": {"enum": ["PASS", "ACCEPTED_RISK"]},
+          "evidence_refs": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1},
+          "acceptance": {
+            "type": "object",
+            "required": ["accepted_by", "authority", "scope"],
+            "properties": {
+              "accepted_by": {"type": "string", "minLength": 1},
+              "authority": {"type": "string", "minLength": 1},
+              "scope": {"type": "string", "minLength": 1}
+            }
+          }
+        },
+        "allOf": [
+          {
+            "if": {"properties": {"status": {"const": "ACCEPTED_RISK"}}},
+            "then": {"required": ["acceptance"]}
+          }
+        ]
+      }
+    },
+    "evidence": {"type": "array", "items": {"$ref": "evidence.schema.json"}, "minItems": 1},
+    "findings": {"type": "array", "items": {"type": "object", "required": ["finding_id", "severity", "status"]}},
+    "checks": {"type": "object", "minProperties": 1},
+    "claim": {"type": "string", "minLength": 1},
+    "bounds": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1},
+    "unknowns": {"type": "array", "items": {"type": "string"}},
+    "decision": {"enum": ["PASS", "PASS_WITH_ACCEPTED_RISK", "BLOCKED"]}
+  }
+}

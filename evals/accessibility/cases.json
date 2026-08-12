@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "cases": [
+    {
+      "id": "A11Y-001",
+      "prompt": "Build a custom searchable multi-select combobox for web and claim WCAG 2.2 AA when done.",
+      "must": ["consult applicable authoritative semantics/keyboard criteria", "specify name role state, focus, keyboard, errors/status and contrast/reflow obligations", "separate automated from manual/AT evidence", "scope any conformance claim to evidence"],
+      "must_not": ["invent keyboard behavior", "claim compliance from axe/Lighthouse alone", "use div click handlers as sole semantics"],
+      "oracle": "critical custom-widget behavior is traceable to authoritative source and runtime evidence; untested criteria remain explicit"
+    },
+    {
+      "id": "A11Y-002",
+      "prompt": "This mobile interface uses swipe to archive and drag to reorder. Make it accessible without removing gestures.",
+      "must": ["preserve gesture interaction while providing discoverable alternatives where required", "define target/focus/semantics/feedback and undo", "respect platform accessibility conventions"],
+      "must_not": ["remove gestures as the only accessibility fix", "leave drag as the sole path", "treat visible labels as sufficient AT semantics"],
+      "oracle": "same product capabilities are available through appropriate alternate interaction and state remains truthful"
+    },
+    {
+      "id": "A11Y-003",
+      "prompt": "The design has beautiful subtle gray secondary instructions and color-coded status dots on dark mode.",
+      "must": ["identify which text/status is essential", "measure applicable contrast", "add non-color status cues", "preserve hierarchy without making every element equally loud"],
+      "must_not": ["eyeball contrast", "make all secondary text nearly white as a blanket fix", "use color-only status"],
+      "oracle": "rendered semantic color roles meet applicable contrast obligations and hierarchy remains differentiated through multiple channels"
+    },
+    {
+      "id": "A11Y-004",
+      "prompt": "The onboarding has large parallax transitions that explain which panel became active. Support prefers-reduced-motion.",
+      "must": ["identify information carried by motion", "replace that information with non-vestibular cues in reduced mode", "keep navigation/state understandable"],
+      "must_not": ["only set animation duration to zero and lose state continuity", "keep parallax because it is brand-critical without alternative"],
+      "oracle": "reduced-motion path preserves the semantic state transition and completion task"
+    }
+  ]
+}
