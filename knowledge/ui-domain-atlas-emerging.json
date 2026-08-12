@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "extension": "adversarial-saturation-extension-1",
+  "as_of": "2026-08-12",
+  "axes": {
+    "surfaces": ["robotics-teleoperation","ambient-context-aware","supervisory-control-room"],
+    "input_modalities": ["neuroinput"],
+    "ai_roles": [],
+    "risk_classes": [],
+    "temporal_behaviors": [],
+    "social_contexts": []
+  },
+  "coverage_cells": [
+    {"id":"surface:robotics-teleoperation","axis":"surface","value":"robotics-teleoperation","owner_skills":["designing-robotic-teleoperation-interfaces"],"verifier_skills":["critiquing-human-factors-and-safety","critiquing-input-modality"]},
+    {"id":"surface:ambient-context-aware","axis":"surface","value":"ambient-context-aware","owner_skills":["designing-ambient-context-aware-interfaces"],"verifier_skills":["critiquing-ai-trust-and-agency","critiquing-security-and-privacy"]},
+    {"id":"surface:supervisory-control-room","axis":"surface","value":"supervisory-control-room","owner_skills":["designing-supervisory-control-room-hmi"],"verifier_skills":["critiquing-human-factors-and-safety","critiquing-cognitive-load"]},
+    {"id":"modality:neuroinput","axis":"input_modality","value":"neuroinput","owner_skills":["designing-brain-computer-interface-ux"],"verifier_skills":["critiquing-input-modality","critiquing-human-factors-and-safety"]}
+  ]
+}

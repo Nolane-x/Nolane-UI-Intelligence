@@ -14,7 +14,6 @@
     "challenging-ui-designs":{"family":"kernel","parent":"nolane-ui","output":"critic-plan"},
     "gating-ui-completion":{"family":"kernel","parent":"nolane-ui","output":"completion-decision"},
     "recovering-ui-work":{"family":"kernel","parent":"nolane-ui","output":"recovery-record"},
-
     "modeling-product-intent":{"family":"product","parent":"routing-ui-work","output":"product-intent-model"},
     "modeling-users-and-tasks":{"family":"product","parent":"routing-ui-work","output":"user-task-model"},
     "architecting-information":{"family":"architecture","parent":"routing-ui-work","output":"information-architecture-map"},
@@ -25,7 +24,6 @@
     "designing-forms":{"family":"interaction","parent":"routing-ui-work","output":"form-contract"},
     "designing-navigation":{"family":"interaction","parent":"routing-ui-work","output":"navigation-contract"},
     "designing-search":{"family":"interaction","parent":"routing-ui-work","output":"search-contract"},
-
     "exploring-aesthetic-directions":{"family":"visual","parent":"routing-ui-work","output":"visual-direction-set"},
     "directing-visual-hierarchy":{"family":"visual","parent":"routing-ui-work","output":"hierarchy-map"},
     "composing-layouts":{"family":"visual","parent":"routing-ui-work","output":"composition-contract"},
@@ -35,7 +33,6 @@
     "crafting-depth-and-surfaces":{"family":"visual","parent":"routing-ui-work","output":"surface-contract"},
     "directing-iconography-and-imagery":{"family":"visual","parent":"routing-ui-work","output":"asset-direction-contract"},
     "preventing-generic-ui":{"family":"visual","parent":"routing-ui-work","output":"anti-slop-findings"},
-
     "architecting-design-tokens":{"family":"system","parent":"routing-ui-work","output":"token-model"},
     "architecting-component-systems":{"family":"system","parent":"routing-ui-work","output":"component-system-contract"},
     "adapting-responsive-layouts":{"family":"system","parent":"routing-ui-work","output":"responsive-contract"},
@@ -44,12 +41,10 @@
     "designing-localized-interfaces":{"family":"inclusive","parent":"routing-ui-work","output":"locale-stress-plan"},
     "writing-interface-copy":{"family":"inclusive","parent":"routing-ui-work","output":"content-contract"},
     "designing-motion":{"family":"inclusive","parent":"routing-ui-work","output":"motion-contract"},
-
     "designing-data-dense-interfaces":{"family":"specialist","parent":"routing-ui-work","output":"dense-surface-contract"},
     "designing-data-visualization":{"family":"specialist","parent":"routing-ui-work","output":"data-viz-contract"},
     "designing-empty-loading-error-states":{"family":"specialist","parent":"routing-ui-work","output":"system-state-contract"},
     "designing-onboarding":{"family":"specialist","parent":"routing-ui-work","output":"onboarding-contract"},
-
     "verifying-design-fidelity":{"family":"verification","parent":"challenging-ui-designs","output":"fidelity-ledger"},
     "critiquing-visual-design":{"family":"verification","parent":"challenging-ui-designs","output":"finding-set"},
     "critiquing-user-experience":{"family":"verification","parent":"challenging-ui-designs","output":"finding-set"},
@@ -57,13 +52,11 @@
     "critiquing-design-system":{"family":"verification","parent":"challenging-ui-designs","output":"finding-set"},
     "critiquing-responsive-behavior":{"family":"verification","parent":"challenging-ui-designs","output":"finding-set"},
     "critiquing-platform-fit":{"family":"verification","parent":"challenging-ui-designs","output":"finding-set"},
-
     "researching-ui-frontiers":{"family":"research","parent":"routing-ui-work","output":"research-wave"},
     "calibrating-ui-authority":{"family":"research","parent":"researching-ui-frontiers","output":"authority-resolution"},
     "maintaining-ui-domain-atlas":{"family":"research","parent":"researching-ui-frontiers","output":"coverage-delta"},
     "measuring-research-saturation":{"family":"research","parent":"researching-ui-frontiers","output":"saturation-decision"},
     "translating-standards-into-obligations":{"family":"research","parent":"calibrating-ui-authority","output":"standard-obligation-set"},
-
     "engineering-human-factors":{"family":"human-factors","parent":"routing-ui-work","output":"human-factors-model"},
     "modeling-cognitive-load-and-attention":{"family":"human-factors","parent":"routing-ui-work","output":"attention-budget"},
     "modeling-perception-and-motor-control":{"family":"human-factors","parent":"routing-ui-work","output":"perceptual-motor-envelope"},
@@ -71,7 +64,6 @@
     "planning-usability-research":{"family":"research-method","parent":"routing-ui-work","output":"research-plan"},
     "evaluating-usability-evidence":{"family":"research-method","parent":"routing-ui-work","output":"usability-evidence-assessment"},
     "designing-high-stakes-decisions":{"family":"human-factors","parent":"routing-ui-work","output":"high-stakes-decision-contract"},
-
     "designing-keyboard-power-user-ux":{"family":"modality","parent":"routing-ui-work","output":"keyboard-contract"},
     "designing-pointer-touch-pen-input":{"family":"modality","parent":"routing-ui-work","output":"direct-input-contract"},
     "designing-accessible-drag-and-drop":{"family":"modality","parent":"routing-ui-work","output":"drag-drop-contract"},
@@ -80,7 +72,6 @@
     "designing-gaze-hand-spatial-input":{"family":"modality","parent":"routing-ui-work","output":"spatial-input-contract"},
     "designing-haptics-and-multisensory-feedback":{"family":"modality","parent":"routing-ui-work","output":"multisensory-contract"},
     "designing-alternative-input":{"family":"modality","parent":"routing-ui-work","output":"alternative-input-contract"},
-
     "designing-desktop-windowed-workspaces":{"family":"surface","parent":"routing-ui-work","output":"desktop-workspace-contract"},
     "designing-foldable-large-screen-interfaces":{"family":"surface","parent":"routing-ui-work","output":"large-screen-contract"},
     "designing-tv-ten-foot-interfaces":{"family":"surface","parent":"routing-ui-work","output":"tv-contract"},
@@ -90,7 +81,6 @@
     "designing-game-hud-and-menus":{"family":"surface","parent":"routing-ui-work","output":"game-ui-contract"},
     "designing-cli-tui-interfaces":{"family":"surface","parent":"routing-ui-work","output":"terminal-ui-contract"},
     "designing-embedded-kiosk-interfaces":{"family":"surface","parent":"routing-ui-work","output":"embedded-kiosk-contract"},
-
     "designing-human-ai-interaction":{"family":"ai","parent":"routing-ui-work","output":"human-ai-contract"},
     "designing-agent-autonomy-and-control":{"family":"ai","parent":"routing-ui-work","output":"autonomy-envelope"},
     "designing-ai-uncertainty-and-provenance":{"family":"ai","parent":"routing-ui-work","output":"provenance-contract"},
@@ -98,7 +88,6 @@
     "designing-ai-feedback-and-correction":{"family":"ai","parent":"routing-ui-work","output":"correction-contract"},
     "designing-multi-agent-surfaces":{"family":"ai","parent":"routing-ui-work","output":"multi-agent-context-model"},
     "designing-generative-ui":{"family":"ai","parent":"routing-ui-work","output":"generative-ui-runtime-contract"},
-
     "designing-authentication-and-passkeys":{"family":"trust","parent":"routing-ui-work","output":"authentication-contract"},
     "designing-permissions-and-consent":{"family":"trust","parent":"routing-ui-work","output":"consent-contract"},
     "designing-privacy-sensitive-interfaces":{"family":"trust","parent":"routing-ui-work","output":"privacy-contract"},
@@ -107,7 +96,6 @@
     "designing-commerce-checkout":{"family":"transaction","parent":"routing-ui-work","output":"checkout-contract"},
     "designing-collaboration-and-presence":{"family":"specialist","parent":"routing-ui-work","output":"collaboration-contract"},
     "designing-editor-canvas-workspaces":{"family":"specialist","parent":"routing-ui-work","output":"editor-workspace-contract"},
-
     "designing-latency-and-progressive-feedback":{"family":"temporal","parent":"routing-ui-work","output":"latency-contract"},
     "designing-offline-degraded-experiences":{"family":"temporal","parent":"routing-ui-work","output":"degraded-mode-contract"},
     "designing-notifications-and-interruptions":{"family":"temporal","parent":"routing-ui-work","output":"interruption-contract"},
@@ -117,12 +105,10 @@
     "managing-theming-and-personalization":{"family":"design-ops","parent":"routing-ui-work","output":"theme-personalization-contract"},
     "documenting-design-decisions":{"family":"design-ops","parent":"routing-ui-work","output":"design-decision-record"},
     "annotating-accessibility-intent":{"family":"design-ops","parent":"routing-ui-work","output":"accessibility-annotation-contract"},
-
     "designing-cognitive-accessibility":{"family":"inclusive-specialist","parent":"designing-accessible-interfaces","output":"cognitive-accessibility-obligations"},
     "designing-low-vision-and-high-contrast":{"family":"inclusive-specialist","parent":"designing-accessible-interfaces","output":"low-vision-contract"},
     "designing-screen-reader-experiences":{"family":"inclusive-specialist","parent":"designing-accessible-interfaces","output":"screen-reader-contract"},
     "designing-reduced-motion-and-photosensitivity":{"family":"inclusive-specialist","parent":"designing-accessible-interfaces","output":"motion-safety-contract"},
-
     "critiquing-human-factors-and-safety":{"family":"verification","parent":"challenging-ui-designs","output":"finding-set"},
     "critiquing-ai-trust-and-agency":{"family":"verification","parent":"challenging-ui-designs","output":"finding-set"},
     "critiquing-input-modality":{"family":"verification","parent":"challenging-ui-designs","output":"finding-set"},
@@ -130,6 +116,10 @@
     "critiquing-security-and-privacy":{"family":"verification","parent":"challenging-ui-designs","output":"finding-set"},
     "critiquing-research-validity":{"family":"verification","parent":"challenging-ui-designs","output":"finding-set"},
     "critiquing-performance-and-resilience":{"family":"verification","parent":"challenging-ui-designs","output":"finding-set"},
-    "critiquing-localization":{"family":"verification","parent":"challenging-ui-designs","output":"finding-set"}
+    "critiquing-localization":{"family":"verification","parent":"challenging-ui-designs","output":"finding-set"},
+    "designing-robotic-teleoperation-interfaces":{"family":"surface","parent":"routing-ui-work","output":"robotic-teleoperation-contract"},
+    "designing-ambient-context-aware-interfaces":{"family":"surface","parent":"routing-ui-work","output":"ambient-context-contract"},
+    "designing-brain-computer-interface-ux":{"family":"modality","parent":"routing-ui-work","output":"bci-interaction-contract"},
+    "designing-supervisory-control-room-hmi":{"family":"safety","parent":"routing-ui-work","output":"supervisory-control-contract"}
   }
 }
