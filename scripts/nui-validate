@@ -1,0 +1,38 @@
+#!/usr/bin/env python3
+import argparse
+import json
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+
+from nolane_ui.validators import validate_completion_packet, validate_repository  # noqa: E402
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Validate Nolane UI Intelligence deterministic invariants")
+    parser.add_argument("root", nargs="?", default=str(ROOT))
+    parser.add_argument("--packet", help="Optional completion packet JSON to gate")
+    args = parser.parse_args()
+
+    root = Path(args.root).resolve()
+    repo_result = validate_repository(root)
+    result = {"repository": repo_result}
+    valid = repo_result["valid"]
+
+    if args.packet:
+        packet_path = Path(args.packet)
+        if not packet_path.is_absolute():
+            packet_path = root / packet_path
+        packet = json.loads(packet_path.read_text(encoding="utf-8"))
+        packet_result = validate_completion_packet(packet, root)
+        result["completion_packet"] = packet_result
+        valid = valid and packet_result["decision"] in {"PASS", "PASS_WITH_ACCEPTED_RISK"}
+
+    print(json.dumps(result, indent=2, ensure_ascii=False))
+    return 0 if valid else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
