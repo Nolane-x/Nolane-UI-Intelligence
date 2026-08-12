@@ -23,7 +23,7 @@ Profile observable conditions rather than prompt keywords. Record unknowns expli
 - `risk_class`: routine, privacy-sensitive, security-sensitive, financial, medical, safety-critical.
 - `temporal_behaviors[]`: streaming, realtime, offline-degraded, long-running, interruption-sensitive, background-work.
 - `social_context`: personal, shared-screen, collaborative, public, supervised.
-- `specialized_ui_domains[]`: affective-adaptive, avatar-embodied, aac-communication, or another specialized decision class with explicit atlas ownership.
+- `specialized_ui_domains[]`: affective-adaptive, avatar-embodied, aac-communication, cross-device-action-equivalence, accessibility-settings, accessible-media, sign-language-presentation, or another specialized decision class with explicit atlas ownership.
 - `regulatory_or_standard_sensitivity`: low, medium, high, regulated.
 - `research_freshness_requirement`: stable-foundation, current-platform, current-standard, frontier.
 - `driving_context`: not-applicable, parked, driving, mixed.
@@ -89,8 +89,12 @@ Any material AI behavior routes to `designing-human-ai-interaction` and `critiqu
 - affective-adaptive sensing or behavior → `designing-affective-adaptive-interfaces`, `designing-permissions-and-consent`, `designing-privacy-sensitive-interfaces`, and independent security/privacy review. Affective inference never receives consequential authority merely because confidence is high.
 - avatar-embodied representation → `designing-avatar-embodied-representation` plus security/privacy and accessibility verification. If the avatar is AI-controlled, also apply the relevant AI/agency routes.
 - aac-communication → root `designing-accessible-interfaces` plus `designing-aac-communication-interfaces` and accessibility critique. Route the real access modality separately; AAC does not imply touch.
+- cross-device-action-equivalence → `designing-cross-device-action-equivalence`, `adapting-platform-conventions`, and input-modality critique. Preserve the canonical operation and consequence while allowing device-native triggers; never equate consistency with identical gestures.
+- accessibility-settings → root accessibility plus `designing-accessibility-settings-and-profiles` and accessibility critique. The settings surface must remain operable before the preferred accessibility mode is enabled and must provide safe rollback from unusable configurations.
+- accessible-media → root accessibility plus `designing-accessible-media-alternatives` and accessibility critique. Captions, subtitles, transcripts, audio description, and spoken on-screen text are distinct information channels rather than one interchangeable checkbox.
+- sign-language-presentation → `designing-accessible-media-alternatives`, `designing-sign-language-presentation`, and accessibility critique. Treat the requested sign language as a natural language with readable signing space, attribution, timing, and linguistic validation; it is neither universal nor an AAC pictogram system.
 
-These are not visual tags. They change inference, identity, authorship, communication, or control authority and therefore deserve explicit profile entries.
+These are not visual tags. They change inference, identity, authorship, communication, cross-device operation semantics, or access authority and therefore deserve explicit profile entries.
 
 ## Trust, risk, and transaction routing
 Authentication and recovery → `designing-authentication-and-passkeys`. Permissions or sensitive capability grants → `designing-permissions-and-consent`. Sensitive data visibility, inference, sharing, or retention → `designing-privacy-sensitive-interfaces` and security/privacy critique. Financial consequence → `designing-financial-transaction-ui` plus high-stakes decision review. Checkout funnels route to `designing-commerce-checkout`; do not trade clarity or recovery for conversion. Medical UI routes to `designing-medical-safety-critical-ui`, human factors, high-stakes decisions and safety critique.
@@ -101,7 +105,7 @@ Hard gates for safety, security/privacy, accessibility, and AI agency cannot be 
 Streaming → `designing-latency-and-progressive-feedback`, resilience critique, and AI streaming skill when AI is involved. Realtime → `designing-real-time-updates`; preserve ordering, staleness, conflict and attention behavior. Offline/degraded → `designing-offline-degraded-experiences`. Interruption-sensitive work → `designing-notifications-and-interruptions` and cognitive-load modeling. Long-running actions require progress, cancellation/continuation semantics, duplicate-action protection, and a truthful state model.
 
 ## Accessibility specialist routing
-Root accessibility remains mandatory when accessibility is material. Add `designing-cognitive-accessibility`, `designing-low-vision-and-high-contrast`, `designing-screen-reader-experiences`, `designing-reduced-motion-and-photosensitivity`, alternative input, AAC, or other specialist faculty according to real needs and failure modes. Specialist faculties augment root semantics; they never replace them.
+Root accessibility remains mandatory when accessibility is material. Add `designing-cognitive-accessibility`, `designing-low-vision-and-high-contrast`, `designing-screen-reader-experiences`, `designing-reduced-motion-and-photosensitivity`, `designing-accessibility-settings-and-profiles`, `designing-accessible-media-alternatives`, `designing-sign-language-presentation`, alternative input, AAC, or another specialist faculty according to real needs and failure modes. Specialist faculties augment root semantics; they never replace them. A sign-language task inherits accessible-media obligations, and an AAC task separately routes the person’s real input modality.
 
 ## Design-system and content routing
 New or materially changed component language routes to `architecting-component-systems`, `architecting-design-tokens`, and when shared across teams `governing-design-systems`. Breaking component semantics or API changes route to `evolving-component-apis`. Theme/personalization changes route to `managing-theming-and-personalization`. Durable rationale routes to `documenting-design-decisions`; accessibility intent crossing design/engineering boundaries routes to `annotating-accessibility-intent`.
@@ -120,6 +124,10 @@ The following are non-optional examples enforced by deterministic predicates rat
 - affective-adaptive → affective owner + consent/privacy + security/privacy critic.
 - avatar-embodied → avatar owner + security/privacy and accessibility critics.
 - aac-communication → root accessibility + AAC owner + accessibility critic.
+- cross-device-action-equivalence → cross-device owner + platform adaptation + modality critic.
+- accessibility-settings → root accessibility + settings owner + accessibility critic.
+- accessible-media → root accessibility + media-alternatives owner + accessibility critic.
+- sign-language-presentation → media-alternatives owner + sign-language owner + accessibility critic.
 - robotics, ambient, supervisory-control, and neuroinput → their extension-owned mandatory routes.
 
 ## Verification routing
@@ -151,6 +159,10 @@ Before emitting the profile, compare selected skills with deterministic mandator
 - Treating responsive web as mobile-native design or treating mobile as a smaller desktop.
 - Treating an AI avatar as self-disclosing because it looks synthetic.
 - Treating affect inference as fact or AAC as an icon theme.
+- Treating cross-device consistency as identical gestures or identical pixels.
+- Treating accessible-media presence as equivalent to usable synchronization and information coverage.
+- Treating sign language as universal or as captions expressed with hands.
+- Making accessibility settings inaccessible until accessibility is already configured.
 - Treating a current visual trend as a universal style requirement.
 - Letting framework choice suppress accessibility, safety, state, or recovery obligations.
 - Using one modality to justify deleting alternative input paths.
