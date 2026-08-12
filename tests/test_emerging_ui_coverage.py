@@ -35,7 +35,7 @@ class EmergingUICoverageTests(unittest.TestCase):
         for case in CASES:
             result = module.validate_mandatory_routes(case["profile"], [])
             self.assertFalse(result["valid"])
-            self.assertTrue(set(case["must_route"]).issubset(set(result["missing_routes"])), (case, result))
+            self.assertTrue(set(case["required_skills"]).issubset(set(result["missing_routes"])), (case, result))
 
 
 if __name__ == "__main__":
