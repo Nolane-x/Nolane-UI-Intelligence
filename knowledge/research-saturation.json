@@ -1,14 +1,41 @@
 {
   "version": 2,
   "wave_id": "ui-industry-expansion-2026-08-12",
-  "as_of": "2026-08-12T11:35:00+07:00",
+  "as_of": "2026-08-12T12:42:00+07:00",
   "decision": "OPEN",
   "evidence": {
-    "breadth": {"status":"IN_PROGRESS","criterion":"every mandatory atlas cell has primary authority coverage plus owner and verifier skills","observed":"atlas defined; implementation still underway"},
-    "depth": {"status":"IN_PROGRESS","criterion":"high-risk and high-drift domains use multiple independent primary sources where available","observed":"medical, accessibility, AI, security, platform, automotive sources collected; contradiction review still open"},
-    "contradictions": {"status":"IN_PROGRESS","criterion":"conflicting standards or guidance are resolved by scope/authority or preserved as explicit alternatives","observed":"WCAG 3 draft versus WCAG 2.2 normative status resolved; visual design systems treated as contextual rather than universal"},
-    "novelty": {"status":"IN_PROGRESS","criterion":"final search wave adds no material new decision mechanism or uncovered mandatory domain class","observed":"current wave still adding human factors, modality, AI, safety, resilience, and design-ops mechanisms"},
-    "freshness": {"status":"PASS","criterion":"high-drift sources have reviewed_at plus radar cadence","observed":"research radar records recurring revalidation needs"}
+    "breadth": {
+      "status": "IN_PROGRESS",
+      "criterion": "every mandatory atlas cell has primary authority coverage plus owner and verifier skills",
+      "observed": "core atlas plus two adversarial extensions now cover 32 machine-validated cells; final novelty sweep remains open"
+    },
+    "depth": {
+      "status": "IN_PROGRESS",
+      "criterion": "high-risk and high-drift domains use multiple independent primary sources where available",
+      "observed": "medical, accessibility, AI, security, platform, automotive, robotics, BCI, control-room, affective, avatar, and AAC authorities are represented; final cross-domain contradiction review remains open"
+    },
+    "contradictions": {
+      "status": "IN_PROGRESS",
+      "criterion": "conflicting standards or guidance are resolved by scope/authority or preserved as explicit alternatives",
+      "observed": "WCAG 3 draft versus WCAG 2.2 normative status is separated; ISO drafts are distinguished from published standards; visual platform trends remain contextual rather than universal"
+    },
+    "novelty": {
+      "status": "IN_PROGRESS",
+      "criterion": "a final adversarial search wave adds no material new decision mechanism or uncovered mandatory domain class",
+      "observed": "recent sweeps discovered robotics, ambient intelligence, BCI, control-room HMI, affective UI, avatar representation, and AAC; another primary-source sweep is required before bounded saturation can be claimed"
+    },
+    "freshness": {
+      "status": "PASS",
+      "criterion": "high-drift sources have reviewed_at plus radar cadence",
+      "observed": "high-drift standards, platform, AI, and accessibility sources are dated and tracked by the research radar"
+    }
   },
-  "reopen_conditions": ["new normative or regulatory guidance","new platform surface or input modality","material AI/generative-UI standard change","new empirical evidence invalidates a mechanism","mandatory atlas cell becomes unowned or unverifiable"]
+  "reopen_conditions": [
+    "new normative or regulatory guidance",
+    "new platform surface or input modality",
+    "new material specialist UI decision class",
+    "material AI/generative-UI standard change",
+    "new empirical evidence invalidates a mechanism",
+    "mandatory atlas cell becomes unowned or unverifiable"
+  ]
 }
