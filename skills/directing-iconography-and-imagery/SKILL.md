@@ -54,7 +54,7 @@ Do not distort or fake critical product UI to make marketing imagery cleaner if 
 ## Accessibility
 Decorative assets should not add semantic noise. Informative assets need an equivalent text/semantic path appropriate to their content. Do not use icon color alone to encode status.
 
-## Output: `visual-asset-contract`
+## Output: `asset-direction-contract`
 Return `icon_system`, `icon_inventory`, `metaphor_rules`, `imagery_roles`, `asset_inventory`, `generation_guidance`, `framing_rules`, `responsive_crop`, `semantic_treatment`, and `fidelity_constraints`.
 
 ## Common failures

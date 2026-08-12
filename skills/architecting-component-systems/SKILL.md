@@ -52,7 +52,7 @@ Define:
 
 A component that no one can safely evolve is not a system asset.
 
-## Output: `component-system`
+## Output: `component-system-contract`
 Return `components[] {name, concept, anatomy, api, variants, states, tokens, semantics, accessibility, composition_rules}`, `reuse_decisions`, `new_components`, `exceptions`, `governance`, and `deprecations`.
 
 ## Common failures

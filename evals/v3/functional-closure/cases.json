@@ -1,0 +1,210 @@
+{
+  "version": 3,
+  "suite": "functional-closure",
+  "cases": [
+    {
+      "id": "v3-orphan-screen",
+      "failure": "A billing settings screen exists in the design and router but no legitimate in-product entry can reach it for the account owner.",
+      "required_skills": [
+        "proving-interface-reachability",
+        "critiquing-functional-completeness"
+      ],
+      "must_find": [
+        "identify the required surface as unreachable from a legitimate entry point",
+        "reject a hidden direct URL as sufficient discoverability"
+      ]
+    },
+    {
+      "id": "v3-ghost-action",
+      "failure": "The product capability ledger requires restoring versions but the generated UI contains no canonical restore action or executable binding anywhere.",
+      "required_skills": [
+        "registering-ui-actions",
+        "critiquing-functional-completeness"
+      ],
+      "must_find": [
+        "find the capability-to-action gap",
+        "require at least one discoverable binding for the restore action"
+      ]
+    },
+    {
+      "id": "v3-missing-binding",
+      "failure": "A canonical export action is registered and described in the specification but no control shortcut menu or other binding invokes it.",
+      "required_skills": [
+        "registering-ui-actions",
+        "compiling-ui-implementation-specifications"
+      ],
+      "must_find": [
+        "detect an action with zero bindings",
+        "block implementation until a valid binding is specified"
+      ]
+    },
+    {
+      "id": "v3-secret-url",
+      "failure": "The team claims settings are complete because typing a private route opens the page although ordinary users have no navigation path to it.",
+      "required_skills": [
+        "proving-interface-reachability",
+        "designing-navigation"
+      ],
+      "must_find": [
+        "classify the destination as secret-only",
+        "require a legitimate discoverable path for intended users"
+      ]
+    },
+    {
+      "id": "v3-dead-end",
+      "failure": "After permission denial inside an import wizard the user remains on a disabled step with no cancel back retry or recovery action.",
+      "required_skills": [
+        "covering-product-scenarios",
+        "critiquing-functional-completeness"
+      ],
+      "must_find": [
+        "identify the permission-denial dead end",
+        "require an explicit recovery or safe exit path"
+      ]
+    },
+    {
+      "id": "v3-semantic-collision",
+      "failure": "Two controls labeled Remove appear in the same member surface but one revokes access while the other permanently deletes content ownership.",
+      "required_skills": [
+        "registering-ui-actions",
+        "writing-interface-copy"
+      ],
+      "must_find": [
+        "detect same-context label collision across different semantic actions",
+        "require disambiguated labels and preserved canonical action identity"
+      ]
+    },
+    {
+      "id": "v3-missing-recovery",
+      "failure": "An asynchronous destructive archive request can fail after optimistic removal but the UI defines no restoration or reconciliation behavior.",
+      "required_skills": [
+        "registering-ui-actions",
+        "covering-product-scenarios"
+      ],
+      "must_find": [
+        "flag destructive asynchronous action without recovery",
+        "specify failure reconciliation and user-observable system truth"
+      ]
+    },
+    {
+      "id": "v3-scenario-gap",
+      "failure": "All individual features have happy paths but no scenario covers notification entry after the user permission was revoked in another session.",
+      "required_skills": [
+        "covering-product-scenarios",
+        "critiquing-functional-completeness"
+      ],
+      "must_find": [
+        "identify the cross-feature authority-change scenario gap",
+        "require expected denial explanation and onward path"
+      ]
+    },
+    {
+      "id": "v3-responsive-loss",
+      "failure": "Desktop exposes the required version history action in a sidebar but the mobile redesign removes the sidebar without relocating that action.",
+      "required_skills": [
+        "proving-interface-reachability",
+        "adapting-responsive-layouts"
+      ],
+      "must_find": [
+        "detect required capability loss at mobile profile",
+        "preserve outcome through an appropriate mobile binding"
+      ]
+    },
+    {
+      "id": "v3-permission-trap",
+      "failure": "A viewer sees an enabled Delete button and only learns they lack authority after the backend rejects the request.",
+      "required_skills": [
+        "registering-ui-actions",
+        "covering-product-scenarios"
+      ],
+      "must_find": [
+        "find mismatch between UI authority state and canonical permission precondition",
+        "require appropriate unavailable or explanatory behavior before destructive submission"
+      ]
+    },
+    {
+      "id": "v3-async-duplicate",
+      "failure": "Rapid activation of a payment button starts two identical transactions because pending state does not block or make the action idempotent.",
+      "required_skills": [
+        "registering-ui-actions",
+        "verifying-runtime-ui-behavior"
+      ],
+      "must_find": [
+        "detect duplicate activation during pending state",
+        "require idempotency or explicit duplicate-submit prevention evidence"
+      ]
+    },
+    {
+      "id": "v3-focus-loss",
+      "failure": "Closing a command dialog visually returns to the page but keyboard focus is lost at the document root instead of the invoking control.",
+      "required_skills": [
+        "verifying-runtime-ui-behavior",
+        "critiquing-accessibility"
+      ],
+      "must_find": [
+        "observe incorrect focus return at runtime",
+        "treat visible closure as insufficient behavioral success"
+      ]
+    },
+    {
+      "id": "v3-deep-link-only",
+      "failure": "A notification deep link reaches an audit item but there is no in-app way to return to the containing audit history after inspection.",
+      "required_skills": [
+        "proving-interface-reachability",
+        "designing-navigation"
+      ],
+      "must_find": [
+        "distinguish valid entry from missing onward navigation",
+        "require a coherent containing-context exit path"
+      ]
+    },
+    {
+      "id": "v3-hidden-required-action",
+      "failure": "A core creation action is available only through an undocumented keyboard shortcut and first-time users receive no discoverable binding.",
+      "required_skills": [
+        "proving-interface-reachability",
+        "registering-ui-actions"
+      ],
+      "must_find": [
+        "reject undocumented expert-only access for a required first-time capability",
+        "require discoverable control or shortcut discovery mechanism"
+      ]
+    },
+    {
+      "id": "v3-implementation-spec-gap",
+      "failure": "The mockup shows an overflow menu but the implementation specification never enumerates its menu items exact labels actions disabled rules or focus behavior.",
+      "required_skills": [
+        "compiling-ui-implementation-specifications",
+        "critiquing-functional-completeness"
+      ],
+      "must_find": [
+        "identify material controls omitted from the implementation contract",
+        "block IMPLEMENTABLE status until menu behavior is explicit"
+      ]
+    },
+    {
+      "id": "v3-runtime-failure",
+      "failure": "Source inspection shows a Save handler and the static specification is complete but the rendered button is covered by an invisible layer and cannot be activated.",
+      "required_skills": [
+        "verifying-runtime-ui-behavior",
+        "binding-ui-evidence"
+      ],
+      "must_find": [
+        "require runtime activation evidence rather than source existence",
+        "record the required action probe as FAIL"
+      ]
+    },
+    {
+      "id": "v3-beauty-cannot-buy-release",
+      "failure": "The interface receives a perfect visual review while functional closure reports a missing core navigation edge and the team still asks to declare production complete.",
+      "required_skills": [
+        "critiquing-functional-completeness",
+        "gating-ui-completion"
+      ],
+      "must_find": [
+        "keep completion BLOCKED despite visual quality",
+        "name the unresolved functional closure finding as release authority"
+      ]
+    }
+  ]
+}

@@ -73,5 +73,5 @@ Choose per data relationship:
 
 Do not promise full parity if the product genuinely cannot support a dense task on tiny screens; state the supported task subset.
 
-## Output: `density-contract`
+## Output: `dense-surface-contract`
 Return `scan_tasks`, `data_anatomy`, `column_priority`, `alignment_rules`, `selection_model`, `bulk_scope`, `live_update_policy`, `editing_model`, `density_modes`, `responsive_strategy`, `performance_constraints`, and `stress_cases`.

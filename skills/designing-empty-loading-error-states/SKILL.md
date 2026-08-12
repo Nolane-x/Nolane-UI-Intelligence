@@ -59,5 +59,5 @@ Network failure after commit can mean the effect succeeded but acknowledgement w
 ## Visual treatment
 Severity should influence prominence. Do not use giant red full-page treatments for minor inline failures, or subtle gray text for a blocking error. Error styling must coexist with focus, selection, and validation cues.
 
-## Output: `resilience-state-contract`
+## Output: `system-state-contract`
 Return `empty_taxonomy`, `loading_strategy`, `partial_state`, `stale_state`, `error_taxonomy`, `unknown_outcome_policy`, `recovery_actions`, `copy_requirements`, `visual_severity`, and `verification_cases`.

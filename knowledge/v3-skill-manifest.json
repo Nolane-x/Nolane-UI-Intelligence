@@ -1,0 +1,75 @@
+{
+  "version": 3,
+  "skills": [
+    {
+      "name": "inventorying-product-capabilities",
+      "family": "product",
+      "parent": "modeling-product-intent",
+      "output": "capability-ledger",
+      "ownership": "Own the exhaustive translation of product requirements into canonical user-visible and system-assisted capabilities before surface design begins."
+    },
+    {
+      "name": "registering-ui-actions",
+      "family": "interaction",
+      "parent": "designing-interactions",
+      "output": "action-registry",
+      "ownership": "Own canonical action identity, invocation semantics, consequences, permissions, recoverability and binding requirements across every interface surface."
+    },
+    {
+      "name": "proving-interface-reachability",
+      "family": "architecture",
+      "parent": "designing-navigation",
+      "output": "reachability-proof",
+      "ownership": "Own proof that every required destination and capability is reachable through valid discoverable paths for the intended actor and context."
+    },
+    {
+      "name": "covering-product-scenarios",
+      "family": "architecture",
+      "parent": "designing-task-flows",
+      "output": "scenario-coverage",
+      "ownership": "Own cross-feature scenario coverage including interruption, recovery, permission, responsive, role and lifecycle paths that individual screens cannot prove."
+    },
+    {
+      "name": "compiling-ui-implementation-specifications",
+      "family": "system",
+      "parent": "routing-ui-work",
+      "output": "ui-specification",
+      "ownership": "Own implementation-ready interface specification down to controls, copy, states, actions, focus, responsive transformations and unresolved design decisions."
+    },
+    {
+      "name": "critiquing-functional-completeness",
+      "family": "critic",
+      "parent": "challenging-ui-designs",
+      "output": "functional-completeness-findings",
+      "ownership": "Own independent falsification of product-wide interface completeness by finding missing capabilities, bindings, routes, states, recovery and cross-feature edges."
+    },
+    {
+      "name": "verifying-runtime-ui-behavior",
+      "family": "verification",
+      "parent": "binding-ui-evidence",
+      "output": "behavior-verification-ledger",
+      "ownership": "Own runtime evidence that required controls, navigation, async flows, permissions, interruption and recovery behave as specified rather than merely existing statically."
+    },
+    {
+      "name": "researching-visual-references",
+      "family": "visual",
+      "parent": "exploring-aesthetic-directions",
+      "output": "visual-reference-set",
+      "ownership": "Own provenance-bound research that decomposes contemporary visual references into transferable mechanisms instead of copying fashionable surface appearance."
+    },
+    {
+      "name": "iterating-rendered-visual-design",
+      "family": "visual",
+      "parent": "critiquing-visual-design",
+      "output": "visual-iteration-evidence",
+      "ownership": "Own evidence-driven visual iteration across rendered candidates, controlled changes and comparative critique until selected aesthetic hypotheses survive inspection."
+    },
+    {
+      "name": "maintaining-project-design-memory",
+      "family": "research",
+      "parent": "routing-ui-work",
+      "output": "design-memory",
+      "ownership": "Own project-scoped memory of accepted and rejected design mechanisms with evidence, confidence, expiry, contradiction and supersession semantics."
+    }
+  ]
+}

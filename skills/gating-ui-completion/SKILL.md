@@ -39,7 +39,10 @@ If required evidence is missing, the decision is `BLOCKED`, not “probably fine
 
 Never manufacture `PASS_WITH_ACCEPTED_RISK` to avoid doing work.
 
-## Completion packet
+## Output: `completion-decision`
+Return the bounded completion decision together with the completion packet. The decision and packet are one release artifact; a missing packet cannot be represented as PASS.
+
+### Completion packet
 Required fields:
 - `packet_id`
 - `artifact_revision`

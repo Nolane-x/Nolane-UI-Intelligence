@@ -47,7 +47,7 @@ Define stable gutters and safe areas. Components touching viewport edges need pl
 ## Touch target vs visual size
 A control can have a larger hit area than its visible icon. Do not inflate every icon visually just to meet target size; use appropriate interactive padding while preserving proximity between related controls.
 
-## Output: `spacing-contract`
+## Output: `spacing-rhythm-contract`
 Return `spacing_scale`, `relationship_rules`, `component_padding_rules`, `zone_spacing`, `density_target`, `gutter_model`, `touch_target_strategy`, `optical_exceptions`, and `rhythm_checks`.
 
 ## Stress checks

@@ -62,7 +62,7 @@ When a visual target is authoritative, specify allowed and forbidden deltas. A â
 ## Minimality rule
 A shorter obligation set that covers material failure modes is stronger than hundreds of trivial checks. Merge duplicates that share the same claim, scope, and oracle. Split an obligation when one half can pass while the other fails.
 
-## Output: `obligation-set`
+## Output: `obligation-ledger`
 Return ordered obligations grouped by release criticality. Identify which obligations can be closed deterministically, which require runtime evidence, and which require independent human/model judgment.
 
 ## Stop conditions

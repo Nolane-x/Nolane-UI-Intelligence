@@ -39,5 +39,5 @@ Distinguish acceptable intrinsic two-dimensional scrolling (large table/canvas) 
 ## Touch vs compactness
 A compact desktop layout can remain information-dense on mobile, but hit areas/gesture affordance must adapt. Flag invisible hover-only controls and targets packed too tightly to operate reliably.
 
-## Output
+## Output: `finding-set`
 Return typed findings with exact pressure condition, broken invariant, evidence, and recommended transformation—not merely “fix mobile spacing.”

@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "assets": [
+    {
+      "path": "evals/v3/functional-closure/cases.json",
+      "kind": "cases"
+    }
+  ]
+}

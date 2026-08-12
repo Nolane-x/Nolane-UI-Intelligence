@@ -27,5 +27,5 @@ A deviation is a finding only when it creates learning cost, task failure, acces
 ## Cross-platform translation
 When a source design comes from another platform, judge whether the implementation preserved the thesis and information hierarchy while translating platform behavior. Do not demand foreign platform chrome for visual fidelity unless the contract explicitly requires a literal simulation.
 
-## Output
+## Output: `finding-set`
 Return typed findings with target platform, convention/source, observed behavior, user cost, product benefit if any, and repair direction. Separate `platform-defect` from `intentional-cross-platform-brand-choice`.
