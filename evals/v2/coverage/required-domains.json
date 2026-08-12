@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "mandatory_surfaces": [
+    "web",
+    "mobile",
+    "desktop",
+    "large-screen-foldable",
+    "tv-ten-foot",
+    "wearable",
+    "automotive",
+    "spatial-xr",
+    "game-hud",
+    "cli-tui",
+    "embedded-kiosk"
+  ],
+  "mandatory_input_modalities": [
+    "pointer",
+    "touch",
+    "pen",
+    "keyboard",
+    "alternative-input",
+    "gamepad",
+    "remote",
+    "voice",
+    "gaze",
+    "hand-gesture",
+    "haptics"
+  ],
+  "mandatory_ai_roles": ["none", "assistive", "generative", "agentic", "multi-agent", "generative-ui"],
+  "mandatory_risk_classes": ["routine", "privacy-sensitive", "security-sensitive", "financial", "medical", "safety-critical"],
+  "mandatory_temporal_behaviors": ["instant", "long-running", "streaming", "realtime", "background", "offline-degraded", "interruption-sensitive"]
+}
