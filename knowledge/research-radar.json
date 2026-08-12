@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "as_of": "2026-08-12",
+  "watch": [
+    {"source_id":"w3c-wcag-3-draft","cadence":"monthly","trigger":"draft milestone, conformance model, scope, or outcome changes","reason":"non-final high-impact accessibility specification"},
+    {"source_id":"unicode-cldr","cadence":"per-release","trigger":"stable release or locale-data model change","reason":"localization data changes continuously"},
+    {"source_id":"apple-generative-ai","cadence":"monthly","trigger":"new AI interaction or platform guidance","reason":"high-drift AI platform behavior"},
+    {"source_id":"apple-visionos","cadence":"per-platform-release","trigger":"input, comfort, spatial layout, or accessibility guidance changes","reason":"rapidly evolving spatial UI"},
+    {"source_id":"android-m3-expressive","cadence":"per-library-release","trigger":"stable component/state/layout changes","reason":"current Android design-system evolution"},
+    {"source_id":"android-cars","cadence":"monthly","trigger":"driver-distraction, template, quality, or task-limit changes","reason":"safety-sensitive platform rules"},
+    {"source_id":"google-a2ui","cadence":"biweekly","trigger":"spec version, schema, transport, security, component vocabulary, or conformance changes","reason":"very-high-drift generative UI standard"},
+    {"source_id":"fda-human-factors","cadence":"quarterly","trigger":"new/final guidance, submission expectations, or safety communication","reason":"regulatory impact"},
+    {"source_id":"web-vitals","cadence":"quarterly","trigger":"Core Web Vitals metric or threshold changes","reason":"performance UX metrics evolve"}
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "version": 2,
+  "as_of": "2026-08-12",
+  "axes": {
+    "surfaces": ["web","mobile","desktop","large-screen-foldable","tv-ten-foot","wearable","automotive","spatial-xr","game-hud","cli-tui","embedded-kiosk"],
+    "input_modalities": ["pointer","touch","pen","keyboard","alternative-input","gamepad","remote","voice","gaze","hand-gesture","motion","haptics"],
+    "ai_roles": ["none","assistive","generative","agentic","multi-agent","generative-ui"],
+    "risk_classes": ["routine","privacy-sensitive","security-sensitive","financial","medical","safety-critical"],
+    "temporal_behaviors": ["instant","long-running","streaming","realtime","background","offline-degraded","interruption-sensitive"],
+    "social_contexts": ["personal","shared-screen","collaborative","public","supervised"]
+  },
+  "coverage_cells": [
+    {"id":"surface:web","axis":"surface","value":"web","owner_skills":["adapting-responsive-layouts","designing-pointer-touch-pen-input"],"verifier_skills":["critiquing-responsive-behavior","critiquing-accessibility"]},
+    {"id":"surface:mobile","axis":"surface","value":"mobile","owner_skills":["adapting-platform-conventions","designing-pointer-touch-pen-input"],"verifier_skills":["critiquing-platform-fit","critiquing-input-modality"]},
+    {"id":"surface:desktop","axis":"surface","value":"desktop","owner_skills":["designing-desktop-windowed-workspaces","designing-keyboard-power-user-ux"],"verifier_skills":["critiquing-platform-fit","critiquing-input-modality"]},
+    {"id":"surface:large-screen-foldable","axis":"surface","value":"large-screen-foldable","owner_skills":["designing-foldable-large-screen-interfaces","adapting-responsive-layouts"],"verifier_skills":["critiquing-responsive-behavior","critiquing-platform-fit"]},
+    {"id":"surface:tv-ten-foot","axis":"surface","value":"tv-ten-foot","owner_skills":["designing-tv-ten-foot-interfaces","designing-gamepad-remote-focus"],"verifier_skills":["critiquing-input-modality","critiquing-platform-fit"]},
+    {"id":"surface:wearable","axis":"surface","value":"wearable","owner_skills":["designing-wearable-glanceable-interfaces","designing-haptics-and-multisensory-feedback"],"verifier_skills":["critiquing-platform-fit","critiquing-cognitive-load"]},
+    {"id":"surface:automotive","axis":"surface","value":"automotive","owner_skills":["designing-automotive-interfaces","engineering-human-factors"],"verifier_skills":["critiquing-human-factors-and-safety","critiquing-input-modality"]},
+    {"id":"surface:spatial-xr","axis":"surface","value":"spatial-xr","owner_skills":["designing-spatial-xr-interfaces","designing-gaze-hand-spatial-input"],"verifier_skills":["critiquing-platform-fit","critiquing-input-modality"]},
+    {"id":"surface:game-hud","axis":"surface","value":"game-hud","owner_skills":["designing-game-hud-and-menus","designing-gamepad-remote-focus"],"verifier_skills":["critiquing-input-modality","critiquing-accessibility"]},
+    {"id":"surface:cli-tui","axis":"surface","value":"cli-tui","owner_skills":["designing-cli-tui-interfaces","designing-keyboard-power-user-ux"],"verifier_skills":["critiquing-input-modality","critiquing-accessibility"]},
+    {"id":"surface:embedded-kiosk","axis":"surface","value":"embedded-kiosk","owner_skills":["designing-embedded-kiosk-interfaces","engineering-human-factors"],"verifier_skills":["critiquing-performance-and-resilience","critiquing-human-factors-and-safety"]},
+
+    {"id":"ai:assistive","axis":"ai_role","value":"assistive","owner_skills":["designing-human-ai-interaction"],"verifier_skills":["critiquing-ai-trust-and-agency"]},
+    {"id":"ai:generative","axis":"ai_role","value":"generative","owner_skills":["designing-human-ai-interaction","designing-ai-uncertainty-and-provenance"],"verifier_skills":["critiquing-ai-trust-and-agency"]},
+    {"id":"ai:agentic","axis":"ai_role","value":"agentic","owner_skills":["designing-agent-autonomy-and-control","designing-ai-uncertainty-and-provenance"],"verifier_skills":["critiquing-ai-trust-and-agency","critiquing-security-and-privacy"]},
+    {"id":"ai:multi-agent","axis":"ai_role","value":"multi-agent","owner_skills":["designing-multi-agent-surfaces"],"verifier_skills":["critiquing-ai-trust-and-agency","critiquing-cognitive-load"]},
+    {"id":"ai:generative-ui","axis":"ai_role","value":"generative-ui","owner_skills":["designing-generative-ui"],"verifier_skills":["critiquing-ai-trust-and-agency","critiquing-security-and-privacy","critiquing-accessibility"]},
+
+    {"id":"risk:privacy-sensitive","axis":"risk","value":"privacy-sensitive","owner_skills":["designing-privacy-sensitive-interfaces"],"verifier_skills":["critiquing-security-and-privacy"]},
+    {"id":"risk:security-sensitive","axis":"risk","value":"security-sensitive","owner_skills":["designing-authentication-and-passkeys","designing-permissions-and-consent"],"verifier_skills":["critiquing-security-and-privacy"]},
+    {"id":"risk:financial","axis":"risk","value":"financial","owner_skills":["designing-financial-transaction-ui","designing-high-stakes-decisions"],"verifier_skills":["critiquing-human-factors-and-safety","critiquing-security-and-privacy"]},
+    {"id":"risk:medical","axis":"risk","value":"medical","owner_skills":["designing-medical-safety-critical-ui","engineering-human-factors"],"verifier_skills":["critiquing-human-factors-and-safety","critiquing-accessibility"]},
+    {"id":"risk:safety-critical","axis":"risk","value":"safety-critical","owner_skills":["engineering-human-factors","designing-high-stakes-decisions"],"verifier_skills":["critiquing-human-factors-and-safety"]},
+
+    {"id":"temporal:streaming","axis":"temporal","value":"streaming","owner_skills":["designing-streaming-ai-responses","designing-latency-and-progressive-feedback"],"verifier_skills":["critiquing-performance-and-resilience"]},
+    {"id":"temporal:realtime","axis":"temporal","value":"realtime","owner_skills":["designing-real-time-updates"],"verifier_skills":["critiquing-performance-and-resilience","critiquing-cognitive-load"]},
+    {"id":"temporal:offline-degraded","axis":"temporal","value":"offline-degraded","owner_skills":["designing-offline-degraded-experiences"],"verifier_skills":["critiquing-performance-and-resilience"]},
+    {"id":"temporal:interruption-sensitive","axis":"temporal","value":"interruption-sensitive","owner_skills":["designing-notifications-and-interruptions","modeling-cognitive-load-and-attention"],"verifier_skills":["critiquing-cognitive-load","critiquing-human-factors-and-safety"]}
+  ],
+  "coverage_rule": "A mandatory cell is covered only when at least one declared owner and one independent declared verifier are present. Cross-axis combinations may add stricter routes than either axis alone."
+}
