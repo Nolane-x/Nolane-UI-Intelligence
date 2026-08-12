@@ -11,6 +11,7 @@ from nolane_ui import validators
 
 SATURATION = json.loads((ROOT / "knowledge/research-saturation.json").read_text(encoding="utf-8"))
 FINAL = json.loads((ROOT / "knowledge/final-saturation-evidence.json").read_text(encoding="utf-8"))
+GRAPH = json.loads((ROOT / "skills/skill-graph.json").read_text(encoding="utf-8"))
 
 
 class FinalResearchSaturationTests(unittest.TestCase):
@@ -55,6 +56,44 @@ class FinalResearchSaturationTests(unittest.TestCase):
         joined = " ".join(result["errors"]).lower()
         self.assertIn("depth", joined)
         self.assertIn("reopen", joined)
+
+    def test_final_sweep_source_and_skill_references_are_real(self):
+        final_ledger_path = ROOT / "knowledge/source-ledger-final-sweep.json"
+        self.assertTrue(final_ledger_path.is_file(), "final sweep source ledger is missing")
+        ledger_paths = [
+            ROOT / "knowledge/source-ledger.json",
+            ROOT / "knowledge/source-ledger-emerging.json",
+            ROOT / "knowledge/source-ledger-emerging-2.json",
+            ROOT / "knowledge/source-ledger-emerging-3.json",
+            ROOT / "knowledge/source-ledger-emerging-4.json",
+            final_ledger_path,
+        ]
+        source_ids = {
+            source["id"]
+            for path in ledger_paths
+            for source in json.loads(path.read_text(encoding="utf-8"))["sources"]
+        }
+        skill_names = set(GRAPH["skills"])
+        result = validators.validate_bounded_saturation(
+            SATURATION, FINAL, source_ids=source_ids, skill_names=skill_names
+        )
+        self.assertTrue(result["valid"], result)
+
+        fake_source = copy.deepcopy(FINAL)
+        fake_source["sweeps"][-1]["decomposition_checks"][0]["source_id"] = "invented-source"
+        result = validators.validate_bounded_saturation(
+            SATURATION, fake_source, source_ids=source_ids, skill_names=skill_names
+        )
+        self.assertFalse(result["valid"])
+        self.assertTrue(any("source" in error.lower() for error in result["errors"]))
+
+        fake_skill = copy.deepcopy(FINAL)
+        fake_skill["sweeps"][-1]["decomposition_checks"][0]["mapped_skills"] = ["invented-skill"]
+        result = validators.validate_bounded_saturation(
+            SATURATION, fake_skill, source_ids=source_ids, skill_names=skill_names
+        )
+        self.assertFalse(result["valid"])
+        self.assertTrue(any("skill" in error.lower() for error in result["errors"]))
 
 
 if __name__ == "__main__":
