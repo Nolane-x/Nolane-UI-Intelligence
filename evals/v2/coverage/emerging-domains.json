@@ -1,9 +1,33 @@
 {
   "version": 2,
   "cases": [
-    {"id":"robot-latency","profile":{"platform_surfaces":["robotics-teleoperation"],"input_modalities":["gamepad"],"ai_role":"agentic","risk_class":"safety-critical","temporal_behaviors":["realtime"]},"must_route":["designing-robotic-teleoperation-interfaces","engineering-human-factors","designing-agent-autonomy-and-control","critiquing-human-factors-and-safety"]},
-    {"id":"ambient-inference","profile":{"platform_surfaces":["ambient-context-aware"],"input_modalities":[],"ai_role":"assistive","risk_class":"privacy-sensitive","temporal_behaviors":["background"]},"must_route":["designing-ambient-context-aware-interfaces","designing-privacy-sensitive-interfaces","critiquing-ai-trust-and-agency"]},
-    {"id":"bci-command","profile":{"platform_surfaces":["desktop"],"input_modalities":["neuroinput"],"ai_role":"none","risk_class":"medical","temporal_behaviors":["realtime"]},"must_route":["designing-brain-computer-interface-ux","engineering-human-factors","critiquing-input-modality"]},
-    {"id":"control-room","profile":{"platform_surfaces":["supervisory-control-room"],"input_modalities":["keyboard","pointer"],"ai_role":"assistive","risk_class":"safety-critical","temporal_behaviors":["realtime","interruption-sensitive"]},"must_route":["designing-supervisory-control-room-hmi","engineering-human-factors","critiquing-human-factors-and-safety","critiquing-cognitive-load"]}
+    {
+      "id": "robot-latency",
+      "failure": "Teleoperation latency hides robot state while an agentic command can move physical equipment before the operator understands the consequence.",
+      "profile": {"platform_surfaces":["robotics-teleoperation"],"input_modalities":["gamepad"],"ai_role":"agentic","risk_class":"safety-critical","temporal_behaviors":["realtime"]},
+      "required_skills": ["designing-robotic-teleoperation-interfaces","engineering-human-factors","designing-agent-autonomy-and-control","critiquing-human-factors-and-safety"],
+      "must_find": ["latency-aware state feedback","physical action authority","operator recovery","safety-critical mode awareness"]
+    },
+    {
+      "id": "ambient-inference",
+      "failure": "An ambient system infers context in the background and adapts behavior without clear notice, privacy boundaries, or a visible override path.",
+      "profile": {"platform_surfaces":["ambient-context-aware"],"input_modalities":[],"ai_role":"assistive","risk_class":"privacy-sensitive","temporal_behaviors":["background"]},
+      "required_skills": ["designing-ambient-context-aware-interfaces","designing-privacy-sensitive-interfaces","critiquing-ai-trust-and-agency"],
+      "must_find": ["invisible-state disclosure","context inference boundary","privacy purpose limitation","user override"]
+    },
+    {
+      "id": "bci-command",
+      "failure": "A neuroinput command is treated as intentional despite noisy signal quality, calibration uncertainty, false activation risk, and medical context.",
+      "profile": {"platform_surfaces":["desktop"],"input_modalities":["neuroinput"],"ai_role":"none","risk_class":"medical","temporal_behaviors":["realtime"]},
+      "required_skills": ["designing-brain-computer-interface-ux","engineering-human-factors","critiquing-input-modality"],
+      "must_find": ["signal confidence","false activation","calibration and fatigue","alternative control path"]
+    },
+    {
+      "id": "control-room",
+      "failure": "A supervisory control room presents realtime abnormal states and interruptions without preserving alarm priority, operator attention, or safe control recovery.",
+      "profile": {"platform_surfaces":["supervisory-control-room"],"input_modalities":["keyboard","pointer"],"ai_role":"assistive","risk_class":"safety-critical","temporal_behaviors":["realtime","interruption-sensitive"]},
+      "required_skills": ["designing-supervisory-control-room-hmi","engineering-human-factors","critiquing-human-factors-and-safety","critiquing-cognitive-load"],
+      "must_find": ["alarm prioritization","attention management","control authority","degraded-state recovery"]
+    }
   ]
 }
