@@ -1,0 +1,35 @@
+{
+  "packet_id": "NUI-V1-STRUCTURAL-RELEASE-2026-08-12",
+  "phase": "VERIFIED",
+  "task_profile": "NUI repository v1 implementation plan: universal skill graph, deterministic validator, adapters, research ledger and eval contracts",
+  "obligations": [
+    {"id": "O-GRAPH", "status": "PASS"},
+    {"id": "O-SKILLS", "status": "PASS"},
+    {"id": "O-KERNEL", "status": "PASS"},
+    {"id": "O-ADAPTERS", "status": "PASS"},
+    {"id": "O-EVAL-CONTRACT", "status": "PASS"},
+    {"id": "O-PROVENANCE", "status": "PASS"}
+  ],
+  "evidence": [
+    {"evidence_id": "E-UNIT-SUITE", "result": "PASS"},
+    {"evidence_id": "E-REPOSITORY-VALIDATOR", "result": "PASS"},
+    {"evidence_id": "E-ADVERSARIAL-GATE-FIXTURES", "result": "PASS"}
+  ],
+  "findings": [],
+  "checks": {
+    "unit-tests": "PASS",
+    "repository-validator": "PASS",
+    "completion-gate": "PASS"
+  },
+  "claim": "The NUI v1 repository satisfies its declared structural, skill-contract, adapter, eval-contract, and deterministic completion-gate checks when this packet is accepted by the same commit's CI verification workflow.",
+  "bounds": [
+    "This packet verifies repository and skill-system invariants, not the beauty or usability of every UI a future model may generate.",
+    "Agent-behavior pressure cases are specifications for runtime evaluation; their presence and JSON validity are not reported as live cross-model benchmark passes.",
+    "Accessibility and fidelity of any product UI require task-specific normative/runtime evidence through NUI's own obligation and evidence process.",
+    "No claim is made that NUI objectively outperforms every competing UI skill until controlled head-to-head agent evaluations are executed."
+  ],
+  "unknowns": [
+    "Cross-model repeated behavior-eval scores have not been produced by repository-only CI.",
+    "Runtime-specific browser, screenshot, semantic-tree, and subagent quality varies by the host environment."
+  ]
+}
