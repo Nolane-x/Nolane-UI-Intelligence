@@ -1,0 +1,14 @@
+# Python runtime artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Test and coverage artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Packaging/build artifacts
+build/
+dist/
+*.egg-info/
