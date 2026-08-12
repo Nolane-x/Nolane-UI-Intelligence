@@ -17,13 +17,13 @@ Require a valid `ui-contract`. If the contract is absent, contradictory, or too 
 Profile observable conditions rather than prompt keywords. Record unknowns explicitly instead of converting them into defaults.
 
 - `intent[]`: design-new, redesign, extend, audit, reproduce, implement, verify, systemize, research.
-- `platform_surfaces[]`: web, mobile, desktop, large-screen-foldable, tv-ten-foot, wearable, automotive, spatial-xr, game-hud, cli-tui, embedded-kiosk, robotics-teleoperation, ambient-context-aware, supervisory-control-room, or another atlas-owned emerging surface.
-- `input_modalities[]`: pointer, touch, pen, keyboard, alternative-input, gamepad, remote, voice, gaze, hand-gesture, motion, haptics, neuroinput, or another explicitly modeled modality.
+- `platform_surfaces[]`: web, mobile, desktop, large-screen-foldable, tv-ten-foot, wearable, automotive, flight-deck, spatial-xr, game-hud, cli-tui, embedded-kiosk, robotics-teleoperation, ambient-context-aware, supervisory-control-room, or another atlas-owned emerging surface.
+- `input_modalities[]`: pointer, touch, pen, keyboard, alternative-input, physical-controls, gamepad, remote, voice, gaze, hand-gesture, motion, haptics, neuroinput, or another explicitly modeled modality.
 - `ai_role`: none, assistive, generative, agentic, multi-agent, generative-ui.
 - `risk_class`: routine, privacy-sensitive, security-sensitive, financial, medical, safety-critical.
 - `temporal_behaviors[]`: streaming, realtime, offline-degraded, long-running, interruption-sensitive, background-work.
-- `social_context`: personal, shared-screen, collaborative, public, supervised.
-- `specialized_ui_domains[]`: affective-adaptive, avatar-embodied, aac-communication, cross-device-action-equivalence, accessibility-settings, accessible-media, sign-language-presentation, or another specialized decision class with explicit atlas ownership.
+- `social_context`: personal, shared-screen, collaborative, public, supervised, multi-operator.
+- `specialized_ui_domains[]`: affective-adaptive, avatar-embodied, aac-communication, cross-device-action-equivalence, accessibility-settings, accessible-media, sign-language-presentation, in-product-assistance, or another specialized decision class with explicit atlas ownership.
 - `regulatory_or_standard_sensitivity`: low, medium, high, regulated.
 - `research_freshness_requirement`: stable-foundation, current-platform, current-standard, frontier.
 - `driving_context`: not-applicable, parked, driving, mixed.
@@ -31,7 +31,7 @@ Profile observable conditions rather than prompt keywords. Record unknowns expli
 - `information_context`: density, hierarchy depth, volatility, comparability, reading versus scanning, real-time ordering, provenance needs.
 - `interaction_context`: selection, direct manipulation, drag/drop, destructive action, permissions, undo, concurrency, collaboration, async behavior, latency sensitivity.
 - `visual_context`: brand maturity, existing design-system strength, reference fidelity, desired character, novelty tolerance, imagery availability, density, and whether memorability or task transparency dominates.
-- `evidence_capabilities`: design source, browser/runtime inspection, screenshot capture, accessibility tree, interaction automation, component explorer, device access, human review, domain-expert review, user research.
+- `evidence_capabilities`: design source, browser/runtime inspection, screenshot capture, accessibility tree, interaction automation, component explorer, device access, human review, domain-expert review, user research, simulation, operational validation.
 
 An unclassified high-impact dimension becomes a `capability_gap` or routing unknown. It does not inherit a convenient default.
 
@@ -49,13 +49,14 @@ An unclassified high-impact dimension becomes a `capability_gap` or routing unkn
 Unless an existing design/source fixes the corresponding decision, route product intent, user/task modeling, information architecture, interaction design, component state modeling, visual hierarchy, design tokens, responsive/platform obligations, accessibility, and at least the applicable visual/UX verification lenses. `exploring-aesthetic-directions` is required when visual direction is materially open; faithful reproduction routes to `verifying-design-fidelity` instead of fabricating novelty.
 
 ## Human-factors and research routing
-High task pressure, sustained attention, alarm/notification load, memory burden, complex motor requirements, or meaningful error cost route to `engineering-human-factors` plus the relevant cognitive/perceptual faculty. Safety-critical, medical, automotive-driving, robotics, and supervisory-control work must include `critiquing-human-factors-and-safety` independently of visual quality.
+High task pressure, sustained attention, alarm/notification load, memory burden, complex motor requirements, or meaningful error cost route to `engineering-human-factors` plus the relevant cognitive/perceptual faculty. Safety-critical, medical, automotive-driving, flight-deck, robotics, and supervisory-control work must include `critiquing-human-factors-and-safety` independently of visual quality.
 
 When a decision depends on claims about users rather than established project evidence, route `planning-usability-research` or `evaluating-usability-evidence`. Frontier or high-drift knowledge routes to `researching-ui-frontiers`, `calibrating-ui-authority`, and when appropriate `measuring-research-saturation`. Draft standards must remain draft in the obligation ledger.
 
 ## Modality routing
 - keyboard-heavy or command-dense work → `designing-keyboard-power-user-ux`.
 - pointer/touch/pen mechanics → `designing-pointer-touch-pen-input`.
+- physical controls such as switches, knobs, dedicated keys, joysticks or constrained hardware inputs → model them through the applicable surface skill plus `modeling-perception-and-motor-control`; do not pretend a pointer prototype validates physical interaction.
 - dragging that carries task meaning → `designing-accessible-drag-and-drop` and an alternative path.
 - TV/gamepad/remote directional navigation → `designing-gamepad-remote-focus` plus `critiquing-input-modality`.
 - voice → `designing-voice-conversational-ui`; do not assume speech is always available, private, or recognized correctly.
@@ -72,6 +73,7 @@ Concurrent modalities remain concurrent. Do not delete keyboard support because 
 - tv-ten-foot → `designing-tv-ten-foot-interfaces`, directional focus, remote input, distance legibility.
 - wearable → `designing-wearable-glanceable-interfaces` and cognitive-load review.
 - automotive → `designing-automotive-interfaces`; driving context additionally forces human-factors/safety constraints and reduced interaction authority.
+- flight-deck → `designing-flight-deck-interfaces`, `engineering-human-factors`, `designing-high-stakes-decisions`, and human-factors/safety critique. Phase of flight, crew role, automation-mode awareness, alerting and certification evidence remain explicit rather than being generalized into an enterprise dashboard.
 - spatial-xr → `designing-spatial-xr-interfaces`, gaze/hand input, platform-fit and modality critique.
 - game-hud → `designing-game-hud-and-menus`; pair with controller, accessibility, localization, or data-display faculties as needed.
 - cli-tui → `designing-cli-tui-interfaces` plus keyboard/power-user behavior.
@@ -93,8 +95,9 @@ Any material AI behavior routes to `designing-human-ai-interaction` and `critiqu
 - accessibility-settings → root accessibility plus `designing-accessibility-settings-and-profiles` and accessibility critique. The settings surface must remain operable before the preferred accessibility mode is enabled and must provide safe rollback from unusable configurations.
 - accessible-media → root accessibility plus `designing-accessible-media-alternatives` and accessibility critique. Captions, subtitles, transcripts, audio description, and spoken on-screen text are distinct information channels rather than one interchangeable checkbox.
 - sign-language-presentation → `designing-accessible-media-alternatives`, `designing-sign-language-presentation`, and accessibility critique. Treat the requested sign language as a natural language with readable signing space, attribution, timing, and linguistic validation; it is neither universal nor an AAC pictogram system.
+- in-product-assistance → `designing-in-product-assistance` plus UX critique. First repair primary interaction when the control can simply be clearer; assistance owns residual conceptual, procedural, diagnostic, troubleshooting, recovery, and escalation gaps after onboarding.
 
-These are not visual tags. They change inference, identity, authorship, communication, cross-device operation semantics, or access authority and therefore deserve explicit profile entries.
+These are not visual tags. They change inference, identity, authorship, communication, cross-device operation semantics, access authority, or the way users recover missing knowledge and therefore deserve explicit profile entries.
 
 ## Trust, risk, and transaction routing
 Authentication and recovery → `designing-authentication-and-passkeys`. Permissions or sensitive capability grants → `designing-permissions-and-consent`. Sensitive data visibility, inference, sharing, or retention → `designing-privacy-sensitive-interfaces` and security/privacy critique. Financial consequence → `designing-financial-transaction-ui` plus high-stakes decision review. Checkout funnels route to `designing-commerce-checkout`; do not trade clarity or recovery for conversion. Medical UI routes to `designing-medical-safety-critical-ui`, human factors, high-stakes decisions and safety critique.
@@ -115,6 +118,7 @@ Forms, search, navigation, onboarding, data-dense surfaces, data visualization, 
 ## Hard routing
 The following are non-optional examples enforced by deterministic predicates rather than prose alone:
 - automotive driving → `designing-automotive-interfaces` + `engineering-human-factors` + `critiquing-human-factors-and-safety`.
+- flight-deck → `designing-flight-deck-interfaces` + human-factors + high-stakes decision + human-factors/safety critic.
 - spatial-xr → `designing-spatial-xr-interfaces` + `designing-gaze-hand-spatial-input` + platform/modality critics.
 - tv-ten-foot → `designing-tv-ten-foot-interfaces` + directional focus + modality critic.
 - wearable → `designing-wearable-glanceable-interfaces` + cognitive-load critic.
@@ -128,6 +132,7 @@ The following are non-optional examples enforced by deterministic predicates rat
 - accessibility-settings → root accessibility + settings owner + accessibility critic.
 - accessible-media → root accessibility + media-alternatives owner + accessibility critic.
 - sign-language-presentation → media-alternatives owner + sign-language owner + accessibility critic.
+- in-product-assistance → assistance owner + UX critic.
 - robotics, ambient, supervisory-control, and neuroinput → their extension-owned mandatory routes.
 
 ## Verification routing
@@ -157,12 +162,14 @@ Before emitting the profile, compare selected skills with deterministic mandator
 - Maximal routing: every available skill loaded “to be safe.” Context dilution is a defect.
 - Aesthetic routing before product semantics and human constraints.
 - Treating responsive web as mobile-native design or treating mobile as a smaller desktop.
+- Treating a flight deck as a control-room theme without phase/crew/automation/certification evidence.
 - Treating an AI avatar as self-disclosing because it looks synthetic.
 - Treating affect inference as fact or AAC as an icon theme.
 - Treating cross-device consistency as identical gestures or identical pixels.
 - Treating accessible-media presence as equivalent to usable synchronization and information coverage.
 - Treating sign language as universal or as captions expressed with hands.
 - Making accessibility settings inaccessible until accessibility is already configured.
+- Using help overlays to excuse an interface that can simply be made clearer.
 - Treating a current visual trend as a universal style requirement.
 - Letting framework choice suppress accessibility, safety, state, or recovery obligations.
 - Using one modality to justify deleting alternative input paths.
