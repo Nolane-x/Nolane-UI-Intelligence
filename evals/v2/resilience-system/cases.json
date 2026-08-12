@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "cases": [
+    {"id":"latency-duplicate","prompt":"A save operation takes 4 seconds and leaves the button unchanged, so users click it repeatedly.","must_route":["designing-latency-and-progressive-feedback"],"must_detect":["immediate acknowledgement","duplicate protection","truthful progress"]},
+    {"id":"offline-conflict","prompt":"Users edit a record offline; reconnect silently overwrites a newer server edit.","must_route":["designing-offline-degraded-experiences"],"must_detect":["queued state","conflict","reconciliation"]},
+    {"id":"alert-fatigue","prompt":"Send a push notification for every minor background change.","must_route":["designing-notifications-and-interruptions"],"must_detect":["urgency taxonomy","batching","quiet states"]},
+    {"id":"realtime-churn","prompt":"Sort a live table by newest event and move rows instantly while the user is clicking them.","must_route":["designing-real-time-updates"],"must_detect":["viewport stability","unseen updates","temporal ordering"]},
+    {"id":"governance-fork","prompt":"Each product team can redefine the primary button independently without review.","must_route":["governing-design-systems"],"must_detect":["decision rights","exception governance","semantic fragmentation"]},
+    {"id":"component-break","prompt":"Rename a component prop and change keyboard behavior in a minor release with no migration path.","must_route":["evolving-component-apis"],"must_detect":["behavioral compatibility","deprecation","migration"]},
+    {"id":"theme-contrast","prompt":"Generate dark mode by inverting brand colors automatically.","must_route":["managing-theming-and-personalization"],"must_detect":["semantic tokens","contrast","asset/elevation adaptation"]},
+    {"id":"lost-rationale","prompt":"Replace a core navigation pattern because a new designer prefers another layout; no decision record exists.","must_route":["documenting-design-decisions"],"must_detect":["original problem","evidence","reversal trigger"]},
+    {"id":"a11y-handoff","prompt":"Figma shows a custom combobox visually but implementation has no documented keyboard or announcement model.","must_route":["annotating-accessibility-intent"],"must_detect":["role","focus","states","keyboard","announcement"]}
+  ]
+}
