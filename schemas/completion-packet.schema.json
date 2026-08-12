@@ -1,0 +1,18 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"nui://schemas/completion-packet",
+  "type":"object",
+  "required":["packet_id","phase","task_profile","obligations","evidence","findings","checks","claim","bounds","unknowns"],
+  "properties":{
+    "packet_id":{"type":"string","minLength":1},
+    "phase":{"const":"VERIFIED"},
+    "task_profile":{"type":"string","minLength":1},
+    "obligations":{"type":"array","items":{"type":"object","required":["id","status"]}},
+    "evidence":{"type":"array","items":{"type":"object","required":["evidence_id","result"]}},
+    "findings":{"type":"array","items":{"type":"object","required":["finding_id","severity","status"]}},
+    "checks":{"type":"object"},
+    "claim":{"type":"string","minLength":1},
+    "bounds":{"type":"array","items":{"type":"string"},"minItems":1},
+    "unknowns":{"type":"array","items":{"type":"string"}}
+  }
+}

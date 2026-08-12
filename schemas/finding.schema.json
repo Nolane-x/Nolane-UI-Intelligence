@@ -1,0 +1,17 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"nui://schemas/finding",
+  "type":"object",
+  "required":["finding_id","domain","severity","evidence","violated_constraint","user_impact","falsifier","recommended_repair","status"],
+  "properties":{
+    "finding_id":{"type":"string","minLength":1},
+    "domain":{"type":"string","minLength":1},
+    "severity":{"enum":["critical","major","moderate","minor","observation"]},
+    "evidence":{"type":"array","items":{"type":"string"},"minItems":1},
+    "violated_constraint":{"type":"string","minLength":1},
+    "user_impact":{"type":"string","minLength":1},
+    "falsifier":{"type":"string","minLength":1},
+    "recommended_repair":{"type":"string","minLength":1},
+    "status":{"enum":["open","repaired","accepted-risk","not-reproducible"]}
+  }
+}
