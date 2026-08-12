@@ -1,9 +1,34 @@
 {
   "version": 2,
   "root": "using-nolane-ui",
-  "lifecycle": ["INTAKE", "CONTRACTED", "ROUTED", "DISCOVERED", "ARCHITECTED", "DIVERGED", "DESIGN_SELECTED", "SYSTEMIZED", "SPECIFIED", "IMPLEMENTABLE", "RENDERED", "CRITIQUED", "VERIFIED", "RELEASED"],
+  "lifecycle": [
+    "INTAKE",
+    "CONTRACTED",
+    "ROUTED",
+    "DISCOVERED",
+    "ARCHITECTED",
+    "DIVERGED",
+    "DESIGN_SELECTED",
+    "SYSTEMIZED",
+    "SPECIFIED",
+    "IMPLEMENTABLE",
+    "RENDERED",
+    "CRITIQUED",
+    "VERIFIED",
+    "RELEASED"
+  ],
   "exception_states": ["RECOVERY", "BLOCKED"],
-  "authority_order": ["explicit-product-and-safety-constraints", "applicable-law-regulation-and-normative-standards", "safety-and-regulatory-authority-guidance", "platform-authoritative-guidance", "project-design-system-and-validated-product-evidence", "empirical-human-factors-and-usability-evidence", "mature-design-system-guidance", "high-quality-community-heuristics", "model-aesthetic-preference"],
+  "authority_order": [
+    "explicit-product-and-safety-constraints",
+    "applicable-law-regulation-and-normative-standards",
+    "safety-and-regulatory-authority-guidance",
+    "platform-authoritative-guidance",
+    "project-design-system-and-validated-product-evidence",
+    "empirical-human-factors-and-usability-evidence",
+    "mature-design-system-guidance",
+    "high-quality-community-heuristics",
+    "model-aesthetic-preference"
+  ],
   "skills": {
     "using-nolane-ui": {"family":"kernel","parent":null,"output":"bootstrap-directive"},
     "nolane-ui": {"family":"kernel","parent":"using-nolane-ui","output":"ui-session"},
@@ -123,6 +148,10 @@
     "designing-supervisory-control-room-hmi": {"family":"safety","parent":"routing-ui-work","output":"supervisory-control-contract"},
     "designing-affective-adaptive-interfaces": {"family":"specialist","parent":"routing-ui-work","output":"affective-adaptation-contract"},
     "designing-avatar-embodied-representation": {"family":"specialist","parent":"routing-ui-work","output":"avatar-representation-contract"},
-    "designing-aac-communication-interfaces": {"family":"inclusive-specialist","parent":"designing-accessible-interfaces","output":"aac-communication-contract"}
+    "designing-aac-communication-interfaces": {"family":"inclusive-specialist","parent":"designing-accessible-interfaces","output":"aac-communication-contract"},
+    "designing-cross-device-action-equivalence": {"family":"system","parent":"routing-ui-work","output":"cross-device-action-contract"},
+    "designing-accessibility-settings-and-profiles": {"family":"inclusive-specialist","parent":"designing-accessible-interfaces","output":"accessibility-settings-contract"},
+    "designing-accessible-media-alternatives": {"family":"inclusive-specialist","parent":"designing-accessible-interfaces","output":"accessible-media-contract"},
+    "designing-sign-language-presentation": {"family":"inclusive-specialist","parent":"designing-accessible-media-alternatives","output":"sign-language-presentation-contract"}
   }
 }
