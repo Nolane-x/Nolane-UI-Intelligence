@@ -16,6 +16,7 @@ LEDGERS = [
     json.loads((ROOT / "knowledge/source-ledger-emerging-2.json").read_text(encoding="utf-8")),
     json.loads((ROOT / "knowledge/source-ledger-emerging-3.json").read_text(encoding="utf-8")),
     json.loads((ROOT / "knowledge/source-ledger-emerging-4.json").read_text(encoding="utf-8")),
+    json.loads((ROOT / "knowledge/source-ledger-final-sweep.json").read_text(encoding="utf-8")),
 ]
 
 
