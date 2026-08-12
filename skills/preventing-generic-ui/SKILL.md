@@ -63,7 +63,7 @@ When genericity is real, repair in this order:
 
 Do not solve genericity by adding more effects.
 
-## Output: `anti-slop-review`
+## Output: `anti-slop-findings`
 Return `signals[] {pattern, context, function, cost, frequency, justification, verdict}`, `template_counterfactual`, `signature_strength`, `recommended_edits`, and `preserve_list`.
 
 ## Severity

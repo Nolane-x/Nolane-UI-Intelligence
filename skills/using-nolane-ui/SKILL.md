@@ -27,5 +27,8 @@ A tiny, local change may take a reduced path only when `nolane-ui` records the s
 ## Start
 Hand the task to `nolane-ui` with the user request, known product context, available references, repository constraints, and runtime capabilities.
 
+## Output: `bootstrap-directive`
+Return the bootstrap directive that binds the task to `nolane-ui`, preserving the original request, known context, available references, runtime capabilities, materiality decision, and any justified reduced-scope boundary.
+
 ## Red flags
 If you are thinking “the user said just code,” “I can infer the design while implementing,” “it compiles so the UI is done,” or “checking this would take too long,” you are at the exact trigger for this bootstrap. Do not bypass it.

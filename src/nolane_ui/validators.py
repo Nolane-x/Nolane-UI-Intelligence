@@ -29,6 +29,7 @@ if __package__:
     from . import emerging2 as _emerging2
     from . import emerging3 as _emerging3
     from . import emerging4 as _emerging4
+    from . import contracts as _contracts
 else:
     _legacy = _load_sibling("validators_legacy.py", "nui_validators_legacy")
     _industry = _load_sibling("industry.py", "nui_industry")
@@ -36,6 +37,7 @@ else:
     _emerging2 = _load_sibling("emerging2.py", "nui_emerging2")
     _emerging3 = _load_sibling("emerging3.py", "nui_emerging3")
     _emerging4 = _load_sibling("emerging4.py", "nui_emerging4")
+    _contracts = _load_sibling("contracts.py", "nui_contracts")
 
 validate_completion_packet = _legacy.validate_completion_packet
 validate_skill_graph = _legacy.validate_skill_graph
@@ -85,9 +87,41 @@ REQUIRED_V2 = (
     "evals/v2/rubric.json",
 )
 
+REQUIRED_V3 = (
+    "knowledge/v3-skill-manifest.json",
+    "evals/v3/manifest.json",
+    "evals/v3/functional-closure/cases.json",
+    "src/nolane_ui/contracts.py",
+    "src/nolane_ui/closure.py",
+)
+
+
 
 def _load(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _mandatory_v3_routes(profile: dict[str, Any]) -> set[str]:
+    required: set[str] = set()
+    scope = profile.get("scope")
+    if profile.get("product_wide") or scope in {"multi-feature-product", "system", "product-wide"}:
+        required |= {
+            "inventorying-product-capabilities",
+            "registering-ui-actions",
+            "proving-interface-reachability",
+            "covering-product-scenarios",
+            "compiling-ui-implementation-specifications",
+            "critiquing-functional-completeness",
+        }
+        if profile.get("delivery_stage") in {"implement", "verify", "release"} or profile.get("claims_runtime_behavior"):
+            required.add("verifying-runtime-ui-behavior")
+    if profile.get("visual_evidence_iteration"):
+        required |= {
+            "researching-visual-references",
+            "iterating-rendered-visual-design",
+            "maintaining-project-design-memory",
+        }
+    return required
 
 
 def mandatory_routes_for_profile(profile: dict[str, Any]) -> set[str]:
@@ -97,7 +131,31 @@ def mandatory_routes_for_profile(profile: dict[str, Any]) -> set[str]:
         | _emerging2.mandatory_standardized_emerging_routes(profile)
         | _emerging3.mandatory_third_extension_routes(profile)
         | _emerging4.mandatory_fourth_extension_routes(profile)
+        | _mandatory_v3_routes(profile)
     )
+
+
+def validate_v3_completion_evidence(record: dict[str, Any]) -> dict[str, Any]:
+    """Block product-wide completion when closure/spec/runtime/visual evidence is absent."""
+    errors: list[str] = []
+    if not isinstance(record, dict):
+        return {"decision": "BLOCKED", "errors": ["v3 completion evidence must be an object"]}
+    if record.get("product_wide"):
+        closure = record.get("functional_closure")
+        if not isinstance(closure, dict) or closure.get("status") != "PASS":
+            errors.append("product-wide completion requires functional closure PASS")
+        spec = record.get("ui_specification")
+        if not isinstance(spec, dict) or spec.get("status") != "IMPLEMENTABLE":
+            errors.append("product-wide completion requires IMPLEMENTABLE ui specification")
+    if record.get("claims_runtime_behavior"):
+        runtime = record.get("behavior_verification")
+        if not isinstance(runtime, dict) or runtime.get("status") != "PASS":
+            errors.append("runtime behavior claim requires behavior verification PASS")
+    if record.get("visual_evidence_iteration"):
+        visual = record.get("visual_iteration_evidence")
+        if not isinstance(visual, dict) or visual.get("status") != "PASS":
+            errors.append("visual evidence iteration requires visual iteration evidence PASS")
+    return {"decision": "BLOCKED" if errors else "PASS", "errors": errors}
 
 
 def validate_mandatory_routes(profile: dict[str, Any], selected_skills: Iterable[str]) -> dict[str, Any]:
@@ -275,6 +333,9 @@ def validate_repository(root: Path | str) -> dict[str, Any]:
     for relative in REQUIRED_V2:
         if not (root / relative).is_file():
             errors.append(f"missing required v2 repository file: {relative}")
+    for relative in REQUIRED_V3:
+        if not (root / relative).is_file():
+            errors.append(f"missing required v3 repository file: {relative}")
 
     graph: dict[str, Any] = {}
     atlas: dict[str, Any] = {}
@@ -347,6 +408,73 @@ def validate_repository(root: Path | str) -> dict[str, Any]:
     except Exception as exc:
         errors.append(f"invalid v2 skill manifest: {exc}")
 
+    try:
+        contract_result = _contracts.validate_skill_contract_integrity(root, graph)
+        errors.extend(f"skill contract integrity: {x}" for x in contract_result["errors"])
+        metrics["skill_contracts_checked"] = contract_result["checked"]
+    except Exception as exc:
+        errors.append(f"invalid v3 skill contract integrity: {exc}")
+
+    try:
+        v3 = _load(root / "knowledge/v3-skill-manifest.json")
+        v3_items = v3.get("skills", [])
+        if len(v3_items) != 10:
+            errors.append(f"v3 skill manifest must contain exactly 10 skills, found {len(v3_items)}")
+        declared = graph.get("skills", {}) if graph else {}
+        for item in v3_items:
+            name = item.get("name")
+            node = declared.get(name)
+            if not node:
+                errors.append(f"v3 manifest skill {name} is not declared in skill graph")
+                continue
+            for field in ("family", "parent", "output"):
+                if node.get(field) != item.get(field):
+                    errors.append(f"v3 manifest/graph mismatch for {name}.{field}")
+        metrics["v3_skill_count"] = len(v3_items)
+    except Exception as exc:
+        errors.append(f"invalid v3 skill manifest: {exc}")
+
+    try:
+        manifest = _load(root / "evals/v3/manifest.json")
+        assets = manifest.get("assets", [])
+        total = 0
+        case_ids: set[str] = set()
+        declared = set(graph.get("skills", {})) if graph else set()
+        for asset in assets:
+            path = asset.get("path") if isinstance(asset, dict) else None
+            if not isinstance(path, str) or not path:
+                errors.append("v3 eval manifest asset requires path")
+                continue
+            doc = _load(root / path)
+            if doc.get("version") != 3:
+                errors.append(f"v3 eval asset {path} must declare version 3")
+            for case in doc.get("cases", []):
+                total += 1
+                cid = case.get("id")
+                if not isinstance(cid, str) or not cid:
+                    errors.append(f"v3 eval asset {path} contains case without id")
+                elif cid in case_ids:
+                    errors.append(f"duplicate v3 eval case id {cid}")
+                else:
+                    case_ids.add(cid)
+                if len(str(case.get("failure", "")).split()) < 6:
+                    errors.append(f"v3 eval case {cid} has weak failure scenario")
+                required = case.get("required_skills", [])
+                if not isinstance(required, list) or not required:
+                    errors.append(f"v3 eval case {cid} requires required_skills")
+                else:
+                    unknown = sorted(set(required) - declared)
+                    if unknown:
+                        errors.append(f"v3 eval case {cid} references unknown skills {unknown}")
+                must_find = case.get("must_find", [])
+                if not isinstance(must_find, list) or len(must_find) < 2:
+                    errors.append(f"v3 eval case {cid} requires at least two must_find findings")
+        if total < 17:
+            errors.append(f"v3 eval corpus requires at least 17 cases, found {total}")
+        metrics["v3_adversarial_cases"] = total
+    except Exception as exc:
+        errors.append(f"invalid v3 eval corpus: {exc}")
+
     return {"valid": not errors, "errors": errors, "warnings": warnings, "metrics": metrics}
 
 
@@ -355,4 +483,5 @@ __all__ = [
     "validate_state_matrix", "validate_tokens", "validate_industry_atlas",
     "validate_source_ledger", "validate_research_saturation", "validate_bounded_saturation",
     "validate_research_radar", "validate_mandatory_routes", "mandatory_routes_for_profile",
+    "validate_v3_completion_evidence",
 ]

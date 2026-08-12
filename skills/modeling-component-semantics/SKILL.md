@@ -58,7 +58,7 @@ Do not custom-build a familiar control to gain a decorative effect if it weakens
 ## Nested interaction rule
 If a container is clickable and contains other controls, explicitly define activation regions, keyboard order, event behavior, and user expectation. Avoid ambiguous nested interactive surfaces.
 
-## Output: `component-semantics`
+## Output: `component-semantic-model`
 Return `elements[] {concept, semantic_role, chosen_pattern, rejected_patterns, behavior, accessibility_semantics, scale_constraints, rationale}`, plus `new_component_candidates` and `semantic_conflicts`.
 
 ## Anti-patterns

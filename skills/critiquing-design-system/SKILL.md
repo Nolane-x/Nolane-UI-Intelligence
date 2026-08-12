@@ -32,5 +32,5 @@ A design system should constrain primitives while allowing product composition. 
 ### Governance debt
 Record duplicated components, deprecated patterns, undocumented custom widgets, and overrides likely to create future divergence.
 
-## Output
+## Output: `finding-set`
 Return typed findings with affected component/token paths, semantic impact, blast radius, and repair layer (`primitive`, `semantic-token`, `component`, `composition`, or `local-exception`). Prefer the highest correct shared layer; do not recommend a global change for a local anomaly.

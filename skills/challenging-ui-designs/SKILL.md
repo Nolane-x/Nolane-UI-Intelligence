@@ -56,7 +56,7 @@ If you cannot point to evidence or a violated contract/standard/explicit design 
 ## Anti-praise rule
 Do not open with compliments. Findings can include strengths only when they explain why another part is inconsistent or must be preserved during repair.
 
-## Output: `critic-session`
+## Output: `critic-plan`
 Return selected lenses, findings, untested hypotheses, evidence gaps, and a release recommendation of `BLOCK`, `REPAIR_AND_RETEST`, or `NO_BLOCKER_FOUND`. `NO_BLOCKER_FOUND` is not equivalent to overall release PASS; the completion gate still decides.
 
 ## Rationalizations to reject

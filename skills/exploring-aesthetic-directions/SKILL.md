@@ -62,7 +62,7 @@ Score candidates against the actual contract:
 
 Do not average candidates into a bland hybrid. Choose the strongest thesis and deliberately import only compatible details from another direction.
 
-## Output: `aesthetic-candidates`
+## Output: `visual-direction-set`
 Return `search_axes`, `candidates[]`, `comparison`, `selected_direction`, `selection_rationale`, `frozen_axes`, `flexible_axes`, and `known_risks`.
 
 ## Common failures

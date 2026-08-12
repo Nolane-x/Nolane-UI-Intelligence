@@ -56,7 +56,7 @@ Do not shrink desktop navigation until it disappears. Define semantic transforma
 ## Deep-link and permission behavior
 Navigation must support direct entry into allowed destinations and a truthful response to unavailable ones. Do not silently redirect a forbidden/deleted link to a visually similar area that makes the user think the action succeeded.
 
-## Output: `navigation-model`
+## Output: `navigation-contract`
 Return `nav_roles`, `destination_model`, `chosen_structures`, `orientation_rules`, `active_state`, `context_switching`, `state_persistence`, `responsive_transformations`, `deep_link_behavior`, `permission_behavior`, and `keyboard_model`.
 
 ## Common failures

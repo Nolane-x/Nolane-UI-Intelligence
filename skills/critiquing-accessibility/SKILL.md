@@ -29,5 +29,5 @@ Use automated tools to find detectable violations, then inspect false positives/
 ## Severity by exclusion
 A blocker that makes a core task impossible for keyboard/screen-reader users can be critical/major even if visually subtle. Conversely, a decorative missing alt attribute on a truly decorative image may be minor or no finding depending on semantics.
 
-## Output
+## Output: `finding-set`
 Return typed findings plus `automated_coverage`, `manual_coverage`, `assistive_tech_coverage`, `untested_criteria`, and a lens recommendation. Never write “WCAG compliant” unless the exact scoped claim has evidence.

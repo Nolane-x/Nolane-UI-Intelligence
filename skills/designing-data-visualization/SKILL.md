@@ -56,5 +56,5 @@ Use aligned small multiples when comparing series with similar structure; repeat
 ## Accessibility
 Provide a semantic/textual equivalent suitable to the analytical task: data table, summary, direct labels, or accessible chart structure. The equivalent must expose the insight/data users need, not just “line chart showing sales.”
 
-## Output: `visualization-contract`
+## Output: `data-viz-contract`
 Return `analytical_question`, `data_semantics`, `chosen_encoding`, `rejected_encodings`, `scales_axes`, `uncertainty`, `color_encoding`, `annotations`, `interaction`, `refresh_behavior`, `accessible_equivalent`, and `truthfulness_risks`.

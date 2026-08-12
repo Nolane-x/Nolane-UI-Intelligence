@@ -39,7 +39,7 @@ A phase transition is a claim. Record the artifact/evidence that justifies it. D
 - If a requirement changes, return to the earliest phase whose assumptions it invalidates.
 - A reference accepted as authoritative freezes only the axes it actually specifies; unspecified behavior still requires design reasoning.
 
-## Output: lifecycle record
+## Output: `ui-session`
 Return a compact record with `task_id`, `current_phase`, `contract_ref`, `task_profile_ref`, `obligation_refs`, `artifact_refs`, `evidence_refs`, `open_findings`, `unknowns`, `blocked_reason`, and `next_allowed_actions`.
 
 ## Rationalization table

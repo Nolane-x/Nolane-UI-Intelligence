@@ -64,7 +64,7 @@ Project the IA under:
 
 A structure that only works for the demo dataset is not architecture.
 
-## Output: `information-architecture`
+## Output: `information-architecture-map`
 Return `entity_inventory`, `conceptual_model`, `groups`, `hierarchy_layers`, `label_taxonomy`, `comparison_requirements`, `disclosure_rules`, `scalability_stress`, and `open_ia_risks`.
 
 ## Quality questions

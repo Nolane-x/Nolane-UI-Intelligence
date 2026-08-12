@@ -43,7 +43,7 @@ State changes often change size. Test error text, loading labels, translated con
 ## Disabled-state challenge
 Do not disable controls without explaining the unavailable condition when users need to know how to proceed. Sometimes a visible enabled action that returns an actionable permission/validation explanation is better than an unexplained disabled surface.
 
-## Output: `state-matrix`
+## Output: `component-state-matrix`
 Return `component`, `dimensions`, `applicable_states`, `material_combinations`, `transitions`, `invariants`, `geometry_stress_cases`, `unreachable_states`, and `verification_requirements`.
 
 ## Completion rule

@@ -47,5 +47,5 @@ Where relevant, replay as novice, expert, interrupted user, limited-permission u
 ## Trust review
 Check whether the UI implies certainty, completion, privacy, authorization, freshness, or reversibility the product cannot guarantee. Deceptive cleanliness is a major UX defect.
 
-## Output
+## Output: `finding-set`
 Return typed findings with affected job/step, evidence, violated constraint, user impact, falsifier, and minimal repair direction. Recommend `BLOCK` when a primary task is impossible/unsafe or the UI materially lies about consequential state.

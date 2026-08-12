@@ -38,5 +38,5 @@ Use contextual anti-slop rules. A familiar pattern is not a defect by itself; re
 ## Evidence discipline
 Each finding cites a visible region/state and a violated design contract/principle. “I don’t like the font” is not a finding. “Utility labels use the display face at nearly heading weight, collapsing role separation specified by typography contract” is.
 
-## Output
+## Output: `finding-set`
 Produce typed findings only. Include a `preserve` note when an existing strength would be easy to damage during repair. End with `BLOCK`, `REPAIR_AND_RETEST`, or `NO_VISUAL_BLOCKER_FOUND` for this lens only.
