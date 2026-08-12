@@ -7,6 +7,7 @@ from .validators import (
     validate_industry_atlas,
     validate_mandatory_routes,
     validate_repository,
+    validate_research_radar,
     validate_research_saturation,
     validate_skill_graph,
     validate_source_ledger,
@@ -18,5 +19,5 @@ __all__ = [
     "validate_completion_packet", "validate_repository", "validate_skill_graph",
     "validate_state_matrix", "validate_tokens", "validate_industry_atlas",
     "validate_source_ledger", "validate_research_saturation", "validate_bounded_saturation",
-    "validate_mandatory_routes", "mandatory_routes_for_profile",
+    "validate_research_radar", "validate_mandatory_routes", "mandatory_routes_for_profile",
 ]
