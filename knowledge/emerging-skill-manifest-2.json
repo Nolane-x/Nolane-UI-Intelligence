@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "wave": "adversarial-saturation-extension-2",
+  "skills": [
+    {"name":"designing-affective-adaptive-interfaces","family":"specialist","parent":"routing-ui-work","output":"affective-adaptation-contract","ownership":"design emotion or affect sensing and adaptation around inference uncertainty, cultural and individual variation, consent, privacy, override, and non-manipulative behavior"},
+    {"name":"designing-avatar-embodied-representation","family":"specialist","parent":"routing-ui-work","output":"avatar-representation-contract","ownership":"design avatars and embodied digital representations around identity, agency, disclosure, social signaling, accessibility, impersonation risk, and cross-context representation ethics"},
+    {"name":"designing-aac-communication-interfaces","family":"inclusive-specialist","parent":"designing-accessible-interfaces","output":"aac-communication-contract","ownership":"design augmentative and alternative communication systems around communicative intent, symbol and pictogram semantics, access methods, vocabulary organization, personalization, and communication-partner interaction"}
+  ]
+}

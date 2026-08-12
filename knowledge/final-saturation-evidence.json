@@ -1,0 +1,106 @@
+{
+  "version": 2,
+  "wave_id": "ui-industry-expansion-2026-08-12",
+  "as_of": "2026-08-12T13:08:00+07:00",
+  "decision": "NO_NEW_NONDECOMPOSABLE_OWNER",
+  "meaning": "Within the primary-source search space exercised by this wave, the final adversarial sweep produced no material UI decision class that required a new owner skill. This is bounded saturation, not permanent completeness.",
+  "sweeps": [
+    {
+      "id": "broad-market-and-standards-map",
+      "new_owner_count": 65,
+      "result": "Built the v2 research, human-factors, modality, surface, AI, trust, temporal, design-ops, deep-accessibility and independent-critic faculties from gaps in the v1 47-skill graph."
+    },
+    {
+      "id": "adversarial-emerging-1",
+      "new_owner_count": 4,
+      "result": "Added robotics/teleoperation, ambient context-aware systems, brain-computer interaction and supervisory control-room HMI after ISO, IEC, FDA and NIST sources exposed non-decomposable decision ownership."
+    },
+    {
+      "id": "adversarial-emerging-2",
+      "new_owner_count": 3,
+      "result": "Added affective/adaptive UI, avatar/embodied representation and AAC communication after current ISO/IEC and W3C work exposed separate inference, identity and communication authority models."
+    },
+    {
+      "id": "adversarial-emerging-3",
+      "new_owner_count": 4,
+      "result": "Added cross-device action equivalence, accessibility settings/profiles, accessible media alternatives and sign-language presentation after current SC35 and ISO accessibility standards exposed distinct operation and access-channel semantics."
+    },
+    {
+      "id": "adversarial-emerging-4",
+      "new_owner_count": 2,
+      "result": "Added flight-deck interfaces and in-product assistance after FAA certification guidance and ISO/FDIS 9241-130 exposed aviation-specific error/automation authority and post-onboarding assistance as distinct decision classes."
+    },
+    {
+      "id": "final-primary-source-decomposition",
+      "new_owner_count": 0,
+      "result": "Recent ISO/IEC/W3C/platform/FAA/IEC boundaries were challenged again. Every material finding decomposed into existing owners without creating an unowned decision class.",
+      "decomposition_checks": [
+        {
+          "source_id": "iso-9241-112-2025",
+          "status": "published",
+          "mapped_skills": ["directing-visual-hierarchy", "crafting-typography", "designing-haptics-and-multisensory-feedback", "designing-accessible-interfaces"],
+          "reason": "Visual, auditory and tactile/haptic presentation principles refine existing presentation and modality faculties rather than introducing a new interaction authority."
+        },
+        {
+          "source_id": "iso-9241-222-2026",
+          "status": "published",
+          "mapped_skills": ["planning-usability-research", "evaluating-usability-evidence", "governing-design-systems", "documenting-design-decisions"],
+          "reason": "Human-centred-design self-assessment is process/governance evidence; NUI already owns research validity, design governance and durable decisions."
+        },
+        {
+          "source_id": "iso-iec-4944-2024",
+          "status": "published",
+          "mapped_skills": ["evaluating-usability-evidence", "modeling-perception-and-motor-control", "critiquing-research-validity"],
+          "reason": "Natural-user-interface usability evaluation changes evaluation evidence, not the underlying modality ownership."
+        },
+        {
+          "source_id": "iso-9241-812-draft",
+          "status": "committee-draft",
+          "mapped_skills": ["designing-human-ai-interaction", "designing-agent-autonomy-and-control", "designing-robotic-teleoperation-interfaces", "designing-ambient-context-aware-interfaces", "designing-affective-adaptive-interfaces", "designing-multi-agent-surfaces"],
+          "reason": "The draft's intelligent-system categories independently reproduce the AI, robot, ambient, adaptive and multi-system boundaries already modeled by NUI."
+        },
+        {
+          "source_id": "iso-iec-7818-2025",
+          "status": "published",
+          "mapped_skills": ["designing-voice-conversational-ui", "designing-automotive-interfaces", "designing-cross-device-action-equivalence"],
+          "reason": "Voice UI for personal mobility is a domain composition of voice interaction, mobility/platform constraints and cross-device action semantics."
+        },
+        {
+          "source_id": "iso-9241-920-2024",
+          "status": "published",
+          "mapped_skills": ["designing-haptics-and-multisensory-feedback", "modeling-perception-and-motor-control", "designing-alternative-input"],
+          "reason": "Tactile objects, force feedback, touchables, tangibles and multimodal haptics are already owned by the haptic/motor/access faculties."
+        },
+        {
+          "source_id": "iso-iec-23090-28-2026",
+          "status": "published",
+          "mapped_skills": ["designing-spatial-xr-interfaces", "designing-accessible-media-alternatives", "designing-haptics-and-multisensory-feedback"],
+          "reason": "Scene-based immersive media contributes rendering and multimodal media structure; user-facing decisions decompose into spatial, media and haptic faculties."
+        },
+        {
+          "source_id": "iec-80601-2-78-2019-amd1-2024",
+          "status": "published",
+          "mapped_skills": ["designing-medical-safety-critical-ui", "designing-robotic-teleoperation-interfaces", "designing-accessible-interfaces", "designing-haptics-and-multisensory-feedback", "critiquing-human-factors-and-safety"],
+          "reason": "Rehabilitation robots add medical safety and physical patient interaction to robotics; those authorities already compose without a separate UI decision owner."
+        },
+        {
+          "source_id": "iso-iec-cd-25420",
+          "status": "committee-draft",
+          "mapped_skills": ["designing-voice-conversational-ui", "designing-pointer-touch-pen-input", "designing-cross-device-action-equivalence", "designing-real-time-updates"],
+          "reason": "Multimodal customer-service architecture combines existing modality, cross-device and temporal interaction contracts."
+        },
+        {
+          "source_id": "apple-generative-ai",
+          "status": "current-platform-guidance",
+          "mapped_skills": ["designing-human-ai-interaction", "designing-ai-feedback-and-correction", "designing-ai-uncertainty-and-provenance", "critiquing-ai-trust-and-agency"],
+          "reason": "Current Apple guidance on refinement and feedback strengthens the existing human-AI correction and agency contracts rather than creating a new faculty."
+        }
+      ]
+    }
+  ],
+  "saturation_boundary": {
+    "included": ["general web/app UI", "mobile/desktop/large-screen/TV/wearable", "automotive/flight-deck/control-room", "spatial/XR/game/CLI/kiosk", "robotics/ambient/BCI", "all major input modalities", "AI/agent/generative UI", "accessibility and specialized access channels", "trust/medical/financial/commerce", "temporal/resilience", "design systems/governance", "research/human factors/verification"],
+    "not_claimed": ["all future standards", "all jurisdiction-specific regulation", "all proprietary platform internals", "all domain-specific certification material", "comparative superiority over every external UI skill"],
+    "reopen_on": ["new normative or regulatory guidance", "new platform surface", "new input modality", "new non-decomposable specialist decision class", "material AI/generative-UI behavior change", "new evidence invalidating an existing mechanism", "an atlas cell losing a valid owner or verifier"]
+  }
+}

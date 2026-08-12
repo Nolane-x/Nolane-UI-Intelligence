@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "wave": "adversarial-saturation-extension-4",
+  "skills": [
+    {
+      "name": "designing-flight-deck-interfaces",
+      "family": "safety",
+      "parent": "routing-ui-work",
+      "output": "flight-deck-interface-contract",
+      "ownership": "integrate flight phase, crew roles, automation-mode awareness, alerting, flight-deck controls/displays, workload and design-related error management under aviation certification evidence"
+    },
+    {
+      "name": "designing-in-product-assistance",
+      "family": "interaction",
+      "parent": "routing-ui-work",
+      "output": "user-assistance-contract",
+      "ownership": "design contextual help guidance explanations coaching troubleshooting and assistance escalation so support appears at the right moment without replacing understandable interface semantics"
+    }
+  ]
+}

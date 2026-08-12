@@ -1,0 +1,98 @@
+{
+  "version": 2,
+  "reviewed_at": "2026-08-12",
+  "authority_classes": ["normative-standard", "standards-draft"],
+  "sources": [
+    {
+      "id": "iso-9241-112-2025",
+      "title": "ISO 9241-112:2025 Ergonomics of human-system interaction — Part 112: Principles for the presentation of information",
+      "publisher": "ISO",
+      "url": "https://www.iso.org/standard/87518.html",
+      "authority": "normative-standard",
+      "status": "Published International Standard; Edition 2; publication 2025-06",
+      "domains": ["information-presentation", "visual", "auditory", "tactile", "haptic"],
+      "drift": "medium",
+      "reviewed_at": "2026-08-12",
+      "license_note": "Paywalled ISO standard; only public abstract, lifecycle and status synthesized",
+      "mechanisms_absorbed": ["presentation principles apply across visual auditory and tactile/haptic modalities", "presentation principles refine perception and understanding rather than creating a new surface owner"]
+    },
+    {
+      "id": "iso-9241-222-2026",
+      "title": "ISO 9241-222:2026 Ergonomics of human-system interaction — Part 222: Self-assessment of human-centred design approach",
+      "publisher": "ISO",
+      "url": "https://www.iso.org/standard/88373.html",
+      "authority": "normative-standard",
+      "status": "Published International Standard; Edition 1; publication 2026-06",
+      "domains": ["human-centred-design", "self-assessment", "design-process", "governance"],
+      "drift": "medium",
+      "reviewed_at": "2026-08-12",
+      "license_note": "Paywalled ISO standard; public abstract and status only",
+      "mechanisms_absorbed": ["human-centred design can be self-assessed across organizational principles processes and activities", "process assessment belongs to research and design governance rather than a new UI surface faculty"]
+    },
+    {
+      "id": "iso-iec-4944-2024",
+      "title": "ISO/IEC 4944:2024 Information technology — User interfaces — Evaluating usability of natural user interfaces",
+      "publisher": "ISO/IEC",
+      "url": "https://www.iso.org/standard/83179.html",
+      "authority": "normative-standard",
+      "status": "Published International Standard; Edition 1; publication 2024-09",
+      "domains": ["natural-user-interface", "usability-evaluation", "measurement", "emerging-ui"],
+      "drift": "medium",
+      "reviewed_at": "2026-08-12",
+      "license_note": "Paywalled ISO/IEC standard; public abstract and lifecycle only",
+      "mechanisms_absorbed": ["NUI usability evaluation is framed through effectiveness efficiency and satisfaction", "evaluation evidence refines research validity and modality assessment without creating a new interaction owner"]
+    },
+    {
+      "id": "iso-iec-7818-2025",
+      "title": "ISO/IEC 7818:2025 Information technology — User interfaces — Framework of voice user interfaces for personal mobility services",
+      "publisher": "ISO/IEC",
+      "url": "https://www.iso.org/standard/83713.html",
+      "authority": "normative-standard",
+      "status": "Published International Standard; Edition 1; publication 2025-09",
+      "domains": ["voice-ui", "personal-mobility", "mobility", "cross-device"],
+      "drift": "medium",
+      "reviewed_at": "2026-08-12",
+      "license_note": "Paywalled ISO/IEC standard; public abstract and status only",
+      "mechanisms_absorbed": ["voice UI for personal mobility has functional and performance requirements", "user-facing decisions compose voice interaction mobility constraints and operation semantics"]
+    },
+    {
+      "id": "iso-9241-920-2024",
+      "title": "ISO 9241-920:2024 Ergonomics of human-system interaction — Part 920: Tactile and haptic interactions",
+      "publisher": "ISO",
+      "url": "https://www.iso.org/standard/80751.html",
+      "authority": "normative-standard",
+      "status": "Published International Standard; Edition 2; publication 2024-10",
+      "domains": ["tactile", "haptic", "multimodal", "physical-interaction"],
+      "drift": "medium",
+      "reviewed_at": "2026-08-12",
+      "license_note": "Paywalled ISO standard; public abstract and status only",
+      "mechanisms_absorbed": ["tactile and haptic interactions span inputs outputs and multimodal combinations", "the decision class is already owned by multisensory plus perceptual-motor and alternative-input faculties"]
+    },
+    {
+      "id": "iso-iec-23090-28-2026",
+      "title": "ISO/IEC 23090-28:2026 Information technology — Coded representation of immersive media — Part 28: Interchangeable scene-based media representations",
+      "publisher": "ISO/IEC",
+      "url": "https://www.iso.org/standard/84571.html",
+      "authority": "normative-standard",
+      "status": "Published International Standard; Edition 1; publication 2026-02",
+      "domains": ["immersive-media", "scene-based-media", "spatial", "audio", "visual", "tactile"],
+      "drift": "medium",
+      "reviewed_at": "2026-08-12",
+      "license_note": "Paywalled ISO/IEC standard; public abstract and lifecycle only",
+      "mechanisms_absorbed": ["scene-based immersive media can carry audio visual tactile and other representations", "user-facing interaction decomposes into spatial presentation media alternatives and multisensory faculties"]
+    },
+    {
+      "id": "iso-iec-cd-25420",
+      "title": "ISO/IEC CD 25420 Information technology — User interfaces — Multimodal interaction for customer service systems",
+      "publisher": "ISO/IEC",
+      "url": "https://www.iso.org/standard/90279.html",
+      "authority": "standards-draft",
+      "status": "Committee Draft under development; stage 30.60 shown in 2026 and approved for registration as DIS",
+      "domains": ["multimodal", "customer-service", "interoperability", "voice", "direct-input"],
+      "drift": "very-high",
+      "reviewed_at": "2026-08-12",
+      "license_note": "Paywalled draft; public abstract/lifecycle only; never treated as a published conformance requirement",
+      "mechanisms_absorbed": ["multimodal customer-service systems combine multiple interaction channels through an interoperable functional architecture", "the UI decisions decompose into modality cross-device and realtime faculties instead of needing a vertical-specific owner"]
+    }
+  ]
+}

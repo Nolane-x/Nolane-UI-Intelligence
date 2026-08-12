@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "assets": [
+    {"path":"evals/v2/rubric.json","kind":"rubric"},
+    {"path":"evals/v2/coverage/required-domains.json","kind":"coverage"},
+    {"path":"evals/v2/coverage/emerging-domains.json","kind":"cases"},
+    {"path":"evals/v2/coverage/standardized-emerging-domains-2.json","kind":"cases"},
+    {"path":"evals/v2/coverage/standardized-emerging-domains-3.json","kind":"cases"},
+    {"path":"evals/v2/coverage/standardized-emerging-domains-4.json","kind":"cases"}
+  ]
+}

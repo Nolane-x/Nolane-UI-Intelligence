@@ -1,0 +1,85 @@
+{
+  "version": 2,
+  "reviewed_at": "2026-08-12",
+  "authority_classes": ["normative-standard", "standards-draft", "w3c-accessibility"],
+  "sources": [
+    {
+      "id": "iso-iec-30150-1",
+      "title": "ISO/IEC 30150-1:2022 Information technology — Affective computing user interface (AUI) — Part 1: Model",
+      "publisher": "ISO/IEC",
+      "url": "https://www.iso.org/standard/78031.html",
+      "authority": "normative-standard",
+      "status": "Published International Standard 2022-06",
+      "domains": ["affective-computing", "adaptive-ui"],
+      "drift": "medium",
+      "reviewed_at": "2026-08-12",
+      "license_note": "Paywalled ISO text; only public abstract/status synthesized",
+      "mechanisms_absorbed": ["affective UI as a distinct interaction model", "separate affective model from implementation claims"]
+    },
+    {
+      "id": "iso-iec-dis-30150-31",
+      "title": "ISO/IEC DIS 30150-31 Affective computing user interface — Emotion annotation",
+      "publisher": "ISO/IEC",
+      "url": "https://www.iso.org/standard/82502.html",
+      "authority": "standards-draft",
+      "status": "Draft International Standard under development; close of voting",
+      "domains": ["affective-computing", "emotion-annotation", "streaming"],
+      "drift": "very-high",
+      "reviewed_at": "2026-08-12",
+      "license_note": "Draft status is explicit; never treated as a released requirement",
+      "mechanisms_absorbed": ["emotion annotation carries modality, timestamp, category, dimensional representation, and value", "draft-state freshness obligation"]
+    },
+    {
+      "id": "iso-iec-24216-1",
+      "title": "ISO/IEC 24216-1:2026 Information technology — User interface requirements and guidelines on avatars — Part 1: General",
+      "publisher": "ISO/IEC",
+      "url": "https://www.iso.org/standard/89280.html",
+      "authority": "normative-standard",
+      "status": "Published International Standard 2026-05",
+      "domains": ["avatar", "identity", "xr", "cyber-physical"],
+      "drift": "high",
+      "reviewed_at": "2026-08-12",
+      "license_note": "Public abstract/status only; standard prose not reproduced",
+      "mechanisms_absorbed": ["avatar categorization by presentation and function", "ethical and usability considerations across avatar lifecycle and contexts"]
+    },
+    {
+      "id": "iso-iec-ts-20071-40",
+      "title": "ISO/IEC TS 20071-40:2026 Information technology — User interface component accessibility — Part 40: Augmentative and alternative communication (AAC)",
+      "publisher": "ISO/IEC",
+      "url": "https://www.iso.org/standard/90280.html",
+      "authority": "normative-standard",
+      "status": "Published Technical Specification 2026-03",
+      "domains": ["aac", "accessibility", "communication"],
+      "drift": "high",
+      "reviewed_at": "2026-08-12",
+      "license_note": "Public abstract/status only; detailed paywalled content not reproduced",
+      "mechanisms_absorbed": ["AAC as a distinct ICT accessibility framework", "consistency across AAC software on multiple device classes"]
+    },
+    {
+      "id": "w3c-aac-symbol-registry",
+      "title": "W3C Alternative and Augmented Communication (AAC) Symbol Registry",
+      "publisher": "W3C",
+      "url": "https://www.w3.org/TR/aac-registry/",
+      "authority": "w3c-accessibility",
+      "status": "W3C Registry supporting WAI-Adapt symbols work",
+      "domains": ["aac", "symbols", "semantic-mapping", "personalization"],
+      "drift": "medium",
+      "reviewed_at": "2026-08-12",
+      "license_note": "W3C public specification; mechanisms summarized rather than copied",
+      "mechanisms_absorbed": ["concept identifiers can map among familiar AAC symbol sets", "symbol semantics are separate from a particular rendered symbol"]
+    },
+    {
+      "id": "w3c-wai-adapt-symbols",
+      "title": "WAI-Adapt: Symbols Module",
+      "publisher": "W3C",
+      "url": "https://www.w3.org/TR/adapt-symbols/",
+      "authority": "w3c-accessibility",
+      "status": "W3C specification work; status must be checked before conformance claims",
+      "domains": ["aac", "cognitive-accessibility", "personalization"],
+      "drift": "high",
+      "reviewed_at": "2026-08-12",
+      "license_note": "Public W3C specification; current status recorded without claiming universal platform support",
+      "mechanisms_absorbed": ["UI elements can expose concepts so user agents can render familiar AAC symbols", "personalized rendering should preserve semantic intent"]
+    }
+  ]
+}

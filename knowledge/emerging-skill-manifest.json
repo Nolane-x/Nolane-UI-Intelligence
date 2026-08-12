@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "wave": "adversarial-saturation-extension-1",
+  "skills": [
+    {"name":"designing-robotic-teleoperation-interfaces","family":"surface","parent":"routing-ui-work","output":"robotic-teleoperation-contract","ownership":"design embodied robot and remote-machine supervision around situational awareness, control authority, latency, autonomy transitions, and safe recovery"},
+    {"name":"designing-ambient-context-aware-interfaces","family":"surface","parent":"routing-ui-work","output":"ambient-context-contract","ownership":"design systems that sense or act without explicit foreground interaction while preserving context legibility, override, privacy, and multi-system conflict control"},
+    {"name":"designing-brain-computer-interface-ux","family":"modality","parent":"routing-ui-work","output":"bci-interaction-contract","ownership":"design neuroinput calibration, intent uncertainty, feedback, fatigue, privacy, fallback, and safety for brain-computer interaction without treating noisy signals as direct commands"},
+    {"name":"designing-supervisory-control-room-hmi","family":"safety","parent":"routing-ui-work","output":"supervisory-control-contract","ownership":"design process and control-room HMI around plant state, alarm priority, mode awareness, command verification, trend diagnosis, handoff, and abnormal-situation recovery"}
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "suite": "standardized-emerging-domains-2",
+  "cases": [
+    {
+      "id": "affect-wrong-inference",
+      "profile": {"specialized_ui_domains": ["affective-adaptive"], "risk_class": "privacy-sensitive"},
+      "failure": "interface silently infers stress from voice and changes purchase pressure without consent, confidence, explanation, or override",
+      "required_skills": ["designing-affective-adaptive-interfaces", "designing-permissions-and-consent", "designing-privacy-sensitive-interfaces"],
+      "must_find": ["inference uncertainty", "purpose-bound consent", "manual override", "non-manipulation"]
+    },
+    {
+      "id": "avatar-agency-confusion",
+      "profile": {"specialized_ui_domains": ["avatar-embodied"], "platform_surfaces": ["spatial-xr"]},
+      "failure": "photoreal avatar of a real employee is AI-controlled but presented without automation disclosure and uses visual-only speaker cues",
+      "required_skills": ["designing-avatar-embodied-representation", "critiquing-security-and-privacy", "critiquing-accessibility"],
+      "must_find": ["controller disclosure", "likeness authority", "nonvisual attribution", "impersonation risk"]
+    },
+    {
+      "id": "aac-prediction-overrides-author",
+      "profile": {"specialized_ui_domains": ["aac-communication"], "input_modalities": ["alternative-input"]},
+      "failure": "prediction reorders the board each turn and automatically speaks generated phrases as the user while offline state removes core communication",
+      "required_skills": ["designing-aac-communication-interfaces", "designing-accessible-interfaces", "critiquing-accessibility"],
+      "must_find": ["motor-planning stability", "authorship boundary", "offline essential communication", "access-method fit"]
+    }
+  ]
+}

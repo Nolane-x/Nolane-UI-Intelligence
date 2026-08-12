@@ -1,360 +1,358 @@
-"""Small deterministic validators for NUI contracts.
+"""NUI v2 deterministic validation facade.
 
-These functions intentionally validate only machine-checkable invariants. They do
-not pretend to score beauty, usability, or accessibility from JSON alone.
+v1 invariants remain in validators_legacy. This facade adds v2 industry routing,
+research authority/freshness, bounded-saturation provenance, and repository
+aggregation without changing v1 completion semantics.
 """
-
 from __future__ import annotations
 
+import importlib.util
 import json
-import re
 from pathlib import Path
 from typing import Any, Iterable
 
-ALLOWED_TOKEN_TIERS = {"primitive", "semantic", "component", "context"}
-RELEASE_OBLIGATION_STATUSES = {"PASS", "ACCEPTED_RISK"}
-RESOLVED_FINDING_STATUSES = {"repaired", "accepted-risk", "not-reproducible"}
-EVIDENCE_RESULTS = {"PASS", "FAIL", "UNKNOWN"}
-BANNED_PLACEHOLDERS = re.compile(r"\b(TODO|TBD|fill this in|implement later)\b", re.I)
+
+def _load_sibling(filename: str, module_name: str):
+    path = Path(__file__).with_name(filename)
+    spec = importlib.util.spec_from_file_location(module_name, path)
+    if spec is None or spec.loader is None:
+        raise ImportError(f"cannot load {path}")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
 
 
-def _load_json(path: Path) -> Any:
+if __package__:
+    from . import validators_legacy as _legacy
+    from . import industry as _industry
+    from . import emerging as _emerging
+    from . import emerging2 as _emerging2
+    from . import emerging3 as _emerging3
+    from . import emerging4 as _emerging4
+else:
+    _legacy = _load_sibling("validators_legacy.py", "nui_validators_legacy")
+    _industry = _load_sibling("industry.py", "nui_industry")
+    _emerging = _load_sibling("emerging.py", "nui_emerging")
+    _emerging2 = _load_sibling("emerging2.py", "nui_emerging2")
+    _emerging3 = _load_sibling("emerging3.py", "nui_emerging3")
+    _emerging4 = _load_sibling("emerging4.py", "nui_emerging4")
+
+validate_completion_packet = _legacy.validate_completion_packet
+validate_skill_graph = _legacy.validate_skill_graph
+validate_state_matrix = _legacy.validate_state_matrix
+validate_tokens = _legacy.validate_tokens
+validate_industry_atlas = _industry.validate_industry_atlas
+validate_source_ledger = _industry.validate_source_ledger
+validate_research_saturation = _industry.validate_research_saturation
+
+ATLAS_EXTENSIONS = (
+    ("knowledge/ui-domain-atlas-emerging.json", "emerging industry atlas", "emerging_coverage_cells"),
+    ("knowledge/ui-domain-atlas-emerging-2.json", "standardized emerging atlas", "standardized_emerging_coverage_cells"),
+    ("knowledge/ui-domain-atlas-emerging-3.json", "third emerging atlas", "third_emerging_coverage_cells"),
+    ("knowledge/ui-domain-atlas-emerging-4.json", "fourth emerging atlas", "fourth_emerging_coverage_cells"),
+)
+
+SOURCE_LEDGERS = (
+    ("knowledge/source-ledger.json", "source ledger", "research_source_count"),
+    ("knowledge/source-ledger-emerging.json", "emerging source ledger", "emerging_research_source_count"),
+    ("knowledge/source-ledger-emerging-2.json", "standardized emerging source ledger", "standardized_emerging_research_source_count"),
+    ("knowledge/source-ledger-emerging-3.json", "third emerging source ledger", "third_emerging_research_source_count"),
+    ("knowledge/source-ledger-emerging-4.json", "fourth emerging source ledger", "fourth_emerging_research_source_count"),
+    ("knowledge/source-ledger-final-sweep.json", "final sweep source ledger", "final_sweep_research_source_count"),
+)
+
+MANIFESTS = (
+    "knowledge/v2-skill-manifest.json",
+    "knowledge/emerging-skill-manifest.json",
+    "knowledge/emerging-skill-manifest-2.json",
+    "knowledge/emerging-skill-manifest-3.json",
+    "knowledge/emerging-skill-manifest-4.json",
+)
+
+REQUIRED_V2 = (
+    "knowledge/ui-domain-atlas.json",
+    "knowledge/research-radar.json",
+    "knowledge/research-saturation.json",
+    "knowledge/final-saturation-evidence.json",
+    *[item[0] for item in SOURCE_LEDGERS],
+    *[item[0] for item in ATLAS_EXTENSIONS],
+    *MANIFESTS,
+    "evals/v2/coverage/required-domains.json",
+    "evals/v2/coverage/emerging-domains.json",
+    "evals/v2/coverage/standardized-emerging-domains-2.json",
+    "evals/v2/coverage/standardized-emerging-domains-3.json",
+    "evals/v2/coverage/standardized-emerging-domains-4.json",
+    "evals/v2/rubric.json",
+)
+
+
+def _load(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def _parse_frontmatter(text: str) -> dict[str, str]:
-    if not text.startswith("---\n"):
-        return {}
-    end = text.find("\n---\n", 4)
-    if end < 0:
-        return {}
-    meta: dict[str, str] = {}
-    for line in text[4:end].splitlines():
-        if ":" not in line:
-            continue
-        key, value = line.split(":", 1)
-        meta[key.strip()] = value.strip().strip('"').strip("'")
-    return meta
+def mandatory_routes_for_profile(profile: dict[str, Any]) -> set[str]:
+    return (
+        _industry.mandatory_routes_for_profile(profile)
+        | _emerging.mandatory_emerging_routes(profile)
+        | _emerging2.mandatory_standardized_emerging_routes(profile)
+        | _emerging3.mandatory_third_extension_routes(profile)
+        | _emerging4.mandatory_fourth_extension_routes(profile)
+    )
 
 
-def validate_skill_graph(graph: dict[str, Any], skill_names: Iterable[str]) -> list[str]:
-    errors: list[str] = []
-    declared = graph.get("skills")
-    if not isinstance(declared, dict) or not declared:
-        return ["skill graph must declare a non-empty skills object"]
-
-    actual = set(skill_names)
-    for name, node in declared.items():
-        if name not in actual:
-            errors.append(f"skill {name} is declared but its implementation is missing")
-        if not isinstance(node, dict):
-            errors.append(f"skill {name} node must be an object")
-            continue
-        parent = node.get("parent")
-        if parent is not None and parent not in declared:
-            errors.append(f"skill {name} references unknown parent {parent}")
-
-    undeclared = actual - set(declared)
-    for name in sorted(undeclared):
-        errors.append(f"skill {name} exists on disk but is not declared in graph")
-
-    for start in declared:
-        seen: set[str] = set()
-        current: str | None = start
-        while current is not None and current in declared:
-            if current in seen:
-                errors.append(f"parent cycle detected from skill {start} through {current}")
-                break
-            seen.add(current)
-            parent = declared[current].get("parent") if isinstance(declared[current], dict) else None
-            current = parent
-
-    lifecycle = graph.get("lifecycle", [])
-    if len(lifecycle) != len(set(lifecycle)):
-        errors.append("lifecycle contains duplicate states")
-    if lifecycle and (lifecycle[0] != "INTAKE" or lifecycle[-1] != "RELEASED"):
-        errors.append("lifecycle must begin at INTAKE and end at RELEASED")
-    if "RECOVERY" not in graph.get("exception_states", []):
-        errors.append("exception states must include RECOVERY")
-    return errors
+def validate_mandatory_routes(profile: dict[str, Any], selected_skills: Iterable[str]) -> dict[str, Any]:
+    required = mandatory_routes_for_profile(profile)
+    missing = sorted(required - set(selected_skills))
+    return {"valid": not missing, "required_routes": sorted(required), "missing_routes": missing}
 
 
-def validate_state_matrix(matrix: dict[str, Any]) -> dict[str, Any]:
-    required = set(matrix.get("required_states", []))
-    applicable = set(matrix.get("applicable_states", []))
-    inapplicable = set(matrix.get("explicitly_inapplicable", []))
-    accounted = applicable | inapplicable
-    unaccounted = sorted(required - accounted)
-    contradictions = sorted(applicable & inapplicable)
-    errors: list[str] = []
-    if unaccounted:
-        errors.append(f"required states are unaccounted: {unaccounted}")
-    if contradictions:
-        errors.append(f"states cannot be both applicable and inapplicable: {contradictions}")
-
-    known = required | applicable | inapplicable
-    for transition in matrix.get("transitions", []):
-        if not isinstance(transition, dict):
-            errors.append("transition must be an object")
-            continue
-        for key in ("from", "to"):
-            state = transition.get(key)
-            if state not in known:
-                errors.append(f"transition references undeclared state {state!r}")
-
-    return {
-        "valid": not errors,
-        "errors": errors,
-        "unaccounted_states": unaccounted,
-        "contradictory_states": contradictions,
-    }
-
-
-def validate_tokens(model: dict[str, Any]) -> dict[str, Any]:
-    tokens = model.get("tokens", {})
-    if not isinstance(tokens, dict):
-        return {"valid": False, "errors": ["tokens must be an object"], "invalid_tiers": [], "cycles": []}
-
-    invalid_tiers: list[str] = []
-    errors: list[str] = []
-    for name, token in tokens.items():
-        if not isinstance(token, dict):
-            errors.append(f"token {name} must be an object")
-            continue
-        if token.get("tier") not in ALLOWED_TOKEN_TIERS:
-            invalid_tiers.append(name)
-        alias = token.get("alias")
-        if alias is not None and alias not in tokens:
-            errors.append(f"token {name} aliases missing token {alias}")
-
-    cycles: list[list[str]] = []
-    for start in tokens:
-        order: list[str] = []
-        index: dict[str, int] = {}
-        current: str | None = start
-        while current is not None and current in tokens:
-            if current in index:
-                cycle = order[index[current] :] + [current]
-                if not any(set(existing) == set(cycle) for existing in cycles):
-                    cycles.append(cycle)
-                break
-            index[current] = len(order)
-            order.append(current)
-            token = tokens[current]
-            current = token.get("alias") if isinstance(token, dict) else None
-
-    if invalid_tiers:
-        errors.append(f"invalid token tiers: {sorted(invalid_tiers)}")
-    if cycles:
-        errors.append(f"token alias cycles detected: {cycles}")
-    return {"valid": not errors, "errors": errors, "invalid_tiers": sorted(invalid_tiers), "cycles": cycles}
-
-
-def validate_completion_packet(
-    packet: dict[str, Any], root: Path | str, expected_revision: str | None = None
+def validate_bounded_saturation(
+    record: dict[str, Any],
+    final_evidence: dict[str, Any],
+    *,
+    source_ids: Iterable[str] | None = None,
+    skill_names: Iterable[str] | None = None,
 ) -> dict[str, Any]:
-    """Validate evidence-bound release claims.
-
-    The packet may contain failing/unknown evidence as historical context. What it
-    may not do is close a PASS obligation with anything other than explicitly
-    referenced PASS evidence. Accepted risk preserves its evidence and requires a
-    named authority instead of laundering a failure into PASS.
-    """
-
+    """Validate a bounded SATURATED claim and, when supplied, its references."""
     errors: list[str] = []
-    required = {
-        "packet_id", "artifact_revision", "phase", "task_profile", "obligations",
-        "evidence", "findings", "checks", "claim", "bounds", "unknowns", "decision",
-    }
-    missing = sorted(required - set(packet))
-    if missing:
-        errors.append(f"completion packet missing fields: {missing}")
+    dimensions = ("breadth", "depth", "contradictions", "novelty", "freshness")
+    known_sources = set(source_ids) if source_ids is not None else None
+    known_skills = set(skill_names) if skill_names is not None else None
 
-    artifact_revision = packet.get("artifact_revision")
-    if not isinstance(artifact_revision, str) or not artifact_revision.strip():
-        errors.append("artifact_revision must be a non-empty string")
-    if expected_revision is not None and artifact_revision != expected_revision:
-        errors.append(
-            f"artifact_revision {artifact_revision!r} does not match expected revision {expected_revision!r}"
-        )
+    if record.get("decision") != "SATURATED":
+        errors.append("bounded saturation validation requires decision SATURATED")
+    if not isinstance(record.get("as_of"), str) or not record.get("as_of", "").strip():
+        errors.append("SATURATED decision requires a non-empty as_of boundary")
 
-    if packet.get("phase") != "VERIFIED":
-        errors.append("completion packet phase must be VERIFIED")
-
-    evidence_by_id: dict[str, dict[str, Any]] = {}
-    evidence_required = {"evidence_id", "method", "source", "scope", "claim", "observed_at", "result"}
-    for evidence in packet.get("evidence", []):
-        if not isinstance(evidence, dict):
-            errors.append("evidence record must be an object")
+    evidence = record.get("evidence")
+    if not isinstance(evidence, dict):
+        errors.append("SATURATED decision requires evidence object")
+        evidence = {}
+    for dimension in dimensions:
+        item = evidence.get(dimension)
+        if not isinstance(item, dict):
+            errors.append(f"SATURATED decision missing {dimension} evidence")
             continue
-        missing_evidence = sorted(evidence_required - set(evidence))
-        if missing_evidence:
-            errors.append(
-                f"evidence {evidence.get('evidence_id', '<unknown>')} missing fields: {missing_evidence}"
-            )
+        if item.get("status") != "PASS":
+            errors.append(f"SATURATED decision requires PASS {dimension} evidence")
+        if not isinstance(item.get("criterion"), str) or not item.get("criterion", "").strip():
+            errors.append(f"SATURATED decision requires falsifiable {dimension} criterion")
+        if not isinstance(item.get("observed"), str) or not item.get("observed", "").strip():
+            errors.append(f"SATURATED decision requires observed {dimension} evidence")
+
+    reopen = record.get("reopen_conditions")
+    if not isinstance(reopen, list) or len([x for x in reopen if isinstance(x, str) and x.strip()]) < 5:
+        errors.append("SATURATED decision requires at least five explicit reopen conditions")
+
+    if not isinstance(final_evidence, dict):
+        errors.append("final saturation evidence must be an object")
+        final_evidence = {}
+    if final_evidence.get("wave_id") != record.get("wave_id"):
+        errors.append("final saturation evidence wave_id must match research saturation wave_id")
+    if final_evidence.get("decision") != "NO_NEW_NONDECOMPOSABLE_OWNER":
+        errors.append("final saturation evidence must declare NO_NEW_NONDECOMPOSABLE_OWNER")
+
+    sweeps = final_evidence.get("sweeps")
+    if not isinstance(sweeps, list) or len(sweeps) < 5:
+        errors.append("final saturation evidence requires at least five research sweeps")
+        sweeps = []
+    if sweeps:
+        final = sweeps[-1]
+        if not isinstance(final, dict):
+            errors.append("final research sweep must be an object")
+        else:
+            if final.get("new_owner_count") != 0:
+                errors.append("final research sweep new_owner_count must be zero before SATURATED")
+            checks = final.get("decomposition_checks")
+            if not isinstance(checks, list) or len(checks) < 6:
+                errors.append("final zero-novelty sweep requires at least six decomposition checks")
+                checks = []
+            seen_sources: set[str] = set()
+            for index, check in enumerate(checks):
+                if not isinstance(check, dict):
+                    errors.append(f"decomposition check {index} must be an object")
+                    continue
+                source_id = check.get("source_id")
+                if not isinstance(source_id, str) or not source_id.strip():
+                    errors.append(f"decomposition check {index} requires source_id")
+                else:
+                    if source_id in seen_sources:
+                        errors.append(f"duplicate decomposition source_id {source_id}")
+                    seen_sources.add(source_id)
+                    if known_sources is not None and source_id not in known_sources:
+                        errors.append(f"decomposition check references unknown source {source_id}")
+
+                mapped = check.get("mapped_skills")
+                if not isinstance(mapped, list) or not mapped or not all(isinstance(x, str) and x for x in mapped):
+                    errors.append(f"decomposition check {source_id or index} requires mapped_skills")
+                elif known_skills is not None:
+                    unknown = sorted(set(mapped) - known_skills)
+                    if unknown:
+                        errors.append(f"decomposition check {source_id or index} references unknown skills {unknown}")
+                if not isinstance(check.get("reason"), str) or not check.get("reason", "").strip():
+                    errors.append(f"decomposition check {source_id or index} requires reason")
+
+    boundary = final_evidence.get("saturation_boundary")
+    if not isinstance(boundary, dict):
+        errors.append("final saturation evidence requires saturation_boundary")
+    else:
+        for key in ("included", "not_claimed", "reopen_on"):
+            if not isinstance(boundary.get(key), list) or not boundary.get(key):
+                errors.append(f"saturation_boundary requires non-empty {key}")
+        not_claimed = " ".join(str(x).lower() for x in boundary.get("not_claimed", []))
+        if "future" not in not_claimed or "superiority" not in not_claimed:
+            errors.append("saturation boundary must explicitly reject permanent completeness and unsupported superiority")
+
+    return {"valid": not errors, "errors": errors, "decision": record.get("decision"), "sweep_count": len(sweeps)}
+
+
+def validate_research_radar(radar: dict[str, Any], ledgers: Iterable[dict[str, Any]]) -> dict[str, Any]:
+    """Validate source references and proactive coverage for high-drift research."""
+    errors: list[str] = []
+    warnings: list[str] = []
+    sources: dict[str, dict[str, Any]] = {}
+    for ledger_index, ledger in enumerate(ledgers):
+        if not isinstance(ledger, dict):
+            errors.append(f"source ledger {ledger_index} must be an object")
             continue
-        eid = evidence.get("evidence_id")
-        if not isinstance(eid, str) or not eid:
-            errors.append("evidence_id must be a non-empty string")
+        for source in ledger.get("sources", []):
+            if not isinstance(source, dict):
+                errors.append(f"source ledger {ledger_index} contains non-object source")
+                continue
+            source_id = source.get("id")
+            if not isinstance(source_id, str) or not source_id.strip():
+                errors.append(f"source ledger {ledger_index} contains source without id")
+                continue
+            if source_id in sources:
+                errors.append(f"duplicate source id across ledgers: {source_id}")
+            sources[source_id] = source
+
+    if not isinstance(radar, dict):
+        return {"valid": False, "errors": errors + ["research radar must be an object"], "warnings": warnings, "missing_very_high_drift": [], "watched_count": 0, "source_count": len(sources)}
+    if not isinstance(radar.get("as_of"), str) or not radar.get("as_of", "").strip():
+        errors.append("research radar requires non-empty as_of")
+    if not isinstance(radar.get("policy"), str) or not radar.get("policy", "").strip():
+        errors.append("research radar requires non-empty policy")
+
+    watch = radar.get("watch")
+    if not isinstance(watch, list) or not watch:
+        errors.append("research radar requires non-empty watch list")
+        watch = []
+    watched: set[str] = set()
+    for index, item in enumerate(watch):
+        if not isinstance(item, dict):
+            errors.append(f"research radar watch {index} must be an object")
             continue
-        if eid in evidence_by_id:
-            errors.append(f"duplicate evidence_id {eid}")
-        evidence_by_id[eid] = evidence
-        if evidence.get("result") not in EVIDENCE_RESULTS:
-            errors.append(f"evidence {eid} has invalid result {evidence.get('result')}")
-
-    accepted_risk = False
-    for obligation in packet.get("obligations", []):
-        if not isinstance(obligation, dict):
-            errors.append("obligation record must be an object")
+        source_id = item.get("source_id")
+        if not isinstance(source_id, str) or not source_id.strip():
+            errors.append(f"research radar watch {index} requires source_id")
             continue
-        oid = obligation.get("id", "<unknown>")
-        status = obligation.get("status")
-        if status not in RELEASE_OBLIGATION_STATUSES:
-            errors.append(f"obligation {oid} is unresolved with status {status}")
-            continue
+        if source_id in watched:
+            errors.append(f"duplicate research radar watch for {source_id}")
+        watched.add(source_id)
+        if source_id not in sources:
+            errors.append(f"research radar watch references unknown source {source_id}")
+        for field in ("cadence", "trigger", "reason"):
+            if not isinstance(item.get(field), str) or not item.get(field, "").strip():
+                errors.append(f"research radar watch {source_id} requires {field}")
 
-        refs = obligation.get("evidence_refs")
-        if not isinstance(refs, list) or not refs:
-            errors.append(f"obligation {oid} must reference release evidence")
-            refs = []
-        missing_refs = [ref for ref in refs if ref not in evidence_by_id]
-        if missing_refs:
-            errors.append(f"obligation {oid} references missing evidence {missing_refs}")
-        referenced = [evidence_by_id[ref] for ref in refs if ref in evidence_by_id]
-
-        if status == "PASS":
-            for evidence in referenced:
-                if evidence.get("result") != "PASS":
-                    errors.append(
-                        f"obligation {oid} is PASS but evidence {evidence.get('evidence_id')} is {evidence.get('result')}"
-                    )
-
-        if status == "ACCEPTED_RISK":
-            accepted_risk = True
-            acceptance = obligation.get("acceptance")
-            if not isinstance(acceptance, dict):
-                errors.append(f"accepted-risk obligation {oid} is missing acceptance authority")
-            else:
-                for key in ("accepted_by", "authority", "scope"):
-                    value = acceptance.get(key)
-                    if not isinstance(value, str) or not value.strip():
-                        errors.append(f"accepted-risk obligation {oid} acceptance is missing {key}")
-
-    for finding in packet.get("findings", []):
-        if not isinstance(finding, dict):
-            errors.append("finding record must be an object")
-            continue
-        severity = finding.get("severity")
-        status = finding.get("status")
-        if severity in {"critical", "major"} and status not in RESOLVED_FINDING_STATUSES:
-            errors.append(
-                f"{severity} finding {finding.get('finding_id', '<unknown>')} remains unresolved with status {status}"
-            )
-
-    bounds = packet.get("bounds")
-    if not isinstance(bounds, list) or not any(str(item).strip() for item in bounds):
-        errors.append("completion claim must include at least one explicit bound")
-
-    checks = packet.get("checks")
-    if not isinstance(checks, dict) or not checks:
-        errors.append("completion packet must declare deterministic checks")
-    elif any(value != "PASS" for value in checks.values()):
-        errors.append("all declared deterministic checks must be PASS")
-
-    expected_decision = "BLOCKED" if errors else ("PASS_WITH_ACCEPTED_RISK" if accepted_risk else "PASS")
-    declared_decision = packet.get("decision")
-    if declared_decision not in {"PASS", "PASS_WITH_ACCEPTED_RISK", "BLOCKED"}:
-        errors.append(f"declared decision is missing or invalid: {declared_decision}")
-    elif declared_decision != expected_decision:
-        errors.append(
-            f"declared decision {declared_decision} does not match computed decision {expected_decision}"
-        )
-
-    decision = "BLOCKED" if errors else expected_decision
-    return {"decision": decision, "errors": errors, "root": str(Path(root))}
+    very_high = {sid for sid, source in sources.items() if source.get("drift") == "very-high"}
+    missing = sorted(very_high - watched)
+    errors.extend(f"very-high-drift source is not watched: {sid}" for sid in missing)
+    high_unwatched = sorted(sid for sid, source in sources.items() if source.get("drift") == "high" and sid not in watched)
+    if high_unwatched:
+        warnings.append(f"high-drift sources not proactively watched: {high_unwatched}")
+    return {"valid": not errors, "errors": errors, "warnings": warnings, "missing_very_high_drift": missing, "watched_count": len(watched), "source_count": len(sources)}
 
 
 def validate_repository(root: Path | str) -> dict[str, Any]:
     root = Path(root)
-    errors: list[str] = []
-    warnings: list[str] = []
+    base = _legacy.validate_repository(root)
+    errors = list(base.get("errors", []))
+    warnings = list(base.get("warnings", []))
+    metrics = dict(base.get("metrics", {}))
 
-    required_paths = [
-        "README.md", "AGENTS.md", "LICENSE", "nui.config.json", "skills/skill-graph.json",
-        "schemas/ui-task-profile.schema.json", "schemas/finding.schema.json",
-        "schemas/evidence.schema.json", "schemas/completion-packet.schema.json",
-        "adapters/capabilities.json", "docs/INSTALL.md", "docs/USAGE.md",
-        "docs/research/SOURCES.md", "docs/research/SYNTHESIS.md", "evals/rubric.json",
-    ]
-    for relative in required_paths:
+    for relative in REQUIRED_V2:
         if not (root / relative).is_file():
-            errors.append(f"missing required repository file: {relative}")
+            errors.append(f"missing required v2 repository file: {relative}")
 
-    graph_path = root / "skills/skill-graph.json"
     graph: dict[str, Any] = {}
-    if graph_path.is_file():
-        try:
-            graph = _load_json(graph_path)
-        except Exception as exc:
-            errors.append(f"invalid skill graph JSON: {exc}")
+    atlas: dict[str, Any] = {}
+    try:
+        graph = _load(root / "skills/skill-graph.json")
+        atlas = _load(root / "knowledge/ui-domain-atlas.json")
+        result = validate_industry_atlas(atlas, graph)
+        errors.extend(f"industry atlas: {x}" for x in result["errors"])
+        metrics["industry_coverage_cells"] = result["coverage_cell_count"]
+        for relative, label, metric in ATLAS_EXTENSIONS:
+            result = validate_industry_atlas(_load(root / relative), graph)
+            errors.extend(f"{label}: {x}" for x in result["errors"])
+            metrics[metric] = result["coverage_cell_count"]
+    except Exception as exc:
+        errors.append(f"invalid industry atlas/graph: {exc}")
 
-    disk_skills: set[str] = set()
-    skill_root = root / "skills"
-    if skill_root.is_dir():
-        for child in skill_root.iterdir():
-            if child.is_dir() and (child / "SKILL.md").is_file():
-                disk_skills.add(child.name)
+    all_ledgers: list[dict[str, Any]] = []
+    all_source_ids: set[str] = set()
+    primary_ledger: dict[str, Any] = {}
+    try:
+        for index, (relative, label, metric) in enumerate(SOURCE_LEDGERS):
+            ledger = _load(root / relative)
+            if index == 0:
+                primary_ledger = ledger
+            all_ledgers.append(ledger)
+            result = validate_source_ledger(ledger)
+            errors.extend(f"{label}: {x}" for x in result["errors"])
+            warnings.extend(f"{label}: {x}" for x in result["warnings"])
+            metrics[metric] = result["source_count"]
+            all_source_ids.update(source.get("id") for source in ledger.get("sources", []) if isinstance(source, dict) and isinstance(source.get("id"), str))
 
-    if graph:
-        errors.extend(validate_skill_graph(graph, disk_skills))
-        for name, node in graph.get("skills", {}).items():
-            path = root / "skills" / name / "SKILL.md"
-            if not path.is_file():
+        radar_result = validate_research_radar(_load(root / "knowledge/research-radar.json"), all_ledgers)
+        errors.extend(f"research radar: {x}" for x in radar_result["errors"])
+        warnings.extend(f"research radar: {x}" for x in radar_result["warnings"])
+        metrics["research_radar_watches"] = radar_result["watched_count"]
+        metrics["research_radar_source_count"] = radar_result["source_count"]
+    except Exception as exc:
+        errors.append(f"invalid source ledger or research radar: {exc}")
+
+    try:
+        saturation = _load(root / "knowledge/research-saturation.json")
+        result = validate_research_saturation(saturation, primary_ledger, atlas)
+        errors.extend(f"research saturation: {x}" for x in result["errors"])
+        metrics["research_saturation"] = result.get("decision")
+        if saturation.get("decision") == "SATURATED":
+            bounded = validate_bounded_saturation(
+                saturation,
+                _load(root / "knowledge/final-saturation-evidence.json"),
+                source_ids=all_source_ids,
+                skill_names=set(graph.get("skills", {})),
+            )
+            errors.extend(f"bounded saturation: {x}" for x in bounded["errors"])
+            metrics["final_saturation_sweeps"] = bounded["sweep_count"]
+    except Exception as exc:
+        errors.append(f"invalid research saturation record: {exc}")
+
+    try:
+        declared = graph.get("skills", {}) if graph else {}
+        items = [item for relative in MANIFESTS for item in _load(root / relative).get("skills", [])]
+        metrics["v2_skill_count"] = len(items)
+        for item in items:
+            name = item.get("name")
+            node = declared.get(name)
+            if not node:
+                errors.append(f"v2 manifest skill {name} is not declared in skill graph")
                 continue
-            text = path.read_text(encoding="utf-8")
-            meta = _parse_frontmatter(text)
-            if meta.get("name") != name:
-                errors.append(f"skill {name} frontmatter name mismatch")
-            description = meta.get("description", "")
-            if not description.startswith("Use when"):
-                errors.append(f"skill {name} description must start with 'Use when'")
-            if len(description) > 500:
-                errors.append(f"skill {name} description exceeds 500 characters")
-            parent = node.get("parent") if isinstance(node, dict) else None
-            if parent is not None:
-                if "## Parent Contract" not in text:
-                    errors.append(f"skill {name} is missing Parent Contract section")
-                if parent not in text:
-                    errors.append(f"skill {name} does not name parent {parent}")
-            if BANNED_PLACEHOLDERS.search(text):
-                errors.append(f"skill {name} contains placeholder language")
+            for field in ("family", "parent", "output"):
+                if node.get(field) != item.get(field):
+                    errors.append(f"v2 manifest/graph mismatch for {name}.{field}")
+    except Exception as exc:
+        errors.append(f"invalid v2 skill manifest: {exc}")
 
-    for path in sorted((root / "schemas").glob("*.json")) if (root / "schemas").is_dir() else []:
-        try:
-            _load_json(path)
-        except Exception as exc:
-            errors.append(f"invalid schema JSON {path.relative_to(root)}: {exc}")
+    return {"valid": not errors, "errors": errors, "warnings": warnings, "metrics": metrics}
 
-    eval_count = 0
-    if (root / "evals").is_dir():
-        for path in sorted((root / "evals").rglob("*.json")):
-            eval_count += 1
-            try:
-                _load_json(path)
-            except Exception as exc:
-                errors.append(f"invalid eval JSON {path.relative_to(root)}: {exc}")
 
-    if not disk_skills:
-        warnings.append("no skill implementations were found")
-
-    return {
-        "valid": not errors,
-        "errors": errors,
-        "warnings": warnings,
-        "metrics": {
-            "skill_count": len(disk_skills),
-            "declared_skill_count": len(graph.get("skills", {})) if graph else 0,
-            "eval_json_files": eval_count,
-        },
-    }
+__all__ = [
+    "validate_completion_packet", "validate_repository", "validate_skill_graph",
+    "validate_state_matrix", "validate_tokens", "validate_industry_atlas",
+    "validate_source_ledger", "validate_research_saturation", "validate_bounded_saturation",
+    "validate_research_radar", "validate_mandatory_routes", "mandatory_routes_for_profile",
+]

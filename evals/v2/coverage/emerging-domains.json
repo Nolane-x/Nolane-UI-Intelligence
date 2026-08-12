@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "cases": [
+    {"id":"robot-latency","profile":{"platform_surfaces":["robotics-teleoperation"],"input_modalities":["gamepad"],"ai_role":"agentic","risk_class":"safety-critical","temporal_behaviors":["realtime"]},"must_route":["designing-robotic-teleoperation-interfaces","engineering-human-factors","designing-agent-autonomy-and-control","critiquing-human-factors-and-safety"]},
+    {"id":"ambient-inference","profile":{"platform_surfaces":["ambient-context-aware"],"input_modalities":[],"ai_role":"assistive","risk_class":"privacy-sensitive","temporal_behaviors":["background"]},"must_route":["designing-ambient-context-aware-interfaces","designing-privacy-sensitive-interfaces","critiquing-ai-trust-and-agency"]},
+    {"id":"bci-command","profile":{"platform_surfaces":["desktop"],"input_modalities":["neuroinput"],"ai_role":"none","risk_class":"medical","temporal_behaviors":["realtime"]},"must_route":["designing-brain-computer-interface-ux","engineering-human-factors","critiquing-input-modality"]},
+    {"id":"control-room","profile":{"platform_surfaces":["supervisory-control-room"],"input_modalities":["keyboard","pointer"],"ai_role":"assistive","risk_class":"safety-critical","temporal_behaviors":["realtime","interruption-sensitive"]},"must_route":["designing-supervisory-control-room-hmi","engineering-human-factors","critiquing-human-factors-and-safety","critiquing-cognitive-load"]}
+  ]
+}

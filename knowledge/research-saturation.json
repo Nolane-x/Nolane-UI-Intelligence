@@ -1,0 +1,43 @@
+{
+  "version": 2,
+  "wave_id": "ui-industry-expansion-2026-08-12",
+  "as_of": "2026-08-12T13:10:00+07:00",
+  "decision": "SATURATED",
+  "evidence": {
+    "breadth": {
+      "status": "PASS",
+      "criterion": "every mandatory atlas cell created by this wave has explicit owner and verifier skills, and the final primary-source sweep exposes no unowned material surface, modality, AI role, risk class, temporal class, social context, or specialist decision class",
+      "observed": "The core atlas plus four adversarial extensions cover the general, emerging, accessibility, safety-critical and specialist boundaries discovered in the wave. The graph contains 125 declared skills, and extension-specific atlas validators require owner and verifier nodes rather than prose-only coverage."
+    },
+    "depth": {
+      "status": "PASS",
+      "criterion": "high-risk and high-drift domains are grounded in current primary authority and represented by distinct decision/evidence/output contracts rather than shallow topic labels",
+      "observed": "The wave reviewed current W3C, ISO/IEC, IEC, FAA, platform and regulator sources across accessibility, AI, human factors, safety, haptics, XR, automotive, flight deck, robotics, BCI, control rooms, affective UI, avatars, AAC, accessible media and cross-device actions. New skills are depth-gated and require Decision Model, Evidence, Output Contract and Failure Traps."
+    },
+    "contradictions": {
+      "status": "PASS",
+      "criterion": "source status and authority conflicts are preserved or resolved by scope instead of flattened into one rule",
+      "observed": "WCAG 2.2 remains the current normative web conformance baseline used by this wave while WCAG 3 is explicitly draft; ISO/FDIS/CD/AWI documents remain drafts; published standards remain separate; platform visual trends remain contextual; sign language is separated from AAC symbols/captions; certification guidance does not become a generic UI compliance claim."
+    },
+    "novelty": {
+      "status": "PASS",
+      "criterion": "after successive adversarial sweeps, the final primary-source decomposition sweep adds zero material non-decomposable owner classes",
+      "observed": "Successive sweeps added 4, then 3, then 4, then 2 genuinely new owners. The final sweep added zero: recent standards on information presentation, HCD self-assessment, NUI evaluation, intelligent systems, voice mobility, haptics, immersive media, rehabilitation robotics and multimodal customer service all decomposed into existing faculties. Evidence is recorded in knowledge/final-saturation-evidence.json."
+    },
+    "freshness": {
+      "status": "PASS",
+      "criterion": "high-drift sources are reviewed against the current date, draft status is explicit, and the system carries conditions that force future research waves to reopen",
+      "observed": "Sources were reviewed on 2026-08-12, including 2025-2026 standards and platform guidance. Drafts are tagged by lifecycle stage, current platform/AI sources are treated as high drift, and reopen conditions cover standards, regulation, platforms, modalities, AI behavior, evidence invalidation and atlas ownership loss."
+    }
+  },
+  "reopen_conditions": [
+    "new normative or regulatory guidance",
+    "new platform surface or interaction environment",
+    "new input or output modality",
+    "new material specialist UI decision class that cannot decompose into existing owners",
+    "material AI or generative-UI behavior or platform change",
+    "new empirical evidence invalidates an existing mechanism",
+    "mandatory atlas cell becomes unowned or unverifiable",
+    "a high-drift source exceeds its research-radar freshness window"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "version": 2,
+  "extension": "adversarial-saturation-extension-3",
+  "as_of": "2026-08-12",
+  "axes": {
+    "surfaces": [],
+    "input_modalities": [],
+    "ai_roles": [],
+    "risk_classes": [],
+    "temporal_behaviors": [],
+    "social_contexts": [],
+    "specialized_ui_domains": [
+      "cross-device-action-equivalence",
+      "accessibility-settings",
+      "accessible-media",
+      "sign-language-presentation"
+    ]
+  },
+  "coverage_cells": [
+    {
+      "id": "specialist:cross-device-action-equivalence",
+      "axis": "specialized_ui_domain",
+      "value": "cross-device-action-equivalence",
+      "owner_skills": ["designing-cross-device-action-equivalence"],
+      "verifier_skills": ["critiquing-input-modality", "critiquing-platform-fit"]
+    },
+    {
+      "id": "specialist:accessibility-settings",
+      "axis": "specialized_ui_domain",
+      "value": "accessibility-settings",
+      "owner_skills": ["designing-accessibility-settings-and-profiles"],
+      "verifier_skills": ["critiquing-accessibility"]
+    },
+    {
+      "id": "specialist:accessible-media",
+      "axis": "specialized_ui_domain",
+      "value": "accessible-media",
+      "owner_skills": ["designing-accessible-media-alternatives"],
+      "verifier_skills": ["critiquing-accessibility", "critiquing-localization"]
+    },
+    {
+      "id": "specialist:sign-language-presentation",
+      "axis": "specialized_ui_domain",
+      "value": "sign-language-presentation",
+      "owner_skills": ["designing-sign-language-presentation"],
+      "verifier_skills": ["critiquing-accessibility", "critiquing-localization"]
+    }
+  ]
+}

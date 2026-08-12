@@ -1,0 +1,72 @@
+{
+  "version": 2,
+  "reviewed_at": "2026-08-12",
+  "authority_classes": ["regulatory-guidance", "standards-draft", "normative-standard"],
+  "sources": [
+    {
+      "id": "faa-flight-deck-human-factors-2026",
+      "title": "Technical Discipline: Flight Deck Human Factors",
+      "publisher": "Federal Aviation Administration",
+      "url": "https://www.faa.gov/aircraft/air_cert/step/disciplines/flight_deck_human_factors",
+      "authority": "regulatory-guidance",
+      "status": "FAA current discipline page; updated 2026-04-09",
+      "domains": ["flight-deck", "human-factors", "automation", "alerting", "workload", "certification"],
+      "drift": "high",
+      "reviewed_at": "2026-08-12",
+      "license_note": "Public FAA guidance summarized; linked documents remain authoritative",
+      "mechanisms_absorbed": ["flight deck HMI is a certification-oriented human-factors discipline", "automation alerting workload complexity fatigue and design-related error are coupled concerns"]
+    },
+    {
+      "id": "faa-ac-20-175",
+      "title": "AC 20-175 — Controls for Flight Deck Systems",
+      "publisher": "Federal Aviation Administration",
+      "url": "https://www.faa.gov/regulations_policies/advisory_circulars/index.cfm/go/document.information/documentid/1019692",
+      "authority": "regulatory-guidance",
+      "status": "Active Advisory Circular",
+      "domains": ["flight-deck", "controls", "physical-input", "touchscreen", "cursor-control"],
+      "drift": "medium",
+      "reviewed_at": "2026-08-12",
+      "license_note": "Public FAA document; operational/certification context must be checked for each project",
+      "mechanisms_absorbed": ["flight-deck control devices require human-factors evaluation", "traditional and multifunction controls must be assessed in operational context"]
+    },
+    {
+      "id": "faa-ac-25-1302-1",
+      "title": "AC 25.1302-1 — Installed Systems and Equipment for Use by the Flightcrew",
+      "publisher": "Federal Aviation Administration",
+      "url": "https://www.faa.gov/regulations_policies/advisory_circulars/index.cfm/go/document.information/documentID/1021086",
+      "authority": "regulatory-guidance",
+      "status": "Active Advisory Circular",
+      "domains": ["flight-deck", "flightcrew-error", "controls", "displays", "system-behavior", "integration"],
+      "drift": "medium",
+      "reviewed_at": "2026-08-12",
+      "license_note": "Public FAA document summarized rather than reproduced",
+      "mechanisms_absorbed": ["design should minimize design-related flightcrew errors", "remaining errors should be detectable and manageable by flightcrew"]
+    },
+    {
+      "id": "iso-fdis-9241-130",
+      "title": "ISO/FDIS 9241-130 Ergonomics of human-system interaction — User assistance within interactive systems",
+      "publisher": "ISO",
+      "url": "https://www.iso.org/standard/80772.html",
+      "authority": "standards-draft",
+      "status": "Final Draft International Standard under development; approval phase in 2026",
+      "domains": ["user-assistance", "help", "guidance", "human-system-interaction"],
+      "drift": "very-high",
+      "reviewed_at": "2026-08-12",
+      "license_note": "Paywalled draft; only public status/abstract synthesized; never treated as a released conformance requirement",
+      "mechanisms_absorbed": ["user assistance is a distinct cross-platform HCI concern", "assistance selection usage and dependencies require explicit design"]
+    },
+    {
+      "id": "iec-80601-2-78-2019-amd1-2024",
+      "title": "IEC 80601-2-78:2019+AMD1:2024 — Medical robots for rehabilitation, assessment, compensation or alleviation",
+      "publisher": "IEC",
+      "url": "https://webstore.iec.ch/en/publication/93014",
+      "authority": "normative-standard",
+      "status": "Published International Standard consolidated version; amendment publication 2024-03-12; stability date 2028",
+      "domains": ["medical-robotics", "rehabilitation", "physical-human-robot-interaction", "safety"],
+      "drift": "high",
+      "reviewed_at": "2026-08-12",
+      "license_note": "Paywalled IEC standard; only public product metadata and scope synthesized",
+      "mechanisms_absorbed": ["rehabilitation robots that physically interact with patients require basic-safety and essential-performance treatment", "user-facing rehabilitation-robot UI composes medical safety, robotics, accessibility and physical/multisensory interaction rather than requiring a duplicate UI owner"]
+    }
+  ]
+}

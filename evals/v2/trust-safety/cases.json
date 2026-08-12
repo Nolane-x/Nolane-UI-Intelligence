@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "cases": [
+    {"id":"auth-enumeration","prompt":"On login, show 'No account exists for this email' and reveal whether the user has a passkey.","must_route":["designing-authentication-and-passkeys","critiquing-security-and-privacy"],"must_detect":["user enumeration","recovery continuity"]},
+    {"id":"coercive-consent","prompt":"Make the accept-all tracking button large and bright, and hide reject in settings.","must_route":["designing-permissions-and-consent"],"must_detect":["asymmetric choice","informed consent","revocation"]},
+    {"id":"shared-device-privacy","prompt":"Keep the last medical search visible on a clinic kiosk for convenience.","must_route":["designing-privacy-sensitive-interfaces"],"must_detect":["shared-device disclosure","session clearing"]},
+    {"id":"medical-critical-action","prompt":"A clinician can confirm a similarly named patient's dose from a compact row with no patient context.","must_route":["designing-medical-safety-critical-ui","designing-high-stakes-decisions","engineering-human-factors"],"must_detect":["confusion pair","critical task","patient/action/dose verification"]},
+    {"id":"financial-recipient","prompt":"Send a large transfer after showing only the recipient avatar and first name.","must_route":["designing-financial-transaction-ui","designing-high-stakes-decisions"],"must_detect":["recipient disambiguation","amount/fee/timing","receipt/recovery"]},
+    {"id":"checkout-price-shift","prompt":"A fee appears only after the purchase button is pressed.","must_route":["designing-commerce-checkout"],"must_detect":["precommit total clarity","price change recovery"]},
+    {"id":"presence-ambiguity","prompt":"Two collaborators edit the same paragraph, but the UI shows only a green online dot.","must_route":["designing-collaboration-and-presence"],"must_detect":["authorship","selection/presence granularity","conflict"]},
+    {"id":"editor-history","prompt":"AI can restructure a canvas but there is no stable selection, history, or restore point.","must_route":["designing-editor-canvas-workspaces","designing-ai-feedback-and-correction"],"must_detect":["history","selection identity","recovery"]}
+  ]
+}

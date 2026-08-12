@@ -1,0 +1,82 @@
+{
+  "version": 2,
+  "principle": "hard gates are evaluated before quality scores; no aesthetic, usability, or craft score can compensate for a failed applicable authority, safety, accessibility, security/privacy, AI-agency, modality, evidence, or research-validity gate",
+  "hard_gates": {
+    "authority-preservation": {
+      "pass": "explicit product/safety/accepted-target constraints and higher-authority standards/guidance are preserved or conflicts are surfaced",
+      "fail": "the design silently overrides a material requirement or lowers authority because another option looks better"
+    },
+    "mandatory-route-coverage": {
+      "pass": "deterministic profile predicates have no missing owner or verifier route",
+      "fail": "a material platform, modality, AI role, risk, temporal or specialist decision class is unowned or its required critic is omitted"
+    },
+    "no-self-certification": {
+      "pass": "material completion uses independent critic/evidence and a bounded gate",
+      "fail": "the generator's confidence, code compilation, or self-review is the sole proof"
+    },
+    "unknown-not-pass": {
+      "pass": "missing capability/evidence narrows the claim or remains UNKNOWN/BLOCKED",
+      "fail": "unexecuted browser/device/a11y/safety/fidelity/research checks are assumed to have passed"
+    },
+    "human-factors-and-safety": {
+      "pass": "when consequence warrants it, task/environment/error/workload/recovery evidence and independent safety critique are present",
+      "fail": "a high-risk interface is released from visual/usability evidence alone"
+    },
+    "accessibility-reachability": {
+      "pass": "applicable semantics, focus, modality alternatives, perception, communication, settings bootstrap, media alternatives and specialist obligations are evidenced",
+      "fail": "an applicable user/access channel is unreachable or compliance is inferred from a partial automated score"
+    },
+    "security-and-privacy": {
+      "pass": "sensitive data, identity, consent, permissions, target binding and privacy boundaries are explicit when applicable",
+      "fail": "visual convenience or personalization silently expands data/action authority"
+    },
+    "ai-agency": {
+      "pass": "AI identity, uncertainty/provenance, action scope, reversibility, correction and attribution are explicit when material",
+      "fail": "generated or inferred content/action gains more authority than the evidence or user authorization permits"
+    },
+    "modality-reachability": {
+      "pass": "critical operations remain reachable across applicable modalities with correct focus/target/feedback and alternative paths",
+      "fail": "a preferred gesture/device path removes necessary keyboard, remote, touch, voice, alternative-input or other applicable access"
+    },
+    "state-and-resilience": {
+      "pass": "material interaction, validation, async, permission, error, offline, realtime and degraded states are accounted for",
+      "fail": "known consequential states are replaced by nominal screenshots or happy-path assumptions"
+    },
+    "fidelity-evidence": {
+      "pass": "strict fidelity claims compare authoritative target with inspectable current render for claimed states/viewports",
+      "fail": "memory, source code, stale images or an unrelated render substitute for comparison"
+    },
+    "research-authority-and-freshness": {
+      "pass": "research-sensitive claims identify source authority/status/freshness and drafts remain drafts",
+      "fail": "model memory or a stale/draft source is promoted into an unsupported current normative claim"
+    },
+    "bounded-saturation": {
+      "pass": "a SATURATED research claim has five PASS dimensions, zero-novelty final sweep evidence, explicit bounds and reopen conditions",
+      "fail": "research completeness is declared because many sources were read or the catalogue is large"
+    }
+  },
+  "quality_scale": {
+    "0": "absent or actively harmful",
+    "1": "major failure; plausible output hides broken reasoning",
+    "2": "material gaps requiring substantial redesign",
+    "3": "competent for the scoped task; important tradeoffs addressed",
+    "4": "strong, deliberate, coherent and resilient with minor gaps",
+    "5": "exceptional for the task; decisions are specific, integrated, evidenced and difficult to improve without a real tradeoff"
+  },
+  "quality_dimensions": {
+    "product-and-task-fit": "hierarchy and behavior derive from actual product objects, user jobs, frequency, environment, trust and consequence",
+    "human-factors-fit": "attention, cognitive load, memory, perception, motor control, fatigue and error recovery match operating conditions",
+    "information-architecture": "grouping, labels, hierarchy, navigation and comparison relationships form a learnable scalable model",
+    "interaction-quality": "affordance, modality, target, focus, state, feedback, async behavior and recovery are coherent",
+    "visual-hierarchy": "composition, typography, color, spacing, surfaces, media and attention order reinforce task priority",
+    "aesthetic-specificity": "visual direction is rooted in subject/brand/context rather than interchangeable category defaults",
+    "system-coherence": "tokens, components, variants, state semantics and governance remain reusable without one-off drift",
+    "platform-and-device-fit": "the UI is native to surface geometry, viewing distance, physical constraints and platform conventions without losing product semantics",
+    "inclusive-design-depth": "applicable accessibility, communication, localization, RTL, media, settings and assistive-input needs are integrated rather than appended",
+    "ai-and-trust-quality": "AI behavior, provenance, agency, correction, identity and uncertainty preserve user control and calibrate trust",
+    "temporal-resilience": "latency, streaming, realtime, offline, interruption, long-running work and conflicts remain truthful and recoverable",
+    "content-and-assistance": "labels, errors, status, guidance, help and terminology support prediction and recovery without masking weak UI",
+    "evidence-quality": "claims are supported by the right authority and fresh task-specific evidence, with uncertainty and bounds explicit"
+  },
+  "release_rule": "all applicable hard gates must PASS; quality scoring may guide refinement but cannot close a failed hard gate"
+}
