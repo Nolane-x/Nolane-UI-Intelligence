@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "extension": "adversarial-saturation-extension-4",
+  "as_of": "2026-08-12",
+  "axes": {
+    "surfaces": ["flight-deck"],
+    "input_modalities": [],
+    "ai_roles": [],
+    "risk_classes": [],
+    "temporal_behaviors": [],
+    "social_contexts": [],
+    "specialized_ui_domains": ["in-product-assistance"]
+  },
+  "coverage_cells": [
+    {
+      "id": "surface:flight-deck",
+      "axis": "surface",
+      "value": "flight-deck",
+      "owner_skills": ["designing-flight-deck-interfaces"],
+      "verifier_skills": ["critiquing-human-factors-and-safety", "critiquing-input-modality"]
+    },
+    {
+      "id": "specialist:in-product-assistance",
+      "axis": "specialized_ui_domain",
+      "value": "in-product-assistance",
+      "owner_skills": ["designing-in-product-assistance"],
+      "verifier_skills": ["critiquing-user-experience", "critiquing-accessibility"]
+    }
+  ]
+}
