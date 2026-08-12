@@ -20,11 +20,12 @@ LEDGERS = [
 
 
 class ResearchRadarTests(unittest.TestCase):
-    def test_radar_covers_every_very_high_drift_source_and_has_actionable_watch_records(self):
+    def test_radar_covers_every_high_and_very_high_source_without_current_warnings(self):
         self.assertTrue(hasattr(validators, "validate_research_radar"), "research radar validator is missing")
         result = validators.validate_research_radar(RADAR, LEDGERS)
         self.assertTrue(result["valid"], result)
         self.assertEqual(result["missing_very_high_drift"], [])
+        self.assertEqual(result["warnings"], [], result)
 
     def test_radar_rejects_missing_high_drift_watch_and_unknown_source(self):
         self.assertTrue(hasattr(validators, "validate_research_radar"), "research radar validator is missing")
