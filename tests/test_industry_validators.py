@@ -1,21 +1,31 @@
 import copy
+import importlib.util
 import json
 import unittest
 from pathlib import Path
 
-from nolane_ui import validators
-
 ROOT = Path(__file__).resolve().parents[1]
+MODULE_PATH = ROOT / "src" / "nolane_ui" / "validators.py"
 ATLAS = json.loads((ROOT / "knowledge/ui-domain-atlas.json").read_text(encoding="utf-8"))
 LEDGER = json.loads((ROOT / "knowledge/source-ledger.json").read_text(encoding="utf-8"))
 SATURATION = json.loads((ROOT / "knowledge/research-saturation.json").read_text(encoding="utf-8"))
 GRAPH = json.loads((ROOT / "skills/skill-graph.json").read_text(encoding="utf-8"))
 
 
+def load_validators():
+    spec = importlib.util.spec_from_file_location("nui_validators_v2_tests", MODULE_PATH)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
 class IndustryValidatorTests(unittest.TestCase):
+    def setUp(self):
+        self.validators = load_validators()
+
     def require(self, name):
-        self.assertTrue(hasattr(validators, name), f"validators.{name} is not implemented")
-        return getattr(validators, name)
+        self.assertTrue(hasattr(self.validators, name), f"validators.{name} is not implemented")
+        return getattr(self.validators, name)
 
     def test_atlas_rejects_unowned_or_unverified_mandatory_cell(self):
         fn = self.require("validate_industry_atlas")

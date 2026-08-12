@@ -2,27 +2,43 @@
 
 v1 invariants are preserved verbatim in validators_legacy. This module layers
 industry coverage/freshness gates on top instead of weakening established gates.
+It deliberately supports both normal package import and the standalone
+importlib loading used by the v1 regression suite.
 """
 from __future__ import annotations
 
+import importlib.util
 import json
 from pathlib import Path
 from typing import Any
 
-from .validators_legacy import (
-    validate_completion_packet,
-    validate_repository as _validate_repository_v1,
-    validate_skill_graph,
-    validate_state_matrix,
-    validate_tokens,
-)
-from .industry import (
-    mandatory_routes_for_profile,
-    validate_industry_atlas,
-    validate_mandatory_routes,
-    validate_research_saturation,
-    validate_source_ledger,
-)
+
+def _load_sibling(filename: str, module_name: str):
+    path = Path(__file__).with_name(filename)
+    spec = importlib.util.spec_from_file_location(module_name, path)
+    if spec is None or spec.loader is None:
+        raise ImportError(f"cannot load {path}")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+if __package__:
+    from . import validators_legacy as _legacy
+    from . import industry as _industry
+else:
+    _legacy = _load_sibling("validators_legacy.py", "nui_validators_legacy")
+    _industry = _load_sibling("industry.py", "nui_industry")
+
+validate_completion_packet = _legacy.validate_completion_packet
+validate_skill_graph = _legacy.validate_skill_graph
+validate_state_matrix = _legacy.validate_state_matrix
+validate_tokens = _legacy.validate_tokens
+validate_industry_atlas = _industry.validate_industry_atlas
+validate_source_ledger = _industry.validate_source_ledger
+validate_research_saturation = _industry.validate_research_saturation
+validate_mandatory_routes = _industry.validate_mandatory_routes
+mandatory_routes_for_profile = _industry.mandatory_routes_for_profile
 
 
 def _load(path: Path) -> Any:
@@ -31,7 +47,7 @@ def _load(path: Path) -> Any:
 
 def validate_repository(root: Path | str) -> dict[str, Any]:
     root = Path(root)
-    base = _validate_repository_v1(root)
+    base = _legacy.validate_repository(root)
     errors = list(base.get("errors", []))
     warnings = list(base.get("warnings", []))
     metrics = dict(base.get("metrics", {}))
@@ -51,7 +67,6 @@ def validate_repository(root: Path | str) -> dict[str, Any]:
     graph: dict[str, Any] = {}
     atlas: dict[str, Any] = {}
     ledger: dict[str, Any] = {}
-    saturation: dict[str, Any] = {}
     try:
         graph = _load(root / "skills/skill-graph.json")
         atlas = _load(root / "knowledge/ui-domain-atlas.json")
