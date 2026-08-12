@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "extension": "adversarial-saturation-extension-2",
+  "as_of": "2026-08-12",
+  "axes": {
+    "surfaces": [],
+    "input_modalities": [],
+    "ai_roles": [],
+    "risk_classes": [],
+    "temporal_behaviors": [],
+    "social_contexts": [],
+    "specialized_ui_domains": [
+      "affective-adaptive",
+      "avatar-embodied",
+      "aac-communication"
+    ]
+  },
+  "coverage_cells": [
+    {
+      "id": "specialist:affective-adaptive",
+      "axis": "specialized_ui_domain",
+      "value": "affective-adaptive",
+      "owner_skills": ["designing-affective-adaptive-interfaces"],
+      "verifier_skills": ["critiquing-security-and-privacy", "critiquing-research-validity"]
+    },
+    {
+      "id": "specialist:avatar-embodied",
+      "axis": "specialized_ui_domain",
+      "value": "avatar-embodied",
+      "owner_skills": ["designing-avatar-embodied-representation"],
+      "verifier_skills": ["critiquing-security-and-privacy", "critiquing-accessibility"]
+    },
+    {
+      "id": "specialist:aac-communication",
+      "axis": "specialized_ui_domain",
+      "value": "aac-communication",
+      "owner_skills": ["designing-aac-communication-interfaces"],
+      "verifier_skills": ["critiquing-accessibility", "critiquing-input-modality"]
+    }
+  ]
+}
