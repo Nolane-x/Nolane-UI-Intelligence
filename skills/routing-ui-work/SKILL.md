@@ -1,118 +1,158 @@
 ---
 name: routing-ui-work
-description: Use when a contracted UI task needs the smallest sufficient set of product, architecture, interaction, visual, platform, modality, human-factors, AI, trust, inclusive, specialist, and verification skills.
+description: Use when a contracted UI task needs the smallest sufficient set of product, human-factors, architecture, interaction, visual, platform, modality, inclusive, AI, specialist, research, and verification faculties.
 ---
 
 # Routing UI Work
 
 ## Overview
-The router is a classifier and scheduler, never the designer. It converts the UI contract into an orthogonal task profile and loads only faculties that own material decisions or verification obligations. Its opposite errors are both serious: maximal routing dilutes context; under-routing silently removes expertise or safety gates.
+The router is a classifier, dependency planner, and obligation selector. It is not a designer and must not solve domain work inside routing. Its job is to construct the smallest sufficient faculty graph for the actual interface while making silent omission of a material domain difficult. Minimal routing means no irrelevant context; it never means skipping a high-impact owner or verifier.
 
 ## Parent Contract
 **Required parent:** `nolane-ui`.
 
-Require a valid `ui-contract`. If it is missing, return to `ui-contracting`. The router may expose an uncertainty or research freshness gap, but it may not invent a different product contract to avoid that gap.
+Require a valid `ui-contract`. If the contract is absent, contradictory, or too vague to classify platform, users, task, risk, and evidence needs, return to `ui-contracting`. Do not invent a replacement contract inside the router.
 
-## UI_TASK_PROFILE v2
-Profile observable constraints rather than product-name keywords.
+## Build `UI_TASK_PROFILE`
+Profile observable conditions rather than prompt keywords. Record unknowns explicitly instead of converting them into defaults.
 
 - `intent[]`: design-new, redesign, extend, audit, reproduce, implement, verify, systemize, research.
-- `product_family`: the product/task description; never use it as a style preset.
-- `platform_surfaces[]`: web, mobile, desktop, large-screen-foldable, tv-ten-foot, wearable, automotive, spatial-xr, game-hud, cli-tui, embedded-kiosk, or a concretely described emerging surface.
-- `input_modalities[]`: pointer, touch, pen, keyboard, alternative-input, gamepad, remote, voice, gaze, hand-gesture, motion, haptics.
+- `platform_surfaces[]`: web, mobile, desktop, large-screen-foldable, tv-ten-foot, wearable, automotive, spatial-xr, game-hud, cli-tui, embedded-kiosk, robotics-teleoperation, ambient-context-aware, supervisory-control-room, or another atlas-owned emerging surface.
+- `input_modalities[]`: pointer, touch, pen, keyboard, alternative-input, gamepad, remote, voice, gaze, hand-gesture, motion, haptics, neuroinput, or another explicitly modeled modality.
 - `ai_role`: none, assistive, generative, agentic, multi-agent, generative-ui.
 - `risk_class`: routine, privacy-sensitive, security-sensitive, financial, medical, safety-critical.
-- `temporal_behaviors[]`: instant, long-running, streaming, realtime, background, offline-degraded, interruption-sensitive.
+- `temporal_behaviors[]`: streaming, realtime, offline-degraded, long-running, interruption-sensitive, background-work.
 - `social_context`: personal, shared-screen, collaborative, public, supervised.
-- `regulatory_or_standard_sensitivity`: none, accessibility, security, regulated-domain, safety, or explicit source ids/versions.
-- `research_freshness_requirement`: stable, current-platform, high-drift, regulatory-current, or unknown.
-- `driving_context`: driving, parked, passenger, mixed, or not-applicable when automotive is present.
-- `users`: expertise, capability range, frequency, time pressure, accessibility needs, language/locale, supervision.
-- `information`: density, hierarchy depth, volatility, comparison, uncertainty, freshness, reading-versus-monitoring.
-- `interaction`: selection, direct manipulation, drag, forms, navigation, search, destructive actions, permissions, collaboration, modes, async work.
-- `visual_freedom`: accepted target, brand maturity, design-system strength, desired emotion, novelty tolerance, signature need, imagery/content availability.
-- `evidence_capabilities`: visual target, browser/runtime, screenshot, semantic tree, device test, assistive technology, product telemetry, representative research, domain expert, formal validation.
+- `specialized_ui_domains[]`: affective-adaptive, avatar-embodied, aac-communication, or another specialized decision class with explicit atlas ownership.
+- `regulatory_or_standard_sensitivity`: low, medium, high, regulated.
+- `research_freshness_requirement`: stable-foundation, current-platform, current-standard, frontier.
+- `driving_context`: not-applicable, parked, driving, mixed.
+- `user_context`: expertise, frequency, time pressure, cognitive load, accessibility needs, environment, error cost, fatigue, and whether assistance is available.
+- `information_context`: density, hierarchy depth, volatility, comparability, reading versus scanning, real-time ordering, provenance needs.
+- `interaction_context`: selection, direct manipulation, drag/drop, destructive action, permissions, undo, concurrency, collaboration, async behavior, latency sensitivity.
+- `visual_context`: brand maturity, existing design-system strength, reference fidelity, desired character, novelty tolerance, imagery availability, density, and whether memorability or task transparency dominates.
+- `evidence_capabilities`: design source, browser/runtime inspection, screenshot capture, accessibility tree, interaction automation, component explorer, device access, human review, domain-expert review, user research.
 
-Missing high-impact dimensions remain `unknown`; do not silently default safety-critical, medical, automotive, agentic, or accessibility scope to routine web assumptions.
+An unclassified high-impact dimension becomes a `capability_gap` or routing unknown. It does not inherit a convenient default.
 
-## Baseline routing
-For material new product UI, normally include product intent, users/tasks, information architecture, interaction/state semantics, visual direction/hierarchy when not already fixed, design tokens/system fit, responsive/platform behavior where relevant, and root accessibility. Existing accepted design systems or faithful targets can suppress redundant generation faculties, but cannot suppress verification obligations.
+## Routing Algorithm
+1. Start from product semantics and users/tasks.
+2. Add every owner skill whose decision boundary materially exists in the profile.
+3. Add parent dependencies required by those owners.
+4. Add independent verifier skills according to failure impact, even when a corresponding generation faculty is not otherwise needed.
+5. Apply deterministic hard-route predicates from the kernel. A mandatory route cannot be removed by model preference.
+6. Mark nearby but inactive faculties with a concrete reason tied to the contract.
+7. Resolve authority/freshness when the task depends on a current standard, platform behavior, regulated context, or frontier technology.
+8. Produce a dependency graph. Parallelize faculties that consume stable upstream contracts; do not force a theatrical linear chain.
 
-Route focused functions when they exist: task flow, navigation, search, forms, data-dense surfaces, visualization, empty/loading/error states, onboarding, localization, interface copy, motion, design fidelity, or specialist components. A named leaf skill owns its output; the router does not do the leaf’s work.
+## Baseline faculties for material new UI
+Unless an existing design/source fixes the corresponding decision, route product intent, user/task modeling, information architecture, interaction design, component state modeling, visual hierarchy, design tokens, responsive/platform obligations, accessibility, and at least the applicable visual/UX verification lenses. `exploring-aesthetic-directions` is required when visual direction is materially open; faithful reproduction routes to `verifying-design-fidelity` instead of fabricating novelty.
 
-## Human-factors routing
-Route `engineering-human-factors` when error consequence, workload, alarm, environmental use, safety, driving, medical, industrial, emergency, or repeated operator tasks materially affect interaction. Route `modeling-cognitive-load-and-attention` for dense monitoring, interruptions, multi-step memory dependencies, mode switching, realtime churn, or cognitive accessibility. Route `conducting-task-analysis` before restructuring complex expert or critical workflows. Route research faculties when an unresolved decision needs human evidence rather than taste.
+## Human-factors and research routing
+High task pressure, sustained attention, alarm/notification load, memory burden, complex motor requirements, or meaningful error cost route to `engineering-human-factors` plus the relevant cognitive/perceptual faculty. Safety-critical, medical, automotive-driving, robotics, and supervisory-control work must include `critiquing-human-factors-and-safety` independently of visual quality.
 
-Consequential actions route to `designing-high-stakes-decisions`. Financial actions additionally route to `designing-financial-transaction-ui`; medical critical actions route to `designing-medical-safety-critical-ui`. These are not optional “extra review” lenses.
+When a decision depends on claims about users rather than established project evidence, route `planning-usability-research` or `evaluating-usability-evidence`. Frontier or high-drift knowledge routes to `researching-ui-frontiers`, `calibrating-ui-authority`, and when appropriate `measuring-research-saturation`. Draft standards must remain draft in the obligation ledger.
 
 ## Modality routing
-Keyboard-intensive expert work → `designing-keyboard-power-user-ux`. Mixed mouse/touch/pen → `designing-pointer-touch-pen-input`. Functional drag/reorder → `designing-accessible-drag-and-drop`; include `designing-alternative-input` when a non-drag path is required. Directional controller/remote → `designing-gamepad-remote-focus`. Voice → `designing-voice-conversational-ui`. Gaze/hand spatial input → `designing-gaze-hand-spatial-input`. Haptic/audio feedback with semantic meaning → `designing-haptics-and-multisensory-feedback`. Alternative input or custom canvas reachability → `designing-alternative-input`.
+- keyboard-heavy or command-dense work → `designing-keyboard-power-user-ux`.
+- pointer/touch/pen mechanics → `designing-pointer-touch-pen-input`.
+- dragging that carries task meaning → `designing-accessible-drag-and-drop` and an alternative path.
+- TV/gamepad/remote directional navigation → `designing-gamepad-remote-focus` plus `critiquing-input-modality`.
+- voice → `designing-voice-conversational-ui`; do not assume speech is always available, private, or recognized correctly.
+- gaze/hand in spatial environments → `designing-gaze-hand-spatial-input` plus spatial/platform verification.
+- haptic or multisensory signals → `designing-haptics-and-multisensory-feedback`; never make a critical state haptic-only.
+- switch, scanning, head tracking, voice control, or other alternative access → `designing-alternative-input` plus modality critique.
+- neuroinput → `designing-brain-computer-interface-ux`, human factors, and modality/safety review according to consequence.
 
-A task may use several modalities concurrently. Route the contracts that change behavior; do not load touch, pen, and pointer skills independently when one shared direct-input skill owns that combined model.
+Concurrent modalities remain concurrent. Do not delete keyboard support because touch exists or remove pointer access because pen is preferred.
 
 ## Surface routing
-Desktop long-session/multiwindow work → `designing-desktop-windowed-workspaces`. Foldable/tablet/large resizable posture changes → `designing-foldable-large-screen-interfaces`. TV/10-foot → `designing-tv-ten-foot-interfaces` plus directional focus. Wearable → `designing-wearable-glanceable-interfaces`. Automotive → `designing-automotive-interfaces`. Spatial/XR → `designing-spatial-xr-interfaces` plus gaze/hand input when applicable. Game HUD/meta menus → `designing-game-hud-and-menus`. CLI/TUI → `designing-cli-tui-interfaces`. Public/dedicated embedded hardware → `designing-embedded-kiosk-interfaces`.
-
-Generic `adapting-platform-conventions` still owns smaller platform deltas; it does not replace these faculties when the surface changes attention, geometry, or input model.
+- desktop → `designing-desktop-windowed-workspaces` when multiwindow, shortcuts, precision input, long sessions, or system integration matter.
+- large-screen/foldable → `designing-foldable-large-screen-interfaces` for posture, pane, continuity, resizing, and hinge/window changes.
+- tv-ten-foot → `designing-tv-ten-foot-interfaces`, directional focus, remote input, distance legibility.
+- wearable → `designing-wearable-glanceable-interfaces` and cognitive-load review.
+- automotive → `designing-automotive-interfaces`; driving context additionally forces human-factors/safety constraints and reduced interaction authority.
+- spatial-xr → `designing-spatial-xr-interfaces`, gaze/hand input, platform-fit and modality critique.
+- game-hud → `designing-game-hud-and-menus`; pair with controller, accessibility, localization, or data-display faculties as needed.
+- cli-tui → `designing-cli-tui-interfaces` plus keyboard/power-user behavior.
+- embedded-kiosk → `designing-embedded-kiosk-interfaces` plus degraded/recovery behavior when unattended or constrained.
+- robotics-teleoperation → `designing-robotic-teleoperation-interfaces`, human factors, input-modality and safety review.
+- ambient-context-aware → `designing-ambient-context-aware-interfaces`, privacy, agency, interruption, and security review.
+- supervisory-control-room → `designing-supervisory-control-room-hmi`, human factors, cognitive-load and safety review.
 
 ## AI and agent routing
-Any consequential AI output routes through `designing-human-ai-interaction` and independent `critiquing-ai-trust-and-agency`. Generated or retrieved claims where origin/freshness matters route to `designing-ai-uncertainty-and-provenance`. Agentic tool/action capability routes to `designing-agent-autonomy-and-control`; standing delegation does not waive this. Streaming model/tool work routes to `designing-streaming-ai-responses`. Editing/regeneration/revert needs route to `designing-ai-feedback-and-correction`. Multiple workers sharing state route to `designing-multi-agent-surfaces`. Runtime-generated interface structures route to `designing-generative-ui` and security/privacy critique.
+Any material AI behavior routes to `designing-human-ai-interaction` and `critiquing-ai-trust-and-agency`. Generative or agentic behavior also routes to `designing-ai-uncertainty-and-provenance`. Agentic action requires `designing-agent-autonomy-and-control`; multi-agent attribution requires `designing-multi-agent-surfaces`; streaming output uses `designing-streaming-ai-responses`; correction/revert behavior uses `designing-ai-feedback-and-correction`.
 
-## Trust and sensitive-domain routing
-Authentication/passkeys → `designing-authentication-and-passkeys`. Permission/consent → `designing-permissions-and-consent`. Sensitive data/shared devices → `designing-privacy-sensitive-interfaces`. Checkout → `designing-commerce-checkout`. Collaborative shared state → `designing-collaboration-and-presence`. Canvas/editor semantics → `designing-editor-canvas-workspaces`.
+`generative-ui` forces `designing-generative-ui` plus security/privacy review. Generated rendering must not silently become privileged action authority; typed actions, authorization, target binding, confirmation policy, idempotency, and recovery live outside untrusted generated structure.
 
-Security/privacy review is independently selected when authorization, account existence, sensitive data, generated actions, consent, payments, public/shared devices, or agent authority creates a boundary. Do not let a design generator decide that its own permission model is safe.
+## Specialized standardized-domain routing
+- affective-adaptive sensing or behavior → `designing-affective-adaptive-interfaces`, `designing-permissions-and-consent`, `designing-privacy-sensitive-interfaces`, and independent security/privacy review. Affective inference never receives consequential authority merely because confidence is high.
+- avatar-embodied representation → `designing-avatar-embodied-representation` plus security/privacy and accessibility verification. If the avatar is AI-controlled, also apply the relevant AI/agency routes.
+- aac-communication → root `designing-accessible-interfaces` plus `designing-aac-communication-interfaces` and accessibility critique. Route the real access modality separately; AAC does not imply touch.
+
+These are not visual tags. They change inference, identity, authorship, communication, or control authority and therefore deserve explicit profile entries.
+
+## Trust, risk, and transaction routing
+Authentication and recovery → `designing-authentication-and-passkeys`. Permissions or sensitive capability grants → `designing-permissions-and-consent`. Sensitive data visibility, inference, sharing, or retention → `designing-privacy-sensitive-interfaces` and security/privacy critique. Financial consequence → `designing-financial-transaction-ui` plus high-stakes decision review. Checkout funnels route to `designing-commerce-checkout`; do not trade clarity or recovery for conversion. Medical UI routes to `designing-medical-safety-critical-ui`, human factors, high-stakes decisions and safety critique.
+
+Hard gates for safety, security/privacy, accessibility, and AI agency cannot be offset by visual-quality scores.
 
 ## Temporal and resilience routing
-Noticeable latency or long work → `designing-latency-and-progressive-feedback`. Offline/service/peripheral degradation → `designing-offline-degraded-experiences`. Notifications/alerts → `designing-notifications-and-interruptions`. Live changing data → `designing-real-time-updates`. These may add `critiquing-performance-and-resilience` even when implementation performance is not the main user request because state ambiguity can create duplicate or unsafe actions.
-
-## Design-system operations routing
-Shared-system contribution/adoption/exception questions → `governing-design-systems`. Component API/state/semantic migration → `evolving-component-apis`. Theme/personalization → `managing-theming-and-personalization`. Durable high-impact rationale → `documenting-design-decisions`. Design-to-code semantic handoff → `annotating-accessibility-intent`.
+Streaming → `designing-latency-and-progressive-feedback`, resilience critique, and AI streaming skill when AI is involved. Realtime → `designing-real-time-updates`; preserve ordering, staleness, conflict and attention behavior. Offline/degraded → `designing-offline-degraded-experiences`. Interruption-sensitive work → `designing-notifications-and-interruptions` and cognitive-load modeling. Long-running actions require progress, cancellation/continuation semantics, duplicate-action protection, and a truthful state model.
 
 ## Accessibility specialist routing
-Root `designing-accessible-interfaces` remains the baseline. Add `designing-cognitive-accessibility` for memory/comprehension/attention/consistency barriers; `designing-low-vision-and-high-contrast` for magnification/reflow/forced-colors; `designing-screen-reader-experiences` for complex semantics/dynamic UI; `designing-reduced-motion-and-photosensitivity` for motion, flash, game camera, parallax, or XR comfort; and `designing-alternative-input` for non-primary motor paths. Specialist skills strengthen rather than replace root obligations.
+Root accessibility remains mandatory when accessibility is material. Add `designing-cognitive-accessibility`, `designing-low-vision-and-high-contrast`, `designing-screen-reader-experiences`, `designing-reduced-motion-and-photosensitivity`, alternative input, AAC, or other specialist faculty according to real needs and failure modes. Specialist faculties augment root semantics; they never replace them.
 
-## Research routing
-Use `researching-ui-frontiers` when currentness is material or the atlas has an unknown surface/mechanism. `calibrating-ui-authority` resolves conflicts. `translating-standards-into-obligations` turns applicable authoritative guidance into testable obligations. `maintaining-ui-domain-atlas` changes coverage only for genuinely new decision classes. `measuring-research-saturation` is used at the end of a substantial research wave, never as a reason to stop early.
+## Design-system and content routing
+New or materially changed component language routes to `architecting-component-systems`, `architecting-design-tokens`, and when shared across teams `governing-design-systems`. Breaking component semantics or API changes route to `evolving-component-apis`. Theme/personalization changes route to `managing-theming-and-personalization`. Durable rationale routes to `documenting-design-decisions`; accessibility intent crossing design/engineering boundaries routes to `annotating-accessibility-intent`.
+
+Forms, search, navigation, onboarding, data-dense surfaces, data visualization, collaboration, editor/canvas, empty/loading/error states, motion, localization, UX writing, and visual craft route only when their decision domains exist.
 
 ## Hard routing
-The following routes are mandatory and MUST NOT be waived by visual preference, framework choice, time pressure, or user wording such as “just build it”:
+The following are non-optional examples enforced by deterministic predicates rather than prose alone:
+- automotive driving → `designing-automotive-interfaces` + `engineering-human-factors` + `critiquing-human-factors-and-safety`.
+- spatial-xr → `designing-spatial-xr-interfaces` + `designing-gaze-hand-spatial-input` + platform/modality critics.
+- tv-ten-foot → `designing-tv-ten-foot-interfaces` + directional focus + modality critic.
+- wearable → `designing-wearable-glanceable-interfaces` + cognitive-load critic.
+- material AI → `designing-human-ai-interaction` + `critiquing-ai-trust-and-agency`.
+- agentic AI → `designing-agent-autonomy-and-control` + provenance + AI agency critic.
+- medical/safety-critical → high-stakes/human-factors owner paths + `critiquing-human-factors-and-safety`.
+- affective-adaptive → affective owner + consent/privacy + security/privacy critic.
+- avatar-embodied → avatar owner + security/privacy and accessibility critics.
+- aac-communication → root accessibility + AAC owner + accessibility critic.
+- robotics, ambient, supervisory-control, and neuroinput → their extension-owned mandatory routes.
 
-- automotive + driving → `designing-automotive-interfaces` + `engineering-human-factors` + `critiquing-human-factors-and-safety`; include voice/input contracts when used.
-- spatial-xr → `designing-spatial-xr-interfaces` + `designing-gaze-hand-spatial-input` when gaze/hand applies + `critiquing-platform-fit` + `critiquing-input-modality`.
-- tv-ten-foot → `designing-tv-ten-foot-interfaces` + `designing-gamepad-remote-focus` + modality verification.
-- wearable → `designing-wearable-glanceable-interfaces`; high interruption/density adds cognitive critique.
-- any non-none AI role with material output → `designing-human-ai-interaction` + `critiquing-ai-trust-and-agency`.
-- agentic → `designing-agent-autonomy-and-control` + `designing-ai-uncertainty-and-provenance`; consequential actions also use high-stakes decision controls.
-- generative-ui → `designing-generative-ui` + `critiquing-security-and-privacy` + accessibility verification.
-- medical → `designing-medical-safety-critical-ui` + `engineering-human-factors` + `designing-high-stakes-decisions` + `critiquing-human-factors-and-safety`.
-- safety-critical → human factors + high-stakes decision + safety critic.
-- functional drag → accessible drag/drop contract and an applicable alternative path.
-- streaming/realtime/offline-degraded → the corresponding temporal faculty + resilience critic.
+## Verification routing
+Generation and verification are independent. Select critic lenses based on plausible harm, not on which creation skill ran. Material completion commonly needs visual and UX critique; add accessibility, responsive, platform, human-factors/safety, AI agency, input modality, cognitive load, security/privacy, research-validity, performance/resilience, localization, design-system, or fidelity courts when their failure dimensions are present.
 
-These rules are also enforced by deterministic `validate_mandatory_routes`; prose routing is not the only control.
+A critic can produce findings but cannot silently rewrite its own evidence and certify itself. Repaired findings require fresh verification.
 
-## Independent verification routing
-Generation and verification are separate graphs. Select critics from failure impact, even if the corresponding generation skill was not needed. Available courts include visual design, UX, accessibility, design system, responsive, platform, human-factors/safety, AI trust/agency, modality, cognitive load, security/privacy, research validity, performance/resilience, localization, and fidelity.
+## Inactive Faculties
+A neighboring faculty may be inactive only with a specific contract-bound reason. `designing-motion inactive — accepted static surface and no meaningful transition state` is valid. `not needed` is not. If a deterministic hard route is inactive, the router must return `BLOCKED` rather than invent an exemption.
 
-A hard-gate critic cannot be marked inactive because the visual critic is positive. Inactive faculties require an observable reason tied to the profile, such as “no AI role,” not “seems unnecessary.”
+## Output Contract
+Return `ui-task-profile` with every profile dimension above plus:
+- `selected_skills[] {name, reason, required_inputs, expected_output, authority}`
+- `inactive_faculties[] {faculty, reason}`
+- `dependency_edges[]`
+- `critical_paths[]`
+- `verification_lenses[]`
+- `hard_routes[]`
+- `capability_gaps[]`
+- `research_freshness_state`
+- `routing_confidence`
 
-## Sequence by dependency
-Prefer stable upstream contracts: product/users/task analysis → IA/flow → interaction/semantics/states → human-factor/modality/surface constraints → visual direction/craft → tokens/components/system → inclusive/platform/temporal specifics → render → independent courts → evidence gate. Research may precede any stage whose assumptions are stale. Parallel leaves may run when they consume the same stable inputs.
-
-## Output: `ui-task-profile`
-Return every profile dimension plus `selected_skills[] {name, reason, required_inputs, expected_output}`, `inactive_faculties[] {faculty, reason}`, `mandatory_routes[]`, `critical_paths[]`, `verification_lenses[]`, `authority_dependencies[]`, `research_freshness_gaps[]`, `capability_gaps[]`, and `routing_confidence`.
-
-Before execution, validate mandatory routes deterministically when the profile contains a hard-route predicate.
+Before emitting the profile, compare selected skills with deterministic mandatory routes. Any missing hard route means the profile is invalid.
 
 ## Failure Traps
-- Keyword routing: “dashboard” automatically means charts/cards/dark mode.
-- Maximal routing: all 112 skills loaded “to be safe.”
-- Aesthetic routing before product/task semantics.
-- Treating responsive web as native mobile, TV, desktop, wearable, car, or XR.
-- Treating an AI badge as sufficient human-AI routing.
-- Calling a high-risk reviewer optional because unit tests pass.
-- Current platform visual trends promoted into universal style law.
-- Research source count used as a proxy for research saturation.
-
-The router is correct when it is small enough to protect context and strict enough that no material failure domain disappears.
+- Keyword routing: “dashboard” automatically means cards, charts, dark mode.
+- Maximal routing: every available skill loaded “to be safe.” Context dilution is a defect.
+- Aesthetic routing before product semantics and human constraints.
+- Treating responsive web as mobile-native design or treating mobile as a smaller desktop.
+- Treating an AI avatar as self-disclosing because it looks synthetic.
+- Treating affect inference as fact or AAC as an icon theme.
+- Treating a current visual trend as a universal style requirement.
+- Letting framework choice suppress accessibility, safety, state, or recovery obligations.
+- Using one modality to justify deleting alternative input paths.
+- Marking a standard “current” without checking its status when freshness is material.
+- Allowing a high beauty score to compensate for a hard-gate failure.
