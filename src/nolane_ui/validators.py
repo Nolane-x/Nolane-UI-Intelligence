@@ -64,6 +64,103 @@ def validate_mandatory_routes(profile: dict[str, Any], selected_skills: Iterable
     return {"valid": not missing, "required_routes": sorted(required), "missing_routes": missing}
 
 
+def validate_bounded_saturation(record: dict[str, Any], final_evidence: dict[str, Any]) -> dict[str, Any]:
+    """Require falsifiable zero-novelty evidence before accepting SATURATED.
+
+    This validator deliberately proves only that the repository carries a bounded,
+    internally coherent saturation claim. It cannot prove permanent completeness
+    of the UI field and therefore requires explicit reopen conditions and bounds.
+    """
+    errors: list[str] = []
+    dimensions = ("breadth", "depth", "contradictions", "novelty", "freshness")
+
+    if record.get("decision") != "SATURATED":
+        errors.append("bounded saturation validation requires decision SATURATED")
+    if not isinstance(record.get("as_of"), str) or not record["as_of"].strip():
+        errors.append("SATURATED decision requires a non-empty as_of boundary")
+
+    evidence = record.get("evidence")
+    if not isinstance(evidence, dict):
+        errors.append("SATURATED decision requires evidence object")
+        evidence = {}
+    for dimension in dimensions:
+        item = evidence.get(dimension)
+        if not isinstance(item, dict):
+            errors.append(f"SATURATED decision missing {dimension} evidence")
+            continue
+        if item.get("status") != "PASS":
+            errors.append(f"SATURATED decision requires PASS {dimension} evidence")
+        if not isinstance(item.get("criterion"), str) or not item["criterion"].strip():
+            errors.append(f"SATURATED decision requires falsifiable {dimension} criterion")
+        if not isinstance(item.get("observed"), str) or not item["observed"].strip():
+            errors.append(f"SATURATED decision requires observed {dimension} evidence")
+
+    reopen = record.get("reopen_conditions")
+    if not isinstance(reopen, list) or len([item for item in reopen if isinstance(item, str) and item.strip()]) < 5:
+        errors.append("SATURATED decision requires at least five explicit reopen conditions")
+
+    if not isinstance(final_evidence, dict):
+        errors.append("final saturation evidence must be an object")
+        final_evidence = {}
+    if final_evidence.get("wave_id") != record.get("wave_id"):
+        errors.append("final saturation evidence wave_id must match research saturation wave_id")
+    if final_evidence.get("decision") != "NO_NEW_NONDECOMPOSABLE_OWNER":
+        errors.append("final saturation evidence must declare NO_NEW_NONDECOMPOSABLE_OWNER")
+
+    sweeps = final_evidence.get("sweeps")
+    if not isinstance(sweeps, list) or len(sweeps) < 5:
+        errors.append("final saturation evidence requires at least five research sweeps")
+        sweeps = []
+    if sweeps:
+        final = sweeps[-1]
+        if not isinstance(final, dict):
+            errors.append("final research sweep must be an object")
+        else:
+            if final.get("new_owner_count") != 0:
+                errors.append("final research sweep new_owner_count must be zero before SATURATED")
+            checks = final.get("decomposition_checks")
+            if not isinstance(checks, list) or len(checks) < 6:
+                errors.append("final zero-novelty sweep requires at least six decomposition checks")
+                checks = []
+            seen_sources: set[str] = set()
+            for index, check in enumerate(checks):
+                if not isinstance(check, dict):
+                    errors.append(f"decomposition check {index} must be an object")
+                    continue
+                source_id = check.get("source_id")
+                if not isinstance(source_id, str) or not source_id.strip():
+                    errors.append(f"decomposition check {index} requires source_id")
+                elif source_id in seen_sources:
+                    errors.append(f"duplicate decomposition source_id {source_id}")
+                else:
+                    seen_sources.add(source_id)
+                mapped = check.get("mapped_skills")
+                if not isinstance(mapped, list) or not mapped or not all(isinstance(item, str) and item for item in mapped):
+                    errors.append(f"decomposition check {source_id or index} requires mapped_skills")
+                reason = check.get("reason")
+                if not isinstance(reason, str) or not reason.strip():
+                    errors.append(f"decomposition check {source_id or index} requires reason")
+
+    boundary = final_evidence.get("saturation_boundary")
+    if not isinstance(boundary, dict):
+        errors.append("final saturation evidence requires saturation_boundary")
+    else:
+        for key in ("included", "not_claimed", "reopen_on"):
+            value = boundary.get(key)
+            if not isinstance(value, list) or not value:
+                errors.append(f"saturation_boundary requires non-empty {key}")
+        not_claimed = " ".join(str(item).lower() for item in boundary.get("not_claimed", []))
+        if "future" not in not_claimed or "superiority" not in not_claimed:
+            errors.append("saturation boundary must explicitly reject permanent completeness and unsupported superiority")
+
+    return {
+        "valid": not errors,
+        "errors": errors,
+        "decision": record.get("decision"),
+        "sweep_count": len(sweeps),
+    }
+
+
 def _load(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -80,6 +177,7 @@ def validate_repository(root: Path | str) -> dict[str, Any]:
         "knowledge/source-ledger.json",
         "knowledge/research-radar.json",
         "knowledge/research-saturation.json",
+        "knowledge/final-saturation-evidence.json",
         "knowledge/v2-skill-manifest.json",
         "knowledge/emerging-skill-manifest.json",
         "knowledge/ui-domain-atlas-emerging.json",
@@ -150,6 +248,11 @@ def validate_repository(root: Path | str) -> dict[str, Any]:
         saturation_result = validate_research_saturation(saturation, ledger, atlas)
         errors.extend(f"research saturation: {item}" for item in saturation_result["errors"])
         metrics["research_saturation"] = saturation_result.get("decision")
+        if saturation.get("decision") == "SATURATED":
+            final_evidence = _load(root / "knowledge/final-saturation-evidence.json")
+            bounded_result = validate_bounded_saturation(saturation, final_evidence)
+            errors.extend(f"bounded saturation: {item}" for item in bounded_result["errors"])
+            metrics["final_saturation_sweeps"] = bounded_result["sweep_count"]
     except Exception as exc:
         errors.append(f"invalid research saturation record: {exc}")
 
@@ -182,6 +285,6 @@ def validate_repository(root: Path | str) -> dict[str, Any]:
 __all__ = [
     "validate_completion_packet", "validate_repository", "validate_skill_graph",
     "validate_state_matrix", "validate_tokens", "validate_industry_atlas",
-    "validate_source_ledger", "validate_research_saturation",
+    "validate_source_ledger", "validate_research_saturation", "validate_bounded_saturation",
     "validate_mandatory_routes", "mandatory_routes_for_profile",
 ]
