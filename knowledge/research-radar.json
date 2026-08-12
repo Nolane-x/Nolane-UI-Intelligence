@@ -1,15 +1,24 @@
 {
   "version": 2,
   "as_of": "2026-08-12",
+  "policy": "A radar trigger reopens the relevant research domain before a fresh authority or completeness claim. High-drift sources are never assumed current from model memory.",
   "watch": [
-    {"source_id":"w3c-wcag-3-draft","cadence":"monthly","trigger":"draft milestone, conformance model, scope, or outcome changes","reason":"non-final high-impact accessibility specification"},
+    {"source_id":"w3c-wcag-3-draft","cadence":"monthly","trigger":"draft milestone, conformance model, scope, outcome, or maturity changes","reason":"non-final high-impact accessibility specification"},
+    {"source_id":"w3c-aac-symbol-registry","cadence":"quarterly","trigger":"registry status, symbol mapping, or WAI-Adapt integration changes","reason":"AAC semantic personalization remains evolving"},
+    {"source_id":"iso-iec-dis-20071-24","cadence":"monthly","trigger":"DIS ballot result, publication, scope, or presentation requirement changes","reason":"sign-language presentation standard is still under development"},
+    {"source_id":"iso-fdis-9241-130","cadence":"monthly","trigger":"FDIS approval, publication, replacement of ISO 9241-13, or scope changes","reason":"user-assistance standard is in final-draft lifecycle"},
+    {"source_id":"iso-cd-9241-812","cadence":"monthly","trigger":"committee-draft stage, intelligent-system categories, adaptation, agent, robot, or ambient-system guidance changes","reason":"emerging intelligent-system HCI guidance can alter several routing boundaries"},
+    {"source_id":"iso-iec-dis-30150-31","cadence":"monthly","trigger":"emotion annotation draft status, representation model, modality, or timestamp semantics change","reason":"affective-computing standards remain high drift"},
+    {"source_id":"iso-iec-sc43-bci","cadence":"quarterly","trigger":"new BCI data/interface standard, safety guidance, or normative interaction model","reason":"brain-computer interface standardization is young and rapidly expanding"},
+    {"source_id":"iec-dis-80601-2-78-ed2","cadence":"quarterly","trigger":"rehabilitation-robot safety revision, publication, or human-interface implications","reason":"patient-interacting robotics is safety-critical and under revision"},
     {"source_id":"unicode-cldr","cadence":"per-release","trigger":"stable release or locale-data model change","reason":"localization data changes continuously"},
-    {"source_id":"apple-generative-ai","cadence":"monthly","trigger":"new AI interaction or platform guidance","reason":"high-drift AI platform behavior"},
-    {"source_id":"apple-visionos","cadence":"per-platform-release","trigger":"input, comfort, spatial layout, or accessibility guidance changes","reason":"rapidly evolving spatial UI"},
-    {"source_id":"android-m3-expressive","cadence":"per-library-release","trigger":"stable component/state/layout changes","reason":"current Android design-system evolution"},
-    {"source_id":"android-cars","cadence":"monthly","trigger":"driver-distraction, template, quality, or task-limit changes","reason":"safety-sensitive platform rules"},
-    {"source_id":"google-a2ui","cadence":"biweekly","trigger":"spec version, schema, transport, security, component vocabulary, or conformance changes","reason":"very-high-drift generative UI standard"},
-    {"source_id":"fda-human-factors","cadence":"quarterly","trigger":"new/final guidance, submission expectations, or safety communication","reason":"regulatory impact"},
-    {"source_id":"web-vitals","cadence":"quarterly","trigger":"Core Web Vitals metric or threshold changes","reason":"performance UX metrics evolve"}
+    {"source_id":"apple-generative-ai","cadence":"monthly","trigger":"new generative-AI interaction, refinement, disclosure, correction, or platform guidance","reason":"high-drift AI platform behavior"},
+    {"source_id":"apple-visionos","cadence":"per-platform-release","trigger":"input, comfort, spatial layout, immersive media, or accessibility guidance changes","reason":"rapidly evolving spatial UI"},
+    {"source_id":"android-m3-expressive","cadence":"per-library-release","trigger":"stable component, motion, state, typography, or layout changes","reason":"current Android design-system evolution"},
+    {"source_id":"android-cars","cadence":"monthly","trigger":"driver-distraction, template, quality, task-limit, parked-versus-driving, or input changes","reason":"safety-sensitive platform rules"},
+    {"source_id":"google-a2ui","cadence":"biweekly","trigger":"spec version, schema, transport, security, component vocabulary, action binding, or conformance changes","reason":"very-high-drift generative UI standard"},
+    {"source_id":"fda-human-factors","cadence":"quarterly","trigger":"new or final guidance, submission expectations, use-related risk, or safety communication","reason":"regulatory impact on medical UI"},
+    {"source_id":"faa-flight-deck-human-factors-2026","cadence":"quarterly","trigger":"new advisory circular, certification policy, automation, alerting, flightcrew-error, or display/control guidance","reason":"safety-critical aviation certification guidance"},
+    {"source_id":"web-vitals","cadence":"quarterly","trigger":"Core Web Vitals metric, threshold, responsiveness, or measurement changes","reason":"performance UX metrics evolve"}
   ]
 }
