@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "cases": [
+    {"id":"cognitive-recall","prompt":"Users must remember a verification code and policy rule across several screens with no visible context.","must_route":["designing-cognitive-accessibility","critiquing-cognitive-load"],"must_detect":["memory dependency","plain language","recovery"]},
+    {"id":"forced-colors","prompt":"Selected state is visible only because a custom blue background disappears in forced-colors mode.","must_route":["designing-low-vision-and-high-contrast"],"must_detect":["forced-colors semantics","non-color state cue","focus visibility"]},
+    {"id":"screen-reader-live","prompt":"A realtime dashboard announces every numeric tick and moves focus after refresh.","must_route":["designing-screen-reader-experiences","critiquing-input-modality"],"must_detect":["live-region batching","virtual reading order","focus stability"]},
+    {"id":"motion-safety","prompt":"A full-screen parallax zoom is required to understand navigation and cannot be reduced.","must_route":["designing-reduced-motion-and-photosensitivity"],"must_detect":["vestibular risk","meaning-preserving alternative","flashing/motion controls"]},
+    {"id":"safety-critic","prompt":"A polished medical UI has ambiguous patient identity but passes visual review.","must_route":["critiquing-human-factors-and-safety"],"must_detect":["critical identity","visual score cannot compensate"]},
+    {"id":"ai-agency-critic","prompt":"Agent sends messages under standing authority but hides which recipients were inferred.","must_route":["critiquing-ai-trust-and-agency"],"must_detect":["scope inference","authority","reversibility"]},
+    {"id":"security-critic","prompt":"A beautiful onboarding flow requests broad contacts and location access before showing value.","must_route":["critiquing-security-and-privacy"],"must_detect":["permission timing","scope","coercion"]},
+    {"id":"research-critic","prompt":"A redesign is justified by five preference votes from internal designers.","must_route":["critiquing-research-validity"],"must_detect":["sample fit","method fit","unsupported inference"]},
+    {"id":"performance-critic","prompt":"A live app looks correct but layout shifts under updates and duplicate saves occur on slow networks.","must_route":["critiquing-performance-and-resilience"],"must_detect":["interaction stability","duplicate action","latency state"]},
+    {"id":"locale-critic","prompt":"English layout passes but Arabic reverses icon meaning and German labels truncate primary actions.","must_route":["critiquing-localization"],"must_detect":["RTL semantics","expansion","locale-specific icon direction"]}
+  ]
+}
