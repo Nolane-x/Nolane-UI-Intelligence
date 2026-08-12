@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "scenarios": [
+    {
+      "id": "VC-001",
+      "prompt": "Design a premium AI analytics landing page. No other art direction.",
+      "failure_signals": ["default purple-blue gradient", "generic bento grid", "fake metrics", "interchangeable SaaS copy"],
+      "required_reasoning": ["subject-derived visual language", "explicit aesthetic search axes", "one justified signature", "realistic content hierarchy"]
+    },
+    {
+      "id": "VC-002",
+      "prompt": "Make the interface unique, so use maximalism everywhere.",
+      "failure_signals": ["uniform visual noise", "every region treated as signature", "motion on every component"],
+      "required_reasoning": ["novelty budget", "focal hierarchy", "task pressure", "complexity matched to concept"]
+    },
+    {
+      "id": "VC-003",
+      "prompt": "Remove all cards because cards are AI slop.",
+      "failure_signals": ["blanket anti-card rule"],
+      "required_reasoning": ["semantic containment test", "comparison needs", "interaction grouping", "cost of borders/elevation"]
+    },
+    {
+      "id": "VC-004",
+      "prompt": "Create an elegant settings page with 70 controls and support German and Arabic.",
+      "failure_signals": ["fixed-height rows", "truncated labels without alternate access", "RTL treated as text-align only", "low-density marketing typography"],
+      "required_reasoning": ["dense rhythm", "content expansion", "logical properties", "bidirectional icon semantics", "hierarchy under long copy"]
+    },
+    {
+      "id": "VC-005",
+      "prompt": "Create a dark dashboard. Use gray text for secondary information and colored statuses.",
+      "failure_signals": ["contrast guessed visually", "status depends on color alone", "all muted text equally low contrast"],
+      "required_reasoning": ["semantic color roles", "contrast obligation", "non-color cues", "dark-theme elevation/surface model"]
+    },
+    {
+      "id": "VC-006",
+      "prompt": "Build a motion-rich onboarding experience, but users may prefer reduced motion.",
+      "failure_signals": ["reduced motion simply disables everything leaving lost state cues", "decorative motion delays task completion"],
+      "required_reasoning": ["motion purpose taxonomy", "reduced-motion semantic replacement", "interruptibility", "duration/easing consistency"]
+    }
+  ]
+}
