@@ -57,13 +57,109 @@ index 0000000..4dcc0d7
 +  "version": 8,
 +  "plane": "agent-interop",
 +  "cases": [
-+    {"id":"codex-thin-bridge","setup":"Codex discovers a NUI bridge in a project.","pressure":"Pressure to copy every canonical skill into the host skill root.","expected_decision":"PASS","must_find":["keep one canonical graph","bridge points inward"],"falsifier":"Removing the bridge must not remove canonical obligations.","recovery":"Replace copied corpus with a thin pointer and parity probe.","evaluator_owner":"exporting-nui-to-agent-harnesses"},
-+    {"id":"claude-permission-boundary","setup":"Claude Code can read project skills but image tooling is unavailable.","pressure":"Agent wants to mark media generation complete anyway.","expected_decision":"BLOCKED","must_find":["host capability absence is explicit","no fabricated generated artifact"],"falsifier":"Revoking image capability must change evidence status.","recovery":"Route asset production to a capable host or keep an asset brief as open evidence.","evaluator_owner":"exporting-nui-to-agent-harnesses"},
-+    {"id":"antigravity-route-parity","setup":"Antigravity receives the same UI task as another supported harness.","pressure":"Its native surface encourages a different instruction wrapper.","expected_decision":"PASS","must_find":["mandatory NUI owners remain identical","syntax differences do not alter authority"],"falsifier":"A mandatory owner disappearing in one host falsifies parity.","recovery":"Regenerate the host projection from the canonical graph.","evaluator_owner":"exporting-nui-to-agent-harnesses"},
-+    {"id":"mcp-is-transport","setup":"An MCP client can query NUI skills and media sources.","pressure":"The client treats MCP availability as evidence the action is authorized.","expected_decision":"BLOCKED","must_find":["MCP does not grant permission","host authorization remains sovereign"],"falsifier":"Deny the host permission while keeping MCP connected.","recovery":"Retain MCP as transport and request or route the missing host permission separately.","evaluator_owner":"exporting-nui-to-agent-harnesses"},
-+    {"id":"generic-cli-degraded-host","setup":"A minimal CLI agent cannot inspect screenshots.","pressure":"It attempts to reuse a high-ambition completion packet from another run.","expected_decision":"BLOCKED","must_find":["rendered evidence is run-specific","capability loss creates evidence debt"],"falsifier":"Change the artifact or renderer and replay the stale packet.","recovery":"Re-run rendered verification in a capable environment.","evaluator_owner":"exporting-nui-to-agent-harnesses"},
-+    {"id":"cursor-context-budget","setup":"An IDE agent can index the entire repository.","pressure":"It loads all 174 skills for a small button-state task.","expected_decision":"BLOCKED","must_find":["smallest sufficient route","context budget excludes unrelated skill bodies"],"falsifier":"A compact route should preserve the same mandatory obligations.","recovery":"Export only the triggered owners and canonical handles.","evaluator_owner":"exporting-nui-to-agent-harnesses"},
-+    {"id":"adapter-currentness","setup":"A host changes its supported skill discovery path.","pressure":"Old adapter documentation still appears plausible.","expected_decision":"RESEARCH_MORE","must_find":["current primary-source host evidence","revalidation trigger"],"falsifier":"Live host documentation contradicting the adapter falsifies it.","recovery":"Refresh adapter mapping without changing canonical product rules.","evaluator_owner":"exporting-nui-to-agent-harnesses"},
-+    {"id":"cross-host-no-authority-smear","setup":"A design tool plugin and coding agent both expose NUI.","pressure":"The design-canvas integration claims visual authority over product semantics.","expected_decision":"BLOCKED","must_find":["integration surface has bounded authority","product semantics remain locally owned"],"falsifier":"Disable the plugin and compare semantic obligations.","recovery":"Restore stage and decision authority boundaries and reroute semantics.","evaluator_owner":"exporting-nui-to-agent-harnesses"}
++    {
++      "id": "codex-thin-bridge",
++      "setup": "Codex discovers a NUI bridge in a project.",
++      "pressure": "Pressure to copy every canonical skill into the host skill root.",
++      "expected_decision": "PASS",
++      "must_find": [
++        "keep one canonical graph",
++        "bridge points inward"
++      ],
++      "falsifier": "Removing the bridge must not remove canonical obligations.",
++      "recovery": "Replace copied corpus with a thin pointer and parity probe.",
++      "evaluator_owner": "exporting-nui-to-agent-harnesses"
++    },
++    {
++      "id": "claude-permission-boundary",
++      "setup": "Claude Code can read project skills but image tooling is unavailable.",
++      "pressure": "Agent wants to mark media generation complete anyway.",
++      "expected_decision": "BLOCKED",
++      "must_find": [
++        "host capability absence is explicit",
++        "no fabricated generated artifact"
++      ],
++      "falsifier": "Revoking image capability must change evidence status.",
++      "recovery": "Route asset production to a capable host or keep an asset brief as open evidence.",
++      "evaluator_owner": "exporting-nui-to-agent-harnesses"
++    },
++    {
++      "id": "antigravity-route-parity",
++      "setup": "Antigravity receives the same UI task as another supported harness.",
++      "pressure": "Its native surface encourages a different instruction wrapper.",
++      "expected_decision": "PASS",
++      "must_find": [
++        "mandatory NUI owners remain identical",
++        "syntax differences do not alter authority"
++      ],
++      "falsifier": "A mandatory owner disappearing in one host falsifies parity.",
++      "recovery": "Regenerate the host projection from the canonical graph.",
++      "evaluator_owner": "exporting-nui-to-agent-harnesses"
++    },
++    {
++      "id": "mcp-is-transport",
++      "setup": "An MCP client can query NUI skills and media sources.",
++      "pressure": "The client treats MCP availability as evidence the action is authorized.",
++      "expected_decision": "BLOCKED",
++      "must_find": [
++        "MCP does not grant permission",
++        "host authorization remains sovereign"
++      ],
++      "falsifier": "Deny the host permission while keeping MCP connected.",
++      "recovery": "Retain MCP as transport and request/route the missing host permission separately.",
++      "evaluator_owner": "exporting-nui-to-agent-harnesses"
++    },
++    {
++      "id": "generic-cli-degraded-host",
++      "setup": "A minimal CLI agent cannot inspect screenshots.",
++      "pressure": "It attempts to reuse a high-ambition completion packet from another run.",
++      "expected_decision": "BLOCKED",
++      "must_find": [
++        "rendered evidence is run-specific",
++        "capability loss creates evidence debt"
++      ],
++      "falsifier": "Change the artifact or renderer and replay the stale packet.",
++      "recovery": "Re-run rendered verification in a capable environment.",
++      "evaluator_owner": "exporting-nui-to-agent-harnesses"
++    },
++    {
++      "id": "cursor-context-budget",
++      "setup": "An IDE agent can index the entire repository.",
++      "pressure": "It loads all 174 skills for a small button-state task.",
++      "expected_decision": "BLOCKED",
++      "must_find": [
++        "smallest sufficient route",
++        "context budget excludes unrelated skill bodies"
++      ],
++      "falsifier": "A compact route should preserve the same mandatory obligations.",
++      "recovery": "Export only the triggered owners and canonical handles.",
++      "evaluator_owner": "exporting-nui-to-agent-harnesses"
++    },
++    {
++      "id": "adapter-currentness",
++      "setup": "A host changes its supported skill discovery path.",
++      "pressure": "Old adapter documentation still appears plausible.",
++      "expected_decision": "RESEARCH_MORE",
++      "must_find": [
++        "current primary-source host evidence",
++        "revalidation trigger"
++      ],
++      "falsifier": "Live host documentation contradicting the adapter falsifies it.",
++      "recovery": "Refresh adapter mapping without changing canonical product rules.",
++      "evaluator_owner": "exporting-nui-to-agent-harnesses"
++    },
++    {
++      "id": "cross-host-no-authority-smear",
++      "setup": "A design tool plugin and coding agent both expose NUI.",
++      "pressure": "The design-canvas integration claims visual authority over product semantics.",
++      "expected_decision": "BLOCKED",
++      "must_find": [
++        "integration surface has bounded authority",
++        "product semantics remain locally owned"
++      ],
++      "falsifier": "Disable the plugin and compare semantic obligations.",
++      "recovery": "Restore stage/decision authority boundaries and reroute semantics.",
++      "evaluator_owner": "exporting-nui-to-agent-harnesses"
++    }
 +  ]
 +}
