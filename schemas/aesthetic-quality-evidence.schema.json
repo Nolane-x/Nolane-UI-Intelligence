@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NUI v5 Aesthetic Quality Evidence",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "experiential_intent_status",
+    "reference_frontier_status",
+    "legibility_status",
+    "attractor_audit_status",
+    "signature_depth_status",
+    "visual_energy_status",
+    "adequacy_status",
+    "basin_decision"
+  ],
+  "properties": {
+    "experiential_intent_status": {
+      "type": "string"
+    },
+    "reference_frontier_status": {
+      "type": "string"
+    },
+    "legibility_status": {
+      "type": "string"
+    },
+    "attractor_audit_status": {
+      "type": "string"
+    },
+    "signature_depth_status": {
+      "type": "string"
+    },
+    "visual_energy_status": {
+      "type": "string"
+    },
+    "adequacy_status": {
+      "type": "string"
+    },
+    "basin_decision": {
+      "enum": [
+        "REFINE",
+        "KEEP",
+        "PASS",
+        "RE_DIVERGE"
+      ]
+    }
+  }
+}

@@ -192,3 +192,6 @@ Before emitting the profile, compare selected skills with deterministic mandator
 - Copying a component without current license/terms and implementation inspection.
 - Treating an animated gallery as focus/keyboard semantics authority or a headless primitive as visual art direction.
 - Trusting an upstream accessibility/performance demo as proof of the local integration.
+
+## V5 Visual Ambition Escalation
+Add `visual_ambition: utilitarian | polished | distinctive | flagship | exceptional | experiential` and `visual_freedom` to the task profile when material. For `flagship`, `exceptional`, or `experiential`, use the v5 **hard route**: aesthetic divergence, reference research, hierarchy, typography, color, spacing/rhythm, surfaces, imagery/media, motion, anti-generic review, global attractor audit, computed legibility, visual energy, signature depth, execution critic, adequacy critic, rendered iteration, and basin escape. Context economy cannot waive this route. Add encoding provenance, aspirational identity, spatial dramaturgy, and perceptual diversity when their triggers exist.

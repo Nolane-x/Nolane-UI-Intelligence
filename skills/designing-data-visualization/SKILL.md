@@ -58,3 +58,6 @@ Provide a semantic/textual equivalent suitable to the analytical task: data tabl
 
 ## Output: `data-viz-contract`
 Return `analytical_question`, `data_semantics`, `chosen_encoding`, `rejected_encodings`, `scales_axes`, `uncertainty`, `color_encoding`, `annotations`, `interaction`, `refresh_behavior`, `accessible_equivalent`, and `truthfulness_risks`.
+
+## V5 Encoding Provenance and Visualization Grammar
+After analytical question and truthful encoding, produce an **encoding provenance** table for every non-decorative visual **channel**: position, size/radius, edge, color, opacity, motion, texture, angle, etc. Each must map to meaning or be explicitly decorative. Then define a coordinated **visualization grammar**—notation, spatial narrative, multi-view coordination, visual character—without changing the truth of the encoding. Scientific-looking channels with no semantic mapping are findings, not polish.

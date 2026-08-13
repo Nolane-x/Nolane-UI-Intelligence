@@ -62,3 +62,6 @@ Return `icon_system`, `icon_inventory`, `metaphor_rules`, `imagery_roles`, `asse
 - Mismatched icon stroke weights beside each other.
 - Stock photo chosen solely to fill the right side of a hero.
 - Generated image includes text that must remain editable/code-native.
+
+## V5 Media as Product-Specific Evidence
+At **high visual ambition**, media role is not automatically optional decoration. Consider procedural/domain-native assets—scientific fields, causal/lineage maps, model or memory landscapes, simulation imagery, dataset morphology, compute topology, temporal traces, uncertainty volumes, editorial evidence, material photography/illustration where appropriate. `procedural` does not mean random sci-fi texture: every media role must declare identity, explanation, evidence, atmosphere or product demonstration value. A text/border-only shell must justify why richer media would add no product-specific value.

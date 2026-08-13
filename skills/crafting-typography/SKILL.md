@@ -73,3 +73,6 @@ Return `families`, `roles`, `type_scale`, `metrics`, `numeric_rules`, `line_leng
 - Does the chosen display character originate in the brief/product world?
 - Are utility/control labels quieter than content without becoming illegible?
 - Does dense information maintain alignment and scanability?
+
+## V5 Computed Legibility and Resolved Typeface Evidence
+Route rendered typography through `engineering-visual-legibility`. The microtext budget is explicit: below **11px** requires a semantic reason; below 10px cannot contain required information; below 9px is auxiliary/decorative only. Compound small + low-contrast + uppercase + tracking risk escalates. Prefer browser **computed** evidence over CSS grep. A typeface intention is not rendering proof: record intended family, actual **resolved font**, loading/fallback state, fallback visual delta, relevant numeric/glyph metrics and layout-shift risk.

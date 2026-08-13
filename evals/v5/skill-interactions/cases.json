@@ -1,0 +1,87 @@
+{
+  "version": 5,
+  "suite": "skill-interaction-factorials",
+  "cases": [
+    {
+      "id": "v5-int-dense-scientific-restraint",
+      "failure": "Expert density scientific precision restrained color anti-card and maximum visible context interact to produce tiny gray mono text hairline panes and cyan HUD",
+      "required_skills": [
+        "crafting-spacing-and-rhythm",
+        "crafting-color",
+        "preventing-generic-ui",
+        "detecting-aesthetic-attractors"
+      ],
+      "must_find": [
+        "Detect emergent technical-HUD attractor",
+        "Protect legibility and expressive range despite individually plausible rules"
+      ],
+      "baseline": "each faculty evaluated independently",
+      "combined": "same faculties evaluated together on one output",
+      "objective_delta_reviewed": true
+    },
+    {
+      "id": "v5-int-anti-excess-timidity",
+      "failure": "Anti-neon anti-card anti-shadow anti-motion anti-imagery and novelty caution combine until flagship software has no memorable mechanism",
+      "required_skills": [
+        "detecting-aesthetic-attractors",
+        "directing-visual-ambition",
+        "deepening-signature-mechanisms"
+      ],
+      "must_find": [
+        "Treat high-ambition timidity as a finding",
+        "Demand a justified signature or deliberate distinctive quietness"
+      ],
+      "baseline": "each faculty evaluated independently",
+      "combined": "same faculties evaluated together on one output",
+      "objective_delta_reviewed": true
+    },
+    {
+      "id": "v5-int-data-art-direction-truth",
+      "failure": "Visualization art direction adds topology motion and atmospheric opacity on top of truthful base charts but the new channels have no semantics",
+      "required_skills": [
+        "designing-data-visualization",
+        "proving-visual-encoding-semantics",
+        "deepening-signature-mechanisms"
+      ],
+      "must_find": [
+        "Preserve truthful encoding through art direction",
+        "Remove or declare decorative unsupported channels"
+      ],
+      "baseline": "each faculty evaluated independently",
+      "combined": "same faculties evaluated together on one output",
+      "objective_delta_reviewed": true
+    },
+    {
+      "id": "v5-int-role-magnitude-layout",
+      "failure": "Aspirational principal-scientist identity and huge institutional magnitude are routed only into labels menus and more chrome rather than authority and spatial dramaturgy",
+      "required_skills": [
+        "modeling-aspirational-identity",
+        "composing-spatial-dramaturgy",
+        "composing-layouts"
+      ],
+      "must_find": [
+        "Map identity to agency rather than titles",
+        "Map magnitude to spatial/institutional semantics rather than menu count"
+      ],
+      "baseline": "each faculty evaluated independently",
+      "combined": "same faculties evaluated together on one output",
+      "objective_delta_reviewed": true
+    },
+    {
+      "id": "v5-int-local-iteration-wrong-basin",
+      "failure": "Rendered iteration improves contrast alignment and border polish while adequacy and reference comparison repeatedly say the entire direction remains ordinary",
+      "required_skills": [
+        "iterating-rendered-visual-design",
+        "critiquing-aesthetic-adequacy",
+        "escaping-aesthetic-basins"
+      ],
+      "must_find": [
+        "Stop local hill-climbing after repeated adequacy loss",
+        "Emit RE_DIVERGE and reopen aesthetic exploration"
+      ],
+      "baseline": "each faculty evaluated independently",
+      "combined": "same faculties evaluated together on one output",
+      "objective_delta_reviewed": true
+    }
+  ]
+}

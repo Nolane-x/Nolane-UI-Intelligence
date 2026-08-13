@@ -59,3 +59,6 @@ Return `container_model`, `grid`, `anchors`, `zones`, `vertical_rhythm`, `contai
 - Arbitrary max-width that makes dense tables unusable.
 - Using equal columns when one region is clearly primary.
 - Fixed viewport-height sections that clip content or break zoom.
+
+## V5 Magnitude and Spatial Dramaturgy
+When “huge”, monumental, institutional, expansive, awe-producing, or equivalent magnitude goals are material, route `composing-spatial-dramaturgy`. Distinguish logical scope from spatial/visual **magnitude**. Information geometry remains necessary, but **spatial dramaturgy** may intentionally sequence compression → reveal → expansion → focused inspection → re-expansion, with quiet fields and institutional anchors. More pages or permanent fixed chrome do not by themselves satisfy a magnitude target.

@@ -63,3 +63,6 @@ Return `priority_classes`, `attention_sequence_by_view`, `hierarchy_channels`, `
 - Replace copy with long content: do priorities remain clear?
 - Look at the page at 25% scale: does rhythm still read?
 - Read semantic headings only: do they tell the same story as the visual hierarchy?
+
+## V5 Experiential Priority Class
+Add `PX — experiential identity` beside safety/orientation and task priorities. **PX** does not automatically outrank P0/P1, but it is not demoted to decoration when emotion, awe, role projection, memorability or institutional presence is a product success criterion. The hierarchy plan must state where experiential identity gets a legitimate focal/scale moment and where task throughput deliberately wins.

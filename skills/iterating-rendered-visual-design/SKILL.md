@@ -63,3 +63,6 @@ Return `visual-iteration-evidence` with:
 - Treating code compilation as evidence of visual improvement.
 
 **Hard gate:** a material claim that iterative visual design improved the interface requires rendered before/after evidence and an explicit keep/revert/refine decision tied to findings.
+
+## V5 Basin-Escape Trigger
+Before another local refinement, ask whether the current aesthetic **basin** is viable. Compare affective fit, distinctiveness, signature depth and current candidate against the **reference frontier** and a materially different alternative. If fit remains below target, repeated comparisons lose, signature depth fails, or adequacy critic rejects the thesis, emit `RE_DIVERGE`; do not continue local hill-climbing. Preserve strengths and reopen only the axes implicated by the failure.

@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NUI v5 Experiential Intent",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "desired_feelings",
+    "forbidden_feelings",
+    "identity_projection",
+    "emotional_intensity",
+    "memorability_target",
+    "magnitude_target",
+    "source_language"
+  ],
+  "properties": {
+    "desired_feelings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "forbidden_feelings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "identity_projection": {
+      "type": "string",
+      "minLength": 1
+    },
+    "emotional_intensity": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "memorability_target": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "magnitude_target": {
+      "type": "object",
+      "required": [
+        "scope",
+        "data",
+        "spatial",
+        "institutional",
+        "temporal",
+        "network",
+        "visual"
+      ]
+    },
+    "source_language": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "operational_proxies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

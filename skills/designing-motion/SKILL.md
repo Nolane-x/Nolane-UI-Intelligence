@@ -53,3 +53,6 @@ Return `motions[] {trigger, purpose, property, duration_class, easing, hierarchy
 - Scroll reveal hides content users are trying to scan quickly.
 - Loading animation with no progress/state meaning.
 - Reduced-motion users lose the only cue that content changed.
+
+## V5 Motion as Dynamic Information
+When the product thesis is “living”, evolving, causal, temporal, simulated, or agentic, test motion as **dynamic information**, not merely polish. It may communicate **propagation**, experiment state change, lineage, causal updates, simulation progress, memory consolidation or continuity. Each motion channel declares its semantic role; ambient motion stays explicitly decorative. The **reduced motion** branch must preserve the information through state, text, structure or discrete transitions rather than deleting meaning.

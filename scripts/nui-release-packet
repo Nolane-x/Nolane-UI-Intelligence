@@ -36,23 +36,25 @@ def main() -> int:
         }
     ]
     packet = {
-        "packet_id": f"NUI-V4-STRUCTURAL-{args.revision}",
+        "packet_id": f"NUI-V5-STRUCTURAL-{args.revision}",
         "artifact_revision": args.revision,
         "phase": "VERIFIED",
-        "task_profile": "NUI v4 repository structural release: universal UI cognition, product closure, ecosystem retrieval, rich-interaction contracts, provenance and eval gates",
+        "task_profile": "NUI v5 repository structural release: universal UI cognition, product closure, ecosystem retrieval, affective/aesthetic enforcement, semantic-mutation and skill-interaction eval gates",
         "obligations": [
             {"id": "O-GRAPH-SKILLS", "status": "PASS", "evidence_refs": ["E-UNIT-SUITE", "E-REPOSITORY-VALIDATOR"]},
             {"id": "O-DETERMINISTIC-KERNEL", "status": "PASS", "evidence_refs": ["E-UNIT-SUITE"]},
             {"id": "O-ADAPTER-CONTRACT", "status": "PASS", "evidence_refs": ["E-UNIT-SUITE"]},
             {"id": "O-EVAL-CONTRACT", "status": "PASS", "evidence_refs": ["E-UNIT-SUITE", "E-REPOSITORY-VALIDATOR"]},
-            {"id": "O-PROVENANCE-DOCS", "status": "PASS", "evidence_refs": ["E-REPOSITORY-VALIDATOR"]}
+            {"id": "O-PROVENANCE-DOCS", "status": "PASS", "evidence_refs": ["E-REPOSITORY-VALIDATOR"]},
+            {"id": "O-V5-AESTHETIC-ENFORCEMENT", "status": "PASS", "evidence_refs": ["E-UNIT-SUITE", "E-REPOSITORY-VALIDATOR"]}
         ],
         "evidence": evidence,
         "findings": [],
         "checks": {"unit-tests": "PASS", "repository-validator": "PASS", "completion-gate": "PASS"},
-        "claim": "This exact repository revision satisfies NUI v4 structural, skill-contract, ecosystem-registry, adapter, eval-contract and deterministic completion-gate checks in the fail-fast verification job that generated this packet.",
+        "claim": "This exact repository revision satisfies NUI v5 structural, skill-contract, ecosystem-registry, affective/aesthetic-kernel, semantic-mutation, interaction-eval and deterministic completion-gate checks in the fail-fast verification job that generated this packet.",
         "bounds": [
-            "This is structural/process verification; it does not prove the beauty, usability, accessibility or fidelity of every future UI generated with NUI.",
+            "This is structural/process verification; it proves v5 enforcement mechanisms and repository invariants exist and pass their deterministic tests, not that every future UI generated with NUI is objectively beautiful.",
+            "Task-specific flagship/exceptional/experiential completion still requires rendered affective/aesthetic evidence, reference comparison, adequacy critique and no outstanding RE_DIVERGE decision.",
             "Agent-behavior eval JSON files are pressure-test specifications; repository CI does not report them as live cross-model benchmark wins.",
             "Product UI accessibility and fidelity require task-specific runtime and normative evidence through NUI obligations and critics.",
             "NUI makes no objective superiority claim over all competing UI skills without controlled head-to-head runtime evaluation.",

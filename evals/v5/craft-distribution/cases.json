@@ -1,0 +1,136 @@
+{
+  "version": 5,
+  "suite": "craft-distribution-transfer",
+  "cases": [
+    {
+      "id": "v5-craft-01",
+      "visual_regime": "expressive operational",
+      "failure": "High-frequency operational software must stay scanable while using expressive structure and motion without collapsing to a restrained dashboard",
+      "required_skills": [
+        "directing-visual-ambition",
+        "critiquing-aesthetic-adequacy"
+      ],
+      "must_find": [
+        "Preserve regime-specific experiential target",
+        "Avoid collapsing the regime into one NUI house style"
+      ]
+    },
+    {
+      "id": "v5-craft-02",
+      "visual_regime": "luxury scientific",
+      "failure": "Scientific software must feel materially refined and prestigious without tiny technical theater or generic cyan HUD cues",
+      "required_skills": [
+        "directing-visual-ambition",
+        "critiquing-aesthetic-adequacy"
+      ],
+      "must_find": [
+        "Preserve regime-specific experiential target",
+        "Avoid collapsing the regime into one NUI house style"
+      ]
+    },
+    {
+      "id": "v5-craft-03",
+      "visual_regime": "cinematic professional",
+      "failure": "A professional tool uses dramatic reveal and depth while preserving reachability performance and reduced-motion alternatives",
+      "required_skills": [
+        "directing-visual-ambition",
+        "critiquing-aesthetic-adequacy"
+      ],
+      "must_find": [
+        "Preserve regime-specific experiential target",
+        "Avoid collapsing the regime into one NUI house style"
+      ]
+    },
+    {
+      "id": "v5-craft-04",
+      "visual_regime": "playful expert",
+      "failure": "An expert tool uses wit tactile response and lively color without sacrificing precision or making controls toy-like",
+      "required_skills": [
+        "directing-visual-ambition",
+        "critiquing-aesthetic-adequacy"
+      ],
+      "must_find": [
+        "Preserve regime-specific experiential target",
+        "Avoid collapsing the regime into one NUI house style"
+      ]
+    },
+    {
+      "id": "v5-craft-05",
+      "visual_regime": "editorial analytical",
+      "failure": "Analytical software uses editorial hierarchy narrative pacing and typography while keeping comparison and data truth intact",
+      "required_skills": [
+        "directing-visual-ambition",
+        "critiquing-aesthetic-adequacy"
+      ],
+      "must_find": [
+        "Preserve regime-specific experiential target",
+        "Avoid collapsing the regime into one NUI house style"
+      ]
+    },
+    {
+      "id": "v5-craft-06",
+      "visual_regime": "tactile creative",
+      "failure": "A creative tool uses tangible material cues direct manipulation and spatial rhythm without ornamental skeuomorphism",
+      "required_skills": [
+        "directing-visual-ambition",
+        "critiquing-aesthetic-adequacy"
+      ],
+      "must_find": [
+        "Preserve regime-specific experiential target",
+        "Avoid collapsing the regime into one NUI house style"
+      ]
+    },
+    {
+      "id": "v5-craft-07",
+      "visual_regime": "organic biotech",
+      "failure": "A biotech interface draws on biological morphology and warm/organic forms without decorative pseudo-science",
+      "required_skills": [
+        "directing-visual-ambition",
+        "critiquing-aesthetic-adequacy"
+      ],
+      "must_find": [
+        "Preserve regime-specific experiential target",
+        "Avoid collapsing the regime into one NUI house style"
+      ]
+    },
+    {
+      "id": "v5-craft-08",
+      "visual_regime": "monumental command",
+      "failure": "A command environment creates institutional scale and authority without permanent chrome density or fake military HUD tropes",
+      "required_skills": [
+        "directing-visual-ambition",
+        "critiquing-aesthetic-adequacy"
+      ],
+      "must_find": [
+        "Preserve regime-specific experiential target",
+        "Avoid collapsing the regime into one NUI house style"
+      ]
+    },
+    {
+      "id": "v5-craft-09",
+      "visual_regime": "warm medical",
+      "failure": "A medical system remains trustworthy calm and humane without treating seriousness as gray restraint or weakening critical semantics",
+      "required_skills": [
+        "directing-visual-ambition",
+        "critiquing-aesthetic-adequacy"
+      ],
+      "must_find": [
+        "Preserve regime-specific experiential target",
+        "Avoid collapsing the regime into one NUI house style"
+      ]
+    },
+    {
+      "id": "v5-craft-10",
+      "visual_regime": "bright high-tech",
+      "failure": "A high-tech laboratory is bright clear and sophisticated rather than defaulting futuristic meaning to black backgrounds and cyan lines",
+      "required_skills": [
+        "directing-visual-ambition",
+        "critiquing-aesthetic-adequacy"
+      ],
+      "must_find": [
+        "Preserve regime-specific experiential target",
+        "Avoid collapsing the regime into one NUI house style"
+      ]
+    }
+  ]
+}

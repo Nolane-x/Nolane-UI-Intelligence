@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NUI v5 Skill Interaction Evidence",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "factorial_cases",
+    "semantic_mutations"
+  ],
+  "properties": {
+    "factorial_cases": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "skills",
+          "baseline",
+          "combined",
+          "objective_delta_reviewed"
+        ]
+      }
+    },
+    "semantic_mutations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "mutation",
+          "target_skill",
+          "detected_by",
+          "expected"
+        ]
+      }
+    }
+  }
+}

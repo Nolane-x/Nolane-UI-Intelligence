@@ -15,4 +15,9 @@ When this repository is used as an Agent Skill pack:
 11. When a task materially uses an external UI repository, library, component, animation engine, design-system implementation, editor/canvas SDK, or agent skill, route the v4 ecosystem plane. Record canonical source citations, current license posture, inspected implementation evidence, adoption mode, adaptation boundary and local runtime proof. GitHub stars or a polished demo are never sufficient authority.
 12. High/very-high-drift ecosystem sources must be re-verified against primary sources before material adopt/adapt use. Never treat the curated registry as permanent current truth.
 
+13. For flagship/exceptional/experiential UI, preserve affective intent and route the v5 Affective & Aesthetic Enforcement Spine. Context economy may not waive the high-ambition route.
+14. Compile, render, viewport, overflow and browser-error success are not aesthetic completion evidence. High-ambition release requires task-relevant adequacy evidence and no outstanding `RE_DIVERGE` decision.
+15. Same-model/same-context generator and critic roles are correlated evidence, not epistemically independent by default.
+16. Do not use prose/token length as a proxy for skill depth. Prefer failure caught, decision changed, mutation sensitivity, ablation/interaction evidence and transfer robustness.
+
 These rules are repository policy. Runtime adapters may change tool syntax, not these semantics.
