@@ -1,0 +1,14 @@
+{
+  "version": 8,
+  "plane": "creative-toolchain",
+  "cases": [
+    {"id":"tool-before-brief","setup":"tool is selected before asset semantics and acceptance criteria exist","expected_decision":"BLOCKED","must_find":["brief precedes tool choice","stage authority follows product intent"],"evaluator_owner":"orchestrating-creative-toolchains"},
+    {"id":"missing-handoff-contract","setup":"vector asset crosses tools without dimensions, color, text, or editability contract","expected_decision":"BLOCKED","must_find":["cross-tool handoff needs explicit contract","intermediate beauty is not handoff success"],"evaluator_owner":"orchestrating-creative-toolchains"},
+    {"id":"lineage-gap","setup":"final media cannot be traced to the intermediate stage that introduced a visible change","expected_decision":"BLOCKED","must_find":["artifact lineage must remain explainable","transformation stage must be identifiable"],"evaluator_owner":"orchestrating-creative-toolchains"},
+    {"id":"fallback-route","setup":"preferred production tool is unavailable but a lower-complexity path preserves the brief","expected_decision":"PASS","must_find":["tool fallback route preserves semantic intent","host limitation does not justify fabricated output"],"evaluator_owner":"orchestrating-creative-toolchains"},
+    {"id":"isolated-render-not-ui-proof","setup":"asset looks correct in its authoring tool but has not been observed in product composition","expected_decision":"BLOCKED","must_find":["render-stage verification belongs in target medium","standalone asset is intermediate evidence"],"evaluator_owner":"orchestrating-creative-toolchains"},
+    {"id":"mobile-crop-failure","setup":"hero image works on desktop but loses focal subject at narrow width","expected_decision":"BLOCKED","must_find":["responsive crop evidence fails","composition requires a variant or crop correction"],"evaluator_owner":"validating-visual-asset-integration"},
+    {"id":"media-budget-overrun","setup":"visual asset materially delays the first useful product state","expected_decision":"BLOCKED","must_find":["media performance budget is exceeded","format or delivery needs correction"],"evaluator_owner":"validating-visual-asset-integration"},
+    {"id":"critique-fix-rerender","setup":"integration review finds a crop issue, applies a correction, and re-observes two material states","expected_decision":"PASS","must_find":["post-integration critique loop is closed","correction is verified in rendered states"],"evaluator_owner":"validating-visual-asset-integration"}
+  ]
+}
