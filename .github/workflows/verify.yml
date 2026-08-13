@@ -31,31 +31,31 @@ jobs:
       - name: Generate fresh bounded completion packet
         run: |
           python scripts/nui-release-packet \
-            --output /tmp/nui-v6-completion-packet.json \
+            --output /tmp/nui-v7-completion-packet.json \
             --revision "$GITHUB_SHA" \
             --source "GitHub Actions run $GITHUB_RUN_ID"
 
       - name: Validate repository and exact-revision completion packet
         run: |
           python scripts/nui-validate . \
-            --packet /tmp/nui-v6-completion-packet.json \
+            --packet /tmp/nui-v7-completion-packet.json \
             --revision "$GITHUB_SHA"
 
       - name: Upload verified completion packet
         uses: actions/upload-artifact@v4
         with:
-          name: nui-v6-completion-packet
-          path: /tmp/nui-v6-completion-packet.json
+          name: nui-v7-completion-packet
+          path: /tmp/nui-v7-completion-packet.json
           if-no-files-found: error
           retention-days: 90
 
       - name: Package complete project
-        run: zip -q -r /tmp/Nolane-UI-Intelligence-v6-complete.zip . -x '.git/*'
+        run: zip -q -r /tmp/Nolane-UI-Intelligence-v7-complete.zip . -x '.git/*'
 
       - name: Upload complete project archive
         uses: actions/upload-artifact@v4
         with:
-          name: nui-v6-complete-project
-          path: /tmp/Nolane-UI-Intelligence-v6-complete.zip
+          name: nui-v7-complete-project
+          path: /tmp/Nolane-UI-Intelligence-v7-complete.zip
           if-no-files-found: error
           retention-days: 90
