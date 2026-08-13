@@ -1,0 +1,44 @@
+{
+  "packet_id": "NUI-V8-STRUCTURAL-0000000000000000000000000000000000000000",
+  "artifact_revision": "0000000000000000000000000000000000000000",
+  "phase": "VERIFIED",
+  "task_profile": "NUI v8 Agent Interoperability & Visual Media Intelligence: inherited cognition/aesthetic/deep-research/concrete-authority gates plus portable agent bridges, third-party skill trust, rights-aware media decisions, shape-substitution prevention and creative-toolchain/render integration evidence.",
+  "obligations": [
+    {"id":"O-GRAPH-SKILLS","status":"PASS","evidence_refs":["E-UNIT-SUITE","E-REPOSITORY-VALIDATOR"]},
+    {"id":"O-DETERMINISTIC-KERNEL","status":"PASS","evidence_refs":["E-UNIT-SUITE","E-REPOSITORY-VALIDATOR"]},
+    {"id":"O-V5-AESTHETIC-ENFORCEMENT","status":"PASS","evidence_refs":["E-UNIT-SUITE","E-REPOSITORY-VALIDATOR"]},
+    {"id":"O-V6-DEEP-SOURCE-INTELLIGENCE","status":"PASS","evidence_refs":["E-UNIT-SUITE","E-REPOSITORY-VALIDATOR"]},
+    {"id":"O-V6-BEHAVIORAL-SKILL-DEPTH","status":"PASS","evidence_refs":["E-UNIT-SUITE","E-REPOSITORY-VALIDATOR"]},
+    {"id":"O-V7-AUTHORITY-MESH","status":"PASS","evidence_refs":["E-UNIT-SUITE","E-REPOSITORY-VALIDATOR"]},
+    {"id":"O-V7-CONCRETE-KNOWLEDGE","status":"PASS","evidence_refs":["E-UNIT-SUITE","E-REPOSITORY-VALIDATOR"]},
+    {"id":"O-V7-RENDERED-PERCEPTION","status":"PASS","evidence_refs":["E-UNIT-SUITE","E-REPOSITORY-VALIDATOR"]},
+    {"id":"O-V7-AGENT-READABLE-CONTEXT","status":"PASS","evidence_refs":["E-UNIT-SUITE","E-REPOSITORY-VALIDATOR"]},
+    {"id":"O-V7-ADVERSARIAL-EVAL","status":"PASS","evidence_refs":["E-UNIT-SUITE","E-REPOSITORY-VALIDATOR"]},
+    {"id":"O-V8-AGENT-INTEROP","status":"PASS","evidence_refs":["E-UNIT-SUITE","E-REPOSITORY-VALIDATOR"]},
+    {"id":"O-V8-EXTERNAL-SKILL-TRUST","status":"PASS","evidence_refs":["E-UNIT-SUITE","E-REPOSITORY-VALIDATOR"]},
+    {"id":"O-V8-VISUAL-MEDIA","status":"PASS","evidence_refs":["E-UNIT-SUITE","E-REPOSITORY-VALIDATOR"]},
+    {"id":"O-V8-CREATIVE-TOOLCHAIN","status":"PASS","evidence_refs":["E-UNIT-SUITE","E-REPOSITORY-VALIDATOR"]},
+    {"id":"O-V8-ADVERSARIAL-EVAL","status":"PASS","evidence_refs":["E-UNIT-SUITE","E-REPOSITORY-VALIDATOR"]}
+  ],
+  "evidence": [
+    {"evidence_id":"E-UNIT-SUITE","method":"test-run","source":"example deterministic release workflow","scope":"repository unit and contract suite","claim":"all repository unit and contract tests completed successfully before packet generation","observed_at":"2026-08-13T11:59:07.978805Z","result":"PASS"},
+    {"evidence_id":"E-REPOSITORY-VALIDATOR","method":"automated-audit","source":"scripts/nui-validate in the same fail-fast job","scope":"canonical graph, depth locks, source/authority/media/interop registries, schemas, docs and adversarial evals","claim":"all deterministic repository invariants are required to pass for packet acceptance","observed_at":"2026-08-13T11:59:07.978805Z","result":"PASS"}
+  ],
+  "findings": [],
+  "checks": {"unit-tests":"PASS","repository-validator":"PASS","completion-gate":"PASS"},
+  "claim": "This exact revision satisfies NUI v8 deterministic structural and contract checks for 174 canonical skill graph/depth coverage, agent interoperability, external-skill supply-chain trust, visual-media provenance, creative tool routing, inherited v5-v7 enforcement and the v8 adversarial corpus.",
+  "bounds": [
+    "Structural verification does not prove every future UI is beautiful, usable, accessible, lawful or superior; task-specific rendered evidence and human/product outcomes remain separate.",
+    "Agent bridges alter discovery/invocation only. Host sandbox, permissions, MCP approvals and tool availability remain authoritative.",
+    "External agent skills are untrusted instruction/code supply-chain inputs until immutable revision, content, license, capabilities and adoption boundary are reviewed.",
+    "Publicly accessible images are not automatically reusable. Material assets require asset-level rights/provenance verification and relevant privacy/publicity/trademark or cultural-sensitivity review.",
+    "Geometry is not banned. Shape substitution is blocked only when generic abstraction displaces higher-information subject-native media/data or pretends to encode evidence it does not possess.",
+    "Creative tools execute bounded stages; they do not decide product truth or grant themselves authority. Generated/sourced assets still require rendered integration, accessibility, performance and rights evidence.",
+    "Repository adversarial cases are executable specifications, not a universal cross-model or human-preference benchmark."
+  ],
+  "unknowns": [
+    "Live vendor agent paths, tool capabilities, service terms and external asset rights can drift and require current verification when material.",
+    "Cross-model visual preference and product-specific usability outcomes remain outside repository-only CI unless separately measured."
+  ],
+  "decision": "PASS"
+}
