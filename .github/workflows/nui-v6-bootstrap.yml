@@ -22,11 +22,11 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          cat .nui-v6-payload/part-* > /tmp/nui-v6.tar.gz.b64
-          echo "15fd95e59cf95b9df409375936cb41259b1ccccceea485d6314c6bf6ecc9f6e8  /tmp/nui-v6.tar.gz.b64" | sha256sum -c -
-          base64 -d /tmp/nui-v6.tar.gz.b64 > /tmp/nui-v6.tar.gz
-          echo "d855510328e772536e93dcaa1b71ffb0870cad49a30a23400cabbbabd042dce9  /tmp/nui-v6.tar.gz" | sha256sum -c -
-          tar -xzf /tmp/nui-v6.tar.gz
+          cat .nui-v6-payload/part-* > /tmp/nui-v6.tar.xz.b64
+          echo "645827f6285308483c6881c081274555808969b86860af37a47d2d0c96793647  /tmp/nui-v6.tar.xz.b64" | sha256sum -c -
+          base64 -d /tmp/nui-v6.tar.xz.b64 > /tmp/nui-v6.tar.xz
+          echo "c03caddebff157802ad26506ea7a5beb057a6f2134cc835ca845feb17d6eaf44  /tmp/nui-v6.tar.xz" | sha256sum -c -
+          tar -xJf /tmp/nui-v6.tar.xz
           rm -rf .nui-v6-payload .nui-v6-ready .github/workflows/nui-v6-bootstrap.yml
           git config user.name "Nolane v6 bootstrap"
           git config user.email "actions@users.noreply.github.com"
