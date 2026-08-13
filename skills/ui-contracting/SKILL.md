@@ -62,3 +62,6 @@ A contract is not valid if “beautiful,” “modern,” “clean,” or “pre
 - Turning every unknown into a user question instead of using bounded defaults.
 - Treating implementation-framework convenience as a product requirement.
 - Forgetting non-goals, then “improving” adjacent surfaces the user wanted preserved.
+
+## V5 Experiential Preservation Gate
+When the request contains affective, identity, magnitude, prestige, memorability, or exceptional-beauty language, preserve an explicit `EXPERIENTIAL_INTENT` alongside the ordinary contract. Operationalization must **supplement**, not replace, the original intent. Keep desired/forbidden feelings, identity projection, magnitude axes, intensity, memorability and source language visible to downstream critics. Hierarchy, density, material treatment, typography, color or motion are candidate mechanisms—not semantic substitutes for “awe”, “mastery”, “institutional scale”, or similar product goals. If the proxies survive but the feeling/identity target disappears, reopen contracting and route `preserving-experiential-intent`.

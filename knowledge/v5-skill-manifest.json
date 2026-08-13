@@ -1,0 +1,97 @@
+{
+  "version": 5,
+  "architecture": "affective-aesthetic-enforcement-spine",
+  "skills": [
+    {
+      "name": "preserving-experiential-intent",
+      "family": "kernel",
+      "parent": "ui-contracting",
+      "output": "experiential-intent",
+      "ownership": "Own preservation of affective and identity intent from raw request into an explicit experiential contract. Do not own typography, color, layout, or motion choices; those faculties consume this contract. Operationalization supplements affective intent—it never replaces it."
+    },
+    {
+      "name": "directing-visual-ambition",
+      "family": "kernel",
+      "parent": "routing-ui-work",
+      "output": "visual-ambition-contract",
+      "ownership": "Own classification of visual ambition and the hard-route policy it activates. Do not choose the art direction itself. The levels are `utilitarian`, `polished`, `distinctive`, `flagship`, `exceptional`, and `experiential`."
+    },
+    {
+      "name": "modeling-aspirational-identity",
+      "family": "strategy",
+      "parent": "modeling-users-and-tasks",
+      "output": "aspirational-identity-model",
+      "ownership": "Own the experiential model of role fantasy: `actual_role`, `aspirational_role`, `status_projection`, `power_perception`, `agency_expression`, `competence_signaling`, `rituals_of_use`, `institutional_presence`, `emotional_reward`, and `symbolic_objects`. Do not fabricate permissions or capabilities the product does not have."
+    },
+    {
+      "name": "composing-spatial-dramaturgy",
+      "family": "visual",
+      "parent": "composing-layouts",
+      "output": "spatial-drama-contract",
+      "ownership": "Own emotional sequencing of space: compression, expansion, reveal, monumental moments, quiet fields, institutional anchors, depth transitions, and viewport occupation. Do not override information architecture, responsive behavior, or task reachability."
+    },
+    {
+      "name": "detecting-aesthetic-attractors",
+      "family": "critic",
+      "parent": "preventing-generic-ui",
+      "output": "aesthetic-attractor-audit",
+      "ownership": "Own global accumulation analysis across mechanisms. Do not ban named styles categorically. Judge repeated mechanisms using semantic necessity, subject_specificity, frequency, information gain, emotional contribution, and removal_cost."
+    },
+    {
+      "name": "engineering-visual-legibility",
+      "family": "visual",
+      "parent": "crafting-typography",
+      "output": "visual-legibility-evidence",
+      "ownership": "Own executable legibility evidence from rendered/computed styles and resolved font behavior. Do not choose the typographic personality; crafting-typography owns that."
+    },
+    {
+      "name": "directing-visual-energy",
+      "family": "visual",
+      "parent": "crafting-color",
+      "output": "visual-energy-contract",
+      "ownership": "Own expressive-energy requirements and evidence, not specific palette tokens. Inspect luminance range, chroma mass, focal color mass, warm/cool tension where relevant, depth contrast, and material variation."
+    },
+    {
+      "name": "deepening-signature-mechanisms",
+      "family": "visual",
+      "parent": "exploring-aesthetic-directions",
+      "output": "signature-depth-contract",
+      "ownership": "Own depth of the signature mechanism, not the entire art direction. Evaluate semantic_depth, interaction_depth, visual_depth, information_gain, product_specificity, reusability, memorability, and failure_if_removed."
+    },
+    {
+      "name": "proving-visual-encoding-semantics",
+      "family": "verification",
+      "parent": "designing-data-visualization",
+      "output": "encoding-provenance-table",
+      "ownership": "Own the provenance table that maps every visual channel to meaning or explicitly marks it decorative. Do not select statistical encodings or alter source data; designing-data-visualization remains responsible for analytical truth."
+    },
+    {
+      "name": "critiquing-aesthetic-adequacy",
+      "family": "verification",
+      "parent": "critiquing-visual-design",
+      "output": "aesthetic-adequacy-findings",
+      "ownership": "Own thesis adequacy. The existing visual critic still owns thesis execution quality. Adequacy may reopen aesthetic exploration even when execution is coherent."
+    },
+    {
+      "name": "escaping-aesthetic-basins",
+      "family": "visual",
+      "parent": "iterating-rendered-visual-design",
+      "output": "aesthetic-basin-decision",
+      "ownership": "Own the REFINE versus RE_DIVERGE decision. Do not design the replacement direction itself; aesthetic exploration does that after re-divergence."
+    },
+    {
+      "name": "evaluating-perceptual-diversity",
+      "family": "verification",
+      "parent": "gating-ui-completion",
+      "output": "workspace-visual-matrix",
+      "ownership": "Own cross-surface perceptual diversity. Do not demand every screen look different; coherence remains a first-class requirement."
+    },
+    {
+      "name": "testing-skill-interactions",
+      "family": "verification",
+      "parent": "gating-ui-completion",
+      "output": "skill-interaction-evidence",
+      "ownership": "Own causal/interaction evaluation of the skill system: semantic mutation, factorial combinations, ablation, transfer, and decision deltas. Do not claim cross-model benchmark superiority without running those experiments."
+    }
+  ]
+}

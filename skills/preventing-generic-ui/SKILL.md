@@ -68,3 +68,6 @@ Return `signals[] {pattern, context, function, cost, frequency, justification, v
 
 ## Severity
 Genericity is usually a craft finding, not a critical defect. Escalate only when the trope obscures product truth, misleads interaction, harms accessibility, or materially damages the requested brand/fidelity.
+
+## V5 Global Accumulation and Counterfactual Gate
+Evaluate genericity globally, not one component at a time. Inventory repeated mechanisms and judge **accumulation** using semantic necessity, **subject specificity**, frequency, information gain, emotional contribution, and **removal cost**. A hundred individually “justified” tiny mono labels can form one systemic trope. Include technical-sophistication slop (unearned coordinates, fake rulers, terminal atmosphere, hairline grids, SIGNAL/LIVE/SYS vocabulary, generic node/orbit diagrams) without hard-banning any style. Run a blind/counterfactual product-specificity test by masking nouns/branding and asking whether the same shell plausibly fits unrelated domains. At flagship+, timidity is also a finding when no memorable mechanism exists without a deliberate reason.

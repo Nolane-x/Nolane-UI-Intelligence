@@ -61,3 +61,6 @@ Return `color_roles`, `palette`, `semantic_mappings`, `surface_model`, `theme_de
 - Accent applied to every icon and heading.
 - Dark theme uses black + neon by default regardless of product character.
 - Gradient added because “AI product” rather than a compositional/brand reason.
+
+## V5 Visual Energy Counterweight
+A chroma ceiling is not an aesthetic objective. For high affective targets, route `directing-visual-energy` and ask whether **restraint** has collapsed expressive range. Inspect luminance range, **chroma mass**, focal color mass, depth contrast, material variation, and warm/cool tension where relevant. High visual energy does not mean “more saturated”; monochrome can pass if other perceptual mechanisms create sufficient tension, hierarchy and emotional force. The evidence must be relative to experiential intent.

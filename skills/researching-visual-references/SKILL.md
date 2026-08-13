@@ -61,3 +61,6 @@ The set must make it possible for another agent to understand **what was learned
 - Selecting only references that confirm the first aesthetic idea.
 
 **Hard gate:** a reference cannot materially influence the direction unless the agent records the inspected source, extracted mechanism, product-fit rationale, and non-transferable boundary.
+
+## V5 Mandatory Reference Frontier
+When there is no established brand, **high visual freedom**, and flagship/exceptional ambition, reference research is not optional. `exceptional` work must construct a **reference frontier** from diverse mechanisms and sources before final selection. Compare the current candidate, internal baseline, at least one alternative direction, and accepted reference mechanisms on the same experiential/craft dimensions. The frontier is a quality/mechanism comparison, never permission to copy trade dress.

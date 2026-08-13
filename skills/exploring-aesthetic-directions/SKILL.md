@@ -71,3 +71,6 @@ Return `search_axes`, `candidates[]`, `comparison`, `selected_direction`, `selec
 - Confusing maximalism with originality or minimalism with taste.
 - Producing directions that differ only by palette.
 - Inventing fake content/metrics to make the composition impressive.
+
+## V5 Divergence Artifact Gate
+For flagship+ ambition with high visual freedom, prose alternatives are insufficient. Produce **at least three** materially different **rendered candidates** when the runtime can render. They must be **materially different** in several of: composition logic, typography character, density/rhythm, surface/material behavior, media/visualization role, and signature mechanism; recoloring is not divergence. Bind accepted reference mechanisms to each candidate and compare the selected direction against both a reference frontier and at least one alternative. Route each claimed signature through `deepening-signature-mechanisms`.

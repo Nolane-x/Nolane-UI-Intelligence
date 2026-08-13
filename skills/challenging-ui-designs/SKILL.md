@@ -64,3 +64,6 @@ Return selected lenses, findings, untested hypotheses, evidence gaps, and a rele
 - “Users will figure it out.” State the discoverability evidence or leave the claim unknown.
 - “This is standard SaaS UI.” Familiarity is not a justification for irrelevant structure.
 - “The design system does it.” A system rule that harms this task is still a finding against the project contract.
+
+## V5 Epistemic Independence Lineage
+Role separation is not automatically epistemic independence. Record generator model/context, critic model/context, optional visual/human judge, and `correlation_class`. A **same-model** or materially shared-context evaluation is `CORRELATED` unless evidence establishes otherwise. Critics should expose the correlation rather than using the word independent ceremonially. When high-stakes aesthetic adequacy depends on correlated review, preserve the limitation in completion evidence.

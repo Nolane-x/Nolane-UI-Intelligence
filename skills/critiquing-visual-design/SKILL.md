@@ -40,3 +40,6 @@ Each finding cites a visible region/state and a violated design contract/princip
 
 ## Output: `finding-set`
 Produce typed findings only. Include a `preserve` note when an existing strength would be easy to damage during repair. End with `BLOCK`, `REPAIR_AND_RETEST`, or `NO_VISUAL_BLOCKER_FOUND` for this lens only.
+
+## V5 Dual-Critic Split
+Separate the **execution critic** (“Did the render faithfully execute the selected thesis?”) from the **adequacy critic** (“Was that thesis good enough for the original intent?”). Coherent execution cannot close an inadequacy finding. `critiquing-aesthetic-adequacy` re-reads experiential intent and visual ambition, compares against references/alternatives, and may reopen aesthetic exploration even when thesis fidelity is excellent.

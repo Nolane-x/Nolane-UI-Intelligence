@@ -1,0 +1,11 @@
+{
+  "version": 5,
+  "assets": [
+    "evals/v5/affective-aesthetic/cases.json",
+    "evals/v5/semantic-mutations/cases.json",
+    "evals/v5/skill-interactions/cases.json",
+    "evals/v5/craft-distribution/cases.json"
+  ],
+  "case_count": 30,
+  "purpose": "Pressure-test affective preservation, aesthetic enforcement, semantic mutation sensitivity, emergent skill interactions, and visual-regime transfer. These are behavior specifications unless an agent runtime executes them."
+}

@@ -1,0 +1,91 @@
+{
+  "version": 5,
+  "suite": "semantic-mutation-adversaries",
+  "cases": [
+    {
+      "id": "v5-mut-do-not-always",
+      "mutation": "DO NOT→ALWAYS",
+      "target_skill": "preventing-generic-ui",
+      "detected_by": [
+        "v5-mut-do-not-always-detector"
+      ],
+      "expected": "FAIL",
+      "failure": "A semantic mutation turns a prohibition on generic decorative mechanisms into an instruction to always use them",
+      "required_skills": [
+        "detecting-aesthetic-attractors"
+      ],
+      "must_find": [
+        "Behavior evaluator must fail the mutated anti-generic policy",
+        "Structural headings alone must not allow the mutation"
+      ]
+    },
+    {
+      "id": "v5-mut-must-may",
+      "mutation": "must→may",
+      "target_skill": "directing-visual-ambition",
+      "detected_by": [
+        "v5-mut-must-may-detector"
+      ],
+      "expected": "FAIL",
+      "failure": "A semantic mutation changes the exceptional visual hard route from mandatory to optional and context economy skips reference research",
+      "required_skills": [
+        "directing-visual-ambition"
+      ],
+      "must_find": [
+        "Detect loss of mandatory exceptional routing",
+        "Fail when required high-ambition faculties disappear"
+      ]
+    },
+    {
+      "id": "v5-mut-preserve-discard",
+      "mutation": "preserve→discard",
+      "target_skill": "preserving-experiential-intent",
+      "detected_by": [
+        "v5-mut-preserve-discard-detector"
+      ],
+      "expected": "FAIL",
+      "failure": "A semantic mutation instructs the contract to discard original affective language after converting it into design proxies",
+      "required_skills": [
+        "preserving-experiential-intent"
+      ],
+      "must_find": [
+        "Detect affective intent loss",
+        "Require source-language and feeling traceability"
+      ]
+    },
+    {
+      "id": "v5-mut-independent-self",
+      "mutation": "independent→self",
+      "target_skill": "critiquing-aesthetic-adequacy",
+      "detected_by": [
+        "v5-mut-independent-self-detector"
+      ],
+      "expected": "FAIL",
+      "failure": "A semantic mutation treats same-model same-context self-review as independent evidence for aesthetic adequacy",
+      "required_skills": [
+        "testing-skill-interactions"
+      ],
+      "must_find": [
+        "Mark same-lineage evaluation as correlated",
+        "Reject ceremonial independence"
+      ]
+    },
+    {
+      "id": "v5-mut-minimum-maximum",
+      "mutation": "minimum→maximum",
+      "target_skill": "engineering-visual-legibility",
+      "detected_by": [
+        "v5-mut-minimum-maximum-detector"
+      ],
+      "expected": "FAIL",
+      "failure": "A semantic mutation reverses the protected minimum legibility floor into a maximum text-size pressure for expert density",
+      "required_skills": [
+        "engineering-visual-legibility"
+      ],
+      "must_find": [
+        "Fail required microtext below protected floor",
+        "Detect semantic reversal despite valid Markdown structure"
+      ]
+    }
+  ]
+}

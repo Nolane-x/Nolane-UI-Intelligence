@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 5,
   "scoring": {
     "dimension_scale": {
       "0": "absent or actively harmful",
@@ -35,6 +35,10 @@
     "fidelity-evidence": {
       "pass": "strict fidelity claims compare authoritative target with inspectable current render for the claimed states/viewports",
       "fail": "code inspection, memory, or a different/stale screenshot substitutes for comparison"
+    },
+    "high-ambition-aesthetic-evidence": {
+      "pass": "flagship/exceptional/experiential completion includes preserved experiential intent, divergence/reference evidence, legibility, attractor audit, signature depth, visual energy, adequacy and no outstanding RE_DIVERGE decision",
+      "fail": "compile/render health or contract fidelity is used as the sole proof that an exceptional visual objective was achieved"
     }
   },
   "quality_dimensions": {
@@ -46,6 +50,18 @@
     "system-coherence": "tokens/components/variants/states are semantically reusable without one-off drift or forced abstraction",
     "responsive-durability": "task priority and access survive viewport/container/content/input pressure with intentional transformations",
     "inclusive-design": "semantics, keyboard/focus, contrast/reflow, motion, target, error, locale/RTL, and AT considerations are integrated as applicable",
-    "content-quality": "labels, actions, status, errors, empty states, and terminology help users predict and recover without generic marketing filler"
+    "content-quality": "labels, actions, status, errors, empty states, and terminology help users predict and recover without generic marketing filler",
+    "aesthetic-excellence": "for the stated ambition, the selected direction has sufficient aesthetic fit, emotional force, memorability, material richness, refinement, signature strength and perceptual harmony rather than merely being specific"
+  },
+  "aesthetic_excellence_vector": {
+    "aesthetic_fit": "fit to the preserved experiential intent",
+    "emotional_force": "strength of intended affect without harming task/safety",
+    "memorability": "presence of a defensible memorable mechanism or deliberately distinctive quietness",
+    "material_richness": "perceptual richness appropriate to the thesis across surface, media, type, light/color and depth",
+    "visual_refinement": "optical craft, hierarchy, rhythm and resolved detail",
+    "signature_strength": "depth and indispensability of product-specific signature mechanisms",
+    "perceptual_harmony": "coherence of contrast, rhythm, scale, energy and quiet",
+    "role_identity": "fit to truthful aspirational identity when applicable",
+    "subject_specificity": "resistance to blind category substitution"
   }
 }

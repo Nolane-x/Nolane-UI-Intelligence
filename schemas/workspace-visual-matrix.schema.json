@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NUI v5 Workspace Visual Matrix",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "screens"
+  ],
+  "properties": {
+    "screens": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": [
+          "screen",
+          "signature",
+          "dominant_geometry",
+          "density",
+          "main_visualization",
+          "surface_pattern",
+          "typographic_gesture",
+          "color_mass",
+          "interaction_signature"
+        ]
+      }
+    }
+  }
+}

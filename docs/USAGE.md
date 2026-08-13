@@ -4,7 +4,7 @@
 
 Load `using-nolane-ui`. The bootstrap hands lifecycle ownership to `nolane-ui`, which compiles a contract, routes faculties, creates obligations, binds evidence, and owns release semantics.
 
-Do **not** preload the entire skill graph. The current v4 graph contains 141 skills, but progressive disclosure is a design constraint: the agent should receive only the smallest sufficient faculty graph for the task.
+Do **not** preload the entire skill graph. The current v5 graph contains 154 skills, but progressive disclosure is a design constraint: the agent should receive only the smallest sufficient faculty graph for the task.
 
 ## Build the v2 task profile
 
@@ -206,3 +206,14 @@ python scripts/nui-ecosystem-query --capability animated-components --stack reac
 The output is a candidate set with canonical URLs, source roles, license-status hints and `verify_live_before_use`; it is **not** an install command or permission to copy code.
 
 `knowledge/ui-ecosystem-registry.json` is a curated cache, not a claim that NUI has indexed every current library. If no candidate fits, if a candidate is high-drift, or if license/API facts are ambiguous, perform live primary-source research and write the evidence into the reference ledger. Registry maintenance is owned by `maintaining-ui-resource-registry`; task execution should not silently rewrite the registry from unverified search snippets.
+
+
+## High visual ambition path (v5)
+
+When a brief asks for `flagship`, `exceptional`, or `experiential` visual quality—or uses equivalent language such as unforgettable, awe-producing, monumental, exceptionally beautiful, prestigious, cinematic, or identity-transforming—record `visual_ambition` and do not reduce the request to ordinary polish.
+
+Create `experiential-intent` first when feelings, role projection, magnitude or memorability are material. Operational design proxies supplement this record; they do not delete it. Then run the high-ambition hard route. With high visual freedom, produce at least three materially different rendered candidates when rendering is available and compare the selection against a reference frontier and a materially different alternative.
+
+Before release, require task-relevant v5 evidence: computed legibility/resolved-font evidence, global aesthetic-attractor audit, visual-energy rationale, signature depth, thesis execution critique, thesis adequacy critique, and an aesthetic-basin decision that is not `RE_DIVERGE`. Data-bearing visualization requires `encoding-provenance-table`; multi-workspace products require `workspace-visual-matrix`; aspirational role language routes `modeling-aspirational-identity`; magnitude routes `composing-spatial-dramaturgy`.
+
+A green build or clean render proves implementation health, not aesthetic adequacy. If the adequacy critic says the selected thesis misses the preserved experiential intent, reopen divergence rather than spending the remaining iteration budget on local polish.

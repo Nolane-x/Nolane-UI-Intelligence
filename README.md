@@ -4,7 +4,7 @@
 
 Nolane UI Intelligence (NUI) is a platform-agnostic Agent Skill graph for serious UI/UX work. It treats interface design as a system of independent decisions — product semantics, human factors, interaction, visual craft, platform behavior, input modalities, accessibility, AI agency, safety, resilience, design systems, and verification — rather than one vague instruction to “make it beautiful.”
 
-The current v4 graph declares **141 skills**: the v2 industry-wide cognition system, v3 Product UI Closure + Visual Learning plane, and v4 UI Ecosystem Intelligence plane. That number is descriptive, not a target. The router loads the **smallest sufficient graph** for the current task; preloading every skill is a defect.
+The current v5 graph declares **154 skills**: the v2 industry-wide cognition system, v3 Product UI Closure + Visual Learning plane, v4 UI Ecosystem Intelligence plane, and the v5 Affective & Aesthetic Enforcement Spine. That number is descriptive, not a target. The router normally loads the **smallest sufficient graph** for the current task; high visual ambition is an explicit exception where required visual faculties become a hard route rather than optional context.
 
 NUI does not promise objective beauty, automatic compliance, or permanent completeness. It constrains observable agent behavior so material assumptions become explicit, high-impact domains cannot be silently omitted, independent critics can falsify the design, machine-checkable invariants are enforced by code, and release claims remain bounded by actual evidence.
 
@@ -23,6 +23,20 @@ NUI does not promise objective beauty, automatic compliance, or permanent comple
 - **Evidence-gated release.** Missing verification remains UNKNOWN/BLOCKED rather than being converted into confidence.
 - **Deterministic invariants.** Graphs, ownership, routes, source freshness, state/token contracts, completion packets, and bounded research saturation are checked by Python rather than trusted to model self-report.
 - **Research that can reopen.** High-drift standards/platforms live in `knowledge/research-radar.json`; a changed authority can reopen a domain and force a new research wave.
+
+## Affective & Aesthetic Enforcement (v5)
+
+NUI v5 closes a failure exposed by the ATLAS regression: a UI can pass code, viewport, overflow and browser-error checks while still failing the original request for exceptional beauty, awe, magnitude, memorability or aspirational identity. v5 treats those experiential goals as product requirements rather than decoration.
+
+The v5 control path is:
+
+`raw intent → experiential intent → visual ambition → hard routes → divergent candidates + reference frontier → craft → global perceptual/semantic evidence → execution critic → adequacy critic → refine/re-diverge → release gate`
+
+Flagship/exceptional/experiential work cannot silently drop reference research, aesthetic divergence, typography/color/spacing/surface/media/motion craft, anti-generic analysis, computed legibility, visual-energy evidence, signature-depth analysis, adequacy criticism, rendered iteration or basin escape merely to save context. Material visualization adds channel provenance; role fantasy adds aspirational-identity modeling; magnitude adds spatial dramaturgy; multi-screen products add perceptual-diversity evidence.
+
+The system deliberately does **not** compute a universal beauty score. It separates aesthetic specificity from aesthetic excellence and requires evidence against the preserved intent. A coherent implementation of a weak thesis can be marked `INADEQUATE`; repeated failure can emit `RE_DIVERGE` instead of polishing the wrong aesthetic basin.
+
+NUI v5 also adds semantic-mutation and factorial skill-interaction eval specifications so “well-written skill prose” is not treated as proof of behavioral effect. Historical token-length depth proxies have been removed from the v2-v4 depth tests; v5 tests focus on contracts, decisions, failure detection, routing, mutation sensitivity and interaction regressions.
 
 ## Product closure and ecosystem intelligence
 
@@ -46,7 +60,7 @@ The registry is intentionally incomplete by design: when no current source fits,
 
 Any failed obligation, stale evidence, contradiction, missing mandatory route, or material regression routes to `RECOVERY` or `BLOCKED`.
 
-## v4 domain families
+## v5 domain families
 
 NUI currently separates responsibilities across:
 

@@ -52,3 +52,6 @@ Return `spacing_scale`, `relationship_rules`, `component_padding_rules`, `zone_s
 
 ## Stress checks
 Compare sparse vs loaded data, one-line vs multi-line labels, translated text, 200% zoom, touch targets, and repeated rows. The system should remain coherent rather than accumulating one-off margin fixes.
+
+## V5 Expert-Density Pareto Constraint
+Expert software may prioritize visible context and short scan distance, but `expert` never implies “everything small”. Optimize information throughput, scanability, aesthetic hierarchy, and emotional power subject to a protected **legibility floor** owned by `engineering-visual-legibility`. Density must be allocated: primary action/information zones may compress while orientation, focal, and monumental/quiet regions preserve breathing room and perceptual rhythm.

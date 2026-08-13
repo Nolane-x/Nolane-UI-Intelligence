@@ -54,3 +54,6 @@ Return `layer_model`, `surface_tokens`, `boundary_rules`, `elevation_rules`, `ca
 
 ## Anti-nesting check
 If a surface contains another surface with equal visual strength, ask which one owns the semantic boundary. Flatten until the hierarchy is legible unless nested ownership is real (for example window → panel → selected object).
+
+## V5 Global Material Quality Gate
+Local border correctness can still create global border soup. Inspect **boundary density**, edge density, surface entropy, boundary repetition, **material variety**, and **quiet region** ratio across the rendered surface. If the whole product is divided by the same hairline/pane mechanism, flatten, open space, or introduce semantically different containment/material behavior even when no individual border violates a local rule. Do not replace card soup with pane soup.

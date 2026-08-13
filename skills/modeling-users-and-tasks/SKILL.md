@@ -72,3 +72,6 @@ Return `actors`, `context_dimensions`, `critical_jobs`, `attention_budget`, `lea
 - Treating information density as inherently bad.
 - Requiring confirmations for every action rather than matching reversibility and cost.
 - Assuming desktop equals mouse.
+
+## V5 Aspirational Identity Trigger
+Task efficiency does not exhaust user modeling. When the brief contains **aspirational identity**, status projection, “feel like”, authority, mastery, institutional power, or **role fantasy**, route `modeling-aspirational-identity`. Preserve the distinction between actual role and aspirational role. The resulting experience must be backed by truthful agency, overview, orchestration, lineage, rituals or symbolic objects rather than titles/badges alone.

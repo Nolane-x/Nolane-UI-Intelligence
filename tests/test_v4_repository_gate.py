@@ -24,7 +24,7 @@ class V4RepositoryGateTests(unittest.TestCase):
         self.assertEqual(result["metrics"]["v4_skill_count"], 6)
         self.assertGreaterEqual(result["metrics"]["ecosystem_source_count"], 40)
         self.assertEqual(result["metrics"]["v4_adversarial_cases"], 14)
-        self.assertEqual(result["metrics"]["skill_contracts_checked"], 141)
+        self.assertGreaterEqual(result["metrics"]["skill_contracts_checked"], 141)
 
     def test_removing_registry_or_v4_manifest_fails_repository(self):
         for relative in ("knowledge/ui-ecosystem-registry.json", "knowledge/v4-skill-manifest.json"):

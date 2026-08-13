@@ -74,3 +74,6 @@ The second claim can be true even when the first is unjustified.
 
 ## Red flags
 Stop and route to `recovering-ui-work` when you are tempted to soften claim language without updating the packet, ignore a stale check, treat unknown as pass, or remove a failing obligation from the set.
+
+## V5 High-Ambition Aesthetic Release Gate
+For **high visual ambition** (flagship/exceptional/experiential), compile/render health is necessary but never sufficient. **Render health** cannot substitute for experiential intent, divergence/reference evidence, computed legibility, global attractor audit, signature depth, visual energy, and **aesthetic adequacy**. A basin decision of `RE_DIVERGE` blocks completion. Material visualization also requires encoding provenance; product-wide high-ambition work requires perceptual-diversity evidence. Preserve the bounded claim: repository CI proves the framework gates exist, not that every future UI is objectively beautiful.

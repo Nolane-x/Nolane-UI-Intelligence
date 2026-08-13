@@ -1,0 +1,132 @@
+{
+  "version": 5,
+  "suite": "affective-aesthetic-adversaries",
+  "cases": [
+    {
+      "id": "v5-atlas-green-runtime-affective-fail",
+      "failure": "ATLAS passes code tests, viewport renders, overflow and browser-error checks while the original request for extreme beauty, awe, magnitude and principal-scientist identity remains unmet",
+      "required_skills": [
+        "preserving-experiential-intent",
+        "critiquing-aesthetic-adequacy",
+        "gating-ui-completion"
+      ],
+      "must_find": [
+        "Block completion despite render health",
+        "Reopen original affective and identity objectives"
+      ]
+    },
+    {
+      "id": "v5-affective-intent-operationalized-away",
+      "failure": "The agent converts awe prestige mastery and magnitude into dense hierarchy restrained chroma and technical typography then drops the original feelings",
+      "required_skills": [
+        "preserving-experiential-intent",
+        "ui-contracting"
+      ],
+      "must_find": [
+        "Preserve desired and forbidden feelings",
+        "Treat operational proxies as supplements rather than replacements"
+      ]
+    },
+    {
+      "id": "v5-technical-hud-accumulation",
+      "failure": "A scientific product repeats tiny mono labels cyan hairlines coordinates grids SIGNAL LIVE and node motifs dozens of times while each occurrence is locally justified",
+      "required_skills": [
+        "detecting-aesthetic-attractors",
+        "preventing-generic-ui"
+      ],
+      "must_find": [
+        "Escalate global trope accumulation",
+        "Apply subject-specificity and removal-cost analysis"
+      ]
+    },
+    {
+      "id": "v5-border-soup-loophole",
+      "failure": "Card soup is avoided by replacing cards with hundreds of rectangular panes and hairline boundaries across every workspace",
+      "required_skills": [
+        "detecting-aesthetic-attractors",
+        "crafting-depth-and-surfaces"
+      ],
+      "must_find": [
+        "Detect boundary repetition at product scale",
+        "Increase quiet regions or material variety rather than merely changing border style"
+      ]
+    },
+    {
+      "id": "v5-microtext-expert-attractor",
+      "failure": "An expert scientific dashboard pushes required labels and metrics to 8px because density and visible context were prioritized",
+      "required_skills": [
+        "engineering-visual-legibility",
+        "crafting-typography",
+        "crafting-spacing-and-rhythm"
+      ],
+      "must_find": [
+        "Block required information below the microtext floor",
+        "Reject expert implies tiny text reasoning"
+      ]
+    },
+    {
+      "id": "v5-restraint-collapse",
+      "failure": "A high-awe interface is over 95 percent near-black low-chroma pixels because every color rule independently favored restraint",
+      "required_skills": [
+        "directing-visual-energy",
+        "crafting-color",
+        "critiquing-aesthetic-adequacy"
+      ],
+      "must_find": [
+        "Test whether restraint kills experiential intent",
+        "Require visual-energy evidence without prescribing neon"
+      ]
+    },
+    {
+      "id": "v5-shallow-scientific-topology",
+      "failure": "A radial intelligence topology uses fixed angles and center-out edges that encode no dependencies uncertainty causality or temporal relation",
+      "required_skills": [
+        "deepening-signature-mechanisms",
+        "proving-visual-encoding-semantics",
+        "designing-data-visualization"
+      ],
+      "must_find": [
+        "Reject decorative geometry masquerading as analytical depth",
+        "Require channel meaning or decorative declaration"
+      ]
+    },
+    {
+      "id": "v5-contract-fidelity-trap",
+      "failure": "The render faithfully executes a dark restrained dense technical thesis and the visual critic passes it although the thesis itself undershoots the original exceptional ambition",
+      "required_skills": [
+        "critiquing-visual-design",
+        "critiquing-aesthetic-adequacy",
+        "escaping-aesthetic-basins"
+      ],
+      "must_find": [
+        "Separate thesis execution from thesis adequacy",
+        "Allow adequacy failure to trigger RE_DIVERGE"
+      ]
+    },
+    {
+      "id": "v5-role-fantasy-avatar-only",
+      "failure": "The interface says Principal Researcher in the profile but gives no strategic overview orchestration lineage delegation or institutional agency",
+      "required_skills": [
+        "modeling-aspirational-identity",
+        "preserving-experiential-intent"
+      ],
+      "must_find": [
+        "Reject role title as sufficient status projection",
+        "Map aspirational identity to truthful agency and rituals"
+      ]
+    },
+    {
+      "id": "v5-logical-size-not-visual-magnitude",
+      "failure": "A supposedly enormous research institute adds sixteen workspaces while fixed rails and inspectors permanently consume the viewport and every workspace shares one cramped shell",
+      "required_skills": [
+        "composing-spatial-dramaturgy",
+        "evaluating-perceptual-diversity",
+        "composing-layouts"
+      ],
+      "must_find": [
+        "Distinguish logical scope from spatial magnitude",
+        "Create task-specific coherent diversity and spatial expansion moments"
+      ]
+    }
+  ]
+}
