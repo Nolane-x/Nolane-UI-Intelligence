@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NUI Visual Media Plan",
+  "type": "object",
+  "required": ["semantic_jobs", "shape_substitution_risk", "decision"],
+  "properties": {
+    "decision": {"enum": ["PASS", "RESEARCH_MORE", "RE_DIVERGE", "BLOCKED"]}
+  }
+}
