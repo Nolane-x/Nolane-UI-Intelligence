@@ -1,0 +1,46 @@
+diff --git a/knowledge/v6-depth-focus-obligations.json b/knowledge/v6-depth-focus-obligations.json
+index e503466..5ab1f5b 100644
+--- a/knowledge/v6-depth-focus-obligations.json
++++ b/knowledge/v6-depth-focus-obligations.json
+@@ -1162,11 +1162,67 @@
+       "ambiguity budget",
+       "re-expansion trigger",
+       "compression checksum"
++    ],
++    "exporting-nui-to-agent-harnesses": ["canonical-corpus singularity","host-discovery handshake","permission sovereignty mapping","route-preserving projection","capability-loss fallback"],
++    "governing-external-agent-skills": ["immutable skill identity","transitive instruction census","capability envelope proof","instruction-data firewall","license inheritance map"],
++    "mapping-visual-media-opportunities": ["semantic media slot map","subject-native evidence test","media information-gain gradient","geometry legitimacy test","media density rhythm"],
++    "sourcing-rights-safe-visual-media": ["rights-before-download query","asset-page truth rule","rights decomposition ledger","provenance-preserving acquisition","derivative-work boundary check"],
++    "replacing-shape-substitution": ["shape-role census","removal-cost evidence","native-substrate substitution test","geometry semantic ledger","trope concentration pressure"],
++    "authoring-domain-native-visual-assets": ["domain asset truth brief","asset grammar extraction","representation fidelity tier","tool-neutral authoring spec","synthetic provenance chain"],
++    "orchestrating-creative-toolchains": ["stage-authority matrix","tool capability hydration","intermediate artifact contracts","reversible pipeline preference","cross-tool provenance threading"],
++    "validating-visual-asset-integration": ["asset-state integration matrix","focal hierarchy arbitration","crop-semantic resilience test","overlay readability envelope","media performance lifecycle"]
+     ]
+   },
+   "rule": "Every focus skill must contain each unique semantic obligation and explicit falsification/recovery behavior; terms are behavior anchors, not word-count proxies.",
+   "wave2_core_owner_count": 27,
+-  "focus_skill_count": 158,
++  "focus_skill_count": 174,
+   "wave3_specialist_owner_count": 14,
+   "industry_risk_wave_count": 25,
+   "access_ai_modality_wave_count": 32,
+diff --git a/knowledge/v8-skill-manifest.json b/knowledge/v8-skill-manifest.json
+new file mode 100644
+index 0000000..9be5c85
+--- /dev/null
++++ b/knowledge/v8-skill-manifest.json
+@@ -0,0 +1,62 @@
++{
++  "version": 8,
++  "architecture": "agent-interoperability-visual-media-intelligence",
++  "skills": [
++    {"name":"exporting-nui-to-agent-harnesses","family":"integration","parent":"building-agent-readable-ui-context","output":"agent-harness-export-plan","ownership":"Own translation of canonical NUI discovery, routes and evidence into host-native agent surfaces without corpus forks, authority escalation or permission expansion."},
++    {"name":"governing-external-agent-skills","family":"research","parent":"building-agent-readable-ui-context","output":"external-skill-trust-ledger","ownership":"Own trust admission, capability review, license/provenance control and bounded local adoption of third-party agent skills and prompt packages."},
++    {"name":"mapping-visual-media-opportunities","family":"visual","parent":"designing-domain-native-signatures","output":"visual-media-opportunity-map","ownership":"Own the decision of where subject-native media, truthful visualizations, diagrams or deliberate abstraction best serve semantic and experiential UI jobs."},
++    {"name":"sourcing-rights-safe-visual-media","family":"research","parent":"researching-visual-references","output":"asset-provenance-ledger","ownership":"Own asset-level discovery, rights evidence, attribution, provenance and transformation lineage for external visual media."},
++    {"name":"replacing-shape-substitution","family":"visual","parent":"preventing-generic-ui","output":"shape-substitution-audit","ownership":"Own diagnosis and replacement of low-information abstract geometry that impersonates product/domain evidence while preserving geometry that earns its semantic or compositional role."},
++    {"name":"authoring-domain-native-visual-assets","family":"visual","parent":"designing-domain-native-signatures","output":"domain-native-asset-brief","ownership":"Own truthful, subject-grounded briefs and production constraints for custom illustrations, diagrams, generated media, 3D, motion and other domain-native assets."},
++    {"name":"orchestrating-creative-toolchains","family":"implementation","parent":"orchestrating-implementation-authorities","output":"creative-toolchain-plan","ownership":"Own stage-by-stage orchestration of specialized creative software while preserving product authority, editability, provenance, performance and replaceability."},
++    {"name":"validating-visual-asset-integration","family":"verification","parent":"validating-rendered-perception","output":"visual-asset-integration-evidence","ownership":"Own rendered proof that material media survives hierarchy, crop, responsiveness, loading, accessibility, performance, provenance and visual-language integration."}
++  ]
++}
