@@ -15,7 +15,13 @@ index 0000000..f24b76e
 +      "url": "https://github.com/anthropics/skills",
 +      "license_policy": "license is skill/path specific; inspect the exact skill and notices before reuse",
 +      "live_verification_required": true,
-+      "read_protocol": ["pin commit","inspect target SKILL.md","inspect scripts/resources","inspect exact license/notices","extract mechanism rather than copy prose by default"]
++      "read_protocol": [
++        "pin commit",
++        "inspect target SKILL.md",
++        "inspect scripts/resources",
++        "inspect exact license/notices",
++        "extract mechanism rather than copy prose by default"
++      ]
 +    },
 +    {
 +      "id": "agent-skills-spec",
@@ -24,7 +30,11 @@ index 0000000..f24b76e
 +      "url": "https://agentskills.io/",
 +      "license_policy": "verify current spec/repository license before redistribution",
 +      "live_verification_required": true,
-+      "read_protocol": ["read current spec","map filesystem discovery semantics","preserve canonical NUI as source of truth"]
++      "read_protocol": [
++        "read current spec",
++        "map filesystem discovery semantics",
++        "preserve canonical NUI as source of truth"
++      ]
 +    },
 +    {
 +      "id": "openai-codex",
@@ -33,7 +43,12 @@ index 0000000..f24b76e
 +      "url": "https://github.com/openai/codex",
 +      "license_policy": "Apache-2.0 repository; inspect current file/license for transferred code",
 +      "live_verification_required": true,
-+      "read_protocol": ["inspect AGENTS.md behavior","inspect current skills discovery tests","inspect permission model","adapt only compatible discovery mechanics"]
++      "read_protocol": [
++        "inspect AGENTS.md behavior",
++        "inspect current skills discovery tests",
++        "inspect permission model",
++        "adapt only compatible discovery mechanics"
++      ]
 +    },
 +    {
 +      "id": "figma-mcp",
@@ -42,7 +57,12 @@ index 0000000..f24b76e
 +      "url": "https://developers.figma.com/docs/figma-mcp-server/",
 +      "license_policy": "use service/docs under Figma terms; do not vendor skill content without checking exact terms",
 +      "live_verification_required": true,
-+      "read_protocol": ["verify supported client","inspect read/write tool scope","load Figma skills only when needed","keep design system as source authority"]
++      "read_protocol": [
++        "verify supported client",
++        "inspect read/write tool scope",
++        "load Figma skills only when needed",
++        "keep design system as source authority"
++      ]
 +    },
 +    {
 +      "id": "figma-mcp-guide",
@@ -51,7 +71,12 @@ index 0000000..f24b76e
 +      "url": "https://github.com/figma/mcp-server-guide",
 +      "license_policy": "inspect repository and skills terms before copying; prefer linking/adaptation",
 +      "live_verification_required": true,
-+      "read_protocol": ["pin snapshot","inspect client setup","inspect current skill pointers","record rate/permission constraints"]
++      "read_protocol": [
++        "pin snapshot",
++        "inspect client setup",
++        "inspect current skill pointers",
++        "record rate/permission constraints"
++      ]
 +    },
 +    {
 +      "id": "blender-python",
@@ -60,7 +85,12 @@ index 0000000..f24b76e
 +      "url": "https://docs.blender.org/api/current/",
 +      "license_policy": "Blender API/docs have their own terms; generated project assets retain their own provenance",
 +      "live_verification_required": true,
-+      "read_protocol": ["read current API quickstart","prefer data API for deterministic edits","record render engine/version","inspect generated asset rights"]
++      "read_protocol": [
++        "read current API quickstart",
++        "prefer data API for deterministic edits",
++        "record render engine/version",
++        "inspect generated asset rights"
++      ]
 +    },
 +    {
 +      "id": "penpot-plugin-api",
@@ -69,14 +99,102 @@ index 0000000..f24b76e
 +      "url": "https://help.penpot.app/plugins/api/",
 +      "license_policy": "verify current plugin/documentation terms and dependency licenses",
 +      "live_verification_required": true,
-+      "read_protocol": ["inspect current API types","use native layout/components","keep file/design-system truth separate from plugin authority"]
++      "read_protocol": [
++        "inspect current API types",
++        "use native layout/components",
++        "keep file/design-system truth separate from plugin authority"
++      ]
 +    },
-+    {"id":"threejs-docs","tool":"Three.js","authority_class":"official-docs","url":"https://threejs.org/docs/","license_policy":"verify current repository/package license for code reuse","live_verification_required":true,"read_protocol":["choose renderer/scene primitives","budget GPU and fallback","test reduced motion and input semantics"]},
-+    {"id":"pixijs-docs","tool":"PixiJS","authority_class":"official-docs","url":"https://pixijs.com/","license_policy":"verify current package/repository license","live_verification_required":true,"read_protocol":["inspect current renderer API","calibrate visual regression tolerance","test resolution/performance"]},
-+    {"id":"rive-docs","tool":"Rive","authority_class":"official-docs","url":"https://rive.app/docs/","license_policy":"tool/service and runtime licenses are distinct; verify both","live_verification_required":true,"read_protocol":["model state machine semantics","define fallback/reduced-motion behavior","verify runtime/export constraints"]},
-+    {"id":"motion-docs","tool":"Motion","authority_class":"official-docs","url":"https://motion.dev/docs","license_policy":"verify current package license","live_verification_required":true,"read_protocol":["model presence/timeline semantics","preserve interruption behavior","verify reduced motion"]},
-+    {"id":"gsap-docs","tool":"GSAP","authority_class":"official-docs","url":"https://gsap.com/docs/","license_policy":"verify current GSAP licensing and plugin terms for the project","live_verification_required":true,"read_protocol":["design timeline before effect","scope licensed plugins","verify interruption/cleanup"]},
-+    {"id":"tldraw-sdk","tool":"tldraw","authority_class":"official-docs","url":"https://tldraw.dev/","license_policy":"verify current SDK/repository license and commercial terms","live_verification_required":true,"read_protocol":["use native shape/editor model","preserve collaboration/state semantics","avoid treating canvas style as product identity"]},
-+    {"id":"maplibre-docs","tool":"MapLibre","authority_class":"official-docs","url":"https://maplibre.org/","license_policy":"verify library and map/style/data licenses separately","live_verification_required":true,"read_protocol":["separate renderer from data rights","verify attribution requirements","test geographic semantics"]}
++    {
++      "id": "threejs-docs",
++      "tool": "Three.js",
++      "authority_class": "official-docs",
++      "url": "https://threejs.org/docs/",
++      "license_policy": "verify current repository/package license for code reuse",
++      "live_verification_required": true,
++      "read_protocol": [
++        "choose renderer/scene primitives",
++        "budget GPU and fallback",
++        "test reduced motion and input semantics"
++      ]
++    },
++    {
++      "id": "pixijs-docs",
++      "tool": "PixiJS",
++      "authority_class": "official-docs",
++      "url": "https://pixijs.com/",
++      "license_policy": "verify current package/repository license",
++      "live_verification_required": true,
++      "read_protocol": [
++        "inspect current renderer API",
++        "calibrate visual regression tolerance",
++        "test resolution/performance"
++      ]
++    },
++    {
++      "id": "rive-docs",
++      "tool": "Rive",
++      "authority_class": "official-docs",
++      "url": "https://rive.app/docs/",
++      "license_policy": "tool/service and runtime licenses are distinct; verify both",
++      "live_verification_required": true,
++      "read_protocol": [
++        "model state machine semantics",
++        "define fallback/reduced-motion behavior",
++        "verify runtime/export constraints"
++      ]
++    },
++    {
++      "id": "motion-docs",
++      "tool": "Motion",
++      "authority_class": "official-docs",
++      "url": "https://motion.dev/docs",
++      "license_policy": "verify current package license",
++      "live_verification_required": true,
++      "read_protocol": [
++        "model presence/timeline semantics",
++        "preserve interruption behavior",
++        "verify reduced motion"
++      ]
++    },
++    {
++      "id": "gsap-docs",
++      "tool": "GSAP",
++      "authority_class": "official-docs",
++      "url": "https://gsap.com/docs/",
++      "license_policy": "verify current GSAP licensing and plugin terms for the project",
++      "live_verification_required": true,
++      "read_protocol": [
++        "design timeline before effect",
++        "scope licensed plugins",
++        "verify interruption/cleanup"
++      ]
++    },
++    {
++      "id": "tldraw-sdk",
++      "tool": "tldraw",
++      "authority_class": "official-docs",
++      "url": "https://tldraw.dev/",
++      "license_policy": "verify current SDK/repository license and commercial terms",
++      "live_verification_required": true,
++      "read_protocol": [
++        "use native shape/editor model",
++        "preserve collaboration/state semantics",
++        "avoid treating canvas style as product identity"
++      ]
++    },
++    {
++      "id": "maplibre-docs",
++      "tool": "MapLibre",
++      "authority_class": "official-docs",
++      "url": "https://maplibre.org/",
++      "license_policy": "verify library and map/style/data licenses separately",
++      "live_verification_required": true,
++      "read_protocol": [
++        "separate renderer from data rights",
++        "verify attribution requirements",
++        "test geographic semantics"
++      ]
++    }
 +  ]
 +}
