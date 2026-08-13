@@ -1,0 +1,32 @@
+name: V8 Probe
+on:
+  push:
+    branches: ["build/v8-rc-tests"]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run tests with captured log
+        shell: bash
+        run: |
+          set +e
+          PYTHONPATH=src python -m unittest discover -s tests -v 2>&1 | tee /tmp/v8-tests.log
+          code=${PIPESTATUS[0]}
+          echo "$code" > /tmp/v8-exit.txt
+          exit 0
+      - name: Upload diagnostic log
+        uses: actions/upload-artifact@v4
+        with:
+          name: v8-test-diagnostic
+          path: |
+            /tmp/v8-tests.log
+            /tmp/v8-exit.txt
+          if-no-files-found: error
