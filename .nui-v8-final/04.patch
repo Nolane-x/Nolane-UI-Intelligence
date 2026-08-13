@@ -1,0 +1,116 @@
+diff --git a/evals/v8/creative-toolchain/cases.json b/evals/v8/creative-toolchain/cases.json
+new file mode 100644
+index 0000000..665f9d8
+--- /dev/null
++++ b/evals/v8/creative-toolchain/cases.json
+@@ -0,0 +1,110 @@
++{
++  "version": 8,
++  "plane": "creative-toolchain",
++  "cases": [
++    {
++      "id": "figma-product-truth-smear",
++      "setup": "Figma/MCP can write a design canvas.",
++      "pressure": "Agent treats canvas capability as authority to redefine workflow semantics.",
++      "expected_decision": "BLOCKED",
++      "must_find": [
++        "tool stage authority is bounded",
++        "product truth remains outside creative tool authority"
++      ],
++      "falsifier": "Swap Figma for another capable canvas tool.",
++      "recovery": "Keep the brief/semantic contract fixed and use Figma only for its execution stage.",
++      "evaluator_owner": "orchestrating-creative-toolchains"
++    },
++    {
++      "id": "blender-source-preservation",
++      "setup": "A 3D asset is rendered in Blender for a product hero.",
++      "pressure": "Only final PNG is retained.",
++      "expected_decision": "BLOCKED",
++      "must_find": [
++        "editable source remains available",
++        "handoff records camera/material/export contract"
++      ],
++      "falsifier": "Request a new crop or material variant after deleting the source.",
++      "recovery": "Preserve blend/source assets and deterministic export settings.",
++      "evaluator_owner": "orchestrating-creative-toolchains"
++    },
++    {
++      "id": "motion-tool-semantic-purpose",
++      "setup": "Motion/GSAP is used for state choreography.",
++      "pressure": "Team adds effects because the library makes them easy.",
++      "expected_decision": "BLOCKED",
++      "must_find": [
++        "motion stage has semantic purpose",
++        "reduced-motion and interruption behavior are verified"
++      ],
++      "falsifier": "Disable animation and compare state comprehension.",
++      "recovery": "Remove decorative motion or rewrite choreography around state continuity.",
++      "evaluator_owner": "orchestrating-creative-toolchains"
++    },
++    {
++      "id": "threejs-performance-envelope",
++      "setup": "A WebGL signature is visually impressive.",
++      "pressure": "GPU/interaction cost on target devices exceeds budget.",
++      "expected_decision": "BLOCKED",
++      "must_find": [
++        "runtime integration envelope includes device/frame budget",
++        "fallback/poster preserves core product identity"
++      ],
++      "falsifier": "Throttle device capability and measure interaction response.",
++      "recovery": "Simplify scene, defer effects, or provide a lower-cost signature variant.",
++      "evaluator_owner": "orchestrating-creative-toolchains"
++    },
++    {
++      "id": "cross-tool-provenance",
++      "setup": "An illustration moves from generator to vector editor to animation tool.",
++      "pressure": "Each export renames files and loses source metadata.",
++      "expected_decision": "BLOCKED",
++      "must_find": [
++        "provenance threads across stages",
++        "final derivative traces to admitted inputs"
++      ],
++      "falsifier": "Pick a final asset and attempt to reconstruct every transformation.",
++      "recovery": "Add artifact IDs/transform ledger and regenerate from the reviewed chain.",
++      "evaluator_owner": "orchestrating-creative-toolchains"
++    },
++    {
++      "id": "tool-doc-currentness",
++      "setup": "A tool-learning skill describes an API that changed recently.",
++      "pressure": "Agent prefers remembered syntax.",
++      "expected_decision": "RESEARCH_MORE",
++      "must_find": [
++        "live official capability hydration",
++        "version/snapshot is recorded"
++      ],
++      "falsifier": "Check current official API docs against remembered operation.",
++      "recovery": "Refresh only the affected stage procedure and retain the tool-neutral brief.",
++      "evaluator_owner": "orchestrating-creative-toolchains"
++    },
++    {
++      "id": "toolchain-minimality",
++      "setup": "A simple domain icon could be authored as SVG but the plan uses four creative applications.",
++      "pressure": "Tool variety is mistaken for craft quality.",
++      "expected_decision": "BLOCKED",
++      "must_find": [
++        "smallest sufficient production chain",
++        "toolchain exit test shows replaceability"
++      ],
++      "falsifier": "Remove tools until one necessary stage fails.",
++      "recovery": "Use the minimal reversible toolchain that meets the acceptance tests.",
++      "evaluator_owner": "orchestrating-creative-toolchains"
++    },
++    {
++      "id": "integrated-asset-pass",
++      "setup": "A custom domain illustration has verified source chain, responsive variants, alt/equivalent, performance and rendered states.",
++      "pressure": "Release pressure asks whether more tooling is needed.",
++      "expected_decision": "PASS",
++      "must_find": [
++        "integration checks pass in material states",
++        "no unresolved provenance or semantic failures"
++      ],
++      "falsifier": "Change viewport/theme/loading state and rerun integration evidence.",
++      "recovery": "Ship the bounded asset and reopen only if a material integration condition changes.",
++      "evaluator_owner": "validating-visual-asset-integration"
++    }
++  ]
++}
