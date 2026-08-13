@@ -1,0 +1,17 @@
+{
+  "version": 8,
+  "principle": "Choose tools by stage authority and evidence, not by prestige or visual novelty.",
+  "tools": [
+    {"id":"gpt-image-2","stage":["generate","edit"],"authority":"raster image synthesis/editing","access":"OpenAI image generation API or host image tool","policy":"Record model/version and reference provenance; generated output still requires subject, rights, brand and integration review.","live_verify":true},
+    {"id":"figma","stage":["compose","edit","handoff"],"authority":"design-canvas composition and design-to-code context","access":"Figma UI/API/MCP where connected","policy":"Prefer native design objects and local design system tokens; do not assume connected write capability.","live_verify":true},
+    {"id":"blender","stage":["model","shade","render"],"authority":"3D scene authoring/rendering","access":"Blender UI/Python API/CLI when available","policy":"Use for meaningful spatial/product/technical assets; budget polygon/texture/render cost for target medium.","live_verify":true},
+    {"id":"browser-css-svg-canvas","stage":["author","render","verify"],"authority":"web-native visual runtime","access":"browser runtime","policy":"Prefer semantic SVG/CSS for lightweight vector/system visuals; canvas only when raster/immediate-mode behavior earns its cost.","live_verify":false},
+    {"id":"three-js","stage":["author","render"],"authority":"web 3D rendering","access":"https://github.com/mrdoob/three.js","policy":"Research current renderer/performance/device constraints before adoption.","live_verify":true},
+    {"id":"react-three-fiber","stage":["author","integrate","render"],"authority":"React 3D scene integration","access":"https://github.com/pmndrs/react-three-fiber","policy":"Use only when React scene graph integration is justified; Three.js/runtime constraints still apply.","live_verify":true},
+    {"id":"pixijs","stage":["author","render","visual-test"],"authority":"2D GPU rendering","access":"https://github.com/pixijs/pixijs","policy":"Calibrate visual-regression tolerance across renderer/environment noise; do not equate pixel delta with perceptual defect.","live_verify":true},
+    {"id":"motion","stage":["animate","sequence","integrate"],"authority":"web motion and presence/layout transitions","access":"https://github.com/motiondivision/motion","policy":"Motion owns execution mechanism only after NUI establishes semantic purpose, temporal hierarchy and reduced-motion behavior.","live_verify":true},
+    {"id":"lottie","stage":["animate","deliver"],"authority":"portable vector animation playback","access":"specialist runtime selected after source verification","policy":"Validate file provenance, playback cost, reduced-motion alternative and responsive composition.","live_verify":true},
+    {"id":"rive","stage":["animate","interactive-state-machine","deliver"],"authority":"interactive vector animation runtime","access":"specialist runtime selected after source verification","policy":"Use state machines only when they carry product state/feedback rather than decorative complexity.","live_verify":true}
+  ],
+  "stages":["search","reuse","generate","author","edit","compose","animate","render","optimize","verify"]
+}
