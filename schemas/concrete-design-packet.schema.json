@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nolane.dev/schemas/concrete-design-packet-v7.schema.json",
+  "title": "NUI v7 Concrete Design Packet",
+  "type": "object",
+  "required": [
+    "status",
+    "task_thesis",
+    "authority_stack",
+    "decisions",
+    "implementation_shortcuts",
+    "validation_obligations",
+    "unresolved_blockers"
+  ],
+  "properties": {
+    "status": {
+      "enum": [
+        "READY",
+        "NEEDS_RESEARCH",
+        "BLOCKED"
+      ]
+    },
+    "task_thesis": {
+      "type": "string",
+      "minLength": 1
+    },
+    "authority_stack": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "decisions": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 9,
+      "items": {
+        "type": "object",
+        "required": [
+          "pattern_id",
+          "decision",
+          "rationale",
+          "provenance",
+          "contraindications",
+          "transfer_boundary"
+        ],
+        "properties": {
+          "pattern_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "decision": {
+            "type": "string",
+            "minLength": 1
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1
+          },
+          "decision_type": {
+            "type": "string"
+          },
+          "source_id": {
+            "type": "string"
+          },
+          "provenance": {
+            "type": "array",
+            "minItems": 1
+          },
+          "contraindications": {
+            "type": "array",
+            "minItems": 1
+          },
+          "transfer_boundary": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "implementation_shortcuts": {
+      "type": "array",
+      "maxItems": 5,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "validation_obligations": {
+      "type": "array",
+      "maxItems": 16,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "unresolved_blockers": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "compression_rule": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

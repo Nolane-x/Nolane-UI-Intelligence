@@ -1,0 +1,1450 @@
+{
+  "version": 7,
+  "as_of": "2026-08-13",
+  "policy": "Concrete cards are narrow source-bound priors. They accelerate decisions but keep provenance, contraindications and local validation visible.",
+  "patterns": [
+    {
+      "id": "subject-native-signature",
+      "domains": [
+        "generic",
+        "creative-professional",
+        "consumer-productivity"
+      ],
+      "dimensions": [
+        "visual-craft",
+        "visual-frontier"
+      ],
+      "problem": "UI can be polished yet indistinguishable from generic AI output.",
+      "decision": "Derive one memorable signature mechanism from the subject’s own artifacts, instruments, materials, data or verbs; keep surrounding chrome quieter.",
+      "rationale": "Specificity comes from the subject world, while one concentrated signature avoids decoration soup.",
+      "source_refs": [
+        {
+          "source_id": "nui-internal-aesthetic",
+          "url": "https://github.com/Nolane-x/Nolane-UI-Intelligence",
+          "claim": "NUI v5/v6 signature-depth and anti-attractor logic.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Do not invent a signature that obscures primary tasks.",
+        "Do not copy another brand’s trade dress."
+      ],
+      "validation": [
+        "Blind-substitution check: hide brand/name and verify the signature still points to this subject.",
+        "Removal-cost check: removing the signature should reduce identity without breaking task semantics."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 90,
+      "tags": [
+        "high-ambition",
+        "signature",
+        "subject"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "hierarchy-before-decoration",
+      "domains": [
+        "generic"
+      ],
+      "dimensions": [
+        "visual-craft"
+      ],
+      "problem": "Visual detail can accumulate without a readable focal order.",
+      "decision": "Establish a dominant focal target, secondary reading path, and quiet regions before adding decorative treatments.",
+      "rationale": "Hierarchy carries task meaning; decoration should reinforce rather than compete with it.",
+      "source_refs": [
+        {
+          "source_id": "apple-hig",
+          "url": "https://developer.apple.com/design/human-interface-guidelines",
+          "claim": "Apple HIG treats hierarchy as a core platform principle.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Do not force one visual hierarchy across RTL or radically different viewport compositions."
+      ],
+      "validation": [
+        "Verify first-attention target at each target viewport.",
+        "Check that controls and content remain distinguishable without relying on color alone."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 86,
+      "tags": [
+        "hierarchy",
+        "composition"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "type-as-personality-not-filler",
+      "domains": [
+        "generic",
+        "creative-professional"
+      ],
+      "dimensions": [
+        "visual-craft"
+      ],
+      "problem": "Typography is often treated as neutral after layout is finished.",
+      "decision": "Choose distinct display/body/utility roles with resolved font evidence, deliberate scale/width/weight, and a memorable but task-safe typographic gesture.",
+      "rationale": "Type can carry identity while maintaining legibility and hierarchy.",
+      "source_refs": [
+        {
+          "source_id": "adobe-spectrum-2",
+          "url": "https://s2.spectrum.adobe.com/",
+          "claim": "Spectrum 2 includes typography inside an adaptable production design language.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Avoid display novelty in dense operational text.",
+        "Do not rely on a font family that lacks required scripts."
+      ],
+      "validation": [
+        "Capture intended and resolved font families.",
+        "Verify required script coverage and fallback.",
+        "Check small-text legibility at rendered size."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 85,
+      "tags": [
+        "typography",
+        "signature"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "material-role-economy",
+      "domains": [
+        "generic"
+      ],
+      "dimensions": [
+        "visual-craft"
+      ],
+      "problem": "Card/border/shadow repetition can create flat visual noise despite many effects.",
+      "decision": "Give every surface role a semantic purpose and vary depth/material only when it communicates containment, modality, continuity, or focus.",
+      "rationale": "Material contrast is strongest when tied to hierarchy and state instead of repeated as decoration.",
+      "source_refs": [
+        {
+          "source_id": "nui-internal-aesthetic",
+          "url": "https://github.com/Nolane-x/Nolane-UI-Intelligence",
+          "claim": "NUI aesthetic-attractor audit measures boundary density and material variety.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Do not remove necessary boundaries for data scanning or safety."
+      ],
+      "validation": [
+        "Audit boundary density and repetition.",
+        "Verify material changes correspond to semantic or interaction changes."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 78,
+      "tags": [
+        "surface",
+        "depth",
+        "composition"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "responsive-recomposition-not-shrink",
+      "domains": [
+        "generic"
+      ],
+      "dimensions": [
+        "visual-craft",
+        "platform-convention"
+      ],
+      "problem": "Desktop composition is often merely compressed on smaller screens.",
+      "decision": "Recompose information order, grouping, disclosure and control placement for each meaningful size/input regime instead of proportionally shrinking.",
+      "rationale": "A strong responsive system preserves task priority and context rather than geometry.",
+      "source_refs": [
+        {
+          "source_id": "primer-mcp",
+          "url": "https://primer.style/product/getting-started/foundations/",
+          "claim": "Primer treats responsive behavior as a product foundation.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Do not create unrelated mobile and desktop products; preserve action/state equivalence."
+      ],
+      "validation": [
+        "Compare information order and primary action reachability across viewports.",
+        "Verify no required content becomes hover-only."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 82,
+      "tags": [
+        "responsive",
+        "composition"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "platform-hardware-software-harmony",
+      "domains": [
+        "consumer-productivity",
+        "creative-professional",
+        "generic"
+      ],
+      "dimensions": [
+        "platform-convention",
+        "visual-craft"
+      ],
+      "problem": "Cross-platform UI can feel like a web skin on native hardware.",
+      "decision": "On Apple targets, align hierarchy, materials, control geometry, motion, input and system components with Apple platform conventions before applying brand differentiation.",
+      "rationale": "Platform feeling emerges from hardware/software/input harmony, not from copying visual chrome alone.",
+      "source_refs": [
+        {
+          "source_id": "apple-hig",
+          "url": "https://developer.apple.com/design/human-interface-guidelines",
+          "claim": "Official HIG explicitly calls for harmony between interface elements, system experiences and devices.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Do not apply Apple-specific conventions to non-Apple targets.",
+        "Do not override explicit product or accessibility needs merely to look native."
+      ],
+      "validation": [
+        "Test with platform input methods and size classes.",
+        "Verify system control/state expectations and accessibility settings."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 96,
+      "tags": [
+        "apple",
+        "native",
+        "high-ambition"
+      ],
+      "platforms": [
+        "ios",
+        "ipados",
+        "macos",
+        "watchos",
+        "tvos",
+        "visionos",
+        "apple"
+      ]
+    },
+    {
+      "id": "platform-input-intent",
+      "domains": [
+        "consumer-productivity",
+        "generic"
+      ],
+      "dimensions": [
+        "platform-convention"
+      ],
+      "problem": "A layout may look native while ignoring how people physically operate the target device.",
+      "decision": "Design target size, spacing, focus movement, shortcuts, gestures and modality around actual platform inputs; preserve equivalent outcomes across supported inputs.",
+      "rationale": "Embodied platform craft includes how controls are reached and manipulated, not only appearance.",
+      "source_refs": [
+        {
+          "source_id": "apple-hig",
+          "url": "https://developer.apple.com/design/human-interface-guidelines",
+          "claim": "HIG explicitly includes multiple input modalities and platform-specific guidance.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Do not hide essential actions behind undiscoverable gestures."
+      ],
+      "validation": [
+        "Run pointer/touch/keyboard/voice or other supported-input equivalence tests."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 88,
+      "tags": [
+        "input",
+        "native"
+      ],
+      "platforms": [
+        "ios",
+        "ipados",
+        "macos",
+        "watchos",
+        "tvos",
+        "visionos",
+        "apple"
+      ]
+    },
+    {
+      "id": "service-eligibility-before-application",
+      "domains": [
+        "public-service"
+      ],
+      "dimensions": [
+        "service-journey"
+      ],
+      "problem": "Users can waste effort starting a service they cannot or should not use.",
+      "decision": "When eligibility is genuinely complex, ask the minimum simple questions needed to determine suitability before the full application, and explain ineligible outcomes clearly.",
+      "rationale": "Early suitability checks reduce wasted effort and downstream processing confusion.",
+      "source_refs": [
+        {
+          "source_id": "govuk-design-system",
+          "url": "https://design-system.service.gov.uk/patterns/check-a-service-is-suitable/",
+          "claim": "GOV.UK publishes a user-focused suitability pattern for complex eligibility.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Do not add a pre-check when eligibility can be explained clearly on the start page.",
+        "Do not ask for information that must be entered again without a justified reason."
+      ],
+      "validation": [
+        "User-research the decision questions with affected service users.",
+        "Verify every exit explains why and what to do next."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 98,
+      "tags": [
+        "eligibility",
+        "benefit",
+        "application",
+        "service"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "service-start-with-need",
+      "domains": [
+        "public-service"
+      ],
+      "dimensions": [
+        "service-journey",
+        "content-design"
+      ],
+      "problem": "Service entry pages often lead with department/system language rather than user need.",
+      "decision": "Name and frame the service around the problem it solves, giving only enough information for people to understand what it does and whether it meets their need.",
+      "rationale": "A clear service start reduces navigation and comprehension cost.",
+      "source_refs": [
+        {
+          "source_id": "govuk-design-system",
+          "url": "https://design-system.service.gov.uk/patterns/start-using-a-service/",
+          "claim": "GOV.UK start-service guidance centers the service problem and enough pre-entry information.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Do not hide statutory/legal requirements that users must know before proceeding."
+      ],
+      "validation": [
+        "Test whether target users can explain what the service does and whether it is for them before entering."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 91,
+      "tags": [
+        "service",
+        "content",
+        "entry"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "service-error-recovery-preserve-input",
+      "domains": [
+        "public-service"
+      ],
+      "dimensions": [
+        "service-journey",
+        "accessibility-testing"
+      ],
+      "problem": "Validation failures can erase context or force vulnerable users to repeat work.",
+      "decision": "Preserve valid input, move/announce attention to a clear error summary when appropriate, bind field errors to controls, and give a direct correction path.",
+      "rationale": "Recovery must protect work and make the next action obvious.",
+      "source_refs": [
+        {
+          "source_id": "uswds",
+          "url": "https://designsystem.digital.gov/",
+          "claim": "USWDS publishes component accessibility test procedures; recovery should be verified with keyboard and screen readers, not inferred.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Do not move focus unexpectedly when inline validation can safely remain local."
+      ],
+      "validation": [
+        "Keyboard-only correction test.",
+        "Screen-reader announcement/order test.",
+        "200% zoom/magnification check."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 95,
+      "tags": [
+        "error",
+        "recovery",
+        "screen",
+        "reader",
+        "low",
+        "vision"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "service-research-provenance",
+      "domains": [
+        "public-service"
+      ],
+      "dimensions": [
+        "service-journey"
+      ],
+      "problem": "Institutional patterns can be copied outside the conditions in which they were tested.",
+      "decision": "Record what research/evidence supports each adopted service pattern and run local user research for materially different populations or journeys.",
+      "rationale": "Institutional practice is strong prior evidence, not a substitute for local service evidence.",
+      "source_refs": [
+        {
+          "source_id": "govuk-design-system",
+          "url": "https://design-system.service.gov.uk/get-started/",
+          "claim": "GOV.UK publishes how/when patterns were tested and asks teams to research adaptations.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Do not treat GitHub discussion ideas as validated service research."
+      ],
+      "validation": [
+        "Attach local research result or explicit reason the upstream evidence is sufficiently transferable."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 86,
+      "tags": [
+        "research",
+        "service",
+        "evidence"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "semantic-primitive-before-styling",
+      "domains": [
+        "generic",
+        "public-service",
+        "enterprise-operations",
+        "commerce"
+      ],
+      "dimensions": [
+        "component-semantics"
+      ],
+      "problem": "Custom visual components often reimplement focus/keyboard/ARIA behavior incompletely.",
+      "decision": "Choose a native element or behaviorally tested semantic primitive first; layer local visual language on top without discarding its interaction contract.",
+      "rationale": "Behavioral correctness is cheaper to preserve than to reconstruct from visual examples.",
+      "source_refs": [
+        {
+          "source_id": "react-aria",
+          "url": "https://react-spectrum.adobe.com/react-aria/",
+          "claim": "React Aria provides unstyled components/hooks with accessibility, interactions and internationalization behavior built in.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Do not force a primitive whose state model conflicts with the product.",
+        "Do not assume wrapping preserves semantics—retest after composition."
+      ],
+      "validation": [
+        "Keyboard navigation test.",
+        "Focus entry/exit/restoration test.",
+        "Screen-reader role/name/state test."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 97,
+      "tags": [
+        "focus",
+        "keyboard",
+        "aria",
+        "semantic"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "focus-follows-context-change",
+      "domains": [
+        "generic",
+        "enterprise-operations",
+        "public-service"
+      ],
+      "dimensions": [
+        "component-semantics",
+        "accessibility-testing"
+      ],
+      "problem": "Dialogs, menus and dynamic panels can leave keyboard/screen-reader users in an incoherent focus position.",
+      "decision": "Define focus owner, initial focus, traversal boundary, dismissal behavior and restoration target for every context-changing interaction.",
+      "rationale": "Focus is part of state transition semantics, not a visual afterthought.",
+      "source_refs": [
+        {
+          "source_id": "radix-primitives",
+          "url": "https://www.radix-ui.com/primitives/docs/overview/accessibility",
+          "claim": "Radix explicitly handles focus management alongside keyboard navigation and semantics.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Do not move focus solely to create visual drama."
+      ],
+      "validation": [
+        "Test open, nested interaction, escape/cancel, completion and restoration with keyboard and screen reader."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 95,
+      "tags": [
+        "focus",
+        "modal",
+        "dialog",
+        "menu",
+        "keyboard"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "multi-input-equivalence",
+      "domains": [
+        "generic",
+        "enterprise-operations",
+        "commerce"
+      ],
+      "dimensions": [
+        "component-semantics",
+        "accessibility-testing"
+      ],
+      "problem": "Pointer-first interactions can make functionality unreachable from keyboard, touch, switch or assistive tech.",
+      "decision": "For every material action, name supported input modalities and ensure equivalent outcome/state information without requiring one gesture.",
+      "rationale": "Interaction modality is part of capability coverage.",
+      "source_refs": [
+        {
+          "source_id": "react-aria",
+          "url": "https://react-spectrum.adobe.com/react-aria/",
+          "claim": "React Aria is designed and tested across devices, interaction modalities and assistive technologies.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Equivalent does not mean identical choreography; preserve outcome and information."
+      ],
+      "validation": [
+        "Create modality matrix and exercise every material action."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 91,
+      "tags": [
+        "touch",
+        "keyboard",
+        "pointer",
+        "gesture"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "enterprise-role-task-slice",
+      "domains": [
+        "enterprise-operations",
+        "enterprise"
+      ],
+      "dimensions": [
+        "enterprise-workflow"
+      ],
+      "problem": "Enterprise systems expose monolithic data/functions instead of what a role needs now.",
+      "decision": "Model the current role, business object, task goal and decision rights; surface the smallest coherent task slice with clear drill-in to deeper context.",
+      "rationale": "Role-based task structure reduces irrelevant complexity while preserving enterprise depth.",
+      "source_refs": [
+        {
+          "source_id": "sap-fiori",
+          "url": "https://experience.sap.com/fiori-design-web/design-principles/",
+          "claim": "SAP Fiori is explicitly role-based and focused on the right information at the right time.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Do not hide information required for accountability or expert exception handling."
+      ],
+      "validation": [
+        "Validate task completion for each role and role transition.",
+        "Check authorization/state visibility independently from visual hiding."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 98,
+      "tags": [
+        "role",
+        "approver",
+        "requester",
+        "workflow",
+        "enterprise"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "enterprise-floorplan-before-widgets",
+      "domains": [
+        "enterprise-operations",
+        "enterprise"
+      ],
+      "dimensions": [
+        "enterprise-workflow",
+        "design-system-architecture"
+      ],
+      "problem": "Dashboard building can devolve into widget/card accumulation without an object/task information architecture.",
+      "decision": "Choose an object/workflow floorplan first—overview, list, object detail, work queue, comparison, edit—then place components inside that semantic frame.",
+      "rationale": "Stable floorplans encode enterprise navigation and object handling above component level.",
+      "source_refs": [
+        {
+          "source_id": "sap-fiori",
+          "url": "https://experience.sap.com/fiori-design-web/best-practices-for-designing-sap-fiori-apps/",
+          "claim": "Fiori guidance distinguishes layouts/floorplans/UI elements and general patterns.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Do not use a canonical floorplan when the product has a genuinely novel work model."
+      ],
+      "validation": [
+        "Trace every region to an object, task, status or decision.",
+        "Remove regions that have no workflow role."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 92,
+      "tags": [
+        "floorplan",
+        "enterprise",
+        "dashboard",
+        "object"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "enterprise-draft-message-state",
+      "domains": [
+        "enterprise-operations",
+        "enterprise"
+      ],
+      "dimensions": [
+        "enterprise-workflow"
+      ],
+      "problem": "Complex edits and approvals often blur saved, draft, pending, failed and externally changed states.",
+      "decision": "Make draft ownership, save/submit boundary, validation state, async processing, conflict and message severity explicit in the work surface.",
+      "rationale": "Enterprise trust depends on clear object lifecycle and recoverable state.",
+      "source_refs": [
+        {
+          "source_id": "sap-fiori",
+          "url": "https://experience.sap.com/fiori-design-web/",
+          "claim": "Fiori provides extensive enterprise patterns around object handling, drafts and messages.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Do not expose implementation jargon instead of user-recognizable business state."
+      ],
+      "validation": [
+        "State-transition matrix including conflict/retry/cancel.",
+        "Verify messages identify affected object/action and recovery."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 96,
+      "tags": [
+        "draft",
+        "message",
+        "state",
+        "approve",
+        "financial"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "enterprise-certainty-through-consistency",
+      "domains": [
+        "enterprise-operations",
+        "enterprise"
+      ],
+      "dimensions": [
+        "enterprise-workflow",
+        "design-system-architecture"
+      ],
+      "problem": "Users must relearn similar actions across dense enterprise products.",
+      "decision": "Keep recurring object actions, status vocabulary, layout landmarks and feedback semantics consistent; spend novelty only where it adds domain value.",
+      "rationale": "Enterprise efficiency benefits from low cooperative entropy and predictable cross-product interaction.",
+      "source_refs": [
+        {
+          "source_id": "ant-design",
+          "url": "https://ant.design/docs/spec/values/",
+          "claim": "Ant Design frames certainty as consistent interaction and reduced learning/cognitive cost across products.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Do not preserve a harmful legacy pattern solely for consistency."
+      ],
+      "validation": [
+        "Cross-screen vocabulary/action audit.",
+        "Measure whether expert shortcuts and novice discoverability coexist."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 84,
+      "tags": [
+        "certainty",
+        "enterprise",
+        "consistency"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "ai-visible-but-integrated",
+      "domains": [
+        "ai-collaboration",
+        "enterprise-collaboration"
+      ],
+      "dimensions": [
+        "ai-collaboration",
+        "visual-craft"
+      ],
+      "problem": "AI surfaces either look indistinguishable from normal actions or like an unrelated third-party product.",
+      "decision": "Make AI-powered moments recognizable through a bounded dialect of iconography/color/motion/copy while preserving the host product’s layout, controls and interaction grammar.",
+      "rationale": "Users need to know when they are interacting with AI without losing product continuity.",
+      "source_refs": [
+        {
+          "source_id": "atlassian-rovo",
+          "url": "https://atlassian.design/rovo-ui/about-rovo-ui",
+          "claim": "Rovo UI explicitly balances recognizable AI expression with fluency in the Atlassian design language.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Do not mark every AI-adjacent region with constant animated decoration."
+      ],
+      "validation": [
+        "Blind test whether users can identify AI moments and still locate familiar host-product controls."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 92,
+      "tags": [
+        "ai",
+        "collaboration",
+        "high-ambition"
+      ],
+      "platforms": [],
+      "requires_ai": true
+    },
+    {
+      "id": "ai-keep-flow-state",
+      "domains": [
+        "ai-collaboration",
+        "enterprise-collaboration"
+      ],
+      "dimensions": [
+        "ai-collaboration"
+      ],
+      "problem": "AI assistance can force context switching into a separate chat surface.",
+      "decision": "Place assistance at the work locus when possible; carry task/object state across transitions and make generated changes inspectable in context.",
+      "rationale": "Context-preserving AI keeps users in flow and makes collaboration legible.",
+      "source_refs": [
+        {
+          "source_id": "atlassian-rovo",
+          "url": "https://atlassian.design/rovo-ui/ai-interaction-guidelines",
+          "claim": "Atlassian guidance emphasizes preserving flow and embedding controls in the working surface.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Use a dedicated conversational surface when the task genuinely requires broad exploration beyond the current object."
+      ],
+      "validation": [
+        "Verify return path, state continuity and affected-object visibility."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 94,
+      "tags": [
+        "ai",
+        "flow",
+        "context"
+      ],
+      "platforms": [],
+      "requires_ai": true
+    },
+    {
+      "id": "ai-human-holds-keys",
+      "domains": [
+        "ai-collaboration",
+        "enterprise-collaboration",
+        "enterprise-operations"
+      ],
+      "dimensions": [
+        "ai-collaboration"
+      ],
+      "problem": "Automation can collapse human agency around consequential actions.",
+      "decision": "Separate suggestion, preview, approval, execution and undo/recovery; show what the AI used or changed at the point where it affects a decision.",
+      "rationale": "AI should augment expertise while preserving human control and accountability.",
+      "source_refs": [
+        {
+          "source_id": "sap-fiori",
+          "url": "https://experience.sap.com/fiori-design-web/v1-120/designing-intelligent-systems/",
+          "claim": "SAP intelligent-system guidance centers human control and augmentation.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Low-risk reversible micro-automation may use lighter confirmation when user intent is already explicit."
+      ],
+      "validation": [
+        "Test preview/approve/cancel/undo paths.",
+        "Verify provenance or explanation is available before consequential commitment."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 99,
+      "tags": [
+        "ai",
+        "control",
+        "approve",
+        "provenance"
+      ],
+      "platforms": [],
+      "requires_ai": true
+    },
+    {
+      "id": "commerce-object-action-clarity",
+      "domains": [
+        "commerce"
+      ],
+      "dimensions": [
+        "commerce-workflow"
+      ],
+      "problem": "Commerce admin UIs can mix catalog, order, customer and financial actions without clear object ownership.",
+      "decision": "Anchor each work surface to a merchant-recognizable business object and make bulk/single actions, status and money consequences explicit.",
+      "rationale": "Merchant workflows are object- and consequence-heavy; clarity reduces costly mistakes.",
+      "source_refs": [
+        {
+          "source_id": "nui-internal-aesthetic",
+          "url": "https://github.com/Nolane-x/Nolane-UI-Intelligence",
+          "claim": "NUI generic commerce fallback requires explicit object/action/state modeling when no platform-specific authority applies.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Do not import Shopify-specific vocabulary into generic commerce products."
+      ],
+      "validation": [
+        "Object/action registry.",
+        "Money/currency/locale validation.",
+        "Bulk-action selection and undo/confirmation tests."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 90,
+      "tags": [
+        "commerce",
+        "order",
+        "merchant",
+        "money"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "shopify-native-admin-conventions",
+      "domains": [
+        "commerce"
+      ],
+      "dimensions": [
+        "commerce-workflow"
+      ],
+      "problem": "A Shopify app can feel foreign and increase merchant learning cost.",
+      "decision": "On Shopify Admin/App surfaces, prefer current Polaris/Admin components and native interaction conventions before inventing parallel admin patterns.",
+      "rationale": "Platform-native consistency is valuable when the product lives inside Shopify.",
+      "source_refs": [
+        {
+          "source_id": "shopify-polaris",
+          "url": "https://shopify.dev/docs/api/app-home/web-components",
+          "claim": "Shopify documents Polaris web components as native UI building blocks for Shopify admin surfaces.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Never generalize this rule to non-Shopify commerce.",
+        "Do not depend on undocumented/internal CSS tokens."
+      ],
+      "validation": [
+        "Verify against current Shopify docs/API version.",
+        "Test focus, locale and overlay behavior in the actual extension/admin surface."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 99,
+      "tags": [
+        "shopify",
+        "merchant",
+        "admin"
+      ],
+      "platforms": [
+        "shopify",
+        "shopify-admin",
+        "shopify-app",
+        "shopify-extension"
+      ],
+      "shopify_only": true
+    },
+    {
+      "id": "shopify-version-drift-guard",
+      "domains": [
+        "commerce"
+      ],
+      "dimensions": [
+        "production-lineage"
+      ],
+      "problem": "Fast-moving hosted component delivery can change runtime behavior independently of local code.",
+      "decision": "For Shopify web-component work, record API/runtime assumptions, current docs, and regression tests around critical interactions instead of assuming an unchanging local package contract.",
+      "rationale": "Live platform delivery increases drift risk and makes current verification part of implementation quality.",
+      "source_refs": [
+        {
+          "source_id": "shopify-polaris",
+          "url": "https://shopify.dev/docs/api/polaris/using-polaris-web-components",
+          "claim": "Shopify docs describe current Polaris web-component delivery and platform usage.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Do not use community complaints as sole evidence of current platform behavior."
+      ],
+      "validation": [
+        "Pin extension API version where supported.",
+        "Regression-test critical modal/focus/table/form paths against current runtime."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 88,
+      "tags": [
+        "shopify",
+        "drift",
+        "runtime"
+      ],
+      "platforms": [
+        "shopify",
+        "shopify-admin",
+        "shopify-app",
+        "shopify-extension"
+      ],
+      "shopify_only": true
+    },
+    {
+      "id": "motion-sequence-before-effects",
+      "domains": [
+        "generic",
+        "creative-professional",
+        "ai-collaboration"
+      ],
+      "dimensions": [
+        "motion-system",
+        "visual-craft"
+      ],
+      "problem": "Independent hover/reveal effects create noise without narrative or object continuity.",
+      "decision": "Define the motion sequence as states/labels and relative timing first; use one orchestrated transition for the meaningful change before adding local microinteractions.",
+      "rationale": "Timeline thinking makes motion communicate order and continuity rather than decorate.",
+      "source_refs": [
+        {
+          "source_id": "gsap",
+          "url": "https://github.com/greensock/gsap-skills",
+          "claim": "Official GSAP skills document timeline sequencing, labels and relative positioning.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Do not animate when immediate state change is clearer."
+      ],
+      "validation": [
+        "Storyboard start/intermediate/end states.",
+        "Verify interruption and repeat behavior.",
+        "Verify reduced-motion equivalent preserves information."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 91,
+      "tags": [
+        "motion",
+        "timeline",
+        "sequence",
+        "high-ambition"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "motion-presence-matches-state",
+      "domains": [
+        "generic",
+        "ai-collaboration"
+      ],
+      "dimensions": [
+        "motion-system"
+      ],
+      "problem": "Entering/exiting elements can shift layout or imply the wrong continuity.",
+      "decision": "Choose presence mode and layout behavior from the semantic transition: simultaneous replacement, wait-for-exit, or layout-pop; keep object identity stable when continuity matters.",
+      "rationale": "Presence sequencing should express state topology, not just easing preference.",
+      "source_refs": [
+        {
+          "source_id": "motion",
+          "url": "https://motion.dev/",
+          "claim": "Motion exposes explicit presence/layout sequencing mechanisms.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Do not preserve visual continuity between semantically unrelated objects."
+      ],
+      "validation": [
+        "Capture temporal state sequence and layout positions.",
+        "Test rapid toggles/interruption."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 87,
+      "tags": [
+        "motion",
+        "presence",
+        "layout"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "visual-frontier-mechanism-not-template",
+      "domains": [
+        "generic",
+        "creative-professional"
+      ],
+      "dimensions": [
+        "visual-frontier"
+      ],
+      "problem": "High-impact libraries tempt agents to copy a whole visual trope.",
+      "decision": "Extract one mechanism from a visual-frontier source, state what product meaning it serves, then rebuild styling/content around the local subject and system.",
+      "rationale": "Mechanism transfer expands possibilities without importing generic template identity.",
+      "source_refs": [
+        {
+          "source_id": "react-bits",
+          "url": "https://github.com/DavidHDev/react-bits",
+          "claim": "React Bits is treated by NUI as a mechanism reservoir with artifact-level inspection, not semantic authority.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Do not copy proprietary/restricted assets or trade dress.",
+        "Do not let the effect carry required information without an accessible equivalent."
+      ],
+      "validation": [
+        "Mechanism-to-meaning statement.",
+        "Performance and reduced-motion test.",
+        "Semantic authority checked separately."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 89,
+      "tags": [
+        "visual",
+        "effect",
+        "animation",
+        "high-ambition"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "creative-tool-primary-surface",
+      "domains": [
+        "creative-professional"
+      ],
+      "dimensions": [
+        "creative-professional",
+        "visual-craft"
+      ],
+      "problem": "Creative apps can spend too much space on dashboards/chrome and too little on the artifact being made.",
+      "decision": "Give the work artifact/canvas/timeline/document the dominant spatial role; move secondary configuration into contextual inspectors, toolbars or progressive panels.",
+      "rationale": "Professional creative flow depends on keeping the object of work visually and interactively primary.",
+      "source_refs": [
+        {
+          "source_id": "adobe-spectrum-2",
+          "url": "https://s2.spectrum.adobe.com/",
+          "claim": "Spectrum 2 is shaped by Adobe creative-product practice and contextual adaptation.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Data-management views may legitimately prioritize lists/metadata over a canvas."
+      ],
+      "validation": [
+        "Measure work-surface share and primary-action distance.",
+        "Test switching selection/tool/context without losing artifact position."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 94,
+      "tags": [
+        "creative",
+        "canvas",
+        "editor",
+        "tool"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "creative-density-with-legibility",
+      "domains": [
+        "creative-professional"
+      ],
+      "dimensions": [
+        "visual-craft"
+      ],
+      "problem": "Expert tools need density but often collapse into tiny gray labels and border soup.",
+      "decision": "Increase information density through grouping, alignment, progressive disclosure and compact control geometry before reducing type below comfortable rendered legibility.",
+      "rationale": "Expertise permits efficient structure, not unreadable text.",
+      "source_refs": [
+        {
+          "source_id": "nui-internal-aesthetic",
+          "url": "https://github.com/Nolane-x/Nolane-UI-Intelligence",
+          "claim": "NUI v5 visual-legibility rules explicitly prevent expert-density justification for unsafe microtext.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Some auxiliary nonessential labels may be smaller if truly decorative/secondary."
+      ],
+      "validation": [
+        "Rendered font-size/contrast evidence.",
+        "Scan path and boundary-density audit."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 93,
+      "tags": [
+        "creative",
+        "density",
+        "typography"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "design-to-production-lineage",
+      "domains": [
+        "generic",
+        "enterprise",
+        "creative-professional"
+      ],
+      "dimensions": [
+        "production-lineage",
+        "design-system-architecture"
+      ],
+      "problem": "Design guidance can diverge from implemented components and downstream products.",
+      "decision": "When a mature system is materially adopted, trace guidance → token/component implementation → tested behavior → local wrapper/adaptation, and record where the chain breaks.",
+      "rationale": "Production lineage is stronger evidence than prose alone.",
+      "source_refs": [
+        {
+          "source_id": "carbon",
+          "url": "https://carbondesignsystem.com/",
+          "claim": "Carbon explicitly unifies working code, design tools/resources and human-interface guidance.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Do not assume a mature system is correct for a different domain/platform merely because its lineage is strong."
+      ],
+      "validation": [
+        "Record exact component/version and local modifications.",
+        "Retest behavior after wrappers/themes."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 88,
+      "tags": [
+        "production",
+        "lineage",
+        "component"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "concept-to-pattern-before-component",
+      "domains": [
+        "enterprise-operations",
+        "generic"
+      ],
+      "dimensions": [
+        "design-system-architecture"
+      ],
+      "problem": "Agents jump from requirement directly to a component API without modeling the reusable product concept.",
+      "decision": "Name the product concept and task pattern first, then choose business pattern/template and finally implementation component; keep concept semantics independent of library names.",
+      "rationale": "Concept-level abstraction prevents the component library from defining the product model.",
+      "source_refs": [
+        {
+          "source_id": "ant-design",
+          "url": "https://ant.design/docs/spec/introduce/",
+          "claim": "Ant Design is built from abstraction of recurring enterprise contents into reusable product resources.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Do not invent a reusable pattern for a one-off edge case with no recurrence."
+      ],
+      "validation": [
+        "Check whether the same concept appears across at least two states/screens before systemizing."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 80,
+      "tags": [
+        "concept",
+        "pattern",
+        "component"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "agent-query-live-authority",
+      "domains": [
+        "generic"
+      ],
+      "dimensions": [
+        "agent-readable-access"
+      ],
+      "problem": "Agents rely on stale memory for fast-moving component APIs and design guidance.",
+      "decision": "When a trusted system exposes MCP, llms.txt, structured docs or official skills, query that interface at decision time and bind the answer to the underlying authority/version.",
+      "rationale": "Machine-readable access reduces prompt/search latency and version hallucination.",
+      "source_refs": [
+        {
+          "source_id": "primer-mcp",
+          "url": "https://primer.style/product/getting-started/foundations/mcp/",
+          "claim": "Primer MCP exposes structured component, pattern, token, icon and accessibility guidance to agents.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Protocol availability does not make the source authoritative for unrelated decisions."
+      ],
+      "validation": [
+        "Record adapter, retrieved item/version and underlying authority."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 91,
+      "tags": [
+        "mcp",
+        "agent",
+        "docs",
+        "speed"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "open-code-inspect-then-own",
+      "domains": [
+        "generic"
+      ],
+      "dimensions": [
+        "implementation-acceleration",
+        "agent-readable-access"
+      ],
+      "problem": "Package abstraction can slow adaptation and hide implementation behavior.",
+      "decision": "For open-code distributions, inspect the copied source and its dependency/semantic assumptions, then own local modifications with tests instead of layering opaque overrides.",
+      "rationale": "Inspectable code can be a faster implementation substrate for agents when ownership is explicit.",
+      "source_refs": [
+        {
+          "source_id": "shadcn-open-code",
+          "url": "https://ui.shadcn.com/docs",
+          "claim": "shadcn/ui explicitly uses an Open Code model for customization and AI readability.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Do not treat default shadcn styling as the product identity.",
+        "Do not discard upstream semantic behavior without replacement tests."
+      ],
+      "validation": [
+        "Diff copied code against local changes.",
+        "Run semantic/keyboard/focus tests after adaptation."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 86,
+      "tags": [
+        "open",
+        "code",
+        "speed",
+        "component"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "fast-recommendation-as-prior-not-verdict",
+      "domains": [
+        "generic"
+      ],
+      "dimensions": [
+        "rapid-design-recommendation"
+      ],
+      "problem": "A large style/palette/font database can answer quickly but converge to category defaults.",
+      "decision": "Use fast retrieved style/palette/type suggestions as candidate priors, then run subject-specificity, authority, accessibility and reference-frontier checks before selecting a direction.",
+      "rationale": "Immediate answerability is valuable; database frequency must not become aesthetic destiny.",
+      "source_refs": [
+        {
+          "source_id": "ui-ux-pro-max",
+          "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+          "claim": "UI/UX Pro Max exposes a searchable recommendation database across products/styles/palettes/fonts/stacks.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Do not select a visual style solely because a product category recommends it."
+      ],
+      "validation": [
+        "Generate at least one subject-derived alternative.",
+        "Reject candidates that fail script/accessibility/platform constraints."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 83,
+      "tags": [
+        "speed",
+        "style",
+        "palette",
+        "font",
+        "high-ambition"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "global-behavior-not-translation-only",
+      "domains": [
+        "generic",
+        "commerce",
+        "enterprise-operations"
+      ],
+      "dimensions": [
+        "internationalization",
+        "component-semantics"
+      ],
+      "problem": "Translated copy may still break date, number, calendar, RTL and interaction behavior.",
+      "decision": "Treat locale as layout/format/calendar/input behavior: use internationalized primitives, mirror directional layout where appropriate, and verify real localized content lengths.",
+      "rationale": "Global readiness is behavioral and structural, not a string-replacement pass.",
+      "source_refs": [
+        {
+          "source_id": "react-aria",
+          "url": "https://react-spectrum.adobe.com/react-aria/",
+          "claim": "React Aria/Spectrum integrate internationalization with component behavior, locale formats and RTL handling.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Do not mirror semantically directional content such as media playback timelines blindly."
+      ],
+      "validation": [
+        "RTL interaction/navigation test.",
+        "Locale date/number/currency/calendar test.",
+        "Long-string layout test."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 90,
+      "tags": [
+        "locale",
+        "rtl",
+        "calendar",
+        "currency"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "data-density-through-alignment",
+      "domains": [
+        "data-analytics",
+        "enterprise-operations"
+      ],
+      "dimensions": [
+        "visual-craft"
+      ],
+      "problem": "Dense analytical interfaces become card mosaics that consume space and weaken comparison.",
+      "decision": "Use shared baselines, columns, aligned numbers, stable labels and selective grouping so comparison happens spatially before adding cards or borders.",
+      "rationale": "Alignment increases information throughput and lets surfaces stay quieter.",
+      "source_refs": [
+        {
+          "source_id": "nui-internal-aesthetic",
+          "url": "https://github.com/Nolane-x/Nolane-UI-Intelligence",
+          "claim": "NUI v5/v6 hierarchy and data-density skills distinguish information structure from chrome density.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Cards may be appropriate when objects are independently actionable or re-orderable."
+      ],
+      "validation": [
+        "Comparison task test.",
+        "Boundary density audit.",
+        "Zoom/legibility test."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 84,
+      "tags": [
+        "data",
+        "analytics",
+        "dense",
+        "table"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "consequential-action-preview",
+      "domains": [
+        "enterprise-operations",
+        "commerce",
+        "public-service"
+      ],
+      "dimensions": [
+        "enterprise-workflow",
+        "service-journey"
+      ],
+      "problem": "High-consequence actions can be executed with ambiguous scope or irreversible effects.",
+      "decision": "Before commitment, show affected objects, changed fields/amounts, consequence and recovery path; keep confirmation specific to the action rather than generic warning text.",
+      "rationale": "Preview reduces costly slips while preserving agency.",
+      "source_refs": [
+        {
+          "source_id": "sap-fiori",
+          "url": "https://experience.sap.com/fiori-design-web/v1-120/designing-intelligent-systems/",
+          "claim": "Human-control principles support transparent, inspectable consequential actions.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Do not add confirmation friction to trivial, instantly reversible actions."
+      ],
+      "validation": [
+        "Misdirection/slip test with realistic objects and amounts.",
+        "Verify cancel/back preserves work."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 93,
+      "tags": [
+        "financial",
+        "approve",
+        "delete",
+        "payment",
+        "high",
+        "risk"
+      ],
+      "platforms": []
+    },
+    {
+      "id": "render-before-claiming-craft",
+      "domains": [
+        "generic",
+        "creative-professional"
+      ],
+      "dimensions": [
+        "visual-craft"
+      ],
+      "problem": "Source code can satisfy design rules while the rendered result still feels weak or broken.",
+      "decision": "Evaluate the actual rendered output at target viewports/states, including resolved typography and the signature mechanism, before declaring visual adequacy.",
+      "rationale": "Perceptual quality lives in the render, not the intent document.",
+      "source_refs": [
+        {
+          "source_id": "nui-internal-aesthetic",
+          "url": "https://github.com/Nolane-x/Nolane-UI-Intelligence",
+          "claim": "NUI v5 requires rendered evidence for high-freedom divergence and visual adequacy; v7 strengthens this into a perception contract.",
+          "verified_at": "2026-08-13"
+        }
+      ],
+      "contraindications": [
+        "Do not rely on one hero screenshot when the product has multiple critical states."
+      ],
+      "validation": [
+        "State/viewport capture matrix.",
+        "Resolved-font check.",
+        "Focal-order/signature observation."
+      ],
+      "transfer_boundary": "Transfer the mechanism and decision logic; restyle/rewrite to local product semantics and identity.",
+      "priority": 97,
+      "tags": [
+        "render",
+        "screenshot",
+        "high-ambition",
+        "visual"
+      ],
+      "platforms": []
+    }
+  ]
+}

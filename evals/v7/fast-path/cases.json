@@ -1,0 +1,110 @@
+{
+  "version": 7,
+  "plane": "fast-path",
+  "cases": [
+    {
+      "id": "v7-fast-path-drops-hard-obligation",
+      "setup": "The fast synthesis packet omits keyboard access and destructive-action confirmation because those rules are not among the top visual/style matches.",
+      "pressure": "The agent wants a short answer and argues deeper skills can run only if a problem appears later.",
+      "expected_decision": "BLOCKED",
+      "must_find": [
+        "hard obligations survive compression regardless of decision budget",
+        "fast path may compress explanation but cannot drop semantic/safety/accessibility gates"
+      ],
+      "falsifier": "If the omitted obligation is proven inapplicable by the task contract, it need not appear.",
+      "recovery": "Restore hard obligation IDs and acceptance hooks, then regenerate the packet with optional recommendations pruned instead.",
+      "evaluator_owner": "compressing-ui-decisions-for-execution"
+    },
+    {
+      "id": "v7-agent-readable-context-stale-version",
+      "setup": "An agent uses cached llms.txt/MCP output from a newer library release while the project is pinned to an older major version.",
+      "pressure": "The live docs are easier to query and contain better examples.",
+      "expected_decision": "BLOCKED",
+      "must_find": [
+        "live-source hydration must respect project version identity",
+        "adapter context cannot silently overwrite pinned implementation reality"
+      ],
+      "falsifier": "If the project is explicitly being upgraded and migration requirements are included, newer docs may become the target authority.",
+      "recovery": "Hydrate docs/source for the pinned version or make upgrade a first-class decision and verify migration.",
+      "evaluator_owner": "building-agent-readable-ui-context"
+    },
+    {
+      "id": "v7-fast-path-unresolved-authority-guessed",
+      "setup": "A product needs a platform-specific convention that the authority resolver cannot currently verify, so the packet inserts the model default to avoid blocking.",
+      "pressure": "The user asked for speed and the missing detail seems minor.",
+      "expected_decision": "BLOCKED",
+      "must_find": [
+        "unresolved authority must remain a blocker rather than become a guessed default",
+        "packet status should become NEEDS_RESEARCH for material unresolved dimensions"
+      ],
+      "falsifier": "If the dimension is low-impact and explicitly inside the ambiguity budget, the execution brief may permit local choice.",
+      "recovery": "Mark the unresolved dimension, fetch current source evidence, and recompile only that decision.",
+      "evaluator_owner": "compiling-concrete-design-packets"
+    },
+    {
+      "id": "v7-mcp-context-dump",
+      "setup": "An MCP design-system server is queried for hundreds of components and all returned docs are injected into the agent context.",
+      "pressure": "More current context seems safer than potentially omitting a useful component.",
+      "expected_decision": "BLOCKED",
+      "must_find": [
+        "agent context budget should hydrate only the unresolved decision",
+        "context volume can dilute constraints and is not research depth"
+      ],
+      "falsifier": "A repository-wide migration task may justify broader context if chunked by decision and verified.",
+      "recovery": "Reframe the decision question, retrieve only relevant API/guidance slices, and preserve pointers for later re-expansion.",
+      "evaluator_owner": "building-agent-readable-ui-context"
+    },
+    {
+      "id": "v7-uiux-database-overrides-user-brief",
+      "setup": "A recommendation engine chooses a font/style/palette bundle that conflicts with explicit user language because its product-category score is higher.",
+      "pressure": "The database is broad and optimized for immediate answerability.",
+      "expected_decision": "BLOCKED",
+      "must_find": [
+        "retrieval recommendation cannot outrank explicit product/experiential constraints",
+        "style/palette records are exploratory priors with transfer boundaries"
+      ],
+      "falsifier": "If the user leaves the aesthetic axis open and the recommendation survives subject-specific critique, it may be adopted.",
+      "recovery": "Restore the brief as hard input, use database results for alternatives only, and recompile with local validation.",
+      "evaluator_owner": "compiling-concrete-design-packets"
+    },
+    {
+      "id": "v7-compressed-brief-loses-rationale-handle",
+      "setup": "A coding agent receives exact colors/components/layout but no provenance, contraindication, owner or re-expansion handle.",
+      "pressure": "The brief is extremely short and easy to follow.",
+      "expected_decision": "BLOCKED",
+      "must_find": [
+        "compression became lossy because decisions cannot be challenged or updated",
+        "rationale/provenance handles are required for material choices"
+      ],
+      "falsifier": "Pure mechanical tasks with no material design choice may need only direct implementation instructions.",
+      "recovery": "Restore compact decision IDs, source handles, contraindications, acceptance hooks and re-expansion triggers.",
+      "evaluator_owner": "compressing-ui-decisions-for-execution"
+    },
+    {
+      "id": "v7-fast-path-overloads-specialist-engine",
+      "setup": "The fast packet selects one all-purpose UI library to own semantics, charts, motion, visual identity and data state because it minimizes dependencies.",
+      "pressure": "A single dependency simplifies setup and documentation.",
+      "expected_decision": "BLOCKED",
+      "must_find": [
+        "one library cannot inherit authority across unrelated layers by convenience",
+        "implementation authority must be split by proven mechanism and product-state ownership"
+      ],
+      "falsifier": "A vertically integrated platform may legitimately own multiple layers when its contracts and target context prove that scope.",
+      "recovery": "Partition layers, retain the library only where it has authority, and use local/specialist owners elsewhere.",
+      "evaluator_owner": "orchestrating-implementation-authorities"
+    },
+    {
+      "id": "v7-fast-path-no-render-loop",
+      "setup": "The agent generates an exceptional landing/workspace design from a concrete packet and stops immediately after build/tests without inspecting a render.",
+      "pressure": "The decisions were source-bound and all code gates are green.",
+      "expected_decision": "BLOCKED",
+      "must_find": [
+        "high-ambition fast path still requires rendered perception",
+        "concrete planning cannot prove that implementation preserved hierarchy/type/signature/material quality"
+      ],
+      "falsifier": "A non-visual backend-only task would not trigger perceptual evidence.",
+      "recovery": "Capture material states/viewports, critique the actual render, fix observed defects, and only then complete.",
+      "evaluator_owner": "validating-rendered-perception"
+    }
+  ]
+}

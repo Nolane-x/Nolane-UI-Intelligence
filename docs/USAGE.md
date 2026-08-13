@@ -253,4 +253,17 @@ Do not claim that a skill improves UI quality because its Markdown is long or be
 
 ### v6 full-graph depth lock
 
-Every canonical skill is represented in `knowledge/v6-depth-focus-obligations.json` with five skill-specific semantic anchors. The validator requires exact 158/158 graph coverage and 790 globally unique anchors, preventing a future edit from silently replacing a specialized decision procedure with generic boilerplate while keeping the same skill name.
+Every canonical skill is represented in `knowledge/v6-depth-focus-obligations.json` with five skill-specific semantic anchors. The validator requires exact coverage of the current 166 canonical skills and five globally unique semantic anchors per skill, preventing a future edit from silently replacing a specialized decision procedure with generic boilerplate while keeping the same skill name.
+
+
+## v7 authority + concrete craft path
+
+When a task is authority-sensitive, do not ask “which design system is best?” globally. Resolve **decision-dimensional authority**. Platform convention, component semantics, accessibility testing, enterprise workflow, service journey, commerce workflow, motion mechanics and visual inspiration may legitimately have different primary sources. A visual gallery cannot inherit semantic authority from visual quality, and a production primitive cannot inherit art-direction authority from behavioral correctness.
+
+If live source access is available through MCP, LLM-oriented docs, an agent skill or an installer, remember: **access protocol is not authority**. Use the adapter to retrieve current evidence efficiently, preserve the underlying authority and version, and keep `authority_escalation: false`. Live verification is required when current behavior, licensing, APIs or platform conventions matter.
+
+For fast execution, compile a **concrete design packet**. It contains a task thesis, resolved authority stack, at most nine source-bound decisions, implementation shortcuts, validation obligations and unresolved blockers. `READY` is invalid while blockers remain. Compression may shorten rationale but must not discard provenance, contraindications, transfer boundaries or hard obligations.
+
+For external visual or production knowledge, transfer **mechanism, not trade dress**. Record what the mechanism solves, why it fits, what would falsify it, which local layer owns it, and what still needs validation. Institutional maturity creates a stronger prior, not universal transfer permission.
+
+High visual ambition additionally routes `validating-rendered-perception` and `designing-domain-native-signatures`. Capture material viewports/states, inspect resolved type rather than intended CSS alone, test whether the signature is actually subject-linked, compare reference dimensions, and run a weakness → fix → verified-artifact loop. If motion matters, evaluate before/transition/settled states plus reduced-motion equivalence. Pixel deltas must be tied to renderer/environment and a justified tolerance; screenshot presence alone is screenshot theater.

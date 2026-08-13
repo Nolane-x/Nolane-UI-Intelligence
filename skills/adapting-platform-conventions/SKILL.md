@@ -66,3 +66,14 @@ Perform the task using only standard platform expectations without tutorial know
 
 ### Recovery
 Prefer native behavior, add an alternate input/path, or isolate the unconventional interaction to a bounded expert mode. Do not teach users to fight the operating system.
+
+## V7 Platform Authority Deference
+When the target is a named platform, treat its current first-party human-interface guidance and native behavior as a high-authority input for platform convention, input ergonomics, typography/rendering, system motion, haptics, navigation and standard controls. NUI may synthesize across domains, but it must not overwrite platform-embodied craft with a generic cross-platform house style.
+
+Deference is scoped. First-party platform guidance does not automatically own brand expression, product information architecture, domain workflows or web semantics outside the platform. Record where the platform is primary, where local product evidence is primary, and where a custom control earns deviation through a concrete need. Test custom interactions against device geometry and actual input modalities rather than desktop assumptions.
+
+### Falsification
+Render the same proposal on a different platform. If no interaction, geometry, typography or motion decisions need reconsideration, platform adaptation is superficial.
+
+### Recovery
+Restore native conventions for the failed dimension, document justified deviations, and rerun modality/platform critics on real target conditions.

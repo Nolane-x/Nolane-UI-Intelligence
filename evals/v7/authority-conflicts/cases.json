@@ -1,0 +1,110 @@
+{
+  "version": 7,
+  "plane": "authority-conflicts",
+  "cases": [
+    {
+      "id": "v7-visual-gallery-semantic-authority-smear",
+      "setup": "A team selects a visually impressive animated component gallery for a React product and proposes using its demo markup as the dialog/menu behavior contract.",
+      "pressure": "The gallery looks production-ready and implementation speed is valued over inspecting semantic primitives.",
+      "expected_decision": "BLOCKED",
+      "must_find": [
+        "visual inspiration is not component-semantics authority",
+        "route semantics to a tested primitive such as React Aria/Radix or local verified behavior"
+      ],
+      "falsifier": "If the gallery supplies inspected focus/keyboard/screen-reader tests equivalent to the semantic contract, its role may be reconsidered for that dimension.",
+      "recovery": "Keep the visual mechanism as inspiration, select a semantic authority separately, and define an adapter boundary.",
+      "evaluator_owner": "routing-to-ui-authorities"
+    },
+    {
+      "id": "v7-apple-platform-genericization",
+      "setup": "An iOS app is designed from a generic responsive-web template although the product explicitly targets current iPhone interaction and native navigation.",
+      "pressure": "The cross-platform layout is internally consistent and easier to share with web.",
+      "expected_decision": "BLOCKED",
+      "must_find": [
+        "Apple platform convention must be evaluated as a primary platform authority",
+        "hardware/input/system-motion assumptions cannot be replaced by NUI generic aesthetics"
+      ],
+      "falsifier": "If the product is actually a web surface running identically across platforms with no native behavior claim, Apple-specific authority can be reduced.",
+      "recovery": "Re-route platform dimensions to current Apple guidance, preserve product-specific brand layers, and revalidate device/input behavior.",
+      "evaluator_owner": "routing-to-ui-authorities"
+    },
+    {
+      "id": "v7-public-service-without-local-research",
+      "setup": "A public-benefit application copies a mature government eligibility pattern into another jurisdiction and user population.",
+      "pressure": "The upstream pattern has years of institutional usage, so the team wants to treat it as universally proven.",
+      "expected_decision": "RESEARCH_MORE",
+      "must_find": [
+        "institutional maturity does not erase local-context revalidation",
+        "transfer boundary and institutional evidence debt must be explicit"
+      ],
+      "falsifier": "Local research with the target population may confirm the pattern with no material adaptation.",
+      "recovery": "Keep the mechanism as a hypothesis, map jurisdiction/population differences, and validate comprehension/recovery locally.",
+      "evaluator_owner": "adapting-institutional-design-knowledge"
+    },
+    {
+      "id": "v7-react-aria-vs-visual-library",
+      "setup": "A bespoke animated select conflicts with the keyboard/focus model of the selected React Aria primitive.",
+      "pressure": "Designers prefer the animation behavior because it matches a flagship visual reference.",
+      "expected_decision": "BLOCKED",
+      "must_find": [
+        "semantic implementation authority outranks visual inspiration for keyboard/focus behavior",
+        "visual treatment must adapt around the semantic contract or explicitly reimplement and reverify it"
+      ],
+      "falsifier": "A local replacement that proves equivalent semantics and accessibility may legitimately replace the primitive.",
+      "recovery": "Separate animation/render layer from semantic state and re-run interaction/accessibility tests.",
+      "evaluator_owner": "orchestrating-implementation-authorities"
+    },
+    {
+      "id": "v7-shopify-generalized-to-commerce",
+      "setup": "A generic B2C commerce dashboard uses Shopify Admin conventions and Polaris workflow assumptions despite not running on Shopify.",
+      "pressure": "Polaris has deep merchant-domain knowledge and polished production components.",
+      "expected_decision": "BLOCKED",
+      "must_find": [
+        "Shopify-specific platform authority must not smear into generic commerce",
+        "only transferable commerce mechanisms may survive with explicit evidence"
+      ],
+      "falsifier": "If the target is a Shopify Admin/app surface, Polaris becomes directly applicable.",
+      "recovery": "Downgrade Polaris to vertical reference, restore product-specific commerce research, and keep only mechanisms whose assumptions match.",
+      "evaluator_owner": "routing-to-ui-authorities"
+    },
+    {
+      "id": "v7-mcp-authority-inflation",
+      "setup": "Two design systems apply to a problem, but only one exposes an MCP server; the agent picks it as primary solely because retrieval is easier.",
+      "pressure": "The MCP source provides current structured answers in a single tool call.",
+      "expected_decision": "BLOCKED",
+      "must_find": [
+        "access protocol is not authority",
+        "underlying decision scope/evidence must determine primary authority"
+      ],
+      "falsifier": "The MCP-backed source may still win after a separate authority comparison based on scope and evidence.",
+      "recovery": "Resolve authority without access-mode score, then use MCP only to hydrate the winning/current source context.",
+      "evaluator_owner": "building-agent-readable-ui-context"
+    },
+    {
+      "id": "v7-enterprise-workflow-vs-component-library",
+      "setup": "An enterprise object-management flow is derived from a generic component library rather than the domain floorplan/workflow authority selected for the product.",
+      "pressure": "The component library has ready-made tables, dialogs and forms.",
+      "expected_decision": "RESEARCH_MORE",
+      "must_find": [
+        "component availability does not define enterprise workflow semantics",
+        "institutional floorplan/object/draft/message mechanisms require separate authority and transfer analysis"
+      ],
+      "falsifier": "If the workflow is genuinely trivial CRUD with no enterprise lifecycle semantics, generic components may suffice.",
+      "recovery": "Model role/task/object lifecycle first, then map components onto the resolved workflow.",
+      "evaluator_owner": "adapting-institutional-design-knowledge"
+    },
+    {
+      "id": "v7-ai-dialect-overrides-host-system",
+      "setup": "An AI assistant inside an enterprise collaboration product introduces a wholly separate chrome, typography and motion system because an AI-specific reference looks futuristic.",
+      "pressure": "Stakeholders want every AI surface to look unmistakably AI-generated.",
+      "expected_decision": "BLOCKED",
+      "must_find": [
+        "host product language remains authority for common UI layers",
+        "AI-specific differentiation should be scoped to uncertainty/agency/provenance/streaming states"
+      ],
+      "falsifier": "A dedicated immersive AI product may legitimately give the AI system broader visual authority if its host context is itself AI-native.",
+      "recovery": "Fold generic controls back into the host system and reserve AI dialect for operationally meaningful AI states.",
+      "evaluator_owner": "designing-human-ai-interaction"
+    }
+  ]
+}

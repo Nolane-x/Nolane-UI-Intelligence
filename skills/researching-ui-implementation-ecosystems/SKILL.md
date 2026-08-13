@@ -79,3 +79,14 @@ Repeat search using a different source class/stack and see if a materially bette
 
 ### Recovery
 Rewrite capability atoms, diversify source roles, refresh primary evidence, and hand only qualified candidates to selection/repository archaeology.
+
+## V7 Concrete-Knowledge Escalation
+Discovery is no longer enough when a mature ecosystem may contain accumulated concrete practice. Classify whether the candidate is primarily a platform authority, tested semantic primitive, institutional workflow system, implementation engine, vertical product language, agent-readable adapter, or visual frontier. Route `performing-ui-repository-archaeology` for mechanism-bearing inspection and `routing-to-ui-authorities` when the source could govern a decision.
+
+Prefer live agent-readable access when it reduces retrieval cost, but keep access and authority separate. MCP, llms.txt, official skills, structured docs, and open-code registries should hydrate the exact implementation question rather than dumping a whole ecosystem into context. For mature institutional systems, route `adapting-institutional-design-knowledge` so years of upstream practice become local hypotheses with explicit transfer boundaries instead of citations decorating generic advice.
+
+### Falsification
+If the same recommendation appears after replacing the candidate source with another library in the same category, research has not extracted concrete knowledge.
+
+### Recovery
+Inspect artifacts tied to the exact decision, record a source-bound mechanism, or reject the candidate as generic discovery evidence.

@@ -44,3 +44,14 @@ Ask whether a different thesis with comparable execution plausibly serves the pr
 
 ### Recovery
 Return `INADEQUATE` or `RE_DIVERGE` when the thesis itself is weak; do not issue a list of local polish tweaks. Recovery identifies which invariant/reference delta caused failure and which design degrees of freedom must reopen.
+
+## V7 Concrete Adequacy Test
+Adequacy now asks whether the chosen direction is not only coherent but **concretely competitive with the problem's real authority and reference frontier**. Compare the render to local experiential intent and to task-relevant evidence: platform craft when platform-native, institutional workflow clarity when service/enterprise, domain-native specificity, visual ambition, and the implementation quality possible from current specialist ecosystems.
+
+Do not reward complexity. A quiet public-service form can be more adequate than a cinematic composition if the task demands trust, comprehension and assisted use. An exceptional creative workspace can be inadequate if it retreats to generic cards despite perfect semantics. Use the concrete design packet to check whether high-leverage decisions survived implementation and rendered-perception evidence to check whether they are visible.
+
+### Falsification
+Swap in a well-tested domain pattern or stronger subject-native signature. If the current direction has no defensible advantage on task fit, clarity or experiential intent, adequacy is false.
+
+### Recovery
+Return `RE_DIVERGE`, reopen only the weak authority/signature/composition dimension, and generate a direction with a materially different causal thesis.

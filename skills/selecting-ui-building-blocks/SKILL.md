@@ -83,3 +83,14 @@ Strip source styles and compare candidate behavior against a local/native altern
 
 ### Recovery
 Choose a different adoption mode, wrap/narrow the source, build locally, or reject the candidate and preserve only transferable mechanisms.
+
+## V7 Implementation Authority Split
+Before adopting or adapting a library, classify the layer it can legitimately own: semantic behavior, platform-native behavior, visual mechanism, motion mechanics, specialist rendering/data mechanics, tokens/styling, or agent-readable retrieval. Then route `orchestrating-implementation-authorities` when more than one source participates or when a source could accidentally own product state.
+
+Favor tested primitives for semantics, current platform components where platform conformity is material, and specialist engines for the mechanism they actually implement. Visual galleries can donate a mechanism but not semantic authority. Open-code components become local code after copying and must inherit local tests, tokens, accessibility and maintenance. Record a replacement boundary so dependency convenience does not become architecture lock-in.
+
+### Falsification
+Draw the component with each source removed. If nobody can state what contractual behavior disappears, selection is popularity-driven rather than authority-driven.
+
+### Recovery
+Narrow the source role, select a better-evidenced owner for the missing layer, or build the layer locally when integration cost exceeds the mechanism value.

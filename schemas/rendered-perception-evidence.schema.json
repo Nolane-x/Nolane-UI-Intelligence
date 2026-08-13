@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nolane.dev/schemas/rendered-perception-evidence-v7.schema.json",
+  "title": "NUI v7 Rendered Perception Evidence",
+  "type": "object",
+  "required": ["capture_matrix", "observations"],
+  "properties": {
+    "status": {"enum": ["PASS", "BLOCKED", "RE_DIVERGE"]},
+    "capture_matrix": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["viewport", "state", "artifact", "renderer"],
+        "properties": {
+          "viewport": {
+            "type": "object",
+            "required": ["width", "height", "dpr"],
+            "properties": {
+              "width": {"type": "integer", "minimum": 1},
+              "height": {"type": "integer", "minimum": 1},
+              "dpr": {"type": "number", "exclusiveMinimum": 0}
+            }
+          },
+          "state": {"type": "string", "minLength": 1},
+          "artifact": {"type": "string", "minLength": 1},
+          "renderer": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "required_states": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1},
+    "responsive_material": {"type": "boolean"},
+    "motion_material": {"type": "boolean"},
+    "observations": {"type": "object"},
+    "temporal_evidence": {"type": "object"},
+    "pixel_diff": {"type": "object"},
+    "reference_comparison": {"type": "object"},
+    "critique_cycle": {"type": "object"}
+  },
+  "additionalProperties": true
+}

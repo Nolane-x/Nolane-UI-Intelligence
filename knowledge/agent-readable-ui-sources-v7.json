@@ -1,0 +1,123 @@
+{
+  "version": 7,
+  "principle": "Machine-readable access lowers retrieval friction; it does not increase normative, semantic, visual, safety, or platform authority. Always resolve the underlying design authority separately.",
+  "adapters": [
+    {
+      "id": "primer-mcp",
+      "name": "Primer MCP server",
+      "access_mode": "mcp",
+      "url": "https://primer.style/product/getting-started/foundations/mcp/",
+      "underlying_authority": "primer",
+      "authority_escalation": false,
+      "live_verification_required": true,
+      "verified_at": "2026-08-13",
+      "capabilities": ["component API", "examples", "usage guidance", "accessibility guidance", "tokens", "patterns", "icons"],
+      "transfer_boundary": "Use Primer knowledge as GitHub/Primer implementation guidance or corroboration. Do not generalize its product conventions into unrelated products without a fit argument.",
+      "license_boundary": "Follow Primer/GitHub source and package licenses. Store pointers and NUI-derived decision rules, not copied documentation corpora."
+    },
+    {
+      "id": "mantine-llms",
+      "name": "Mantine LLM documentation",
+      "access_mode": "llms-txt",
+      "url": "https://mantine.dev/guides/llms/",
+      "underlying_authority": "mantine",
+      "authority_escalation": false,
+      "live_verification_required": true,
+      "verified_at": "2026-08-13",
+      "capabilities": ["release-regenerated docs", "component props", "hooks", "theming", "examples"],
+      "transfer_boundary": "Use as current Mantine implementation context when Mantine is selected; it is not a general semantic or aesthetic authority.",
+      "license_boundary": "Respect Mantine documentation and package licenses; prefer live references over vendoring generated docs."
+    },
+    {
+      "id": "mantine-mcp",
+      "name": "Mantine MCP server",
+      "access_mode": "mcp",
+      "url": "https://mantine.dev/guides/llms/",
+      "underlying_authority": "mantine",
+      "authority_escalation": false,
+      "live_verification_required": true,
+      "verified_at": "2026-08-13",
+      "capabilities": ["list_items", "get_item_doc", "get_item_props", "search_docs"],
+      "transfer_boundary": "Use the server to retrieve current Mantine API facts; choose Mantine through NUI routing, not because MCP is available.",
+      "license_boundary": "Respect Mantine terms and package licenses; retrieved documentation remains upstream material."
+    },
+    {
+      "id": "mantine-agent-skills",
+      "name": "Mantine agent skills",
+      "access_mode": "agent-skill",
+      "url": "https://github.com/mantinedev/skills",
+      "underlying_authority": "mantine",
+      "authority_escalation": false,
+      "live_verification_required": true,
+      "verified_at": "2026-08-13",
+      "capabilities": ["forms", "combobox", "custom components"],
+      "transfer_boundary": "Use only when the project actually uses Mantine and the task matches the skill boundary.",
+      "license_boundary": "Keep skill text upstream; NUI records routing and learned mechanisms rather than copying the files."
+    },
+    {
+      "id": "shadcn-open-code",
+      "name": "shadcn/ui open-code registry",
+      "access_mode": "open-code",
+      "url": "https://ui.shadcn.com/",
+      "underlying_authority": "shadcn-ui",
+      "authority_escalation": false,
+      "live_verification_required": true,
+      "verified_at": "2026-08-13",
+      "capabilities": ["inspectable component source", "registry distribution", "project-owned customization"],
+      "transfer_boundary": "Treat copied code as implementation material to inspect and own; preserve NUI semantic, accessibility and visual-fit gates instead of assuming registry defaults are correct for the product.",
+      "license_boundary": "Respect each registry/component license and attribution requirements before importing code."
+    },
+    {
+      "id": "carbon-mcp",
+      "name": "Carbon MCP",
+      "access_mode": "mcp",
+      "url": "https://carbondesignsystem.com/developing/carbon-mcp/overview/",
+      "underlying_authority": "carbon",
+      "authority_escalation": false,
+      "live_verification_required": true,
+      "verified_at": "2026-08-13",
+      "capabilities": ["documentation search", "code examples", "icons", "pictograms", "charts", "Carbon for Products", "AI chat"],
+      "transfer_boundary": "Use Carbon MCP as a live doorway into Carbon when Carbon is an applicable enterprise implementation authority; public-preview status and access constraints remain material.",
+      "license_boundary": "Do not mirror MCP-returned corpora into NUI; preserve IBM/Carbon license and access boundaries."
+    },
+    {
+      "id": "shopify-ai-toolkit",
+      "name": "Shopify AI Toolkit",
+      "access_mode": "ai-toolkit",
+      "url": "https://shopify.dev/docs/apps/build/ai-toolkit",
+      "underlying_authority": "shopify-polaris",
+      "authority_escalation": false,
+      "live_verification_required": true,
+      "verified_at": "2026-08-13",
+      "capabilities": ["Shopify developer docs", "API schemas", "code validation", "CLI workflows", "migration guidance", "Dev MCP"],
+      "transfer_boundary": "Use only for Shopify platform decisions. Never generalize Shopify component, surface or migration rules into generic commerce UI.",
+      "license_boundary": "Follow Shopify API License, Partner terms, package and documentation terms; NUI stores routing metadata, not proprietary platform content."
+    },
+    {
+      "id": "gsap-official-skills",
+      "name": "GSAP official agent skills",
+      "access_mode": "agent-skill",
+      "url": "https://github.com/greensock/gsap-skills",
+      "underlying_authority": "gsap",
+      "authority_escalation": false,
+      "live_verification_required": true,
+      "verified_at": "2026-08-13",
+      "capabilities": ["timeline", "ScrollTrigger", "React", "performance", "plugins", "framework integration"],
+      "transfer_boundary": "Use when GSAP is the selected motion engine; timeline mechanics inform implementation but do not decide whether motion belongs in the experience.",
+      "license_boundary": "Official skill repository is MIT at the inspected skill level; verify current repository/package licensing before reuse."
+    },
+    {
+      "id": "shopify-dev-mcp",
+      "name": "Shopify Dev MCP",
+      "access_mode": "mcp",
+      "url": "https://shopify.dev/docs/api/polaris/using-mcp",
+      "underlying_authority": "shopify-polaris",
+      "authority_escalation": false,
+      "live_verification_required": true,
+      "verified_at": "2026-08-13",
+      "capabilities": ["Polaris tooling", "surface-aware developer resources"],
+      "transfer_boundary": "Route only inside Shopify contexts and confirm target surface/API version before applying retrieved guidance.",
+      "license_boundary": "Respect Shopify developer terms and package licensing; do not persist retrieved platform documentation as NUI-owned knowledge."
+    }
+  ]
+}

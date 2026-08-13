@@ -77,3 +77,14 @@ Apply the proposed local edit while holding context fixed and compare against th
 
 ### Recovery
 Revert, change the causal mechanism or direction, refresh evidence, and avoid compounding unproven tweaks.
+
+## V7 Perceptual Delta Loop
+Every visual iteration must name a **perceptual hypothesis** before editing: for example, “reduce boundary repetition so the primary visualization reads as one field,” or “make the domain signature survive mobile without stealing action priority.” Capture the same material viewport/state cells before and after so improvement is attributable rather than anecdotal.
+
+Send evidence to `validating-rendered-perception`. Track observed delta in attention order, type rendering, material roles, signature strength, responsive composition and temporal staging. Pixel comparisons may detect unintended drift only when renderer/environment/tolerance are calibrated; they cannot replace qualitative observation. After two local passes that do not move the target perceptual dimension, treat the basin as suspect and re-diverge instead of accumulating ornament.
+
+### Falsification
+If a change cannot be described in user-perceived terms or cannot be re-observed in the target capture cell, it is not a validated iteration.
+
+### Recovery
+Revert noise, restore the last proven state, change one causal design variable, and recapture the same matrix cell.

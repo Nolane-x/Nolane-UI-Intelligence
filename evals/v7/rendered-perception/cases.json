@@ -1,0 +1,110 @@
+{
+  "version": 7,
+  "plane": "rendered-perception",
+  "cases": [
+    {
+      "id": "v7-screenshot-theater",
+      "setup": "A flagship UI submits one 1440px hero screenshot plus a statement that it is beautiful and responsive.",
+      "pressure": "The screenshot looks impressive and all code/runtime tests pass.",
+      "expected_decision": "BLOCKED",
+      "must_find": [
+        "one screenshot cannot prove responsive/state perceptual quality",
+        "capture matrix and observed typography/signature/material evidence are missing"
+      ],
+      "falsifier": "A truly single-fixed-surface artifact could reduce viewport coverage, but material states still require observation.",
+      "recovery": "Capture target viewport/state cells, inspect resolved type/hierarchy/signature/material roles, then run critique/fix/re-observe.",
+      "evaluator_owner": "validating-rendered-perception"
+    },
+    {
+      "id": "v7-pixel-noise-false-regression",
+      "setup": "A visual test fails by a small pixel delta only on one renderer because text anti-aliasing differs while layout/geometry remain stable.",
+      "pressure": "The team wants to loosen every visual threshold globally or mark the render broken.",
+      "expected_decision": "RESEARCH_MORE",
+      "must_find": [
+        "pixel evidence requires renderer/environment-specific calibration and rationale",
+        "pixel delta is regression evidence, not a beauty or correctness oracle"
+      ],
+      "falsifier": "If the delta localizes to actual geometry/content change, the regression is real and must not be waived as anti-aliasing.",
+      "recovery": "Inspect the diff, calibrate a narrow threshold for the affected scene/environment, and retain semantic/render observations.",
+      "evaluator_owner": "validating-rendered-perception"
+    },
+    {
+      "id": "v7-motion-effects-without-temporal-semantics",
+      "setup": "Every section reveals, cards float on hover and the hero has continuous motion, but none of the movement explains state, continuity or task change.",
+      "pressure": "The reference set contains many polished animated pages and stakeholders equate motion quantity with premium craft.",
+      "expected_decision": "RE_DIVERGE",
+      "must_find": [
+        "motion lacks temporal semantic purpose and attention budget",
+        "orchestrated sequence should replace scattered effects where motion is justified"
+      ],
+      "falsifier": "A deliberately atmospheric entertainment/brand experience may assign more expressive motion if the brief supports it and accessibility budgets are met.",
+      "recovery": "Remove ambient effects, define the meaningful temporal sentence, choose an engine after semantics, and capture reduced-motion equivalent.",
+      "evaluator_owner": "designing-motion"
+    },
+    {
+      "id": "v7-ai-surface-constant-animation",
+      "setup": "An AI assistant pulses, shimmers and animates every token/state continuously to make intelligence visible.",
+      "pressure": "The visual identity brief demands that AI feel alive.",
+      "expected_decision": "BLOCKED",
+      "must_find": [
+        "constant animation competes with task attention and is not evidence of AI state",
+        "AI differentiation should attach to streaming/agency/uncertainty or other operational meaning"
+      ],
+      "falsifier": "A non-task ambient installation may legitimately use continuous expressive motion if users are not expected to operate dense controls.",
+      "recovery": "Reserve motion for meaningful AI state transitions and provide stable/reduced-motion equivalents.",
+      "evaluator_owner": "designing-human-ai-interaction"
+    },
+    {
+      "id": "v7-font-source-claim-vs-rendered-fallback",
+      "setup": "The design spec names a distinctive display variable font, but production renders silently fall back on one target browser/script.",
+      "pressure": "CSS and design tokens are correct, so the team considers typography complete.",
+      "expected_decision": "BLOCKED",
+      "must_find": [
+        "resolved typography differs from intended typography",
+        "rendered hierarchy/personality must be re-evaluated under fallback"
+      ],
+      "falsifier": "If the fallback was intentional, reviewed, and preserves metrics/hierarchy, the evidence can pass.",
+      "recovery": "Fix loading/coverage or redesign fallback metrics, then capture actual resolved-font evidence.",
+      "evaluator_owner": "crafting-typography"
+    },
+    {
+      "id": "v7-mobile-reflow-preserves-pixels-not-priority",
+      "setup": "A desktop flagship composition is simply stacked and shrunk on mobile; all content exists but the primary task appears after decorative/secondary blocks.",
+      "pressure": "No overflow exists and automated responsive checks are green.",
+      "expected_decision": "BLOCKED",
+      "must_find": [
+        "responsive recomposition failed perceptual/task priority despite technical responsiveness",
+        "mobile capture matrix must verify focal order and signature survival"
+      ],
+      "falsifier": "If the mobile task order is intentionally different and user evidence supports it, reordered priority may be valid.",
+      "recovery": "Recompose by task priority, simplify/relocate secondary material, and recapture the mobile state.",
+      "evaluator_owner": "validating-rendered-perception"
+    },
+    {
+      "id": "v7-signature-in-design-doc-not-render",
+      "setup": "The design brief describes a domain-native signature, but implementation reduces it to a tiny decorative motif while generic cards dominate the page.",
+      "pressure": "Developers argue that the signature technically exists in the DOM.",
+      "expected_decision": "RE_DIVERGE",
+      "must_find": [
+        "signature observation/removal cost is too low in the rendered result",
+        "design intent does not count unless perception carries it"
+      ],
+      "falsifier": "A deliberately quiet signature can pass if it remains structurally/product-specifically meaningful and the ambition contract permits restraint.",
+      "recovery": "Strengthen or reposition the domain mechanism, reduce competing generic chrome, and validate it across target viewports.",
+      "evaluator_owner": "validating-rendered-perception"
+    },
+    {
+      "id": "v7-reference-copy-passes-visual-similarity",
+      "setup": "A result closely matches a high-quality reference in palette, layout and motion but barely expresses the local subject or task.",
+      "pressure": "Side-by-side similarity makes the implementation look professionally art-directed.",
+      "expected_decision": "RE_DIVERGE",
+      "must_find": [
+        "reference closeness is not adequacy when product specificity is low",
+        "trade-dress firewall and subject-native signature were not preserved"
+      ],
+      "falsifier": "A reproduction/fidelity task explicitly authorized by the user may legitimately optimize reference fidelity within legal/content boundaries.",
+      "recovery": "Extract mechanisms rather than surface identity, rebuild composition from local subject-world inventory, and compare on task-relevant dimensions.",
+      "evaluator_owner": "designing-domain-native-signatures"
+    }
+  ]
+}

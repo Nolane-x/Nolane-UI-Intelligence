@@ -1,0 +1,62 @@
+{
+  "version": 7,
+  "architecture": "concrete-craft-authority-intelligence",
+  "skills": [
+    {
+      "name": "routing-to-ui-authorities",
+      "family": "research",
+      "parent": "routing-ui-work",
+      "output": "ui-authority-route-plan",
+      "ownership": "Own decision-dimensional external authority routing, including primary/corroborating selection, applicability limits, currentness, and authority-conflict resolution."
+    },
+    {
+      "name": "compiling-concrete-design-packets",
+      "family": "integration",
+      "parent": "routing-to-ui-authorities",
+      "output": "concrete-design-packet",
+      "ownership": "Own conversion of abstract task obligations plus resolved authorities into a bounded, source-bound, immediately executable set of design decisions and blockers."
+    },
+    {
+      "name": "adapting-institutional-design-knowledge",
+      "family": "research",
+      "parent": "synthesizing-cross-source-ui-language",
+      "output": "institutional-knowledge-synthesis",
+      "ownership": "Own transfer of mature institutional patterns into local context without treating accumulated upstream practice as universal or erasing local research requirements."
+    },
+    {
+      "name": "orchestrating-implementation-authorities",
+      "family": "implementation",
+      "parent": "selecting-ui-building-blocks",
+      "output": "implementation-authority-plan",
+      "ownership": "Own layer-by-layer selection and orchestration of semantic, visual, platform, motion, and specialist implementation authorities while preserving local product ownership."
+    },
+    {
+      "name": "validating-rendered-perception",
+      "family": "verification",
+      "parent": "iterating-rendered-visual-design",
+      "output": "rendered-perception-evidence",
+      "ownership": "Own evidence that the agent actually inspected rendered UI across material viewports, states, typography, signature, surfaces, and temporal behavior before aesthetic completion claims."
+    },
+    {
+      "name": "designing-domain-native-signatures",
+      "family": "visual",
+      "parent": "deepening-signature-mechanisms",
+      "output": "domain-signature-brief",
+      "ownership": "Own the transformation of subject-world artifacts, operations, quantities, and metaphors into product-specific visual or interactive signatures without copying external trade dress."
+    },
+    {
+      "name": "building-agent-readable-ui-context",
+      "family": "research",
+      "parent": "performing-ui-repository-archaeology",
+      "output": "agent-readable-ui-context",
+      "ownership": "Own live, compact, provenance-preserving context adapters for MCP, llms.txt, agent skills, structured docs, and open code without confusing access protocol with authority."
+    },
+    {
+      "name": "compressing-ui-decisions-for-execution",
+      "family": "kernel",
+      "parent": "compiling-ui-implementation-specifications",
+      "output": "ui-execution-brief",
+      "ownership": "Own loss-minimized compression of routed UI decisions into an executable brief with hard obligations, rationale handles, ambiguity budgets, and explicit re-expansion triggers."
+    }
+  ]
+}

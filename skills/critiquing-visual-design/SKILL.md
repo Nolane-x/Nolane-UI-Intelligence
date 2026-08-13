@@ -60,3 +60,14 @@ Compare rendered evidence at several viewports/themes/content stresses, not the 
 
 ### Recovery
 Route systemic defects to the owning craft/system skill instead of issuing dozens of pixel tweaks. When visual polish is high but the screen still lacks identity or emotional force, do not keep polishing—escalate to adequacy/basin analysis.
+
+## V7 Render-First Critique
+Run visual critique against rendered artifacts, not the design intent document. Build observations from the capture matrix: what wins attention, what becomes visual noise, which surfaces merge unintentionally, whether type resolves as expected, whether the domain signature is actually visible, and whether responsive recomposition changes the thesis. Source code is diagnostic evidence only after the perceptual defect is located.
+
+Separate defects into thesis, composition, craft, implementation drift, and environment/rendering noise. A pixel delta can locate regression but cannot establish aesthetic quality. Conversely, a visually obvious hierarchy failure remains real even if screenshot diff is numerically small. Use task-relevant references as comparative lenses, never as a style-template score.
+
+### Falsification
+Ask a critic who has not read the design rationale to identify the page's primary action, subject identity and signature from renders alone. Failure exposes intent that never reached perception.
+
+### Recovery
+Change the smallest causal layer, recapture the failed state/viewport, and escalate to re-divergence when local polish cannot repair the thesis.

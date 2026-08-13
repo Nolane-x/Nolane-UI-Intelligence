@@ -1106,6 +1106,62 @@
       "focus-runtime trace",
       "async failure injection",
       "runtime-state reconciliation"
+    ],
+    "routing-to-ui-authorities": [
+      "decision-dimensional authority",
+      "authority smear",
+      "primary/corroborating split",
+      "access protocol",
+      "conflict protocol"
+    ],
+    "compiling-concrete-design-packets": [
+      "bounded decision packet",
+      "contraindication carry-through",
+      "unresolved-authority blocker",
+      "decision budget",
+      "immediate answerability"
+    ],
+    "adapting-institutional-design-knowledge": [
+      "accumulated concrete practice",
+      "transfer-boundary ledger",
+      "institutional evidence debt",
+      "local-context revalidation",
+      "vertical depth rule"
+    ],
+    "orchestrating-implementation-authorities": [
+      "semantic implementation authority",
+      "visual implementation authority",
+      "implementation lineage",
+      "authority interface contract",
+      "multi-authority collision"
+    ],
+    "validating-rendered-perception": [
+      "screenshot theater",
+      "capture matrix",
+      "calibrated pixel evidence",
+      "temporal evidence",
+      "critique loop"
+    ],
+    "designing-domain-native-signatures": [
+      "subject-world inventory",
+      "mechanism extraction",
+      "signature removal test",
+      "trade-dress firewall",
+      "cross-context survival"
+    ],
+    "building-agent-readable-ui-context": [
+      "access-mode neutrality",
+      "live-source hydration",
+      "agent context budget",
+      "provenance and drift",
+      "stale-context risk"
+    ],
+    "compressing-ui-decisions-for-execution": [
+      "lossless obligation compression",
+      "decision budget allocation",
+      "ambiguity budget",
+      "re-expansion trigger",
+      "compression checksum"
     ]
   },
   "rule": "Every focus skill must contain each unique semantic obligation and explicit falsification/recovery behavior; terms are behavior anchors, not word-count proxies.",

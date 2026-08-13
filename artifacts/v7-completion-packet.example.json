@@ -1,0 +1,19 @@
+{
+  "packet_id": "NUI-V7-STRUCTURAL-example",
+  "artifact_revision": "example-revision",
+  "decision": "PASS",
+  "claim": "This exact revision satisfies NUI v7 structural concrete-craft, authority-routing, rendered-perception and adversarial repository checks.",
+  "bounds": [
+    "Structural verification does not prove universal objective beauty or universal superiority.",
+    "Authority remains decision-dimensional and current external facts require live verification.",
+    "Concrete design cards transfer mechanisms with provenance and boundaries, not upstream trade dress.",
+    "High-ambition UI still requires task-specific rendered perception and inherited aesthetic adequacy evidence."
+  ],
+  "obligations": [
+    {"id": "O-V7-AUTHORITY-MESH", "status": "PASS"},
+    {"id": "O-V7-CONCRETE-KNOWLEDGE", "status": "PASS"},
+    {"id": "O-V7-RENDERED-PERCEPTION", "status": "PASS"},
+    {"id": "O-V7-AGENT-READABLE-CONTEXT", "status": "PASS"},
+    {"id": "O-V7-ADVERSARIAL-EVAL", "status": "PASS"}
+  ]
+}

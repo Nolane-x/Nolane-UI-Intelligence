@@ -1,0 +1,58 @@
+{
+  "version": 7,
+  "name": "Rendered Perception Rubric",
+  "principle": "Do not score universal beauty. Require falsifiable observations of rendered output across the states, viewports, typography, material structure and temporal behavior that matter to the brief.",
+  "planes": [
+    {
+      "id": "attention",
+      "question": "What wins the first, second and third moments of attention, and is that order faithful to task and affective intent?",
+      "required_evidence": ["focal_order", "hierarchy.primary", "hierarchy.secondary", "quiet_regions"]
+    },
+    {
+      "id": "typography",
+      "question": "What font actually rendered for each important role, and did fallback or raster behavior alter hierarchy or personality?",
+      "required_evidence": ["resolved_typography.role", "intended", "resolved", "loaded", "fallback_reviewed"]
+    },
+    {
+      "id": "signature",
+      "question": "Which mechanism could not be removed without making the product less specific to its subject?",
+      "required_evidence": ["signature_mechanism.name", "subject_link", "removal_cost", "observed_in"]
+    },
+    {
+      "id": "material",
+      "question": "Do surfaces, boundaries, depth and visual quiet form differentiated roles rather than card/pane soup?",
+      "required_evidence": ["surface_roles", "boundary_density", "material_variety"]
+    },
+    {
+      "id": "responsive-recomposition",
+      "question": "Does each target viewport preserve task priority through recomposition instead of merely shrinking?",
+      "required_evidence": ["capture_matrix.viewport", "capture_matrix.state"]
+    },
+    {
+      "id": "temporal",
+      "question": "When motion is material, what changes over time, why is the sequence semantically useful, and what is the reduced-motion equivalent?",
+      "required_evidence": ["temporal_evidence.sequence", "semantic_purpose", "reduced_motion_equivalent"]
+    },
+    {
+      "id": "reference-distance",
+      "question": "How does the rendered result compare with task-relevant references on explicit dimensions without copying their trade dress?",
+      "required_evidence": ["reference_comparison.references", "dimensions", "result"]
+    },
+    {
+      "id": "self-critique",
+      "question": "What concrete visual weakness was found in the render, what was changed, and where was the fix re-observed?",
+      "required_evidence": ["critique_cycle.weaknesses.finding", "fix", "verified_in"]
+    }
+  ],
+  "pixel_regression": {
+    "role": "optional calibrated regression evidence, never a beauty score",
+    "required_if_used": ["renderer", "environment", "delta", "tolerance", "rationale", "baseline", "candidate"],
+    "warning": "Environment-sensitive anti-aliasing, font rasterization and renderer differences require calibrated thresholds and a rationale."
+  },
+  "anti_theater": [
+    "A screenshot path is not perceptual evidence.",
+    "A single desktop hero cannot prove responsive craft.",
+    "A prose claim that the UI looks polished cannot replace observed hierarchy, typography and material evidence.",
+    "A pixel diff cannot decide whether a visual direction is aesthetically adequate."
+  ]
+}
