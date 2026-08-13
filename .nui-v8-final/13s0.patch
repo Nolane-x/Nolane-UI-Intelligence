@@ -1,0 +1,55 @@
+diff --git a/scripts/nui-release-packet b/scripts/nui-release-packet
+index 037dc8d..63b1c77 100755
+--- a/scripts/nui-release-packet
++++ b/scripts/nui-release-packet
+@@ -1,81 +1,17 @@
+ #!/usr/bin/env python3
+-"""Generate a fresh bounded NUI v7 structural release packet after tests succeed."""
+-
+-import argparse
+-import json
++"""Generate a fresh bounded NUI v8 structural release packet after tests succeed."""
++import argparse, json
+ from datetime import datetime, timezone
+ from pathlib import Path
+ 
+-
+-def main() -> int:
+-    parser = argparse.ArgumentParser(description="Generate NUI v7 structural completion evidence")
+-    parser.add_argument("--output", required=True)
+-    parser.add_argument("--revision", required=True)
+-    parser.add_argument("--source", required=True, help="Execution source, e.g. GitHub Actions run ID")
+-    args = parser.parse_args()
+-
+-    observed_at = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+-    evidence = [
+-        {
+-            "evidence_id": "E-UNIT-SUITE",
+-            "method": "test-run",
+-            "source": args.source,
+-            "scope": "repository unit and contract suite",
+-            "claim": "all repository unit and contract tests completed successfully before packet generation",
+-            "observed_at": observed_at,
+-            "result": "PASS",
+-        },
+-        {
+-            "evidence_id": "E-REPOSITORY-VALIDATOR",
+-            "method": "automated-audit",
+-            "source": "scripts/nui-validate executed in the same fail-fast verification job",
+-            "scope": "repository graph, skills, authority mesh, concrete knowledge, schemas, research docs and eval corpora",
+-            "claim": "repository deterministic invariants are required to pass for this packet to be accepted",
+-            "observed_at": observed_at,
+-            "result": "PASS",
+-        },
+-    ]
+-    common = ["E-UNIT-SUITE", "E-REPOSITORY-VALIDATOR"]
+-    packet = {
+-        "packet_id": f"NUI-V7-STRUCTURAL-{args.revision}",
+-        "artifact_revision": args.revision,
+-        "phase": "VERIFIED",
+-        "task_profile": "NUI v7 concrete craft and authority intelligence: prior cognition/aesthetic/deep-source gates plus decision-dimensional authority, source-bound concrete design knowledge, agent-readable context boundaries, fast execution compression and rendered perception evidence",
+-        "obligations": [
+-            {"id": "O-GRAPH-SKILLS", "status": "PASS", "evidence_refs": common},
+-            {"id": "O-DETERMINISTIC-KERNEL", "status": "PASS", "evidence_refs": common},
+-            {"id": "O-V5-AESTHETIC-ENFORCEMENT", "status": "PASS", "evidence_refs": common},
+-            {"id": "O-V6-DEEP-SOURCE-INTELLIGENCE", "status": "PASS", "evidence_refs": common},
