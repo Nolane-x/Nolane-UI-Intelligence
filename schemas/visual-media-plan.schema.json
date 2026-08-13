@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NUI v8 Visual Media Opportunity Map",
+  "type": "object",
+  "required": [
+    "surface",
+    "opportunities",
+    "shape_substitution_risk",
+    "decision"
+  ]
+}

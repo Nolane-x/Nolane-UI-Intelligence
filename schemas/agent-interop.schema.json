@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NUI v8 Agent Interop Registry",
+  "type": "object",
+  "required": [
+    "version",
+    "adapters"
+  ],
+  "properties": {
+    "version": {
+      "const": 8
+    },
+    "adapters": {
+      "type": "array",
+      "minItems": 5
+    }
+  }
+}
