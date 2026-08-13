@@ -1,0 +1,32 @@
++      "ownership": "Own asset-level discovery, rights evidence, attribution, provenance and transformation lineage for external visual media."
++    },
++    {
++      "name": "replacing-shape-substitution",
++      "family": "visual",
++      "parent": "preventing-generic-ui",
++      "output": "shape-substitution-audit",
++      "ownership": "Own diagnosis and replacement of low-information abstract geometry that impersonates product/domain evidence while preserving geometry that earns its semantic or compositional role."
++    },
++    {
++      "name": "authoring-domain-native-visual-assets",
++      "family": "visual",
++      "parent": "designing-domain-native-signatures",
++      "output": "domain-native-asset-brief",
++      "ownership": "Own truthful, subject-grounded briefs and production constraints for custom illustrations, diagrams, generated media, 3D, motion and other domain-native assets."
++    },
++    {
++      "name": "orchestrating-creative-toolchains",
++      "family": "implementation",
++      "parent": "orchestrating-implementation-authorities",
++      "output": "creative-toolchain-plan",
++      "ownership": "Own stage-by-stage orchestration of specialized creative software while preserving product authority, editability, provenance, performance and replaceability."
++    },
++    {
++      "name": "validating-visual-asset-integration",
++      "family": "verification",
++      "parent": "validating-rendered-perception",
++      "output": "visual-asset-integration-evidence",
++      "ownership": "Own rendered proof that material media survives hierarchy, crop, responsiveness, loading, accessibility, performance, provenance and visual-language integration."
++    }
++  ]
++}
