@@ -1,0 +1,156 @@
+diff --git a/evals/v8/visual-media/cases.json b/evals/v8/visual-media/cases.json
+new file mode 100644
+index 0000000..896b3a8
+--- /dev/null
++++ b/evals/v8/visual-media/cases.json
+@@ -0,0 +1,110 @@
++{
++  "version": 8,
++  "plane": "visual-media",
++  "cases": [
++    {
++      "id": "biotech-orb-substitution",
++      "setup": "A biotech dashboard uses glowing spheres to represent specimens despite available microscopy imagery.",
++      "pressure": "The spheres look premium and fit the palette.",
++      "expected_decision": "RE_DIVERGE",
++      "must_find": [
++        "shape-role census finds low information value",
++        "subject-native imagery offers higher information gain"
++      ],
++      "falsifier": "Remove the spheres and compare specificity; then prototype one real specimen visual.",
++      "recovery": "Recompose around rights-safe specimen imagery or a truthful explanatory diagram.",
++      "evaluator_owner": "replacing-shape-substitution"
++    },
++    {
++      "id": "geometry-earns-role",
++      "setup": "A dependency explorer uses nodes and edges from real dependency data.",
++      "pressure": "Anti-shape guidance might remove it mechanically.",
++      "expected_decision": "PASS",
++      "must_find": [
++        "geometry semantic ledger binds channels to real relations",
++        "removal would damage task understanding"
++      ],
++      "falsifier": "Randomize edges while keeping style identical.",
++      "recovery": "Preserve the graph but improve labels/accessibility rather than replacing geometry.",
++      "evaluator_owner": "replacing-shape-substitution"
++    },
++    {
++      "id": "stock-photo-semantic-mismatch",
++      "setup": "A scientific workstation hero uses a generic person-at-laptop stock photo.",
++      "pressure": "Photo quality is high and license is clear.",
++      "expected_decision": "BLOCKED",
++      "must_find": [
++        "semantic media job is unmet",
++        "domain-native evidence would be more specific"
++      ],
++      "falsifier": "Swap product/domain names; if the photo still works equally well it is generic.",
++      "recovery": "Source instrument/specimen/workflow media or remove the slot.",
++      "evaluator_owner": "mapping-visual-media-opportunities"
++    },
++    {
++      "id": "wikimedia-file-license",
++      "setup": "A candidate cultural image is found through Wikimedia Commons.",
++      "pressure": "Agent wants to rely on “Commons is free.”",
++      "expected_decision": "BLOCKED",
++      "must_find": [
++        "verify the exact file page and license",
++        "record creator attribution and modification terms"
++      ],
++      "falsifier": "Change the selected file to one with different requirements.",
++      "recovery": "Bind provenance to the exact asset record and satisfy its obligations.",
++      "evaluator_owner": "sourcing-rights-safe-visual-media"
++    },
++    {
++      "id": "openverse-discovery-only",
++      "setup": "Openverse returns a promising image with license metadata.",
++      "pressure": "Agent wants to treat search metadata as final rights proof.",
++      "expected_decision": "RESEARCH_MORE",
++      "must_find": [
++        "originating asset record is required",
++        "search metadata stays candidate evidence"
++      ],
++      "falsifier": "Make provider metadata disagree with the origin page.",
++      "recovery": "Follow through to the source and verify asset-level rights.",
++      "evaluator_owner": "sourcing-rights-safe-visual-media"
++    },
++    {
++      "id": "generated-medical-illustration",
++      "setup": "A generated anatomical visual would improve an educational UI.",
++      "pressure": "The first output is beautiful but invents structural details.",
++      "expected_decision": "BLOCKED",
++      "must_find": [
++        "representation fidelity tier is explicit",
++        "factual implications are checked against sources"
++      ],
++      "falsifier": "Compare generated details with the truth brief.",
++      "recovery": "Lower fidelity tier, correct from authoritative references, or commission specialist review.",
++      "evaluator_owner": "authoring-domain-native-visual-assets"
++    },
++    {
++      "id": "responsive-crop-evidence",
++      "setup": "A cinematic product image passes desktop review but mobile crop removes the critical object.",
++      "pressure": "Team wants to ship with object-fit cover.",
++      "expected_decision": "BLOCKED",
++      "must_find": [
++        "crop semantic resilience is tested",
++        "alternate crop/asset exists for compact state"
++      ],
++      "falsifier": "Render the smallest material viewport.",
++      "recovery": "Create a mobile variant/recomposition and verify adjacent states.",
++      "evaluator_owner": "validating-visual-asset-integration"
++    },
++    {
++      "id": "media-negative-decision",
++      "setup": "A dense trading tool has no useful image slot in its order-entry surface.",
++      "pressure": "High visual ambition pressure encourages adding decorative imagery.",
++      "expected_decision": "PASS",
++      "must_find": [
++        "no-media decision is justified",
++        "task density and information gain favor type/data/controls"
++      ],
++      "falsifier": "Add a decorative image and compare task attention/error risk.",
++      "recovery": "Keep the transactional surface media-light while using richer media only where it serves a separate semantic job.",
++      "evaluator_owner": "mapping-visual-media-opportunities"
++    }
++  ]
++}
+diff --git a/integrations/agents/README.md b/integrations/agents/README.md
+new file mode 100644
+index 0000000..3cee1ec
+--- /dev/null
++++ b/integrations/agents/README.md
+@@ -0,0 +1,5 @@
++# Agent harness integration
++
++NUI uses one canonical graph and thin host adapters. Codex/Antigravity-compatible discovery uses `.agents/skills/nolane-ui/SKILL.md`; Claude Code uses `.claude/skills/nolane-ui/SKILL.md`; other hosts can use `scripts/nui-agent-export`, project instructions, or MCP. An adapter translates discovery only. It must not duplicate canonical skill bodies, raise design authority, or infer permissions.
++
++Before relying on a host capability, verify its current primary-source documentation. If the host cannot browse, inspect renders, generate images, or write to a design canvas, record the missing evidence and route that step to a capable host/human rather than certifying it.
+diff --git a/integrations/cli/README.md b/integrations/cli/README.md
+new file mode 100644
+index 0000000..438306e
+--- /dev/null
++++ b/integrations/cli/README.md
+@@ -0,0 +1,3 @@
++# CLI integration
++
++Use `python scripts/nui-agent-export --agent <id>` to obtain a host-specific discovery plan and `python scripts/nui-media-query` to inspect the rights-aware media registry. These commands emit plans/data; they do not silently download assets, execute third-party skills, or grant capabilities. A calling agent performs live research with its own permitted tools and records provenance before adoption.
+diff --git a/integrations/mcp/README.md b/integrations/mcp/README.md
+new file mode 100644
+index 0000000..bd3ef21
+--- /dev/null
++++ b/integrations/mcp/README.md
+@@ -0,0 +1,3 @@
++# MCP integration
++
++`python scripts/nui-mcp-server` exposes bounded local read/analysis tools: NUI status, one canonical skill, host install plans, media-source registry, creative-tool registry, and tool-learning sources. It intentionally exposes no arbitrary shell executor, generic URL fetcher, skill auto-installer, or project writer. MCP is a transport surface; the host remains the permission authority and NUI source/skill/media policies remain unchanged.
+diff --git a/integrations/media/README.md b/integrations/media/README.md
+new file mode 100644
+index 0000000..12e880a
+--- /dev/null
++++ b/integrations/media/README.md
+@@ -0,0 +1,5 @@
++# Visual media workflow
++
++NUI distinguishes geometry from **shape substitution**. Geometry is valid when it structures, controls, encodes or deliberately composes. A generic orb/blob/fake network is rejected when it occupies a semantic slot that should contain subject-native evidence or a truthful representation.
++
++Workflow: map semantic media opportunities → query appropriate source classes → verify each asset at its origin → record creator/rights/transformations → author a custom asset only when needed → integrate in responsive/temporal states → verify crop, hierarchy, accessibility, performance and provenance-to-render lineage. Search providers are discovery surfaces, never blanket rights certificates.
