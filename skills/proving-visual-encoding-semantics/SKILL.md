@@ -27,3 +27,20 @@ Return the canonical `encoding-provenance-table` artifact with explicit status, 
 
 ## Failure Traps
 Hard-coded orbit angle implying relation; line edges with no dependency meaning; opacity used atmospherically but interpreted as confidence; decorative animation labeled live data; beautiful art direction overriding analytical truth.
+
+## V6 Encoding Truth and Perception Protocol
+Construct a **channel truth table** for every material visual channel: x/y position, length, area, angle, curvature, color hue, luminance, saturation, opacity, texture, stroke, radius, depth, motion, particle behavior, edge topology, glyph and annotation. Each row states whether the channel is semantic, redundant, orienting or decorative; what variable it represents; provenance; scale/domain; missing/unknown behavior; and interaction affordance.
+
+Respect **perceptual ordering**. Quantitative values require channels whose perceptual order matches the data relationship; categorical variables must not imply false magnitude; diverging values need a meaningful center; area/volume exaggeration requires explicit justification. Art direction comes after truthful mapping.
+
+Use **decorative quarantine**. A decorative channel may be expressive, but it must be prevented from accidentally tracking data in a way users could interpret as meaning. Procedural particles, glow, jitter or node placement that visually correlate with values without declared semantics are especially dangerous in scientific/financial interfaces.
+
+Define **uncertainty encoding** explicitly: confidence intervals, ranges, missingness, model uncertainty, estimated values, stale data, imputation and forecast status. Uncertainty cannot be hidden behind a tooltip if it materially changes decisions.
+
+Perform a **legend dependency audit**. Ask whether users can recover meaning through direct labels, spatial structure and consistent semantics, or whether every interpretation requires memorizing a legend. Excessive legend dependence increases cognitive load and often signals too many weak encodings.
+
+### Falsification
+Randomize the data while preserving visual art direction; any visual feature that stays apparently meaningful without data provenance may be decorative masquerading as evidence. Swap two variable mappings; if critics/users cannot detect the semantic contradiction, the encoding lacks interpretable force.
+
+### Recovery
+When an expressive visual conflicts with truthful encoding, preserve data truth and move expression into non-semantic channels or framing. If a chart requires too many legends/encodings, reduce variables or use coordinated views rather than visual overloading.

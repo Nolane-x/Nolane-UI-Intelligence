@@ -64,3 +64,16 @@ Return `nav_roles`, `destination_model`, `chosen_structures`, `orientation_rules
 - Multiple navigation rows with overlapping destination sets.
 - Hiding core destinations behind “More” to preserve symmetry.
 - Mobile drawer with no persistent indication of current location.
+
+## V6 Navigation Wayfinding Protocol
+Run a **place-versus-mode test** for each navigation-looking control. A place changes the destination/context and should participate in history/deep linking when appropriate; a mode changes how the same content behaves and needs persistent mode visibility. Conflating them creates back-button and mental-model failures.
+
+Build a **wayfinding cue stack** using only cues the product can sustain: current destination, hierarchy/breadcrumb, object identity, workspace/environment, URL/history, and landmark structure. No single cue should carry all orientation if it disappears on small screens. Define a **deep-link history contract** for direct entry, browser/system back, forward, refresh, restored session, and links shared across permissions.
+
+Specify **navigation-state persistence** for expanded groups, scroll position, selected subview, filters, and recently visited objects. Persistence must be scoped correctly—per account/workspace/device/session—so one context does not leak into another. Run **hierarchy-growth stress** with 2–5× destinations, long labels, nested objects, role-gated items, and archived spaces.
+
+### Falsification
+Enter every major destination from an external deep link, switch workspace, use back/forward, shrink viewport, and remove the primary navigation shell. If orientation or state becomes unknowable, the model relies on chrome rather than structure.
+
+### Recovery
+Split place/mode concepts, introduce scalable search/command access, or restructure hierarchy. Do not solve growth by endlessly shrinking labels or nesting menus.

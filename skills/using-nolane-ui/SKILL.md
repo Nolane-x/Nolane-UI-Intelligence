@@ -32,3 +32,16 @@ Return the bootstrap directive that binds the task to `nolane-ui`, preserving th
 
 ## Red flags
 If you are thinking “the user said just code,” “I can infer the design while implementing,” “it compiles so the UI is done,” or “checking this would take too long,” you are at the exact trigger for this bootstrap. Do not bypass it.
+
+## V6 Bootstrap Integrity Protocol
+NUI itself can fail before design begins if the bootstrap silently drops facts while converting a request into a route. Build a **task-profile checksum** that restates, in compact structured form, the product surface, user/job, visual ambition, risk, modalities, platform, evidence capabilities, named sources, hard constraints, and unresolved facts. Compare that checksum with the raw request before loading specialist faculties; a mismatch is a routing defect, not an acceptable summary.
+
+Maintain a **route-justification ledger**. Every activated owner records the observed trigger it answers; every plausible high-impact owner that remains inactive records why. This makes progressive disclosure auditable rather than a convenient excuse to omit expensive reasoning. Keep a **capability-evidence boundary** as well: the agent may only promise screenshot inspection, browser execution, repository archaeology, accessibility-tree inspection, performance tracing, or external research when those capabilities actually exist in the current runtime. Missing capability changes the evidence state to UNKNOWN; it never authorizes invented evidence.
+
+For material tasks emit an **omission declaration** listing excluded domains or verification classes that could alter the answer. The declaration is especially important when context limits force a narrower route. If an omission is later discovered to affect product truth, safety, accessibility, or the selected aesthetic thesis, enter the **bootstrap recovery path**: invalidate downstream completion, repair the task profile, reroute from the earliest affected lifecycle state, and preserve already-valid evidence instead of restarting blindly.
+
+### Falsification
+Try to falsify the bootstrap by deleting one user constraint, changing one risk/modality field, and adding a named external source after routing. If the route and obligations do not materially react where they should, the bootstrap is under-sensitive. Conversely, inject an irrelevant domain and verify that the router can reject it with a reason rather than loading the entire graph.
+
+### Recovery
+When the task-profile checksum or route-justification ledger fails, stop implementation work. Reconstruct the profile from source language, mark uncertain inferences explicitly, rerun routing, and regenerate only artifacts whose parent obligations changed. A bootstrap defect cannot be waived by later visual quality.

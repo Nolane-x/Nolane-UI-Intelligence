@@ -59,3 +59,14 @@ Return `failure_class`, `failed_refs`, `earliest_invalid_phase`, `preserved_deci
 - Responding to an accessibility finding by hiding the element rather than preserving the task.
 - Solving fidelity drift by changing the accepted target instead of the implementation.
 - Using recovery as an excuse to redesign areas outside the failure scope.
+
+## V6 Recovery Orchestration Protocol
+Create a **recovery checkpoint graph** over artifacts/evidence so the system knows which last-known-valid states can be resumed. Apply **failure-scope containment**: a failed aesthetic thesis should not invalidate unrelated product semantics; a corrupted capability contract should invalidate everything downstream that depends on it.
+
+Enforce **valid-artifact preservation** with explicit hashes/IDs and provenance instead of regenerating the whole project from memory. Choose **reroute minimality**: reopen the earliest affected owner and only dependent routes. Require **recovery completion evidence** proving the original failure no longer reproduces and no preserved artifact is stale against the new decision.
+
+### Falsification
+Inject failures at research, contract, implementation, runtime, and aesthetic gate levels. If recovery either loses valid work or leaves stale dependent artifacts, the recovery model fails.
+
+### Recovery
+Recompute dependency impact, restore checkpointed truth, reroute the minimal branch, and run the exact regression that caused recovery.

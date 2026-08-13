@@ -53,3 +53,16 @@ Return `product_invariants`, `targets`, `shared_rules`, `platform_overrides`, `n
 - Desktop shortcut hints shown on touch-only devices.
 - Web modal patterns copied into native sheets without back/gesture behavior.
 - Identical pixel spacing across platforms when typography/metrics differ.
+
+## V6 Platform-Native Reconciliation
+Record a **native-convention delta** for every deliberate departure from platform expectations—navigation placement, context menus, keyboard shortcuts, window controls, back behavior, selection, share sheets, system dialogs, drag/drop, hover, or gestures. A delta needs a product benefit large enough to pay the learning and interoperability cost.
+
+Audit **system-gesture collision** for edge swipes, browser zoom, scrolling, text selection, OS shortcuts, assistive gestures, and hardware controls. Custom gestures never get exclusive priority merely because they look distinctive. Define a **platform chrome contract** describing ownership of title bars, safe areas, status/navigation bars, browser history, window resizing, keyboard insets, and system overlays. Include explicit **safe-area behavior** for notches, fold/hinge regions, rounded corners, TV overscan where applicable, and on-screen keyboards.
+
+Run a **fallback-parity test** when a platform capability is absent—hover, haptics, pointer precision, native share, biometric auth, GPU effects. The fallback must preserve the product action and essential feedback even if the presentation changes.
+
+### Falsification
+Perform the task using only standard platform expectations without tutorial knowledge. Then activate common OS/browser gestures and accessibility settings. If the product traps, overrides, or surprises without a strong reason, platform fit is falsified.
+
+### Recovery
+Prefer native behavior, add an alternate input/path, or isolate the unconventional interaction to a bounded expert mode. Do not teach users to fight the operating system.

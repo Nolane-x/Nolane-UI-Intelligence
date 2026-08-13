@@ -38,3 +38,14 @@ Return a `bci-interaction-contract` with `signal_pipeline_summary`, `calibration
 - Nonmedical UI skill claiming implanted-device safety or clinical efficacy.
 
 BCI interaction is successful when uncertainty is absorbed by the system instead of transferred as blame or risk to the user.
+
+## V6 BCI Interaction Safety Protocol
+Use **signal-confidence gating** before mapping classifier output to action; uncertain neural signals should preview/seek confirmation rather than execute high-consequence operations. Set a **false-activation ceiling** by action class and environment, acknowledging non-stationarity, fatigue, artifacts, and user variability.
+
+Minimize **calibration burden** and show when recalibration is needed without implying user failure. Establish a **neural-data consent boundary** for collection, storage, inference, secondary use, clinical interpretation, and sharing. Always retain an **alternative-input escape** so users can pause/disable BCI, correct errors, or complete essential tasks through another accessible modality where feasible.
+
+### Falsification
+Inject noisy signals, fatigue drift, classifier confidence near threshold, and accidental activation during rest. If actions fire without trustworthy intent or users cannot escape the mode, the system fails.
+
+### Recovery
+Drop to preview/confirmation, recalibrate, suspend unsafe actions, purge/limit questionable inferred state, and switch to alternate input until signal quality is re-established.

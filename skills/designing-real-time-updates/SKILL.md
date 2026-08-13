@@ -38,3 +38,14 @@ Return a `realtime-contract` with `update_classes[]`, `ordering_model`, `attenti
 - Autoscroll dragging users back to the newest item after they intentionally scrolled away.
 
 Realtime UI should make change legible while keeping interaction stable.
+
+## V6 Live-Data Update Protocol
+Define an **update-coalescing policy** for high-frequency changes so the interface preserves meaningful transitions without animating every packet. State the **temporal-order guarantee**—server order, event sequence, causal order, or best-effort arrival—and what happens when events arrive late or are corrected.
+
+Every live value needs a **freshness timestamp contract** appropriate to consequence: last event, last successful sync, source timestamp, or age class. Allocate a **change-attention budget** so motion/color flashes highlight only changes users should notice; background churn must not constantly reset scanning. Provide **live-freeze mode** where users can inspect a stable snapshot while buffering/reconciling new events, with clear indication that the view is paused.
+
+### Falsification
+Replay out-of-order events, bursts, reconnect gaps, clock skew, and correction events. If displayed history or status implies a false sequence/currentness, the real-time contract is broken.
+
+### Recovery
+Reconcile from authoritative sequence/state, mark gaps/staleness, reduce transient animation, and let users return from frozen inspection with an explicit catch-up transition.

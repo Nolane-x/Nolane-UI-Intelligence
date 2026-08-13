@@ -217,3 +217,40 @@ Create `experiential-intent` first when feelings, role projection, magnitude or 
 Before release, require task-relevant v5 evidence: computed legibility/resolved-font evidence, global aesthetic-attractor audit, visual-energy rationale, signature depth, thesis execution critique, thesis adequacy critique, and an aesthetic-basin decision that is not `RE_DIVERGE`. Data-bearing visualization requires `encoding-provenance-table`; multi-workspace products require `workspace-visual-matrix`; aspirational role language routes `modeling-aspirational-identity`; magnitude routes `composing-spatial-dramaturgy`.
 
 A green build or clean render proves implementation health, not aesthetic adequacy. If the adequacy critic says the selected thesis misses the preserved experiential intent, reopen divergence rather than spending the remaining iteration budget on local polish.
+
+## Deep external-source path (v6)
+
+Eight release anchors currently provide worked archaeology examples across animated components, icons, design tokens, design systems, accessibility testing, graph UI, visual testing and typography. Each is pinned to an exact upstream commit SHA and records artifact-level findings. This does **not** waive live verification: source drift, licensing, target framework and product context must still be checked for the current task.
+
+A repository URL is only a discovery handle. When an external source will materially influence behavior, implementation or visual language, record `external_source_usage` and route `performing-ui-repository-archaeology` plus `auditing-ui-research-depth`. If more than one external source materially influences the product, route `synthesizing-cross-source-ui-language` as well.
+
+Generate a role-specific research plan before deep reading:
+
+```bash
+python scripts/nui-source-plan \
+  --source /path/to/source-descriptor.json \
+  --usage adapt \
+  --visual-ambition exceptional
+```
+
+The required artifact classes intentionally differ by source role. An animated gallery needs mechanism-bearing component/demo/motion/reduced-motion/performance evidence; a headless primitive needs state/interaction tests and keyboard/focus/accessibility evidence; an icon system needs catalog/construction/naming/delivery evidence; a font source needs script/axis/subsetting evidence; graphs, maps, editors, terminal UI, AI-native UI and animation runtimes carry other obligations.
+
+Audit the completed dossier:
+
+```bash
+python scripts/nui-source-audit /path/to/dossier.json --source /path/to/source-descriptor.json
+```
+
+For `adopt`/`adapt` and high-drift sources, pin the research snapshot. A README + license dossier is deliberately insufficient. Record unread material and a falsifiable stop reason; `UNKNOWN` remains blocking when a missing artifact can materially reverse the decision.
+
+For multiple sources, assign local ownership for semantics, interaction and visuals before implementation. Treat upstream demo colors, radii, labels, motion, focus assumptions and global CSS as foreign defaults until explicitly reconciled. Accessible primitives do not compose into an accessible product automatically.
+
+## v6 industry-coverage and skill-effect use
+
+Use `knowledge/ui-industry-ontology-v6.json` to profile unusual combinations, not just individual categories. High-risk cross-axis cells require an owner, an independent verifier and evidence under the combined scenario.
+
+Do not claim that a skill improves UI quality because its Markdown is long or because structural CI is green. `benchmarking-ui-skill-effect` requires explicit treatment/control design, semantic mutations or ablations where appropriate, evaluator lineage and bounded causal interpretation. Repository CI verifies that this evaluation machinery exists; live cross-model or human preference experiments remain external evidence.
+
+### v6 full-graph depth lock
+
+Every canonical skill is represented in `knowledge/v6-depth-focus-obligations.json` with five skill-specific semantic anchors. The validator requires exact 158/158 graph coverage and 790 globally unique anchors, preventing a future edit from silently replacing a specialized decision procedure with generic boilerplate while keeping the same skill name.

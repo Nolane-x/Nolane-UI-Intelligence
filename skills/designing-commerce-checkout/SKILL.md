@@ -38,3 +38,14 @@ Return a `checkout-contract` with `cart_state`, `pricing_breakdown`, `inventory_
 - Success screen with no durable order identifier.
 
 A checkout earns trust when the final committed state matches the state the user believed they reviewed.
+
+## V6 Checkout Integrity Protocol
+Preserve a **total-cost invariant** from cart through authorization: item price, quantity, discount, tax, shipping, fees, currency, and final charged total must reconcile, with changes surfaced before payment. Expose **fulfillment-option truth**—availability, delivery/pickup estimate, location, stock reservation, and restrictions—before irreversible steps.
+
+Maintain **cart-state persistence** across auth redirects, device/session transitions, inventory changes, and failed payment. Define **payment-failure continuity** so entered non-sensitive data, cart, selected fulfillment, and error reason survive without accidental duplicate charge. Keep a clear **guest-account boundary**: account creation is optional unless genuinely required and must not silently merge/lose guest state.
+
+### Falsification
+Change stock/tax/shipping after review, fail authentication/3DS, retry payment, and sign in from guest state. Any unexplained total/cart mutation invalidates checkout trust.
+
+### Recovery
+Return to review with changed values highlighted, preserve cart/draft, verify payment status before retry, and avoid coercive account creation as a recovery shortcut.

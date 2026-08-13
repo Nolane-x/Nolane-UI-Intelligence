@@ -38,3 +38,14 @@ Return an `authentication-contract` with `account_identity_model`, `methods[]`, 
 - UI sign-out implying server tokens/sessions were revoked when they were not.
 
 Good authentication keeps security state precise while making recovery understandable.
+
+## V6 Authentication Ceremony Protocol
+Model a **ceremony-state model** across identifier discovery, device/account selection, authenticator invocation, user verification, server challenge, success/failure, and fallback. Track **account-device binding** so users understand which account and device/passkey they are using, especially with shared devices or multiple profiles.
+
+Protect **recovery-channel integrity**: fallback must not negate the security of the primary path. Prefer a **phishing-resistant path** where supported and avoid UI that trains users to enter credentials into ambiguous contexts. Provide **credential-discovery fallback** for users who do not know where a passkey lives, changed devices, revoked credentials, or platform sync differences.
+
+### Falsification
+Use multiple accounts, no matching passkey, cancelled platform UI, offline/clock issues, and compromised weaker fallback. If the user can be tricked into a lower-assurance flow without clear context, the model fails.
+
+### Recovery
+Return to known account/device context, surface secure recovery options, and preserve intent without repeatedly firing opaque platform prompts.

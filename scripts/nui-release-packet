@@ -36,32 +36,36 @@ def main() -> int:
         }
     ]
     packet = {
-        "packet_id": f"NUI-V5-STRUCTURAL-{args.revision}",
+        "packet_id": f"NUI-V6-STRUCTURAL-{args.revision}",
         "artifact_revision": args.revision,
         "phase": "VERIFIED",
-        "task_profile": "NUI v5 repository structural release: universal UI cognition, product closure, ecosystem retrieval, affective/aesthetic enforcement, semantic-mutation and skill-interaction eval gates",
+        "task_profile": "NUI v6 repository structural release: universal UI cognition, product closure, affective/aesthetic enforcement, artifact-level external-source research, cross-source synthesis, multi-axis industry ontology, behavioral skill-depth and causal-eval gates",
         "obligations": [
             {"id": "O-GRAPH-SKILLS", "status": "PASS", "evidence_refs": ["E-UNIT-SUITE", "E-REPOSITORY-VALIDATOR"]},
             {"id": "O-DETERMINISTIC-KERNEL", "status": "PASS", "evidence_refs": ["E-UNIT-SUITE"]},
             {"id": "O-ADAPTER-CONTRACT", "status": "PASS", "evidence_refs": ["E-UNIT-SUITE"]},
             {"id": "O-EVAL-CONTRACT", "status": "PASS", "evidence_refs": ["E-UNIT-SUITE", "E-REPOSITORY-VALIDATOR"]},
             {"id": "O-PROVENANCE-DOCS", "status": "PASS", "evidence_refs": ["E-REPOSITORY-VALIDATOR"]},
-            {"id": "O-V5-AESTHETIC-ENFORCEMENT", "status": "PASS", "evidence_refs": ["E-UNIT-SUITE", "E-REPOSITORY-VALIDATOR"]}
+            {"id": "O-V5-AESTHETIC-ENFORCEMENT", "status": "PASS", "evidence_refs": ["E-UNIT-SUITE", "E-REPOSITORY-VALIDATOR"]},
+            {"id": "O-V6-DEEP-SOURCE-INTELLIGENCE", "status": "PASS", "evidence_refs": ["E-UNIT-SUITE", "E-REPOSITORY-VALIDATOR"]},
+            {"id": "O-V6-INDUSTRY-ONTOLOGY", "status": "PASS", "evidence_refs": ["E-UNIT-SUITE", "E-REPOSITORY-VALIDATOR"]},
+            {"id": "O-V6-BEHAVIORAL-SKILL-DEPTH", "status": "PASS", "evidence_refs": ["E-UNIT-SUITE", "E-REPOSITORY-VALIDATOR"]},
+            {"id": "O-V6-CAUSAL-EVAL-CONTRACT", "status": "PASS", "evidence_refs": ["E-UNIT-SUITE", "E-REPOSITORY-VALIDATOR"]}
         ],
         "evidence": evidence,
         "findings": [],
         "checks": {"unit-tests": "PASS", "repository-validator": "PASS", "completion-gate": "PASS"},
-        "claim": "This exact repository revision satisfies NUI v5 structural, skill-contract, ecosystem-registry, affective/aesthetic-kernel, semantic-mutation, interaction-eval and deterministic completion-gate checks in the fail-fast verification job that generated this packet.",
+        "claim": "This exact repository revision satisfies NUI v6 structural, skill-contract, v5 affective/aesthetic, v6 deep-source intelligence, multi-axis ontology, semantic-depth, adversarial/causal-eval and deterministic completion-gate checks in the fail-fast verification job that generated this packet.",
         "bounds": [
-            "This is structural/process verification; it proves v5 enforcement mechanisms and repository invariants exist and pass their deterministic tests, not that every future UI generated with NUI is objectively beautiful.",
+            "This is structural/process verification; it proves v6 enforcement mechanisms and repository invariants exist and pass their deterministic tests, not that every future UI generated with NUI is objectively beautiful.",
             "Task-specific flagship/exceptional/experiential completion still requires rendered affective/aesthetic evidence, reference comparison, adequacy critique and no outstanding RE_DIVERGE decision.",
             "Agent-behavior eval JSON files are pressure-test specifications; repository CI does not report them as live cross-model benchmark wins.",
             "Product UI accessibility and fidelity require task-specific runtime and normative evidence through NUI obligations and critics.",
             "NUI makes no objective superiority claim over all competing UI skills without controlled head-to-head runtime evaluation.",
-            "Repository CI verifies the ecosystem registry contract, not the current correctness or license compatibility of every third-party source at future use time; high-drift sources require live inspection."
+            "Repository CI verifies source-intelligence contracts, not the future correctness/license compatibility of third-party sources. Material external influence still requires task-specific role-aware archaeology at a current pinned snapshot; README-only authorization is forbidden."
         ],
         "unknowns": [
-            "Repeated cross-model behavior-eval scores are outside repository-only CI.",
+            "Repeated cross-model behavior-eval scores and causal visual-quality superiority claims are outside repository-only CI unless an external runtime executes the declared treatment/control benchmarks.",
             "Browser, screenshot, semantic-tree and independent-worker capabilities vary by host runtime."
         ],
         "decision": "PASS"

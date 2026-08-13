@@ -38,3 +38,14 @@ Return an `automotive-contract` with `context_classes`, `task_availability[]`, `
 - Applying a car-platform step limit as a universal mobile rule.
 
 Automotive UI quality is measured partly by what it refuses or defers while the person is driving.
+
+## V6 Automotive Attention Protocol
+Set a **glance-time envelope** per driving-state task; driving-critical information must be perceivable with minimal eyes-off-road demand. Apply **driving-state lockout** to interactions whose visual/manual demand exceeds safe conditions, with passenger/parked alternatives where allowed.
+
+Enforce **road-attention priority** over notifications, entertainment, animation, and nonessential personalization. Maintain **vehicle-control distinction** between infotainment, climate/convenience, driver-assistance, and safety-critical vehicle controls; visual similarity must not blur authority or consequence. Model **passenger-driver context** so features available to passengers do not accidentally appear actionable to the driver.
+
+### Falsification
+Run tasks under motion, vibration, bright/dark transitions, voice failure, alerts, and driver-assistance state changes. If the driver must visually troubleshoot or infer control authority, design is unsafe.
+
+### Recovery
+Defer/lock interactions, move appropriate tasks to voice/steering controls, simplify glanceable state, and require parked/passenger continuation for high-demand work.

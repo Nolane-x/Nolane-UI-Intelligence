@@ -76,3 +76,14 @@ At minimum, an interactive pointer path that owns a product action must have a k
 - Making the business task impossible when the animation dependency is disabled.
 
 **Hard gate:** rich interaction cannot ship without explicit states, modality equivalence, interruption/retargeting, reduced motion, focus semantics, rendering lifecycle, performance budget and a testable exit/degradation strategy.
+
+## V6 Rich Interaction Engineering Protocol
+Represent complex widgets with an **interaction statechart** covering stable/intermediate states, events, guards, async outcomes, cancellation, and error recovery. Define an **event ownership boundary** so nested components do not both react to Escape, outside-click, pointer capture, selection, drag, or keyboard commands.
+
+Build a **focus-transition graph** for entry, roving focus, nested overlays, async replacement, virtualization, and exit/restoration. Stress an **async race envelope** with reordered responses, repeated activation, unmount, retry, and stale results. Track **performance-interaction coupling** where virtualization, animation, rendering engines, or debouncing can alter focus/selection/feedback semantics.
+
+### Falsification
+Rapidly interleave input events and async completions while switching focus/modal state. Any impossible state, duplicate action, or lost focus falsifies the component model.
+
+### Recovery
+Centralize state/event authority, cancel/ignore stale work, preserve semantic identity, and simplify interaction before adding patches.

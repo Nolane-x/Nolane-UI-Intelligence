@@ -38,3 +38,14 @@ Return a `terminal-ui-contract` with `command_grammar`, `canonical_commands[]`, 
 - Live updates constantly moving the user’s selection.
 
 A strong terminal UI is learnable interactively and dependable when automated.
+
+## V6 Terminal UI Protocol
+Perform **terminal capability detection** for color depth, Unicode, dimensions, mouse, alternate screen, hyperlinks, and platform quirks rather than assuming a modern emulator. Guarantee **keyboard-only command parity** for every material action, even if mouse support exists.
+
+Define a **resize reflow contract** for tables/panes/logs/forms without corrupting scroll/focus/state. Preserve **colorless state distinction** using text, symbols, position, and attributes because color can be absent or indistinguishable. Set a **shell safety boundary** between UI actions and command execution: quote/escape values, display destructive commands clearly, and never interpolate untrusted content unsafely.
+
+### Falsification
+Run in a narrow monochrome/basic terminal, resize during interaction, paste hostile shell-like input, and disable mouse. Loss of action/state or command ambiguity falsifies the TUI.
+
+### Recovery
+Degrade to simpler text layouts, preserve command semantics, sanitize boundaries, and expose explicit command previews for risky execution.

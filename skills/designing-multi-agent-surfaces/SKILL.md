@@ -38,3 +38,14 @@ Return a `multi-agent-context-model` with `agent_roles[]`, `work_items[]`, `depe
 - Internal chain-of-thought-style logs used as the primary UI instead of concise task evidence.
 
 Multi-agent UI is successful when concurrency increases capability without multiplying uncertainty for the user.
+
+## V6 Multi-Agent Attribution Protocol
+Maintain **agent-identity provenance** for every material suggestion/action: which agent/model/tool produced it, on whose authority, from which task/context, and whether another agent transformed it. Build a **delegation boundary map** showing what each agent may propose, execute, approve, or hand off.
+
+Handle **concurrent-action conflict** when agents modify the same object, invoke incompatible tools, or pursue competing goals. Present an **attribution timeline** that lets users reconstruct material decisions without reading raw hidden traces. Specify **agent handoff recovery** so context, unresolved constraints, pending actions, and ownership survive when a different agent takes over.
+
+### Falsification
+Have two agents issue conflicting edits, retry after partial tool failure, and hand off mid-task. If the user cannot identify who did what or which action is authoritative, the surface fails.
+
+### Recovery
+Pause execution, surface the conflict, restore last known coherent state, and require explicit re-delegation where authority is ambiguous.

@@ -38,3 +38,14 @@ Return a `direct-input-contract` with `target_rules[]`, `activation_and_cancel`,
 - Enlarged hit areas that overlap neighboring controls and create ambiguity.
 
 Choose interaction geometry from capability and consequence, not from visual density alone.
+
+## V6 Multi-Pointer Input Protocol
+Build a **modality equivalence map** for semantic actions across mouse/trackpad, touch, pen, and coarse pointer. Identify every **hover-only trap** where information or action appears only with hover and supply a non-hover path. Define **pen barrel intent** and eraser/pressure/tilt behavior where used; stylus buttons must not unexpectedly trigger destructive or mode-changing actions.
+
+Set a **palm-rejection boundary** for drawing/writing surfaces and decide how touch interacts while pen is active—pan/zoom, ignored, or secondary control. Every precision gesture needs a **coarse-pointer fallback** with larger targets or alternative controls when pointer accuracy drops.
+
+### Falsification
+Switch modalities mid-task, use touch without hover, rest a palm while drawing, and operate with increased pointer imprecision. If semantics or recoverability change, input design is inconsistent.
+
+### Recovery
+Separate gesture from semantic action, add explicit mode/control alternatives, enlarge targets, and make modality switching preserve state rather than resetting the tool.

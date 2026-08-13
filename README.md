@@ -126,3 +126,21 @@ python scripts/nui-validate .
 ```
 
 Repository validation proves structural and evidence-contract invariants only. It does not prove that a future interface is beautiful, usable, accessible, safe, certified, or faithful without task-specific evidence.
+
+## Deep Research & Design Synthesis Intelligence (v6)
+
+NUI v6 addresses a different failure from v5: an agent can know many UI rules and even have a curated ecosystem registry while still **researching shallowly, combining excellent sources incoherently, overlooking cross-axis industry edge cases, or mistaking long skill prose for behavioral depth**.
+
+The current v6 graph declares **158 skills**. Only four decision owners were added in v6—`performing-ui-repository-archaeology`, `synthesizing-cross-source-ui-language`, `auditing-ui-research-depth`, and `benchmarking-ui-skill-effect`. v6 deliberately deepens existing owners rather than treating skill count as progress.
+
+The v6 control path for material external influence is:
+
+`task/source need → ecosystem discovery → role-specific source research plan → pinned repository archaeology → research-depth critic → source selection → cross-source layer ownership → local semantic/interaction/visual synthesis → integration/runtime/render verification → bounded completion gate`
+
+`knowledge/ui-source-intelligence-v6.json` expands the source plane to 85 curated canonical candidates across 35 source roles and 20 explicit source domains, including icons, typography, design tokens/style systems, visual/accessibility testing, graph/diagram UI, geospatial UI, code editors, terminal UI, AI-native UI, creative rendering and animation-asset runtimes. These counts describe the current retrieval surface; they are **not authority or completeness scores**. `anchor`, `specialist`, and `discovery` are evidence postures. Eight cross-role anchors are pinned to exact upstream commit SHAs with artifact-level findings across implementation plus tests/runtime/examples; all other sources still require live verification before material influence. README-only research cannot authorize material source influence.
+
+`knowledge/ui-industry-ontology-v6.json` expands coverage from a few coarse axes to 15 independent axes with 222 current values and explicit high-risk interaction cells. Cross-axis ownership matters because “medical”, “voice”, and “agentic” can each look safe in isolation while their combination requires different confirmation, error-recovery and authority behavior.
+
+`knowledge/skill-depth-constitution-v6.json` defines ten behavior-bearing depth dimensions and forbids word/token/line/heading count as depth proxies. `knowledge/v6-depth-focus-obligations.json` now depth-locks all **158/158 canonical skills** with exactly five skill-specific semantic anchors (**790 globally unique anchors**) plus explicit falsification/recovery behavior. The repository validator requires this registry to match the canonical graph exactly. A long skill can fail; a concise skill can pass if it owns a real decision and carries observation, branching, falsification, evidence, output, failure, recovery and downstream verification behavior.
+
+The v6 eval plane adds adversaries for README-only research, stale/unpinned sources, source-role mismatch, gallery monoculture, source collage, cross-axis omissions, semantic-force mutations, ablations, factorial interactions, transfer and correlated critic lineage. These are deterministic contracts and behavior specifications; they do not manufacture a claim of universal objective beauty.

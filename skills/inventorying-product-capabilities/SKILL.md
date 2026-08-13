@@ -62,3 +62,14 @@ The ledger is canonical input to action registration, reachability proof, scenar
 - Marking inferred capability truth as confirmed to unblock layout.
 
 **Hard gate:** a product-wide design cannot claim functional closure while a release-critical capability is `UNKNOWN`, `CONFLICTED`, or has no explicit disposition.
+
+## V6 Capability Inventory Protocol
+Separate **capability-action distinction**: a system capability may enable multiple user actions; a visible action may require several capabilities. Assign a **source-of-truth owner** for each capability (service, local state, platform API, policy, integration) and its current availability evidence.
+
+Represent **permission-dependent capability** states so UI does not advertise impossible actions or erase discoverability before access is requested appropriately. Classify every **capability gap class** as unavailable, unimplemented UI, permission blocked, unsupported platform, degraded/offline, experimental, or unknown. Add an **inventory freshness checkpoint** before major routing/implementation when backend/platform flags or integrations can drift.
+
+### Falsification
+Compare the inventory against actual runtime/API permissions and search for hidden backend actions or dead UI actions. Any mismatch falsifies capability truth.
+
+### Recovery
+Refresh authoritative sources, update action registry/routes, and explicitly mark unknown/unavailable capability instead of designing around an assumption.

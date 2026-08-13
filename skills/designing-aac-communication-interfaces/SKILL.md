@@ -50,3 +50,14 @@ Produce an `aac-communication-contract` containing: communication goals; languag
 - Giving caregivers or administrators invisible veto power over ordinary self-expression.
 
 The interface succeeds when the person can communicate with their own language, access method, timing, identity, and authority—not merely operate the software.
+
+## V6 AAC Communication Protocol
+Set a **communication-rate budget** for common needs, urgent messages, conversation repair, and novel composition; optimizing visual neatness at the cost of excessive selections is unacceptable. Build **vocabulary access topology** around stable motor/cognitive location, categories, recency, prediction, and personalized words without constantly rearranging core targets.
+
+Support a **partner-assisted path** for users who communicate with trusted partners while preserving direct user agency. Protect **motor-planning consistency** across updates, themes, orientation, and vocabulary growth. Treat authored messages as personal expression under **message-ownership privacy**: prediction/training/history must not expose or silently repurpose intimate communication.
+
+### Falsification
+Measure selections/time for high-frequency and emergency messages, switch device/profile, and add vocabulary. If core words move unpredictably or privacy/agency is lost, the layout fails.
+
+### Recovery
+Restore stable access paths, reduce steps, provide alternate scanning/direct-selection modes, and preserve user-controlled vocabulary/history boundaries.

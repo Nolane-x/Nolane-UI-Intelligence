@@ -36,3 +36,14 @@ Return a `finding-set` with `may_modify:false`, `artifact_revision`, `findings[]
 - Reviewer infers backend idempotency from disabled UI control.
 
 A resilient interface preserves truth and control when time and dependencies stop behaving ideally.
+
+## V6 Performance and Resilience Critic
+Compare actual interaction against an **interaction latency budget** for input feedback, navigation, search, drag, typing, and async acknowledgement. Exercise **long-task resilience** through backgrounding, reconnect, cancellation, device sleep, and app restart.
+
+Induce **memory pressure failure** on large data/media/canvas surfaces and inspect whether state degrades predictably. Capture **rendering-jank evidence**—frame drops, long tasks, layout shift, animation contention—rather than subjective “feels fast.” Identify a **graceful degradation gap** where loss of GPU/network/API capability destroys core action instead of reducing fidelity.
+
+### Falsification
+Throttle CPU/network/GPU, increase data size, background/reopen, and stress memory. If product truth/state is lost, resilience fails regardless of average benchmark.
+
+### Recovery
+Reduce work, virtualize/cache safely, background durable tasks, simplify effects, and preserve the core semantic path under degraded capability.

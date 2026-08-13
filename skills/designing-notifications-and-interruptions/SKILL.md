@@ -38,3 +38,14 @@ Return an `interruption-contract` with `event_taxonomy[]`, `urgency_rules`, `cha
 - Critical and promotional alerts sharing the same sound/style.
 
 Notifications should help users allocate attention, not convert product activity into a demand for attention.
+
+## V6 Interruption Governance
+Set an **interruption-value threshold** using urgency, consequence, time sensitivity, user role, and whether action can wait. Define a **channel escalation ladder** from passive in-product status through badge, toast, system notification, sound/haptic, or persistent alert; higher channels require stronger justification.
+
+Apply **notification deduplication** across repeated events, devices, agents, and channels so one condition does not multiply into alert spam. Respect **quiet-hours semantics** with explicit exceptions only for truly urgent classes. Track an **attention debt budget**: repeated low-value interruptions reduce future signal trust and should cause channel/rule redesign, not simply more salience.
+
+### Falsification
+Burst duplicate events, move between devices, enter focused/quiet mode, and delay action. If users cannot tell whether alerts refer to one condition or many, interruption policy fails.
+
+### Recovery
+Aggregate, downgrade channels, snooze/shelve appropriately, preserve a durable notification center, and escalate only when objective consequence/time constraints warrant it.

@@ -38,3 +38,14 @@ Return a `latency-contract` with `operation_states`, `acknowledgement_budget`, `
 - Cancellation visually claims rollback of an already executed external action.
 
 Fast-feeling UI comes from timely truthful feedback, not merely animation.
+
+## V6 Latency Perception Protocol
+Classify operations by **latency perceptual threshold**: instant/local feedback, short wait needing activity acknowledgment, longer wait needing progress/context preservation, and background job. Use a **progress truth model**—determinate progress only when the system has meaningful completion fractions; otherwise expose stage/status rather than a fake percentage.
+
+Declare the **optimistic boundary** for updates that may safely appear before server confirmation. Ensure **cancellation responsiveness**: cancellation must acknowledge immediately, state whether work actually stopped, and handle late completion. Support **long-task backgrounding** with durable job identity, notification/re-entry, result provenance, and retry semantics.
+
+### Falsification
+Inject variable latency, stalled progress, late success after cancel, and app/window closure. If UI feedback implies execution facts it does not know, the model is false.
+
+### Recovery
+Revert speculative state, expose actual job stage/uncertainty, background safely, and preserve a clear re-entry path instead of freezing the user behind a spinner.

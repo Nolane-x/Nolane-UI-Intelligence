@@ -36,3 +36,14 @@ Return a `research-wave` containing `uncertainties[]`, `queries_or_sources_exami
 - Searching so broadly that the original decision uncertainty becomes untestable.
 
 A strong research wave makes the router or an obligation more accurate. If nothing in the system would change, record confirmation and stop expanding context.
+
+## V6 Frontier Research Protocol
+Maintain a **frontier uncertainty map** of UI domains/mechanisms where current evidence is weak, contradictory, rapidly changing, or outside established standards. Set **evidence-gap priority** by product relevance, risk, novelty, and decision leverage.
+
+Run an **emerging-source watch** for new platform guidance, research, repositories, input modalities, AI interaction patterns, accessibility work, and design-system shifts without promoting novelty to authority. Mark **speculative-vs-actionable** findings explicitly. Define a **frontier exit criterion** for when a topic becomes sufficiently supported to enter stable registry/ontology/skill obligations—or when it remains research-only.
+
+### Falsification
+Seek a newer primary source or contradictory implementation that changes the frontier thesis. If the frontier record cannot absorb uncertainty, it is hype tracking rather than research.
+
+### Recovery
+Downgrade claims, refresh sources, widen domain sampling, and keep speculative mechanisms out of non-waivable production rules.

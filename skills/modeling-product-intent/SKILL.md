@@ -72,3 +72,16 @@ A visual designer should be able to read the model and understand **why this sur
 - Letting fake demo data invent product semantics.
 - Hiding partial/error states to preserve visual cleanliness.
 - Copying a competitor’s visible structure without checking whether its underlying product objects match.
+
+## V6 Product-Intent Causal Model
+Translate the brief into an **outcome-to-capability map**: every desired user or business outcome must point to the product capability, observable user behavior, and system state that could plausibly cause it. This prevents aesthetic wishes, feature names, and implementation ideas from being confused with product intent. Separate each statement through an **invariant-versus-preference** decision: invariants remain true across candidate solutions; preferences may be traded when evidence shows a better route.
+
+Create an **anti-goal register** for outcomes the product must not optimize accidentally—engagement that delays task completion, visual drama that reduces diagnostic accuracy, automation that removes meaningful control, or onboarding completion that does not create value. Pair goals and anti-goals with a **success-observability plan**: define what could be observed in product behavior, usability evidence, telemetry, or task outcomes and what remains a hypothesis. If no observation could distinguish success from a beautiful mockup, the intent is not operational enough.
+
+Run an **intent drift test** at architecture selection, aesthetic selection, and release. Re-express the current solution without feature names and ask whether it still advances the original outcomes. Trace any new capability back to an explicit goal, discovered necessity, or validated constraint; otherwise mark it scope accretion.
+
+### Falsification
+Construct a deliberately polished solution that satisfies the requested feature list but fails the primary outcome. If the intent model still labels it successful, outcome and implementation have been conflated. Also remove one supposed invariant; if no user outcome or risk changes, it was probably a preference.
+
+### Recovery
+When intent drift is found, do not patch copy around the current design. Reopen the affected capability, flow, and evidence contracts; demote unsupported preferences, restore invariants, and reroute downstream faculties from the first causal divergence.

@@ -38,3 +38,14 @@ Return an `alternative-input-contract` with `action_vocabulary[]`, `modality_pat
 - Focus disappearing after dynamic updates.
 
 Parity means equal ability to accomplish the task, not identical mechanics.
+
+## V6 Alternative Input Protocol
+Model a **switch-scan topology** for sequential/group scanning: order, grouping, dwell/activation timing, back/cancel, and recovery from overshoot. Provide **dwell input fallback** where clicking/pressing is unavailable, with consequence-sensitive dwell or confirmation rather than one global timer.
+
+Ensure a **voice-free action path** for products that otherwise rely on speech; noise, privacy, speech impairment, and context can make voice unavailable. Preserve **remapping persistence** for custom keys/switches/gestures across sessions and devices where meaningful. Tune **fatigue-aware timing** for long scanning/dwell sessions and allow pauses without losing place.
+
+### Falsification
+Complete core tasks using only switch scanning or configured alternative input, then introduce fatigue/overshoot and restart. If the user is trapped or remapping disappears, the interface fails.
+
+### Recovery
+Reduce scan depth, add grouping/direct shortcuts, restore mappings, and provide a reliable cancel/escape route independent of the failed input.

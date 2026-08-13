@@ -38,3 +38,14 @@ Return a `degraded-mode-contract` with `dependency_states[]`, `capability_matrix
 - Cached sensitive data exposed after session/account change.
 
 Degraded UI is trustworthy when users can predict what will happen before they act.
+
+## V6 Offline and Degraded Truth Protocol
+Define an **offline capability envelope** listing what is read-only cached, locally editable, queueable, impossible, or dangerous without server truth. Preserve **queued-action provenance**: action identity, local time, user/account/workspace, dependencies, retry count, and visible status.
+
+Specify a **conflict-merge policy** for edits made against diverged remote state—automatic only when semantics are safely mergeable; otherwise surface the competing versions. Use a **sync-recovery checkpoint** before declaring reconnection complete, proving queued operations reconciled and authoritative data refreshed. Show a **degraded-truth badge** or equivalent whenever displayed values/actions rely on stale/incomplete sources.
+
+### Falsification
+Go offline before/after edits, change the same record remotely, switch account, reconnect with partial failures, and retry queued destructive actions. Silent overwrites or duplicate side effects invalidate the design.
+
+### Recovery
+Pause unsafe queues, expose conflicts/staleness, reconcile idempotently, and preserve local drafts until the user can make an informed merge decision.

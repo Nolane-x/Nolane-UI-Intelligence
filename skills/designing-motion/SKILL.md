@@ -56,3 +56,16 @@ Return `motions[] {trigger, purpose, property, duration_class, easing, hierarchy
 
 ## V5 Motion as Dynamic Information
 When the product thesis is “living”, evolving, causal, temporal, simulated, or agentic, test motion as **dynamic information**, not merely polish. It may communicate **propagation**, experiment state change, lineage, causal updates, simulation progress, memory consolidation or continuity. Each motion channel declares its semantic role; ambient motion stays explicitly decorative. The **reduced motion** branch must preserve the information through state, text, structure or discrete transitions rather than deleting meaning.
+
+## V6 Temporal Interaction Model
+Allocate a **temporal-information budget**: every animation must declare whether it communicates causality, continuity, hierarchy, spatial origin, progress, confirmation, attention, or expressive identity. Decorative movement competes with those signals and with user attention; it does not inherit a free budget.
+
+For moving/morphing objects build a **continuity-anchor map** stating which identity remains perceptually stable across before/after states—position, shape, label, color, parent surface, or shared layout ID. Model an **interruption graph** for rapid repeat activation, navigation mid-animation, drag reversal, async completion while transitioning, and multiple concurrent motions. Define which transitions retarget, finish, cancel, or snap.
+
+The reduced-motion mode requires **reduced-motion semantic equivalence**: remove vestibular/ornamental movement without deleting information about change, origin, progress, or completion. Validate timing with a **settling-envelope test** across low/high refresh, throttled CPU/GPU, different content lengths, and spring overshoot; the UI should not remain physically “busy” after the user is ready to act.
+
+### Falsification
+Disable all motion and ask what meaning disappears; then accelerate user input so transitions overlap. If state becomes ambiguous without spectacle or interaction blocks behind animation, the motion model is false.
+
+### Recovery
+Move meaning into persistent state cues, shorten/retarget transitions, simplify effects, or replace physical travel with opacity/crossfade under reduced motion. Never preserve animation solely because the reference looked impressive.

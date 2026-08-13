@@ -36,3 +36,14 @@ Return a `drag-drop-contract` with `objects[]`, `destinations[]`, `state_machine
 - Reordering controls visually hidden until hover with no other discovery path.
 
 The alternate path must be functionally equivalent, not a second-class approximation.
+
+## V6 Accessible Reordering/Transfer Protocol
+Represent drag/drop as a **drag-intent action model**—move before/after, transfer to group, attach, reorder, place on canvas—so the same semantic operation can have non-drag inputs. Provide a complete **keyboard reorder path** with pickup/select, target movement, commit, cancel, and resulting focus.
+
+Use **pickup-drop announcement** that states selected item, available action/target context, current position, and successful/cancelled result without announcing every pointer movement. Ensure **target-list discoverability** for screen-reader/keyboard users instead of relying on spatial proximity. Define **cancellation restoration** for original position, selection, focus, and scroll when the operation aborts.
+
+### Falsification
+Complete every material drag action using keyboard/screen reader only, cancel midway, move across scroll/virtualized regions, and test invalid targets. If any outcome is drag-exclusive, accessibility fails.
+
+### Recovery
+Expose explicit move/reorder commands, maintain stable item IDs/position semantics, and restore state on cancellation rather than simulating pointer dragging for assistive users.

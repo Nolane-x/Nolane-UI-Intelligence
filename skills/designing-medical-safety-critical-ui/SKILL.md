@@ -38,3 +38,14 @@ Return a `medical-safety-contract` with `critical_tasks[]`, `hazardous_use_scena
 - Claiming FDA/IEC compliance from this skill alone.
 
 Safety design ends where evidence ends; uncertainty remains visible and blocking.
+
+## V6 Medical Safety Protocol
+Maintain **patient-identity lock** around any order, medication, result, note, or device action so context switching cannot silently retarget a task. Expose **clinical data freshness** and source for values whose age changes meaning.
+
+Protect **dose-unit integrity**: drug, concentration, amount, unit, route, rate, timing, weight/age context, and decimal formatting must not be visually separable from the decision. Control **alarm fatigue control** by prioritizing actionable alerts and preserving escalation. Record **clinical override provenance**—who overrode, reason, evidence, time, and downstream effect—without making override impossible when clinically necessary.
+
+### Falsification
+Switch patient/context mid-entry, stale a lab/vital, vary units, and present simultaneous alerts. Any plausible wrong-patient/wrong-unit action falsifies the UI.
+
+### Recovery
+Stop commitment, restore verified patient/source/unit context, require re-review, and route override through explicit accountable evidence rather than blocking care with opaque warnings.

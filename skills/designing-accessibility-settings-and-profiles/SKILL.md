@@ -49,3 +49,14 @@ Produce an `accessibility-settings-contract` containing: bootstrap entry paths; 
 - Letting organization policy remove the only usable access path silently.
 
 The settings experience succeeds when users can reach, change, test, preserve, and recover their access configuration without first having to overcome the barrier that configuration exists to solve.
+
+## V6 Accessibility Preference Governance
+Define a **preference precedence lattice** among OS settings, browser/platform settings, organization policy, product profile, per-surface overrides, and temporary session needs. Keep a **profile portability contract** for settings that should follow a user across devices while excluding device-specific capabilities that cannot transfer safely.
+
+Ship **reset-safe defaults** that restore a usable baseline without erasing unrelated account state. For high-impact settings provide a **setting effect preview** or reversible live change so users can judge readability/motion/density before committing. Detect **assistive-setting conflict** such as custom themes fighting forced colors, compact density fighting target size, or motion personalization overriding reduced motion.
+
+### Falsification
+Apply conflicting system/product settings, switch devices, reset, and upgrade from an older profile. If the result becomes inaccessible or unpredictable, preference governance fails.
+
+### Recovery
+Apply the precedence lattice, fall back to validated defaults, explain unsupported transfers, and preserve user agency to undo product-level customization.

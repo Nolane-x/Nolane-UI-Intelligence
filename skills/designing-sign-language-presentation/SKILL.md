@@ -53,3 +53,16 @@ Produce a `sign-language-presentation-contract` containing: target sign language
 - Certifying linguistic quality with screenshot tests alone.
 
 The presentation succeeds when the sign-language channel remains a readable, attributable, user-controlled language experience rather than a decorative accessibility overlay.
+
+## V6 Signed-Language Presentation Protocol
+Record **signing-language identity** explicitly; signed languages are full languages with regional variation and are not a gesture-by-gesture rendering of written text. Content production, translation, and review must involve appropriate linguistic expertise rather than automatic word substitution.
+
+Preserve **signer-frame integrity**: hands, face, torso, facial grammar, gaze, and relevant body movement must remain visible at realistic viewport sizes, zoom, picture-in-picture, overlays, and responsive crops. Coordinate parallel text through **sign-caption coordination** without assuming one is a verbatim substitute for the other; users may need both, and timing/segmentation can differ.
+
+Define the **linguistic-content boundary** for what is professionally translated, what may use caption/text fallback, how proper nouns/technical terms are handled, and how updates are versioned. Maintain a **playback continuity contract** for pause/seek/speed, chapter navigation, buffering, sign-language track switching, and focus so users can recover context after interruption.
+
+### Falsification
+Shrink/crop the player, enable overlays, seek repeatedly, change playback speed, and compare signed content with the intended meaning through qualified review. Loss of facial/manual grammar or semantic mismatch falsifies the presentation.
+
+### Recovery
+Reframe/re-record or obtain corrected translation, preserve an accessible text/caption fallback, and block claims of equivalent signed access until linguistic evidence exists. Visual neatness cannot override language integrity.

@@ -40,3 +40,14 @@ Return a `collaboration-contract` with `presence_levels`, `authorship_model`, `r
 - Activity feed as the only way to recover what changed.
 
 Collaboration is clear when people can answer “who changed what, is it committed, and what needs my attention?” quickly.
+
+## V6 Collaboration Presence Protocol
+Attach **presence freshness** to online/active/editing indicators so stale connectivity is not portrayed as current attention. Define **concurrent edit ownership** for cursors, selections, locks, optimistic changes, merges, and conflict resolution.
+
+Set a **remote-cursor noise budget** so many collaborators do not overwhelm content; aggregate or deemphasize low-value presence. Ensure **conflict visibility** when concurrent changes cannot merge safely. Protect **collaboration privacy** around viewing presence, typing indicators, drafts, private notes, anonymous access, and activity history.
+
+### Falsification
+Simulate network partitions, many collaborators, simultaneous edits, hidden/private work, and reconnect. If presence or ownership lies, collaboration semantics fail.
+
+### Recovery
+Mark stale/unknown state, reconcile changes explicitly, reduce presence clutter, and restore privacy boundaries before rejoining shared live mode.

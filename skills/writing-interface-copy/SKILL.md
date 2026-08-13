@@ -57,3 +57,16 @@ Return `lexicon`, `voice_rules`, `action_labels`, `status_patterns`, `error_patt
 
 ## Generic-copy detector
 Challenge words such as seamless, powerful, supercharge, unlock, next-generation, effortless, intelligent, revolutionary when they do not describe a concrete user outcome. Specificity is usually more credible than hype.
+
+## V6 Language-as-Action Protocol
+Apply **action-semantic alignment** to every control: the verb phrase must predict the actual state transition and scope. “Remove” cannot mean archive in one place and permanently delete in another. Audit nouns with a **referent precision audit**—pronouns, “this,” “it,” generic “item,” and repeated object names are tested in dialogs, toasts, tables, nested contexts, and screen-reader sequences where visual proximity is unavailable.
+
+For consequential actions require **irreversible-consequence wording** before commitment: object, scope, downstream effect, whether recovery exists, and when the effect occurs. Avoid emotional manipulation and fake certainty. Set a **localization expansion budget** by surface rather than assuming English geometry: navigation, buttons, table headers, helper text, mobile action sheets, and validation all need different accommodation and truncation policy.
+
+Error text must be **error-repair copy**, not diagnosis theater. State what failed in user terms, preserve known-good data, distinguish user-fixable from system-fixable conditions, and name a next action only when it can work. Technical codes may be secondary evidence for support, not the primary explanation.
+
+### Falsification
+Hide icons/layout and read strings in isolation; then place identical labels next to different objects and test translation expansion. If a user cannot predict scope/consequence or repair an error from text alone, the copy contract is falsified.
+
+### Recovery
+Return to product vocabulary and action registry. Rename inconsistent concepts system-wide rather than patching one dialog, and escalate genuinely ambiguous product semantics instead of writing around them.

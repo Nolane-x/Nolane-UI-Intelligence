@@ -50,3 +50,14 @@ Produce an `accessible-media-contract` containing: sensory information inventory
 - Removing user presentation preferences to preserve a branded video layout.
 
 The media experience succeeds when users can obtain equivalent task-relevant information through channels they can perceive, with truthful quality and synchronization rather than nominal feature presence.
+
+## V6 Media Alternative Equivalence Protocol
+Define **media-alternative equivalence** by information and task, not file format: captions, transcript, audio description, sign-language track, tactile/text alternative, or static summary must preserve the material content needed for the user's purpose.
+
+Coordinate **audio-description timing** so descriptions fit available pauses or use extended description where necessary without masking essential dialogue/audio. Provide **transcript navigation mapping** between transcript segments and media timestamps/chapters. Preserve **caption speaker identity** and meaningful non-speech audio. Maintain a **synchronized alternative track** contract when multiple tracks/languages/signing are switchable, including seek, speed, buffering, and state persistence.
+
+### Falsification
+Mute audio, hide video, switch alternative tracks, seek, change speed, and complete the content task using one alternative alone. Missing material meaning falsifies equivalence.
+
+### Recovery
+Revise/re-time the alternative, add structured navigation, or supply a richer long description/transcript rather than claiming automated captions alone satisfy all needs.

@@ -78,3 +78,14 @@ Every delta must validate against the registry schema before it becomes durable 
 - Allowing registry rank to become a popularity leaderboard.
 
 **Hard gate:** no registry claim about role, license, stack, capability or currentness may become durable without primary provenance and an explicit freshness boundary.
+
+## V6 Resource Registry Governance
+Perform **source identity normalization** across renamed repositories, moved organizations, packages, docs domains, forks, ports, and archived predecessors. Index by **role-capability indexing** so agents query “accessible combobox primitive” or “creative motion mechanism,” not popularity labels.
+
+Run a **license drift watch** and currentness checks for sources whose terms/releases can change material adoption. Apply **archived-source demotion**: preserved for historical/mechanism context but cannot remain a current adoption authority without explicit evidence. Enforce **registry-evidence boundary**: registry entries are discovery intelligence; material use still requires live/source dossier proof.
+
+### Falsification
+Change a source's canonical repo/license/archive state and see whether selection can still treat stale registry metadata as authority. If yes, registry governance fails.
+
+### Recovery
+Normalize/demote/update the record, expire dependent dossiers, and require live verification before renewed influence.

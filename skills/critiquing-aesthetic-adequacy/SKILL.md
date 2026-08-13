@@ -27,3 +27,20 @@ Return the canonical `aesthetic-adequacy-findings` artifact with explicit status
 
 ## Failure Traps
 ‘Thesis fidelity good’ treated as success; judging only polish defects; scalar beauty score; same-context self-critique labeled independent; refusing to reopen because code is already implemented; comparing only to a mediocre internal baseline.
+
+## V6 Thesis Adequacy Court
+Judge **thesis adequacy**, not simply polish. First restate the selected visual thesis in observable terms and trace it to experiential intent, role identity, product truth and reference mechanisms. Then separate “the thesis was executed well” from “the thesis was worth executing.”
+
+Use a **blind comparison** whenever feasible: hide treatment names, implementation effort and source prestige. Compare the candidate with internal baseline, materially different alternative, and relevant references on intent fit, emotional force, memorability, subject specificity, material richness, visual refinement, signature strength, usability and accessibility constraints.
+
+Compute a qualitative **reference-frontier delta**: where does the candidate clearly surpass, match or trail accepted reference mechanisms? Do not average dimensions into one universal beauty number; preserve tradeoffs and disqualifying weaknesses.
+
+Trace the **intent-to-render gap** for each major affective invariant. A beautiful screen can be inadequate if it expresses the wrong identity. A calm, precise interface can still fail a request for awe and magnitude. A dramatic interface can fail if the task requires sustained analytical focus.
+
+Watch the **execution-success trap**: teams become attached to a coherent direction because implementation quality is high. High sunk cost cannot convert a weak thesis into an adequate one.
+
+### Falsification
+Ask whether a different thesis with comparable execution plausibly serves the preserved intent better. If the answer is yes and the current thesis lacks evidence advantage, adequacy is unresolved. Remove signature/media layers; if the thesis remains indistinguishable from category defaults, distinctiveness claims are falsified.
+
+### Recovery
+Return `INADEQUATE` or `RE_DIVERGE` when the thesis itself is weak; do not issue a list of local polish tweaks. Recovery identifies which invariant/reference delta caused failure and which design degrees of freedom must reopen.

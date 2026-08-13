@@ -64,3 +64,14 @@ Return `ui-specification` with:
 - Hiding unresolved authority in engineering notes instead of blocking implementation.
 
 **Hard gate:** if an implementer must invent a material product, interaction, accessibility, responsive, or visual-system decision to finish the UI, the specification is not `IMPLEMENTABLE`.
+
+## V6 Implementation Specification Protocol
+Compile a **component-behavior matrix** covering anatomy, semantic role, state, input modalities, events, focus, async behavior, accessibility, content extremes, and ownership. Add a **token-resolution table** from semantic design decisions to actual token/variable values and allowed component-level exceptions.
+
+Create a **breakpoint-state matrix** showing how the same product state transforms across containers/viewports without losing selection, focus, actions, or content relationships. Set an **implementation ambiguity budget**: every unresolved material choice must be explicitly labeled and assigned to an owner; the spec cannot hide uncertainty in adjectives. Attach an **executable acceptance hook** to each critical behavior—test name, browser check, visual artifact, schema validation, or runtime assertion.
+
+### Falsification
+Give the spec to an independent implementer and identify places where two incompatible implementations both satisfy the prose. Material ambiguity falsifies readiness.
+
+### Recovery
+Return to the owning design contract, resolve or type the ambiguity, add acceptance evidence, and regenerate affected implementation artifacts.

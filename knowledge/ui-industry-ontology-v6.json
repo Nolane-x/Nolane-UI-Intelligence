@@ -1,0 +1,993 @@
+{
+  "version": 6,
+  "as_of": "2026-08-13",
+  "purpose": "Multi-axis UI industry coverage model with explicit high-risk cross-axis ownership. It is reopenable and is not a Cartesian-product completeness claim.",
+  "axes": {
+    "surfaces_platforms": [
+      "web",
+      "mobile",
+      "desktop",
+      "large-screen-foldable",
+      "tv-ten-foot",
+      "wearable",
+      "automotive",
+      "spatial-xr",
+      "game-hud",
+      "cli-tui",
+      "embedded-kiosk",
+      "robotic-teleoperation",
+      "control-room",
+      "flight-deck",
+      "ambient"
+    ],
+    "input_modalities": [
+      "pointer",
+      "touch",
+      "pen",
+      "keyboard",
+      "gamepad",
+      "remote",
+      "voice",
+      "gaze",
+      "hand-gesture",
+      "motion",
+      "haptics",
+      "switch-control",
+      "screen-reader",
+      "aac",
+      "bci"
+    ],
+    "product_interface_archetypes": [
+      "marketing",
+      "content-publication",
+      "commerce",
+      "saas-workspace",
+      "dashboard",
+      "data-exploration",
+      "editor-creative-tool",
+      "communication",
+      "social-collaboration",
+      "developer-tool",
+      "education",
+      "healthcare",
+      "finance",
+      "operations",
+      "control-hmi",
+      "consumer-utility",
+      "onboarding",
+      "settings-admin",
+      "search-discovery",
+      "immersive-experience"
+    ],
+    "information_data_character": [
+      "low-density-editorial",
+      "high-density-tabular",
+      "time-series",
+      "hierarchical",
+      "graph-network",
+      "geospatial",
+      "streaming-events",
+      "uncertain-probabilistic",
+      "multimodal-media",
+      "code-structured-text",
+      "form-transactional",
+      "scientific-technical",
+      "real-time-telemetry",
+      "user-generated",
+      "sensitive-personal"
+    ],
+    "interaction_mechanics": [
+      "navigation",
+      "search-filter",
+      "form-entry",
+      "direct-manipulation",
+      "drag-drop",
+      "pan-zoom",
+      "selection-multiselect",
+      "command-palette",
+      "keyboard-chords",
+      "context-menu",
+      "progressive-disclosure",
+      "undo-redo",
+      "timeline-scrubbing",
+      "multi-step-transaction",
+      "realtime-collaboration",
+      "agent-delegation",
+      "confirmation-recovery",
+      "gesture-spatial"
+    ],
+    "visual_media_systems": [
+      "typography-led",
+      "icon-symbol-led",
+      "illustration-led",
+      "photography-led",
+      "data-visualization-led",
+      "diagram-led",
+      "map-led",
+      "canvas-led",
+      "3d-led",
+      "video-led",
+      "generative-media",
+      "shader-procedural",
+      "terminal-glyph",
+      "mixed-media"
+    ],
+    "aesthetic_art_direction_regimes": [
+      "quiet-utilitarian",
+      "editorial",
+      "expressive-operational",
+      "luxury-scientific",
+      "cinematic-professional",
+      "playful-expert",
+      "tactile-creative",
+      "organic-biotech",
+      "monumental-command",
+      "warm-medical",
+      "bright-high-tech",
+      "neo-industrial",
+      "minimal-premium",
+      "maximal-expressive",
+      "retro-futurist",
+      "skeuomorphic-material",
+      "brand-campaign"
+    ],
+    "design_system_maturity": [
+      "greenfield-no-system",
+      "emergent-tokens",
+      "component-library",
+      "documented-system",
+      "multi-brand-system",
+      "cross-platform-system",
+      "federated-system",
+      "legacy-migration",
+      "regulated-system"
+    ],
+    "accessibility_inclusive_contexts": [
+      "baseline-wcag",
+      "low-vision",
+      "high-contrast",
+      "screen-reader",
+      "keyboard-only",
+      "motor-impairment",
+      "cognitive-accessibility",
+      "photosensitivity",
+      "reduced-motion",
+      "hearing-alternative",
+      "aac",
+      "sign-language",
+      "large-text-reflow",
+      "color-vision",
+      "temporary-situational"
+    ],
+    "localization_script_conditions": [
+      "english-ltr",
+      "long-latin",
+      "rtl",
+      "cjk",
+      "indic",
+      "thai-complex-script",
+      "arabic",
+      "mixed-script",
+      "locale-numerals",
+      "locale-dates",
+      "plural-rich",
+      "bi-directional-content",
+      "vertical-writing",
+      "translation-expansion"
+    ],
+    "temporal_network_behavior": [
+      "instant-local",
+      "async-short",
+      "long-running",
+      "streaming",
+      "realtime",
+      "background",
+      "offline-first",
+      "offline-degraded",
+      "intermittent-network",
+      "high-latency",
+      "eventual-consistency",
+      "optimistic",
+      "interruption-sensitive",
+      "live-presence"
+    ],
+    "collaboration_social_topology": [
+      "single-user",
+      "shared-device",
+      "shared-screen",
+      "async-collaboration",
+      "realtime-collaboration",
+      "multi-role-workflow",
+      "supervisor-operator",
+      "public-audience",
+      "community-moderated",
+      "multi-tenant",
+      "classroom",
+      "care-team"
+    ],
+    "ai_agency": [
+      "none",
+      "assistive",
+      "recommendation",
+      "generative",
+      "streaming-copilot",
+      "agentic-confirmed",
+      "agentic-autonomous",
+      "multi-agent",
+      "generative-ui",
+      "embodied-avatar",
+      "adaptive-affective",
+      "robotic-agent"
+    ],
+    "trust_risk": [
+      "routine",
+      "privacy-sensitive",
+      "security-sensitive",
+      "financial",
+      "medical",
+      "legal-policy",
+      "child-safety",
+      "safety-critical",
+      "aviation",
+      "automotive",
+      "industrial-control",
+      "identity-auth",
+      "destructive-action",
+      "irreversible-transaction",
+      "public-misinformation"
+    ],
+    "implementation_ecosystem": [
+      "web-dom",
+      "react",
+      "vue",
+      "svelte",
+      "web-components",
+      "native-ios",
+      "native-android",
+      "react-native",
+      "flutter",
+      "desktop-electron",
+      "terminal",
+      "webgl-webgpu",
+      "canvas-svg",
+      "game-engine",
+      "embedded",
+      "server-driven-ui",
+      "design-system-consumer"
+    ]
+  },
+  "axis_obligations": {
+    "surfaces_platforms": {
+      "owner_skills": [
+        "adapting-platform-conventions"
+      ],
+      "verifier_skills": [
+        "critiquing-platform-fit"
+      ],
+      "evidence_classes": [
+        "platform-guidance",
+        "rendered-platform-behavior"
+      ],
+      "source_domains": [
+        "design-systems",
+        "mobile",
+        "terminal-ui",
+        "3d-spatial"
+      ]
+    },
+    "input_modalities": {
+      "owner_skills": [
+        "designing-pointer-touch-pen-input",
+        "designing-keyboard-power-user-ux"
+      ],
+      "verifier_skills": [
+        "critiquing-input-modality"
+      ],
+      "evidence_classes": [
+        "input-state-traces",
+        "focus-and-target-evidence"
+      ],
+      "source_domains": [
+        "component-semantics",
+        "accessibility-testing"
+      ]
+    },
+    "product_interface_archetypes": {
+      "owner_skills": [
+        "modeling-product-intent",
+        "designing-task-flows"
+      ],
+      "verifier_skills": [
+        "critiquing-user-experience"
+      ],
+      "evidence_classes": [
+        "task-model",
+        "capability-action-graph"
+      ],
+      "source_domains": [
+        "design-systems",
+        "component-semantics"
+      ]
+    },
+    "information_data_character": {
+      "owner_skills": [
+        "architecting-information",
+        "designing-data-dense-interfaces"
+      ],
+      "verifier_skills": [
+        "critiquing-user-experience"
+      ],
+      "evidence_classes": [
+        "content-model",
+        "information-priority-evidence"
+      ],
+      "source_domains": [
+        "data-visualization",
+        "rich-editing",
+        "graph-diagram",
+        "geospatial"
+      ]
+    },
+    "interaction_mechanics": {
+      "owner_skills": [
+        "designing-interactions",
+        "modeling-component-states"
+      ],
+      "verifier_skills": [
+        "critiquing-input-modality"
+      ],
+      "evidence_classes": [
+        "state-machine",
+        "interaction-traces"
+      ],
+      "source_domains": [
+        "component-semantics",
+        "graph-diagram",
+        "rich-editing"
+      ]
+    },
+    "visual_media_systems": {
+      "owner_skills": [
+        "directing-iconography-and-imagery",
+        "designing-data-visualization"
+      ],
+      "verifier_skills": [
+        "critiquing-visual-design"
+      ],
+      "evidence_classes": [
+        "media-role-map",
+        "encoding-provenance"
+      ],
+      "source_domains": [
+        "icons",
+        "typography",
+        "data-visualization",
+        "creative-rendering",
+        "animation-assets"
+      ]
+    },
+    "aesthetic_art_direction_regimes": {
+      "owner_skills": [
+        "exploring-aesthetic-directions",
+        "directing-visual-ambition"
+      ],
+      "verifier_skills": [
+        "critiquing-aesthetic-adequacy"
+      ],
+      "evidence_classes": [
+        "reference-frontier",
+        "rendered-candidates",
+        "aesthetic-thesis"
+      ],
+      "source_domains": [
+        "motion",
+        "creative-rendering",
+        "typography",
+        "icons"
+      ]
+    },
+    "design_system_maturity": {
+      "owner_skills": [
+        "governing-design-systems",
+        "architecting-design-tokens"
+      ],
+      "verifier_skills": [
+        "critiquing-design-system"
+      ],
+      "evidence_classes": [
+        "token-contract",
+        "component-governance"
+      ],
+      "source_domains": [
+        "design-systems",
+        "design-tokens"
+      ]
+    },
+    "accessibility_inclusive_contexts": {
+      "owner_skills": [
+        "designing-accessible-interfaces"
+      ],
+      "verifier_skills": [
+        "critiquing-accessibility"
+      ],
+      "evidence_classes": [
+        "assistive-tech-behavior",
+        "computed-accessibility-evidence"
+      ],
+      "source_domains": [
+        "accessibility-testing",
+        "component-semantics"
+      ]
+    },
+    "localization_script_conditions": {
+      "owner_skills": [
+        "designing-localized-interfaces"
+      ],
+      "verifier_skills": [
+        "critiquing-localization"
+      ],
+      "evidence_classes": [
+        "locale-fixtures",
+        "script-rendering-evidence"
+      ],
+      "source_domains": [
+        "typography",
+        "design-systems"
+      ]
+    },
+    "temporal_network_behavior": {
+      "owner_skills": [
+        "designing-latency-and-progressive-feedback",
+        "designing-offline-degraded-experiences"
+      ],
+      "verifier_skills": [
+        "critiquing-performance-and-resilience"
+      ],
+      "evidence_classes": [
+        "latency-state-traces",
+        "recovery-evidence"
+      ],
+      "source_domains": [
+        "component-semantics",
+        "visual-testing"
+      ]
+    },
+    "collaboration_social_topology": {
+      "owner_skills": [
+        "designing-collaboration-and-presence"
+      ],
+      "verifier_skills": [
+        "critiquing-user-experience"
+      ],
+      "evidence_classes": [
+        "presence-state-model",
+        "role-authority-map"
+      ],
+      "source_domains": [
+        "component-semantics",
+        "ai-native-ui"
+      ]
+    },
+    "ai_agency": {
+      "owner_skills": [
+        "designing-human-ai-interaction",
+        "designing-agent-autonomy-and-control"
+      ],
+      "verifier_skills": [
+        "critiquing-ai-trust-and-agency"
+      ],
+      "evidence_classes": [
+        "authority-model",
+        "uncertainty-and-correction-evidence"
+      ],
+      "source_domains": [
+        "ai-native-ui"
+      ]
+    },
+    "trust_risk": {
+      "owner_skills": [
+        "designing-high-stakes-decisions",
+        "designing-permissions-and-consent"
+      ],
+      "verifier_skills": [
+        "critiquing-human-factors-and-safety",
+        "critiquing-security-and-privacy"
+      ],
+      "evidence_classes": [
+        "hazard-analysis",
+        "recovery-and-consent-evidence"
+      ],
+      "source_domains": [
+        "accessibility-testing",
+        "component-semantics"
+      ]
+    },
+    "implementation_ecosystem": {
+      "owner_skills": [
+        "researching-ui-implementation-ecosystems",
+        "selecting-ui-building-blocks"
+      ],
+      "verifier_skills": [
+        "auditing-ui-library-integration"
+      ],
+      "evidence_classes": [
+        "dependency-provenance",
+        "runtime-integration-evidence"
+      ],
+      "source_domains": [
+        "design-systems",
+        "component-semantics",
+        "motion",
+        "visual-testing"
+      ]
+    }
+  },
+  "interaction_cells": [
+    {
+      "id": "agentic-medical-voice",
+      "severity": "high",
+      "conditions": {
+        "ai_agency": "agentic-confirmed",
+        "trust_risk": "medical",
+        "input_modalities": "voice"
+      },
+      "owner_skills": [
+        "designing-agent-autonomy-and-control",
+        "designing-medical-safety-critical-ui"
+      ],
+      "verifier_skills": [
+        "critiquing-ai-trust-and-agency",
+        "critiquing-human-factors-and-safety"
+      ],
+      "why_interaction_is_distinct": "The crossed constraints create failure modes that cannot be discharged by satisfying each axis independently.",
+      "evidence_required": [
+        "combined-scenario state/interaction trace",
+        "rendered or runtime evidence under the crossed constraints",
+        "independent critic finding"
+      ]
+    },
+    {
+      "id": "geospatial-touch-lowvision",
+      "severity": "high",
+      "conditions": {
+        "information_data_character": "geospatial",
+        "input_modalities": "touch",
+        "accessibility_inclusive_contexts": "low-vision"
+      },
+      "owner_skills": [
+        "designing-pointer-touch-pen-input",
+        "designing-low-vision-and-high-contrast"
+      ],
+      "verifier_skills": [
+        "critiquing-input-modality",
+        "critiquing-accessibility"
+      ],
+      "why_interaction_is_distinct": "The crossed constraints create failure modes that cannot be discharged by satisfying each axis independently.",
+      "evidence_required": [
+        "combined-scenario state/interaction trace",
+        "rendered or runtime evidence under the crossed constraints",
+        "independent critic finding"
+      ]
+    },
+    {
+      "id": "terminal-streaming-destructive",
+      "severity": "high",
+      "conditions": {
+        "surfaces_platforms": "cli-tui",
+        "temporal_network_behavior": "streaming",
+        "trust_risk": "destructive-action"
+      },
+      "owner_skills": [
+        "designing-cli-tui-interfaces",
+        "designing-high-stakes-decisions"
+      ],
+      "verifier_skills": [
+        "critiquing-input-modality",
+        "critiquing-human-factors-and-safety"
+      ],
+      "why_interaction_is_distinct": "The crossed constraints create failure modes that cannot be discharged by satisfying each axis independently.",
+      "evidence_required": [
+        "combined-scenario state/interaction trace",
+        "rendered or runtime evidence under the crossed constraints",
+        "independent critic finding"
+      ]
+    },
+    {
+      "id": "xr-gaze-photosensitivity",
+      "severity": "high",
+      "conditions": {
+        "surfaces_platforms": "spatial-xr",
+        "input_modalities": "gaze",
+        "accessibility_inclusive_contexts": "photosensitivity"
+      },
+      "owner_skills": [
+        "designing-spatial-xr-interfaces",
+        "designing-gaze-hand-spatial-input"
+      ],
+      "verifier_skills": [
+        "critiquing-platform-fit",
+        "critiquing-accessibility"
+      ],
+      "why_interaction_is_distinct": "The crossed constraints create failure modes that cannot be discharged by satisfying each axis independently.",
+      "evidence_required": [
+        "combined-scenario state/interaction trace",
+        "rendered or runtime evidence under the crossed constraints",
+        "independent critic finding"
+      ]
+    },
+    {
+      "id": "financial-realtime-collab",
+      "severity": "high",
+      "conditions": {
+        "trust_risk": "financial",
+        "temporal_network_behavior": "realtime",
+        "collaboration_social_topology": "realtime-collaboration"
+      },
+      "owner_skills": [
+        "designing-financial-transaction-ui",
+        "designing-collaboration-and-presence"
+      ],
+      "verifier_skills": [
+        "critiquing-human-factors-and-safety",
+        "critiquing-security-and-privacy"
+      ],
+      "why_interaction_is_distinct": "The crossed constraints create failure modes that cannot be discharged by satisfying each axis independently.",
+      "evidence_required": [
+        "combined-scenario state/interaction trace",
+        "rendered or runtime evidence under the crossed constraints",
+        "independent critic finding"
+      ]
+    },
+    {
+      "id": "automotive-motion-interruption",
+      "severity": "high",
+      "conditions": {
+        "surfaces_platforms": "automotive",
+        "input_modalities": "motion",
+        "temporal_network_behavior": "interruption-sensitive"
+      },
+      "owner_skills": [
+        "designing-automotive-interfaces",
+        "engineering-human-factors"
+      ],
+      "verifier_skills": [
+        "critiquing-human-factors-and-safety",
+        "critiquing-input-modality"
+      ],
+      "why_interaction_is_distinct": "The crossed constraints create failure modes that cannot be discharged by satisfying each axis independently.",
+      "evidence_required": [
+        "combined-scenario state/interaction trace",
+        "rendered or runtime evidence under the crossed constraints",
+        "independent critic finding"
+      ]
+    },
+    {
+      "id": "flightdeck-realtime-highdensity",
+      "severity": "high",
+      "conditions": {
+        "surfaces_platforms": "flight-deck",
+        "information_data_character": "real-time-telemetry",
+        "trust_risk": "aviation"
+      },
+      "owner_skills": [
+        "designing-flight-deck-interfaces",
+        "engineering-human-factors"
+      ],
+      "verifier_skills": [
+        "critiquing-human-factors-and-safety",
+        "critiquing-cognitive-load"
+      ],
+      "why_interaction_is_distinct": "The crossed constraints create failure modes that cannot be discharged by satisfying each axis independently.",
+      "evidence_required": [
+        "combined-scenario state/interaction trace",
+        "rendered or runtime evidence under the crossed constraints",
+        "independent critic finding"
+      ]
+    },
+    {
+      "id": "generative-ui-screenreader",
+      "severity": "high",
+      "conditions": {
+        "ai_agency": "generative-ui",
+        "accessibility_inclusive_contexts": "screen-reader",
+        "temporal_network_behavior": "streaming"
+      },
+      "owner_skills": [
+        "designing-generative-ui",
+        "designing-screen-reader-experiences"
+      ],
+      "verifier_skills": [
+        "critiquing-ai-trust-and-agency",
+        "critiquing-accessibility"
+      ],
+      "why_interaction_is_distinct": "The crossed constraints create failure modes that cannot be discharged by satisfying each axis independently.",
+      "evidence_required": [
+        "combined-scenario state/interaction trace",
+        "rendered or runtime evidence under the crossed constraints",
+        "independent critic finding"
+      ]
+    },
+    {
+      "id": "canvas-keyboard-motor",
+      "severity": "high",
+      "conditions": {
+        "product_interface_archetypes": "editor-creative-tool",
+        "interaction_mechanics": "direct-manipulation",
+        "accessibility_inclusive_contexts": "motor-impairment"
+      },
+      "owner_skills": [
+        "designing-editor-canvas-workspaces",
+        "designing-alternative-input"
+      ],
+      "verifier_skills": [
+        "critiquing-input-modality",
+        "critiquing-accessibility"
+      ],
+      "why_interaction_is_distinct": "The crossed constraints create failure modes that cannot be discharged by satisfying each axis independently.",
+      "evidence_required": [
+        "combined-scenario state/interaction trace",
+        "rendered or runtime evidence under the crossed constraints",
+        "independent critic finding"
+      ]
+    },
+    {
+      "id": "rtl-dense-dashboard",
+      "severity": "high",
+      "conditions": {
+        "localization_script_conditions": "rtl",
+        "information_data_character": "high-density-tabular",
+        "product_interface_archetypes": "dashboard"
+      },
+      "owner_skills": [
+        "designing-localized-interfaces",
+        "designing-data-dense-interfaces"
+      ],
+      "verifier_skills": [
+        "critiquing-localization",
+        "critiquing-user-experience"
+      ],
+      "why_interaction_is_distinct": "The crossed constraints create failure modes that cannot be discharged by satisfying each axis independently.",
+      "evidence_required": [
+        "combined-scenario state/interaction trace",
+        "rendered or runtime evidence under the crossed constraints",
+        "independent critic finding"
+      ]
+    },
+    {
+      "id": "wearable-medical-glance",
+      "severity": "high",
+      "conditions": {
+        "surfaces_platforms": "wearable",
+        "trust_risk": "medical",
+        "product_interface_archetypes": "healthcare"
+      },
+      "owner_skills": [
+        "designing-wearable-glanceable-interfaces",
+        "designing-medical-safety-critical-ui"
+      ],
+      "verifier_skills": [
+        "critiquing-human-factors-and-safety",
+        "critiquing-accessibility"
+      ],
+      "why_interaction_is_distinct": "The crossed constraints create failure modes that cannot be discharged by satisfying each axis independently.",
+      "evidence_required": [
+        "combined-scenario state/interaction trace",
+        "rendered or runtime evidence under the crossed constraints",
+        "independent critic finding"
+      ]
+    },
+    {
+      "id": "public-agent-misinformation",
+      "severity": "high",
+      "conditions": {
+        "ai_agency": "agentic-autonomous",
+        "collaboration_social_topology": "public-audience",
+        "trust_risk": "public-misinformation"
+      },
+      "owner_skills": [
+        "designing-agent-autonomy-and-control",
+        "designing-ai-uncertainty-and-provenance"
+      ],
+      "verifier_skills": [
+        "critiquing-ai-trust-and-agency",
+        "critiquing-security-and-privacy"
+      ],
+      "why_interaction_is_distinct": "The crossed constraints create failure modes that cannot be discharged by satisfying each axis independently.",
+      "evidence_required": [
+        "combined-scenario state/interaction trace",
+        "rendered or runtime evidence under the crossed constraints",
+        "independent critic finding"
+      ]
+    },
+    {
+      "id": "offline-commerce-transaction",
+      "severity": "high",
+      "conditions": {
+        "product_interface_archetypes": "commerce",
+        "temporal_network_behavior": "offline-degraded",
+        "trust_risk": "irreversible-transaction"
+      },
+      "owner_skills": [
+        "designing-commerce-checkout",
+        "designing-offline-degraded-experiences"
+      ],
+      "verifier_skills": [
+        "critiquing-performance-and-resilience",
+        "critiquing-human-factors-and-safety"
+      ],
+      "why_interaction_is_distinct": "The crossed constraints create failure modes that cannot be discharged by satisfying each axis independently.",
+      "evidence_required": [
+        "combined-scenario state/interaction trace",
+        "rendered or runtime evidence under the crossed constraints",
+        "independent critic finding"
+      ]
+    },
+    {
+      "id": "controlroom-multiagent-realtime",
+      "severity": "high",
+      "conditions": {
+        "surfaces_platforms": "control-room",
+        "ai_agency": "multi-agent",
+        "temporal_network_behavior": "realtime"
+      },
+      "owner_skills": [
+        "designing-supervisory-control-room-hmi",
+        "designing-multi-agent-surfaces"
+      ],
+      "verifier_skills": [
+        "critiquing-human-factors-and-safety",
+        "critiquing-ai-trust-and-agency"
+      ],
+      "why_interaction_is_distinct": "The crossed constraints create failure modes that cannot be discharged by satisfying each axis independently.",
+      "evidence_required": [
+        "combined-scenario state/interaction trace",
+        "rendered or runtime evidence under the crossed constraints",
+        "independent critic finding"
+      ]
+    },
+    {
+      "id": "bci-highstakes",
+      "severity": "high",
+      "conditions": {
+        "input_modalities": "bci",
+        "trust_risk": "safety-critical",
+        "product_interface_archetypes": "control-hmi"
+      },
+      "owner_skills": [
+        "designing-brain-computer-interface-ux",
+        "designing-high-stakes-decisions"
+      ],
+      "verifier_skills": [
+        "critiquing-human-factors-and-safety",
+        "critiquing-input-modality"
+      ],
+      "why_interaction_is_distinct": "The crossed constraints create failure modes that cannot be discharged by satisfying each axis independently.",
+      "evidence_required": [
+        "combined-scenario state/interaction trace",
+        "rendered or runtime evidence under the crossed constraints",
+        "independent critic finding"
+      ]
+    },
+    {
+      "id": "aac-realtime-collaboration",
+      "severity": "high",
+      "conditions": {
+        "input_modalities": "aac",
+        "collaboration_social_topology": "realtime-collaboration",
+        "accessibility_inclusive_contexts": "aac"
+      },
+      "owner_skills": [
+        "designing-aac-communication-interfaces",
+        "designing-collaboration-and-presence"
+      ],
+      "verifier_skills": [
+        "critiquing-accessibility",
+        "critiquing-cognitive-load"
+      ],
+      "why_interaction_is_distinct": "The crossed constraints create failure modes that cannot be discharged by satisfying each axis independently.",
+      "evidence_required": [
+        "combined-scenario state/interaction trace",
+        "rendered or runtime evidence under the crossed constraints",
+        "independent critic finding"
+      ]
+    },
+    {
+      "id": "spatial-3d-reducedmotion",
+      "severity": "high",
+      "conditions": {
+        "visual_media_systems": "3d-led",
+        "surfaces_platforms": "spatial-xr",
+        "accessibility_inclusive_contexts": "reduced-motion"
+      },
+      "owner_skills": [
+        "designing-spatial-xr-interfaces",
+        "designing-reduced-motion-and-photosensitivity"
+      ],
+      "verifier_skills": [
+        "critiquing-platform-fit",
+        "critiquing-accessibility"
+      ],
+      "why_interaction_is_distinct": "The crossed constraints create failure modes that cannot be discharged by satisfying each axis independently.",
+      "evidence_required": [
+        "combined-scenario state/interaction trace",
+        "rendered or runtime evidence under the crossed constraints",
+        "independent critic finding"
+      ]
+    },
+    {
+      "id": "ai-financial-autonomy",
+      "severity": "high",
+      "conditions": {
+        "ai_agency": "agentic-autonomous",
+        "trust_risk": "financial",
+        "interaction_mechanics": "agent-delegation"
+      },
+      "owner_skills": [
+        "designing-agent-autonomy-and-control",
+        "designing-financial-transaction-ui"
+      ],
+      "verifier_skills": [
+        "critiquing-ai-trust-and-agency",
+        "critiquing-human-factors-and-safety"
+      ],
+      "why_interaction_is_distinct": "The crossed constraints create failure modes that cannot be discharged by satisfying each axis independently.",
+      "evidence_required": [
+        "combined-scenario state/interaction trace",
+        "rendered or runtime evidence under the crossed constraints",
+        "independent critic finding"
+      ]
+    },
+    {
+      "id": "live-code-editor-screenreader",
+      "severity": "high",
+      "conditions": {
+        "product_interface_archetypes": "developer-tool",
+        "information_data_character": "code-structured-text",
+        "accessibility_inclusive_contexts": "screen-reader"
+      },
+      "owner_skills": [
+        "designing-keyboard-power-user-ux",
+        "designing-screen-reader-experiences"
+      ],
+      "verifier_skills": [
+        "critiquing-input-modality",
+        "critiquing-accessibility"
+      ],
+      "why_interaction_is_distinct": "The crossed constraints create failure modes that cannot be discharged by satisfying each axis independently.",
+      "evidence_required": [
+        "combined-scenario state/interaction trace",
+        "rendered or runtime evidence under the crossed constraints",
+        "independent critic finding"
+      ]
+    },
+    {
+      "id": "kiosk-public-privacy",
+      "severity": "high",
+      "conditions": {
+        "surfaces_platforms": "embedded-kiosk",
+        "collaboration_social_topology": "public-audience",
+        "trust_risk": "privacy-sensitive"
+      },
+      "owner_skills": [
+        "designing-embedded-kiosk-interfaces",
+        "designing-privacy-sensitive-interfaces"
+      ],
+      "verifier_skills": [
+        "critiquing-security-and-privacy",
+        "critiquing-human-factors-and-safety"
+      ],
+      "why_interaction_is_distinct": "The crossed constraints create failure modes that cannot be discharged by satisfying each axis independently.",
+      "evidence_required": [
+        "combined-scenario state/interaction trace",
+        "rendered or runtime evidence under the crossed constraints",
+        "independent critic finding"
+      ]
+    }
+  ],
+  "reopen_conditions": [
+    "new platform/input modality/domain changes a decision boundary",
+    "new accessibility or regulation evidence invalidates an obligation",
+    "source-intelligence domains expose an unowned mechanism class",
+    "adversarial eval finds a cross-axis failure not represented here"
+  ]
+}

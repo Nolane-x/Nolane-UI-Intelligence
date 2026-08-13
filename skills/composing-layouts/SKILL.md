@@ -62,3 +62,22 @@ Return `container_model`, `grid`, `anchors`, `zones`, `vertical_rhythm`, `contai
 
 ## V5 Magnitude and Spatial Dramaturgy
 When “huge”, monumental, institutional, expansive, awe-producing, or equivalent magnitude goals are material, route `composing-spatial-dramaturgy`. Distinguish logical scope from spatial/visual **magnitude**. Information geometry remains necessary, but **spatial dramaturgy** may intentionally sequence compression → reveal → expansion → focused inspection → re-expansion, with quiet fields and institutional anchors. More pages or permanent fixed chrome do not by themselves satisfy a magnitude target.
+
+## V6 Constraint-Driven Layout Composition
+Model layout as a **constraint graph**: primary content needs, minimum/maximum measures, relationships that must stay adjacent, regions that may reflow/reorder, sticky/overlay constraints, safe areas, text expansion, media aspect, interaction targets and platform chrome. Start from content/task constraints before choosing a familiar dashboard skeleton.
+
+Prefer **intrinsic sizing** where possible: let content min/max constraints, `min-content/max-content`, flexible tracks and aspect behavior determine dimensions rather than fixed heights built for demo copy. Explicitly identify regions that must scroll independently and why.
+
+Use a **content-driven breakpoint** when a relationship fails—not merely 640/768/1024 because a framework ships those values. Record the failure: comparison no longer fits, labels collide, target size becomes unsafe, reading measure grows too long, or hierarchy order becomes ambiguous.
+
+Budget asymmetry with an **asymmetry budget**. Asymmetry can create direction, editorial character, drama and product specificity, but each imbalance should be anchored by hierarchy or content. Random offsets create novelty without coherence.
+
+Define a **layout failure envelope**: smallest/largest supported dimensions, text scaling, longest expected strings, missing/overflowing data, keyboard/virtual keyboard, safe-area/system overlays, split-screen/fold posture, and any large-display behavior. Layout is not complete until the primary task survives the envelope.
+
+Spatial dramaturgy can transform the constraint graph, but cannot break information architecture or reachability. High-ambition layout should find authored large-scale relationships—fields, stages, rails, canvases, editorial columns, layered instruments—not just decorate a 12-column grid.
+
+### Falsification
+Replace production content with extreme fixtures and compare DOM/visual order. If the composition only works with short English labels or exact card counts, it is overfit. Remove decorative regions: if the hierarchy collapses, confirm whether they were actually doing structural work that should be encoded directly.
+
+### Recovery
+When responsive patches accumulate, recompose from task relationships rather than adding another breakpoint. When composition feels generic, revisit primary object and spatial dramaturgy before increasing decorative complexity.

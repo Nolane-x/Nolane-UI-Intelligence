@@ -36,3 +36,14 @@ Return `cognitive-accessibility-obligations` with `memory_dependencies[]`, `lang
 - Automated accessibility pass treated as proof of cognitive accessibility.
 
 A cognitively accessible interface carries context, explains consequences, and makes recovery possible without demanding perfect memory or concentration.
+
+## V6 Cognitive Accessibility Protocol
+Create a **memory externalization map** for facts users would otherwise need to remember across steps—selection, prior values, instructions, progress, constraints, and consequences. Make a **plain-language decision** per surface based on audience/domain, simplifying syntax without deleting necessary meaning.
+
+Provide **distraction suppression** options or structure when animation, dense chrome, notifications, and competing regions impair sustained attention. Design **time-pressure relief** through pause, extension, saved progress, undo, or advance warning where system constraints allow. Add a **cognitive recovery cue** after errors/interruption: where the user is, what changed, what remains, and one clear next action.
+
+### Falsification
+Interrupt mid-flow, remove short-term memory assumptions, increase distraction, and revisit after delay. If success depends on remembering hidden context, cognitive accessibility fails.
+
+### Recovery
+Expose state/instructions persistently, split complex decisions, reduce competing signals, and preserve progress rather than requiring the user to restart.

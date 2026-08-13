@@ -36,3 +36,14 @@ Return a `finding-set` with `may_modify:false`, `artifact_revision`, `locales_te
 - Pseudo-localization treated as linguistic validation.
 
 Localization passes when the task remains semantically and interactively correct, not merely when all strings have translations.
+
+## V6 Localization Critic
+Search for **untranslated semantic residue** in labels, system errors, generated content, metadata, shortcuts, alt text, and embedded third-party UI. Trigger **layout expansion break** with real and pseudo-localized strings rather than percentage assumptions.
+
+Audit **bidirectional logic fault** in mixed-direction content, icon directionality, progression, charts, paths, and code/URLs. Test **locale parsing hazard** for dates, numbers, currency, units, names, sorting, and input. Challenge **cultural metaphor mismatch** in symbols, examples, color, imagery, gestures, and language tone.
+
+### Falsification
+Run critical tasks in RTL/non-Latin/long-string locales with locale-specific data input. Semantic or data corruption falsifies localization readiness.
+
+### Recovery
+Fix format/data/layout primitives, localize embedded sources, replace ambiguous metaphors, and block unsupported locale claims until evidence exists.

@@ -57,3 +57,14 @@ Produce a `user-assistance-contract` containing: assistance need taxonomy; user 
 - Treating a Final Draft standard as already published.
 
 The assistance succeeds when users recover knowledge or control with minimal interruption, remain in command of the task, and need progressively less help as the interface and their understanding improve.
+
+## V6 In-Product Assistance Protocol
+Trigger help from **help-trigger context**—user goal, current object/state, error, permission, expertise, and action—not just the screen name. Store a **task-resume anchor** so opening docs, walkthrough, support, or assistant does not lose the user's place or entered state.
+
+Design **progressive help depth** from inline cue → short explanation → worked example → reference → human/support where appropriate. Add **stale-help detection** tied to product version, permissions, platform, and feature flags. Run an **assistance dependency test**: frequent successful users should not require repeating a tutorial because the core interface is unclear.
+
+### Falsification
+Change product state/version, open help mid-error, leave/return, and attempt the task after assistance is removed. Misleading/stale guidance falsifies the help system.
+
+### Recovery
+Update contextual linkage/content, preserve resume state, and fix the underlying interaction where help is compensating for avoidable ambiguity.

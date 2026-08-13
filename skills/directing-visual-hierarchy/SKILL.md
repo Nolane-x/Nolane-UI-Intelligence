@@ -66,3 +66,16 @@ Return `priority_classes`, `attention_sequence_by_view`, `hierarchy_channels`, `
 
 ## V5 Experiential Priority Class
 Add `PX — experiential identity` beside safety/orientation and task priorities. **PX** does not automatically outrank P0/P1, but it is not demoted to decoration when emotion, awe, role projection, memorability or institutional presence is a product success criterion. The hierarchy plan must state where experiential identity gets a legitimate focal/scale moment and where task throughput deliberately wins.
+
+## V6 Saliency Allocation Protocol
+Treat attention as a finite **saliency budget**. Inventory the strongest channels—area, contrast, chroma, position, type scale, motion, isolation, depth—and assign them to product priorities rather than letting every component self-promote. Convert the task model into a **task-priority projection** that predicts what should be found first, second, and only on demand for novice, expert, urgent, and monitoring contexts.
+
+Build **hierarchy-channel redundancy** for critical distinctions: do not rely exclusively on color, size, or spatial position when the distinction must survive grayscale, low vision, responsive reflow, or localization. Write a **glance-path hypothesis** for each key state: at 250 ms, 1 s, and deliberate inspection, what should a user notice and what should remain quiet?
+
+Run a **hierarchy collapse test** by squinting/downsampling, converting to grayscale, removing decorative media, and inserting realistic dense content. If title, task-critical values, warnings, and primary actions collapse into equal weight, the hierarchy is decorative rather than structural.
+
+### Falsification
+Swap the visual weight of primary and secondary content while preserving layout. If the interface remains equally understandable, the original saliency allocation probably carried little informational value. Also test warning-heavy and empty states for accidental dominance.
+
+### Recovery
+Reallocate saliency from lower-priority chrome, simplify competing accents, or change spatial grouping before adding more contrast. Do not keep layering stronger colors until every element shouts.

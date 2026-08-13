@@ -36,3 +36,14 @@ Return a `standard-obligation-set` with `scope`, `authority_refs[]`, `applicabil
 - Declaring PASS when the required evidence method was never executed.
 
 The obligation is complete only when another agent can tell exactly what must be true, why, and what evidence would falsify it.
+
+## V6 Standards Translation Protocol
+Break standards into **normative-clause atomization**: requirement, condition, subject, exception, level/priority, and evidence needed. Record **applicability condition** by platform, jurisdiction, content/component type, user population, and product context rather than treating every clause as universally active.
+
+Maintain **conformance-level trace** where standards define levels or maturity. Preserve **exception scope** narrowly; an allowed exception in one condition cannot become a blanket waiver. Pin a **standard-version pin** and publication/currentness metadata so later changes trigger retranslation.
+
+### Falsification
+Change platform/context/version and check whether the same obligation should still apply. If translation cannot explain its applicability, it is over/under-generalized.
+
+### Recovery
+Return to the exact normative text, correct scope/force/evidence, and propagate changed obligations into contract/gate artifacts.

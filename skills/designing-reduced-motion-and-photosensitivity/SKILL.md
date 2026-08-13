@@ -38,3 +38,14 @@ Return a `motion-safety-contract` with `motion_inventory[]`, `purpose_classifica
 - “No one complained” used as evidence of photosensitive safety.
 
 Reduced motion is a semantic alternate rendering of the same task, not a degraded mode.
+
+## V6 Motion Safety Protocol
+Inventory every **motion-trigger inventory** source: auto animation, parallax, zoom, large-field travel, looping background, flashing, animated gradients, video, drag inertia, spatial transition, and game effect. Classify **vestibular-risk classification** by field size, depth/zoom, velocity, repetition, and user control.
+
+Set a **photosensitive flash budget** with frequency, luminance/color contrast, area, duration, and simultaneous effects rather than checking one component in isolation. Provide **reduced-motion substitution** that preserves state/continuity through static cues or gentler transitions. Ensure an **autoplay escape** that is immediately discoverable/operable and respects system/user preferences.
+
+### Falsification
+Enable reduced motion, combine effects, trigger repeated transitions, and inspect auto-playing states. If essential information disappears or risky motion remains, safety fails.
+
+### Recovery
+Disable/substitute the offending mechanism, persist the user preference, and redesign informational cues independent of animation.

@@ -64,3 +64,16 @@ The set must make it possible for another agent to understand **what was learned
 
 ## V5 Mandatory Reference Frontier
 When there is no established brand, **high visual freedom**, and flagship/exceptional ambition, reference research is not optional. `exceptional` work must construct a **reference frontier** from diverse mechanisms and sources before final selection. Compare the current candidate, internal baseline, at least one alternative direction, and accepted reference mechanisms on the same experiential/craft dimensions. The frontier is a quality/mechanism comparison, never permission to copy trade dress.
+
+## V6 Reference Archaeology Beyond Screenshots
+A reference is not deeply understood from one hero screenshot. Perform **interaction-state sampling** on the material mechanism: default, hover/focus, active/selected, loading/error, scrolled, expanded, narrow/wide, reduced-motion, and any domain state that changes its meaning. If the source is a live product, run a **cross-screen reference walk** to see whether the apparent visual language survives navigation, dense work, forms, destructive states, and secondary surfaces or exists only on a marketing-quality showcase.
+
+Build **source-context reconstruction** before transfer: audience expertise, content density, business model, task frequency, platform, brand maturity, data character, likely performance envelope, and accessibility context. A mechanism that works because the source has sparse copy, fixed imagery, or one-screen storytelling cannot be assumed to transfer into an operational product.
+
+Run **blind-reference removal**: hide the source name/logo and judge whether the extracted mechanism remains causally useful for the target product. If the argument collapses to prestige (“Linear does it”, “Apple does it”), the mechanism has not been understood. Maintain a **reference contradiction log** when strong sources solve the same problem differently; contradictions are evidence about context, not noise to average away.
+
+### Falsification
+Try the mechanism under the target product's worst content/state and compare against an opposite reference strategy. If the supposed benefit vanishes or depends on copied trade dress, reject the transfer hypothesis.
+
+### Recovery
+Reopen reference research with a narrower design question, inspect additional states/source classes, and rebind candidate directions. Do not repair a weak reference thesis by copying more surface details.

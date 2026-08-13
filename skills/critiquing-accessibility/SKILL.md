@@ -31,3 +31,14 @@ A blocker that makes a core task impossible for keyboard/screen-reader users can
 
 ## Output: `finding-set`
 Return typed findings plus `automated_coverage`, `manual_coverage`, `assistive_tech_coverage`, `untested_criteria`, and a lens recommendation. Never write “WCAG compliant” unless the exact scoped claim has evidence.
+
+## V6 Accessibility Critic Court
+Issue a **task-level accessibility verdict** for complete user goals, not isolated WCAG checks. Build a **barrier severity topology** from blocked action, hidden state, excessive effort, loss of privacy, timing failure, and recoverability. Record **assistive-technology disagreement** when browser/AT combinations behave differently; do not average contradictory results.
+
+Respect the **automated-check ceiling**: lint/axe/color tests can find classes of defects but cannot prove reading order, announcement usefulness, cognitive clarity, drag alternatives, or workflow efficiency. A material regression creates an **accessibility regression block** even if the rest of the UI is visually improved.
+
+### Falsification
+Run the critical task with relevant AT/input profiles and compare with automation output. A green tool result plus a blocked human/AT path falsifies “accessible.”
+
+### Recovery
+Return findings to the owning semantic, flow, content, or component skill with evidence and required retest; reject overlay-style patches that do not repair the underlying interaction.

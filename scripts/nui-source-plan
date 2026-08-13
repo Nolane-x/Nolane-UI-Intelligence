@@ -1,0 +1,19 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+import argparse, json, sys
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/'src'))
+from nolane_ui.source_intelligence import plan_source_research
+
+def main()->int:
+    p=argparse.ArgumentParser(description='Generate a role-specific NUI v6 deep source research plan')
+    p.add_argument('--source', required=True, help='JSON source descriptor or registry entry')
+    p.add_argument('--usage', choices=['adopt','adapt','inspire','build','reject'], default='inspire')
+    p.add_argument('--visual-ambition', default='polished')
+    p.add_argument('--risk-class', default='routine')
+    a=p.parse_args()
+    source=json.loads(Path(a.source).read_text(encoding='utf-8'))
+    print(json.dumps(plan_source_research(source, {'visual_ambition':a.visual_ambition,'risk_class':a.risk_class}, a.usage), indent=2, ensure_ascii=False))
+    return 0
+if __name__=='__main__': raise SystemExit(main())

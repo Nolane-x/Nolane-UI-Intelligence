@@ -75,3 +75,16 @@ Do not promise full parity if the product genuinely cannot support a dense task 
 
 ## Output: `dense-surface-contract`
 Return `scan_tasks`, `data_anatomy`, `column_priority`, `alignment_rules`, `selection_model`, `bulk_scope`, `live_update_policy`, `editing_model`, `density_modes`, `responsive_strategy`, `performance_constraints`, and `stress_cases`.
+
+## V6 Dense-Work Surface Protocol
+Estimate an **information-compression ratio** for each view: decision-relevant facts visible per unit of space versus chrome/decoration and versus cognitive switching cost. Higher density is useful only while users can still locate, compare, and act. Build a **comparison-anchor map** for columns, row identifiers, frozen labels, units, thresholds, and status positions that must remain stable during scanning.
+
+Define a **frozen-context contract** for sticky headers/columns, pinned identifiers, breadcrumbs, selected rows, aggregate context, and keyboard focus. Frozen regions must not occlude content at zoom or create nested scroll traps. Maintain **filter-sort provenance**: users can always tell which transformations are active, their order/scope, whether data is live/stale, and whether aggregates reflect filtered or total populations.
+
+Run a **density degradation probe** by increasing row count, column count, label length, update frequency, zoom, localization, and alert volume. Detect the point where alignment, selection, or scan path breaks; then adapt hierarchy instead of globally shrinking type.
+
+### Falsification
+Ask an expert to compare two distant records, return to the same row after sorting/filtering, and interpret a changing value while updates stream. Loss of anchors, hidden transform state, or dependence on tiny text falsifies the density strategy.
+
+### Recovery
+Progressively disclose low-value fields, introduce pinning/grouping/detail-on-demand, preserve comparison columns, or split tasks. Do not convert everything into cards if cross-row comparison is the primary job.

@@ -34,3 +34,20 @@ Record duplicated components, deprecated patterns, undocumented custom widgets, 
 
 ## Output: `finding-set`
 Return typed findings with affected component/token paths, semantic impact, blast radius, and repair layer (`primitive`, `semantic-token`, `component`, `composition`, or `local-exception`). Prefer the highest correct shared layer; do not recommend a global change for a local anomaly.
+
+## V6 Design-System Integrity Critique
+Audit **token semantic drift**: tokens that started as semantic roles but became containers for arbitrary values, or multiple tokens that mean the same thing because teams avoided migration. Compare token names to actual use across themes/surfaces; a token is not semantic merely because it has a name.
+
+Inspect every **component escape hatch**—raw class/style props, arbitrary slots, boolean piles, untyped overrides, global selectors. Escape hatches are sometimes necessary, but high usage can mean the component boundary is wrong or the product has unmodeled variants.
+
+Detect **variant explosion** by mapping variants to product decisions. If combinations exist only because the API exposes toggles, consolidate. If materially different semantic states are forced through cosmetic variants, split the contract. Complexity belongs where product meaning changes.
+
+Measure **cross-surface consistency** by semantics and interaction before pixels. The same action/state should use compatible language, feedback, focus and accessibility across web/mobile/desktop even when platform composition differs. Visual uniformity that breaks native behavior is not consistency.
+
+Track **governance debt**: undocumented exceptions, duplicated primitives, stale tokens, source-library divergence, missing migrations, unowned accessibility regressions, abandoned experiments and private component forks. Debt becomes release risk when nobody can tell which rule is authoritative.
+
+### Falsification
+Sample real product surfaces rather than Storybook only. Try to implement an adversarial but legitimate product scenario with the public system API. If success requires scattered literals and overrides, the system does not cover the product. Conversely, if an allegedly inconsistent component is intentionally platform-specific and preserves semantic equivalence, remove the finding.
+
+### Recovery
+Route semantic gaps to component/token architecture, visual inconsistencies to craft/system owners, and source divergence to integration/provenance. Do not respond to variant explosion by adding another variant. Define migration and deprecation paths so correction is operational, not aspirational.

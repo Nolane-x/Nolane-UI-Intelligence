@@ -48,3 +48,16 @@ Return `component`, `dimensions`, `applicable_states`, `material_combinations`, 
 
 ## Completion rule
 A component family cannot be considered specified when a material state is known to exist but its behavior, semantics, or visual treatment is omitted. Mark it `UNKNOWN` and keep the obligation open.
+
+## V6 State-Space Engineering
+Construct a **state orthogonality matrix** separating independent dimensions such as interaction (`hover/focus/pressed`), availability (`enabled/disabled/readonly`), data (`loading/loaded/error/stale`), selection, validation, permission, and lifecycle. Do not flatten all combinations into a single enum unless the dimensions are genuinely mutually exclusive.
+
+Perform **impossible-state elimination** by stating invariants that prevent contradictory combinations such as `loading + committed-success`, `disabled + pending-destructive-confirmation`, or a selected object that no longer exists. For each value make a **derived-versus-stored decision**: derive state from authoritative data when possible; store it only when it represents independent user/system history. This reduces impossible synchronization bugs.
+
+For coordinated widgets, define **cross-component synchronization**: selection, focus, expanded panel, URL, query/filter state, and server state must have a clear source of truth and conflict policy. Run a **transition completeness probe** that enumerates every permitted transition and asks how it is entered, exited, cancelled, retried, and announced.
+
+### Falsification
+Inject delayed responses, duplicate events, permission changes, object deletion, and navigation while a transition is pending. Any UI state that cannot be explained by the matrix or that leaves two components disagreeing falsifies the model.
+
+### Recovery
+Reduce state dimensions, centralize the authoritative source, or introduce an explicit state machine where transition complexity warrants it. Do not fix contradictions with additional booleans.

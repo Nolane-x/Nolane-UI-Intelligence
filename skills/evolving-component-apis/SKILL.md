@@ -38,3 +38,16 @@ Return a `component-migration-contract` with `change_class`, `old_contract`, `ne
 - New API optimized for library authors rather than consumer tasks.
 
 Component evolution is successful when product teams can upgrade without relearning hidden semantics.
+
+## V6 Component API Evolution Protocol
+Before changing a shared component, build a **compatibility matrix** across existing props/slots/events, semantic states, keyboard/accessibility behavior, tokens, responsive modes, and supported frameworks/platforms. Distinguish source compatibility, runtime behavior compatibility, and visual compatibility; they can break independently.
+
+Construct a **consumer impact graph** from the component to high-traffic and high-risk consumers, wrappers, variants, documentation examples, visual tests, and downstream design-system packages. A low-use prop may still be critical if it encodes destructive confirmation or accessibility behavior. Make an explicit **semantic-version decision** based on observable consumer breakage, not implementation diff size.
+
+Assess **codemod feasibility** for mechanical migrations: renamed props, variant mapping, import changes, token aliases, anatomy shifts. Codemods cannot repair changed product semantics; those require human/agent review. Define a **deprecation exit test** with telemetry/search evidence, migration docs, deadline, fallback behavior, and proof that supported consumers no longer rely on the old contract before removal.
+
+### Falsification
+Run representative old consumers against the proposed API and intentionally exercise uncommon states. If the change appears source-compatible but changes focus, labeling, state timing, or visual hierarchy, the “non-breaking” claim is falsified.
+
+### Recovery
+Add an adapter/compatibility layer, split the new semantic concept into a separate component, or postpone removal. Never keep ambiguous dual behavior forever merely to avoid a major version.

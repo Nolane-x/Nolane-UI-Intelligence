@@ -40,3 +40,16 @@ Return a `screen-reader-contract` with `semantic_structure`, `landmarks_headings
 - Chart alt text says only “chart showing data.”
 
 Screen-reader quality is demonstrated by completing the real task efficiently, not by an accessibility tree with many labels.
+
+## V6 Screen-Reader Interaction Model
+Separate **virtual-cursor versus focus** behavior. Reading/browse navigation and interactive focus are distinct models; do not move DOM focus merely because content changed or because a screen-reader user browsed to an element. For every interactive/control state produce a **name-role-value trace** including accessible name source, role, current value/state, description, relationship, and activation result.
+
+Set **live-region cadence** by event importance and frequency. Streaming tokens, prices, progress, validation, chat messages, and background jobs need aggregation/debouncing rules so announcements convey change without overwhelming speech. Run a **DOM-visual-order audit** for CSS grid/flex reordering, portals, sticky regions, responsive transforms, modals, and virtualized lists; the reading order must match the conceptual sequence even when visuals are art-directed.
+
+Define a **focus-restoration contract** for dialogs, popovers, deletion, navigation, inserted items, errors, async completion, and virtualized content. Restoration targets must still exist and remain meaningful; falling back to `body` is not recovery.
+
+### Falsification
+Complete the critical task without looking at the screen, using browse mode and focus mode intentionally. Trigger dynamic updates and responsive changes. Missing context, announcement storms, or focus loss falsify the experience.
+
+### Recovery
+Repair DOM semantics and focus ownership at the component/flow layer, simplify live updates, and provide structured alternatives for inaccessible visualizations. Avoid piling ARIA onto a fundamentally wrong interaction model.

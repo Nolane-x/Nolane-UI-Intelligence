@@ -52,3 +52,14 @@ Return a compact record with `task_id`, `current_phase`, `contract_ref`, `task_p
 
 ## Stop conditions
 Stop in `BLOCKED` when a required capability or authoritative input is unavailable and guessing would change a material requirement. Stop in `RECOVERY` when an obligation fails, evidence conflicts, the design target changes, or a critic finds a release blocker.
+
+## V6 Root-System Integrity
+Maintain a **lifecycle invariant map** for the full NUI process: product truth precedes craft, routed owners cannot be skipped, evidence remains version-bound, critics cannot self-certify, and completion cannot outrun unresolved non-waivable obligations. Use a **root delegation contract** so `nolane-ui` orchestrates ownership without duplicating specialist decisions.
+
+Define a **global stop condition** for missing product truth, unsupported high-risk claim, unavailable required evidence capability, or contradictory authority that makes downstream work unsafe. Run an **artifact coherence check** across contracts, routes, graph outputs, evidence packet, implementation spec, runtime/render evidence, and release claim. Preserve a **versioned-system boundary** so v1–v5 historical invariants remain compatible while v6 adds stricter overlays.
+
+### Falsification
+Delete one required routed artifact or substitute evidence from another revision. If root completion still succeeds, orchestration is unsound.
+
+### Recovery
+Return to the earliest violated invariant, preserve valid downstream-independent artifacts, reroute/revalidate affected branches, and regenerate the completion packet.

@@ -38,3 +38,14 @@ Return a `game-ui-contract` with `gameplay_signal_hierarchy[]`, `hud_elements[]`
 - Camera/motion effects required to understand gameplay with no alternative.
 
 The best HUD disappears from conscious attention until the player needs the information.
+
+## V6 Game HUD Attention Protocol
+Set a **playfield occlusion budget** by gameplay mode so HUD information does not hide threats, objectives, aiming space, or cinematic cues. Map **combat-attention priority** separately from inventory/menu priority; information that matters during active play needs faster recognition and different persistence.
+
+Support **safe-zone adaptation** for TV overscan, aspect ratios, ultrawide, handheld, split-screen, and accessibility scaling. Make a **diegetic-vs-overlay decision** per information class based on clarity, fiction, camera motion, accessibility, and failure cost—not novelty. Preserve **pause-state parity** so critical settings/help/status remain reachable even when real-time play is paused or unavailable.
+
+### Falsification
+Stress the HUD during high-action scenes, visual effects, low health, split screen, color/contrast settings, and unusual aspect ratios. Missed critical information or occluded play falsifies the hierarchy.
+
+### Recovery
+Reduce low-value HUD persistence, relocate/aggregate status, strengthen alternate cues, or move complexity to paused menus without hiding necessary live feedback.

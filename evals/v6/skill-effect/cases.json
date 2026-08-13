@@ -1,0 +1,133 @@
+{
+  "version": 6,
+  "suite": "skill-effect",
+  "cases": [
+    {
+      "id": "v6-ablate-repo-archaeology",
+      "required_skills": [
+        "benchmarking-ui-skill-effect",
+        "performing-ui-repository-archaeology"
+      ],
+      "setup": "Same external-source task runs with and without archaeology owner.",
+      "pressure": "Structural graph remains valid in both treatments.",
+      "expected_decision": "SUPPORTED_OR_NO_EFFECT",
+      "evidence_requirements": [
+        "artifact-level evidence delta",
+        "selection/adaptation decision delta",
+        "regression count"
+      ],
+      "evaluator_owner": "benchmarking-ui-skill-effect"
+    },
+    {
+      "id": "v6-mutate-readme-must-to-may",
+      "required_skills": [
+        "benchmarking-ui-skill-effect",
+        "auditing-ui-research-depth"
+      ],
+      "setup": "Hard rule README-only MUST NOT authorize material influence is mutated to MAY.",
+      "pressure": "Evaluator must detect semantic force change.",
+      "expected_decision": "MUTATION_DETECTED",
+      "evidence_requirements": [
+        "completion decision delta",
+        "README-only adversary result",
+        "mutation lineage"
+      ],
+      "evaluator_owner": "benchmarking-ui-skill-effect"
+    },
+    {
+      "id": "v6-factorial-anti-generic-energy",
+      "required_skills": [
+        "benchmarking-ui-skill-effect",
+        "testing-skill-interactions"
+      ],
+      "setup": "Anti-generic and visual-energy skills are crossed on/off.",
+      "pressure": "Combination may either create distinctive restraint or timid sameness.",
+      "expected_decision": "MEASURE_INTERACTION",
+      "evidence_requirements": [
+        "2x2 factorial outputs",
+        "attractor/timidity findings",
+        "adequacy deltas"
+      ],
+      "evaluator_owner": "benchmarking-ui-skill-effect"
+    },
+    {
+      "id": "v6-factorial-reference-signature",
+      "required_skills": [
+        "benchmarking-ui-skill-effect",
+        "researching-visual-references",
+        "deepening-signature-mechanisms"
+      ],
+      "setup": "Reference research and signature depth are crossed.",
+      "pressure": "Combination may improve specificity or increase imitation.",
+      "expected_decision": "MEASURE_INTERACTION",
+      "evidence_requirements": [
+        "reference diversity",
+        "copyability/recognition tests",
+        "trade-dress findings"
+      ],
+      "evaluator_owner": "benchmarking-ui-skill-effect"
+    },
+    {
+      "id": "v6-transfer-across-aesthetic-regimes",
+      "required_skills": [
+        "benchmarking-ui-skill-effect",
+        "critiquing-aesthetic-adequacy"
+      ],
+      "setup": "Same visual skills are evaluated on editorial, playful, medical and monumental tasks.",
+      "pressure": "Skill may overfit dark technical UI.",
+      "expected_decision": "BOUNDED_TRANSFER_CLAIM",
+      "evidence_requirements": [
+        "per-regime outcomes",
+        "failure cases",
+        "no single aggregate beauty score"
+      ],
+      "evaluator_owner": "benchmarking-ui-skill-effect"
+    },
+    {
+      "id": "v6-context-length-placebo",
+      "required_skills": [
+        "benchmarking-ui-skill-effect"
+      ],
+      "setup": "Treatment receives deep skill; control receives equal-length irrelevant guidance.",
+      "pressure": "Improvement may be caused by more deliberation/context rather than mechanism.",
+      "expected_decision": "INCONCLUSIVE_UNLESS_MECHANISM_DELTA",
+      "evidence_requirements": [
+        "equal-context control",
+        "direct mechanism metric",
+        "downstream quality delta"
+      ],
+      "evaluator_owner": "benchmarking-ui-skill-effect"
+    },
+    {
+      "id": "v6-correlated-critic-lineage",
+      "required_skills": [
+        "benchmarking-ui-skill-effect",
+        "testing-skill-interactions"
+      ],
+      "setup": "Generator and two critics are same model with shared context.",
+      "pressure": "Report calls three roles independent judges.",
+      "expected_decision": "BLOCKED_CLAIM",
+      "evidence_requirements": [
+        "critic lineage",
+        "context overlap",
+        "bounded interpretation"
+      ],
+      "evaluator_owner": "auditing-ui-research-depth"
+    },
+    {
+      "id": "v6-harmful-interaction-hidden-by-average",
+      "required_skills": [
+        "benchmarking-ui-skill-effect"
+      ],
+      "setup": "Skill improves average preference but causes one catastrophic safety/accessibility failure.",
+      "pressure": "Aggregate score favors treatment.",
+      "expected_decision": "HARMFUL_OR_MIXED",
+      "evidence_requirements": [
+        "per-case failures",
+        "severity-weighted analysis",
+        "catastrophic regression rule"
+      ],
+      "evaluator_owner": "benchmarking-ui-skill-effect"
+    }
+  ]
+}

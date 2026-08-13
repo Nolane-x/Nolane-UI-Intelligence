@@ -66,3 +66,16 @@ Return `target_ref`, `render_ref`, `capture_context`, `regions[] {region, dimens
 
 ## Hard stop
 If no target render can be inspected, do not claim visual fidelity. Source-level reasoning may prepare implementation but the obligation remains `UNKNOWN/BLOCKED`.
+
+## V6 Fidelity Evidence Model
+Construct an **authoritative-target graph** before comparing implementation: design file, accepted rendered reference, token contract, content fixture, interaction/state specification, platform rule, and user-approved deviations each have different authority. A screenshot alone cannot override semantics or dynamic behavior.
+
+Separate **semantic-versus-pixel invariant** classes. Pixel geometry, typography, spacing, color, and imagery can be compared visually; interaction state, responsive relationships, focus, accessibility, localization, data semantics, and motion require behavioral evidence. Verify **dynamic-state parity** across hover/focus/pressed/disabled/loading/error/empty/selected/expanded/permission and relevant motion states rather than comparing only the default screenshot.
+
+Lock comparison conditions with a **font-and-viewport lock**: resolved font files/fallback state, viewport/container size, DPR/zoom, OS/browser rendering context, content fixture, theme, and animation clock. Run a **diff false-positive audit** for antialiasing, subpixel rendering, nondeterministic data, timestamps, caret/blink, GPU effects, and dynamic ads/assets before accepting image-diff noise as a defect.
+
+### Falsification
+Deliberately introduce one semantic regression with nearly identical pixels and one harmless pixel-level rendering variation. If the verifier flags only the latter, its fidelity model is falsified.
+
+### Recovery
+Use the appropriate evidence class for each invariant, normalize nondeterminism, and reopen implementation only on authoritative mismatches. Never chase screenshot pixels at the expense of correct behavior.

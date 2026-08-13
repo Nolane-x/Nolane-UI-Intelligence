@@ -27,3 +27,20 @@ Return the canonical `workspace-visual-matrix` artifact with explicit status, ev
 
 ## Failure Traps
 Maximal variation for its own sake; counting different copy as diversity; same three-pane shell everywhere; using color swaps as screen identity; breaking navigation conventions to create variety; evaluating screens independently without a contact-sheet view.
+
+## V6 Cross-Surface Perceptual Diversity
+Create a **screen-family signature** for each major surface family: dominant geometry, density, primary content/media, hierarchy gesture, color mass, surface treatment, signature mechanism, interaction cadence and spatial rhythm. Compare families, not screenshots in isolation.
+
+Demand a **recurrence justification** for repeated structures. Repetition is valid when it supports learned navigation, shared task grammar, semantic consistency or brand recognition. Repetition is invalid when every feature is forced into the same sidebar + header + bordered panel template simply because the framework makes it cheap.
+
+Generate a **template fingerprint** from recurring proportions, panel topology, card radius/border treatment, title placement, toolbar pattern, empty-state composition and visual accent. A product-wide fingerprint that overwhelms task-specific structure is a template attractor.
+
+Judge **coherence-versus-repetition** explicitly. Coherence should live in tokens, interaction semantics, typography roles, icon grammar and recognizable signatures; composition may vary when tasks differ. Conversely, arbitrary layout novelty that destroys learned structure is not diversity.
+
+Use qualitative **cross-surface entropy** to detect both cloned screens and gratuitous variety. Compare against the product's task families and experiential arc rather than an abstract optimum.
+
+### Falsification
+Blind navigation labels and compare unrelated feature screens. If they remain visually interchangeable despite materially different tasks, diversity is insufficient. Then compare related screens; if they become impossible to recognize as one product, coherence is insufficient.
+
+### Recovery
+For template repetition, redesign the screen family's primary task composition while preserving shared system grammar. For excess diversity, consolidate interaction and token semantics before flattening all layouts into one template.

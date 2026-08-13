@@ -38,3 +38,14 @@ Return a `multisensory-contract` with `event_semantics[]`, `channel_mapping[]`, 
 - Assuming all devices implement the same haptic strength.
 
 Multisensory design is robust when removing any one channel does not remove the user’s ability to understand and act.
+
+## V6 Haptic and Multisensory Protocol
+Define a small **haptic semantic vocabulary** for confirmation, boundary, warning, continuous control, navigation, and error; similar vibrations must not mean contradictory things across the product. Record an **actuator capability profile** because phone, watch, controller, stylus, vehicle, and XR devices differ in latency, amplitude, frequency, and programmability.
+
+Use **cross-modal redundancy** for material meaning so haptics/sound reinforce rather than replace visible/programmatic state. Audit **haptic saturation**—too many cues become noise and mask important ones. Provide **inaccessible-haptic fallback** for users/devices that cannot perceive or emit haptics.
+
+### Falsification
+Disable haptics/audio independently, vary actuator quality, and trigger several cues rapidly. If meaning disappears or important patterns are indistinguishable, the multisensory design fails.
+
+### Recovery
+Reduce the vocabulary, reserve stronger cues for higher-value events, and shift semantics into persistent visual/text/assistive signals where needed.

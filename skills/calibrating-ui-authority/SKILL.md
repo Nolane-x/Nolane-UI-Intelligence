@@ -36,3 +36,16 @@ Return an `authority-resolution` with `decision_question`, `applicable_sources[]
 - Hiding uncertainty to make the router appear decisive.
 
 The result must tell later skills *why* a rule is binding and where it stops binding.
+
+## V6 Authority and Claim Calibration
+Build an **authority conflict matrix** when product requirements, law/regulation, normative standards, platform guidance, design-system rules, empirical studies, community practice, and source repositories disagree. Record jurisdiction, scope, date/version, and the exact claim in conflict rather than ranking entire sources globally.
+
+Separate **normative-versus-informative** material. A standard may require behavior; an explanatory note or community article may merely suggest technique. Define a **source-currentness horizon** based on drift: browser/platform APIs, AI SDKs, component libraries, and legal guidance may expire quickly; human perceptual evidence may drift slowly but still have population/context bounds.
+
+Set a **claim-strength ceiling** equal to the strongest evidence actually available. “Observed in this prototype” cannot become “users prefer”; “upstream claims accessible” cannot become “our composition is accessible.” Maintain a **supersession trace** when newer guidance replaces or narrows an older rule so future agents do not resurrect stale authority.
+
+### Falsification
+Seek a current primary source that contradicts the chosen authority and test whether the decision changes under jurisdiction/platform/version changes. If the system cannot state why one claim wins, authority calibration is false.
+
+### Recovery
+Downgrade unsupported claims, reopen live research, bind the correct version/jurisdiction, and propagate changed obligations to affected skills. Never average incompatible authorities into a vague compromise.

@@ -36,3 +36,14 @@ Return a `coverage-delta` with `axis_changes[]`, `new_or_changed_cells[]`, `owne
 - Declaring atlas completeness while mandatory cells are unowned.
 
 The atlas succeeds when an unfamiliar task can be decomposed into owned constraints without loading the whole skill graph.
+
+## V6 Domain Atlas Governance
+Require **coverage-cell provenance** for why a domain/intersection exists, which failures justify it, and which skills own/verify it. Define an **ontology drift trigger** when new platforms, input models, regulatory contexts, AI agency patterns, or product archetypes create unrepresented behavior.
+
+Maintain an **uncovered intersection queue** prioritized by risk and causal distinctness rather than enumerating all combinations. Enforce **owner-verifier separation** for high-risk cells so the same decision owner cannot self-certify coverage. State an **atlas saturation caveat**: coverage means the current ontology has no known material gaps under its reopen criteria, never that “all UI forever” is complete.
+
+### Falsification
+Present a novel UI scenario and try to map it without forcing it into an unrelated cell. If its failure model changes routing/evidence, the atlas needs extension.
+
+### Recovery
+Add/refine the minimal axis/cell, assign owners/verifiers, update source domains/evals, and rerun coverage metrics.

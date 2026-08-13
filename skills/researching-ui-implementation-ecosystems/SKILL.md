@@ -68,3 +68,14 @@ Candidate order must be explainable through capability, stack, role, accessibili
 - Letting research choose final architecture; selection belongs downstream.
 
 **Hard gate:** a source cannot become a material candidate unless its role, product-fit mechanism, canonical citation, inspected evidence and freshness/license requirements are explicit.
+
+## V6 Ecosystem Discovery Depth Lock
+Form a **capability-atom query** before searching repositories so discovery follows the product need rather than famous library names. Reject **source-role mismatch** when a gallery is used as semantic primitive authority, an engine as design system, or a showcase as accessibility proof.
+
+Trigger a **live-verification trigger** for high-drift, named, material, version/license-sensitive, or registry-unknown sources. Require **candidate-mechanism diversity** so alternatives differ in abstraction/approach rather than returning ten near-identical component sets. Enforce a **registry-staleness guard** that treats cached metadata as discovery-only after freshness horizon expires.
+
+### Falsification
+Repeat search using a different source class/stack and see if a materially better mechanism appears. A candidate set defined by popularity rather than fit falsifies discovery.
+
+### Recovery
+Rewrite capability atoms, diversify source roles, refresh primary evidence, and hand only qualified candidates to selection/repository archaeology.

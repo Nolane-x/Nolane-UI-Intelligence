@@ -65,3 +65,14 @@ A contract is not valid if “beautiful,” “modern,” “clean,” or “pre
 
 ## V5 Experiential Preservation Gate
 When the request contains affective, identity, magnitude, prestige, memorability, or exceptional-beauty language, preserve an explicit `EXPERIENTIAL_INTENT` alongside the ordinary contract. Operationalization must **supplement**, not replace, the original intent. Keep desired/forbidden feelings, identity projection, magnitude axes, intensity, memorability and source language visible to downstream critics. Hierarchy, density, material treatment, typography, color or motion are candidate mechanisms—not semantic substitutes for “awe”, “mastery”, “institutional scale”, or similar product goals. If the proxies survive but the feeling/identity target disappears, reopen contracting and route `preserving-experiential-intent`.
+
+## V6 UI Contract Integrity Protocol
+Preserve **raw-request preservation** for source-language goals, affect, constraints, named references, non-goals, and uncertainty so normalization cannot erase intent. Define the **obligation negotiation boundary**: preferences may be traded with evidence; non-waivable product truth, safety, accessibility, explicit user constraints, and authority requirements cannot be silently negotiated away.
+
+Keep an **unresolved-ambiguity register** instead of guessing material facts. Run a **contract mutation check** after routing/research/specification to detect changed force, scope, or semantics. Emit a **downstream contract checksum** over normalized obligations/profile so dependent artifacts can detect stale assumptions.
+
+### Falsification
+Mutate or omit one raw user requirement and compare the downstream contract/routes. If the change is invisible, contracting loses meaning.
+
+### Recovery
+Rebuild from raw/source evidence, restore force/scope, invalidate stale dependent outputs, and reroute from the first affected owner.

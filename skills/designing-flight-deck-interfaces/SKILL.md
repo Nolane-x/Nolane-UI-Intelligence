@@ -53,3 +53,14 @@ Produce a `flight-deck-interface-contract` containing: certified/assumed operati
 - Calling a UI “FAA compliant” because it followed this skill without certification evidence.
 
 The interface succeeds when trained flightcrew can correctly perceive aircraft/system state, understand automation and alert meaning, act on the intended target, detect and recover from errors, and maintain safe performance across relevant operational phases and failures.
+
+## V6 Flight-Deck Protocol
+Prioritize information by **phase-of-flight priority** because workload and time-to-action change across taxi, takeoff, climb, cruise, approach, landing, and abnormal events. Preserve a **mode-awareness invariant** for automation/flight guidance: active/armed modes, source, transitions, and unexpected reversion must remain perceivable.
+
+Define **alert acknowledgement semantics** separately from resolving the underlying condition. Surface **sensor disagreement display** when redundant sources conflict rather than averaging into false certainty. Support **crew cross-check support** by making shared state, inputs, and confirmation observable to both operators without encouraging heads-down duplication.
+
+### Falsification
+Inject mode reversion, sensor disagreement, multiple alerts, high workload, and crew handoff. If operators can misidentify active mode/source, the UI is unsafe.
+
+### Recovery
+Return to conservative/known state, elevate source/mode truth, preserve alert history, and require procedural/authority revalidation before resuming automation-dependent action.

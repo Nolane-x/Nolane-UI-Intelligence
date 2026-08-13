@@ -36,3 +36,14 @@ Return a `finding-set` with `may_modify:false`, `artifact_revision`, `findings[]
 - Visual critic’s praise reducing severity of a memory or mode defect.
 
 A cognitive finding must identify what the user is forced to think about that the interface could safely carry for them.
+
+## V6 Cognitive Load Critic
+Map a **working-memory load map** across each critical flow: values/instructions/modes users must remember rather than see. Detect a **split-attention fault** when related information is separated across panels, tabs, tooltips, or time.
+
+Estimate a **choice-overload threshold** based on expertise/frequency/consequence instead of raw item count. Measure **interruption recovery burden**—how many facts/actions must be reconstructed after returning. Check **learning-transfer penalty** when similar controls/actions behave differently across surfaces.
+
+### Falsification
+Interrupt at the hardest step, remove memory aids, and give the same task to a less familiar user. If success collapses due to hidden context rather than domain knowledge, cognitive load is excessive.
+
+### Recovery
+Externalize context, regroup related information, reduce inconsistent choices/modes, and preserve resumable state before adding tutorials.

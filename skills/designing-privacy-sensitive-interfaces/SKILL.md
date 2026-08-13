@@ -38,3 +38,14 @@ Return a `privacy-contract` with `data_classes[]`, `exposure_map[]`, `audience_s
 - UI promising deletion without knowing backend retention behavior.
 
 A privacy-safe UI makes invisible data boundaries visible before they surprise the user.
+
+## V6 Privacy-Sensitive Surface Protocol
+Build a **data-exposure map** for every screen/state: what personal/sensitive data appears, to whom, on which device/channel, and for how long. Define a **privacy expectation boundary** from user context—shared device, workplace, public space, notification preview, casting, screen sharing, recordings.
+
+Use **sensitive-screen shielding** where platform capability supports it or reduce exposure in task switcher/previews/lock screen. Keep a **retention-disclosure link** between UI promises and actual save/history/delete/export behavior. Preserve **consent-context integrity** so permission to use data for one feature does not silently authorize unrelated personalization/training/sharing.
+
+### Falsification
+Share screen, lock device, switch account/workspace, export/delete, and revoke consent. Residual/expanded exposure falsifies privacy semantics.
+
+### Recovery
+Hide/clear data, narrow processing scope, repair retention/consent state, and explain material changes before re-enabling sensitive functionality.

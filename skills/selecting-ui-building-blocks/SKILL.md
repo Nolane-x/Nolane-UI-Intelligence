@@ -72,3 +72,14 @@ For `adopt` or `adapt`, license posture must be verified-compatible and README, 
 - Declaring integration successful here; that belongs to downstream audit and runtime verification.
 
 **Hard gate:** popularity, screenshots or remembered reputation cannot authorize material reuse; `adopt` and `adapt` require current license evidence, implementation inspection, role fit and an explicit integration/exit contract.
+
+## V6 Building-Block Selection Protocol
+Use an **adopt-adapt-inspire-build matrix** per capability, not per repository. Score **integration-lockin cost** across API/data model, DOM/semantics, styling/tokens, state ownership, bundle/runtime, migration, and maintenance.
+
+Evaluate **semantic fit score** before visual fit: role/action/state/input/accessibility must match product contracts. Require a **replacement strategy** for material third-party building blocks, even if “replace by local implementation later.” Set a **source-combination ceiling** based on semantic/style/runtime conflict risk so a UI does not become a collage of unrelated libraries.
+
+### Falsification
+Strip source styles and compare candidate behavior against a local/native alternative; simulate replacement/update. If value is mostly trade dress or lock-in dominates, selection is wrong.
+
+### Recovery
+Choose a different adoption mode, wrap/narrow the source, build locally, or reject the candidate and preserve only transferable mechanisms.

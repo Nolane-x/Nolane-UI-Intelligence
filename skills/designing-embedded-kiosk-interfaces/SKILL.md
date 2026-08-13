@@ -38,3 +38,14 @@ Return an `embedded-kiosk-contract` with `session_lifecycle`, `hardware_inventor
 - Desktop browser assumptions about keyboard, Back, refresh, or network.
 
 A kiosk is trustworthy when failure leaves the next person in a known, private, recoverable state.
+
+## V6 Public Kiosk Protocol
+Define a **session reset boundary** that clears identity, sensitive data, navigation history, downloads, payment context, and temporary accessibility settings at the correct lifecycle point. Assess **shoulder-surfing exposure** for personal, financial, medical, credential, and location information.
+
+Set an **unattended timeout** based on task length and privacy, warning users before destructive reset where possible. Provide a **physical escape path** from stuck modes, fullscreen traps, modal loops, or failed peripherals. Model **peripheral-device recovery** for printer/scanner/card reader/camera/NFC failures without exposing previous users' data.
+
+### Falsification
+Walk away mid-session, remove a peripheral, reboot/restart app, and begin as a new user. Any residual private state or unrecoverable trap invalidates the kiosk.
+
+### Recovery
+Terminate/clear session securely, return to a known public home state, and quarantine broken peripheral flows until capability is restored.

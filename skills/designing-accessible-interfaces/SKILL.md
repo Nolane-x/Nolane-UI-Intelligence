@@ -77,3 +77,16 @@ Return `standard_scope`, `semantic_structure`, `keyboard_model`, `focus_model`, 
 
 ## Stop conditions
 If the requested claim is “WCAG compliant” or equivalent and required normative criteria/runtime evidence cannot be checked, scope the claim or mark it `UNKNOWN/BLOCKED`. Never convert a tool score into full compliance.
+
+## V6 Accessibility Requirement Trace
+Build an **accessibility-requirement trace** from each material task to perceptual, operable, understandable, robust, and communication obligations plus relevant platform/standard requirements. Generic “WCAG compliant” is not a task model and cannot prove a particular flow usable.
+
+For interaction-heavy surfaces produce a **keyboard-path proof** including focus order, visible focus, entry/exit, composite navigation, shortcuts, modal trapping/restoration, drag alternatives, and no keyboard trap. Maintain a **programmatic-relationship map** for labels, descriptions, errors, groups, headings, landmarks, tables, ownership, current/selected state, and dynamic changes.
+
+Apply a **sensory-equivalence test** whenever meaning is carried by color, sound, spatial placement, animation, haptics, or imagery: alternate access must preserve the information/action, not merely provide a generic text label. Track the **conformance-usability gap** where automated or standards checks pass but disabled users still face excessive verbosity, disorientation, inaccessible timing, or inefficient task paths.
+
+### Falsification
+Complete critical workflows with keyboard only, screen reader, zoom/forced colors, reduced motion, and relevant alternative inputs; also inspect automated results for false confidence. Any material action or state with no workable path falsifies accessibility completion.
+
+### Recovery
+Fix semantics/flow/component ownership at the source, not with after-the-fact overlays. Route unresolved disability-specific problems to the relevant specialist and block release claims until evidence exists.

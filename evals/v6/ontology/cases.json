@@ -1,0 +1,144 @@
+{
+  "version": 6,
+  "suite": "ontology",
+  "cases": [
+    {
+      "id": "v6-agentic-medical-voice-cross-axis",
+      "required_skills": [
+        "maintaining-ui-domain-atlas",
+        "designing-medical-safety-critical-ui",
+        "designing-agent-autonomy-and-control"
+      ],
+      "setup": "Voice-driven agent proposes a medication-related action.",
+      "pressure": "Each medical, voice and AI skill is routed separately but their interaction is not owned.",
+      "expected_decision": "BLOCKED",
+      "evidence_requirements": [
+        "cross-axis scenario trace",
+        "authority/confirmation model",
+        "voice error recovery",
+        "independent safety critique"
+      ],
+      "evaluator_owner": "critiquing-human-factors-and-safety"
+    },
+    {
+      "id": "v6-geospatial-touch-lowvision-cross-axis",
+      "required_skills": [
+        "maintaining-ui-domain-atlas",
+        "designing-pointer-touch-pen-input",
+        "designing-low-vision-and-high-contrast"
+      ],
+      "setup": "Mobile geospatial explorer uses dense map controls.",
+      "pressure": "Touch targets, map labels and low-vision contrast conflict.",
+      "expected_decision": "BLOCKED",
+      "evidence_requirements": [
+        "map interaction evidence",
+        "target/gesture alternatives",
+        "low-vision rendered evidence"
+      ],
+      "evaluator_owner": "critiquing-accessibility"
+    },
+    {
+      "id": "v6-terminal-streaming-destructive-cross-axis",
+      "required_skills": [
+        "maintaining-ui-domain-atlas",
+        "designing-cli-tui-interfaces",
+        "designing-high-stakes-decisions"
+      ],
+      "setup": "Terminal UI streams agent output and exposes destructive command.",
+      "pressure": "Streaming redraw and focus/confirmation compete.",
+      "expected_decision": "BLOCKED",
+      "evidence_requirements": [
+        "terminal state trace",
+        "destructive confirmation/recovery",
+        "keyboard behavior under streaming"
+      ],
+      "evaluator_owner": "critiquing-human-factors-and-safety"
+    },
+    {
+      "id": "v6-rtl-dense-dashboard-cross-axis",
+      "required_skills": [
+        "maintaining-ui-domain-atlas",
+        "designing-localized-interfaces",
+        "designing-data-dense-interfaces"
+      ],
+      "setup": "Dense analytics dashboard localizes into RTL with long labels and mixed numeric data.",
+      "pressure": "Desktop LTR geometry is mirrored mechanically.",
+      "expected_decision": "RESEARCH_MORE",
+      "evidence_requirements": [
+        "RTL rendered fixture",
+        "visual/DOM order evidence",
+        "numeral/alignment policy",
+        "density legibility evidence"
+      ],
+      "evaluator_owner": "critiquing-localization"
+    },
+    {
+      "id": "v6-xr-reducedmotion-cross-axis",
+      "required_skills": [
+        "maintaining-ui-domain-atlas",
+        "designing-spatial-xr-interfaces",
+        "designing-reduced-motion-and-photosensitivity"
+      ],
+      "setup": "Spatial interface relies on depth motion and gaze transitions.",
+      "pressure": "Reduced motion removes orientation cues.",
+      "expected_decision": "BLOCKED",
+      "evidence_requirements": [
+        "orientation-preserving alternative",
+        "gaze/focus trace",
+        "photosensitivity evidence"
+      ],
+      "evaluator_owner": "critiquing-accessibility"
+    },
+    {
+      "id": "v6-offline-commerce-irreversible-cross-axis",
+      "required_skills": [
+        "maintaining-ui-domain-atlas",
+        "designing-commerce-checkout",
+        "designing-offline-degraded-experiences"
+      ],
+      "setup": "Checkout action occurs under intermittent connectivity.",
+      "pressure": "UI cannot distinguish queued, committed, duplicate or failed purchase.",
+      "expected_decision": "BLOCKED",
+      "evidence_requirements": [
+        "transaction state model",
+        "idempotency/user feedback evidence",
+        "offline recovery path"
+      ],
+      "evaluator_owner": "critiquing-performance-and-resilience"
+    },
+    {
+      "id": "v6-controlroom-multiagent-realtime-cross-axis",
+      "required_skills": [
+        "maintaining-ui-domain-atlas",
+        "designing-supervisory-control-room-hmi",
+        "designing-multi-agent-surfaces"
+      ],
+      "setup": "Operators supervise multiple agents in realtime.",
+      "pressure": "Attribution, alert priority and takeover state update simultaneously.",
+      "expected_decision": "BLOCKED",
+      "evidence_requirements": [
+        "agent attribution/authority model",
+        "realtime attention evidence",
+        "takeover/recovery trace"
+      ],
+      "evaluator_owner": "critiquing-human-factors-and-safety"
+    },
+    {
+      "id": "v6-bci-safetycritical-cross-axis",
+      "required_skills": [
+        "maintaining-ui-domain-atlas",
+        "designing-brain-computer-interface-ux",
+        "designing-high-stakes-decisions"
+      ],
+      "setup": "BCI signal may trigger safety-critical control.",
+      "pressure": "Probabilistic intent is treated like deterministic click input.",
+      "expected_decision": "BLOCKED",
+      "evidence_requirements": [
+        "signal uncertainty model",
+        "confirmation/rejection thresholds",
+        "safe fallback and recovery"
+      ],
+      "evaluator_owner": "critiquing-human-factors-and-safety"
+    }
+  ]
+}
