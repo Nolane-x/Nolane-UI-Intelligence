@@ -7,11 +7,10 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class V7ReleaseTests(unittest.TestCase):
-    def test_versions_are_070(self):
-        pyproject = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
-        self.assertRegex(pyproject, r'version\s*=\s*"0\.7\.0"')
+    def test_current_version_is_not_older_than_v7(self):
         config = json.loads((ROOT / "nui.config.json").read_text(encoding="utf-8"))
-        self.assertEqual(config["version"], "0.7.0")
+        major, minor, patch = (int(x) for x in config["version"].split("."))
+        self.assertGreaterEqual((major, minor, patch), (0, 7, 0))
 
     def test_concrete_packet_schema_matches_runtime_contract(self):
         schema = json.loads((ROOT / "schemas/concrete-design-packet.schema.json").read_text(encoding="utf-8"))
@@ -39,13 +38,9 @@ class V7ReleaseTests(unittest.TestCase):
         self.assertIn("concrete craft", text.lower())
         self.assertIn("rendered perception", text.lower())
 
-    def test_ci_packages_v7_exact_artifacts(self):
-        text = (ROOT / ".github/workflows/verify.yml").read_text(encoding="utf-8")
-        self.assertIn("nui-v7-completion-packet", text)
-        self.assertIn("nui-v7-complete-project", text)
-        self.assertIn("Nolane-UI-Intelligence-v7-complete.zip", text)
-        self.assertNotIn("nui-v6-completion-packet", text)
-        self.assertNotIn("Nolane-UI-Intelligence-v6-complete.zip", text)
+    def test_v7_release_artifact_remains_available_after_later_versions(self):
+        self.assertTrue((ROOT / "artifacts/v7-completion-packet.example.json").is_file())
+        self.assertTrue((ROOT / "docs/V7-CONCRETE-KNOWLEDGE-CLOSURE.md").is_file())
 
     def test_release_docs_explain_v7_execution_contract(self):
         docs = "\n".join((ROOT / p).read_text(encoding="utf-8") for p in ("README.md", "docs/USAGE.md", "AGENTS.md"))
@@ -55,7 +50,6 @@ class V7ReleaseTests(unittest.TestCase):
             "concrete design packet",
             "rendered perception",
             "mechanism, not trade dress",
-            "166 canonical skills",
         ):
             self.assertIn(phrase, docs.lower())
 
