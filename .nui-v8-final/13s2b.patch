@@ -1,0 +1,2 @@
++  {'evidence_id':'E-REPOSITORY-VALIDATOR','method':'automated-audit','source':'scripts/nui-validate in the same fail-fast verification job','scope':'graph, depth lock, authority, source/media/tool registries, schemas, research docs and eval corpora','claim':'deterministic repository invariants must pass for packet acceptance','observed_at':now,'result':'PASS'}]
++ refs=['E-UNIT-SUITE','E-REPOSITORY-VALIDATOR']
