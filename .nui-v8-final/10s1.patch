@@ -1,0 +1,47 @@
++      "overlay readability envelope",
++      "media performance lifecycle"
+     ]
+   },
+   "rule": "Every focus skill must contain each unique semantic obligation and explicit falsification/recovery behavior; terms are behavior anchors, not word-count proxies.",
+   "wave2_core_owner_count": 27,
+-  "focus_skill_count": 158,
++  "focus_skill_count": 174,
+   "wave3_specialist_owner_count": 14,
+   "industry_risk_wave_count": 25,
+   "access_ai_modality_wave_count": 32,
+diff --git a/knowledge/v8-skill-manifest.json b/knowledge/v8-skill-manifest.json
+new file mode 100644
+index 0000000..9be5c85
+--- /dev/null
++++ b/knowledge/v8-skill-manifest.json
+@@ -0,0 +1,62 @@
++{
++  "version": 8,
++  "architecture": "agent-interoperability-visual-media-intelligence",
++  "skills": [
++    {
++      "name": "exporting-nui-to-agent-harnesses",
++      "family": "integration",
++      "parent": "building-agent-readable-ui-context",
++      "output": "agent-harness-export-plan",
++      "ownership": "Own translation of canonical NUI discovery, routes and evidence into host-native agent surfaces without corpus forks, authority escalation or permission expansion."
++    },
++    {
++      "name": "governing-external-agent-skills",
++      "family": "research",
++      "parent": "building-agent-readable-ui-context",
++      "output": "external-skill-trust-ledger",
++      "ownership": "Own trust admission, capability review, license/provenance control and bounded local adoption of third-party agent skills and prompt packages."
++    },
++    {
++      "name": "mapping-visual-media-opportunities",
++      "family": "visual",
++      "parent": "designing-domain-native-signatures",
++      "output": "visual-media-opportunity-map",
++      "ownership": "Own the decision of where subject-native media, truthful visualizations, diagrams or deliberate abstraction best serve semantic and experiential UI jobs."
++    },
++    {
++      "name": "sourcing-rights-safe-visual-media",
++      "family": "research",
++      "parent": "researching-visual-references",
++      "output": "asset-provenance-ledger",
