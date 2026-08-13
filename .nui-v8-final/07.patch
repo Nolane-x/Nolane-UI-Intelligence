@@ -1,0 +1,137 @@
+diff --git a/knowledge/agent-interoperability-v8.json b/knowledge/agent-interoperability-v8.json
+new file mode 100644
+index 0000000..b71edc9
+--- /dev/null
++++ b/knowledge/agent-interoperability-v8.json
+@@ -0,0 +1,131 @@
++{
++  "version": 8,
++  "principle": "Adapters make canonical NUI discoverable without copying its corpus, changing host permissions, or escalating transport into design authority.",
++  "adapters": [
++    {
++      "id": "openai-codex",
++      "surface": "Codex CLI / IDE / agent harness",
++      "skill_roots": [
++        ".agents/skills"
++      ],
++      "project_instruction": "AGENTS.md",
++      "canonical_graph": "skills/skill-graph.json",
++      "copy_policy": "thin-bridge",
++      "evidence": [
++        "https://github.com/openai/codex",
++        "https://github.com/openai/codex/blob/main/codex-rs/core/tests/suite/skills.rs"
++      ],
++      "permission_boundary": "Codex host sandbox/approval policy remains authoritative.",
++      "authority_escalation": false
++    },
++    {
++      "id": "claude-code",
++      "surface": "Claude Code / Claude Agent SDK",
++      "skill_roots": [
++        ".claude/skills"
++      ],
++      "project_instruction": "AGENTS.md + host settings",
++      "canonical_graph": "skills/skill-graph.json",
++      "copy_policy": "thin-bridge",
++      "evidence": [
++        "https://code.claude.com/docs/en/agent-sdk/skills",
++        "https://github.com/anthropics/skills"
++      ],
++      "permission_boundary": "Claude Code/SDK settings and user approvals remain authoritative.",
++      "authority_escalation": false
++    },
++    {
++      "id": "google-antigravity",
++      "surface": "Google Antigravity Agent / IDE harness",
++      "skill_roots": [
++        ".agents/skills"
++      ],
++      "project_instruction": "AGENTS.md when supported by workspace harness",
++      "canonical_graph": "skills/skill-graph.json",
++      "copy_policy": "host-native-pointer",
++      "evidence": [
++        "https://ai.google.dev/gemini-api/docs/antigravity-agent"
++      ],
++      "permission_boundary": "Antigravity sandbox, web and code permissions remain host-owned; NUI only supplies design context.",
++      "authority_escalation": false
++    },
++    {
++      "id": "gemini-cli",
++      "surface": "Gemini CLI",
++      "skill_roots": [],
++      "project_instruction": "adapter README + host-native context",
++      "canonical_graph": "skills/skill-graph.json",
++      "copy_policy": "pointer-only",
++      "evidence": [
++        "https://github.com/google-gemini/gemini-cli"
++      ],
++      "permission_boundary": "Gemini CLI tool permissions remain host-owned.",
++      "authority_escalation": false
++    },
++    {
++      "id": "cursor",
++      "surface": "Cursor agent",
++      "skill_roots": [],
++      "project_instruction": "AGENTS.md / project rules according to current host support",
++      "canonical_graph": "skills/skill-graph.json",
++      "copy_policy": "pointer-only",
++      "evidence": [
++        "https://docs.cursor.com/"
++      ],
++      "permission_boundary": "Cursor tool permissions remain host-owned.",
++      "authority_escalation": false
++    },
++    {
++      "id": "opencode",
++      "surface": "OpenCode CLI/agent",
++      "skill_roots": [],
++      "project_instruction": "adapter README + host-native config",
++      "canonical_graph": "skills/skill-graph.json",
++      "copy_policy": "pointer-only",
++      "evidence": [
++        "https://opencode.ai/docs/"
++      ],
++      "permission_boundary": "OpenCode permissions and tools remain host-owned.",
++      "authority_escalation": false
++    },
++    {
++      "id": "windsurf",
++      "surface": "Windsurf agent/editor",
++      "skill_roots": [],
++      "project_instruction": "AGENTS.md / host rules when supported",
++      "canonical_graph": "skills/skill-graph.json",
++      "copy_policy": "pointer-only",
++      "evidence": [
++        "https://docs.windsurf.com/"
++      ],
++      "permission_boundary": "Windsurf permissions remain host-owned.",
++      "authority_escalation": false
++    },
++    {
++      "id": "generic-mcp",
++      "surface": "Any MCP-capable client",
++      "skill_roots": [],
++      "project_instruction": "MCP tools expose bounded local NUI reads",
++      "canonical_graph": "skills/skill-graph.json",
++      "copy_policy": "pointer-only",
++      "evidence": [
++        "https://modelcontextprotocol.io/specification/latest"
++      ],
++      "permission_boundary": "MCP is transport only; client/user consent and tool policy remain authoritative.",
++      "authority_escalation": false
++    },
++    {
++      "id": "generic-cli",
++      "surface": "Any local process capable of invoking CLI",
++      "skill_roots": [],
++      "project_instruction": "JSON/stdout adapter plan and validator",
++      "canonical_graph": "skills/skill-graph.json",
++      "copy_policy": "pointer-only",
++      "evidence": [
++        "https://github.com/Nolane-x/Nolane-UI-Intelligence"
++      ],
++      "permission_boundary": "CLI returns data/plans; it does not grant shell/network/browser capability to an agent.",
++      "authority_escalation": false
++    }
++  ]
++}
