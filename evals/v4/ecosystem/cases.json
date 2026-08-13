@@ -1,0 +1,174 @@
+{
+  "version": 4,
+  "suite": "ui-ecosystem-adversaries",
+  "cases": [
+    {
+      "id": "v4-popularity-only",
+      "failure": "Choosing React Bits only for GitHub stars, without comparing mechanism, stack, accessibility, license or integration cost",
+      "required_skills": [
+        "researching-ui-implementation-ecosystems",
+        "selecting-ui-building-blocks"
+      ],
+      "must_find": [
+        "Reject popularity-only selection",
+        "Compare source role and product fit"
+      ]
+    },
+    {
+      "id": "v4-unresolved-license",
+      "failure": "Copying an attractive public component without reading the current license or terms",
+      "required_skills": [
+        "selecting-ui-building-blocks",
+        "auditing-ui-library-integration"
+      ],
+      "must_find": [
+        "Block adopt or adapt until license posture is resolved",
+        "Require primary license evidence"
+      ]
+    },
+    {
+      "id": "v4-screenshot-only-inspection",
+      "failure": "Approving a component after gallery screenshots only, with no documentation, dependencies or implementation inspection",
+      "required_skills": [
+        "researching-ui-implementation-ecosystems",
+        "selecting-ui-building-blocks"
+      ],
+      "must_find": [
+        "Screenshots are insufficient evidence",
+        "Inspect documentation and implementation before selection"
+      ]
+    },
+    {
+      "id": "v4-stale-api",
+      "failure": "Memory recommends an old major-version animation API without live verification",
+      "required_skills": [
+        "maintaining-ui-resource-registry",
+        "researching-ui-implementation-ecosystems"
+      ],
+      "must_find": [
+        "Require live verification for high-drift APIs",
+        "Treat stale registry knowledge as non-current implementation truth"
+      ]
+    },
+    {
+      "id": "v4-wrong-stack",
+      "failure": "A React-only component is selected for native Swift because the screenshot looks right",
+      "required_skills": [
+        "selecting-ui-building-blocks",
+        "researching-ui-implementation-ecosystems"
+      ],
+      "must_find": [
+        "Reject adopt or adapt for incompatible stack",
+        "Use mechanism inspiration only where transferable"
+      ]
+    },
+    {
+      "id": "v4-wrong-source-role",
+      "failure": "An animated gallery is used as the sole foundation for dialog focus and keyboard semantics",
+      "required_skills": [
+        "selecting-ui-building-blocks",
+        "auditing-ui-library-integration"
+      ],
+      "must_find": [
+        "Detect source-role mismatch",
+        "Route semantics to an appropriate primitive or local contract"
+      ]
+    },
+    {
+      "id": "v4-copy-without-adaptation",
+      "failure": "A copied card keeps foreign radius colors typography hover motion and demo labels, creating a visual and semantic island",
+      "required_skills": [
+        "adapting-external-ui-patterns",
+        "architecting-component-systems"
+      ],
+      "must_find": [
+        "Map external styling and events to local tokens actions and content",
+        "Preserve useful mechanism rather than foreign surface identity"
+      ]
+    },
+    {
+      "id": "v4-motion-no-reduced",
+      "failure": "An animated background and zoom transition ship with no reduced-motion alternative",
+      "required_skills": [
+        "engineering-rich-interactive-components",
+        "auditing-ui-library-integration"
+      ],
+      "must_find": [
+        "Fail motion integration without reduced-motion behavior",
+        "Provide an alternative preserving information without vestibular motion"
+      ]
+    },
+    {
+      "id": "v4-drag-no-keyboard",
+      "failure": "A sortable dashboard supports drag and drop only despite a keyboard-access obligation",
+      "required_skills": [
+        "engineering-rich-interactive-components",
+        "critiquing-accessibility"
+      ],
+      "must_find": [
+        "Treat drag-only operation as incomplete",
+        "Provide keyboard-equivalent reordering"
+      ]
+    },
+    {
+      "id": "v4-ssr-hydration",
+      "failure": "An animation reads layout during initial render and causes server/client markup mismatch and visual jumps",
+      "required_skills": [
+        "engineering-rich-interactive-components",
+        "auditing-ui-library-integration"
+      ],
+      "must_find": [
+        "Identify SSR and hydration contract risk",
+        "Define server fallback or client-only measurement boundary"
+      ]
+    },
+    {
+      "id": "v4-dependency-overkill",
+      "failure": "A decorative text effect adds a second motion runtime and large transitive dependencies while an equivalent engine already exists",
+      "required_skills": [
+        "selecting-ui-building-blocks",
+        "auditing-ui-library-integration"
+      ],
+      "must_find": [
+        "Compare experiential leverage against dependency duplication",
+        "Prefer existing engine or smaller adaptation when equivalent"
+      ]
+    },
+    {
+      "id": "v4-no-exit-strategy",
+      "failure": "A core editor is tightly coupled to a large SDK with no adapter boundary migration plan or acknowledged lock-in",
+      "required_skills": [
+        "auditing-ui-library-integration",
+        "selecting-ui-building-blocks"
+      ],
+      "must_find": [
+        "Treat lifecycle lock-in as integration risk",
+        "Require replacement boundary or explicit authorized lock-in"
+      ]
+    },
+    {
+      "id": "v4-citation-missing",
+      "failure": "A distinctive mechanism learned from a repository is used without source URL inspected files or provenance",
+      "required_skills": [
+        "researching-ui-implementation-ecosystems",
+        "adapting-external-ui-patterns"
+      ],
+      "must_find": [
+        "Require a material reference-ledger citation",
+        "Record mechanism and adaptation boundary"
+      ]
+    },
+    {
+      "id": "v4-library-demo-not-local-proof",
+      "failure": "An upstream demo is keyboard accessible but the local wrapper changes focus behavior; the team trusts the upstream claim",
+      "required_skills": [
+        "auditing-ui-library-integration",
+        "verifying-runtime-ui-behavior"
+      ],
+      "must_find": [
+        "Upstream accessibility is not local integration proof",
+        "Require local runtime verification"
+      ]
+    }
+  ]
+}

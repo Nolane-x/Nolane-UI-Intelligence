@@ -1,0 +1,16 @@
+import json,re,sys,unittest
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1]
+MANIFEST=json.loads((ROOT/'knowledge/v4-skill-manifest.json').read_text())
+GRAPH=json.loads((ROOT/'skills/skill-graph.json').read_text())['skills']
+class V4DepthTests(unittest.TestCase):
+ def test_manifest_has_six_unique_decision_owners(self):
+  items=MANIFEST['skills']; self.assertEqual(len(items),6); self.assertEqual(len({x['name'] for x in items}),6); self.assertEqual(len({x['ownership'].lower() for x in items}),6)
+ def test_every_v4_skill_is_deep_and_graph_canonical(self):
+  req=('## Decision Boundary','## Product Truth','## Decision Model','## Evidence','## Output Contract','## Failure Traps')
+  for item in MANIFEST['skills']:
+   p=ROOT/'skills'/item['name']/'SKILL.md'; self.assertTrue(p.is_file(),item['name']); text=p.read_text(); words=re.findall(r"\b[\w'-]+\b",text); self.assertGreaterEqual(len(words),700,(item['name'],len(words)))
+   for h in req:self.assertIn(h,text,(item['name'],h))
+   self.assertIn(f"`{item['parent']}`",text); self.assertIn(f"`{item['output']}`",text)
+   self.assertIn(item['name'],GRAPH); self.assertEqual(GRAPH[item['name']]['family'],item['family']); self.assertEqual(GRAPH[item['name']]['parent'],item['parent']); self.assertEqual(GRAPH[item['name']]['output'],item['output'])
+if __name__=='__main__':unittest.main()

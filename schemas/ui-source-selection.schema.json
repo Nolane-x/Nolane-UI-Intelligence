@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NUI UI Source Selection",
+  "type": "object",
+  "required": [
+    "decision",
+    "source_id",
+    "rationale"
+  ],
+  "properties": {
+    "decision": {
+      "enum": [
+        "adopt",
+        "adapt",
+        "inspire",
+        "build",
+        "reject"
+      ]
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "rationale": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "citations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "license_posture": {
+      "type": "string"
+    },
+    "inspected": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_role_fit": {
+      "type": "boolean"
+    },
+    "dependency_cost": {
+      "type": "string"
+    },
+    "exit_strategy": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

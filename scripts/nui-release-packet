@@ -36,10 +36,10 @@ def main() -> int:
         }
     ]
     packet = {
-        "packet_id": f"NUI-V1-STRUCTURAL-{args.revision}",
+        "packet_id": f"NUI-V4-STRUCTURAL-{args.revision}",
         "artifact_revision": args.revision,
         "phase": "VERIFIED",
-        "task_profile": "NUI v1 repository structural release: universal skill graph, deterministic kernel, adapters, provenance and eval contracts",
+        "task_profile": "NUI v4 repository structural release: universal UI cognition, product closure, ecosystem retrieval, rich-interaction contracts, provenance and eval gates",
         "obligations": [
             {"id": "O-GRAPH-SKILLS", "status": "PASS", "evidence_refs": ["E-UNIT-SUITE", "E-REPOSITORY-VALIDATOR"]},
             {"id": "O-DETERMINISTIC-KERNEL", "status": "PASS", "evidence_refs": ["E-UNIT-SUITE"]},
@@ -50,12 +50,13 @@ def main() -> int:
         "evidence": evidence,
         "findings": [],
         "checks": {"unit-tests": "PASS", "repository-validator": "PASS", "completion-gate": "PASS"},
-        "claim": "This exact repository revision satisfies NUI v1's structural, skill-contract, adapter, eval-contract and deterministic completion-gate checks in the fail-fast verification job that generated this packet.",
+        "claim": "This exact repository revision satisfies NUI v4 structural, skill-contract, ecosystem-registry, adapter, eval-contract and deterministic completion-gate checks in the fail-fast verification job that generated this packet.",
         "bounds": [
             "This is structural/process verification; it does not prove the beauty, usability, accessibility or fidelity of every future UI generated with NUI.",
             "Agent-behavior eval JSON files are pressure-test specifications; repository CI does not report them as live cross-model benchmark wins.",
             "Product UI accessibility and fidelity require task-specific runtime and normative evidence through NUI obligations and critics.",
-            "NUI makes no objective superiority claim over all competing UI skills without controlled head-to-head runtime evaluation."
+            "NUI makes no objective superiority claim over all competing UI skills without controlled head-to-head runtime evaluation.",
+            "Repository CI verifies the ecosystem registry contract, not the current correctness or license compatibility of every third-party source at future use time; high-drift sources require live inspection."
         ],
         "unknowns": [
             "Repeated cross-model behavior-eval scores are outside repository-only CI.",

@@ -30,6 +30,7 @@ if __package__:
     from . import emerging3 as _emerging3
     from . import emerging4 as _emerging4
     from . import contracts as _contracts
+    from . import ecosystem as _ecosystem
 else:
     _legacy = _load_sibling("validators_legacy.py", "nui_validators_legacy")
     _industry = _load_sibling("industry.py", "nui_industry")
@@ -38,6 +39,7 @@ else:
     _emerging3 = _load_sibling("emerging3.py", "nui_emerging3")
     _emerging4 = _load_sibling("emerging4.py", "nui_emerging4")
     _contracts = _load_sibling("contracts.py", "nui_contracts")
+    _ecosystem = _load_sibling("ecosystem.py", "nui_ecosystem")
 
 validate_completion_packet = _legacy.validate_completion_packet
 validate_skill_graph = _legacy.validate_skill_graph
@@ -96,6 +98,19 @@ REQUIRED_V3 = (
 )
 
 
+REQUIRED_V4 = (
+    "knowledge/v4-skill-manifest.json",
+    "knowledge/ui-ecosystem-registry.json",
+    "knowledge/source-ledger-ecosystem-v4.json",
+    "evals/v4/manifest.json",
+    "evals/v4/ecosystem/cases.json",
+    "src/nolane_ui/ecosystem.py",
+    "schemas/ui-reference-ledger.schema.json",
+    "schemas/ui-source-selection.schema.json",
+    "schemas/rich-interaction-contract.schema.json",
+)
+
+
 
 def _load(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
@@ -124,6 +139,32 @@ def _mandatory_v3_routes(profile: dict[str, Any]) -> set[str]:
     return required
 
 
+def _mandatory_v4_routes(profile: dict[str, Any]) -> set[str]:
+    """Route external UI ecosystem work only when the task actually needs it."""
+    required: set[str] = set()
+    source_need = bool(profile.get("external_ui_sources") or profile.get("named_ui_source"))
+    intent = profile.get("adoption_intent")
+    if source_need:
+        required |= {
+            "researching-ui-implementation-ecosystems",
+            "selecting-ui-building-blocks",
+        }
+    if source_need and intent == "adapt":
+        required |= {
+            "adapting-external-ui-patterns",
+            "auditing-ui-library-integration",
+        }
+    elif source_need and intent == "adopt":
+        required.add("auditing-ui-library-integration")
+    if profile.get("rich_interaction"):
+        required.add("engineering-rich-interactive-components")
+        if source_need:
+            required.add("auditing-ui-library-integration")
+    if profile.get("ui_registry_maintenance"):
+        required.add("maintaining-ui-resource-registry")
+    return required
+
+
 def mandatory_routes_for_profile(profile: dict[str, Any]) -> set[str]:
     return (
         _industry.mandatory_routes_for_profile(profile)
@@ -132,6 +173,7 @@ def mandatory_routes_for_profile(profile: dict[str, Any]) -> set[str]:
         | _emerging3.mandatory_third_extension_routes(profile)
         | _emerging4.mandatory_fourth_extension_routes(profile)
         | _mandatory_v3_routes(profile)
+        | _mandatory_v4_routes(profile)
     )
 
 
@@ -155,6 +197,44 @@ def validate_v3_completion_evidence(record: dict[str, Any]) -> dict[str, Any]:
         visual = record.get("visual_iteration_evidence")
         if not isinstance(visual, dict) or visual.get("status") != "PASS":
             errors.append("visual evidence iteration requires visual iteration evidence PASS")
+    return {"decision": "BLOCKED" if errors else "PASS", "errors": errors}
+
+
+def validate_v4_completion_evidence(record: dict[str, Any]) -> dict[str, Any]:
+    """Block shipping when external UI reuse or rich interaction lacks local evidence."""
+    errors: list[str] = []
+    if not isinstance(record, dict):
+        return {"decision": "BLOCKED", "errors": ["v4 completion evidence must be an object"]}
+
+    # Preserve all v3 closure precedence when those scopes are present.
+    v3 = validate_v3_completion_evidence(record)
+    errors.extend(v3.get("errors", []))
+
+    if record.get("external_ui_used"):
+        selection = record.get("source_selection")
+        if not isinstance(selection, dict) or selection.get("status") != "PASS":
+            errors.append("external UI use requires source selection PASS")
+        ledger = record.get("reference_ledger")
+        if not isinstance(ledger, dict) or ledger.get("status") != "PASS":
+            errors.append("external UI use requires reference ledger PASS")
+        intent = record.get("adoption_intent")
+        if intent == "adapt":
+            adaptation = record.get("adaptation_contract")
+            if not isinstance(adaptation, dict) or adaptation.get("status") != "PASS":
+                errors.append("external UI adaptation requires adaptation contract PASS")
+        if intent in {"adopt", "adapt"}:
+            audit = record.get("integration_audit")
+            if not isinstance(audit, dict) or audit.get("status") != "PASS":
+                errors.append(f"external UI {intent} requires integration audit PASS")
+
+    if record.get("rich_interaction"):
+        contract = record.get("rich_interaction_contract")
+        if not isinstance(contract, dict) or contract.get("status") != "PASS":
+            errors.append("rich interaction requires rich interaction contract PASS")
+        runtime = record.get("behavior_verification")
+        if not isinstance(runtime, dict) or runtime.get("status") != "PASS":
+            errors.append("rich interaction requires local runtime behavior verification PASS")
+
     return {"decision": "BLOCKED" if errors else "PASS", "errors": errors}
 
 
@@ -336,6 +416,9 @@ def validate_repository(root: Path | str) -> dict[str, Any]:
     for relative in REQUIRED_V3:
         if not (root / relative).is_file():
             errors.append(f"missing required v3 repository file: {relative}")
+    for relative in REQUIRED_V4:
+        if not (root / relative).is_file():
+            errors.append(f"missing required v4 repository file: {relative}")
 
     graph: dict[str, Any] = {}
     atlas: dict[str, Any] = {}
@@ -475,6 +558,122 @@ def validate_repository(root: Path | str) -> dict[str, Any]:
     except Exception as exc:
         errors.append(f"invalid v3 eval corpus: {exc}")
 
+    try:
+        v4 = _load(root / "knowledge/v4-skill-manifest.json")
+        v4_items = v4.get("skills", [])
+        if len(v4_items) != 6:
+            errors.append(f"v4 skill manifest must contain exactly 6 skills, found {len(v4_items)}")
+        declared = graph.get("skills", {}) if graph else {}
+        ownership: set[str] = set()
+        for item in v4_items:
+            name = item.get("name")
+            node = declared.get(name)
+            if not node:
+                errors.append(f"v4 manifest skill {name} is not declared in skill graph")
+                continue
+            for field in ("family", "parent", "output"):
+                if node.get(field) != item.get(field):
+                    errors.append(f"v4 manifest/graph mismatch for {name}.{field}")
+            owner = str(item.get("ownership", "")).strip().lower()
+            if not owner:
+                errors.append(f"v4 manifest skill {name} requires ownership")
+            elif owner in ownership:
+                errors.append(f"duplicate v4 ownership sentence for {name}")
+            ownership.add(owner)
+        metrics["v4_skill_count"] = len(v4_items)
+    except Exception as exc:
+        errors.append(f"invalid v4 skill manifest: {exc}")
+
+    try:
+        registry = _load(root / "knowledge/ui-ecosystem-registry.json")
+        rr = _ecosystem.validate_ui_ecosystem_registry(registry)
+        errors.extend(f"UI ecosystem registry: {x}" for x in rr["errors"])
+        warnings.extend(f"UI ecosystem registry: {x}" for x in rr["warnings"])
+        metrics["ecosystem_source_count"] = rr["source_count"]
+        metrics["ecosystem_category_count"] = rr["category_count"]
+        registry_ids = {x.get("id") for x in registry.get("sources", []) if isinstance(x, dict)}
+
+        ledger = _load(root / "knowledge/source-ledger-ecosystem-v4.json")
+        if ledger.get("version") != 4:
+            errors.append("v4 ecosystem source ledger must declare version 4")
+        if not isinstance(ledger.get("as_of"), str) or not ledger.get("as_of"):
+            errors.append("v4 ecosystem source ledger requires as_of")
+        ledger_ids: set[str] = set()
+        for index, source in enumerate(ledger.get("sources", [])):
+            if not isinstance(source, dict):
+                errors.append(f"v4 ecosystem source ledger item {index} must be an object")
+                continue
+            sid = source.get("id")
+            if not isinstance(sid, str) or not sid:
+                errors.append(f"v4 ecosystem source ledger item {index} requires id")
+                continue
+            if sid in ledger_ids:
+                errors.append(f"duplicate v4 ecosystem ledger source {sid}")
+            ledger_ids.add(sid)
+            if sid not in registry_ids:
+                errors.append(f"v4 ecosystem ledger references unknown registry source {sid}")
+            if not isinstance(source.get("url"), str) or not source.get("url", "").startswith("https://"):
+                errors.append(f"v4 ecosystem ledger source {sid} requires canonical URL")
+            if source.get("drift") not in {"low", "medium", "high", "very-high"}:
+                errors.append(f"v4 ecosystem ledger source {sid} has invalid drift")
+            if not isinstance(source.get("claims"), list) or not source.get("claims"):
+                errors.append(f"v4 ecosystem ledger source {sid} requires claims")
+            if not isinstance(source.get("inspected"), list) or not source.get("inspected"):
+                errors.append(f"v4 ecosystem ledger source {sid} requires inspected evidence")
+        metrics["v4_ecosystem_research_sources"] = len(ledger_ids)
+    except Exception as exc:
+        errors.append(f"invalid v4 ecosystem registry/ledger: {exc}")
+
+    try:
+        manifest = _load(root / "evals/v4/manifest.json")
+        if manifest.get("version") != 4:
+            errors.append("v4 eval manifest must declare version 4")
+        assets = manifest.get("assets", [])
+        total = 0
+        ids: set[str] = set()
+        failures: set[str] = set()
+        declared = set(graph.get("skills", {})) if graph else set()
+        for asset in assets:
+            path = asset.get("path") if isinstance(asset, dict) else asset
+            if not isinstance(path, str) or not path:
+                errors.append("v4 eval manifest asset requires path")
+                continue
+            doc = _load(root / path)
+            if doc.get("version") != 4:
+                errors.append(f"v4 eval asset {path} must declare version 4")
+            for case in doc.get("cases", []):
+                total += 1
+                cid = case.get("id")
+                failure = str(case.get("failure", "")).strip()
+                if not isinstance(cid, str) or not cid:
+                    errors.append(f"v4 eval asset {path} contains case without id")
+                elif cid in ids:
+                    errors.append(f"duplicate v4 eval case id {cid}")
+                else:
+                    ids.add(cid)
+                if len(failure.split()) < 5:
+                    errors.append(f"v4 eval case {cid} has weak failure scenario")
+                elif failure.lower() in failures:
+                    errors.append(f"v4 eval case {cid} duplicates a failure scenario")
+                failures.add(failure.lower())
+                required = case.get("required_skills", [])
+                if not isinstance(required, list) or not required:
+                    errors.append(f"v4 eval case {cid} requires required_skills")
+                else:
+                    unknown = sorted(set(required) - declared)
+                    if unknown:
+                        errors.append(f"v4 eval case {cid} references unknown skills {unknown}")
+                if not isinstance(case.get("must_find"), list) or len(case.get("must_find", [])) < 2:
+                    errors.append(f"v4 eval case {cid} requires at least two must_find findings")
+        expected = manifest.get("case_count")
+        if expected != total:
+            errors.append(f"v4 eval manifest case_count {expected} does not match discovered {total}")
+        if total < 14:
+            errors.append(f"v4 eval corpus requires at least 14 cases, found {total}")
+        metrics["v4_adversarial_cases"] = total
+    except Exception as exc:
+        errors.append(f"invalid v4 eval corpus: {exc}")
+
     return {"valid": not errors, "errors": errors, "warnings": warnings, "metrics": metrics}
 
 
@@ -483,5 +682,5 @@ __all__ = [
     "validate_state_matrix", "validate_tokens", "validate_industry_atlas",
     "validate_source_ledger", "validate_research_saturation", "validate_bounded_saturation",
     "validate_research_radar", "validate_mandatory_routes", "mandatory_routes_for_profile",
-    "validate_v3_completion_evidence",
+    "validate_v3_completion_evidence", "validate_v4_completion_evidence",
 ]

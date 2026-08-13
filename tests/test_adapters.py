@@ -6,7 +6,8 @@ ROOT = Path(__file__).resolve().parents[1]
 RUNTIMES = ["generic", "codex", "claude-code", "gemini-cli", "cursor", "opencode"]
 REQUIRED_CAPABILITIES = {
     "file-read", "file-write", "test-execution", "browser-inspection",
-    "screenshot-capture", "semantic-tree", "subagent-review", "component-retrieval"
+    "screenshot-capture", "semantic-tree", "subagent-review", "component-retrieval",
+    "external-source-research"
 }
 
 

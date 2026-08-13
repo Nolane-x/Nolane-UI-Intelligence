@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NUI Rich Interaction Contract",
+  "type": "object",
+  "required": [
+    "states",
+    "modalities",
+    "reduced_motion",
+    "focus_behavior",
+    "performance_budget",
+    "ssr_strategy",
+    "exit_strategy",
+    "interruptible",
+    "retargetable"
+  ],
+  "properties": {
+    "states": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "string"
+      }
+    },
+    "modalities": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "reduced_motion": {
+      "type": "string",
+      "minLength": 3
+    },
+    "focus_behavior": {
+      "type": "string",
+      "minLength": 3
+    },
+    "performance_budget": {
+      "type": "string",
+      "minLength": 3
+    },
+    "ssr_strategy": {
+      "type": "string",
+      "minLength": 3
+    },
+    "exit_strategy": {
+      "type": "string",
+      "minLength": 3
+    },
+    "interruptible": {
+      "const": true
+    },
+    "retargetable": {
+      "const": true
+    },
+    "activation_threshold": {
+      "type": "string"
+    },
+    "semantic_commit": {
+      "type": "string"
+    },
+    "cleanup": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

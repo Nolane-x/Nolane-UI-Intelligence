@@ -1,0 +1,223 @@
+{
+  "version": 4,
+  "as_of": "2026-08-13",
+  "purpose": "Primary-source evidence behind NUI v4 ecosystem architecture and representative registry classifications.",
+  "sources": [
+    {
+      "id": "react-bits",
+      "url": "https://github.com/DavidHDev/react-bits",
+      "kind": "primary-repository",
+      "drift": "very-high",
+      "claims": [
+        "animated interactive React component gallery",
+        "copy/adapt workflow",
+        "license has Commons Clause conditions"
+      ],
+      "inspected": [
+        "README.md",
+        "LICENSE.md",
+        "package metadata"
+      ]
+    },
+    {
+      "id": "magic-ui",
+      "url": "https://github.com/magicuidesign/magicui",
+      "kind": "primary-repository",
+      "drift": "high",
+      "claims": [
+        "animated copy-paste UI distribution",
+        "MIT license"
+      ],
+      "inspected": [
+        "README.md",
+        "LICENSE.md"
+      ]
+    },
+    {
+      "id": "motion-primitives",
+      "url": "https://github.com/ibelick/motion-primitives",
+      "kind": "primary-repository",
+      "drift": "high",
+      "claims": [
+        "motion component primitives",
+        "beta and active issue surface including accessibility/hydration"
+      ],
+      "inspected": [
+        "README.md",
+        "issues",
+        "license"
+      ]
+    },
+    {
+      "id": "animate-ui",
+      "url": "https://github.com/imskyleen/animate-ui",
+      "kind": "primary-repository",
+      "drift": "high",
+      "claims": [
+        "animated React Tailwind Motion distribution",
+        "MIT license"
+      ],
+      "inspected": [
+        "README.md",
+        "license"
+      ]
+    },
+    {
+      "id": "motion",
+      "url": "https://github.com/motiondivision/motion",
+      "kind": "primary-repository",
+      "drift": "very-high",
+      "claims": [
+        "motion engine for React JavaScript Vue",
+        "gestures layout scroll timelines",
+        "MIT license"
+      ],
+      "inspected": [
+        "README.md",
+        "LICENSE.md"
+      ]
+    },
+    {
+      "id": "radix-primitives",
+      "url": "https://github.com/radix-ui/primitives",
+      "kind": "primary-repository",
+      "drift": "high",
+      "claims": [
+        "low-level accessible primitives",
+        "MIT license"
+      ],
+      "inspected": [
+        "README.md",
+        "license"
+      ]
+    },
+    {
+      "id": "base-ui",
+      "url": "https://github.com/mui/base-ui",
+      "kind": "primary-repository",
+      "drift": "high",
+      "claims": [
+        "unstyled accessible React components",
+        "MIT license"
+      ],
+      "inspected": [
+        "README.md",
+        "license"
+      ]
+    },
+    {
+      "id": "react-aria",
+      "url": "https://github.com/adobe/react-spectrum",
+      "kind": "primary-repository",
+      "drift": "high",
+      "claims": [
+        "unstyled accessibility and interaction primitives",
+        "adaptive input and internationalization",
+        "Apache-2.0 license"
+      ],
+      "inspected": [
+        "README.md",
+        "license"
+      ]
+    },
+    {
+      "id": "zag",
+      "url": "https://github.com/chakra-ui/zag",
+      "kind": "primary-repository",
+      "drift": "high",
+      "claims": [
+        "cross-framework accessible state-machine component logic",
+        "MIT license"
+      ],
+      "inspected": [
+        "README.md",
+        "license"
+      ]
+    },
+    {
+      "id": "gsap-skills",
+      "url": "https://github.com/greensock/gsap-skills",
+      "kind": "primary-repository",
+      "drift": "high",
+      "claims": [
+        "official GSAP AI skills split by core timeline ScrollTrigger plugins React performance frameworks",
+        "MIT license"
+      ],
+      "inspected": [
+        "README.md",
+        "skills",
+        "LICENSE"
+      ]
+    },
+    {
+      "id": "tldraw",
+      "url": "https://github.com/tldraw/tldraw",
+      "kind": "primary-repository",
+      "drift": "very-high",
+      "claims": [
+        "infinite canvas SDK",
+        "production SDK use has license-key requirements under current tldraw license"
+      ],
+      "inspected": [
+        "README.md",
+        "LICENSE.md"
+      ]
+    },
+    {
+      "id": "react-three-fiber",
+      "url": "https://github.com/pmndrs/react-three-fiber",
+      "kind": "primary-repository",
+      "drift": "high",
+      "claims": [
+        "React renderer for Three.js and interactive 3D scenes",
+        "MIT license"
+      ],
+      "inspected": [
+        "README.md",
+        "license"
+      ]
+    },
+    {
+      "id": "design-agent-skills",
+      "url": "https://github.com/podo/design-agent-skills",
+      "kind": "primary-repository",
+      "drift": "very-high",
+      "claims": [
+        "large design-skill catalogue",
+        "two-level routing and on-demand pointers",
+        "explicit overlap and supply-chain concerns"
+      ],
+      "inspected": [
+        "README.md",
+        "design-catalogue/SKILL.md"
+      ]
+    },
+    {
+      "id": "tiptap",
+      "url": "https://github.com/ueberdosis/tiptap",
+      "kind": "primary-repository",
+      "drift": "high",
+      "claims": [
+        "headless extensible rich-text editor framework"
+      ],
+      "inspected": [
+        "README.md",
+        "releases"
+      ]
+    },
+    {
+      "id": "tanstack-table",
+      "url": "https://github.com/TanStack/table",
+      "kind": "primary-repository",
+      "drift": "very-high",
+      "claims": [
+        "headless data-table/datagrid core across frameworks",
+        "major-version prerelease activity requires live API verification"
+      ],
+      "inspected": [
+        "README.md",
+        "releases"
+      ]
+    }
+  ]
+}

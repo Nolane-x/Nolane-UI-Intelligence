@@ -1,0 +1,2425 @@
+{
+  "version": 4,
+  "as_of": "2026-08-13",
+  "policy": {
+    "purpose": "Curated typed retrieval index for UI implementation intelligence; never a popularity leaderboard or blanket endorsement.",
+    "selection_precedence": [
+      "product-obligations",
+      "capability-and-source-role-fit",
+      "stack-and-platform-fit",
+      "accessibility-and-interaction-fit",
+      "license-and-provenance",
+      "integration-cost-and-exit-strategy",
+      "visual-specificity"
+    ],
+    "live_search_fallback": "If local candidates are absent, stale, high-drift or legally ambiguous, perform live source research and write a reference ledger before selection.",
+    "no_third_party_code_embedded": true
+  },
+  "sources": [
+    {
+      "id": "react-bits",
+      "name": "React Bits",
+      "url": "https://github.com/DavidHDev/react-bits",
+      "role": "animated-component-gallery",
+      "categories": [
+        "motion-animation",
+        "visual-components",
+        "creative-effects"
+      ],
+      "capabilities": [
+        "animated-components",
+        "text-effects",
+        "background-effects",
+        "3d-effects"
+      ],
+      "stacks": [
+        "react",
+        "javascript",
+        "typescript"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "restricted",
+        "name": "MIT + Commons Clause",
+        "evidence_url": "https://github.com/DavidHDev/react-bits/blob/main/LICENSE.md",
+        "redistribution_note": "Application use is allowed by current terms, but redistribution of the components/library is restricted; inspect current LICENSE.md before reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "very-high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme",
+          "license"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Creative animated React components or effects where product fit justifies them."
+      ],
+      "when_not_to_use": [
+        "Do not redistribute React Bits components as a competing component library; do not use it as sole accessibility semantics authority."
+      ]
+    },
+    {
+      "id": "magic-ui",
+      "name": "Magic Ui",
+      "url": "https://github.com/magicuidesign/magicui",
+      "role": "animated-component-gallery",
+      "categories": [
+        "motion-animation",
+        "visual-components"
+      ],
+      "capabilities": [
+        "animated-components",
+        "effects",
+        "landing-sections"
+      ],
+      "stacks": [
+        "react",
+        "nextjs",
+        "tailwind"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "verified-compatible",
+        "name": "MIT",
+        "evidence_url": "https://github.com/magicuidesign/magicui/blob/main/LICENSE.md",
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme",
+          "license"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need animated-components with a source role matching animated-component-gallery."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "motion-primitives",
+      "name": "Motion Primitives",
+      "url": "https://github.com/ibelick/motion-primitives",
+      "role": "animated-component-gallery",
+      "categories": [
+        "motion-animation",
+        "interaction-polish"
+      ],
+      "capabilities": [
+        "animated-components",
+        "morphing-dialogs",
+        "carousels",
+        "disclosure"
+      ],
+      "stacks": [
+        "react",
+        "nextjs",
+        "tailwind"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "verified-compatible",
+        "name": "MIT",
+        "evidence_url": "https://github.com/ibelick/motion-primitives/blob/main/LICENCE.md",
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme",
+          "license"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need animated-components with a source role matching animated-component-gallery."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "animate-ui",
+      "name": "Animate Ui",
+      "url": "https://github.com/imskyleen/animate-ui",
+      "role": "component-distribution",
+      "categories": [
+        "motion-animation",
+        "visual-components"
+      ],
+      "capabilities": [
+        "animated-components",
+        "radix-compositions",
+        "shadcn-distribution"
+      ],
+      "stacks": [
+        "react",
+        "typescript",
+        "tailwind"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "verified-compatible",
+        "name": "MIT",
+        "evidence_url": "https://github.com/imskyleen/animate-ui/blob/main/LICENSE",
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme",
+          "license"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need animated-components with a source role matching component-distribution."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "motion",
+      "name": "Motion",
+      "url": "https://github.com/motiondivision/motion",
+      "role": "motion-engine",
+      "categories": [
+        "motion-animation",
+        "interaction-mechanics"
+      ],
+      "capabilities": [
+        "animation-engine",
+        "gestures",
+        "layout-transitions",
+        "scroll-animation",
+        "springs"
+      ],
+      "stacks": [
+        "react",
+        "javascript",
+        "vue"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "verified-compatible",
+        "name": "MIT",
+        "evidence_url": "https://github.com/motiondivision/motion/blob/main/LICENSE.md",
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "neutral",
+      "drift": "very-high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme",
+          "license"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need animation-engine with a source role matching motion-engine."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "gsap",
+      "name": "Gsap",
+      "url": "https://github.com/greensock/GSAP",
+      "role": "motion-engine",
+      "categories": [
+        "motion-animation",
+        "interaction-mechanics"
+      ],
+      "capabilities": [
+        "animation-engine",
+        "timelines",
+        "scroll-animation",
+        "svg-animation",
+        "drag"
+      ],
+      "stacks": [
+        "framework-agnostic",
+        "react",
+        "vue",
+        "svelte"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": "Current GSAP terms",
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "neutral",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need animation-engine with a source role matching motion-engine."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "gsap-skills",
+      "name": "Gsap Skills",
+      "url": "https://github.com/greensock/gsap-skills",
+      "role": "motion-skill-suite",
+      "categories": [
+        "agent-skills",
+        "motion-animation"
+      ],
+      "capabilities": [
+        "agent-animation-guidance",
+        "timelines",
+        "scrolltrigger",
+        "performance"
+      ],
+      "stacks": [
+        "agent",
+        "react",
+        "vue",
+        "svelte",
+        "javascript"
+      ],
+      "allowed_intents": [
+        "inspire"
+      ],
+      "license": {
+        "status": "verified-compatible",
+        "name": "MIT",
+        "evidence_url": "https://github.com/greensock/gsap-skills/blob/main/LICENSE",
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "explicit",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme",
+          "license"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Agent needs official GSAP implementation guidance."
+      ],
+      "when_not_to_use": [
+        "Not an end-user component library; use it to guide implementation, not to supply product UI."
+      ]
+    },
+    {
+      "id": "react-spring",
+      "name": "React Spring",
+      "url": "https://github.com/pmndrs/react-spring",
+      "role": "motion-engine",
+      "categories": [
+        "motion-animation"
+      ],
+      "capabilities": [
+        "spring-animation",
+        "gesture-animation"
+      ],
+      "stacks": [
+        "react",
+        "react-native"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "neutral",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need spring-animation with a source role matching motion-engine."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "auto-animate",
+      "name": "Auto Animate",
+      "url": "https://github.com/formkit/auto-animate",
+      "role": "motion-engine",
+      "categories": [
+        "motion-animation"
+      ],
+      "capabilities": [
+        "automatic-layout-animation"
+      ],
+      "stacks": [
+        "framework-agnostic",
+        "react",
+        "vue",
+        "svelte"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "neutral",
+      "drift": "medium",
+      "verify_live_before_use": false,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need automatic-layout-animation with a source role matching motion-engine."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "anime-js",
+      "name": "Anime Js",
+      "url": "https://github.com/juliangarnier/anime",
+      "role": "motion-engine",
+      "categories": [
+        "motion-animation"
+      ],
+      "capabilities": [
+        "animation-engine",
+        "svg-animation",
+        "timeline"
+      ],
+      "stacks": [
+        "javascript",
+        "framework-agnostic"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "neutral",
+      "drift": "medium",
+      "verify_live_before_use": false,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need animation-engine with a source role matching motion-engine."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "radix-primitives",
+      "name": "Radix Primitives",
+      "url": "https://github.com/radix-ui/primitives",
+      "role": "headless-primitive",
+      "categories": [
+        "accessibility",
+        "headless-primitives"
+      ],
+      "capabilities": [
+        "dialog",
+        "menu",
+        "popover",
+        "select",
+        "tabs",
+        "tooltip",
+        "focus-management"
+      ],
+      "stacks": [
+        "react"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "verified-compatible",
+        "name": "MIT",
+        "evidence_url": "https://github.com/radix-ui/primitives/blob/main/LICENSE",
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "strong",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme",
+          "license"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need dialog with a source role matching headless-primitive."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "base-ui",
+      "name": "Base Ui",
+      "url": "https://github.com/mui/base-ui",
+      "role": "headless-primitive",
+      "categories": [
+        "accessibility",
+        "headless-primitives"
+      ],
+      "capabilities": [
+        "dialog",
+        "menu",
+        "popover",
+        "select",
+        "combobox",
+        "focus-management"
+      ],
+      "stacks": [
+        "react"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "verified-compatible",
+        "name": "MIT",
+        "evidence_url": "https://github.com/mui/base-ui/blob/master/LICENSE",
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "strong",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme",
+          "license"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need dialog with a source role matching headless-primitive."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "react-aria",
+      "name": "React Aria",
+      "url": "https://github.com/adobe/react-spectrum",
+      "role": "headless-primitive",
+      "categories": [
+        "accessibility",
+        "internationalization",
+        "headless-primitives"
+      ],
+      "capabilities": [
+        "aria-behavior",
+        "keyboard",
+        "focus-management",
+        "adaptive-input",
+        "internationalization"
+      ],
+      "stacks": [
+        "react"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "verified-compatible",
+        "name": "Apache-2.0",
+        "evidence_url": "https://github.com/adobe/react-spectrum/blob/main/LICENSE",
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "strong",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme",
+          "license"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need aria-behavior with a source role matching headless-primitive."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "ariakit",
+      "name": "Ariakit",
+      "url": "https://github.com/ariakit/ariakit",
+      "role": "headless-primitive",
+      "categories": [
+        "accessibility",
+        "headless-primitives"
+      ],
+      "capabilities": [
+        "dialog",
+        "menu",
+        "combobox",
+        "select",
+        "focus-management"
+      ],
+      "stacks": [
+        "react"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "strong",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need dialog with a source role matching headless-primitive."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "zag",
+      "name": "Zag",
+      "url": "https://github.com/chakra-ui/zag",
+      "role": "interaction-state-machine",
+      "categories": [
+        "accessibility",
+        "state-machines",
+        "headless-primitives"
+      ],
+      "capabilities": [
+        "component-state-machines",
+        "keyboard",
+        "focus-management",
+        "cross-framework-primitives"
+      ],
+      "stacks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid",
+        "javascript"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "verified-compatible",
+        "name": "MIT",
+        "evidence_url": "https://github.com/chakra-ui/zag/blob/main/LICENSE",
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "strong",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme",
+          "license"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need component-state-machines with a source role matching interaction-state-machine."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "ark-ui",
+      "name": "Ark Ui",
+      "url": "https://github.com/chakra-ui/ark",
+      "role": "headless-primitive",
+      "categories": [
+        "accessibility",
+        "headless-primitives"
+      ],
+      "capabilities": [
+        "headless-components",
+        "state-machine-primitives"
+      ],
+      "stacks": [
+        "react",
+        "vue",
+        "solid",
+        "svelte"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "strong",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need headless-components with a source role matching headless-primitive."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "headless-ui",
+      "name": "Headless Ui",
+      "url": "https://github.com/tailwindlabs/headlessui",
+      "role": "headless-primitive",
+      "categories": [
+        "accessibility",
+        "headless-primitives"
+      ],
+      "capabilities": [
+        "dialog",
+        "menu",
+        "combobox",
+        "listbox",
+        "popover",
+        "tabs"
+      ],
+      "stacks": [
+        "react",
+        "vue"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "strong",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need dialog with a source role matching headless-primitive."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "floating-ui",
+      "name": "Floating Ui",
+      "url": "https://github.com/floating-ui/floating-ui",
+      "role": "positioning-engine",
+      "categories": [
+        "interaction-mechanics",
+        "overlays"
+      ],
+      "capabilities": [
+        "floating-positioning",
+        "collision-detection",
+        "tooltip-positioning",
+        "popover-positioning"
+      ],
+      "stacks": [
+        "framework-agnostic",
+        "react",
+        "vue",
+        "svelte"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "neutral",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need floating-positioning with a source role matching positioning-engine."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "shadcn-ui",
+      "name": "Shadcn Ui",
+      "url": "https://github.com/shadcn-ui/ui",
+      "role": "component-distribution",
+      "categories": [
+        "design-systems",
+        "visual-components"
+      ],
+      "capabilities": [
+        "component-distribution",
+        "forms",
+        "navigation",
+        "overlays"
+      ],
+      "stacks": [
+        "react",
+        "nextjs",
+        "tailwind"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "explicit",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need component-distribution with a source role matching component-distribution."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "material-ui",
+      "name": "Material Ui",
+      "url": "https://github.com/mui/material-ui",
+      "role": "design-system",
+      "categories": [
+        "design-systems"
+      ],
+      "capabilities": [
+        "component-library",
+        "theming",
+        "forms",
+        "navigation"
+      ],
+      "stacks": [
+        "react"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "explicit",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need component-library with a source role matching design-system."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "chakra-ui",
+      "name": "Chakra Ui",
+      "url": "https://github.com/chakra-ui/chakra-ui",
+      "role": "design-system",
+      "categories": [
+        "design-systems"
+      ],
+      "capabilities": [
+        "component-library",
+        "theming",
+        "forms",
+        "overlays"
+      ],
+      "stacks": [
+        "react"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "explicit",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need component-library with a source role matching design-system."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "mantine",
+      "name": "Mantine",
+      "url": "https://github.com/mantinedev/mantine",
+      "role": "design-system",
+      "categories": [
+        "design-systems"
+      ],
+      "capabilities": [
+        "component-library",
+        "hooks",
+        "forms",
+        "dates"
+      ],
+      "stacks": [
+        "react"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "explicit",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need component-library with a source role matching design-system."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "ant-design",
+      "name": "Ant Design",
+      "url": "https://github.com/ant-design/ant-design",
+      "role": "design-system",
+      "categories": [
+        "design-systems",
+        "enterprise-ui"
+      ],
+      "capabilities": [
+        "component-library",
+        "tables",
+        "forms",
+        "enterprise-ui"
+      ],
+      "stacks": [
+        "react"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "explicit",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need component-library with a source role matching design-system."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "carbon",
+      "name": "Carbon",
+      "url": "https://github.com/carbon-design-system/carbon",
+      "role": "design-system",
+      "categories": [
+        "design-systems",
+        "enterprise-ui"
+      ],
+      "capabilities": [
+        "component-library",
+        "accessibility",
+        "data-heavy-ui"
+      ],
+      "stacks": [
+        "react",
+        "web"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "explicit",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need component-library with a source role matching design-system."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "fluent-ui",
+      "name": "Fluent Ui",
+      "url": "https://github.com/microsoft/fluentui",
+      "role": "design-system",
+      "categories": [
+        "design-systems"
+      ],
+      "capabilities": [
+        "component-library",
+        "accessibility",
+        "enterprise-ui"
+      ],
+      "stacks": [
+        "react",
+        "web"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "explicit",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need component-library with a source role matching design-system."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "primer-react",
+      "name": "Primer React",
+      "url": "https://github.com/primer/react",
+      "role": "design-system",
+      "categories": [
+        "design-systems"
+      ],
+      "capabilities": [
+        "component-library",
+        "github-style-product-ui"
+      ],
+      "stacks": [
+        "react"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "explicit",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need component-library with a source role matching design-system."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "echarts",
+      "name": "Echarts",
+      "url": "https://github.com/apache/echarts",
+      "role": "data-visualization",
+      "categories": [
+        "data-visualization"
+      ],
+      "capabilities": [
+        "charts",
+        "large-data-visualization",
+        "interaction"
+      ],
+      "stacks": [
+        "javascript",
+        "web"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need charts with a source role matching data-visualization."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "vega-lite",
+      "name": "Vega Lite",
+      "url": "https://github.com/vega/vega-lite",
+      "role": "data-visualization",
+      "categories": [
+        "data-visualization"
+      ],
+      "capabilities": [
+        "declarative-charts",
+        "grammar-of-graphics"
+      ],
+      "stacks": [
+        "javascript",
+        "web"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need declarative-charts with a source role matching data-visualization."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "observable-plot",
+      "name": "Observable Plot",
+      "url": "https://github.com/observablehq/plot",
+      "role": "data-visualization",
+      "categories": [
+        "data-visualization"
+      ],
+      "capabilities": [
+        "concise-charts",
+        "exploratory-visualization"
+      ],
+      "stacks": [
+        "javascript",
+        "web"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need concise-charts with a source role matching data-visualization."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "visx",
+      "name": "Visx",
+      "url": "https://github.com/airbnb/visx",
+      "role": "data-visualization",
+      "categories": [
+        "data-visualization"
+      ],
+      "capabilities": [
+        "low-level-charts",
+        "custom-svg-visualization"
+      ],
+      "stacks": [
+        "react",
+        "web"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need low-level-charts with a source role matching data-visualization."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "recharts",
+      "name": "Recharts",
+      "url": "https://github.com/recharts/recharts",
+      "role": "data-visualization",
+      "categories": [
+        "data-visualization"
+      ],
+      "capabilities": [
+        "react-charts",
+        "dashboards"
+      ],
+      "stacks": [
+        "react",
+        "web"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need react-charts with a source role matching data-visualization."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "nivo",
+      "name": "Nivo",
+      "url": "https://github.com/plouc/nivo",
+      "role": "data-visualization",
+      "categories": [
+        "data-visualization"
+      ],
+      "capabilities": [
+        "react-charts",
+        "animated-charts"
+      ],
+      "stacks": [
+        "react",
+        "web"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need react-charts with a source role matching data-visualization."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "tiptap",
+      "name": "Tiptap",
+      "url": "https://github.com/ueberdosis/tiptap",
+      "role": "rich-text-editor",
+      "categories": [
+        "editors-and-input"
+      ],
+      "capabilities": [
+        "rich-text-editor",
+        "extensions",
+        "collaboration"
+      ],
+      "stacks": [
+        "framework-agnostic",
+        "react",
+        "vue"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need rich-text-editor with a source role matching rich-text-editor."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "lexical",
+      "name": "Lexical",
+      "url": "https://github.com/facebook/lexical",
+      "role": "rich-text-editor",
+      "categories": [
+        "editors-and-input"
+      ],
+      "capabilities": [
+        "rich-text-editor",
+        "editor-state",
+        "plugins"
+      ],
+      "stacks": [
+        "react",
+        "javascript"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need rich-text-editor with a source role matching rich-text-editor."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "slate",
+      "name": "Slate",
+      "url": "https://github.com/ianstormtaylor/slate",
+      "role": "rich-text-editor",
+      "categories": [
+        "editors-and-input"
+      ],
+      "capabilities": [
+        "rich-text-editor",
+        "custom-editor-model"
+      ],
+      "stacks": [
+        "react"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need rich-text-editor with a source role matching rich-text-editor."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "blocknote",
+      "name": "Blocknote",
+      "url": "https://github.com/TypeCellOS/BlockNote",
+      "role": "rich-text-editor",
+      "categories": [
+        "editors-and-input"
+      ],
+      "capabilities": [
+        "block-editor",
+        "rich-text-editor"
+      ],
+      "stacks": [
+        "react"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need block-editor with a source role matching rich-text-editor."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "tanstack-table",
+      "name": "Tanstack Table",
+      "url": "https://github.com/TanStack/table",
+      "role": "data-grid",
+      "categories": [
+        "interaction-mechanics"
+      ],
+      "capabilities": [
+        "headless-table",
+        "sorting",
+        "filtering",
+        "grouping",
+        "data-grid"
+      ],
+      "stacks": [
+        "react",
+        "vue",
+        "solid",
+        "svelte",
+        "javascript"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need headless-table with a source role matching data-grid."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "react-hook-form",
+      "name": "React Hook Form",
+      "url": "https://github.com/react-hook-form/react-hook-form",
+      "role": "form-engine",
+      "categories": [
+        "interaction-mechanics"
+      ],
+      "capabilities": [
+        "form-state",
+        "validation",
+        "performance"
+      ],
+      "stacks": [
+        "react"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need form-state with a source role matching form-engine."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "tanstack-form",
+      "name": "Tanstack Form",
+      "url": "https://github.com/TanStack/form",
+      "role": "form-engine",
+      "categories": [
+        "interaction-mechanics"
+      ],
+      "capabilities": [
+        "form-state",
+        "validation"
+      ],
+      "stacks": [
+        "react",
+        "vue",
+        "solid",
+        "angular"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need form-state with a source role matching form-engine."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "dnd-kit",
+      "name": "Dnd Kit",
+      "url": "https://github.com/clauderic/dnd-kit",
+      "role": "drag-drop-engine",
+      "categories": [
+        "interaction-mechanics"
+      ],
+      "capabilities": [
+        "drag-drop",
+        "sorting",
+        "direct-manipulation"
+      ],
+      "stacks": [
+        "react"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need drag-drop with a source role matching drag-drop-engine."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "tldraw",
+      "name": "Tldraw",
+      "url": "https://github.com/tldraw/tldraw",
+      "role": "canvas-sdk",
+      "categories": [
+        "canvas",
+        "collaboration"
+      ],
+      "capabilities": [
+        "infinite-canvas",
+        "whiteboard",
+        "diagramming",
+        "multiplayer"
+      ],
+      "stacks": [
+        "react"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "restricted",
+        "name": "tldraw license",
+        "evidence_url": "https://github.com/tldraw/tldraw/blob/main/LICENSE.md",
+        "redistribution_note": "Development is permitted; current production SDK use requires a license key or other applicable license. Verify current terms."
+      },
+      "accessibility_posture": "explicit",
+      "drift": "very-high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme",
+          "license"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need infinite-canvas with a source role matching canvas-sdk."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "excalidraw",
+      "name": "Excalidraw",
+      "url": "https://github.com/excalidraw/excalidraw",
+      "role": "canvas-library",
+      "categories": [
+        "canvas",
+        "diagramming"
+      ],
+      "capabilities": [
+        "whiteboard",
+        "diagramming",
+        "sketching"
+      ],
+      "stacks": [
+        "react",
+        "web"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need whiteboard with a source role matching canvas-library."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "react-three-fiber",
+      "name": "React Three Fiber",
+      "url": "https://github.com/pmndrs/react-three-fiber",
+      "role": "3d-renderer",
+      "categories": [
+        "creative-3d",
+        "spatial-ui"
+      ],
+      "capabilities": [
+        "3d-rendering",
+        "interactive-scenes"
+      ],
+      "stacks": [
+        "react"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "verified-compatible",
+        "name": "MIT",
+        "evidence_url": "https://github.com/pmndrs/react-three-fiber/blob/master/LICENSE",
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "neutral",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme",
+          "license"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need 3d-rendering with a source role matching 3d-renderer."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "drei",
+      "name": "Drei",
+      "url": "https://github.com/pmndrs/drei",
+      "role": "3d-helper-library",
+      "categories": [
+        "creative-3d",
+        "spatial-ui"
+      ],
+      "capabilities": [
+        "3d-helpers",
+        "controls",
+        "loaders",
+        "staging"
+      ],
+      "stacks": [
+        "react"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "verified-compatible",
+        "name": "MIT",
+        "evidence_url": "https://github.com/pmndrs/drei/blob/master/LICENSE",
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "neutral",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme",
+          "license"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need 3d-helpers with a source role matching 3d-helper-library."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "three-js",
+      "name": "Three Js",
+      "url": "https://github.com/mrdoob/three.js",
+      "role": "3d-renderer",
+      "categories": [
+        "creative-3d",
+        "spatial-ui"
+      ],
+      "capabilities": [
+        "3d-rendering",
+        "webgl",
+        "webgpu"
+      ],
+      "stacks": [
+        "javascript",
+        "web"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "neutral",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need 3d-rendering with a source role matching 3d-renderer."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "canvas-ui",
+      "name": "Canvas Ui",
+      "url": "https://github.com/DavidHDev/canvas-ui",
+      "role": "creative-canvas-gallery",
+      "categories": [
+        "creative-effects",
+        "canvas"
+      ],
+      "capabilities": [
+        "webgl-effects",
+        "canvas-components"
+      ],
+      "stacks": [
+        "react",
+        "vue",
+        "svelte",
+        "javascript"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "very-high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need webgl-effects with a source role matching creative-canvas-gallery."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "tamagui",
+      "name": "Tamagui",
+      "url": "https://github.com/tamagui/tamagui",
+      "role": "mobile-ui-system",
+      "categories": [
+        "mobile-native",
+        "design-systems"
+      ],
+      "capabilities": [
+        "cross-platform-components",
+        "design-system",
+        "responsive"
+      ],
+      "stacks": [
+        "react-native",
+        "react",
+        "web"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "explicit",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need cross-platform-components with a source role matching mobile-ui-system."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "gluestack-ui",
+      "name": "Gluestack Ui",
+      "url": "https://github.com/gluestack/gluestack-ui",
+      "role": "mobile-ui-system",
+      "categories": [
+        "mobile-native",
+        "design-systems"
+      ],
+      "capabilities": [
+        "cross-platform-components",
+        "mobile-ui"
+      ],
+      "stacks": [
+        "react-native",
+        "react"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "explicit",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need cross-platform-components with a source role matching mobile-ui-system."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "react-native-paper",
+      "name": "React Native Paper",
+      "url": "https://github.com/callstack/react-native-paper",
+      "role": "mobile-ui-system",
+      "categories": [
+        "mobile-native",
+        "design-systems"
+      ],
+      "capabilities": [
+        "mobile-components",
+        "material-design"
+      ],
+      "stacks": [
+        "react-native"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "explicit",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need mobile-components with a source role matching mobile-ui-system."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "sonner",
+      "name": "Sonner",
+      "url": "https://github.com/emilkowalski/sonner",
+      "role": "notification-system",
+      "categories": [
+        "feedback-notifications"
+      ],
+      "capabilities": [
+        "toast",
+        "notifications"
+      ],
+      "stacks": [
+        "react"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "explicit",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need toast with a source role matching notification-system."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "design-agent-skills",
+      "name": "Design Agent Skills",
+      "url": "https://github.com/podo/design-agent-skills",
+      "role": "agent-skill-catalog",
+      "categories": [
+        "agent-skills",
+        "design-intelligence"
+      ],
+      "capabilities": [
+        "skill-routing",
+        "motion-skills",
+        "accessibility-skills",
+        "design-review-skills"
+      ],
+      "stacks": [
+        "agent"
+      ],
+      "allowed_intents": [
+        "inspire"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "unknown",
+      "drift": "very-high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Agent needs to discover specialist design skills without bulk-loading overlapping prompts."
+      ],
+      "when_not_to_use": [
+        "Do not install the entire catalogue blindly; route by intent and inspect upstream skill provenance."
+      ]
+    },
+    {
+      "id": "ui-ux-pro-max-skill",
+      "name": "Ui Ux Pro Max Skill",
+      "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "role": "design-intelligence-skill",
+      "categories": [
+        "agent-skills",
+        "design-intelligence"
+      ],
+      "capabilities": [
+        "style-search",
+        "palette-search",
+        "typography-search",
+        "ux-guidelines",
+        "stack-guidance"
+      ],
+      "stacks": [
+        "agent"
+      ],
+      "allowed_intents": [
+        "inspire"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "unknown",
+      "drift": "very-high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need searchable design heuristic/database inspiration for an agent."
+      ],
+      "when_not_to_use": [
+        "Do not treat database suggestions as product truth or bypass NUI closure/accessibility evidence."
+      ]
+    }
+  ]
+}

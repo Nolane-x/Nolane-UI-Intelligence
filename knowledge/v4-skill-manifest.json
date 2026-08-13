@@ -1,0 +1,47 @@
+{
+  "version": 4,
+  "skills": [
+    {
+      "name": "researching-ui-implementation-ecosystems",
+      "family": "research",
+      "parent": "routing-ui-work",
+      "output": "ui-ecosystem-query",
+      "ownership": "Own task-specific discovery of current UI implementation sources by capability, stack, platform, source role, risk and adoption intent."
+    },
+    {
+      "name": "selecting-ui-building-blocks",
+      "family": "system",
+      "parent": "researching-ui-implementation-ecosystems",
+      "output": "ui-source-selection",
+      "ownership": "Own evidence-based adopt adapt inspire build or reject decisions among external UI primitives, components, engines and implementation sources."
+    },
+    {
+      "name": "adapting-external-ui-patterns",
+      "family": "system",
+      "parent": "selecting-ui-building-blocks",
+      "output": "ui-adaptation-contract",
+      "ownership": "Own semantic and visual reconciliation of selected external mechanisms with local actions, tokens, components, accessibility, content and platform behavior."
+    },
+    {
+      "name": "engineering-rich-interactive-components",
+      "family": "interaction",
+      "parent": "designing-interactions",
+      "output": "rich-interaction-contract",
+      "ownership": "Own implementation mechanics for animated direct-manipulation and rich interactive components including interruption modalities reduced motion performance and state continuity."
+    },
+    {
+      "name": "auditing-ui-library-integration",
+      "family": "critic",
+      "parent": "selecting-ui-building-blocks",
+      "output": "ui-integration-audit",
+      "ownership": "Own integration-risk review for license dependency accessibility reduced-motion SSR hydration performance API drift security and exit strategy before external UI code ships."
+    },
+    {
+      "name": "maintaining-ui-resource-registry",
+      "family": "research",
+      "parent": "researching-ui-frontiers",
+      "output": "ui-resource-registry-delta",
+      "ownership": "Own lifecycle governance of the curated UI resource registry including source roles provenance freshness drift license posture deduplication and retirement."
+    }
+  ]
+}

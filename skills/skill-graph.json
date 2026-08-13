@@ -707,6 +707,36 @@
       "family": "research",
       "parent": "routing-ui-work",
       "output": "design-memory"
+    },
+    "researching-ui-implementation-ecosystems": {
+      "family": "research",
+      "parent": "routing-ui-work",
+      "output": "ui-ecosystem-query"
+    },
+    "selecting-ui-building-blocks": {
+      "family": "system",
+      "parent": "researching-ui-implementation-ecosystems",
+      "output": "ui-source-selection"
+    },
+    "adapting-external-ui-patterns": {
+      "family": "system",
+      "parent": "selecting-ui-building-blocks",
+      "output": "ui-adaptation-contract"
+    },
+    "engineering-rich-interactive-components": {
+      "family": "interaction",
+      "parent": "designing-interactions",
+      "output": "rich-interaction-contract"
+    },
+    "auditing-ui-library-integration": {
+      "family": "critic",
+      "parent": "selecting-ui-building-blocks",
+      "output": "ui-integration-audit"
+    },
+    "maintaining-ui-resource-registry": {
+      "family": "research",
+      "parent": "researching-ui-frontiers",
+      "output": "ui-resource-registry-delta"
     }
   }
 }

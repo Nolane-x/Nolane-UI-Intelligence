@@ -1,6 +1,13 @@
 {
-  "version": 1,
-  "runtimes": ["generic","codex","claude-code","gemini-cli","cursor","opencode"],
+  "version": 2,
+  "runtimes": [
+    "generic",
+    "codex",
+    "claude-code",
+    "gemini-cli",
+    "cursor",
+    "opencode"
+  ],
   "capabilities": {
     "file-read": {
       "fallback": "Ask the runtime for the smallest relevant file excerpt; if files are inaccessible, keep repository-dependent claims UNKNOWN.",
@@ -88,6 +95,17 @@
         "gemini-cli": "registry/MCP when configured",
         "cursor": "registry/MCP when configured",
         "opencode": "registry/MCP when configured"
+      }
+    },
+    "external-source-research": {
+      "fallback": "Query the curated NUI ecosystem registry and mark current API/license facts UNKNOWN; do not claim live verification or adopt/adapt high-drift sources without primary-source access.",
+      "runtimes": {
+        "generic": "web/search or repository connector when exposed",
+        "codex": "web or connected repository/documentation research capability when exposed",
+        "claude-code": "web/repository MCP or native web research when configured",
+        "gemini-cli": "web/search and repository tooling when configured",
+        "cursor": "web/repository context or MCP when configured",
+        "opencode": "web/repository MCP or search capability when configured"
       }
     }
   }

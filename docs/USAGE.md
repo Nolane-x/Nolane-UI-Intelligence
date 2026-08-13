@@ -4,7 +4,7 @@
 
 Load `using-nolane-ui`. The bootstrap hands lifecycle ownership to `nolane-ui`, which compiles a contract, routes faculties, creates obligations, binds evidence, and owns release semantics.
 
-Do **not** preload the entire skill graph. The current research snapshot contains 125 skills, but progressive disclosure is a design constraint: the agent should receive only the smallest sufficient faculty graph for the task.
+Do **not** preload the entire skill graph. The current v4 graph contains 141 skills, but progressive disclosure is a design constraint: the agent should receive only the smallest sufficient faculty graph for the task.
 
 ## Build the v2 task profile
 
@@ -158,3 +158,51 @@ Use bounded claims, for example:
 > The reviewed desktop and tablet routes were rendered and compared against the accepted target; the declared keyboard flow, state matrix, token checks, and scoped automated accessibility checks passed. Native mobile screen-reader behavior, the Japanese locale, and the offline reconnect path were not tested and remain outside this release claim.
 
 Avoid absolute labels such as “pixel-perfect,” “fully accessible,” “certified,” “production-ready,” or “industry-complete” unless the evidence packet actually supports the exact scope. Repository-level bounded research saturation is not task-level UI quality evidence.
+
+
+## External UI sources, animated components and implementation ecosystems
+
+Use the ecosystem plane when the request names or materially depends on an external UI repository/library, when a rich interaction would benefit from an existing engine/primitive, or when current implementation research is required. Do **not** route every small CSS change through the ecosystem plane.
+
+A named repository is a search seed, not an automatic adoption decision. For a request such as “use React Bits for an animated React surface,” route at least `researching-ui-implementation-ecosystems` → `selecting-ui-building-blocks`. If the implementation will be adapted into the product, also route `adapting-external-ui-patterns` and `auditing-ui-library-integration`. Rich pointer/drag/gesture/layout/scroll animation adds `engineering-rich-interactive-components`; local behavior still closes through `verifying-runtime-ui-behavior`.
+
+Before a material external source is used, produce a reference ledger entry with:
+
+- canonical source URL and source ID;
+- usage mode: `adopt`, `adapt`, `inspire`, `build`, or `reject`;
+- exact mechanism being learned or reused;
+- README/docs/license/implementation paths actually inspected;
+- current verification date/version/commit when known;
+- adaptation boundary: what is preserved, what is intentionally changed, and what must remain owned by the local product;
+- license/redistribution posture for adopt/adapt decisions.
+
+Do not rank by GitHub stars, visual novelty or “industry popularity” alone. Compare capability fit, stack/platform fit, source role, accessibility/interaction posture, current license, dependency footprint, SSR/hydration behavior, performance, API drift and exit strategy.
+
+### Source roles are not interchangeable
+
+Examples of role separation:
+
+- an animated component gallery can contribute a visual/interaction mechanism, but does not automatically own dialog semantics or keyboard policy;
+- a headless primitive can own robust semantics/state mechanics without determining the product's visual identity;
+- a motion engine can implement timing/layout/gesture mechanics without deciding whether the motion belongs in the product;
+- a design system can provide coherent primitives/tokens but cannot override product capability closure;
+- a whiteboard/editor/data-grid SDK is appropriate only when the product needs that abstraction, and may carry meaningful licensing, bundle, lifecycle or lock-in cost.
+
+### Rich interaction completion
+
+For animated/direct-manipulation components, the `rich-interaction-contract` records idle/active/interrupted/completed states, activation thresholds, semantic commit point, pointer/touch/keyboard equivalence, focus behavior, reduced-motion behavior, interruption/retargeting, SSR/hydration boundary, cleanup, performance budget and exit strategy.
+
+Animation is not complete because the happy-path demo looks smooth. Test rapid repeated input, cancellation, route changes during animation, slow devices, resized containers, hydration, reduced motion, focus restoration, keyboard-only operation and the non-enhanced fallback.
+
+### Registry fallback
+
+
+Query the curated ecosystem deterministically before live fallback:
+
+```bash
+python scripts/nui-ecosystem-query --capability animated-components --stack react --intent adapt
+```
+
+The output is a candidate set with canonical URLs, source roles, license-status hints and `verify_live_before_use`; it is **not** an install command or permission to copy code.
+
+`knowledge/ui-ecosystem-registry.json` is a curated cache, not a claim that NUI has indexed every current library. If no candidate fits, if a candidate is high-drift, or if license/API facts are ambiguous, perform live primary-source research and write the evidence into the reference ledger. Registry maintenance is owned by `maintaining-ui-resource-registry`; task execution should not silently rewrite the registry from unverified search snippets.
