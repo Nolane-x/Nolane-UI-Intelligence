@@ -1,0 +1,62 @@
+diff --git a/knowledge/v6-depth-focus-obligations.json b/knowledge/v6-depth-focus-obligations.json
+index e503466..5ab1f5b 100644
+--- a/knowledge/v6-depth-focus-obligations.json
++++ b/knowledge/v6-depth-focus-obligations.json
+@@ -1162,11 +1162,67 @@
+       "ambiguity budget",
+       "re-expansion trigger",
+       "compression checksum"
++    ],
++    "exporting-nui-to-agent-harnesses": [
++      "canonical-corpus singularity",
++      "host-discovery handshake",
++      "permission sovereignty mapping",
++      "route-preserving projection",
++      "capability-loss fallback"
++    ],
++    "governing-external-agent-skills": [
++      "immutable skill identity",
++      "transitive instruction census",
++      "capability envelope proof",
++      "instruction-data firewall",
++      "license inheritance map"
++    ],
++    "mapping-visual-media-opportunities": [
++      "semantic media slot map",
++      "subject-native evidence test",
++      "media information-gain gradient",
++      "geometry legitimacy test",
++      "media density rhythm"
++    ],
++    "sourcing-rights-safe-visual-media": [
++      "rights-before-download query",
++      "asset-page truth rule",
++      "rights decomposition ledger",
++      "provenance-preserving acquisition",
++      "derivative-work boundary check"
++    ],
++    "replacing-shape-substitution": [
++      "shape-role census",
++      "removal-cost evidence",
++      "native-substrate substitution test",
++      "geometry semantic ledger",
++      "trope concentration pressure"
++    ],
++    "authoring-domain-native-visual-assets": [
++      "domain asset truth brief",
++      "asset grammar extraction",
++      "representation fidelity tier",
++      "tool-neutral authoring spec",
++      "synthetic provenance chain"
++    ],
++    "orchestrating-creative-toolchains": [
++      "stage-authority matrix",
++      "tool capability hydration",
++      "intermediate artifact contracts",
++      "reversible pipeline preference",
++      "cross-tool provenance threading"
++    ],
++    "validating-visual-asset-integration": [
++      "asset-state integration matrix",
++      "focal hierarchy arbitration",
++      "crop-semantic resilience test",
