@@ -18,7 +18,7 @@ jobs:
           ref: ${{ github.ref_name }}
           fetch-depth: 0
 
-      - name: Apply verified v6 patch
+      - name: Apply verified v6 patch without workflow mutation
         shell: bash
         run: |
           set -euo pipefail
@@ -61,13 +61,8 @@ jobs:
           EOF
           sha256sum -c /tmp/nui-v6-parts.sha256
           cat \
-            .nui-v6-payload/part-00 \
-            .nui-v6-payload/part-01 \
-            .nui-v6-payload/part-02 \
-            .nui-v6-payload/part-03 \
-            .nui-v6-payload/part-04 \
-            .nui-v6-payload/part-05a .nui-v6-payload/part-05b .nui-v6-payload/part-05c \
-            .nui-v6-payload/part-06 \
+            .nui-v6-payload/part-00 .nui-v6-payload/part-01 .nui-v6-payload/part-02 .nui-v6-payload/part-03 .nui-v6-payload/part-04 \
+            .nui-v6-payload/part-05a .nui-v6-payload/part-05b .nui-v6-payload/part-05c .nui-v6-payload/part-06 \
             .nui-v6-payload/part-07a .nui-v6-payload/part-07b .nui-v6-payload/part-07c \
             .nui-v6-payload/part-08 .nui-v6-payload/part-09 .nui-v6-payload/part-10 .nui-v6-payload/part-11 \
             .nui-v6-payload/part-12a .nui-v6-payload/part-12b .nui-v6-payload/part-12c \
@@ -75,8 +70,7 @@ jobs:
             .nui-v6-payload/part-14a .nui-v6-payload/part-14b .nui-v6-payload/part-14c \
             .nui-v6-payload/part-15a .nui-v6-payload/part-15b .nui-v6-payload/part-15c \
             .nui-v6-payload/part-16a .nui-v6-payload/part-16b .nui-v6-payload/part-16c \
-            .nui-v6-payload/part-17a .nui-v6-payload/part-17b .nui-v6-payload/part-17c \
-            .nui-v6-payload/part-18a \
+            .nui-v6-payload/part-17a .nui-v6-payload/part-17b .nui-v6-payload/part-17c .nui-v6-payload/part-18a \
             > /tmp/nui-v6.patch.xz.b64
           echo "a7996371f9175b3db91768389d0b719eb9ae1677a2a34f3ccf13e4afb973680a  /tmp/nui-v6.patch.xz.b64" | sha256sum -c -
           base64 -d /tmp/nui-v6.patch.xz.b64 > /tmp/nui-v6.patch.xz
@@ -84,7 +78,9 @@ jobs:
           xz -dc /tmp/nui-v6.patch.xz > /tmp/nui-v6.patch
           git apply --check /tmp/nui-v6.patch
           git apply /tmp/nui-v6.patch
-          rm -rf .nui-v6-payload .nui-v6-ready .github/workflows/nui-v6-bootstrap.yml
+          # Keep workflow files unchanged for this Actions-token push. They are finalized through the GitHub connector after source materialization.
+          git checkout HEAD -- .github/workflows/verify.yml .github/workflows/nui-v6-bootstrap.yml
+          rm -rf .nui-v6-payload .nui-v6-ready
           git config user.name "Nolane v6 bootstrap"
           git config user.email "actions@users.noreply.github.com"
           git add -A
