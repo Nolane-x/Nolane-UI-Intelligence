@@ -1,0 +1,69 @@
+diff --git a/docs/superpowers/plans/2026-08-13-agent-interop-visual-media-v8.md b/docs/superpowers/plans/2026-08-13-agent-interop-visual-media-v8.md
+new file mode 100644
+index 0000000..5fca557
+--- /dev/null
++++ b/docs/superpowers/plans/2026-08-13-agent-interop-visual-media-v8.md
+@@ -0,0 +1,10 @@
++# NUI v8 Implementation Plan
++
++1. Establish red tests for portable host adapters, external-skill trust, media opportunity/shape audits, rights ledgers, creative tool authority and completion blocking.
++2. Add deterministic `interop.py`, `media.py` and bounded `mcp_server.py` kernels plus CLI entry points.
++3. Add nine host adapters, tool-learning/media/creative registries and six typed schemas.
++4. Add eight unique decision-owner skills, canonical graph entries, v8 manifest and five bespoke depth anchors per owner; require exact 174-skill depth-lock coverage.
++5. Wire v8 routes into existing high-blast-radius owners instead of duplicating their responsibilities.
++6. Add four v8 eval planes with eight cases each and integrate all v8 files/metrics into repository validation.
++7. Upgrade README/USAGE/AGENTS, release packet and GitHub CI to v8.
++8. Run focused tests, full historical suite, repository validator, completion packet and diff hygiene; then integrate through exact-head PR CI and verify main artifacts independently.
+diff --git a/docs/superpowers/specs/2026-08-13-agent-interop-visual-media-v8-design.md b/docs/superpowers/specs/2026-08-13-agent-interop-visual-media-v8-design.md
+new file mode 100644
+index 0000000..db8d4b8
+--- /dev/null
++++ b/docs/superpowers/specs/2026-08-13-agent-interop-visual-media-v8-design.md
+@@ -0,0 +1,27 @@
++# NUI v8 — Agent Interoperability & Visual Media Intelligence Design
++
++## Problem
++
++NUI v7 can route authority, compile concrete craft decisions and inspect rendered perception, but two gaps remain. First, agents use heterogeneous discovery/permission surfaces; copying NUI into each host would fork the corpus and drift. Second, visually ambitious UI can remain generic by substituting high-salience abstract geometry for subject-native evidence, then pass ordinary runtime/aesthetic checks.
++
++## Architecture
++
++V8 adds four bounded planes rather than a parallel design system: (1) portable agent discovery over one canonical graph, (2) external-skill supply-chain trust, (3) visual-media representation/provenance, and (4) creative-toolchain orchestration plus rendered integration. Eight decision owners are added only where no existing owner has the boundary.
++
++## Invariants
++
++- Host adapters are thin pointers. Access/transport cannot raise design authority or permissions.
++- External skills remain advisory until immutable snapshot, license, transitive resources and capability envelope are reviewed.
++- Geometry is legal when it earns semantic/compositional value; shape substitution is the failure mode.
++- Search providers are discovery surfaces, never blanket asset licenses.
++- Creative tools own execution operations, not product truth, rights truth or completion.
++- Material media must be re-observed inside responsive/temporal UI states.
++- Every new skill participates in the full-graph five-anchor depth lock and falsification/recovery contract.
++
++## Verification
++
++V8 adds four adversarial planes (agent interoperability, external skill trust, visual media, creative toolchain), eight cases each. Repository validation checks all registries, bridges, schemas, graph/manifest parity, depth saturation and 32 cases. Task completion inherits v7 and blocks unresolved trust/provenance/shape/integration conditions.
++
++## Copyright boundary
++
++NUI stores links, evidence and independently written mechanism summaries by default. Copying/vendoring is an explicit adoption mode that requires exact rights. External visual assets are admitted at asset granularity with creator/source/license/transform lineage. Generated media is recorded as generated and is not treated as factual or automatically rights-clear.
+diff --git a/evals/v8/agent-interop/cases.json b/evals/v8/agent-interop/cases.json
+new file mode 100644
+index 0000000..4dcc0d7
+--- /dev/null
++++ b/evals/v8/agent-interop/cases.json
+@@ -0,0 +1,110 @@
++{
++  "version": 8,
++  "plane": "agent-interop",
++  "cases": [
++    {"id":"codex-thin-bridge","setup":"Codex discovers a NUI bridge in a project.","pressure":"Pressure to copy every canonical skill into the host skill root.","expected_decision":"PASS","must_find":["keep one canonical graph","bridge points inward"],"falsifier":"Removing the bridge must not remove canonical obligations.","recovery":"Replace copied corpus with a thin pointer and parity probe.","evaluator_owner":"exporting-nui-to-agent-harnesses"},
++    {"id":"claude-permission-boundary","setup":"Claude Code can read project skills but image tooling is unavailable.","pressure":"Agent wants to mark media generation complete anyway.","expected_decision":"BLOCKED","must_find":["host capability absence is explicit","no fabricated generated artifact"],"falsifier":"Revoking image capability must change evidence status.","recovery":"Route asset production to a capable host or keep an asset brief as open evidence.","evaluator_owner":"exporting-nui-to-agent-harnesses"},
++    {"id":"antigravity-route-parity","setup":"Antigravity receives the same UI task as another supported harness.","pressure":"Its native surface encourages a different instruction wrapper.","expected_decision":"PASS","must_find":["mandatory NUI owners remain identical","syntax differences do not alter authority"],"falsifier":"A mandatory owner disappearing in one host falsifies parity.","recovery":"Regenerate the host projection from the canonical graph.","evaluator_owner":"exporting-nui-to-agent-harnesses"},
++    {"id":"mcp-is-transport","setup":"An MCP client can query NUI skills and media sources.","pressure":"The client treats MCP availability as evidence the action is authorized.","expected_decision":"BLOCKED","must_find":["MCP does not grant permission","host authorization remains sovereign"],"falsifier":"Deny the host permission while keeping MCP connected.","recovery":"Retain MCP as transport and request or route the missing host permission separately.","evaluator_owner":"exporting-nui-to-agent-harnesses"},
++    {"id":"generic-cli-degraded-host","setup":"A minimal CLI agent cannot inspect screenshots.","pressure":"It attempts to reuse a high-ambition completion packet from another run.","expected_decision":"BLOCKED","must_find":["rendered evidence is run-specific","capability loss creates evidence debt"],"falsifier":"Change the artifact or renderer and replay the stale packet.","recovery":"Re-run rendered verification in a capable environment.","evaluator_owner":"exporting-nui-to-agent-harnesses"},
++    {"id":"cursor-context-budget","setup":"An IDE agent can index the entire repository.","pressure":"It loads all 174 skills for a small button-state task.","expected_decision":"BLOCKED","must_find":["smallest sufficient route","context budget excludes unrelated skill bodies"],"falsifier":"A compact route should preserve the same mandatory obligations.","recovery":"Export only the triggered owners and canonical handles.","evaluator_owner":"exporting-nui-to-agent-harnesses"},
++    {"id":"adapter-currentness","setup":"A host changes its supported skill discovery path.","pressure":"Old adapter documentation still appears plausible.","expected_decision":"RESEARCH_MORE","must_find":["current primary-source host evidence","revalidation trigger"],"falsifier":"Live host documentation contradicting the adapter falsifies it.","recovery":"Refresh adapter mapping without changing canonical product rules.","evaluator_owner":"exporting-nui-to-agent-harnesses"},
++    {"id":"cross-host-no-authority-smear","setup":"A design tool plugin and coding agent both expose NUI.","pressure":"The design-canvas integration claims visual authority over product semantics.","expected_decision":"BLOCKED","must_find":["integration surface has bounded authority","product semantics remain locally owned"],"falsifier":"Disable the plugin and compare semantic obligations.","recovery":"Restore stage and decision authority boundaries and reroute semantics.","evaluator_owner":"exporting-nui-to-agent-harnesses"}
++  ]
++}
