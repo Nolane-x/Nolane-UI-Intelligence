@@ -1,0 +1,223 @@
+diff --git a/knowledge/creative-toolchain-v8.json b/knowledge/creative-toolchain-v8.json
+new file mode 100644
+index 0000000..0c18f68
+--- /dev/null
++++ b/knowledge/creative-toolchain-v8.json
+@@ -0,0 +1,217 @@
++{
++  "version": 8,
++  "principle": "Creative tools own production operations, not product truth, legal rights, or aesthetic adequacy. Route by stage and verify live capability before use.",
++  "tools": [
++    {
++      "id": "figma",
++      "url": "https://developers.figma.com/docs/figma-mcp-server/",
++      "stages": [
++        "design-system-read",
++        "layout",
++        "component-authoring",
++        "prototype",
++        "handoff"
++      ],
++      "preferred_interface": [
++        "Figma MCP",
++        "native editor"
++      ],
++      "authority_boundary": "May own native Figma operations and project design-system facts available in the file; cannot certify product semantics or final accessibility by itself.",
++      "live_capability_check": true
++    },
++    {
++      "id": "penpot",
++      "url": "https://help.penpot.app/plugins/",
++      "stages": [
++        "layout",
++        "vector",
++        "component-authoring",
++        "prototype"
++      ],
++      "preferred_interface": [
++        "Plugin API",
++        "native editor"
++      ],
++      "authority_boundary": "Open design-canvas operations only; local product truth remains upstream.",
++      "live_capability_check": true
++    },
++    {
++      "id": "blender",
++      "url": "https://docs.blender.org/api/current/",
++      "stages": [
++        "3d-model",
++        "material",
++        "lighting",
++        "render",
++        "animation"
++      ],
++      "preferred_interface": [
++        "Python API",
++        "native editor"
++      ],
++      "authority_boundary": "Owns 3D scene construction/render operations, not whether a 3D asset is semantically or legally appropriate.",
++      "live_capability_check": true
++    },
++    {
++      "id": "threejs",
++      "url": "https://threejs.org/",
++      "stages": [
++        "3d-runtime",
++        "shader",
++        "interaction",
++        "render"
++      ],
++      "preferred_interface": [
++        "JavaScript API"
++      ],
++      "authority_boundary": "Owns web 3D runtime mechanisms; product semantics, GPU budget and accessibility fallback remain NUI decisions.",
++      "live_capability_check": true
++    },
++    {
++      "id": "pixijs",
++      "url": "https://pixijs.com/",
++      "stages": [
++        "2d-runtime",
++        "particle",
++        "shader",
++        "render"
++      ],
++      "preferred_interface": [
++        "JavaScript API"
++      ],
++      "authority_boundary": "Owns high-performance 2D rendering mechanics; evidence semantics and UI task truth remain external.",
++      "live_capability_check": true
++    },
++    {
++      "id": "rive",
++      "url": "https://rive.app/docs/",
++      "stages": [
++        "vector-animation",
++        "state-machine",
++        "runtime"
++      ],
++      "preferred_interface": [
++        "Rive editor",
++        "runtime SDK"
++      ],
++      "authority_boundary": "Owns animation/state-machine assets; interaction meaning and reduced-motion alternative remain NUI-owned.",
++      "live_capability_check": true
++    },
++    {
++      "id": "lottie",
++      "url": "https://airbnb.io/lottie/",
++      "stages": [
++        "vector-animation",
++        "runtime"
++      ],
++      "preferred_interface": [
++        "Lottie JSON",
++        "platform runtime"
++      ],
++      "authority_boundary": "Owns animation transport/runtime; not a semantic or performance guarantee.",
++      "live_capability_check": true
++    },
++    {
++      "id": "motion",
++      "url": "https://motion.dev/",
++      "stages": [
++        "ui-motion",
++        "presence",
++        "gesture",
++        "timeline"
++      ],
++      "preferred_interface": [
++        "JavaScript/React API"
++      ],
++      "authority_boundary": "Owns motion primitives; hierarchy and product meaning remain upstream.",
++      "live_capability_check": true
++    },
++    {
++      "id": "gsap",
++      "url": "https://gsap.com/",
++      "stages": [
++        "timeline",
++        "scroll-motion",
++        "svg-motion",
++        "sequence"
++      ],
++      "preferred_interface": [
++        "JavaScript API"
++      ],
++      "authority_boundary": "Owns timeline mechanics subject to current licensing; cannot justify motion that lacks information or experiential purpose.",
++      "live_capability_check": true
++    },
++    {
++      "id": "tldraw",
++      "url": "https://tldraw.dev/",
++      "stages": [
++        "infinite-canvas",
++        "diagram",
++        "whiteboard",
++        "collaboration"
++      ],
++      "preferred_interface": [
++        "SDK"
++      ],
++      "authority_boundary": "Owns editor/canvas primitives; domain modeling and product visual identity stay local.",
++      "live_capability_check": true
++    },
++    {
++      "id": "excalidraw",
++      "url": "https://docs.excalidraw.com/",
++      "stages": [
++        "diagram",
++        "sketch",
++        "whiteboard"
++      ],
++      "preferred_interface": [
++        "library",
++        "editor"
++      ],
++      "authority_boundary": "Owns diagram/sketch mechanics, not final visual language for unrelated products.",
++      "live_capability_check": true
++    },
++    {
++      "id": "maplibre",
++      "url": "https://maplibre.org/",
++      "stages": [
++        "map-runtime",
++        "geospatial",
++        "render"
++      ],
++      "preferred_interface": [
++        "MapLibre GL JS/native"
++      ],
++      "authority_boundary": "Owns map rendering; data rights, attribution, geospatial truth and task semantics require separate authority.",
++      "live_capability_check": true
++    },
++    {
++      "id": "observable-plot",
++      "url": "https://observablehq.com/plot/",
++      "stages": [
++        "data-visualization",
++        "statistical-graphic",
++        "svg"
++      ],
++      "preferred_interface": [
++        "JavaScript API"
++      ],
++      "authority_boundary": "Owns chart grammar implementation; encoding truth remains with data/provenance owners.",
++      "live_capability_check": true
++    },
++    {
++      "id": "host-image-generator",
++      "url": "https://platform.openai.com/docs/guides/images",
++      "stages": [
++        "image-generate",
++        "image-edit",
++        "concept-art"
++      ],
++      "preferred_interface": [
++        "host-provided image generation API/tool"
++      ],
++      "authority_boundary": "Generates candidates only; asset rights, factual truth, likeness/trademark review, composition fit and accessibility remain explicit gates.",
++      "live_capability_check": true
++    }
++  ]
++}
