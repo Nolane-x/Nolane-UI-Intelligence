@@ -22,6 +22,34 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          cat > /tmp/nui-v6-parts.sha256 <<'EOF'
+          62b24b5e488bd879a59d70f2e3c6b5903496e2a01bc970d42c5c9f9806d90526  .nui-v6-payload/part-00
+          506a727acf1242bd28f456d9a85d2d56caf29e93187f0656b218d4963f52a6a5  .nui-v6-payload/part-01
+          da34bf2bd1d16c24db754478a086f96f2d8009ac8df787501aa05486d35c854e  .nui-v6-payload/part-02
+          fa9666134a94c27df961b46c00bcc758c8ecff1619cc99bfa86233b2cf9a9459  .nui-v6-payload/part-03
+          a95f9bf9587b3e91589050ad8743486f1bf9769b10b044e18f93ee96dc17f854  .nui-v6-payload/part-04
+          2cc5fa2e64122972c1e7362af4bb7fa71a629edfbea5c5c162afd53ba86f2f86  .nui-v6-payload/part-05a
+          cd9f9d0c89ed0cfb32cf525f416cfda46e849f1e8da2df0c46200e4af2a0fabe  .nui-v6-payload/part-05b
+          a75ab48db08be3660196b410c47abf453639ce431a94151166cde8167a30ed5a  .nui-v6-payload/part-05c
+          34e133863f8d1104027dc430047f0a4a79ebb88ab8c76b56be6e729aeb3f0d10  .nui-v6-payload/part-06
+          f3ba8fe43a8df7603b9717356c015435c044fcbb676bdbd02cfc118322c8eef8  .nui-v6-payload/part-07
+          c4b7d13e55f92030090002b3058da00b270fe14b38cae00f77d79d8458bda932  .nui-v6-payload/part-08
+          09a757a4fec73c7b9a2927f4a611806a839a67fbf30dd31e836ccb1fa815e696  .nui-v6-payload/part-09
+          4ad21a4027f8a64321dd648ae2ca5fbfba58b7378f8d0bc97f58009184d23331  .nui-v6-payload/part-10
+          3baee7cf9d84565fb17404402d18a8c9323c8133ca1aed28e649a903f27568a5  .nui-v6-payload/part-11
+          4f361594f361f3a51e71c9f0519ff9643065e46a92b6fe3c255dfbb249046a1a  .nui-v6-payload/part-12a
+          a1f6b69d99ccb39344069926a614b20b3c9e4a01f64809f6139f2934f0551179  .nui-v6-payload/part-12b
+          c5e8bab1385ecbf0e7acaa0b7ee7976ac5ce5bf5982457961fd5113d22446b4d  .nui-v6-payload/part-12c
+          8ae2ada45f084640b1577c2e5d67dc4ecf24b18b294ef79050d6b4066080a02d  .nui-v6-payload/part-13
+          782f05fd0a752ea3eb2c64f03caa3c2682aad92f81a9a69ce2d12adf06e69173  .nui-v6-payload/part-14
+          53f8d21a50f15e45003dfc276a1b0363e92dda9311a644cdaf68a1744d6dc9fe  .nui-v6-payload/part-15
+          539c6cff9cee8848ff8a7de8ce1b14dc79a421f87f6f9bb9e3f3a55413554c6e  .nui-v6-payload/part-16
+          cd17a4c15b5a379395b5178deca5766c5743d096f2333d23c4f08e81a9a05ce9  .nui-v6-payload/part-17a
+          7c0e70cdd76900542f3f6640412cc7990e283654f25ae65d895738c7baa8f2d4  .nui-v6-payload/part-17b
+          4f8d65d6abeeb5604c3b350f889d7a8e4cbb00962d52bc100112badef36b67fd  .nui-v6-payload/part-17c
+          9db4f745397b5e48c788d62e9bea68d3687107d9c018ef99a819dda49b55bbd6  .nui-v6-payload/part-18a
+          EOF
+          sha256sum -c /tmp/nui-v6-parts.sha256
           cat .nui-v6-payload/part-* > /tmp/nui-v6.patch.xz.b64
           echo "a7996371f9175b3db91768389d0b719eb9ae1677a2a34f3ccf13e4afb973680a  /tmp/nui-v6.patch.xz.b64" | sha256sum -c -
           base64 -d /tmp/nui-v6.patch.xz.b64 > /tmp/nui-v6.patch.xz
