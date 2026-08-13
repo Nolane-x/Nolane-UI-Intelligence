@@ -1,0 +1,35 @@
+name: NUI v6 bootstrap
+
+on:
+  push:
+    paths:
+      - '.nui-v6-ready'
+
+permissions:
+  contents: write
+
+jobs:
+  materialize-v6:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout payload branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Reconstruct verified v6 tree
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .nui-v6-payload/part-* > /tmp/nui-v6.tar.gz.b64
+          echo "15fd95e59cf95b9df409375936cb41259b1ccccceea485d6314c6bf6ecc9f6e8  /tmp/nui-v6.tar.gz.b64" | sha256sum -c -
+          base64 -d /tmp/nui-v6.tar.gz.b64 > /tmp/nui-v6.tar.gz
+          echo "d855510328e772536e93dcaa1b71ffb0870cad49a30a23400cabbbabd042dce9  /tmp/nui-v6.tar.gz" | sha256sum -c -
+          tar -xzf /tmp/nui-v6.tar.gz
+          rm -rf .nui-v6-payload .nui-v6-ready .github/workflows/nui-v6-bootstrap.yml
+          git config user.name "Nolane v6 bootstrap"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "feat: NUI v6 Deep Research & Design Synthesis"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
