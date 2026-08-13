@@ -1,0 +1,13 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://nolane.dev/schemas/ui-cross-source-synthesis.schema.json",
+  "title":"NUI v6 Cross Source Synthesis Contract",
+  "type":"object","required":["sources","layers","conflicts","local_system","foreign_defaults_removed"],
+  "properties":{
+    "sources":{"type":"array","minItems":1,"items":{"type":"string"}},
+    "layers":{"type":"object","additionalProperties":{"type":"object","required":["owner","local_override"],"properties":{"owner":{"type":"string","minLength":1},"local_override":{"type":"string","minLength":1}}}},
+    "conflicts":{"type":"array","items":{"type":"object","required":["dimension","sources","resolution"],"properties":{"dimension":{"type":"string"},"sources":{"type":"array"},"resolution":{"type":"string","minLength":1}}}},
+    "local_system":{"type":"object","required":["tokens","actions","states","accessibility"]},
+    "foreign_defaults_removed":{"type":"array","items":{"type":"string"}}
+  },"additionalProperties":true
+}

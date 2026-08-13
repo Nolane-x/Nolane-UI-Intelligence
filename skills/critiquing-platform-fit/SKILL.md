@@ -29,3 +29,16 @@ When a source design comes from another platform, judge whether the implementati
 
 ## Output: `finding-set`
 Return typed findings with target platform, convention/source, observed behavior, user cost, product benefit if any, and repair direction. Separate `platform-defect` from `intentional-cross-platform-brand-choice`.
+
+## V6 Platform Fit Critic
+Search for a **platform-affordance mismatch**: controls that look native but behave differently, web metaphors transplanted into touch/TV/XR without adaptation, desktop hover dependencies on mobile, or mobile sheets used where windowed desktop expects persistent context. Keep a **convention-cost ledger** for each intentional deviation: user benefit, learning cost, compatibility cost, accessibility cost, and fallback.
+
+Audit the **system-integration gap** around sharing, file pickers, notifications, permissions, back/history, window management, keyboard, clipboard, drag/drop, safe areas, install/update, and platform accessibility settings. Check **input-modality conflict** when one platform exposes several inputs; keyboard focus, touch target behavior, pointer hover, gamepad/remote navigation, voice, or gaze cannot contradict the same action.
+
+Seek a **platform-native counterexample**: an authoritative first-party or mature native implementation of a comparable interaction. The goal is not to copy it, but to test whether the custom design pays its departure cost.
+
+### Falsification
+Give the UI to a platform-expert user without product-specific training and test system back, standard shortcuts/gestures, resizing, accessibility settings, and interruption. Repeated surprise falsifies “platform fit.”
+
+### Recovery
+Prefer native primitives or conventions where they solve the same product problem; where divergence is essential, expose clearer cues and fallback paths and document the reason as a bounded exception.

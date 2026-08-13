@@ -38,3 +38,14 @@ Return a `stream-contract` with `states[]`, `state_transitions`, `stability_stra
 - No clear distinction between partial and complete answer.
 
 Streaming should reduce perceived waiting without increasing state ambiguity.
+
+## V6 Streaming AI Protocol
+Set a **token-stream commitment boundary**: partial text is provisional until claims, citations, tool results, or structured outputs reach the necessary validation state. Maintain **partial-answer stability** so text above the reading cursor does not continually rewrite without explanation.
+
+Represent **tool-call transition** distinctly from narrative generation—queued/running/succeeded/failed/cancelled with scope. Support **citation-late-binding** without temporarily attaching unsupported sources to claims. Define **stream-cancel semantics**: what generation/tool work actually stops, what partial output remains, and whether follow-up can safely continue.
+
+### Falsification
+Cancel mid-tool, delay citations, revise an earlier claim, reconnect after stream interruption, and scroll while tokens arrive. False completed-state/provenance invalidates streaming behavior.
+
+### Recovery
+Mark partial output provisional, reconcile tool state, attach citations only after binding, and restart from a stable checkpoint rather than duplicating actions.

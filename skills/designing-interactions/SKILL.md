@@ -68,3 +68,16 @@ Return `actions`, `modality_matrix`, `focus_model`, `selection_model`, `feedback
 - Focus disappearing after modal close or list deletion.
 - Whole rows clickable while containing nested buttons with unclear activation target.
 - Tooltip as the only place an essential instruction exists.
+
+## V6 Interaction Mechanics Protocol
+For every material control, create an **input-to-state transition table** across keyboard, pointer, touch, pen, remote, voice, gaze, or alternative input that the task profile enables. Record precondition, trigger, preview/pressed state, commit event, cancellation, resulting state, focus destination, and announcement. The same semantic action may have different physical gestures, but it must not acquire contradictory meaning.
+
+Perform an **acquisition-cost check** using target size, distance, repetition frequency, motor precision, edge placement, and consequence. Tiny targets used once in an expert desktop are different from tiny destructive targets in a repeated touch workflow. Model an **interruption-and-cancel path** for drag, long-running command, modal editing, streaming agent output, and any gesture with a pre-commit phase.
+
+If the interface changes local state before server confirmation, define **optimistic-action rollback**: what is speculative, how conflicts appear, whether inverse action is safe, and how focus/selection survives rollback. For tools with modes—draw/select, edit/view, live/simulate—run a **mode-visibility probe**: a user arriving mid-session must be able to infer the current mode before taking a consequential action.
+
+### Falsification
+Trigger the same action through every supported input, interrupt at each intermediate state, double-trigger under latency, and switch mode without moving focus. A mismatch in commit semantics, cancellation, or visible mode falsifies the interaction contract.
+
+### Recovery
+Repair the transition model rather than adding one-off event handlers. Collapse ambiguous gestures, add explicit mode/status feedback, or defer optimistic updates when rollback cannot preserve product truth.

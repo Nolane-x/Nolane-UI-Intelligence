@@ -50,3 +50,16 @@ Produce an `affective-adaptation-contract` containing: purpose; signal inventory
 - Presenting a draft standard as a published normative requirement.
 
 The interface succeeds when affective intelligence remains subordinate to user agency: useful when right, bounded when uncertain, obvious when material, and safe when wrong.
+
+## V6 Affective Adaptation Ethics and Control
+Represent **inferred-affect uncertainty** explicitly. Facial expression, typing speed, language, biometrics, engagement, or hesitation are noisy proxies and can vary by culture, disability, context, and individual. Never convert weak affect inference into confident diagnosis.
+
+Set an **adaptation-consent boundary** for what signals may be used, whether processing is local/remote, persistence, secondary use, and which UI changes require opt-in. Provide an **adaptation transparency cue** when the system materially changes tone, pace, difficulty, notifications, visuals, or agent behavior based on inferred state; users need a way to understand and override it.
+
+Audit **mood-manipulation risk**: adaptation must not exploit distress, urgency, loneliness, fear, or vulnerability to increase spending, engagement, consent, or disclosure. Ensure a **state-reversion guarantee** so users can return to stable/default behavior and so temporary affect guesses do not permanently reshape the experience.
+
+### Falsification
+Feed contradictory/noisy affect signals, simulate culturally different expressions, disable consent, and compare decisions under vulnerable states. If the product still adapts strongly or preferentially nudges high-consequence behavior, the design is falsified.
+
+### Recovery
+Reduce adaptation sensitivity/scope, return to explicit user controls, purge unsupported inferred state, and require stronger evidence/consent before re-enabling. Safety and autonomy outrank personalization novelty.

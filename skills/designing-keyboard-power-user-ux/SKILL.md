@@ -38,3 +38,14 @@ Return a `keyboard-contract` with `command_registry[]`, `navigation_regions[]`, 
 - Keyboard parity claimed from static linting without end-to-end operation.
 
 A power-user interface should become faster as skill grows without becoming opaque or unusable to someone who has not memorized it.
+
+## V6 Keyboard Power-User Protocol
+Maintain a **shortcut namespace** by scope—global, workspace, editor, focused component, modal—so conflicts are predictable. Run a **chord conflict audit** against browser/OS/assistive technology/input-method shortcuts before claiming a binding.
+
+Provide a **discoverability surface** such as menus, command palette, shortcut help, or contextual hints that reflects current availability. Preserve **focus-command coherence**: a command should act on the focus/selection/context users can infer, not a hidden stale target. Support **remapping support** where domain users/platform conventions make fixed bindings exclusionary.
+
+### Falsification
+Execute shortcuts across focus states, OS/browser conflicts, IME, and screen readers; open multiple workspaces/modals. If scope or target is ambiguous, the keyboard model fails.
+
+### Recovery
+Narrow scope, change conflicting chords, expose current target, and provide remapping or menu alternative without breaking semantic action identity.

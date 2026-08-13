@@ -36,3 +36,14 @@ Return a `high-stakes-decision-contract` with `action`, `risk_class`, `consequen
 - Assuming the person who can see the button is authorized to execute it.
 
 The best high-stakes UI makes the safe action obvious and the dangerous misunderstanding difficult, rather than merely making every action slower.
+
+## V6 High-Stakes Decision Protocol
+Build a **consequence model** covering affected people/assets, reversibility, delay tolerance, error classes, uncertainty, and downstream propagation. Use **dual-channel confirmation** only when beneficial: consequence should be encoded by more than one cue (text + structured summary, identity + amount, visual + auditory in appropriate contexts), not duplicated boilerplate dialogs.
+
+Capture a **decision evidence snapshot** immediately before commitment: target, parameters, source data freshness, approvals, and material warnings. Require **forced-delay justification** for cooldowns/countdowns; delay is justified only when it reduces a known error mechanism, not as performative seriousness. Define **post-commit recovery** including undo, compensating transaction, escalation, audit trail, or explicit irreversibility.
+
+### Falsification
+Change one material parameter immediately before commit, introduce stale/ambiguous source data, and simulate mistaken identity. If confirmation could still be accepted without noticing the changed consequence, safety is insufficient.
+
+### Recovery
+Invalidate stale evidence, re-present the decision summary, require renewed authorization where needed, and route recovery through the actual system semantics.

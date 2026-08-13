@@ -38,3 +38,14 @@ Return a `tv-contract` with `viewing_distance_assumptions`, `scale_and_density_r
 - Autoplaying overlays stealing focus during media playback.
 
 TV UI is successful when the user can operate it confidently without leaning forward to inspect the screen.
+
+## V6 Ten-Foot Interaction Protocol
+Size critical text and targets by **ten-foot angular scale**, not desktop pixels. Build **remote-navigation topology** as an explicit graph so every focusable target has predictable directional neighbors and no invisible traps. Measure **focus-travel cost** across repeated tasks; a beautiful carousel that requires twelve remote presses for routine work is structurally wrong.
+
+Keep **overscan-safe composition** and safe margins for varied panels, platform chrome, subtitles, and accessibility scaling. Verify **couch-distance legibility** under lower-quality displays, motion blur, glare, dim rooms, and shared viewing. Focus must remain visually dominant without looking like a desktop hover state enlarged 3×.
+
+### Falsification
+Complete key flows using only a basic directional remote from realistic viewing distance. Disable pointer-like shortcuts, insert long titles/subtitles, and test overscan. Any unreachable control or ambiguous focus invalidates the design.
+
+### Recovery
+Restructure the spatial focus graph, shorten navigation paths, enlarge hierarchy/targets, or move secondary controls behind deliberate disclosure instead of shrinking or densely packing them.

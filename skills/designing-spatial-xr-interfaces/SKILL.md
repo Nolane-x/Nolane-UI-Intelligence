@@ -38,3 +38,14 @@ Return a `spatial-xr-contract` with `representation_by_content[]`, `coordinate_f
 - Claiming spatial quality from a 2D browser preview.
 
 Spatial design is strongest when depth becomes part of the task model, not a decorative dimension.
+
+## V6 Spatial XR Protocol
+Define a **spatial comfort envelope** for viewing distance, depth, angular size, motion, field-of-view occupancy, and session duration. Make **locomotion choice** explicit—teleport, smooth, room-scale, seated, vehicle, redirected—with comfort/accessibility alternatives.
+
+Preserve **occlusion-depth truth** so overlays, labels, anchors, and virtual objects do not imply impossible ordering or hide safety-critical real-world content. Maintain **world-anchor persistence** across tracking loss/relocalization/session restore. Provide a **boundary-safety cue** for physical obstacles, guardian limits, passthrough changes, and reduced situational awareness.
+
+### Falsification
+Lose tracking, change posture, move between rooms, approach boundaries, and switch locomotion modes. Misplaced anchors or unsafe occlusion falsifies the spatial UI.
+
+### Recovery
+Freeze/relocalize content, reduce movement/depth demand, restore boundaries/passthrough, and require explicit confirmation before resuming spatial actions.

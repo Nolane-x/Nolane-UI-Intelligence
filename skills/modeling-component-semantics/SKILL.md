@@ -66,3 +66,16 @@ Return `elements[] {concept, semantic_role, chosen_pattern, rejected_patterns, b
 - Using badges/pills for plain text metadata with no status/filter semantics.
 - Turning headings into pseudo-controls through hover styling.
 - Icon-only commands where the metaphor is not established and no accessible name exists.
+
+## V6 Semantic Component Proof
+Bind every reusable interactive component to a **role-action-state invariant**: the meaning exposed to assistive technology, the action understood by users, and the state changed by activation must describe the same concept. Styling cannot turn a navigation link into an action, a disclosure into a tab, or a checkbox into a command without changing semantics.
+
+Make a **native-first semantic decision** before custom behavior. Record whether a platform-native element already supplies the required semantics, focus, activation, form behavior, and accessibility hooks; reject native use only for a concrete mismatch, not because custom markup is easier to animate. Estimate the component's **semantic surface area**: roles, relationships, keyboard rules, focus ownership, labeling, state announcements, and form/browser behavior that the implementation must preserve.
+
+Specify **accessible-name computation** explicitly for icon-only, composite, labeled-by, described-by, dynamic-count, and validation states. Names must come from stable product language rather than visual tooltip timing. Run a **composition ownership test** when primitives nest: determine which layer owns focus, disabledness, selection, dismissal, escape, outside interaction, and announcements so wrappers do not duplicate or suppress behavior.
+
+### Falsification
+Remove CSS and inspect the accessibility/DOM semantics; then replace mouse activation with keyboard/screen-reader use. If meaning disappears with appearance, or nested primitives fight over focus/state, the semantic model is false.
+
+### Recovery
+Prefer a stronger primitive or simplify composition before adding ARIA patches. Re-map state/action semantics and retest every consumer because a semantic component bug has system-wide blast radius.

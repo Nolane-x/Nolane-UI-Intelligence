@@ -38,3 +38,14 @@ Return an `autonomy-envelope` with `action_classes[]`, `authority_levels{}`, `ap
 - UI permissions treated as backend authorization.
 
 The user should be able to delegate without surrendering the ability to understand or regain control.
+
+## V6 Agent Autonomy Control Protocol
+Model an **autonomy-level ladder** from suggest → draft → execute reversible → execute bounded → high-consequence requiring approval. Place an **approval checkpoint graph** at points where scope, identity, cost, external side effect, or irreversibility materially changes.
+
+Set a **blast-radius bound** for autonomous actions: object count, money, recipients, permissions, systems, time horizon, or data exposure. Prefer **reversible delegation** with preview, undo/compensation, logs, and scoped credentials. Verify **stop-control latency**—when a user pauses/cancels, how quickly new tool calls stop and what already-started work may still complete.
+
+### Falsification
+Expand a task from one object to many, change recipient/cost, and cancel mid-execution. If autonomy silently broadens or execution continues without truthful state, control fails.
+
+### Recovery
+Freeze delegation, revoke/limit tool authority, reconcile completed vs pending actions, and require renewed approval before resuming beyond the previous bound.

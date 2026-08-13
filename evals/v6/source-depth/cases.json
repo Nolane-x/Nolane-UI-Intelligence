@@ -1,0 +1,139 @@
+{
+  "version": 6,
+  "suite": "source-depth",
+  "cases": [
+    {
+      "id": "v6-readme-only-react-bits",
+      "required_skills": [
+        "performing-ui-repository-archaeology",
+        "auditing-ui-research-depth"
+      ],
+      "setup": "Agent finds React Bits and reads README + license only.",
+      "pressure": "User asks to immediately copy a visually impressive animation into an exceptional React product.",
+      "expected_decision": "BLOCKED",
+      "evidence_requirements": [
+        "component source path",
+        "demo/runtime context",
+        "motion/reduced-motion evidence",
+        "pinned snapshot"
+      ],
+      "evaluator_owner": "auditing-ui-research-depth"
+    },
+    {
+      "id": "v6-high-drift-unpinned-source",
+      "required_skills": [
+        "performing-ui-repository-archaeology"
+      ],
+      "setup": "A high-drift component repository is described from memory/current docs with no commit or tag.",
+      "pressure": "Deadline pressure encourages using the latest-looking example.",
+      "expected_decision": "RESEARCH_MORE",
+      "evidence_requirements": [
+        "canonical source identity",
+        "current ref",
+        "commit snapshot",
+        "retrieved_at"
+      ],
+      "evaluator_owner": "auditing-ui-research-depth"
+    },
+    {
+      "id": "v6-gallery-role-mismatch-a11y",
+      "required_skills": [
+        "performing-ui-repository-archaeology",
+        "selecting-ui-building-blocks"
+      ],
+      "setup": "An animated gallery provides a beautiful menu demo.",
+      "pressure": "Agent treats the gallery as semantic keyboard/focus authority.",
+      "expected_decision": "RESELECT_SOURCE",
+      "evidence_requirements": [
+        "gallery mechanism evidence",
+        "separate semantic primitive evidence",
+        "local keyboard/focus contract"
+      ],
+      "evaluator_owner": "auditing-ui-research-depth"
+    },
+    {
+      "id": "v6-icon-family-screenshot-selection",
+      "required_skills": [
+        "performing-ui-repository-archaeology",
+        "directing-iconography-and-imagery"
+      ],
+      "setup": "Agent chooses an icon family from a gallery screenshot.",
+      "pressure": "Product has specialized scientific concepts and RTL locales.",
+      "expected_decision": "RESEARCH_MORE",
+      "evidence_requirements": [
+        "icon catalog",
+        "construction/symbol conventions",
+        "semantic naming/tags",
+        "RTL/cultural audit"
+      ],
+      "evaluator_owner": "auditing-ui-research-depth"
+    },
+    {
+      "id": "v6-font-brand-without-script-coverage",
+      "required_skills": [
+        "performing-ui-repository-archaeology",
+        "crafting-typography"
+      ],
+      "setup": "Display font matches desired art direction in Latin screenshots.",
+      "pressure": "Product must support Thai, Arabic and CJK.",
+      "expected_decision": "RESEARCH_MORE",
+      "evidence_requirements": [
+        "script coverage",
+        "fallback metrics",
+        "variable axes/weights",
+        "rendered locale fixtures"
+      ],
+      "evaluator_owner": "auditing-ui-research-depth"
+    },
+    {
+      "id": "v6-data-viz-gallery-as-truth",
+      "required_skills": [
+        "performing-ui-repository-archaeology",
+        "proving-visual-encoding-semantics"
+      ],
+      "setup": "A chart library demo uses attractive radial encodings.",
+      "pressure": "Agent copies visual mapping without verifying data semantics.",
+      "expected_decision": "BLOCKED",
+      "evidence_requirements": [
+        "encoding API/source inspection",
+        "channel truth table",
+        "data provenance",
+        "uncertainty behavior"
+      ],
+      "evaluator_owner": "auditing-ui-research-depth"
+    },
+    {
+      "id": "v6-archived-source-currentness",
+      "required_skills": [
+        "performing-ui-repository-archaeology",
+        "researching-ui-implementation-ecosystems"
+      ],
+      "setup": "A previously popular source is archived/deprecated or moved.",
+      "pressure": "Model memory still recommends old package.",
+      "expected_decision": "RESELECT_SOURCE",
+      "evidence_requirements": [
+        "archive/deprecation status",
+        "current canonical successor",
+        "migration evidence",
+        "license/currentness"
+      ],
+      "evaluator_owner": "auditing-ui-research-depth"
+    },
+    {
+      "id": "v6-unread-critical-tests",
+      "required_skills": [
+        "performing-ui-repository-archaeology",
+        "auditing-ui-research-depth"
+      ],
+      "setup": "Dossier reads implementation/docs but explicitly leaves interaction tests unread.",
+      "pressure": "Agent claims accessibility and interruption semantics are understood.",
+      "expected_decision": "RESEARCH_MORE",
+      "evidence_requirements": [
+        "critical test paths",
+        "negative/edge behavior",
+        "unread-material impact analysis"
+      ],
+      "evaluator_owner": "auditing-ui-research-depth"
+    }
+  ]
+}

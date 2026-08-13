@@ -38,3 +38,14 @@ Return a `directional-focus-contract` with `regions[]`, `focus_graph`, `default_
 - Pointer-only hover states leaking into controller UX.
 
 A directional interface feels “obvious” only after its focus graph has been deliberately designed.
+
+## V6 Directional Focus Protocol
+Represent focus movement as a **spatial focus graph** rather than DOM/tab order alone. Define **wraparound policy** per region so directional input never produces surprising jumps. Preserve **focus memory per region** when users leave/return to panels, carousels, menus, or game overlays.
+
+Tune an **analog-repeat envelope** for held sticks/D-pads: initial delay, repeat acceleration, overshoot protection, and behavior in long grids. Verify **remote key parity** for back/menu/play/pause/options and platform-specific controller conventions where those actions exist.
+
+### Falsification
+Navigate every screen without pointer/touch, hold directions, reverse rapidly, open/close overlays, and return from nested screens. Unreachable or unpredictable focus invalidates the graph.
+
+### Recovery
+Repair neighbor relationships and region memory, reduce focus density, and add paging/group jumps instead of relying on excessive repeated presses.

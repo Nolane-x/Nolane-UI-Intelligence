@@ -1,0 +1,34 @@
+{
+  "version": 6,
+  "architecture": "deep-research-design-synthesis-intelligence",
+  "skills": [
+    {
+      "name": "performing-ui-repository-archaeology",
+      "family": "research",
+      "parent": "researching-ui-implementation-ecosystems",
+      "output": "ui-source-research-dossier",
+      "ownership": "Own artifact-level, snapshot-bound repository archaeology and decide whether source evidence is deep enough to authorize downstream material consideration."
+    },
+    {
+      "name": "synthesizing-cross-source-ui-language",
+      "family": "integration",
+      "parent": "selecting-ui-building-blocks",
+      "output": "ui-cross-source-synthesis",
+      "ownership": "Own layer authority and conflict resolution when multiple external UI sources influence one local product language."
+    },
+    {
+      "name": "auditing-ui-research-depth",
+      "family": "verification",
+      "parent": "critiquing-research-validity",
+      "output": "ui-research-depth-findings",
+      "ownership": "Independently falsify shallow/citation-theater research and decide PASS versus research-more/reselect/block on evidence depth."
+    },
+    {
+      "name": "benchmarking-ui-skill-effect",
+      "family": "verification",
+      "parent": "testing-skill-interactions",
+      "output": "ui-skill-effect-benchmark",
+      "ownership": "Own controlled causal evaluation of whether UI skills and skill interactions measurably change target behavior."
+    }
+  ]
+}

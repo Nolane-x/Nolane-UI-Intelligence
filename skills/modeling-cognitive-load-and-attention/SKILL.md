@@ -36,3 +36,14 @@ Return an `attention-budget` with `critical_attention_targets[]`, `working_memor
 - Using one giant wizard to avoid thinking about task relationships.
 
 The interface should carry context for the person; the person should not be forced to carry the interface in working memory.
+
+## V6 Cognitive-Attention Model
+Create an **attentional bottleneck map** for where users must divide attention among primary task, alerts, secondary panels, collaborators, AI output, and environmental signals. Estimate **interruption switching cost** by what context must be reconstructed and how errors rise after interruption.
+
+Make a **recognition-recall decision** for commands, vocabulary, hidden modes, shortcuts, filters, and multi-step rules; experts can learn some recall, but critical/infrequent actions need stronger cues. Model **vigilance decay** in monitoring tasks where rare signals appear over long periods. Choose a **cognitive offloading strategy**—persistent state, history, comparison, preview, checklist, externalized constraints—rather than asking memory to carry system state.
+
+### Falsification
+Interrupt, delay, and add competing alerts while completing the critical flow. If users lose mode/state or miss rare signals, the model is incomplete.
+
+### Recovery
+Externalize state/context, reduce competing attention demands, redesign alerting, or restructure workflow rather than adding explanatory copy alone.

@@ -64,3 +64,22 @@ Return `color_roles`, `palette`, `semantic_mappings`, `surface_model`, `theme_de
 
 ## V5 Visual Energy Counterweight
 A chroma ceiling is not an aesthetic objective. For high affective targets, route `directing-visual-energy` and ask whether **restraint** has collapsed expressive range. Inspect luminance range, **chroma mass**, focal color mass, depth contrast, material variation, and warm/cool tension where relevant. High visual energy does not mean “more saturated”; monochrome can pass if other perceptual mechanisms create sufficient tension, hierarchy and emotional force. The evidence must be relative to experiential intent.
+
+## V6 Color System Engineering
+Work in a **perceptual color space** for palette relationships where tooling permits (for example OKLCH/OKLab), while verifying final sRGB/P3 output. Numeric HSL steps are not perceptually uniform. Define semantic roles first—canvas, surface, elevated surface, content tiers, accent, focus, success, warning, danger, selection, data categories—and then tune appearances.
+
+Check **gamut clipping** and browser/device fallbacks for saturated colors. A wide-gamut accent that clips differently across devices can change hierarchy or semantic distinction. Maintain tested fallbacks rather than assuming modern color syntax is enough.
+
+Audit **simultaneous contrast**: the same token can appear lighter/darker or more/less saturated depending on surrounding fields. Test text/icons against actual local background, gradients, translucent overlays, images and selected/focused states rather than a token table.
+
+Build a **semantic tone ladder** for each role: default, subtle, hover, active, selected, disabled, inverse, high-contrast and dark-theme contexts as needed. Color must not be the sole carrier of state; pair with shape, text, icon, position or pattern according to importance.
+
+Treat **dark-mode inversion** as re-composition, not `L -> 100-L`. Dark fields change perceived contrast, glow, shadow, saturation and surface separation. Re-evaluate elevation, quiet regions, imagery, data colors, focus visibility and text weight in each theme.
+
+For data visualization, separate categorical/diverging/sequential palettes and prove encoding semantics. For brand color, distinguish recognition from overuse: a strong brand hue often gains power when concentrated.
+
+### Falsification
+Inspect grayscale, common color-vision deficiencies where relevant, high-contrast mode, low-quality display and ambient-light extremes. Swap background tone while keeping tokens; if hierarchy changes unpredictably, token relationships are under-specified.
+
+### Recovery
+When contrast compliance forces visually harsh output, adjust surrounding tone, weight, size or surface relationship rather than simply maxing text to white/black. When an expressive palette compromises data semantics, reserve it for framing and use truthful encoding colors for the data.

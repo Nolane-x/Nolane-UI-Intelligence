@@ -38,3 +38,14 @@ Return a `large-screen-contract` with `window_classes[]`, `postures[]`, `adaptat
 - Treating tablet as a single fixed breakpoint.
 
 The design should remain one coherent task as the device changes shape.
+
+## V6 Foldable and Large-Screen Protocol
+Maintain a **hinge occlusion map** for folds, hinges, cutouts, and discontinuities; no critical control, text, drag path, or focal content may straddle unusable regions accidentally. Preserve **posture transition state** across folded, half-open, tabletop, book, and fully expanded configurations.
+
+Define a **pane continuity contract** for master-detail/workspace layouts: selection, scroll, focus, drafts, and navigation identity persist as panes appear/disappear. Make a **span-versus-separate decision** based on task coupling and physical device posture, not simply screen width. Evaluate **half-open ergonomics** for reach, keyboard placement, viewing angle, and split interaction surfaces.
+
+### Falsification
+Change posture mid-edit/drag/media session and move the app across window sizes. If state resets or content lands behind a hinge, adaptation fails.
+
+### Recovery
+Recompose around safe regions, preserve canonical object/state identity, and transform interaction patterns only with explicit continuity mapping.

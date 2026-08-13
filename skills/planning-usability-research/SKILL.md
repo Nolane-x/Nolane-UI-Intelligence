@@ -38,3 +38,14 @@ Return a `research-plan` with `decision_question`, `hypotheses[]`, `method`, `pa
 - Testing only the polished happy path.
 
 Good research can prove the design hypothesis wrong; if the protocol cannot, it is probably validation theater.
+
+## V6 Usability Research Planning Protocol
+Start with a **research-question decision** that names the uncertainty and which design decision could change. Ensure **participant-task fit** across expertise, role, accessibility/context, and realistic data/consequence; convenience participants cannot answer every question.
+
+Audit **protocol-bias risk** from leading prompts, think-aloud interference, unrealistic prototypes, moderator help, task ordering, incentives, novelty, and inaccessible tooling. Define **success-error metric** plus qualitative evidence for confusion, recovery, confidence, and strategy—not preference alone. Set a **stopping sample rationale** based on decision saturation/variance/risk rather than arbitrary participant count.
+
+### Falsification
+Try to answer the same research question with a different participant/task/protocol and predict whether the conclusion could reverse. If yes without being planned, validity is weak.
+
+### Recovery
+Change sample/protocol, narrow the research claim, or add a complementary method before using the evidence to gate design.

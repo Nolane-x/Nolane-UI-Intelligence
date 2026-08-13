@@ -38,3 +38,14 @@ Return a `human-ai-contract` with `ai_role`, `user_responsibility`, `capabilitie
 - Treating model benchmark accuracy as user-task safety.
 
 The interface should make appropriate reliance easier than either reflexive trust or reflexive distrust.
+
+## V6 Human-AI Agency Protocol
+Write an **agency handoff contract** for every transition between user decision, model suggestion, tool execution, and automated follow-up. Enforce **suggestion-action distinction** visually and semantically so generated advice cannot look like a completed action.
+
+Expose the **model capability boundary**—what data/tools/context it has and lacks at the decision point. Keep **user override prominence** proportional to automation consequence; override cannot be hidden behind secondary settings when the system may be wrong. Run an **automation surprise test**: after observing only the UI, can a user predict what the AI will do next and what requires approval?
+
+### Falsification
+Remove explanatory prose and ask users to predict action scope, then introduce tool failure or unexpected model inference. Surprise about execution/authority falsifies interaction design.
+
+### Recovery
+Reduce autonomy, separate propose/preview/execute states, expose scope/evidence, and restore an obvious correction/override path.

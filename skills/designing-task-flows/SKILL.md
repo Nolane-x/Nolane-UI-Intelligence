@@ -64,3 +64,16 @@ Return `goal`, `entry_states`, `state_graph`, `commit_points`, `irreversible_edg
 - Complete only part of a batch.
 
 If the UI would lie about state under these cases, the flow is incomplete.
+
+## V6 Flow Transaction Model
+Augment the flow graph with a **commit-point map**. Every edge that creates external side effects, consumes scarce resources, changes permissions, publishes content, charges money, or becomes difficult to reverse must declare exactly when commitment occurs and what evidence the user receives. Earlier steps are preparation, not fake success.
+
+For every task that can outlive a single uninterrupted session, define an **interruption re-entry contract**: what state is persisted, what expires, where the user resumes, what changed while away, and how stale assumptions are surfaced. Specify **partial-success semantics** for batch, multi-service, upload, invite, import, or agentic actions; “success” may contain completed and failed subparts that require different next actions.
+
+Run a **reversible-edge audit**. Prefer undo, draft, cancel, version restoration, or compensating actions when system semantics permit. Where reversibility is impossible, move consequence disclosure before the commit point and avoid confirmations that merely train users to click through. Execute a **flow dead-end probe** from error, permission denial, empty prerequisite, expired session, and cancelled async states; each must offer an intentional next path or an explicit terminal outcome.
+
+### Falsification
+Interrupt the flow before and after each commit point, fail one dependency after another succeeds, and revisit from history/deep link. If the user cannot tell what happened or safely continue, the happy-path sequence was never a complete flow.
+
+### Recovery
+When a dead end or ambiguous partial success is found, repair the state/transaction model first. Only then revise screens and copy. Never hide an unrecoverable edge with a generic toast.

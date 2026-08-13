@@ -50,3 +50,14 @@ Produce an `avatar-representation-contract` containing: represented entity; cont
 - Reusing an avatar across contexts after consent or authority has been revoked.
 
 The avatar succeeds when it strengthens identity and social comprehension without blurring who is present, who is acting, or who is accountable.
+
+## V6 Embodied Representation Protocol
+Define a **representation identity boundary**: whether the avatar is a user, agent, brand character, remote person, synthetic presenter, or fictional role; never blur these identities to gain trust. Mark **avatar expression uncertainty** when facial/gesture behavior is generated or inferred rather than an authentic signal.
+
+Use **nonverbal cue transparency** so gaze, nods, emotion, turn-taking, and spatial proximity do not imply capabilities or human feelings the system lacks. Provide an **embodiment fallback** when animation, camera, spatial rendering, or avatar presence is inaccessible/unavailable. Audit **identity impersonation risk** for likeness, voice, branding, and agent attribution.
+
+### Falsification
+Remove labels/branding and ask users who they think the avatar represents and what its expressions mean. Misattributed personhood/authority falsifies the representation.
+
+### Recovery
+Clarify identity/capability, reduce deceptive anthropomorphic cues, add non-embodied equivalents, and obtain consent/authorization for likeness or voice use.

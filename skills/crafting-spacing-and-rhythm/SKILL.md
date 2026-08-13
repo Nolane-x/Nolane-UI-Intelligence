@@ -55,3 +55,20 @@ Compare sparse vs loaded data, one-line vs multi-line labels, translated text, 2
 
 ## V5 Expert-Density Pareto Constraint
 Expert software may prioritize visible context and short scan distance, but `expert` never implies “everything small”. Optimize information throughput, scanability, aesthetic hierarchy, and emotional power subject to a protected **legibility floor** owned by `engineering-visual-legibility`. Density must be allocated: primary action/information zones may compress while orientation, focal, and monumental/quiet regions preserve breathing room and perceptual rhythm.
+
+## V6 Spacing, Density and Rhythm Mechanics
+Define a **density ladder** by task frequency and content type rather than one global compact/comfortable switch. Reading, form entry, dense comparison, command surfaces, touch-first controls and immersive canvases can use different density bands while sharing a coherent spacing grammar.
+
+Establish a **baseline rhythm** where typography and repeated rows benefit from it, but do not force every component to mathematical multiples when optical alignment requires correction. Track major vertical beats—page title to content, section cadence, list rows, table headers, form groups—and the relationships users scan repeatedly.
+
+Apply **optical spacing correction** around asymmetric icons, uppercase labels, rounded shapes, large display type and mixed visual weights. Equal numeric padding can look unequal. Record intentional deviations rather than scattering unexplained literals.
+
+A **touch-target exception** never means tiny hit areas because the visual glyph is small. Separate visual bounds from interactive target, preserve neighboring target separation, and test coarse pointer/mobile safe areas. Dense desktop modes may reduce visual padding but retain keyboard discoverability and minimum interactive precision.
+
+Detect **rhythm discontinuity** where one imported library, empty state, modal or chart introduces a different spacing cadence. These discontinuities often reveal cross-source collage before color does.
+
+### Falsification
+Overlay alignment/baseline guides and then remove them: can users still perceive coherent grouping, or is the grid doing mathematical work without perceptual benefit? Stress long labels, error messages, translated text, zoom and dense real data. If rhythm survives only ideal demo content, it is not robust.
+
+### Recovery
+When screens feel cramped, identify whether the problem is local padding, information architecture or too many simultaneous controls; increasing every gap can destroy density without fixing comprehension. When screens feel empty, strengthen grouping/content hierarchy before filling space decoratively.

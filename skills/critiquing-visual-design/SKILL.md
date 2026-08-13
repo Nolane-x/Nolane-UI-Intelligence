@@ -43,3 +43,20 @@ Produce typed findings only. Include a `preserve` note when an existing strength
 
 ## V5 Dual-Critic Split
 Separate the **execution critic** (“Did the render faithfully execute the selected thesis?”) from the **adequacy critic** (“Was that thesis good enough for the original intent?”). Coherent execution cannot close an inadequacy finding. `critiquing-aesthetic-adequacy` re-reads experiential intent and visual ambition, compares against references/alternatives, and may reopen aesthetic exploration even when thesis fidelity is excellent.
+
+## V6 Multi-Scale Visual Execution Critique
+Start with a **squint test**: reduce detail and ask whether primary/secondary/tertiary hierarchy, large color masses and spatial grouping remain clear. Then use a **grayscale hierarchy** pass to isolate luminance/scale/position from hue. These are diagnostics, not aesthetic laws.
+
+Trace the intended **saliency path** through the first seconds and through task execution. Does the eye land on the primary object/action, then supporting context, or is attention captured by decorative glow, badges, microcharts or a giant title unrelated to the next task?
+
+Inspect rhythm at multiple scales. A **rhythm fracture** can be a one-off gap, but more important are mismatched section cadence, row density, card/pane boundary frequency, typography intervals or motion timing introduced by different component sources.
+
+Audit **material inconsistency**: surfaces that imply different light models, opacity, border logic, radius language or depth semantics without product reason. A visually polished component can still be an integration defect if it belongs to another material world.
+
+Critique typography, color, spacing, surfaces, iconography, imagery, data encoding, motion and responsive composition against their own contracts. Separate local execution defects from thesis adequacy; this critic fixes the former and hands the latter to `critiquing-aesthetic-adequacy`.
+
+### Falsification
+Compare rendered evidence at several viewports/themes/content stresses, not the designer's hero screenshot. Temporarily remove decorative layers and check whether hierarchy improves. If the critic's finding cannot name an observable visual relation and a plausible consequence, downgrade it from defect to preference.
+
+### Recovery
+Route systemic defects to the owning craft/system skill instead of issuing dozens of pixel tweaks. When visual polish is high but the screen still lacks identity or emotional force, do not keep polishing—escalate to adequacy/basin analysis.

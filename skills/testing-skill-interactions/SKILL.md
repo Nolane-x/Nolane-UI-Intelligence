@@ -27,3 +27,18 @@ Return the canonical `skill-interaction-evidence` artifact with explicit status,
 
 ## Failure Traps
 Token length as depth; schema-only mutation tests; one golden prompt; same-model samples called independent; interpreting no regression on one case as universal benefit; forcing a skill to win every style regime.
+
+## V6 Interaction-Causality Protocol
+Build a **factorial matrix** for skill pairs/groups suspected of interacting. The matrix includes target skill on/off, neighbor on/off, parent-only controls and, when relevant, a mutated obligation. Record the predicted mechanism before observing outputs.
+
+An **antagonistic interaction** occurs when two individually useful skills combine to create a regression: anti-excess + legibility may become visual timidity; density + scientific restraint may create HUD sameness; reference research + signature design may drift into imitation. A **synergistic interaction** occurs when the combination creates an outcome neither reliably produces alone, such as repository archaeology + adaptation preventing both semantic drift and library collage.
+
+Use **semantic force mutation** rather than cosmetic mutation: MUST→MAY, preserve→discard, independent→self, minimum→maximum, block→warn. Tests must detect changed behavioral force, not just broken JSON.
+
+Record **critic lineage**: model/version, prompt/context overlap, treatment visibility and evaluator independence. Two roles generated in one shared context are correlated evidence, not two independent judges.
+
+### Falsification
+If ablation/mutation produces no decision delta across adversarial cases, the skill or clause may not exert causal pressure. If factorial outcomes contradict the hypothesized mechanism, revise the interaction model rather than cherry-picking successful tasks.
+
+### Recovery
+Harmful interaction routes to ownership/routing changes, not more prose. No-effect clauses are simplified or removed. Regime-specific effects are scoped rather than promoted to universal rules. Causal claims escalate to `benchmarking-ui-skill-effect` when they require controlled repeated evaluation.

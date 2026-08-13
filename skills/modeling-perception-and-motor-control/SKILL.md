@@ -38,3 +38,16 @@ Return a `perceptual-motor-envelope` with `viewing_conditions[]`, `input_capabil
 - Treating accidental activation as user carelessness instead of interaction design failure.
 
 Model the real action envelope first; decorative micro-interaction comes later.
+
+## V6 Perceptual-Motor Quantification
+Use a **visual-angle budget** for information viewed at distance or variable device geometry; physical/angular size can matter more than CSS pixels on TV, automotive, XR, control rooms, or wearables. Estimate a **target-acquisition model** using target size, distance, direction, frequency, pointer/touch/gaze precision, and consequence rather than applying one universal minimum mechanically.
+
+Maintain a **contrast-sensitivity reserve** beyond nominal thresholds for small/thin text, glare, low-quality displays, dim environments, transparency, motion, and aging vision. Track **peripheral-vision demand** for alerts and status that users are expected to notice without foveating; color/detail recognition falls rapidly in the periphery, so location, motion, size, and persistence need separate reasoning.
+
+Include a **motor-variability margin** for tremor, limited dexterity, walking/vehicle vibration, one-handed reach, stylus variation, switch access, and temporary impairment. Precision-dependent gestures require alternatives or forgiving acquisition/cancellation.
+
+### Falsification
+Change viewing distance, blur/contrast, pointer precision, hand stability, and target separation while preserving the task. If error rises sharply outside laboratory-perfect conditions, the perceptual-motor assumptions are false.
+
+### Recovery
+Increase physical/angular size and separation, reduce precision, add stable landmarks or alternate input, and preserve task semantics. Do not hide failures by slowing the interaction until it becomes unusable.

@@ -38,3 +38,14 @@ Return a `financial-transaction-contract` with `transaction_states`, `identity_f
 - Destructive red styling substituted for actual consequence detail.
 
 The user should be able to reconstruct exactly what financial action they authorized from the UI and receipt.
+
+## V6 Financial Transaction Integrity
+Treat **amount-currency identity** as inseparable: decimal precision, locale format, currency code/symbol ambiguity, converted amount, and source account must remain explicit. Time **fee-rate disclosure timing** before commitment, including spread, network/processing fees, exchange rate timestamp, taxes, and conditions that can change.
+
+Perform **beneficiary verification** appropriate to risk: identity/name, destination/account, institution/network, saved-recipient provenance, and changed-recipient warnings. Mark the **irreversible settlement boundary** where cancellation/undo ceases to be possible. Issue a durable **reconciliation receipt** with transaction identifier, authoritative status, amounts/fees, parties, timestamps, and next steps for pending/failed states.
+
+### Falsification
+Change currency/account/beneficiary immediately before submission, delay exchange-rate refresh, and simulate duplicate/retried payment. If the UI can show a misleading final total or duplicate settlement, it fails.
+
+### Recovery
+Invalidate stale quotes, stop ambiguous retries, restore review with changed fields highlighted, and route disputes/failures through transaction truth rather than generic error copy.

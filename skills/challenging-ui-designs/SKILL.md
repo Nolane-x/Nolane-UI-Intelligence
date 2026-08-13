@@ -67,3 +67,14 @@ Return selected lenses, findings, untested hypotheses, evidence gaps, and a rele
 
 ## V5 Epistemic Independence Lineage
 Role separation is not automatically epistemic independence. Record generator model/context, critic model/context, optional visual/human judge, and `correlation_class`. A **same-model** or materially shared-context evaluation is `CORRELATED` unless evidence establishes otherwise. Critics should expose the correlation rather than using the word independent ceremonially. When high-stakes aesthetic adequacy depends on correlated review, preserve the limitation in completion evidence.
+
+## V6 Adversarial Challenge Protocol
+Build an **adversarial scenario lattice** crossing lifecycle, role, permission, modality, network, data volume, locale, accessibility, platform, risk, and visual/content extremes without blindly enumerating the full Cartesian product. Locate the **assumption attack surface**: hidden beliefs about user knowledge, data cleanliness, latency, authority, input precision, viewport, language, or model reliability.
+
+Perform **counterexample generation** that tries to produce a valid product state where the current design rule fails. Focus a **weakest-link challenge** on the least evidenced obligation rather than repeatedly testing already strong paths. Use a **challenge saturation stop** only when new adversarial variations stop producing new failure classes—not when the challenge list becomes long.
+
+### Falsification
+Attempt to defeat the selected design thesis with a scenario outside the happy distribution. If a new failure class bypasses existing owners/gates, the system is incomplete.
+
+### Recovery
+Route the failure to a decision owner or create/revise ownership only when the failure is genuinely unowned; add a regression case before resuming completion.

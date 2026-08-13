@@ -40,3 +40,14 @@ Return an `editor-workspace-contract` with `object_model`, `selection_states`, `
 - One giant component owns canvas, toolbar, inspector, and history state.
 
 An editor feels powerful when state complexity is visible and reversible rather than mysterious.
+
+## V6 Editor/Canvas Workspace Protocol
+Maintain **infinite-canvas coordinate truth** across world coordinates, viewport transforms, zoom, snapping, guides, minimap, and exported geometry. Use **zoom-level semantic scaling** so labels/handles/details appear at useful thresholds without changing object meaning.
+
+Preserve **selection transform invariants** for multi-select, rotate/resize, grouped objects, locked items, and constraints. Integrate every mutation with **history-command integration** so undo/redo reflects semantic user actions rather than low-level pointer events. Provide a **canvas accessibility alternate**—structured object tree/list/properties/actions or other equivalent path—when pure spatial manipulation is inaccessible.
+
+### Falsification
+Zoom/pan deeply, transform grouped objects, undo complex gestures, reload, and complete a material action without canvas pointer manipulation. Geometry/history or accessibility mismatch falsifies the workspace.
+
+### Recovery
+Restore canonical world/object state, collapse low-level events into semantic commands, and provide structured alternate manipulation rather than adding keyboard emulation to raw drag coordinates.

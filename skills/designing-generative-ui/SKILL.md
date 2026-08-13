@@ -38,3 +38,16 @@ Return a `generative-ui-runtime-contract` with `generation_mode`, `component_voc
 - “Safe because the model was instructed not to” used instead of runtime enforcement.
 
 Generative UI becomes powerful when creativity is separated from authority and rendering is separated from privileged action.
+
+## V6 Generative Surface Authority Model
+Define a **generation authority envelope** before allowing a model to create interface structure. Specify which actions, data bindings, components, copy, ordering, styling, and navigation may be generated; which require deterministic templates or human approval; and which are prohibited. Generated UI must not silently acquire more product authority than generated text.
+
+Use a **schema-to-surface contract** so generated controls bind only to known capabilities, typed inputs, permissions, and canonical actions. Unknown fields or actions are not “creative opportunities.” Place malformed, unsupported, unsafe, or semantically ambiguous output into **invalid-generation quarantine** with a recoverable explanation rather than partially rendering an executable interface.
+
+Preserve **ephemeral-state continuity** during regeneration: focus, form input, selection, scroll, open disclosure, unsaved edits, pending actions, and assistive-technology context must not evaporate because the model emitted a new tree. Run a **regeneration identity test** to decide when a generated element is the same conceptual object versus a replacement; stable IDs and action bindings must survive where identity is preserved.
+
+### Falsification
+Perturb the model output with a plausible unknown action, changed order, missing label, duplicate ID, and regeneration during active input. If unsafe controls render or user state disappears, the generation contract is false.
+
+### Recovery
+Fall back to deterministic components, reduce the authority envelope, preserve last-known-valid UI, and request/derive a corrected schema. Never ask the user to “try the generated UI again” after losing committed state.

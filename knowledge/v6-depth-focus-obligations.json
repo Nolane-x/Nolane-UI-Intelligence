@@ -1,0 +1,1118 @@
+{
+  "version": 6,
+  "skills": {
+    "preserving-experiential-intent": [
+      "affective invariant ledger",
+      "semantic compression loss",
+      "source-language checkpoint",
+      "intent contradiction test",
+      "recovery trigger"
+    ],
+    "directing-visual-ambition": [
+      "ambition budget",
+      "evidence escalation ladder",
+      "ambition mismatch",
+      "de-escalation rule",
+      "quality floor"
+    ],
+    "modeling-aspirational-identity": [
+      "competence ritual",
+      "status projection trap",
+      "power without false capability",
+      "identity contradiction",
+      "symbolic object audit"
+    ],
+    "composing-spatial-dramaturgy": [
+      "spatial beat map",
+      "compression-to-release",
+      "viewport occupation curve",
+      "spatial climax",
+      "dramaturgy falsification"
+    ],
+    "detecting-aesthetic-attractors": [
+      "mechanism co-occurrence",
+      "attractor concentration",
+      "removal-cost test",
+      "aesthetic entropy",
+      "anti-timidity countercheck"
+    ],
+    "engineering-visual-legibility": [
+      "resolved-font delta",
+      "compound legibility risk",
+      "zoom-reflow probe",
+      "occlusion audit",
+      "reading-distance context"
+    ],
+    "directing-visual-energy": [
+      "energy topology",
+      "chroma mass map",
+      "quiet-field ratio",
+      "luminance excursion",
+      "energy contradiction"
+    ],
+    "deepening-signature-mechanisms": [
+      "signature causal chain",
+      "recognition-without-logo",
+      "copyability test",
+      "failure-if-removed",
+      "signature saturation"
+    ],
+    "proving-visual-encoding-semantics": [
+      "channel truth table",
+      "perceptual ordering",
+      "decorative quarantine",
+      "uncertainty encoding",
+      "legend dependency audit"
+    ],
+    "critiquing-aesthetic-adequacy": [
+      "thesis adequacy",
+      "blind comparison",
+      "reference-frontier delta",
+      "intent-to-render gap",
+      "execution-success trap"
+    ],
+    "escaping-aesthetic-basins": [
+      "local-optimum signature",
+      "plateau detector",
+      "direction mutation",
+      "re-divergence threshold",
+      "basin relapse"
+    ],
+    "evaluating-perceptual-diversity": [
+      "screen-family signature",
+      "recurrence justification",
+      "template fingerprint",
+      "coherence-versus-repetition",
+      "cross-surface entropy"
+    ],
+    "testing-skill-interactions": [
+      "factorial matrix",
+      "antagonistic interaction",
+      "synergistic interaction",
+      "semantic force mutation",
+      "critic lineage"
+    ],
+    "crafting-typography": [
+      "optical-size decision",
+      "x-height and width",
+      "script stress matrix",
+      "line-box geometry",
+      "font-loading failure"
+    ],
+    "crafting-color": [
+      "perceptual color space",
+      "gamut clipping",
+      "simultaneous contrast",
+      "semantic tone ladder",
+      "dark-mode inversion"
+    ],
+    "crafting-spacing-and-rhythm": [
+      "density ladder",
+      "baseline rhythm",
+      "optical spacing correction",
+      "touch-target exception",
+      "rhythm discontinuity"
+    ],
+    "crafting-depth-and-surfaces": [
+      "material hierarchy",
+      "light-model consistency",
+      "occlusion ownership",
+      "boundary-density budget",
+      "transparency failure"
+    ],
+    "directing-iconography-and-imagery": [
+      "symbol grammar",
+      "optical grid",
+      "metaphor collision",
+      "cultural interpretation",
+      "asset provenance"
+    ],
+    "composing-layouts": [
+      "intrinsic sizing",
+      "content-driven breakpoint",
+      "asymmetry budget",
+      "constraint graph",
+      "layout failure envelope"
+    ],
+    "preventing-generic-ui": [
+      "blind-product substitution",
+      "reference substitution test",
+      "mechanism necessity",
+      "genericity fingerprint",
+      "timidity failure"
+    ],
+    "critiquing-visual-design": [
+      "squint test",
+      "grayscale hierarchy",
+      "saliency path",
+      "rhythm fracture",
+      "material inconsistency"
+    ],
+    "critiquing-user-experience": [
+      "information scent",
+      "time-to-action",
+      "recovery cost",
+      "mode error",
+      "state visibility"
+    ],
+    "critiquing-design-system": [
+      "token semantic drift",
+      "component escape hatch",
+      "variant explosion",
+      "cross-surface consistency",
+      "governance debt"
+    ],
+    "using-nolane-ui": [
+      "task-profile checksum",
+      "route-justification ledger",
+      "capability-evidence boundary",
+      "omission declaration",
+      "bootstrap recovery path"
+    ],
+    "modeling-product-intent": [
+      "outcome-to-capability map",
+      "invariant-versus-preference",
+      "anti-goal register",
+      "success-observability plan",
+      "intent drift test"
+    ],
+    "architecting-information": [
+      "object-action taxonomy",
+      "polyhierarchy decision",
+      "retrieval-path budget",
+      "information-scent probe",
+      "scale-growth simulation"
+    ],
+    "designing-task-flows": [
+      "commit-point map",
+      "interruption re-entry contract",
+      "partial-success semantics",
+      "reversible-edge audit",
+      "flow dead-end probe"
+    ],
+    "designing-interactions": [
+      "input-to-state transition table",
+      "acquisition-cost check",
+      "interruption-and-cancel path",
+      "optimistic-action rollback",
+      "mode-visibility probe"
+    ],
+    "modeling-component-semantics": [
+      "role-action-state invariant",
+      "native-first semantic decision",
+      "semantic surface area",
+      "accessible-name computation",
+      "composition ownership test"
+    ],
+    "modeling-component-states": [
+      "state orthogonality matrix",
+      "impossible-state elimination",
+      "derived-versus-stored decision",
+      "cross-component synchronization",
+      "transition completeness probe"
+    ],
+    "designing-forms": [
+      "field-dependency graph",
+      "validation-timing policy",
+      "draft-persistence contract",
+      "error-summary focus path",
+      "autofill-and-input-mode audit"
+    ],
+    "designing-navigation": [
+      "place-versus-mode test",
+      "wayfinding cue stack",
+      "deep-link history contract",
+      "navigation-state persistence",
+      "hierarchy-growth stress"
+    ],
+    "designing-search": [
+      "query-intent model",
+      "result-confidence contract",
+      "facet-state persistence",
+      "zero-result recovery strategy",
+      "ranking-feedback loop"
+    ],
+    "writing-interface-copy": [
+      "action-semantic alignment",
+      "referent precision audit",
+      "irreversible-consequence wording",
+      "localization expansion budget",
+      "error-repair copy"
+    ],
+    "directing-visual-hierarchy": [
+      "saliency budget",
+      "task-priority projection",
+      "hierarchy-channel redundancy",
+      "glance-path hypothesis",
+      "hierarchy collapse test"
+    ],
+    "architecting-design-tokens": [
+      "semantic alias graph",
+      "mode-invariance contract",
+      "literal-escape audit",
+      "token lifecycle policy",
+      "theme-drift probe"
+    ],
+    "architecting-component-systems": [
+      "primitive-to-composite boundary",
+      "extension-point budget",
+      "variant-authority map",
+      "escape-hatch debt",
+      "component evolution contract"
+    ],
+    "adapting-responsive-layouts": [
+      "relationship-preservation map",
+      "reflow-versus-transform",
+      "container-query decision",
+      "responsive state continuity",
+      "content-breakpoint probe"
+    ],
+    "adapting-platform-conventions": [
+      "native-convention delta",
+      "system-gesture collision",
+      "platform chrome contract",
+      "safe-area behavior",
+      "fallback-parity test"
+    ],
+    "designing-localized-interfaces": [
+      "bidirectional-isolation audit",
+      "script-specific line breaking",
+      "locale-format semantics",
+      "expansion stress envelope",
+      "cultural-assumption falsifier"
+    ],
+    "designing-motion": [
+      "temporal-information budget",
+      "continuity-anchor map",
+      "interruption graph",
+      "reduced-motion semantic equivalence",
+      "settling-envelope test"
+    ],
+    "designing-data-dense-interfaces": [
+      "information-compression ratio",
+      "comparison-anchor map",
+      "frozen-context contract",
+      "filter-sort provenance",
+      "density degradation probe"
+    ],
+    "designing-data-visualization": [
+      "analytic-question mapping",
+      "encoding-capacity budget",
+      "scale-and-baseline audit",
+      "interaction-to-insight trace",
+      "uncertainty legibility probe"
+    ],
+    "designing-empty-loading-error-states": [
+      "uncertainty-state taxonomy",
+      "skeleton-truth test",
+      "partial-data policy",
+      "retry-idempotency contract",
+      "stale-data disclosure"
+    ],
+    "designing-onboarding": [
+      "first-value path",
+      "activation horizon",
+      "progressive-commitment schedule",
+      "sample-data truth boundary",
+      "skip-and-reentry contract"
+    ],
+    "verifying-design-fidelity": [
+      "authoritative-target graph",
+      "semantic-versus-pixel invariant",
+      "dynamic-state parity",
+      "font-and-viewport lock",
+      "diff false-positive audit"
+    ],
+    "critiquing-responsive-behavior": [
+      "breakpoint discontinuity scan",
+      "relationship-loss test",
+      "capability-parity audit",
+      "zoom-reflow stress",
+      "orientation-transition probe"
+    ],
+    "critiquing-platform-fit": [
+      "platform-affordance mismatch",
+      "convention-cost ledger",
+      "system-integration gap",
+      "input-modality conflict",
+      "platform-native counterexample"
+    ],
+    "designing-screen-reader-experiences": [
+      "virtual-cursor versus focus",
+      "name-role-value trace",
+      "live-region cadence",
+      "dom-visual-order audit",
+      "focus-restoration contract"
+    ],
+    "designing-low-vision-and-high-contrast": [
+      "magnification viewport",
+      "forced-colors contract",
+      "non-text contrast map",
+      "color-dependence falsifier",
+      "target-separation audit"
+    ],
+    "researching-visual-references": [
+      "interaction-state sampling",
+      "cross-screen reference walk",
+      "source-context reconstruction",
+      "blind-reference removal",
+      "reference contradiction log"
+    ],
+    "exploring-aesthetic-directions": [
+      "mechanism-level divergence",
+      "composition silhouette test",
+      "material-language divergence",
+      "typography-personality contrast",
+      "direction-convergence alarm"
+    ],
+    "evolving-component-apis": [
+      "compatibility matrix",
+      "consumer impact graph",
+      "semantic-version decision",
+      "codemod feasibility",
+      "deprecation exit test"
+    ],
+    "designing-generative-ui": [
+      "generation authority envelope",
+      "schema-to-surface contract",
+      "invalid-generation quarantine",
+      "ephemeral-state continuity",
+      "regeneration identity test"
+    ],
+    "designing-gaze-hand-spatial-input": [
+      "dwell-intent disambiguation",
+      "gaze-hand arbitration",
+      "spatial target envelope",
+      "vergence-depth comfort",
+      "fatigue calibration loop"
+    ],
+    "designing-sign-language-presentation": [
+      "signing-language identity",
+      "signer-frame integrity",
+      "sign-caption coordination",
+      "linguistic-content boundary",
+      "playback continuity contract"
+    ],
+    "engineering-human-factors": [
+      "task-demand model",
+      "workload budget",
+      "signal-detection threshold",
+      "error-cost asymmetry",
+      "fatigue-exposure envelope"
+    ],
+    "modeling-perception-and-motor-control": [
+      "visual-angle budget",
+      "target-acquisition model",
+      "contrast-sensitivity reserve",
+      "peripheral-vision demand",
+      "motor-variability margin"
+    ],
+    "evaluating-usability-evidence": [
+      "evidence-validity ladder",
+      "task-success confidence interval",
+      "observer-effect check",
+      "severity-calibration matrix",
+      "contradictory-finding resolution"
+    ],
+    "managing-theming-and-personalization": [
+      "semantic-theme invariants",
+      "personalization reversibility",
+      "accessibility-precedence rule",
+      "density-personalization boundary",
+      "theme-migration probe"
+    ],
+    "designing-accessible-interfaces": [
+      "accessibility-requirement trace",
+      "keyboard-path proof",
+      "programmatic-relationship map",
+      "sensory-equivalence test",
+      "conformance-usability gap"
+    ],
+    "designing-affective-adaptive-interfaces": [
+      "inferred-affect uncertainty",
+      "adaptation-consent boundary",
+      "adaptation transparency cue",
+      "mood-manipulation risk",
+      "state-reversion guarantee"
+    ],
+    "calibrating-ui-authority": [
+      "authority conflict matrix",
+      "normative-versus-informative",
+      "source-currentness horizon",
+      "claim-strength ceiling",
+      "supersession trace"
+    ],
+    "conducting-task-analysis": [
+      "job-trigger inventory",
+      "goal-action decomposition",
+      "frequency-consequence matrix",
+      "workaround evidence",
+      "task-variance sampling"
+    ],
+    "designing-wearable-glanceable-interfaces": [
+      "glance-duration budget",
+      "complication-information tier",
+      "wrist-motion tolerance",
+      "ambient-to-active transition",
+      "battery-attention tradeoff"
+    ],
+    "designing-tv-ten-foot-interfaces": [
+      "ten-foot angular scale",
+      "remote-navigation topology",
+      "focus-travel cost",
+      "overscan-safe composition",
+      "couch-distance legibility"
+    ],
+    "designing-supervisory-control-room-hmi": [
+      "alarm-priority topology",
+      "operator scan sector",
+      "control-room handoff state",
+      "nuisance-alarm load",
+      "degraded-sensor truth"
+    ],
+    "designing-robotic-teleoperation-interfaces": [
+      "command-feedback latency loop",
+      "camera-frame trust",
+      "deadman recovery",
+      "control-authority handoff",
+      "spatial reference integrity"
+    ],
+    "designing-real-time-updates": [
+      "update-coalescing policy",
+      "temporal-order guarantee",
+      "freshness timestamp contract",
+      "change-attention budget",
+      "live-freeze mode"
+    ],
+    "designing-pointer-touch-pen-input": [
+      "modality equivalence map",
+      "hover-only trap",
+      "pen barrel intent",
+      "palm-rejection boundary",
+      "coarse-pointer fallback"
+    ],
+    "designing-permissions-and-consent": [
+      "just-in-time permission ask",
+      "scope-to-benefit explanation",
+      "denial recovery path",
+      "consent revocation surface",
+      "permission-drift audit"
+    ],
+    "designing-offline-degraded-experiences": [
+      "offline capability envelope",
+      "queued-action provenance",
+      "conflict-merge policy",
+      "sync-recovery checkpoint",
+      "degraded-truth badge"
+    ],
+    "designing-notifications-and-interruptions": [
+      "interruption-value threshold",
+      "channel escalation ladder",
+      "notification deduplication",
+      "quiet-hours semantics",
+      "attention debt budget"
+    ],
+    "designing-multi-agent-surfaces": [
+      "agent-identity provenance",
+      "delegation boundary map",
+      "concurrent-action conflict",
+      "attribution timeline",
+      "agent handoff recovery"
+    ],
+    "designing-latency-and-progressive-feedback": [
+      "latency perceptual threshold",
+      "progress truth model",
+      "optimistic boundary",
+      "cancellation responsiveness",
+      "long-task backgrounding"
+    ],
+    "designing-high-stakes-decisions": [
+      "consequence model",
+      "dual-channel confirmation",
+      "decision evidence snapshot",
+      "forced-delay justification",
+      "post-commit recovery"
+    ],
+    "designing-haptics-and-multisensory-feedback": [
+      "haptic semantic vocabulary",
+      "actuator capability profile",
+      "cross-modal redundancy",
+      "haptic saturation",
+      "inaccessible-haptic fallback"
+    ],
+    "designing-gamepad-remote-focus": [
+      "spatial focus graph",
+      "wraparound policy",
+      "focus memory per region",
+      "analog-repeat envelope",
+      "remote key parity"
+    ],
+    "designing-game-hud-and-menus": [
+      "playfield occlusion budget",
+      "combat-attention priority",
+      "safe-zone adaptation",
+      "diegetic-vs-overlay decision",
+      "pause-state parity"
+    ],
+    "designing-foldable-large-screen-interfaces": [
+      "hinge occlusion map",
+      "posture transition state",
+      "pane continuity contract",
+      "span-versus-separate decision",
+      "half-open ergonomics"
+    ],
+    "designing-financial-transaction-ui": [
+      "amount-currency identity",
+      "fee-rate disclosure timing",
+      "beneficiary verification",
+      "irreversible settlement boundary",
+      "reconciliation receipt"
+    ],
+    "designing-desktop-windowed-workspaces": [
+      "window restoration contract",
+      "multiwindow object identity",
+      "shortcut-menu parity",
+      "drag-between-window semantics",
+      "monitor-density migration"
+    ],
+    "designing-commerce-checkout": [
+      "total-cost invariant",
+      "fulfillment-option truth",
+      "cart-state persistence",
+      "payment-failure continuity",
+      "guest-account boundary"
+    ],
+    "designing-brain-computer-interface-ux": [
+      "signal-confidence gating",
+      "false-activation ceiling",
+      "calibration burden",
+      "neural-data consent boundary",
+      "alternative-input escape"
+    ],
+    "designing-automotive-interfaces": [
+      "glance-time envelope",
+      "driving-state lockout",
+      "road-attention priority",
+      "vehicle-control distinction",
+      "passenger-driver context"
+    ],
+    "designing-authentication-and-passkeys": [
+      "ceremony-state model",
+      "account-device binding",
+      "recovery-channel integrity",
+      "phishing-resistant path",
+      "credential-discovery fallback"
+    ],
+    "designing-ai-uncertainty-and-provenance": [
+      "claim-source binding",
+      "uncertainty-type taxonomy",
+      "confidence-vs-evidence distinction",
+      "provenance freshness",
+      "unsupported-claim quarantine"
+    ],
+    "designing-accessible-media-alternatives": [
+      "media-alternative equivalence",
+      "audio-description timing",
+      "transcript navigation mapping",
+      "caption speaker identity",
+      "synchronized alternative track"
+    ],
+    "designing-accessible-drag-and-drop": [
+      "drag-intent action model",
+      "keyboard reorder path",
+      "pickup-drop announcement",
+      "target-list discoverability",
+      "cancellation restoration"
+    ],
+    "annotating-accessibility-intent": [
+      "access-barrier hypothesis",
+      "semantic-intent annotation",
+      "modality-loss consequence",
+      "assistive-path obligation",
+      "accessibility unknown marker"
+    ],
+    "critiquing-accessibility": [
+      "task-level accessibility verdict",
+      "barrier severity topology",
+      "assistive-technology disagreement",
+      "automated-check ceiling",
+      "accessibility regression block"
+    ],
+    "designing-aac-communication-interfaces": [
+      "communication-rate budget",
+      "vocabulary access topology",
+      "partner-assisted path",
+      "motor-planning consistency",
+      "message-ownership privacy"
+    ],
+    "designing-accessibility-settings-and-profiles": [
+      "preference precedence lattice",
+      "profile portability contract",
+      "reset-safe defaults",
+      "setting effect preview",
+      "assistive-setting conflict"
+    ],
+    "designing-agent-autonomy-and-control": [
+      "autonomy-level ladder",
+      "approval checkpoint graph",
+      "blast-radius bound",
+      "reversible delegation",
+      "stop-control latency"
+    ],
+    "designing-ai-feedback-and-correction": [
+      "correction affordance loop",
+      "feedback target specificity",
+      "model-state repair",
+      "learning-consent boundary",
+      "correction persistence"
+    ],
+    "designing-alternative-input": [
+      "switch-scan topology",
+      "dwell input fallback",
+      "voice-free action path",
+      "remapping persistence",
+      "fatigue-aware timing"
+    ],
+    "designing-ambient-context-aware-interfaces": [
+      "context-signal confidence",
+      "ambient privacy perimeter",
+      "context-change hysteresis",
+      "background-action ceiling",
+      "foreground override path"
+    ],
+    "designing-avatar-embodied-representation": [
+      "representation identity boundary",
+      "avatar expression uncertainty",
+      "nonverbal cue transparency",
+      "embodiment fallback",
+      "identity impersonation risk"
+    ],
+    "designing-cli-tui-interfaces": [
+      "terminal capability detection",
+      "keyboard-only command parity",
+      "resize reflow contract",
+      "colorless state distinction",
+      "shell safety boundary"
+    ],
+    "designing-cognitive-accessibility": [
+      "memory externalization map",
+      "plain-language decision",
+      "distraction suppression",
+      "time-pressure relief",
+      "cognitive recovery cue"
+    ],
+    "designing-collaboration-and-presence": [
+      "presence freshness",
+      "concurrent edit ownership",
+      "remote-cursor noise budget",
+      "conflict visibility",
+      "collaboration privacy"
+    ],
+    "designing-cross-device-action-equivalence": [
+      "action identity continuity",
+      "device-capability delta",
+      "handoff token",
+      "partial-action transfer",
+      "duplicate-execution guard"
+    ],
+    "designing-editor-canvas-workspaces": [
+      "infinite-canvas coordinate truth",
+      "zoom-level semantic scaling",
+      "selection transform invariants",
+      "history-command integration",
+      "canvas accessibility alternate"
+    ],
+    "designing-embedded-kiosk-interfaces": [
+      "session reset boundary",
+      "shoulder-surfing exposure",
+      "unattended timeout",
+      "physical escape path",
+      "peripheral-device recovery"
+    ],
+    "designing-flight-deck-interfaces": [
+      "phase-of-flight priority",
+      "mode-awareness invariant",
+      "alert acknowledgement semantics",
+      "sensor disagreement display",
+      "crew cross-check support"
+    ],
+    "designing-human-ai-interaction": [
+      "agency handoff contract",
+      "suggestion-action distinction",
+      "model capability boundary",
+      "user override prominence",
+      "automation surprise test"
+    ],
+    "designing-in-product-assistance": [
+      "help-trigger context",
+      "task-resume anchor",
+      "progressive help depth",
+      "stale-help detection",
+      "assistance dependency test"
+    ],
+    "designing-keyboard-power-user-ux": [
+      "shortcut namespace",
+      "chord conflict audit",
+      "discoverability surface",
+      "focus-command coherence",
+      "remapping support"
+    ],
+    "designing-medical-safety-critical-ui": [
+      "patient-identity lock",
+      "clinical data freshness",
+      "dose-unit integrity",
+      "alarm fatigue control",
+      "clinical override provenance"
+    ],
+    "designing-privacy-sensitive-interfaces": [
+      "data-exposure map",
+      "privacy expectation boundary",
+      "sensitive-screen shielding",
+      "retention-disclosure link",
+      "consent-context integrity"
+    ],
+    "designing-reduced-motion-and-photosensitivity": [
+      "motion-trigger inventory",
+      "vestibular-risk classification",
+      "photosensitive flash budget",
+      "reduced-motion substitution",
+      "autoplay escape"
+    ],
+    "designing-spatial-xr-interfaces": [
+      "spatial comfort envelope",
+      "locomotion choice",
+      "occlusion-depth truth",
+      "world-anchor persistence",
+      "boundary-safety cue"
+    ],
+    "designing-streaming-ai-responses": [
+      "token-stream commitment boundary",
+      "partial-answer stability",
+      "tool-call transition",
+      "citation-late-binding",
+      "stream-cancel semantics"
+    ],
+    "designing-voice-conversational-ui": [
+      "turn-taking state",
+      "recognition confidence boundary",
+      "repair dialogue path",
+      "private-context fallback",
+      "barge-in policy"
+    ],
+    "critiquing-ai-trust-and-agency": [
+      "automation-bias probe",
+      "authority inflation test",
+      "provenance-action gap",
+      "override friction",
+      "trust calibration verdict"
+    ],
+    "critiquing-cognitive-load": [
+      "working-memory load map",
+      "split-attention fault",
+      "choice-overload threshold",
+      "interruption recovery burden",
+      "learning-transfer penalty"
+    ],
+    "critiquing-human-factors-and-safety": [
+      "hazard-control trace",
+      "workload exceedance",
+      "alarm salience mismatch",
+      "error-forcing function",
+      "safety margin erosion"
+    ],
+    "critiquing-input-modality": [
+      "modality-exclusive action",
+      "parity-cost exception",
+      "gesture discoverability failure",
+      "input-switch continuity",
+      "inaccessible precision demand"
+    ],
+    "critiquing-localization": [
+      "untranslated semantic residue",
+      "layout expansion break",
+      "bidirectional logic fault",
+      "locale parsing hazard",
+      "cultural metaphor mismatch"
+    ],
+    "critiquing-performance-and-resilience": [
+      "interaction latency budget",
+      "long-task resilience",
+      "memory pressure failure",
+      "rendering-jank evidence",
+      "graceful degradation gap"
+    ],
+    "critiquing-security-and-privacy": [
+      "privilege-escalation surface",
+      "sensitive-state leakage",
+      "spoofing affordance",
+      "auth-context confusion",
+      "privacy-default regression"
+    ],
+    "adapting-external-ui-patterns": [
+      "source-version pin",
+      "foreign-style stripping",
+      "semantic parity ledger",
+      "local-token convergence",
+      "upstream-change isolation"
+    ],
+    "auditing-ui-library-integration": [
+      "dependency-surface inventory",
+      "bundled-global-style audit",
+      "runtime-semantic regression",
+      "upstream-update rehearsal",
+      "removal feasibility"
+    ],
+    "auditing-ui-research-depth": [
+      "evidence-chain reconstruction",
+      "unread-risk surface",
+      "negative-evidence coverage",
+      "stop-rule audit",
+      "epistemic-status verdict"
+    ],
+    "benchmarking-ui-skill-effect": [
+      "controlled-baseline family",
+      "skill-ablation delta",
+      "mutation sensitivity",
+      "transfer-regime test",
+      "harm-signal threshold"
+    ],
+    "binding-ui-evidence": [
+      "claim-evidence edge",
+      "evidence freshness clock",
+      "contradiction preservation",
+      "artifact identity pin",
+      "unsupported-obligation state"
+    ],
+    "challenging-ui-designs": [
+      "adversarial scenario lattice",
+      "assumption attack surface",
+      "counterexample generation",
+      "weakest-link challenge",
+      "challenge saturation stop"
+    ],
+    "compiling-ui-implementation-specifications": [
+      "component-behavior matrix",
+      "token-resolution table",
+      "breakpoint-state matrix",
+      "implementation ambiguity budget",
+      "executable acceptance hook"
+    ],
+    "compiling-ui-obligations": [
+      "obligation provenance chain",
+      "force-level encoding",
+      "conflict precedence map",
+      "waiver prohibition",
+      "closure evidence class"
+    ],
+    "covering-product-scenarios": [
+      "scenario cross-product pruning",
+      "lifecycle edge inventory",
+      "rare-high-impact scenario",
+      "role-permission variance",
+      "coverage frontier"
+    ],
+    "critiquing-functional-completeness": [
+      "reachable-but-useless defect",
+      "lifecycle gap verdict",
+      "orphan action detector",
+      "missing recovery surface",
+      "data-state completeness"
+    ],
+    "critiquing-research-validity": [
+      "claim-to-source trace",
+      "sampling-bias audit",
+      "recency mismatch",
+      "causal-overreach check",
+      "unresolved contradiction hold"
+    ],
+    "documenting-design-decisions": [
+      "decision rationale capsule",
+      "rejected-alternative ledger",
+      "assumption expiry",
+      "decision reversal trigger",
+      "maintenance audience"
+    ],
+    "engineering-rich-interactive-components": [
+      "interaction statechart",
+      "event ownership boundary",
+      "focus-transition graph",
+      "async race envelope",
+      "performance-interaction coupling"
+    ],
+    "gating-ui-completion": [
+      "non-waivable gate set",
+      "evidence lineage hash",
+      "cross-gate contradiction",
+      "conditional pass prohibition",
+      "release-claim bound"
+    ],
+    "governing-design-systems": [
+      "governance authority map",
+      "contribution acceptance rule",
+      "deprecation governance",
+      "exception debt register",
+      "adoption health signal"
+    ],
+    "inventorying-product-capabilities": [
+      "capability-action distinction",
+      "source-of-truth owner",
+      "permission-dependent capability",
+      "capability gap class",
+      "inventory freshness checkpoint"
+    ],
+    "iterating-rendered-visual-design": [
+      "rendered-delta hypothesis",
+      "visual-regression triage",
+      "local-vs-directional change",
+      "iteration stopping evidence",
+      "render-context pin"
+    ],
+    "maintaining-project-design-memory": [
+      "memory provenance tag",
+      "decision supersession graph",
+      "stale-memory eviction",
+      "context-specific recall",
+      "memory contamination check"
+    ],
+    "maintaining-ui-domain-atlas": [
+      "coverage-cell provenance",
+      "ontology drift trigger",
+      "uncovered intersection queue",
+      "owner-verifier separation",
+      "atlas saturation caveat"
+    ],
+    "maintaining-ui-resource-registry": [
+      "source identity normalization",
+      "role-capability indexing",
+      "license drift watch",
+      "archived-source demotion",
+      "registry-evidence boundary"
+    ],
+    "measuring-research-saturation": [
+      "marginal-information gain",
+      "source-class coverage",
+      "contradiction discovery rate",
+      "saturation false-positive",
+      "reopen signal"
+    ],
+    "modeling-cognitive-load-and-attention": [
+      "attentional bottleneck map",
+      "interruption switching cost",
+      "recognition-recall decision",
+      "vigilance decay",
+      "cognitive offloading strategy"
+    ],
+    "modeling-users-and-tasks": [
+      "role-vs-persona distinction",
+      "expertise trajectory",
+      "task-criticality map",
+      "edge-user inclusion",
+      "behavior-evidence trace"
+    ],
+    "nolane-ui": [
+      "lifecycle invariant map",
+      "root delegation contract",
+      "global stop condition",
+      "artifact coherence check",
+      "versioned-system boundary"
+    ],
+    "performing-ui-repository-archaeology": [
+      "artifact-depth ladder",
+      "source-tree path proof",
+      "commit-snapshot identity",
+      "implementation-claim trace",
+      "unread-material ledger"
+    ],
+    "planning-usability-research": [
+      "research-question decision",
+      "participant-task fit",
+      "protocol-bias risk",
+      "success-error metric",
+      "stopping sample rationale"
+    ],
+    "proving-interface-reachability": [
+      "action-to-surface graph",
+      "state reachability proof",
+      "dead-route detection",
+      "permission-reachability variant",
+      "keyboard-route verification"
+    ],
+    "recovering-ui-work": [
+      "recovery checkpoint graph",
+      "failure-scope containment",
+      "valid-artifact preservation",
+      "reroute minimality",
+      "recovery completion evidence"
+    ],
+    "registering-ui-actions": [
+      "canonical action identity",
+      "action side-effect class",
+      "action precondition contract",
+      "idempotency declaration",
+      "action deprecation path"
+    ],
+    "researching-ui-frontiers": [
+      "frontier uncertainty map",
+      "evidence-gap priority",
+      "emerging-source watch",
+      "speculative-vs-actionable",
+      "frontier exit criterion"
+    ],
+    "researching-ui-implementation-ecosystems": [
+      "capability-atom query",
+      "source-role mismatch",
+      "live-verification trigger",
+      "candidate-mechanism diversity",
+      "registry-staleness guard"
+    ],
+    "routing-ui-work": [
+      "route trigger proof",
+      "mandatory-route closure",
+      "optional-route suppression",
+      "risk escalation rule",
+      "routing cycle guard"
+    ],
+    "selecting-ui-building-blocks": [
+      "adopt-adapt-inspire-build matrix",
+      "integration-lockin cost",
+      "semantic fit score",
+      "replacement strategy",
+      "source-combination ceiling"
+    ],
+    "synthesizing-cross-source-ui-language": [
+      "layer-authority matrix",
+      "cross-source conflict graph",
+      "local-language normalization",
+      "source-removal test",
+      "synthesis-coherence verdict"
+    ],
+    "translating-standards-into-obligations": [
+      "normative-clause atomization",
+      "applicability condition",
+      "conformance-level trace",
+      "exception scope",
+      "standard-version pin"
+    ],
+    "ui-contracting": [
+      "raw-request preservation",
+      "obligation negotiation boundary",
+      "unresolved-ambiguity register",
+      "contract mutation check",
+      "downstream contract checksum"
+    ],
+    "verifying-runtime-ui-behavior": [
+      "event-sequence capture",
+      "browser-console evidence",
+      "focus-runtime trace",
+      "async failure injection",
+      "runtime-state reconciliation"
+    ]
+  },
+  "rule": "Every focus skill must contain each unique semantic obligation and explicit falsification/recovery behavior; terms are behavior anchors, not word-count proxies.",
+  "wave2_core_owner_count": 27,
+  "focus_skill_count": 158,
+  "wave3_specialist_owner_count": 14,
+  "industry_risk_wave_count": 25,
+  "access_ai_modality_wave_count": 32,
+  "final_saturation_wave_count": 37
+}

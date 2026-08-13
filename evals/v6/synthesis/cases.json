@@ -1,0 +1,138 @@
+{
+  "version": 6,
+  "suite": "synthesis",
+  "cases": [
+    {
+      "id": "v6-source-collage-radix-reactbits-chart",
+      "required_skills": [
+        "synthesizing-cross-source-ui-language",
+        "adapting-external-ui-patterns"
+      ],
+      "setup": "Product combines headless primitives, animated components and a chart library.",
+      "pressure": "Each source keeps its demo tokens, labels and motion language.",
+      "expected_decision": "BLOCKED",
+      "evidence_requirements": [
+        "layer ownership",
+        "local token/action/state authorities",
+        "foreign defaults removed",
+        "cross-boundary render/runtime evidence"
+      ],
+      "evaluator_owner": "critiquing-design-system"
+    },
+    {
+      "id": "v6-semantic-vs-motion-focus-conflict",
+      "required_skills": [
+        "synthesizing-cross-source-ui-language",
+        "designing-motion"
+      ],
+      "setup": "Morphing animation visually moves an object into a dialog while semantic primitive owns focus.",
+      "pressure": "Animation implementation attempts to move focus with visual object.",
+      "expected_decision": "BLOCKED",
+      "evidence_requirements": [
+        "conflict resolution naming semantic authority",
+        "focus trace",
+        "motion local override"
+      ],
+      "evaluator_owner": "critiquing-accessibility"
+    },
+    {
+      "id": "v6-token-laundering",
+      "required_skills": [
+        "synthesizing-cross-source-ui-language",
+        "architecting-design-tokens"
+      ],
+      "setup": "Three libraries are mapped into tokens with names like surface-1 and radius-md.",
+      "pressure": "Underlying incompatible relationships remain unchanged.",
+      "expected_decision": "RESEARCH_MORE",
+      "evidence_requirements": [
+        "relationship-level token mapping",
+        "material hierarchy",
+        "source defaults removed",
+        "rendered coherence evidence"
+      ],
+      "evaluator_owner": "critiquing-design-system"
+    },
+    {
+      "id": "v6-motion-dialect-collision",
+      "required_skills": [
+        "synthesizing-cross-source-ui-language",
+        "designing-motion"
+      ],
+      "setup": "Springs, CSS transitions and timeline animations are imported from different sources.",
+      "pressure": "All retain upstream timing/easing and interruption defaults.",
+      "expected_decision": "BLOCKED",
+      "evidence_requirements": [
+        "local motion grammar",
+        "interruption/retargeting matrix",
+        "reduced-motion mapping"
+      ],
+      "evaluator_owner": "critiquing-visual-design"
+    },
+    {
+      "id": "v6-source-monoculture-three-galleries",
+      "required_skills": [
+        "researching-visual-references",
+        "synthesizing-cross-source-ui-language"
+      ],
+      "setup": "Reference set contains three animated component galleries with similar visual trend.",
+      "pressure": "Agent calls three links diverse research.",
+      "expected_decision": "RESEARCH_MORE",
+      "evidence_requirements": [
+        "different source roles",
+        "contrast mechanism",
+        "product/reference frontier",
+        "monoculture justification if unavoidable"
+      ],
+      "evaluator_owner": "auditing-ui-research-depth"
+    },
+    {
+      "id": "v6-local-authority-missing",
+      "required_skills": [
+        "synthesizing-cross-source-ui-language",
+        "architecting-component-systems"
+      ],
+      "setup": "Multiple libraries are integrated before local action/state/token contracts exist.",
+      "pressure": "First imported library becomes de facto product system.",
+      "expected_decision": "BLOCKED",
+      "evidence_requirements": [
+        "local actions",
+        "local states",
+        "accessibility contract",
+        "token/visual authority"
+      ],
+      "evaluator_owner": "critiquing-design-system"
+    },
+    {
+      "id": "v6-brand-borrowed-signature",
+      "required_skills": [
+        "synthesizing-cross-source-ui-language",
+        "deepening-signature-mechanisms"
+      ],
+      "setup": "Product signature is mostly recognizable styling from an upstream gallery.",
+      "pressure": "Removing upstream CSS destroys distinctiveness but not product meaning.",
+      "expected_decision": "RE_DIVERGE",
+      "evidence_requirements": [
+        "recognition-without-logo test",
+        "copyability test",
+        "product-specific signature causal chain"
+      ],
+      "evaluator_owner": "critiquing-aesthetic-adequacy"
+    },
+    {
+      "id": "v6-cross-library-error-state-gap",
+      "required_skills": [
+        "synthesizing-cross-source-ui-language",
+        "designing-empty-loading-error-states"
+      ],
+      "setup": "Happy paths integrate correctly across source boundaries.",
+      "pressure": "Network error crosses form, notification and dialog libraries with contradictory state semantics.",
+      "expected_decision": "BLOCKED",
+      "evidence_requirements": [
+        "canonical state mapping",
+        "error/retry transition trace",
+        "focus/announcement behavior"
+      ],
+      "evaluator_owner": "critiquing-user-experience"
+    }
+  ]
+}

@@ -38,3 +38,14 @@ Return a `correction-contract` with `error_granularity_map`, `direct_edit_rules`
 - “Undo” that cannot restore tool actions or external changes.
 
 AI quality includes the cost of recovering when the model is wrong.
+
+## V6 AI Correction Protocol
+Create a **correction affordance loop** from noticing error → selecting target → expressing correction → seeing changed model/output state → verifying repair. Require **feedback target specificity** so users can correct the exact claim, field, generated UI element, tool action, preference, or policy—not merely thumbs-up/down.
+
+Distinguish local output editing from **model-state repair**: does the correction change only this artifact, the current conversation, a saved preference, a workflow rule, or future model behavior? Set a **learning-consent boundary** before persistent use of feedback. Preserve **correction persistence** only at the scope users were told and make it inspectable/resettable.
+
+### Falsification
+Correct one local error, start a new task/session, and inspect whether behavior changes at the claimed scope. Hidden persistence or no effective repair falsifies feedback semantics.
+
+### Recovery
+Clarify scope, revert unintended memory/learning, re-run affected actions, and expose a deterministic way to edit/override the current result.

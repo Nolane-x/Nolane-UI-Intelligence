@@ -59,3 +59,14 @@ Every required interactive capability must map to at least one action unless it 
 - Letting optimistic UI imply success before a transactional action has a durable success observable.
 
 **Hard gate:** a required capability with no canonical action, or a required action with no binding obligation, remains functionally open.
+
+## V6 Canonical Action Registry Protocol
+Assign **canonical action identity** independent of button label/location so the same product action can appear across menus, shortcuts, touch, voice, automation, and generated UI. Classify an **action side-effect class**: local/reversible, remote reversible, external side effect, destructive/irreversible, permission/security change, financial/high-risk.
+
+Define an **action precondition contract** for required object state, permission, connectivity, selection, validation, and freshness. Require an **idempotency declaration** for retryable or remotely executed actions. Maintain an **action deprecation path** when capabilities change so old shortcuts/links/agent tools fail safely instead of invoking a new semantic meaning.
+
+### Falsification
+Trigger the same action through multiple surfaces, retry under latency, and invoke it from a stale/deprecated route. Any consequence mismatch falsifies registry integrity.
+
+### Recovery
+Centralize the action contract, add precondition/idempotency handling, migrate all surfaces, and disable ambiguous deprecated bindings.

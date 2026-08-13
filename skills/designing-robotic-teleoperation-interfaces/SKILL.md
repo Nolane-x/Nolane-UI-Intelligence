@@ -38,3 +38,14 @@ Return a `robotic-teleoperation-contract` with `world_robot_ui_state_model`, `co
 - Desktop usability test used as proof of physical operational safety.
 
 Robotic UI is trustworthy when the operator knows what the machine knows, what it is doing, and which actions can still change the physical outcome.
+
+## V6 Teleoperation Control Loop
+Model the **command-feedback latency loop** from operator input through network/robot execution to perceived feedback; distinguish command accepted, queued, executing, physically completed, and visually confirmed. Protect **camera-frame trust** by surfacing camera timestamp, frame drop/stall, viewpoint identity, zoom/crop, and overlays that could mislead spatial judgment.
+
+Specify **deadman recovery** for lost connectivity, focus loss, control device release, unsafe posture, or operator incapacitation. Track **control-authority handoff** among local autonomy, remote operator, co-pilot, safety controller, and on-site human. Maintain **spatial reference integrity** for world/robot/tool frames, directionality, latency-compensated prediction, and map/video alignment.
+
+### Falsification
+Add 200–1000 ms jitter, freeze video while telemetry continues, switch authority mid-command, and disconnect during motion. If the interface allows the operator to infer completion or control incorrectly, it is unsafe.
+
+### Recovery
+Freeze/limit commands, enter a known safe state, expose uncertainty, require explicit authority reacquisition, and reestablish synchronized spatial evidence before normal control resumes.

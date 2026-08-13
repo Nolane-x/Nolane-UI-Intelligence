@@ -38,3 +38,16 @@ Return a `low-vision-contract` with `contrast_roles[]`, `non_color_state_cues[]`
 - Passing contrast ratios at 100% treated as complete low-vision validation.
 
 The interface should remain understandable after the user transforms it to fit their vision.
+
+## V6 Low-Vision Perceptual Protocol
+Test the interface as a moving **magnification viewport**, not only as a full screenshot enlarged. At 200–400% zoom or OS magnification, verify local context, labels near values, sticky regions, dialogs, error messages, and focus indicators remain discoverable without excessive two-dimensional panning.
+
+Define a **forced-colors contract** for semantic boundaries, selected/current state, icons, focus, disabled state, charts, and custom controls when authored backgrounds/shadows/gradients disappear. Build a **non-text contrast map** for control boundaries, meaningful icons, graph lines, focus indicators, selected states, and data encodings rather than checking body text alone.
+
+Use a **color-dependence falsifier**: remove hue information and ask whether status, errors, selection, data series, validation, and urgency still have an independent cue. Perform a **target-separation audit** where adjacent controls or dense table actions may visually merge under blur, low contrast, glare, or zoom.
+
+### Falsification
+Use grayscale/blur simulation, forced-colors mode, high contrast, 400% zoom, increased text size, and reduced visual field. If users must remember off-screen labels or infer state only from color, the design is falsified.
+
+### Recovery
+Strengthen structural cues, labels, focus/selection indicators, spacing, and semantic system-color mappings. Do not “fix contrast” by darkening every secondary element until hierarchy disappears.

@@ -61,3 +61,16 @@ Severity should influence prominence. Do not use giant red full-page treatments 
 
 ## Output: `system-state-contract`
 Return `empty_taxonomy`, `loading_strategy`, `partial_state`, `stale_state`, `error_taxonomy`, `unknown_outcome_policy`, `recovery_actions`, `copy_requirements`, `visual_severity`, and `verification_cases`.
+
+## V6 Uncertainty and Failure-State Protocol
+Model an **uncertainty-state taxonomy** that separates never-created, zero-result, loading-known-geometry, loading-unknown, partial data, stale cache, offline, permission hidden, dependency failure, validation error, and terminal unavailability. Visually similar emptiness must not erase different product truths.
+
+Apply a **skeleton-truth test**: skeleton geometry is allowed only when it predicts the forthcoming structure closely enough to reduce uncertainty; otherwise use a progress/status pattern that does not imply data that may never arrive. Define a **partial-data policy** for multi-source or streaming interfaces—what remains usable, what is labeled incomplete, whether calculations are valid, and how later arrivals merge.
+
+Every retryable operation needs a **retry-idempotency contract**: repeated activation must not duplicate payments, sends, uploads, destructive actions, or agent commands. Add **stale-data disclosure** with timestamp/version/source and the consequence of acting on stale information when material.
+
+### Falsification
+Cut the network at every lifecycle stage, return cached data after server changes, fail one of several dependencies, and retry rapidly. If the UI shows a generic spinner/error while action semantics differ, the state model is falsified.
+
+### Recovery
+Preserve usable known-good content, expose uncertainty, gate unsafe actions, and route retry through idempotent semantics. Never replace a data-integrity problem with a friendlier illustration.

@@ -61,3 +61,14 @@ A future agent may treat an active invariant as a constraint only within its sco
 - Allowing a contested entry to silently win because it is newer.
 
 **Hard gate:** memory may accelerate decisions but cannot overrule current product authority, fresh evidence, accessibility/safety obligations, or an explicit reopen condition.
+
+## V6 Project Design Memory Protocol
+Attach a **memory provenance tag** to every durable fact/decision: user statement, repository artifact, runtime evidence, research source, inference, or historical decision. Maintain a **decision supersession graph** instead of overwriting old rationale when later evidence changes the design.
+
+Perform **stale-memory eviction** or downgrade based on source drift, product version, expired assumptions, and invalidated artifacts. Use **context-specific recall** so a mobile constraint or old brand experiment does not silently govern unrelated surfaces. Run a **memory contamination check** for speculative ideas, rejected alternatives, temporary debugging facts, and model-generated guesses accidentally stored as product truth.
+
+### Falsification
+Query memory for a superseded decision and a context-specific constraint. If the system returns them as current universal truth, memory integrity fails.
+
+### Recovery
+Rebind records to source/version/context, mark supersession/expiry, and regenerate dependent artifacts that consumed contaminated memory.

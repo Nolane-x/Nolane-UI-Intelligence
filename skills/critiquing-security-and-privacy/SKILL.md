@@ -36,3 +36,14 @@ Return a `finding-set` with `may_modify:false`, `artifact_revision`, `findings[]
 - Security review downgraded because UX friction would increase.
 
 Security and privacy findings are about truth at boundaries, not how secure the screen looks.
+
+## V6 Security and Privacy UI Critic
+Inspect **privilege-escalation surface** where UI makes broader permission, role, sharing, or agent authority easy to grant without scope clarity. Detect **sensitive-state leakage** through notifications, previews, logs, URLs, shared screens, caches, and error details.
+
+Test **spoofing affordance**: can untrusted content imitate trusted system/product prompts, domain identity, payment/auth dialogs, or agent authority? Find **auth-context confusion** across accounts/workspaces/tenants/windows. Block **privacy-default regression** when a redesign changes exposure/sharing/retention defaults toward more disclosure without explicit justification.
+
+### Falsification
+Inject malicious-looking content, switch identity/context, share/lock screen, and inspect default permissions. If trusted/untrusted or private/public boundaries blur, the critic must fail the UI.
+
+### Recovery
+Restore clear authority/context, narrow permissions/default exposure, sanitize presentation channels, and require security/privacy re-verification before completion.

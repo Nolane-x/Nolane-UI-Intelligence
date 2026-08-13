@@ -53,3 +53,16 @@ Explain permissions, data import, billing, or external connections before reques
 
 ## Output: `onboarding-contract`
 Return `activation_event`, `prerequisites`, `deferred_setup`, `learning_moments`, `role_paths`, `skip_resume_policy`, `sample_data_policy`, `progress_model`, `trust_explanations`, and `success_transition`.
+
+## V6 Activation and Learning Protocol
+Map the shortest **first-value path** from a realistic starting condition to an outcome the user would recognize as product value; setup screens count only when they are necessary causal steps. Define an **activation horizon**—the point at which enough product truth exists to evaluate whether onboarding is working—and distinguish it from account creation, tour completion, or preference collection.
+
+Sequence a **progressive-commitment schedule**. Ask for low-cost reversible inputs early; defer permissions, integrations, billing, irreversible configuration, team-wide changes, or large imports until users understand why they are needed. If sample content is used, enforce a **sample-data truth boundary**: clearly distinguish synthetic from real data, prevent fake success metrics, and provide a deliberate path to replace/delete samples.
+
+Design a **skip-and-reentry contract** for tutorials, checklists, optional setup, and interrupted flows. Skipping cannot permanently hide essential knowledge, and returning should resume from actual product state rather than a stale checklist.
+
+### Falsification
+Start with a user who already has data, a user without required permissions, a returning invitee, and a user who skips every optional step. If any must replay irrelevant ceremony or cannot reach first value, the onboarding model is falsified. Also test whether deleting sample data reveals that no genuine value was ever created.
+
+### Recovery
+Remove non-causal steps, move learning into the real task, make prerequisites just-in-time, and preserve re-entry from current state. Do not add more slides when activation evidence is weak.

@@ -38,3 +38,14 @@ Return a `design-decision-record` with `decision_id`, `status`, `problem`, `scop
 - Record with no connection to implementation or eval.
 
 Good decision history increases future freedom because teams know what can safely change.
+
+## V6 Decision Memory Protocol
+Store a **decision rationale capsule**: decision, problem, constraints, chosen mechanism, evidence, and expected consequence. Maintain a **rejected-alternative ledger** with the reason each serious alternative lost so future agents do not repeat the same exploration or mistake rejection for universal invalidity.
+
+Assign **assumption expiry** to facts likely to drift—platform APIs, library versions, user behavior, business policy, regulation, content volume. Define a **decision reversal trigger** specifying what new evidence or condition should reopen the decision. Write for a **maintenance audience** that did not attend the original conversation: exact artifacts, owners, boundaries, and migration consequences.
+
+### Falsification
+Remove the author/context and ask another agent to reproduce why the decision was made and when to revisit it. If they cannot, documentation is not operational.
+
+### Recovery
+Reconstruct from source/evidence, mark unknown rationale honestly, and supersede—not silently edit—historical decisions when the product changes.

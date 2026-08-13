@@ -38,3 +38,14 @@ Return a `supervisory-control-contract` with `operational_questions[]`, `process
 - Generic web-dashboard design used to claim safety-critical HMI readiness.
 
 A supervisory HMI is effective when operators can detect, diagnose, decide, act, and verify under abnormal conditions without reconstructing the process from scattered widgets.
+
+## V6 Supervisory Control-Room Protocol
+Construct an **alarm-priority topology** separating safety-critical, intervention-required, advisory, and informational events by consequence and response time. Map the display into **operator scan sector** responsibilities so critical signals are visible from expected stations and do not depend on one panel or one color channel.
+
+Define **control-room handoff state** for shift changes and multi-operator takeover: active alarms, acknowledged/shelved conditions, manual overrides, stale sensors, pending commands, and abnormal procedures must transfer with provenance. Measure **nuisance-alarm load** because repeated false/low-value alerts degrade trust and detection. Always represent **degraded-sensor truth**—unknown, stale, suspect, disconnected, estimated—distinctly from safe/normal.
+
+### Falsification
+Inject simultaneous alarms, sensor disagreement, shift handoff, and long low-event monitoring followed by one critical event. If the operator cannot prioritize or distinguish unknown from normal, the HMI thesis fails.
+
+### Recovery
+Reduce nuisance sources, separate alarm classes, expose provenance/freshness, and redesign scan grouping around operator decisions rather than decorative dashboard symmetry.

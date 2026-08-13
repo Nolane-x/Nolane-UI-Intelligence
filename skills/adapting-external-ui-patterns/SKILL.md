@@ -74,3 +74,14 @@ No unresolved semantic or product-action conflict may be silently accepted.
 - Declaring the adaptation correct without downstream integration and runtime proof.
 
 **Hard gate:** adaptation must map the external mechanism to canonical product actions, states, semantics, tokens, content, motion and responsive behavior; visual resemblance alone is never sufficient.
+
+## V6 External Pattern Transfer Protocol
+Freeze a **source-version pin** before adaptation: repository/commit or release plus exact inspected artifact paths. Separate mechanism from trade dress through **foreign-style stripping**—remove source colors, radii, typography, imagery, naming, spacing, and ornamental motion, then prove the interaction/semantic mechanism still has value.
+
+Maintain a **semantic parity ledger** comparing source states/actions with local object/action/state contracts; every mismatch requires an explicit local decision. Converge implementation through **local-token convergence** so imported mechanisms resolve to local semantic tokens/components rather than carrying a second hidden design system. Create **upstream-change isolation** around external code/mechanisms through wrappers, copied-with-provenance modules, or bounded adapters so a source update cannot silently rewrite product semantics.
+
+### Falsification
+Swap the source theme for bare styles, upgrade one dependency, and run local state/accessibility tests. If value disappears with source styling or upstream change alters semantics unexpectedly, adaptation is invalid.
+
+### Recovery
+Re-extract the mechanism, restore local semantic ownership, pin/review a compatible upstream revision, or replace the source with a local implementation. Do not patch foreign CSS until the semantic mismatch is resolved.

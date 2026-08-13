@@ -61,3 +61,14 @@ Return `functional-completeness-findings` with:
 - Allowing the same generator to erase or soften findings to obtain completion.
 
 **Hard gate:** visual quality, stakeholder enthusiasm, code compilation, or test volume cannot compensate for a `FAIL` or material `UNKNOWN` in product-wide functional closure.
+
+## V6 Functional Completeness Critic
+Detect a **reachable-but-useless defect** where a screen/control can technically be reached but lacks the data, permission, context, action, or recovery needed to finish the user's job. Issue a **lifecycle gap verdict** for missing first-use/empty/loading/error/stale/partial/deleted/recovery states.
+
+Run an **orphan action detector** for visible actions with no valid handler/result surface and backend capabilities with no reachable UI action where one is required. Identify **missing recovery surface** after failure/denial/cancel/timeout. Verify **data-state completeness** across null, zero, partial, large, malformed, delayed, revoked, and conflicting data.
+
+### Falsification
+Trace each critical job end-to-end under at least one failure and role variant. Any dead end that compile/render tests miss falsifies completeness.
+
+### Recovery
+Return the missing state/action to flow/state/capability ownership, implement an observable recovery path, and rerun reachability/runtime evidence before PASS.

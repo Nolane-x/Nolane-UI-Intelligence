@@ -38,3 +38,14 @@ Return a `wearable-contract` with `critical_glance_tasks[]`, `time_to_value`, `f
 - Haptic-only critical alerts.
 
 The wearable earns its place when it reduces time and attention cost, not when it reproduces feature count.
+
+## V6 Wearable Glance Protocol
+Set a **glance-duration budget** for each state: what can be recognized in sub-second, one-to-two-second, and deliberate inspection windows while the user's other activity continues. Separate a **complication-information tier** for persistent ambient facts from interactive app detail; ambient presence must not pretend to support deep decision-making.
+
+Account for **wrist-motion tolerance**: raise-to-wake, walking, exercise, one-handed posture, screen dimming, and small angular targets change both perception and touch accuracy. Define the **ambient-to-active transition** so stale summary state, privacy-sensitive content, focus, and pending actions update predictably when the screen wakes or expands. Balance a **battery-attention tradeoff** for refresh frequency, animation, always-on rendering, haptics, and sensor sampling; “live” is not free in either power or distraction.
+
+### Falsification
+Run the core task while walking, with short display-on windows, one hand occupied, delayed sensor updates, and low battery/power-saving modes. If understanding requires prolonged reading or frequent wake cycles, the wearable model is false.
+
+### Recovery
+Promote only the highest-value status/action to the glance layer, move detail to the companion/full app, reduce update/animation demand, and preserve continuity when the user resumes on another surface.

@@ -38,3 +38,14 @@ Return a `voice-contract` with `intents[]`, `entities_and_referents`, `turn_stat
 - Screen and voice using different names for the same object.
 
 Conversation succeeds when misunderstanding is cheap to repair and consequential ambiguity is caught before action.
+
+## V6 Voice Conversation Protocol
+Make **turn-taking state** explicit enough for listening, thinking, speaking, interrupted, muted, disconnected, and tool-running phases. Use a **recognition confidence boundary** to decide when to act, confirm, show alternatives, or ask repair rather than pretending every transcript is exact.
+
+Provide a **repair dialogue path** for misrecognition, wrong entity, ambiguous referent, and changed intent without forcing the user to restart the whole request. Offer a **private-context fallback** to text/touch when speaking or hearing output is inappropriate. Define **barge-in policy** for interrupting speech: what stops, what remains understood, and how pending actions are handled.
+
+### Falsification
+Use noisy speech, homophones/entities, interruptions, privacy-sensitive settings, and audio output disabled. If actions execute from uncertain recognition or users cannot repair efficiently, voice design fails.
+
+### Recovery
+Confirm high-consequence ambiguity, show/edit transcript/entity candidates, switch modality, and preserve conversational state through interruption.

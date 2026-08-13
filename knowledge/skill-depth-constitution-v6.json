@@ -1,0 +1,21 @@
+{
+  "version": 6,
+  "as_of": "2026-08-13",
+  "purpose": "Define skill depth by behavior-bearing decision structure rather than prose volume or a mandatory heading template.",
+  "forbidden_proxies": ["word_count", "token_count", "line_count", "heading_count", "section_count", "repeated_boilerplate"],
+  "dimensions": {
+    "ownership": "The skill owns one non-duplicative decision boundary and names what remains outside it.",
+    "inputs_inherited_obligations": "It declares the information and non-waivable parent/product obligations that constrain the decision.",
+    "observation_protocol": "It says what must actually be inspected, measured, rendered, run, compared or elicited before reasoning.",
+    "branch_logic_tradeoffs": "It contains conditional decision paths and explains what changes the choice rather than emitting one universal rule.",
+    "counterfactual_falsification": "It names tests, removals, contrasts or contradictory evidence capable of disproving its current thesis.",
+    "evidence": "Material claims are bound to traceable product, source, runtime, rendered, research or normative evidence with uncertainty retained.",
+    "output_semantics": "The output carries typed decisions, unresolved conflicts and downstream-relevant consequences rather than prose confidence.",
+    "failure_topology": "The skill distinguishes multiple failure mechanisms with different repairs rather than one generic quality warning.",
+    "escalation_recovery": "It defines when to stop local iteration, reopen research, re-contract, re-route or re-diverge.",
+    "downstream_verification": "It names who/what independently verifies the decision and what evidence can block completion."
+  },
+  "anti_template_rule": "Shared headings are allowed; identical decision/evidence payloads across unrelated skills are a suspicious signal. Domain-specific mechanisms and failure surfaces must remain bespoke.",
+  "passing_rule": "All ten dimensions require concrete evidence plus a decision consequence. Length never substitutes for a missing dimension.",
+  "reopen_conditions": ["new failure class bypasses an existing skill", "same boilerplate passes unrelated domains", "a semantic mutation changes force without detection", "a skill cannot name evidence capable of falsifying itself"]
+}

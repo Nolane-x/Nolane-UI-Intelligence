@@ -37,3 +37,14 @@ Return a `saturation-decision` with `wave_id`, `scope`, `as_of`, `breadth`, `dep
 - Continuing forever despite zero mechanism novelty solely to maximize link volume.
 
 Stopping is justified only when the bounded claim can be falsified by the recorded evidence.
+
+## V6 Research Saturation Protocol
+Measure **marginal-information gain** from each additional source/inspection: new mechanism, contradiction, constraint, failure mode, or decision-changing evidence. Track **source-class coverage** so saturation is not declared after ten nearly identical component galleries.
+
+Monitor **contradiction discovery rate**; persistent new contradictions indicate the model/context is still under-specified even if mechanism counts plateau. Test for **saturation false-positive** caused by repetitive search queries, source monoculture, confirmation bias, or stopping before primary artifacts. Define a **reopen signal** for changed product scope, new high-risk interaction, stale source, failed implementation, or adversarial case.
+
+### Falsification
+Change query/source class and ask whether materially new evidence appears. If yes, the previous saturation claim was premature.
+
+### Recovery
+Resume research in the missing class/contradiction area, update the stop rule, and keep the prior saturation claim bounded to its original scope.

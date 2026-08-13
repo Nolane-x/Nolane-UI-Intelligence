@@ -36,3 +36,16 @@ Return a `human-factors-model` with `user_classes[]`, `use_environments[]`, `cri
 - Claiming medical or safety validation from expert review alone.
 
 Human factors succeeds when the design reduces dependence on perfect attention and perfect memory rather than merely documenting that users should be careful.
+
+## V6 Human-Factors Demand Model
+Build a **task-demand model** across perceptual discrimination, memory, attention switching, motor precision, decision complexity, time pressure, interruption, emotional load, and environmental constraints. The interface should shift demands toward channels with available capacity rather than merely reducing element count.
+
+Assign a **workload budget** to critical sequences: number of simultaneously held facts, required cross-references, mode changes, alerts, manual transformations, and time-sensitive decisions. Use a **signal-detection threshold** when users must separate important events from noise; false alarms and misses have different costs and should shape alert salience and thresholds.
+
+Model **error-cost asymmetry** explicitly. The optimal control for a reversible preference change is not the optimal control for medication, financial transfer, vehicle state, or destructive infrastructure action. Define a **fatigue-exposure envelope** using session duration, repetition rate, lighting/noise, posture, vigilance demands, and circadian/shift context where relevant.
+
+### Falsification
+Stress the design under realistic interruption, low signal prevalence, repeated operation, and degraded attention. If success depends on perfect memory or sustained vigilance beyond the task-demand model, the human-factors claim is false.
+
+### Recovery
+Redistribute information, externalize memory, automate safe transformations, reduce false alarms, increase reversibility, or change workflow timing. Do not “train the user harder” to compensate for avoidable interface demand.

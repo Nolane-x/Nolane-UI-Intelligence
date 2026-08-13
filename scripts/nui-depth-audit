@@ -1,0 +1,18 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+import argparse,json,sys
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/'src'))
+from nolane_ui.depth import audit_skill_depth
+
+def main()->int:
+    p=argparse.ArgumentParser(description='Audit NUI v6 behavioral skill-depth records')
+    p.add_argument('records', help='JSON array or object with records[]')
+    a=p.parse_args()
+    data=json.loads(Path(a.records).read_text(encoding='utf-8'))
+    records=data.get('records',[]) if isinstance(data,dict) else data
+    result=audit_skill_depth(records)
+    print(json.dumps(result,indent=2,ensure_ascii=False))
+    return 0 if result['valid'] else 2
+if __name__=='__main__': raise SystemExit(main())

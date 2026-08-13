@@ -61,3 +61,16 @@ Return `analytical_question`, `data_semantics`, `chosen_encoding`, `rejected_enc
 
 ## V5 Encoding Provenance and Visualization Grammar
 After analytical question and truthful encoding, produce an **encoding provenance** table for every non-decorative visual **channel**: position, size/radius, edge, color, opacity, motion, texture, angle, etc. Each must map to meaning or be explicitly decorative. Then define a coordinated **visualization grammar**—notation, spatial narrative, multi-view coordination, visual character—without changing the truth of the encoding. Scientific-looking channels with no semantic mapping are findings, not polish.
+
+## V6 Analytic Visualization Proof
+Start with **analytic-question mapping**: each chart/view must state the user question—comparison, distribution, trend, correlation, composition, topology, geography, anomaly, uncertainty—and the action or inference that follows. The visual form is downstream of that question and the data's measurement scale.
+
+Set an **encoding-capacity budget** so position, length, angle, area, hue, luminance, texture, shape, motion, and annotation are not overloaded with more distinctions than users can reliably decode. Perform a **scale-and-baseline audit** covering linear/log/time/categorical scales, zero requirements where area/length implies magnitude, truncation, binning, aggregation, missing values, and timezone boundaries.
+
+For interactive charts maintain an **interaction-to-insight trace**: zoom, brush, filter, hover, select, drill-down, or animation must reveal or manipulate a meaningful data relation, preserve context, and remain keyboard/alternative-accessible where required. Run an **uncertainty legibility probe** for confidence intervals, estimated values, censored ranges, incomplete samples, stale data, and model predictions; uncertainty cannot be hidden in a tooltip footnote.
+
+### Falsification
+Replace the chart with a table or alternate encoding and see whether the claimed insight survives. Perturb scale/baseline and missingness. If the narrative changes without the underlying relationship changing, the encoding is misleading.
+
+### Recovery
+Return to the analytic question and channel truth table, choose a more faithful encoding, add uncertainty/context, or separate multiple questions into coordinated views. Decoration comes only after truth survives.

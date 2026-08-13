@@ -65,3 +65,22 @@ Return `icon_system`, `icon_inventory`, `metaphor_rules`, `imagery_roles`, `asse
 
 ## V5 Media as Product-Specific Evidence
 At **high visual ambition**, media role is not automatically optional decoration. Consider procedural/domain-native assets—scientific fields, causal/lineage maps, model or memory landscapes, simulation imagery, dataset morphology, compute topology, temporal traces, uncertainty volumes, editorial evidence, material photography/illustration where appropriate. `procedural` does not mean random sci-fi texture: every media role must declare identity, explanation, evidence, atmosphere or product demonstration value. A text/border-only shell must justify why richer media would add no product-specific value.
+
+## V6 Iconography, Symbol and Image Direction
+Define a **symbol grammar** before selecting individual icons: stroke/fill philosophy, weight, corner character, perspective, grid, optical size, bounding-box usage, default detail, active/selected treatment and relationship to typography. Mixed families require an explicit normalization plan.
+
+Inspect the source family’s **optical grid** and construction conventions. Do not assume identical SVG dimensions create identical apparent size; arrows, circles, dense pictograms and sparse strokes need optical correction. Define alignment with text baseline and control boxes.
+
+Run a **metaphor collision** audit: the same symbol must not mean conflicting actions across the product, and two similar symbols should not encode materially different actions without labels. Domain-native concepts often need custom or combined symbols rather than forcing a generic icon catalog.
+
+Check **cultural interpretation** and localization. Gestures, animals, flags, mailboxes, checkmarks, hand signs, directionality and metaphors can change meaning. RTL may mirror directional icons while semantic objects remain unmirrored.
+
+Maintain **asset provenance** for icons, photography, illustrations, generated imagery and third-party art. Record source, license/usage boundary, transformations and whether the asset carries brand/trade-dress risk. AI-generated media requires its own provenance/policy where relevant.
+
+Imagery has a product role: explain, orient, authenticate, evoke, demonstrate, create atmosphere, or carry primary content. Decorative imagery competes for attention and performance budget; justify its position in the visual hierarchy.
+
+### Falsification
+Hide labels and test whether repeated high-frequency icons remain distinguishable; then restore labels and check whether the icon is adding value or noise. Replace a stock/third-party image with a neutral placeholder; if product identity disappears, the visual system may be outsourcing authorship to assets.
+
+### Recovery
+When an icon family lacks critical concepts, create a compatible local extension or choose another family rather than mixing arbitrary glyphs. When imagery overwhelms tasks, reduce salience/crop/frequency or move it to experiential moments that deserve the attention.

@@ -65,3 +65,14 @@ Required actions cannot be marked verified unless at least one applicable runtim
 - Letting browser automation bypass login/permission behavior that is part of the scenario.
 
 **Hard gate:** source code, static specs, and component-library claims cannot substitute for runtime evidence when the completion claim is about behavior actually working.
+
+## V6 Runtime Verification Protocol
+Capture an **event-sequence capture** for critical interactions: input, state transitions, requests, optimistic updates, responses, focus, announcements, and final state. Preserve **browser-console evidence** for errors/warnings/network failures/hydration issues tied to the exact run.
+
+Create a **focus-runtime trace** across keyboard navigation, overlays, async replacement, route changes, deletion, error, and restoration. Execute **async failure injection** for timeout, out-of-order response, duplicate event, partial dependency failure, reconnect, and cancellation. Perform **runtime-state reconciliation** against the canonical state/action contract rather than accepting “the page rendered.”
+
+### Falsification
+Inject one impossible/out-of-order runtime state and verify the checker blocks completion. A green render with wrong action/focus/state falsifies runtime verification.
+
+### Recovery
+Repair the responsible state/event/data boundary, rerun the exact captured sequence, and refresh evidence against the same revision/configuration.

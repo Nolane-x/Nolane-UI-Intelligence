@@ -66,3 +66,16 @@ Return `target_locales`, `expansion_rules`, `direction_rules`, `icon_mirroring`,
 - Icon + label order wrong after mirroring.
 - Fixed-height buttons clip translated copy.
 - Screenshot/generated-image text impossible to localize.
+
+## V6 Script, Locale, and Cultural Stress Protocol
+Run a **bidirectional-isolation audit** for mixed RTL/LTR content: numbers, code, URLs, usernames, paths, punctuation, icons, and embedded Latin product names must not reorder unpredictably. Define **script-specific line breaking** and typography behavior for CJK, Thai, Arabic-derived scripts, Devanagari and other supported writing systems rather than assuming whitespace-delimited Latin wrapping.
+
+Treat **locale-format semantics** as product data: dates, calendar systems, decimal/group separators, units, currencies, names, addresses, plural/select rules, collation, phone numbers, and week starts can change meaning, not just display. Establish an **expansion stress envelope** per component using realistic translations, font metrics, text zoom, and narrow screens; truncation requires a policy for recovering full meaning.
+
+Use a **cultural-assumption falsifier** on symbols, color metaphors, imagery, gestures, form fields, name ordering, honorifics, and examples. Do not claim universality from one locale; record unsupported locales as boundaries.
+
+### Falsification
+Test pseudo-localization plus real RTL and non-Latin samples, mix directional content in the same label, and switch locale mid-session. Misordered semantics, clipped actions, or parsing changes that silently alter values falsify the contract.
+
+### Recovery
+Fix data/format and layout primitives before writing locale-specific one-offs. Introduce locale-aware components or script-appropriate fonts, and preserve untranslated fallback only with explicit user-visible state.

@@ -36,3 +36,16 @@ Return a `usability-evidence-assessment` with `decision_claim`, `evidence_items[
 - Giving precise confidence numbers unsupported by the research design.
 
 The strongest output often narrows a claim rather than strengthening it.
+
+## V6 Usability Evidence Calibration
+Rank findings with an **evidence-validity ladder**: direct task observation, instrumented behavior, moderated explanation, longitudinal field evidence, analytics, expert heuristic, preference statement, and speculative intuition answer different questions and must not be collapsed into one confidence score.
+
+For repeated task evidence record a **task-success confidence interval** or bounded uncertainty rather than treating a small sample proportion as population truth. Perform an **observer-effect check** for facilitator prompting, artificial lab setup, prototype limitations, novelty, think-aloud interference, and participants who are not representative of actual expertise/context.
+
+Use a **severity-calibration matrix** combining frequency, consequence, recoverability, affected population, task criticality, and confidence. Resolve disagreement through **contradictory-finding resolution**: segment by user/task/context, inspect protocol differences, seek discriminating evidence, and leave the conclusion UNKNOWN when evidence cannot choose.
+
+### Falsification
+Attempt to reproduce high-severity findings with an alternate protocol or independent evaluator; search for successful counterexamples and segments where the failure does not occur. If conclusions change under trivial framing, the evidence claim is fragile.
+
+### Recovery
+Downgrade confidence, rerun targeted research, or narrow the claim to the population/context actually observed. Never convert ambiguous evidence into a universal design rule.

@@ -67,3 +67,14 @@ Return ordered obligations grouped by release criticality. Identify which obliga
 
 ## Stop conditions
 If an obligation has no feasible oracle because a required capability is missing, set it `UNKNOWN` and expose the capability gap. Do not rewrite the claim into something easier to test.
+
+## V6 Obligation Compiler Protocol
+Preserve an **obligation provenance chain** from raw request/source/standard/product evidence through interpretation to the normalized obligation. Encode **force-level encoding** (`MUST`, `SHOULD`, preference, hypothesis, forbidden) so a later summary cannot silently weaken “must” into “nice to have.”
+
+Resolve collisions with a **conflict precedence map** based on authority, product truth, safety/accessibility, user intent, platform constraints, and current evidence—not whichever rule appears later. Enforce **waiver prohibition** for non-waivable legal/safety/accessibility/product-truth requirements. Assign a **closure evidence class** describing what can legitimately satisfy each obligation (render, runtime, source audit, usability evidence, normative proof, etc.).
+
+### Falsification
+Apply semantic mutations to force words and remove provenance. If downstream routing/gating remains unchanged, obligation compilation is not preserving meaning.
+
+### Recovery
+Recompile from the original authoritative source, restore precedence/force, invalidate dependent artifacts, and rerun only affected routes.

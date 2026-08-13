@@ -77,3 +77,14 @@ Stop and route to `recovering-ui-work` when you are tempted to soften claim lang
 
 ## V5 High-Ambition Aesthetic Release Gate
 For **high visual ambition** (flagship/exceptional/experiential), compile/render health is necessary but never sufficient. **Render health** cannot substitute for experiential intent, divergence/reference evidence, computed legibility, global attractor audit, signature depth, visual energy, and **aesthetic adequacy**. A basin decision of `RE_DIVERGE` blocks completion. Material visualization also requires encoding provenance; product-wide high-ambition work requires perceptual-diversity evidence. Preserve the bounded claim: repository CI proves the framework gates exist, not that every future UI is objectively beautiful.
+
+## V6 Completion Gate Integrity
+Define the **non-waivable gate set** from task risk, ambition, accessibility, product truth, source usage, runtime evidence, and explicit user constraints. Compute an **evidence lineage hash** or equivalent identity over the exact artifact/revision/configuration each gate judged so PASS cannot float to later unverified changes.
+
+Detect **cross-gate contradiction** such as visual PASS with accessibility FAIL, source adoption PASS with license UNKNOWN, or runtime PASS against a different revision. Enforce **conditional pass prohibition** for material unknowns: “PASS if we assume…” is not PASS. Attach a **release-claim bound** stating exactly what was proven and what remains outside structural/behavioral evidence.
+
+### Falsification
+Modify the artifact after evidence capture or remove one gate's proof. If completion stays PASS, the gate is unsound.
+
+### Recovery
+Invalidate stale gates, rerun the minimum affected evidence, resolve contradictions, and downgrade the release claim rather than extrapolating.

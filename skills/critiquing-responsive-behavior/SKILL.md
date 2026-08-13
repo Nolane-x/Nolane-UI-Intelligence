@@ -41,3 +41,16 @@ A compact desktop layout can remain information-dense on mobile, but hit areas/g
 
 ## Output: `finding-set`
 Return typed findings with exact pressure condition, broken invariant, evidence, and recommended transformation—not merely “fix mobile spacing.”
+
+## V6 Responsive Critic Court
+Perform a **breakpoint discontinuity scan** by resizing continuously and recording abrupt jumps in order, visibility, focus, scroll position, control semantics, chart encoding, or content density. Named breakpoints are implementation details; the critic cares about behavioral discontinuities.
+
+Run a **relationship-loss test** against the responsive relationship map: does an action drift away from its object, a label lose its value, comparison columns become incomparable, or navigation lose orientation? Execute a **capability-parity audit** so alternate mobile/compact representations preserve material actions, status, recovery, and information even when access mechanisms differ.
+
+Use **zoom-reflow stress** at browser/text zoom and OS scaling, including 200% and higher where applicable, with long localized content. Add an **orientation-transition probe** during active editing, media, drag, selection, modal state, and async progress; state must survive layout transformation.
+
+### Falsification
+Choose widths just before/after every major structural transition and inject worst-case content. If the design only passes curated device widths, the responsive claim is false.
+
+### Recovery
+Return defects to responsive layout ownership with the exact lost relationship/capability, not a vague “mobile looks broken.” Block completion when task-critical parity is missing.

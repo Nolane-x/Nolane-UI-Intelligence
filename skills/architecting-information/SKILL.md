@@ -69,3 +69,16 @@ Return `entity_inventory`, `conceptual_model`, `groups`, `hierarchy_layers`, `la
 
 ## Quality questions
 Can a user predict where a new related item belongs? Can two sibling groups be distinguished without reading their contents? Can the hierarchy survive if all color and borders are removed? If not, revisit the structure.
+
+## V6 Information Architecture Stress Protocol
+Before drawing navigation, derive an **object-action taxonomy**: canonical user-visible objects, their parent/peer relations, lifecycle, actions, attributes, and views. Distinguish a destination from a filter, a persistent object from a transient result, and a domain concept from an internal service boundary. Use this taxonomy to decide labels and grouping rather than inheriting the backend tree.
+
+When one item legitimately belongs in multiple conceptual neighborhoods, record a **polyhierarchy decision** instead of forcing a single tree. Define the canonical identity, alternate access paths, breadcrumb behavior, URL/deep-link truth, and whether duplicate representations share state. Set a **retrieval-path budget** for critical objects/tasks: how many recognition, navigation, search, or switching steps are acceptable for frequent and infrequent work, including return visits.
+
+Use an **information-scent probe** on every major label or group: show the cue without its destination and ask what a user would expect behind it, then compare that expectation with actual contents. Finally run a **scale-growth simulation** with realistic 10x object counts, longer labels, added roles, archived items, and nested ownership. IA that only works for the seed demo is not architecture.
+
+### Falsification
+Swap two labels while retaining the same layout, or remove breadcrumbs/search shortcuts. If test users or an independent critic cannot predict destination or recover orientation, the grouping is too visual or internally named. Introduce a new object type and see whether the taxonomy can place it without a catch-all “Other.”
+
+### Recovery
+If scent or scale fails, return to the object-action taxonomy and regroup by user decisions rather than tweaking menu styling. Preserve stable object IDs and deep links while changing presentation; document migrations when canonical paths move.

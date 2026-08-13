@@ -64,3 +64,14 @@ Return an append-only logical ledger of evidence records plus relationships: `su
 - Treating a static image as proof of keyboard behavior.
 - Treating a source-code inspection as proof of rendered fidelity.
 - Deleting or hiding failed observations after repair.
+
+## V6 Evidence Binding Protocol
+Represent every material obligation/claim with a **claim-evidence edge** to a concrete artifact, observation, source, runtime trace, render, user-research record, or normative clause. Attach an **evidence freshness clock** based on drift class; evidence can expire without the underlying file disappearing.
+
+Preserve **contradiction preservation**: opposing evidence remains linked and visible until a decision rule resolves it; never delete it to simplify the packet. Use an **artifact identity pin** (revision/hash/path/state/configuration) so “tested screenshot” or “repo source” cannot silently refer to a different version. Mark an **unsupported-obligation state** when no admissible evidence exists; this is a blocker or explicit unknown, not an invitation to fabricate confidence.
+
+### Falsification
+Change the artifact revision or remove the strongest evidence and recompute the obligation status. If PASS survives without a valid edge, evidence binding is false.
+
+### Recovery
+Refresh/pin the artifact, gather replacement evidence, reopen contradicted obligations, and propagate changed status to completion gates.

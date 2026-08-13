@@ -1,0 +1,18 @@
+{
+  "packet_id": "NUI-V6-STRUCTURAL-example",
+  "artifact_revision": "example-revision",
+  "decision": "PASS",
+  "claim": "This exact revision satisfies NUI v6 structural, deep-source, ontology, semantic-depth and adversarial repository checks.",
+  "bounds": [
+    "Structural verification does not prove universal objective beauty.",
+    "Material external-source use still requires task-specific artifact-level research dossiers.",
+    "Flagship, exceptional and experiential UI still require rendered affective/aesthetic evidence and adequacy critique.",
+    "Cross-model causal quality claims require runtime benchmarks beyond repository CI."
+  ],
+  "obligations": [
+    {"id":"O-V6-DEEP-SOURCE-INTELLIGENCE","status":"PASS"},
+    {"id":"O-V6-INDUSTRY-ONTOLOGY","status":"PASS"},
+    {"id":"O-V6-SKILL-DEPTH","status":"PASS"},
+    {"id":"O-V6-CAUSAL-EVALS","status":"PASS"}
+  ]
+}

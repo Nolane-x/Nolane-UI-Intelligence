@@ -38,3 +38,14 @@ Return a `finding-set` with `may_modify:false`, `artifact_revision`, `findings[]
 - Saturation accepted because source count is large.
 
 The reviewer protects decision quality by narrowing claims to what the evidence can actually carry.
+
+## V6 Research Validity Critic
+Require a **claim-to-source trace** for each material conclusion, including whether the source is primary, observational, normative, or interpretive. Run **sampling-bias audit** for users, tasks, products, repositories, aesthetic references, platforms, and failure cases.
+
+Flag **recency mismatch** when high-drift evidence is older than the decision's currentness needs. Apply a **causal-overreach check** whenever correlation, popularity, preference, or one successful reference is used to claim a mechanism causes better UI. Place an **unresolved contradiction hold** on conclusions where strong evidence disagrees and no discriminating context has been established.
+
+### Falsification
+Seek a current primary source or counter-sample that would reverse the conclusion. If the research packet cannot absorb contrary evidence without collapsing, validity is weak.
+
+### Recovery
+Narrow the claim, refresh the sample/source, preserve contradiction, and escalate to new research instead of writing a more confident summary.

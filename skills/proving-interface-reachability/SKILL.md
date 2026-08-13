@@ -63,3 +63,14 @@ Return `reachability-proof` with:
 - Forgetting post-action destinations: after archive/delete/move, where is the user placed and is that node valid?
 
 **Hard gate:** a required destination that exists only by secret URL, undocumented expert command, or inaccessible modality is not product reachability.
+
+## V6 Interface Reachability Proof
+Build an **action-to-surface graph** from every canonical action to the states/screens/controls that expose it and back to resulting evidence. Compute **state reachability proof** for material states from realistic entry conditions rather than assuming test fixtures can teleport there.
+
+Detect **dead-route detection**: navigation/action paths that cannot be completed because of missing object, permission, prerequisite, modal trap, or stale state. Add **permission-reachability variant** for roles that should/should not see or request capabilities. Verify **keyboard-route verification** for all critical reachable actions where keyboard access is required.
+
+### Falsification
+Start from a fresh realistic account for each role and attempt to reach every critical state/action without devtools/direct URLs. Unreachable but required behavior falsifies completeness.
+
+### Recovery
+Repair navigation/precondition/permission/flow ownership, add alternate route where needed, and rerun runtime reachability from clean state.

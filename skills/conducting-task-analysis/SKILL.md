@@ -38,3 +38,16 @@ Return a `task-analysis` with `goal`, `success_state`, `actors[]`, `normal_path[
 - Designing recovery after the happy path is already frozen.
 
 Task analysis should make the later IA and interaction architecture feel inevitable rather than ornamental.
+
+## V6 Task Analysis Field Model
+Begin with a **job-trigger inventory**: what event, need, alert, request, failure, deadline, or environmental condition causes the user to start the task. This separates genuine jobs from feature-oriented interview answers. Decompose each job with **goal-action decomposition** through decisions, information sought, tools/context switched, collaboration, waiting, verification, and completion evidence.
+
+Use a **frequency-consequence matrix** so rare high-cost tasks and frequent low-cost tasks receive different optimization. Frequency affects speed/learnability; consequence affects confirmation, evidence, reversibility, and error prevention. Record **workaround evidence**—spreadsheets, notes, copy/paste, screenshots, chat, scripts, repeated navigation—as signals that the current product boundary or information architecture may not support the real job.
+
+Perform **task-variance sampling** across novice/expert, roles/permissions, happy/error path, high/low volume, locales, device/environment, and collaborative versus solo use. A “representative task” that erases meaningful variance produces brittle UI.
+
+### Falsification
+Compare stated workflow with observed behavior and deliberately sample a user/context at the edge of the assumed process. If the decomposition cannot explain their workaround or completion criterion, the task model is incomplete.
+
+### Recovery
+Re-interview/observe the missing segment, split distinct jobs, update frequency/consequence, and reroute IA/flow owners. Do not force edge behavior into the original task just to preserve a neat journey map.

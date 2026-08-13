@@ -38,3 +38,14 @@ Return a `design-system-governance` with `scope`, `roles_and_decision_rights`, `
 - Governance based on taste authority instead of shared evidence.
 
 Strong governance makes the correct shared path easier than the local fork while preserving justified domain differences.
+
+## V6 Design-System Governance Protocol
+Publish a **governance authority map** for tokens, primitives, patterns, accessibility, content, contribution review, and product exceptions. Define a **contribution acceptance rule** based on semantic reuse, evidence, API stability, accessibility, adoption need, and maintenance ownership—not visual polish alone.
+
+Manage **deprecation governance** with notice, migration path, telemetry/search, versioning, and removal criteria. Track an **exception debt register** for product overrides with owner, reason, expiry/review, and whether the system should evolve. Monitor **adoption health signal** such as escape-hatch frequency, duplicate patterns, outdated versions, accessibility regressions, and consumer satisfaction/velocity.
+
+### Falsification
+Sample real product code and compare it with documented system rules. If widespread legitimate use requires bypassing the system, governance is not serving the product.
+
+### Recovery
+Change the system contract or migrate consumers, retire misleading APIs/tokens, and convert recurring exceptions into explicit semantic capability where warranted.

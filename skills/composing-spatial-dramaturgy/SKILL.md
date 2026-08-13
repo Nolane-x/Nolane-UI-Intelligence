@@ -27,3 +27,20 @@ Return the canonical `spatial-drama-contract` artifact with explicit status, evi
 
 ## Failure Traps
 More navigation equals more magnitude; permanent maximal canvas with no rhythm; oversized empty hero unrelated to work; cinematic transitions that harm high-frequency tasks; fixed chrome that defeats the stated scale; using zoom/3D solely as spectacle.
+
+## V6 Spatial Dramaturgy Procedure
+Treat layout as a sequence of spatial events rather than a static grid. Produce a **spatial beat map** that describes entry, orientation, compression, reveal, command moment, inspection, transition, and rest. Not every screen needs every beat; the map exists to make the intended temporal experience explicit.
+
+Use **compression-to-release** deliberately. Dense control clusters can heighten the impact of an open analytical field; a narrow preparation corridor can make a model/canvas reveal feel expansive. Compression without release becomes claustrophobia; release without compression becomes undifferentiated emptiness.
+
+Track a **viewport occupation curve**: at each major state, estimate how much visual field is occupied by primary content, controls, context, and quiet space, and which region owns visual gravity. Magnitude is not synonymous with huge type. It can come from scale relationships, depth, field continuity, spatial persistence, sparse framing around a consequential object, or progressive reveal.
+
+Define a **spatial climax** only where the product has a moment worthy of it: first model reveal, successful composition, live system overview, decisive comparison, launch, or completed transformation. If every panel screams, nothing is climactic. If a high-ambition product never creates a moment of spatial consequence, it may feel technically competent but emotionally flat.
+
+Responsive design must preserve dramaturgical function, not geometry. On small screens a panoramic field may become a staged sequence, a side inspector may become a sheet, and parallel comparison may become controlled paging. Record which beat survives and how.
+
+### Dramaturgy falsification
+Run **dramaturgy falsification** by flattening spacing, equalizing region sizes and removing reveals while preserving content. If the experience remains emotionally and cognitively identical, the spatial story was decorative rhetoric. Conversely, if task discoverability collapses when drama is removed, confirm that the drama was not hiding essential navigation.
+
+### Recovery
+If the spatial beat map conflicts with task frequency, accessibility, localization or responsive constraints, preserve the intended sequence with a different geometry. If local layout polishing cannot create the required magnitude or calm, return to composition-level divergence rather than increasing shadows and panel chrome.

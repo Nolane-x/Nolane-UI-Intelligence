@@ -69,3 +69,14 @@ A release PASS requires every applicable check to be evidence-backed PASS and no
 - Fixing findings while auditing and then marking the same evidence PASS without a new revision/probe.
 
 **Hard gate:** external UI integration has no release authority until license, dependency, accessibility, reduced motion, rendering lifecycle, performance, API drift, security, exit strategy and local runtime obligations are explicitly resolved or legitimately N/A with evidence.
+
+## V6 Library Integration Audit
+Inventory the full **dependency-surface inventory**: direct/transitive packages, CSS/global reset, fonts/assets, portals, event listeners, context/providers, SSR/hydration assumptions, workers/WASM, network calls, and runtime polyfills. Perform a **bundled-global-style audit** for selectors, variables, resets, stacking contexts, animation defaults, and theming hooks that can contaminate unrelated surfaces.
+
+Search for **runtime-semantic regression** after composition: focus order, accessible names, disabled semantics, form submission, history, keyboard behavior, reduced motion, and responsive state can differ from the upstream demo. Conduct an **upstream-update rehearsal** using a representative version bump/changed API and inspect whether the local boundary contains breakage. Evaluate **removal feasibility**: what data/API/DOM assumptions must change if the library is removed or replaced?
+
+### Falsification
+Temporarily remove provider/global CSS, change version, and execute the critical states. Hidden coupling or semantic drift falsifies “clean integration.”
+
+### Recovery
+Wrap/normalize the library, move globals behind scope, pin version, add migration tests, or reject the integration when replacement cost or semantic leakage is too high.

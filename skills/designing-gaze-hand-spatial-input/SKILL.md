@@ -38,3 +38,16 @@ Return a `spatial-input-contract` with `targeting_model`, `intent_confirmation`,
 - Recording or showing gaze data without clear necessity and privacy treatment.
 
 Spatial input should feel like intention made visible, not the system guessing that every glance is a command.
+
+## V6 Spatial Input Arbitration
+Treat gaze as high-bandwidth attention evidence but weak intent evidence. Use **dwell-intent disambiguation** so looking, reading, aiming, inspecting, and activating do not collapse into one gesture; dwell thresholds, confirmation gestures, and target behavior must reflect action consequence and fatigue.
+
+When gaze and hands coexist, define **gaze-hand arbitration**: gaze may select a candidate target while pinch/press/gesture commits; hand proximity may override gaze; two-handed manipulation may lock focus to an object. Prevent accidental retargeting when the eyes naturally look ahead of the hand. Size and spacing use a **spatial target envelope** that accounts for angular size, depth, motion, tracking noise, occlusion, and user posture—not flat pixel targets.
+
+Audit **vergence-depth comfort** for UI layers and transitions. Frequent focus shifts across large depth differences, near-field persistent panels, or motion through the user can impose strain even when tracking is accurate. Maintain a **fatigue calibration loop** using session length, repeated gestures, arm elevation, dwell frequency, clutching/recentering, and accessibility adaptations.
+
+### Falsification
+Have users read without activating, glance between competing targets, act under tracking noise, and repeat the workflow long enough for fatigue to emerge. False activations or rising effort falsify the interaction model.
+
+### Recovery
+Separate aiming from commit, enlarge/reposition targets, reduce depth shifts, introduce rest postures or alternative inputs, and recalibrate thresholds. Do not solve tracking uncertainty with longer dwell everywhere.

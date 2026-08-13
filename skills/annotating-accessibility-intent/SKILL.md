@@ -38,3 +38,14 @@ Return an `accessibility-annotation-contract` with `annotated_elements[] {id, se
 - Assuming design annotation guarantees code behavior.
 
 Accessibility intent should be inspectable before code and falsifiable after code.
+
+## V6 Accessibility Intent Trace
+For each material interaction write an **access-barrier hypothesis** before implementation: which disability/context could lose perception, operation, understanding, timing, or communication and what product consequence follows. Add a **semantic-intent annotation** beside visually unusual controls so downstream engineers know the required role, label, state, relationship, focus behavior, and nonvisual meaning.
+
+Record **modality-loss consequence** when color, motion, sound, spatial position, hover, drag, or fine motor input is removed. Convert each material consequence into an **assistive-path obligation** rather than a vague accessibility note. When evidence cannot establish behavior, emit an **accessibility unknown marker**; unknown is not pass.
+
+### Falsification
+Remove one sensory/input channel and inspect the resulting task, not just the component. If completion or state understanding disappears, the annotated intent was insufficient.
+
+### Recovery
+Route the missing obligation to the appropriate accessibility/modality owner, update the implementation contract, and block downstream completion until the new path is evidenced.

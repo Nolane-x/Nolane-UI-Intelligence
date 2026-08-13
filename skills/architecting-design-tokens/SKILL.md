@@ -58,3 +58,16 @@ Return `primitives`, `semantics`, `components`, `contexts`, `aliases`, `theme_ov
 - Repeated semantic values do not bypass tokens without an explicit exception.
 - Global tokens do not contain page-specific coordinates.
 - Theme overrides preserve required semantic contrast/state distinctions.
+
+## V6 Token Semantics and Lifecycle
+Represent aliases as a **semantic alias graph** from primitive values through semantic roles to component/context tokens. The graph must expose cycles, aliases that skip meaning, and many-to-one mappings that erase state distinctions. For each theme, density, platform, forced-colors, and high-contrast context define a **mode-invariance contract**: which semantics must remain stable even when physical values change.
+
+Perform a **literal-escape audit** on implementation surfaces. Literal values are allowed only for documented local exceptions or values that are not design decisions; repeated literals that bypass semantic tokens are drift. Establish a **token lifecycle policy** for introduction, rename, deprecation, migration, ownership, and compatibility so tokens do not become permanent archaeology.
+
+Run a **theme-drift probe** by rendering representative components across every supported mode and checking semantic relationships—primary text vs muted, action vs danger, selected vs hover, raised vs base—rather than checking raw equality. A dark theme that mechanically inverts primitives but reverses hierarchy has failed.
+
+### Falsification
+Change a primitive palette or spacing scale and observe whether unrelated component semantics unexpectedly move together. If one token alteration causes conceptually unrelated regressions, the alias graph encodes visual coincidence instead of meaning.
+
+### Recovery
+Introduce or split semantic roles, migrate consumers, and deprecate misleading aliases. Do not add component overrides until the token model explains why the exception exists.

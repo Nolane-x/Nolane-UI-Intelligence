@@ -66,3 +66,14 @@ Return `visual-iteration-evidence` with:
 
 ## V5 Basin-Escape Trigger
 Before another local refinement, ask whether the current aesthetic **basin** is viable. Compare affective fit, distinctiveness, signature depth and current candidate against the **reference frontier** and a materially different alternative. If fit remains below target, repeated comparisons lose, signature depth fails, or adequacy critic rejects the thesis, emit `RE_DIVERGE`; do not continue local hill-climbing. Preserve strengths and reopen only the axes implicated by the failure.
+
+## V6 Rendered Iteration Protocol
+Before changing pixels, state a **rendered-delta hypothesis**: which observed defect, experiential gap, or reference-frontier delta the edit should improve and what might regress. Use **visual-regression triage** to separate intended design change, renderer noise, content variance, and genuine accidental drift.
+
+Choose **local-vs-directional change** deliberately. If the aesthetic basin/thesis is wrong, local spacing/color polish is prohibited; re-diverge. Require **iteration stopping evidence** based on resolved priorities and plateau/adequacy evidence, not fatigue or number of rounds. Pin a **render-context pin** with viewport, content fixture, theme, font resolution, interaction state, motion preference, and browser/device assumptions.
+
+### Falsification
+Apply the proposed local edit while holding context fixed and compare against the stated hypothesis. No meaningful improvement or worsened high-priority dimension rejects the edit.
+
+### Recovery
+Revert, change the causal mechanism or direction, refresh evidence, and avoid compounding unproven tweaks.

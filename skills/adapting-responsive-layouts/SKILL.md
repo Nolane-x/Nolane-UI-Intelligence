@@ -56,3 +56,16 @@ Return `invariants`, `pressure_points`, `transformations`, `container_rules`, `n
 
 ## Gate
 For each target range, users must still be able to locate context, complete critical tasks, understand feedback, and recover. If a capability disappears, the contract must explicitly permit it.
+
+## V6 Responsive Relationship Protocol
+Create a **relationship-preservation map** for each region: reading order, comparison adjacency, action-to-object proximity, persistent context, data alignment, and focus order that must survive viewport change. Responsive adaptation is judged by preserved relationships, not by whether elements technically fit.
+
+For each breakpoint choose **reflow-versus-transform**: reflow keeps the same conceptual structure with different arrangement; transform changes the interaction pattern (table to list, side panel to sheet, toolbar to command menu) and therefore requires semantic/state parity proof. Make a **container-query decision** where a component's available space depends on its parent rather than global viewport; document when viewport media queries remain correct.
+
+Preserve **responsive state continuity** across resize/orientation: current selection, focus, draft input, expanded item, scroll anchor, running media, and pending action must not reset simply because representation changes. Discover breakpoints via a **content-breakpoint probe** using worst credible labels, values, localization, zoom, and dynamic panels rather than device-name presets.
+
+### Falsification
+Resize continuously instead of testing only target widths, rotate during editing, zoom to 200–400%, and inject the longest credible content. Relationship loss, focus teleportation, hidden capability, or mode reset falsifies the responsive contract.
+
+### Recovery
+Change the representation or breakpoint around the failing content relationship; do not hide task-critical information to make the layout pass. Re-test state continuity after every structural transform.

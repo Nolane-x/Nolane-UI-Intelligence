@@ -38,3 +38,16 @@ Return a `theme-personalization-contract` with `semantic_invariants[]`, `theme_l
 - Theme-specific component CSS diverging from shared semantics.
 
 A theme is valid only if the product’s meaning survives the transformation.
+
+## V6 Theme and Personalization Governance
+Define **semantic-theme invariants** before colors/styles: hierarchy, status meaning, focus visibility, selected/current distinction, data-series identity, surface relationships, and brand obligations that must survive light/dark/high-contrast/custom themes.
+
+Guarantee **personalization reversibility** with reset, preview where material, bounded persistence, and no one-way configuration traps. Establish an **accessibility-precedence rule**: user/system requirements such as reduced motion, forced colors, text size, contrast, captions, or input adaptations override decorative personalization when they conflict.
+
+Separate preference from task mechanics through a **density-personalization boundary**. Compactness may be user-selectable, but it cannot shrink touch targets, hide required labels, or remove safety/context information below the task's minimum. Use a **theme-migration probe** when tokens/components evolve: old stored preferences, custom themes, and organization policy must map or fail explicitly rather than silently degrading.
+
+### Falsification
+Switch themes/preferences mid-task, enable accessibility settings afterward, import an old saved theme, and inspect every semantic state. If meaning, focus, or contrast depends on one theme, personalization has broken product semantics.
+
+### Recovery
+Fall back to the nearest validated semantic theme, reset unsupported preferences with explanation, and migrate token aliases. Do not preserve a custom theme that makes critical state unknowable.

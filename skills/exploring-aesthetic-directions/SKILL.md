@@ -74,3 +74,16 @@ Return `search_axes`, `candidates[]`, `comparison`, `selected_direction`, `selec
 
 ## V5 Divergence Artifact Gate
 For flagship+ ambition with high visual freedom, prose alternatives are insufficient. Produce **at least three** materially different **rendered candidates** when the runtime can render. They must be **materially different** in several of: composition logic, typography character, density/rhythm, surface/material behavior, media/visualization role, and signature mechanism; recoloring is not divergence. Bind accepted reference mechanisms to each candidate and compare the selected direction against both a reference frontier and at least one alternative. Route each claimed signature through `deepening-signature-mechanisms`.
+
+## V6 Directional Divergence Protocol
+For high visual freedom, divergence must happen at the level of causal mechanisms rather than palette swaps. Require **mechanism-level divergence** across composition, typographic voice, material/surface logic, information density, imagery/icon grammar, motion behavior, and interaction emphasis. Two candidates with the same card grid and hierarchy but different gradients are one direction.
+
+Use a **composition silhouette test** by reducing candidates to large masses, voids, axes, dominant alignments, and focal regions. Their silhouettes should demonstrate genuinely different spatial theses when the brief permits. Evaluate **material-language divergence** separately: flat/ink-like, tactile/layered, luminous/spatial, editorial, diagrammatic, or other surface logic must change boundary/depth behavior, not just shadow strength.
+
+Force **typography-personality contrast** where type is expressive: compare at least one direction whose voice comes from proportion, rhythm, or family behavior rather than the same neutral grotesk scaled differently. Watch for a **direction-convergence alarm** during refinement: if independent candidates accumulate the same radius, cyan accent, dark panes, microtype, glass, or motion grammar, stop and re-diverge before selection.
+
+### Falsification
+Grayscale candidates, strip brand names, normalize copy, and compare silhouettes and interaction states. If an independent critic cannot state the distinct thesis/mechanism of each, divergence is false.
+
+### Recovery
+Return to experiential intent and reference contradictions, mutate one or more structural mechanisms, and regenerate candidates from different constraints. Do not manufacture variety with decoration.

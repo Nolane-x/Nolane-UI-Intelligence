@@ -38,3 +38,14 @@ Return a `finding-set` with `may_modify:false`, `artifact_revision`, `findings[]
 - Accepting missing evidence as “probably fine.”
 
 A critical safety finding blocks release regardless of aesthetic score until repaired, disproven, or formally accepted by appropriate authority.
+
+## V6 Human-Factors Safety Critic
+Trace every serious hazard through a **hazard-control trace** from trigger → user/system perception → decision → action → prevention/recovery control. Flag **workload exceedance** against the task-demand/fatigue model.
+
+Look for **alarm salience mismatch** where severity, urgency, persistence, or channel does not match consequence. Identify an **error-forcing function** where layout/timing/defaults make a known error more likely. Track **safety margin erosion** when multiple “minor” compromises combine under stress/degraded operation.
+
+### Falsification
+Compose several adverse conditions at once—latency, interruption, stale data, fatigue, multiple alerts—and test whether controls still contain the hazard.
+
+### Recovery
+Block release for uncontained material hazards, strengthen upstream control/reversibility, and require new evidence under the combined scenario.

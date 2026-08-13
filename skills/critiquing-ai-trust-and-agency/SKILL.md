@@ -36,3 +36,14 @@ Return a `finding-set` with `may_modify:false`, `artifact_revision`, `findings[]
 - High task-success demo compensating for invisible authority expansion.
 
 Agentic UI cannot pass while consequential authority is ambiguous.
+
+## V6 AI Trust Critic
+Run an **automation-bias probe** by comparing user decisions with and without AI recommendation salience. Use an **authority inflation test** to detect language/visuals that imply certainty, expertise, approval, or completion beyond actual model/tool authority.
+
+Inspect the **provenance-action gap**: consequential action must not outrun the evidence/provenance the user can inspect. Measure **override friction** relative to automation friction; rejecting/correcting should not be materially harder without cause. Produce a **trust calibration verdict** of under-trust, calibrated, over-trust risk, or unknown with evidence.
+
+### Falsification
+Inject a confidently wrong suggestion and missing source/tool failure. If interface styling still makes acceptance the path of least resistance, trust is miscalibrated.
+
+### Recovery
+Reduce authority cues/autonomy, elevate evidence/uncertainty, lower correction friction, and re-run the same adversarial scenario.

@@ -75,3 +75,14 @@ Return `actors`, `context_dimensions`, `critical_jobs`, `attention_budget`, `lea
 
 ## V5 Aspirational Identity Trigger
 Task efficiency does not exhaust user modeling. When the brief contains **aspirational identity**, status projection, “feel like”, authority, mastery, institutional power, or **role fantasy**, route `modeling-aspirational-identity`. Preserve the distinction between actual role and aspirational role. The resulting experience must be backed by truthful agency, overview, orchestration, lineage, rituals or symbolic objects rather than titles/badges alone.
+
+## V6 User/Task Model Protocol
+Maintain **role-vs-persona distinction**: permissions/responsibility/authority are roles; behavior/motivation/context patterns may form personas/segments. Model **expertise trajectory** from first use through frequent expert use, including shortcuts, automation, error recovery, and changing information needs.
+
+Assign a **task-criticality map** by frequency, consequence, time pressure, reversibility, collaboration, and environmental context. Ensure **edge-user inclusion** for disabled users, unusual permissions, high volume, constrained devices, and domain-expert edge cases whose failures can expose structural problems. Bind each claim to **behavior-evidence trace** from observation, product data, user statement, or explicit hypothesis.
+
+### Falsification
+Find a real role/context whose job cannot be represented without changing the flow/IA. If the model calls them an outlier despite material product scope, it is too narrow.
+
+### Recovery
+Split/refine roles/tasks, update evidence status, and reroute affected product/interaction decisions.

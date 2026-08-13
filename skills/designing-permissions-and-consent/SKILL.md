@@ -38,3 +38,14 @@ Return a `consent-contract` with `requested_capabilities[]`, `purpose_map`, `req
 - Permission scope broader than the feature actually requires.
 
 Consent quality is measured by informed control, not acceptance rate.
+
+## V6 Permission and Consent Protocol
+Use a **just-in-time permission ask** only when the user can understand the immediate benefit and consequence. Pair it with **scope-to-benefit explanation** that states what access enables without exaggerating necessity. Define a **denial recovery path** so rejecting a permission does not strand users when a reduced-capability route exists.
+
+Expose a persistent **consent revocation surface** where users can withdraw optional consent or reconnect after system-level changes. Run **permission-drift audit** when product capabilities, platform APIs, organization roles, or legal bases change; historical consent cannot silently expand to new use.
+
+### Falsification
+Deny, partially grant, revoke externally, expire enterprise permission, and change user role mid-session. If the interface claims functionality it no longer has or pressures re-consent, the model fails.
+
+### Recovery
+Refresh authority state, degrade gracefully, explain the minimum next step, and re-request only the specific scope needed. Never use repeated prompts as a coercion strategy.

@@ -1,0 +1,11 @@
+{
+  "version": 6,
+  "assets": [
+    "evals/v6/source-depth/cases.json",
+    "evals/v6/synthesis/cases.json",
+    "evals/v6/ontology/cases.json",
+    "evals/v6/skill-effect/cases.json"
+  ],
+  "case_count": 32,
+  "purpose": "Adversarial behavior specifications for deep source research, multi-source synthesis, cross-axis industry coverage and causal skill-effect claims. Selected cases are executable against deterministic validators; agent-quality cases require runtime evaluation."
+}

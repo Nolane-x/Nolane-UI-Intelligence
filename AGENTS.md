@@ -21,3 +21,13 @@ When this repository is used as an Agent Skill pack:
 16. Do not use prose/token length as a proxy for skill depth. Prefer failure caught, decision changed, mutation sensitivity, ablation/interaction evidence and transfer robustness.
 
 These rules are repository policy. Runtime adapters may change tool syntax, not these semantics.
+
+## v6 deep-source and depth invariants
+
+19. A repository link is discovery evidence, not transfer authority. Material `adopt`, `adapt`, or design influence MUST route role-specific repository archaeology and research-depth criticism. README-only authorization is forbidden.
+20. High-drift/material source research MUST identify the current source/ref and pin a commit/snapshot when available. Never assume `main` is the active/default branch.
+21. Source roles are non-interchangeable. A visual gallery cannot silently become semantic/accessibility authority; a primitive cannot silently become art direction; a chart library cannot certify analytical truth.
+22. Multi-source work MUST declare semantic, interaction and visual ownership plus local overrides and conflict resolutions. Do not ship visible library boundaries or foreign demo defaults as the product language.
+23. Use `knowledge/ui-industry-ontology-v6.json` for cross-axis risks. Satisfying each individual axis does not close a declared high-risk interaction cell.
+24. Skill depth is behavioral. Word/token/line/heading count MUST NOT be used as proof of depth. A deep skill needs a unique decision boundary, observation, conditional tradeoffs, falsification, evidence, meaningful output, failure topology, recovery and independent downstream verification.
+25. Claims that a skill improves UI quality require controlled effect evidence. Structural tests prove repository invariants, not model-independent aesthetic superiority.

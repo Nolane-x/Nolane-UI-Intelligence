@@ -38,3 +38,14 @@ Return a `provenance-contract` with `content_origins[]`, `claim_source_map[]`, `
 - Human-edited content still labeled as entirely AI-generated.
 
 Provenance should help a person decide what to trust, inspect, or verify next.
+
+## V6 AI Evidence and Uncertainty Protocol
+Maintain **claim-source binding** at the level users need for consequential assertions: which source/tool/data supports which claim, not a generic source list. Separate an **uncertainty-type taxonomy**—missing information, conflicting evidence, model inference, stale data, ambiguous intent, tool failure, probabilistic forecast—because each demands a different response.
+
+Preserve a **confidence-vs-evidence distinction**: model confidence or fluent tone cannot substitute for source quality. Track **provenance freshness** for dynamic facts and tool results. Route materially unsupported assertions into **unsupported-claim quarantine**: label as hypothesis/unknown or omit from action-driving UI until evidence appears.
+
+### Falsification
+Remove the strongest source, inject contradictory evidence, age the data, and compare the displayed confidence/provenance. If the UI still presents the same certainty, its uncertainty model is false.
+
+### Recovery
+Downgrade or retract claims, request/refresh evidence, show contradiction, and block autonomous high-consequence action where uncertainty cannot be resolved.

@@ -71,3 +71,20 @@ Genericity is usually a craft finding, not a critical defect. Escalate only when
 
 ## V5 Global Accumulation and Counterfactual Gate
 Evaluate genericity globally, not one component at a time. Inventory repeated mechanisms and judge **accumulation** using semantic necessity, **subject specificity**, frequency, information gain, emotional contribution, and **removal cost**. A hundred individually “justified” tiny mono labels can form one systemic trope. Include technical-sophistication slop (unearned coordinates, fake rulers, terminal atmosphere, hairline grids, SIGNAL/LIVE/SYS vocabulary, generic node/orbit diagrams) without hard-banning any style. Run a blind/counterfactual product-specificity test by masking nouns/branding and asking whether the same shell plausibly fits unrelated domains. At flagship+, timidity is also a finding when no memorable mechanism exists without a deliberate reason.
+
+## V6 Genericity Falsification Engine
+Create a **genericity fingerprint** from layout topology, typography roles, container geometry, palette, icon family, motion pattern, imagery, copy cadence, data visualization and empty/onboarding states. Genericity is a system-level resemblance, not the presence of one fashionable component.
+
+Run **blind-product substitution**: remove brand/product names, replace domain nouns with another plausible SaaS/AI/finance product, and inspect whether the interface still feels equally appropriate. If yes, subject specificity is weak.
+
+Run a **reference substitution test**: replace the current reference set with another fashionable collection from the same trend. If the chosen direction and mechanism rationale barely change, research is following style gravity instead of product truth.
+
+For every signature candidate record **mechanism necessity**: what product meaning, interaction, information relationship or emotional invariant would be lost if it disappeared? Low-necessity repeated mechanisms are genericity debt even when attractive.
+
+Detect **timidity failure** after removing clichés. An interface with no generic glow/cards/gradients can still be generic because it has no authored visual thesis. High ambition requires at least one memorable, product-specific relationship or a deliberately distinctive quietness proven against references.
+
+### Falsification
+Ask independent critics to infer product archetype and experiential intent from screenshots with text partially masked. If outputs fit many unrelated categories, specificity claims fail. Compare with a minimally styled semantic baseline; if the elaborate version adds no stronger identity, the added craft is decorative noise.
+
+### Recovery
+Do not randomly add unusual effects. Return to domain objects, competence rituals, spatial dramaturgy, signature mechanism, imagery/media role or typography character. Genericity is solved by authored causality, not novelty for its own sake.

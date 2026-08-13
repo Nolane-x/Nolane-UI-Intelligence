@@ -58,3 +58,14 @@ Every release-critical capability must appear in at least one scenario appropria
 - Omitting cross-feature handoffs because each feature owner has its own flow.
 
 **Hard gate:** a product-wide completion claim cannot pass when a release-critical capability or high-consequence handoff has no scenario that could falsify it.
+
+## V6 Scenario Coverage Protocol
+Use **scenario cross-product pruning** to select interaction combinations by causal distinctness and risk rather than brute-force every axis. Maintain a **lifecycle edge inventory** for first use, empty, normal, loading, partial, stale, error, recovery, archived/deleted, permission change, offline/reconnect, and migration states where applicable.
+
+Include every **rare-high-impact scenario** whose consequence warrants evidence despite low frequency. Vary **role-permission variance** across owner/admin/member/guest/operator/approver or domain equivalents. Track a **coverage frontier** of still-uncertain intersections and why they are deferred.
+
+### Falsification
+Search for a valid product state/action pair not represented by the scenario set and ask whether it can change implementation or safety. If yes, “covered” is false.
+
+### Recovery
+Add the minimal causally distinct scenario, route its owners/verifiers, and update the frontier rather than inflating a huge undifferentiated checklist.

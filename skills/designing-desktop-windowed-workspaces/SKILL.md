@@ -38,3 +38,14 @@ Return a `desktop-workspace-contract` with `workspace_model`, `window_types[]`, 
 - Touch-sized emptiness that slows scanning in professional work.
 
 A strong desktop UI lets users arrange the tool around the work rather than continually rearranging their work around the tool.
+
+## V6 Windowed Workspace Protocol
+Define a **window restoration contract** for size, position, monitor, workspace/object, tabs, unsaved state, and privacy-sensitive content after relaunch. Maintain **multiwindow object identity** so the same document/entity opened in multiple windows has consistent edit/conflict semantics.
+
+Require **shortcut-menu parity**: critical keyboard shortcuts are discoverable and do not silently diverge from menu labels/enabled state. Specify **drag-between-window semantics** for objects/files/tabs, including copy vs move, permissions, cancellation, and target highlighting. Handle **monitor-density migration** across DPI/scaling/color profiles and window movement without geometry corruption or unreadable UI.
+
+### Falsification
+Open the same object twice, edit concurrently, move windows between displays, restore after crash, and perform keyboard/menu equivalents. Divergent state or inaccessible off-screen restoration falsifies the workspace model.
+
+### Recovery
+Re-anchor windows, reconcile object versions, centralize command state, and provide safe conflict handling rather than assuming one-window ownership.

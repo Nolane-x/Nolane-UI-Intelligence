@@ -49,3 +49,14 @@ Produce a `cross-device-action-contract` containing: canonical action vocabulary
 - Assuming cross-device parity means feature parity when a device cannot safely support an operation.
 
 The design succeeds when users can transfer their understanding of *what the product does* while each device remains native in *how the action is performed*.
+
+## V6 Cross-Device Action Continuity
+Keep **action identity continuity** across web/mobile/desktop/watch/TV: the same named action should have the same consequence even if the interaction differs. Record **device-capability delta** for camera, biometrics, files, pointer, haptics, background execution, screen size, or secure hardware.
+
+Use a durable **handoff token** for transferring object/task/version/context, not just a generic URL. Define **partial-action transfer** when a task begins on one device and must finish on another. Add a **duplicate-execution guard** so handoff/retry does not run the same payment/send/delete/agent command twice.
+
+### Falsification
+Start a task on device A, disconnect, continue on B, then resume A. If state/consequence diverges or duplicates, equivalence is false.
+
+### Recovery
+Reconcile authoritative action state, invalidate stale handoff tokens, and present the user with the exact completed/pending scope before continuing.

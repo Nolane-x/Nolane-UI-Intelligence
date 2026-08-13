@@ -54,3 +54,16 @@ Return `fields`, `grouping`, `order`, `dependencies`, `validation_map`, `error_c
 
 ## Stress cases
 Empty optional section, all fields invalid, one server error, slow validation, long translated labels, autofill, password manager, keyboard-only completion, paste of formatted data, and return to a saved draft when relevant.
+
+## V6 Form Behavior Engineering
+Model dependencies before layout with a **field-dependency graph**: visibility, requiredness, defaults, validation, computed values, and option sets that change when another field changes. Cycles and hidden dependencies require explicit resolution, especially when edits can invalidate later answers.
+
+Choose a **validation-timing policy** per rule. Syntax may validate on blur or after meaningful input; cross-field/business rules may require submit or server evidence; destructive or expensive validation should not fire on every keystroke. Prevent premature error noise while ensuring the user sees failures before a costly commit. For long or consequential forms, define a **draft-persistence contract** covering autosave cadence, device/account scope, conflict handling, privacy-sensitive fields, expiry, and recovery after interruption.
+
+For multi-error submission, design an **error-summary focus path**: summary placement, first-invalid focus strategy, inline linkage, preserved entered values, and announcement. Audit browser/platform behavior with an **autofill-and-input-mode audit**—correct input type, autocomplete tokens, password manager semantics, numeric/date keyboards, paste, IME composition, and locale-specific formats.
+
+### Falsification
+Change an upstream dependency after filling downstream fields, submit with several errors, navigate away mid-edit, autofill the form, paste localized values, and retry under slow server validation. Data loss, hidden invalid values, or focus stranded from errors falsifies the form contract.
+
+### Recovery
+Repair data/dependency semantics first, restore lost draft paths, then adjust presentation. Never disable paste/autofill merely to make validation simpler.

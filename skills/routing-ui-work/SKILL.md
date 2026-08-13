@@ -195,3 +195,14 @@ Before emitting the profile, compare selected skills with deterministic mandator
 
 ## V5 Visual Ambition Escalation
 Add `visual_ambition: utilitarian | polished | distinctive | flagship | exceptional | experiential` and `visual_freedom` to the task profile when material. For `flagship`, `exceptional`, or `experiential`, use the v5 **hard route**: aesthetic divergence, reference research, hierarchy, typography, color, spacing/rhythm, surfaces, imagery/media, motion, anti-generic review, global attractor audit, computed legibility, visual energy, signature depth, execution critic, adequacy critic, rendered iteration, and basin escape. Context economy cannot waive this route. Add encoding provenance, aspirational identity, spatial dramaturgy, and perceptual diversity when their triggers exist.
+
+## V6 Routing Integrity Protocol
+Record **route trigger proof** for every mandatory skill from task profile facts, risk, ambition, modality, source usage, or uncovered interaction cell. Enforce **mandatory-route closure**: every activated non-optional owner must produce/resolve its typed output before completion.
+
+Support **optional-route suppression** with a reason so the system does not load every skill by default. Apply **risk escalation rule** when new evidence raises consequence, external-source influence, accessibility scope, or ambiguity; routing may become stricter mid-lifecycle. Detect **routing cycle guard** across parent/critic/recovery edges so dependencies cannot deadlock or self-certify.
+
+### Falsification
+Mutate a profile field (e.g., material external source, medical risk, high visual ambition) and verify routes change. No change where obligations differ falsifies routing.
+
+### Recovery
+Recompute from the corrected task profile, preserve unaffected outputs, invalidate skipped/changed dependencies, and rerun closure checks.

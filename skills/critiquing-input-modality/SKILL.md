@@ -38,3 +38,14 @@ Return a `finding-set` with `may_modify:false`, `artifact_revision`, `modality_m
 - One modality’s success averaged into an overall score.
 
 A required modality with an unreachable critical action is a hard gate, not a small quality deduction.
+
+## V6 Input Modality Critic
+Find any **modality-exclusive action** with no product-justified equivalent. Allow a **parity-cost exception** only when exact parity is impossible and an alternative achieves the same meaningful outcome with bounded extra effort.
+
+Detect **gesture discoverability failure**, **input-switch continuity** loss when users move between keyboard/touch/pen/voice/gaze, and **inaccessible precision demand** that requires fine motor control without alternative.
+
+### Falsification
+Complete critical flows using each required modality and switch midway. If state, action availability, or recovery changes unintentionally, modality design fails.
+
+### Recovery
+Add alternate commands/controls, preserve semantic action identity across inputs, and remove precision/gesture dependence rather than documenting it away.
