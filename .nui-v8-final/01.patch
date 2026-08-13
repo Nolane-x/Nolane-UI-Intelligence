@@ -1,0 +1,110 @@
+diff --git a/README.md b/README.md
+index 25ec9c1..8540411 100644
+--- a/README.md
++++ b/README.md
+@@ -4,7 +4,7 @@
+ 
+ Nolane UI Intelligence (NUI) is a platform-agnostic Agent Skill graph for serious UI/UX work. It treats interface design as a system of independent decisions — product semantics, human factors, interaction, visual craft, platform behavior, input modalities, accessibility, AI agency, safety, resilience, design systems, and verification — rather than one vague instruction to “make it beautiful.”
+ 
+-The current v7 graph declares **166 canonical skills** spanning the v2 industry cognition system, v3 product closure, v4 ecosystem intelligence, v5 affective/aesthetic enforcement, v6 deep research/design synthesis, and v7 Concrete Craft & Authority Intelligence. That number is descriptive, not a target. The router normally loads the **smallest sufficient graph** for the current task; high visual ambition is an explicit exception where required visual faculties become a hard route rather than optional context.
++The current v8 graph declares **174 canonical skills** spanning the v2 industry cognition system, v3 product closure, v4 ecosystem intelligence, v5 affective/aesthetic enforcement, v6 deep research/design synthesis, and v7 Concrete Craft & Authority Intelligence. That number is descriptive, not a target. The router normally loads the **smallest sufficient graph** for the current task; high visual ambition is an explicit exception where required visual faculties become a hard route rather than optional context.
+ 
+ NUI does not promise objective beauty, automatic compliance, or permanent completeness. It constrains observable agent behavior so material assumptions become explicit, high-impact domains cannot be silently omitted, independent critics can falsify the design, machine-checkable invariants are enforced by code, and release claims remain bounded by actual evidence.
+ 
+@@ -163,3 +163,16 @@ For transfer from external products and galleries, the rule is **mechanism, not
+ For flagship/exceptional/experiential work, v7 adds a rendered perception gate over the inherited v5 aesthetic gate. A screenshot is not evidence by itself: the record must observe attention hierarchy, resolved typography, subject-linked signature, material roles, responsive recomposition and—when material—temporal sequencing. Reference comparison and critique must identify a weakness, record a fix and verify the changed artifact. Optional pixel-diff evidence is renderer/environment scoped with calibrated tolerance so antialiasing noise is not mistaken for a meaningful visual regression.
+ 
+ See `docs/V7-CONCRETE-KNOWLEDGE-CLOSURE.md` for the critique-to-mechanism map, `docs/research/UI-AUTHORITY-INTELLIGENCE-V7.md` for the research/authority model, and `docs/USAGE.md` for execution guidance.
++
++
++## Agent Interoperability & Visual Media Intelligence (v8)
++
++NUI v8 adds a portable execution surface for Codex, Claude Code, Antigravity and other agent/CLI/MCP hosts without creating vendor forks of the skill corpus. `.agents/skills/nolane-ui/SKILL.md` and `.claude/skills/nolane-ui/SKILL.md` are thin pointers to the canonical graph; `nui-agent-export` emits bounded host plans; the optional MCP server exposes local NUI queries but no arbitrary shell, URL fetcher, skill installer or project writer. **Access is not authority and transport is not permission.**
++
++Third-party agent skills enter through a supply-chain trust firewall: immutable snapshot, content hash, exact license evidence, transitive resource review, bounded capabilities, instruction/data separation, local adoption mode and drift trigger. NUI prefers links plus independently written mechanism summaries over copying external prompt corpora.
++
++V8 also treats visual representation as a first-class decision. It does not ban shapes; it detects **shape substitution**—generic cards/orbs/blobs/fake networks consuming semantic salience where real subject media, truthful diagrams, data, maps, domain artifacts or intentionally empty/type-led composition would be stronger. `knowledge/visual-media-sources-v8.json` routes discovery across stock, open culture, public-domain, scientific, space, geospatial and icon/illustration sources while requiring per-asset provenance/rights verification.
++
++When an asset must be made rather than found, `knowledge/creative-toolchain-v8.json` and `knowledge/tool-learning-sources-v8.json` help agents hydrate current official skills/docs/APIs for Figma/Penpot/Blender/web renderers/motion/data/map/image tooling. Tools own execution stages only; product truth, rights and aesthetic adequacy remain NUI/local responsibilities. Material media must finally pass responsive crop, hierarchy, overlay, performance, accessibility and provenance-to-render checks.
++
++See `docs/V8-AGENT-MEDIA-CLOSURE.md` and `docs/research/AGENT-MEDIA-INTELLIGENCE-V8.md`.
+diff --git a/artifacts/v8-completion-packet.example.json b/artifacts/v8-completion-packet.example.json
+new file mode 100644
+index 0000000..5353350
+--- /dev/null
++++ b/artifacts/v8-completion-packet.example.json
+@@ -0,0 +1,74 @@
++{
++  "packet_id": "NUI-V8-STRUCTURAL-EXAMPLE",
++  "artifact_revision": "0000000000000000000000000000000000000000",
++  "phase": "VERIFIED",
++  "task_profile": "NUI v8 agent interoperability and visual media intelligence",
++  "obligations": [
++    {
++      "id": "O-V8-AGENT-INTEROP",
++      "status": "PASS",
++      "evidence_refs": [
++        "E-UNIT-SUITE",
++        "E-REPOSITORY-VALIDATOR"
++      ]
++    },
++    {
++      "id": "O-V8-EXTERNAL-SKILL-TRUST",
++      "status": "PASS",
++      "evidence_refs": [
++        "E-UNIT-SUITE",
++        "E-REPOSITORY-VALIDATOR"
++      ]
++    },
++    {
++      "id": "O-V8-VISUAL-MEDIA",
++      "status": "PASS",
++      "evidence_refs": [
++        "E-UNIT-SUITE",
++        "E-REPOSITORY-VALIDATOR"
++      ]
++    },
++    {
++      "id": "O-V8-CREATIVE-TOOLCHAIN",
++      "status": "PASS",
++      "evidence_refs": [
++        "E-UNIT-SUITE",
++        "E-REPOSITORY-VALIDATOR"
++      ]
++    },
++    {
++      "id": "O-V8-ADVERSARIAL-EVAL",
++      "status": "PASS",
++      "evidence_refs": [
++        "E-UNIT-SUITE",
++        "E-REPOSITORY-VALIDATOR"
++      ]
++    }
++  ],
++  "evidence": [
++    {
++      "evidence_id": "E-UNIT-SUITE",
++      "result": "PASS"
++    },
++    {
++      "evidence_id": "E-REPOSITORY-VALIDATOR",
++      "result": "PASS"
++    }
++  ],
++  "findings": [],
++  "checks": {
++    "unit-tests": "PASS",
++    "repository-validator": "PASS",
++    "completion-gate": "PASS"
++  },
++  "claim": "Example only; generate a fresh packet for an exact revision.",
++  "bounds": [
++    "Host permissions remain external to NUI.",
++    "Asset rights require task-specific evidence.",
++    "Beauty is not proven by repository structure alone."
++  ],
++  "unknowns": [
++    "Live host/source capabilities change over time."
++  ],
++  "decision": "PASS"
++}
