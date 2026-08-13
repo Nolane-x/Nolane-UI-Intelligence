@@ -31,3 +31,16 @@ These rules are repository policy. Runtime adapters may change tool syntax, not 
 23. Use `knowledge/ui-industry-ontology-v6.json` for cross-axis risks. Satisfying each individual axis does not close a declared high-risk interaction cell.
 24. Skill depth is behavioral. Word/token/line/heading count MUST NOT be used as proof of depth. A deep skill needs a unique decision boundary, observation, conditional tradeoffs, falsification, evidence, meaningful output, failure topology, recovery and independent downstream verification.
 25. Claims that a skill improves UI quality require controlled effect evidence. Structural tests prove repository invariants, not model-independent aesthetic superiority.
+
+
+## v7 concrete craft and authority invariants
+
+26. Resolve **decision-dimensional authority**. No source receives global authority merely because it is prestigious, visually impressive, production-proven or agent-readable.
+27. **Access protocol is not authority.** MCP, LLM docs, agent skills, CLIs and open-code installers may reduce retrieval cost; they MUST preserve the underlying authority, scope, version and local verification requirements.
+28. Transfer **mechanism, not trade dress**. Do not clone recognizable upstream visual language, demo composition, copy, token choices or product identity unless the task explicitly owns and permits that material.
+29. Use a **concrete design packet** when fast-path synthesis is active. It may compress explanation, never hard obligations, provenance, contraindications, transfer boundaries, validation obligations or unresolved blockers.
+30. Institutional patterns carry evidence debt outside their validated context. Revalidate material jurisdiction, population, workflow, hardware, language and organizational differences locally.
+31. Separate implementation authorities by layer. Semantic/accessibility primitives, platform conventions, motion engines, visual inspiration and product-domain systems can coexist; none silently certifies the others.
+32. High-ambition completion requires **rendered perception** evidence in addition to inherited v5 adequacy evidence. Screenshot presence alone is not proof. Observe hierarchy, resolved typography, signature, material roles, responsive recomposition and material temporal states.
+33. Calibrate visual regression evidence by renderer/environment. A raw pixel delta without a baseline, tolerance and rationale is not a meaningful perceptual finding.
+34. The canonical graph currently contains **166 canonical skills**. Skill count remains descriptive, not a progress target; prefer deeper contracts and concrete evidence over duplicated owners.

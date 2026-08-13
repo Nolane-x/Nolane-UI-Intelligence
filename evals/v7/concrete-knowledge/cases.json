@@ -1,0 +1,110 @@
+{
+  "version": 7,
+  "plane": "concrete-knowledge",
+  "cases": [
+    {
+      "id": "v7-style-database-default-convergence",
+      "setup": "A fast recommender returns the same dark gradient, oversized sans headline, glass cards and glow accent for three unrelated high-ambition products.",
+      "pressure": "The style database ranks that combination highly for modern/AI/tech categories and gives immediate output.",
+      "expected_decision": "RE_DIVERGE",
+      "must_find": [
+        "category retrieval is a prior, not a product-specific verdict",
+        "concrete packet must bind choices to task/domain evidence and contraindications"
+      ],
+      "falsifier": "If the three briefs independently require the same visual language and references, convergence may be justified.",
+      "recovery": "Remove style labels, recompile from domain/task/authority cards, and generate materially different subject-native signatures.",
+      "evaluator_owner": "compiling-concrete-design-packets"
+    },
+    {
+      "id": "v7-subject-native-signature-missing",
+      "setup": "A flagship scientific tool has polished type and surfaces but its hero/signature could be relabeled for finance, cybersecurity or AI infrastructure with no structural change.",
+      "pressure": "The interface passes anti-slop checks and looks premium.",
+      "expected_decision": "RE_DIVERGE",
+      "must_find": [
+        "signature lacks a real subject-world mechanism",
+        "removal/substitution test shows low product specificity"
+      ],
+      "falsifier": "A deliberately universal platform shell can be acceptable if the brief does not require domain identity in the product surface.",
+      "recovery": "Inventory real scientific artifacts/operations/data relationships and rebuild the signature around one mechanism that carries information or control.",
+      "evaluator_owner": "designing-domain-native-signatures"
+    },
+    {
+      "id": "v7-institutional-copy-without-transfer-ledger",
+      "setup": "A team copies a government service pattern and an enterprise workflow pattern into one civic operations tool because both are mature.",
+      "pressure": "Both sources are reputable and appear compatible at the component level.",
+      "expected_decision": "RESEARCH_MORE",
+      "must_find": [
+        "each borrowed mechanism needs original-context evidence and a transfer-boundary ledger",
+        "contradictory institutional assumptions cannot be averaged silently"
+      ],
+      "falsifier": "If artifact-level research shows identical task/population/risk assumptions, the transfer may require little adaptation.",
+      "recovery": "Separate mechanisms by decision dimension, record institutional evidence debt, and validate local intersections.",
+      "evaluator_owner": "adapting-institutional-design-knowledge"
+    },
+    {
+      "id": "v7-open-code-copied-as-final-design",
+      "setup": "An agent installs an open-code component and preserves its default spacing, motion, colors and interaction assumptions as the final product design.",
+      "pressure": "The code is inspectable and works immediately, so additional reasoning seems wasteful.",
+      "expected_decision": "BLOCKED",
+      "must_find": [
+        "open code accelerates implementation but does not own local visual/semantic decisions",
+        "copied code becomes locally owned and must pass local contracts/tests"
+      ],
+      "falsifier": "If the product intentionally adopts the upstream design language and authority for those layers, fewer adaptations may be needed.",
+      "recovery": "Inspect the component, retain useful mechanism/semantics, strip incompatible defaults, and bind it to local tokens/state/tests.",
+      "evaluator_owner": "orchestrating-implementation-authorities"
+    },
+    {
+      "id": "v7-creative-professional-tool-looks-like-saas",
+      "setup": "A professional creative editor is implemented as generic dashboard cards around a central preview rather than treating the artifact/canvas as the primary workspace.",
+      "pressure": "The dashboard is simpler to build and matches common SaaS templates.",
+      "expected_decision": "RE_DIVERGE",
+      "must_find": [
+        "creative-professional workflow needs concrete workspace/artifact authority rather than generic dashboard composition",
+        "primary surface should reflect the work object and expert task rhythm"
+      ],
+      "falsifier": "If the product is analytics about creative work rather than creation itself, dashboard structure may be correct.",
+      "recovery": "Recompile around artifact-first workspace patterns, expert density, tool/state placement and domain-native signature.",
+      "evaluator_owner": "compiling-concrete-design-packets"
+    },
+    {
+      "id": "v7-commerce-vertical-knowledge-too-generic",
+      "setup": "A commerce interface uses generic CRUD terminology and object flows that ignore merchant mental models, fulfillment/variant/order lifecycle, or platform surface conventions.",
+      "pressure": "The generic ontology technically contains entities, actions and tables.",
+      "expected_decision": "RESEARCH_MORE",
+      "must_find": [
+        "broad commerce ontology is not a substitute for deep vertical workflow knowledge",
+        "route to applicable commerce/platform authority and extract source-bound mechanisms"
+      ],
+      "falsifier": "A tiny inventory-free commerce prototype may have no deep merchant lifecycle to model.",
+      "recovery": "Identify the actual commerce objects/roles/lifecycle, resolve vertical authority, and recompile the concrete packet.",
+      "evaluator_owner": "routing-to-ui-authorities"
+    },
+    {
+      "id": "v7-production-lineage-evaporates",
+      "setup": "A team adapts several external component mechanisms, but after refactoring nobody can tell which behavior came from which upstream source/version or why it was retained.",
+      "pressure": "The code is currently passing and provenance feels like documentation overhead.",
+      "expected_decision": "BLOCKED",
+      "must_find": [
+        "implementation lineage is required for material external mechanisms",
+        "future drift/replacement cannot be managed without source-to-wrapper-to-product trace"
+      ],
+      "falsifier": "Purely local code with no external mechanism influence does not need upstream lineage.",
+      "recovery": "Reconstruct lineage from commits/dossiers, bind source/version to wrappers, and document replacement boundaries.",
+      "evaluator_owner": "orchestrating-implementation-authorities"
+    },
+    {
+      "id": "v7-fast-packet-too-large-to-execute",
+      "setup": "The system emits 27 equal-priority recommendations, 14 libraries and a long essay for a routine page.",
+      "pressure": "All suggestions are individually reasonable, so nothing was pruned.",
+      "expected_decision": "BLOCKED",
+      "must_find": [
+        "decision budget should constrain working-memory choices",
+        "hard obligations and provenance can remain while low-leverage options are removed"
+      ],
+      "falsifier": "A complex regulated system may legitimately require a larger execution brief, but it should trigger re-expansion rather than pretend to be a fast packet.",
+      "recovery": "Select the few decisions that change implementation, demote optional exploration, and preserve handles to deeper context.",
+      "evaluator_owner": "compressing-ui-decisions-for-execution"
+    }
+  ]
+}

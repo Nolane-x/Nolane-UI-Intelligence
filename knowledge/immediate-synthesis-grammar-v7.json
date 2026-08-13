@@ -1,0 +1,110 @@
+{
+  "version": 7,
+  "decision_budget": {
+    "min": 5,
+    "max": 9
+  },
+  "dimension_defaults": {
+    "public-service": [
+      "service-journey",
+      "accessibility-testing",
+      "component-semantics"
+    ],
+    "enterprise-operations": [
+      "enterprise-workflow",
+      "component-semantics",
+      "visual-craft"
+    ],
+    "commerce": [
+      "commerce-workflow",
+      "component-semantics",
+      "internationalization"
+    ],
+    "ai-collaboration": [
+      "ai-collaboration",
+      "component-semantics",
+      "visual-craft"
+    ],
+    "creative-professional": [
+      "creative-professional",
+      "visual-craft",
+      "motion-system",
+      "component-semantics"
+    ],
+    "consumer-productivity": [
+      "platform-convention",
+      "visual-craft",
+      "component-semantics"
+    ],
+    "data-analytics": [
+      "visual-craft",
+      "component-semantics"
+    ],
+    "generic": [
+      "visual-craft",
+      "component-semantics"
+    ]
+  },
+  "implementation_shortcuts": [
+    {
+      "when": {
+        "stack": [
+          "react",
+          "nextjs",
+          "next.js"
+        ]
+      },
+      "instruction": "For complex semantics, inspect React Aria or Radix behavior first; adapt visual language separately."
+    },
+    {
+      "when": {
+        "platform": [
+          "shopify",
+          "shopify-admin",
+          "shopify-app",
+          "shopify-extension"
+        ]
+      },
+      "instruction": "Query current Shopify/Polaris docs and use native components where they fit; regression-test critical hosted-runtime interactions."
+    },
+    {
+      "when": {
+        "platform": [
+          "ios",
+          "ipados",
+          "macos",
+          "watchos",
+          "tvos",
+          "visionos",
+          "apple"
+        ]
+      },
+      "instruction": "Use current Apple HIG and native platform components as the first convention authority; brand differentiation comes after platform fit."
+    },
+    {
+      "when": {
+        "domain": [
+          "enterprise-operations",
+          "enterprise"
+        ]
+      },
+      "instruction": "Start from role/business-object/task/floorplan semantics before selecting widgets or a visual shell."
+    },
+    {
+      "when": {
+        "domain": [
+          "public-service"
+        ]
+      },
+      "instruction": "Start from user need/service journey and locally validated service patterns; treat institutional guidance as strong prior evidence, not a substitute for user research."
+    },
+    {
+      "when": {
+        "domain": [
+          "ai-collaboration"
+        ]
+      },
+      "instruction": "Keep AI recognizable but integrated; separate suggestion, preview, approval, execution and recovery according to consequence."
+    }
+  ]
+}

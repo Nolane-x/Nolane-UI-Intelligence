@@ -95,3 +95,14 @@ Render the most difficult content with the actual resolved fonts, target scripts
 
 ### Recovery
 When density fails, first improve width, hierarchy, grouping and information policy before shrinking text. When font loading/coverage is unreliable, prefer a stronger available family or narrow expressive use to roles that can be safely substituted. Typography never gets to hide required information behind truncation without a full-content path.
+
+## V7 Rendered Type Proof
+Typography decisions are incomplete until the intended face survives actual loading, fallback, content length, viewport and script conditions. Add a rendered-type evidence row for each material role: intended family/axis/weight, resolved family, loading state, fallback path, observed line breaks, density effect, and any change to hierarchy or brand character.
+
+For high-ambition work, type must do more than avoid illegibility. Identify what role carries personality, which roles remain quiet, how width/weight/optical size alter composition, and how the hierarchy survives when display text wraps. Treat upstream typography systems as concrete evidence only within their scope; a platform type convention may outrank an aesthetic preference, while a reference font pairing is merely exploratory until local language coverage and rendering are proven.
+
+### Falsification
+Force the first fallback, narrow the viewport, and replace copy with a longer localized string. If hierarchy or signature collapses, the type system was designed as a screenshot.
+
+### Recovery
+Adjust role scale, metrics, fallback stack, width/measure, or font selection and capture fresh resolved-font evidence.

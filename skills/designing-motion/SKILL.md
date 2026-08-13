@@ -69,3 +69,14 @@ Disable all motion and ask what meaning disappears; then accelerate user input s
 
 ### Recovery
 Move meaning into persistent state cues, shorten/retarget transitions, simplify effects, or replace physical travel with opacity/crossfade under reduced motion. Never preserve animation solely because the reference looked impressive.
+
+## V7 Temporal Craft Lineage
+When motion is material, separate **why the product moves** from **which engine executes movement**. Product state and information semantics own the transition truth; Motion, GSAP, platform animation APIs, canvas/3D runtimes, or local CSS may become implementation authorities only for the mechanics they can prove. Record that lineage in the implementation-authority plan.
+
+Design choreography as a temporal sentence: establish context, expose the causal change, then settle into a state ready for action. Timeline labels, presence modes, shared-layout identity, spring behavior, scroll coupling, or shader interpolation are mechanisms—not aesthetic justification. Capture before/transition/settled states in rendered-perception evidence and verify that reduced-motion mode carries equivalent information. A motion that exists only to resemble a reference fails even if technically smooth.
+
+### Falsification
+Replace the engine while keeping the semantic sequence. If the product meaning disappears, state truth was incorrectly encoded inside the animation library.
+
+### Recovery
+Move meaning into explicit product state, simplify choreography, and reselect an engine only after the temporal contract is stable.

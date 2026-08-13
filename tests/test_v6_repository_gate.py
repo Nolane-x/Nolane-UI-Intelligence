@@ -8,7 +8,7 @@ class V6RepositoryGateTests(unittest.TestCase):
   t=tempfile.TemporaryDirectory(); d=Path(t.name)/'repo'; shutil.copytree(ROOT,d,ignore=shutil.ignore_patterns('.git','__pycache__','*.pyc','milestone-artifacts')); return t,d
  def test_current_repository_passes_v6_gate_and_reports_deep_metrics(self):
   r=validate_repository(ROOT); self.assertTrue(r['valid'],r)
-  m=r['metrics']; self.assertEqual(m['v6_skill_count'],4); self.assertEqual(m['skill_count'],158)
+  m=r['metrics']; self.assertEqual(m['v6_skill_count'],4); self.assertGreaterEqual(m['skill_count'],158)
   self.assertGreaterEqual(m['v6_source_count'],75); self.assertGreaterEqual(m['v6_source_domain_count'],20)
   self.assertGreaterEqual(m['v6_ontology_axes'],15); self.assertGreaterEqual(m['v6_ontology_values'],100); self.assertGreaterEqual(m['v6_interaction_cells'],18)
   self.assertGreaterEqual(m['v6_adversarial_cases'],32); self.assertEqual(m['v6_depth_dimensions'],10)

@@ -1,8 +1,9 @@
-"""NUI v6 validation overlay.
+"""NUI v7 validation overlay.
 
-v1-v4 behavior lives in :mod:`validators_v4`; v5 affective/aesthetic policy remains
-here and v6 adds deep-source, industry-ontology, semantic-depth and causal-eval
-gates while preserving prior public APIs.
+v1-v4 behavior lives in :mod:`validators_v4`; v5 affective/aesthetic and v6
+deep-source/depth policy remain inherited here, while v7 adds decision-dimensional
+authority, concrete design knowledge, agent-readable adapters, rendered-perception
+and adversarial evaluation gates without weakening prior public APIs.
 """
 from __future__ import annotations
 
@@ -27,11 +28,17 @@ if __package__:
     from . import validators_v4 as _v4
     from . import source_intelligence as _source_v6
     from . import depth as _depth_v6
+    from . import authority as _authority_v7
+    from . import concrete as _concrete_v7
+    from . import perceptual as _perceptual_v7
 else:
     _aesthetic = _load_sibling("aesthetic.py", "nui_aesthetic_v5")
     _v4 = _load_sibling("validators_v4.py", "nui_validators_v4")
     _source_v6 = _load_sibling("source_intelligence.py", "nui_source_intelligence_v6")
     _depth_v6 = _load_sibling("depth.py", "nui_depth_v6")
+    _authority_v7 = _load_sibling("authority.py", "nui_authority_v7")
+    _concrete_v7 = _load_sibling("concrete.py", "nui_concrete_v7")
+    _perceptual_v7 = _load_sibling("perceptual.py", "nui_perceptual_v7")
 
 validate_completion_packet = _v4.validate_completion_packet
 validate_skill_graph = _v4.validate_skill_graph
@@ -82,13 +89,44 @@ REQUIRED_V6 = (
     "docs/research/UI-SOURCE-INTELLIGENCE-V6.md",
 )
 
+REQUIRED_V7_KERNEL = (
+    "knowledge/v7-skill-manifest.json",
+    "knowledge/ui-authority-mesh-v7.json",
+    "knowledge/concrete-design-patterns-v7.json",
+    "knowledge/immediate-synthesis-grammar-v7.json",
+    "knowledge/agent-readable-ui-sources-v7.json",
+    "knowledge/rendered-perception-rubric-v7.json",
+    "src/nolane_ui/authority.py",
+    "src/nolane_ui/concrete.py",
+    "src/nolane_ui/perceptual.py",
+    "schemas/ui-authority-route.schema.json",
+    "schemas/concrete-design-packet.schema.json",
+    "schemas/rendered-perception-evidence.schema.json",
+)
+
+REQUIRED_V7_RESEARCH = (
+    "evals/v7/manifest.json",
+    "evals/v7/authority-conflicts/cases.json",
+    "evals/v7/concrete-knowledge/cases.json",
+    "evals/v7/rendered-perception/cases.json",
+    "evals/v7/fast-path/cases.json",
+    "docs/V7-CONCRETE-KNOWLEDGE-CLOSURE.md",
+    "docs/research/UI-AUTHORITY-INTELLIGENCE-V7.md",
+    "artifacts/v7-completion-packet.example.json",
+)
+
 
 def _load(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
 def mandatory_routes_for_profile(profile: dict[str, Any]) -> set[str]:
-    return _v4.mandatory_routes_for_profile(profile) | _aesthetic.mandatory_aesthetic_routes(profile) | _source_v6.mandatory_v6_source_routes(profile)
+    return (
+        _v4.mandatory_routes_for_profile(profile)
+        | _aesthetic.mandatory_aesthetic_routes(profile)
+        | _source_v6.mandatory_v6_source_routes(profile)
+        | _authority_v7.mandatory_v7_routes(profile)
+    )
 
 
 def validate_mandatory_routes(profile: dict[str, Any], selected_skills: Iterable[str]) -> dict[str, Any]:
@@ -182,6 +220,79 @@ def validate_v6_completion_evidence(record: dict[str, Any]) -> dict[str, Any]:
         elif not all(benchmark.get(k) is True for k in ("lineage_recorded", "controls_present", "falsifiers_declared")):
             errors.append("skill-effect benchmark requires lineage, controls and falsifiers")
     return {"decision": "BLOCKED" if errors else "PASS", "errors": errors}
+
+
+def _valid_institutional_synthesis(value: Any) -> bool:
+    return (
+        isinstance(value, dict)
+        and value.get("status") == "PASS"
+        and isinstance(value.get("borrowed_mechanisms"), list) and bool(value.get("borrowed_mechanisms"))
+        and isinstance(value.get("transfer_boundary_ledger"), list) and bool(value.get("transfer_boundary_ledger"))
+        and isinstance(value.get("institutional_evidence_debt"), list)
+        and isinstance(value.get("local_revalidation"), list) and bool(value.get("local_revalidation"))
+    )
+
+
+def _valid_implementation_authority_plan(value: Any) -> bool:
+    if not isinstance(value, dict) or value.get("status") != "PASS":
+        return False
+    layers = value.get("layers")
+    lineage = value.get("implementation_lineage")
+    if not isinstance(layers, list) or not layers or not isinstance(lineage, list) or not lineage:
+        return False
+    for layer in layers:
+        if not isinstance(layer, dict):
+            return False
+        required = ("layer", "source_id", "owned_responsibilities", "forbidden_responsibilities", "version_snapshot")
+        if any(not layer.get(field) for field in required):
+            return False
+    return True
+
+
+def validate_v7_completion_evidence(record: dict[str, Any]) -> dict[str, Any]:
+    """Gate completion through v6 plus concrete authority and rendered-perception evidence."""
+    if not isinstance(record, dict):
+        return {"decision": "BLOCKED", "errors": ["v7 completion evidence must be an object"]}
+    errors = list(validate_v6_completion_evidence(record).get("errors", []))
+
+    if record.get("authority_sensitive_decisions") or record.get("external_authority_used"):
+        plan = record.get("authority_route_plan")
+        if not isinstance(plan, dict) or plan.get("status") != "PASS":
+            errors.append("authority-sensitive completion requires authority route plan PASS")
+        else:
+            checked = _authority_v7.validate_authority_route_plan(plan)
+            errors.extend(f"authority route: {e}" for e in checked.get("errors", []))
+
+    if record.get("institutional_knowledge_material"):
+        if not _valid_institutional_synthesis(record.get("institutional_knowledge_synthesis")):
+            errors.append("material institutional knowledge requires PASS synthesis with mechanisms, transfer-boundary ledger, evidence debt and local revalidation")
+
+    if record.get("implementation_shortcut_used") or record.get("external_implementation_authorities"):
+        if not _valid_implementation_authority_plan(record.get("implementation_authority_plan")):
+            errors.append("external implementation shortcut requires implementation authority plan PASS with layer ownership and lineage")
+
+    if record.get("fast_path") or record.get("concrete_packet_required"):
+        packet = record.get("concrete_design_packet")
+        checked = _concrete_v7.validate_concrete_design_packet(packet) if isinstance(packet, dict) else {"valid": False, "errors": ["missing packet"]}
+        if not checked.get("valid") or not isinstance(packet, dict) or packet.get("status") != "READY":
+            errors.append("fast path requires a valid READY concrete design packet with no unresolved blockers")
+            errors.extend(f"concrete packet: {e}" for e in checked.get("errors", []))
+
+    if record.get("agent_readable_adapter_used"):
+        ctx = record.get("agent_readable_context")
+        if not isinstance(ctx, dict) or ctx.get("status") != "PASS" or ctx.get("authority_escalation") is not False or not ctx.get("underlying_authority"):
+            errors.append("agent-readable adapter use requires PASS context with underlying authority and authority_escalation=false")
+
+    ambition = str(record.get("visual_ambition", "")).strip().lower()
+    if ambition in _aesthetic.HIGH_AMBITION:
+        evidence = record.get("rendered_perception_evidence")
+        checked = _perceptual_v7.validate_rendered_perception(evidence, high_ambition=True) if isinstance(evidence, dict) else {"valid": False, "errors": ["missing rendered perception evidence"]}
+        if not checked.get("valid"):
+            errors.append(f"{ambition} completion requires rendered perception evidence PASS")
+            errors.extend(f"rendered perception: {e}" for e in checked.get("errors", []))
+
+    return {"decision": "BLOCKED" if errors else "PASS", "errors": errors}
+
 
 def validate_repository(root: Path | str) -> dict[str, Any]:
     root = Path(root)
@@ -419,6 +530,139 @@ def validate_repository(root: Path | str) -> dict[str, Any]:
         metrics["v6_adversarial_cases"] = total
     except Exception as exc:
         errors.append(f"invalid v6 eval corpus: {exc}")
+
+    # v7 concrete authority, fast-path knowledge, agent adapters and rendered-perception kernel.
+    for relative in REQUIRED_V7_KERNEL:
+        if not (root / relative).is_file():
+            errors.append(f"missing required v7 repository file: {relative}")
+    try:
+        manifest7 = _load(root / "knowledge/v7-skill-manifest.json")
+        items7 = manifest7.get("skills", []) if isinstance(manifest7, dict) else []
+        if manifest7.get("version") != 7 or not isinstance(items7, list) or len(items7) != 8:
+            errors.append(f"v7 skill manifest must declare version 7 and exactly 8 new owners, found {len(items7) if isinstance(items7,list) else 0}")
+            items7 = items7 if isinstance(items7, list) else []
+        for item in items7:
+            name = item.get("name")
+            node = declared.get(name)
+            if not node:
+                errors.append(f"v7 manifest skill {name} is not declared in skill graph")
+                continue
+            for field in ("family", "parent", "output", "ownership"):
+                if node.get(field) != item.get(field):
+                    errors.append(f"v7 manifest/graph mismatch for {name}.{field}")
+        metrics["v7_skill_count"] = len(items7)
+    except Exception as exc:
+        errors.append(f"invalid v7 skill manifest: {exc}")
+
+    try:
+        authority = _load(root / "knowledge/ui-authority-mesh-v7.json")
+        result = _authority_v7.validate_authority_mesh(authority)
+        errors.extend(f"v7 authority mesh: {e}" for e in result.get("errors", []))
+        metrics["v7_authority_count"] = result.get("authority_count", 0)
+        metrics["v7_authority_dimension_count"] = result.get("dimension_count", 0)
+    except Exception as exc:
+        errors.append(f"invalid v7 authority mesh: {exc}")
+
+    try:
+        patterns = _load(root / "knowledge/concrete-design-patterns-v7.json")
+        result = _concrete_v7.validate_pattern_kb(patterns)
+        errors.extend(f"v7 concrete knowledge: {e}" for e in result.get("errors", []))
+        metrics["v7_pattern_count"] = result.get("pattern_count", 0)
+        metrics["v7_pattern_domain_count"] = result.get("domain_count", 0)
+        grammar = _load(root / "knowledge/immediate-synthesis-grammar-v7.json")
+        budget = grammar.get("decision_budget", {}) if isinstance(grammar, dict) else {}
+        if grammar.get("version") != 7 or budget.get("min", 0) < 3 or budget.get("max", 99) > 12 or budget.get("min", 99) > budget.get("max", 0):
+            errors.append("v7 immediate synthesis grammar requires bounded version-7 decision budget")
+    except Exception as exc:
+        errors.append(f"invalid v7 concrete knowledge plane: {exc}")
+
+    try:
+        adapters = _load(root / "knowledge/agent-readable-ui-sources-v7.json")
+        result = _authority_v7.validate_agent_adapters(adapters)
+        errors.extend(f"v7 agent adapter: {e}" for e in result.get("errors", []))
+        metrics["v7_agent_adapter_count"] = result.get("adapter_count", 0)
+    except Exception as exc:
+        errors.append(f"invalid v7 agent adapter registry: {exc}")
+
+    try:
+        rubric = _load(root / "knowledge/rendered-perception-rubric-v7.json")
+        planes = rubric.get("planes", []) if isinstance(rubric, dict) else []
+        if rubric.get("version") != 7 or not isinstance(planes, list) or len(planes) < 8:
+            errors.append("v7 rendered perception rubric requires version 7 and at least eight evidence planes")
+        plane_ids = [p.get("id") for p in planes if isinstance(p, dict)]
+        if len(plane_ids) != len(set(plane_ids)) or any(not x for x in plane_ids):
+            errors.append("v7 rendered perception rubric plane ids must be unique and non-empty")
+        metrics["v7_perception_planes"] = len(planes)
+    except Exception as exc:
+        errors.append(f"invalid v7 rendered perception rubric: {exc}")
+
+    for relative in REQUIRED_V7_RESEARCH:
+        if not (root / relative).is_file():
+            errors.append(f"missing required v7 repository file: {relative}")
+    try:
+        eval_manifest7 = _load(root / "evals/v7/manifest.json")
+        expected_assets7 = [
+            "evals/v7/authority-conflicts/cases.json",
+            "evals/v7/concrete-knowledge/cases.json",
+            "evals/v7/rendered-perception/cases.json",
+            "evals/v7/fast-path/cases.json",
+        ]
+        assets7 = eval_manifest7.get("assets", []) if isinstance(eval_manifest7, dict) else []
+        if eval_manifest7.get("version") != 7:
+            errors.append("v7 eval manifest must declare version 7")
+        if assets7 != expected_assets7:
+            errors.append("v7 eval manifest must declare the four canonical v7 eval planes in order")
+            assets7 = expected_assets7
+        total7 = 0
+        ids7: set[str] = set()
+        plane_metrics = {
+            "authority-conflicts": "v7_authority_conflicts",
+            "concrete-knowledge": "v7_concrete_knowledge_cases",
+            "rendered-perception": "v7_rendered_perception_cases",
+            "fast-path": "v7_fast_path_cases",
+        }
+        for rel in assets7:
+            if not (root / rel).is_file():
+                continue
+            doc = _load(root / rel)
+            plane = doc.get("plane") if isinstance(doc, dict) else None
+            cases = doc.get("cases", []) if isinstance(doc, dict) else []
+            if doc.get("version") != 7 or plane not in plane_metrics:
+                errors.append(f"v7 eval asset {rel} requires version 7 and a canonical plane id")
+            if not isinstance(cases, list) or len(cases) != 8:
+                errors.append(f"v7 eval asset {rel} requires exactly eight cases")
+                cases = cases if isinstance(cases, list) else []
+            metrics[plane_metrics.get(str(plane), f"v7_eval_{plane}")] = len(cases)
+            for case in cases:
+                total7 += 1
+                if not isinstance(case, dict):
+                    errors.append(f"v7 eval asset {rel} contains non-object case")
+                    continue
+                cid = case.get("id")
+                if not isinstance(cid, str) or not cid:
+                    errors.append(f"v7 eval asset {rel} contains case without id")
+                    continue
+                if cid in ids7:
+                    errors.append(f"duplicate v7 eval case id {cid}")
+                ids7.add(cid)
+                for field in ("setup", "pressure", "expected_decision", "must_find", "falsifier", "recovery", "evaluator_owner"):
+                    if not case.get(field):
+                        errors.append(f"v7 eval case {cid} requires {field}")
+                if case.get("expected_decision") not in {"PASS", "BLOCKED", "RESEARCH_MORE", "RE_DIVERGE"}:
+                    errors.append(f"v7 eval case {cid} has unsupported expected_decision")
+                must_find = case.get("must_find")
+                if not isinstance(must_find, list) or len(must_find) < 2:
+                    errors.append(f"v7 eval case {cid} requires at least two must_find observations")
+                evaluator = case.get("evaluator_owner")
+                if evaluator and evaluator not in declared:
+                    errors.append(f"v7 eval case {cid} evaluator_owner references unknown skill {evaluator}")
+        if eval_manifest7.get("case_count") != total7:
+            errors.append(f"v7 eval manifest case_count {eval_manifest7.get('case_count')} does not match discovered {total7}")
+        if total7 != 32:
+            errors.append(f"v7 eval corpus requires exactly 32 non-redundant cases, found {total7}")
+        metrics["v7_adversarial_cases"] = total7
+    except Exception as exc:
+        errors.append(f"invalid v7 eval corpus: {exc}")
     return {"valid": not errors, "errors": errors, "warnings": warnings, "metrics": metrics}
 
 
@@ -427,5 +671,5 @@ __all__ = [
     "validate_state_matrix", "validate_tokens", "validate_industry_atlas",
     "validate_source_ledger", "validate_research_saturation", "validate_bounded_saturation",
     "validate_research_radar", "validate_mandatory_routes", "mandatory_routes_for_profile",
-    "validate_v3_completion_evidence", "validate_v4_completion_evidence", "validate_v5_completion_evidence", "validate_v6_completion_evidence",
+    "validate_v3_completion_evidence", "validate_v4_completion_evidence", "validate_v5_completion_evidence", "validate_v6_completion_evidence", "validate_v7_completion_evidence",
 ]

@@ -1,0 +1,838 @@
+{
+  "version": 7,
+  "as_of": "2026-08-13",
+  "principle": "Authority is selected per decision dimension; protocol accessibility, popularity, component count and visual appeal never grant universal authority.",
+  "default_dimensions": [
+    "visual-craft",
+    "component-semantics"
+  ],
+  "hard_precedence": [
+    "explicit-product-and-safety-constraints",
+    "applicable-law-regulation-and-normative-standards",
+    "platform-or-domain-authority-with-proven-fit",
+    "project-evidence",
+    "cross-source-synthesis",
+    "model-preference"
+  ],
+  "authorities": [
+    {
+      "source_id": "apple-hig",
+      "name": "Apple Human Interface Guidelines",
+      "kind": "platform-guidance",
+      "url": "https://developer.apple.com/design/human-interface-guidelines",
+      "verified_at": "2026-08-13",
+      "authority_dimensions": [
+        {
+          "dimension": "platform-convention",
+          "strength": "primary",
+          "scope": "Apple platforms",
+          "basis": "Official Apple platform guidance aligns interface conventions with Apple hardware/software and input expectations."
+        },
+        {
+          "dimension": "visual-craft",
+          "strength": "strong",
+          "scope": "Apple platforms",
+          "basis": "Official guidance explicitly treats hierarchy, harmony, craft and delight as platform design concerns."
+        }
+      ],
+      "applicability": {},
+      "transfer_boundary": {
+        "may_transfer": [
+          "decision mechanisms, patterns, and implementation guidance within declared scope"
+        ],
+        "must_reconcile": [
+          "local product intent",
+          "local accessibility and safety obligations",
+          "local content and visual identity"
+        ],
+        "must_not_assume": [
+          "source brand is product fit",
+          "one source is authoritative outside its declared dimension"
+        ]
+      },
+      "live_verification_required": true
+    },
+    {
+      "source_id": "adobe-spectrum-2",
+      "name": "Adobe Spectrum 2",
+      "kind": "institutional-design-language",
+      "url": "https://s2.spectrum.adobe.com/",
+      "verified_at": "2026-08-13",
+      "authority_dimensions": [
+        {
+          "dimension": "visual-craft",
+          "strength": "primary",
+          "scope": "Adobe/Spectrum and creative-professional interfaces",
+          "basis": "Spectrum 2 is an institutional design language built from Adobe product practice with contextual, cohesive and adaptable resources."
+        },
+        {
+          "dimension": "creative-professional",
+          "strength": "primary",
+          "scope": "creative professional workflows",
+          "basis": "Adobe product lineage provides concrete craft and creative-workflow evidence."
+        },
+        {
+          "dimension": "production-lineage",
+          "strength": "strong",
+          "scope": "design-to-production systems",
+          "basis": "Spectrum couples design language with implemented Spectrum component ecosystems."
+        }
+      ],
+      "applicability": {},
+      "transfer_boundary": {
+        "may_transfer": [
+          "decision mechanisms, patterns, and implementation guidance within declared scope"
+        ],
+        "must_reconcile": [
+          "local product intent",
+          "local accessibility and safety obligations",
+          "local content and visual identity"
+        ],
+        "must_not_assume": [
+          "source brand is product fit",
+          "one source is authoritative outside its declared dimension"
+        ]
+      },
+      "live_verification_required": true
+    },
+    {
+      "source_id": "govuk-design-system",
+      "name": "GOV.UK Design System",
+      "kind": "service-design-system",
+      "url": "https://design-system.service.gov.uk/",
+      "verified_at": "2026-08-13",
+      "authority_dimensions": [
+        {
+          "dimension": "service-journey",
+          "strength": "primary",
+          "scope": "UK government and analogous public-service tasks",
+          "basis": "Patterns are user-focused task/page solutions informed by service-team research and coded examples."
+        },
+        {
+          "dimension": "content-design",
+          "strength": "strong",
+          "scope": "public services",
+          "basis": "Service patterns bind content and interaction to user needs and task completion."
+        },
+        {
+          "dimension": "production-lineage",
+          "strength": "strong",
+          "scope": "government services",
+          "basis": "Institutional service usage and contribution evidence provide accumulated practice."
+        }
+      ],
+      "applicability": {},
+      "transfer_boundary": {
+        "may_transfer": [
+          "decision mechanisms, patterns, and implementation guidance within declared scope"
+        ],
+        "must_reconcile": [
+          "local product intent",
+          "local accessibility and safety obligations",
+          "local content and visual identity"
+        ],
+        "must_not_assume": [
+          "source brand is product fit",
+          "one source is authoritative outside its declared dimension"
+        ]
+      },
+      "live_verification_required": true
+    },
+    {
+      "source_id": "uswds",
+      "name": "U.S. Web Design System",
+      "kind": "service-design-system",
+      "url": "https://designsystem.digital.gov/",
+      "verified_at": "2026-08-13",
+      "authority_dimensions": [
+        {
+          "dimension": "accessibility-testing",
+          "strength": "primary",
+          "scope": "US federal and analogous public-service web interfaces",
+          "basis": "USWDS publishes component-level manual accessibility test procedures and statuses including keyboard, magnification and screen-reader checks."
+        },
+        {
+          "dimension": "service-journey",
+          "strength": "strong",
+          "scope": "US federal services",
+          "basis": "USWDS combines accessible components, patterns and implementation guidance for public services."
+        }
+      ],
+      "applicability": {},
+      "transfer_boundary": {
+        "may_transfer": [
+          "decision mechanisms, patterns, and implementation guidance within declared scope"
+        ],
+        "must_reconcile": [
+          "local product intent",
+          "local accessibility and safety obligations",
+          "local content and visual identity"
+        ],
+        "must_not_assume": [
+          "source brand is product fit",
+          "one source is authoritative outside its declared dimension"
+        ]
+      },
+      "live_verification_required": true
+    },
+    {
+      "source_id": "react-aria",
+      "name": "React Aria",
+      "kind": "behavioral-primitive",
+      "url": "https://react-spectrum.adobe.com/react-aria/",
+      "verified_at": "2026-08-13",
+      "authority_dimensions": [
+        {
+          "dimension": "component-semantics",
+          "strength": "primary",
+          "scope": "web/React interaction semantics",
+          "basis": "React Aria provides unstyled accessible components/hooks with behavior, interactions and internationalization built in and tested across devices/modalities/assistive tech."
+        },
+        {
+          "dimension": "accessibility-testing",
+          "strength": "strong",
+          "scope": "web components",
+          "basis": "Assistive-technology and interaction-modality testing is part of the library posture."
+        },
+        {
+          "dimension": "internationalization",
+          "strength": "strong",
+          "scope": "global web UI",
+          "basis": "Internationalization behavior is integrated rather than bolted onto styling."
+        }
+      ],
+      "applicability": {},
+      "transfer_boundary": {
+        "may_transfer": [
+          "decision mechanisms, patterns, and implementation guidance within declared scope"
+        ],
+        "must_reconcile": [
+          "local product intent",
+          "local accessibility and safety obligations",
+          "local content and visual identity"
+        ],
+        "must_not_assume": [
+          "source brand is product fit",
+          "one source is authoritative outside its declared dimension"
+        ]
+      },
+      "live_verification_required": true
+    },
+    {
+      "source_id": "radix-primitives",
+      "name": "Radix Primitives",
+      "kind": "behavioral-primitive",
+      "url": "https://www.radix-ui.com/primitives",
+      "verified_at": "2026-08-13",
+      "authority_dimensions": [
+        {
+          "dimension": "component-semantics",
+          "strength": "primary",
+          "scope": "web component primitives",
+          "basis": "Radix focuses on WAI-ARIA semantics, keyboard navigation and focus management in unstyled composable primitives."
+        },
+        {
+          "dimension": "accessibility-testing",
+          "strength": "strong",
+          "scope": "web components",
+          "basis": "Radix documents assistive-technology testing and expected interaction behavior."
+        }
+      ],
+      "applicability": {},
+      "transfer_boundary": {
+        "may_transfer": [
+          "decision mechanisms, patterns, and implementation guidance within declared scope"
+        ],
+        "must_reconcile": [
+          "local product intent",
+          "local accessibility and safety obligations",
+          "local content and visual identity"
+        ],
+        "must_not_assume": [
+          "source brand is product fit",
+          "one source is authoritative outside its declared dimension"
+        ]
+      },
+      "live_verification_required": true
+    },
+    {
+      "source_id": "sap-fiori",
+      "name": "SAP Fiori",
+      "kind": "enterprise-design-system",
+      "url": "https://experience.sap.com/fiori-design-web/",
+      "verified_at": "2026-08-13",
+      "authority_dimensions": [
+        {
+          "dimension": "enterprise-workflow",
+          "strength": "primary",
+          "scope": "enterprise business software",
+          "basis": "Fiori encodes role-based, adaptive, simple, coherent and delightful enterprise workflows, floorplans and task structure."
+        },
+        {
+          "dimension": "ai-collaboration",
+          "strength": "strong",
+          "scope": "enterprise AI",
+          "basis": "Fiori intelligent-system guidance emphasizes human control, augmentation and transparent AI support."
+        },
+        {
+          "dimension": "production-lineage",
+          "strength": "strong",
+          "scope": "SAP enterprise ecosystem",
+          "basis": "Design language and reference implementations span enterprise products and platforms."
+        }
+      ],
+      "applicability": {},
+      "transfer_boundary": {
+        "may_transfer": [
+          "decision mechanisms, patterns, and implementation guidance within declared scope"
+        ],
+        "must_reconcile": [
+          "local product intent",
+          "local accessibility and safety obligations",
+          "local content and visual identity"
+        ],
+        "must_not_assume": [
+          "source brand is product fit",
+          "one source is authoritative outside its declared dimension"
+        ]
+      },
+      "live_verification_required": true
+    },
+    {
+      "source_id": "ant-design",
+      "name": "Ant Design",
+      "kind": "enterprise-design-system",
+      "url": "https://ant.design/docs/spec/introduce/",
+      "verified_at": "2026-08-13",
+      "authority_dimensions": [
+        {
+          "dimension": "enterprise-workflow",
+          "strength": "strong",
+          "scope": "enterprise web products",
+          "basis": "Ant Design abstracts recurring enterprise scenarios into reusable components/pages and design values tied to cognition and task goals."
+        },
+        {
+          "dimension": "design-system-architecture",
+          "strength": "strong",
+          "scope": "enterprise design systems",
+          "basis": "Its concept-to-reusable-product abstraction is a useful production-system authority."
+        }
+      ],
+      "applicability": {},
+      "transfer_boundary": {
+        "may_transfer": [
+          "decision mechanisms, patterns, and implementation guidance within declared scope"
+        ],
+        "must_reconcile": [
+          "local product intent",
+          "local accessibility and safety obligations",
+          "local content and visual identity"
+        ],
+        "must_not_assume": [
+          "source brand is product fit",
+          "one source is authoritative outside its declared dimension"
+        ]
+      },
+      "live_verification_required": true
+    },
+    {
+      "source_id": "carbon",
+      "name": "IBM Carbon Design System",
+      "kind": "enterprise-design-system",
+      "url": "https://carbondesignsystem.com/",
+      "verified_at": "2026-08-13",
+      "authority_dimensions": [
+        {
+          "dimension": "production-lineage",
+          "strength": "primary",
+          "scope": "IBM products and enterprise digital experiences",
+          "basis": "Carbon explicitly joins working code, design tools/resources, human-interface guidance and community practice."
+        },
+        {
+          "dimension": "enterprise-workflow",
+          "strength": "strong",
+          "scope": "enterprise product flows",
+          "basis": "Carbon patterns and domain guidance operate above isolated components."
+        },
+        {
+          "dimension": "design-system-architecture",
+          "strength": "strong",
+          "scope": "large-scale product systems",
+          "basis": "Carbon demonstrates design-language-to-code/tooling lineage."
+        }
+      ],
+      "applicability": {},
+      "transfer_boundary": {
+        "may_transfer": [
+          "decision mechanisms, patterns, and implementation guidance within declared scope"
+        ],
+        "must_reconcile": [
+          "local product intent",
+          "local accessibility and safety obligations",
+          "local content and visual identity"
+        ],
+        "must_not_assume": [
+          "source brand is product fit",
+          "one source is authoritative outside its declared dimension"
+        ]
+      },
+      "live_verification_required": true
+    },
+    {
+      "source_id": "atlassian-rovo",
+      "name": "Atlassian Rovo UI",
+      "kind": "ai-design-language",
+      "url": "https://atlassian.design/rovo-ui/about-rovo-ui",
+      "verified_at": "2026-08-13",
+      "authority_dimensions": [
+        {
+          "dimension": "ai-collaboration",
+          "strength": "primary",
+          "scope": "AI-powered enterprise collaboration",
+          "basis": "Rovo UI defines how AI moments look and behave within Atlassian, including interaction guidance, motion, voice and dedicated AI patterns."
+        },
+        {
+          "dimension": "visual-craft",
+          "strength": "supporting",
+          "scope": "AI collaboration surfaces",
+          "basis": "Rovo distinguishes AI while remaining fluent in the parent design language."
+        }
+      ],
+      "applicability": {},
+      "transfer_boundary": {
+        "may_transfer": [
+          "decision mechanisms, patterns, and implementation guidance within declared scope"
+        ],
+        "must_reconcile": [
+          "local product intent",
+          "local accessibility and safety obligations",
+          "local content and visual identity"
+        ],
+        "must_not_assume": [
+          "source brand is product fit",
+          "one source is authoritative outside its declared dimension"
+        ]
+      },
+      "live_verification_required": true
+    },
+    {
+      "source_id": "shopify-polaris",
+      "name": "Shopify Polaris / Admin UI",
+      "kind": "commerce-design-system",
+      "url": "https://shopify.dev/docs/api/app-home/web-components",
+      "verified_at": "2026-08-13",
+      "authority_dimensions": [
+        {
+          "dimension": "commerce-workflow",
+          "strength": "primary",
+          "scope": "Shopify admin/apps/extensions only",
+          "basis": "Shopify-native components and guidance encode merchant-facing admin behavior and native platform expectations."
+        },
+        {
+          "dimension": "production-lineage",
+          "strength": "strong",
+          "scope": "Shopify admin/apps",
+          "basis": "Polaris web components are production UI building blocks for Shopify surfaces."
+        }
+      ],
+      "applicability": {},
+      "transfer_boundary": {
+        "may_transfer": [
+          "decision mechanisms, patterns, and implementation guidance within declared scope"
+        ],
+        "must_reconcile": [
+          "local product intent",
+          "local accessibility and safety obligations",
+          "local content and visual identity"
+        ],
+        "must_not_assume": [
+          "source brand is product fit",
+          "one source is authoritative outside its declared dimension"
+        ]
+      },
+      "live_verification_required": true
+    },
+    {
+      "source_id": "react-bits",
+      "name": "React Bits",
+      "kind": "animated-gallery",
+      "url": "https://github.com/DavidHDev/react-bits",
+      "verified_at": "2026-08-13",
+      "authority_dimensions": [
+        {
+          "dimension": "visual-frontier",
+          "strength": "primary",
+          "scope": "high-impact React visual mechanisms",
+          "basis": "Large collection of animated/text/background/3D mechanisms is useful as bounded visual possibility evidence."
+        }
+      ],
+      "applicability": {},
+      "transfer_boundary": {
+        "may_transfer": [
+          "decision mechanisms, patterns, and implementation guidance within declared scope"
+        ],
+        "must_reconcile": [
+          "local product intent",
+          "local accessibility and safety obligations",
+          "local content and visual identity"
+        ],
+        "must_not_assume": [
+          "source brand is product fit",
+          "one source is authoritative outside its declared dimension"
+        ]
+      },
+      "live_verification_required": true
+    },
+    {
+      "source_id": "magic-ui",
+      "name": "Magic UI",
+      "kind": "animated-gallery",
+      "url": "https://github.com/magicuidesign/magicui",
+      "verified_at": "2026-08-13",
+      "authority_dimensions": [
+        {
+          "dimension": "visual-frontier",
+          "strength": "primary",
+          "scope": "animated React/Tailwind interfaces",
+          "basis": "Animated components/effects provide implementation-ready visual mechanisms for inspiration/adaptation."
+        }
+      ],
+      "applicability": {},
+      "transfer_boundary": {
+        "may_transfer": [
+          "decision mechanisms, patterns, and implementation guidance within declared scope"
+        ],
+        "must_reconcile": [
+          "local product intent",
+          "local accessibility and safety obligations",
+          "local content and visual identity"
+        ],
+        "must_not_assume": [
+          "source brand is product fit",
+          "one source is authoritative outside its declared dimension"
+        ]
+      },
+      "live_verification_required": true
+    },
+    {
+      "source_id": "aceternity",
+      "name": "Aceternity UI",
+      "kind": "visual-inspiration",
+      "url": "https://ui.aceternity.com/",
+      "verified_at": "2026-08-13",
+      "authority_dimensions": [
+        {
+          "dimension": "visual-frontier",
+          "strength": "primary",
+          "scope": "high-impact web art direction",
+          "basis": "3D, canvas, parallax, shader and animated typography patterns expand the visual reference frontier."
+        }
+      ],
+      "applicability": {},
+      "transfer_boundary": {
+        "may_transfer": [
+          "decision mechanisms, patterns, and implementation guidance within declared scope"
+        ],
+        "must_reconcile": [
+          "local product intent",
+          "local accessibility and safety obligations",
+          "local content and visual identity"
+        ],
+        "must_not_assume": [
+          "source brand is product fit",
+          "one source is authoritative outside its declared dimension"
+        ]
+      },
+      "live_verification_required": true
+    },
+    {
+      "source_id": "motion",
+      "name": "Motion",
+      "kind": "motion-engine",
+      "url": "https://motion.dev/",
+      "verified_at": "2026-08-13",
+      "authority_dimensions": [
+        {
+          "dimension": "motion-system",
+          "strength": "primary",
+          "scope": "web animation and React",
+          "basis": "Dedicated motion engine covers layout, gestures, springs, scroll, presence and reduced-motion mechanisms."
+        }
+      ],
+      "applicability": {},
+      "transfer_boundary": {
+        "may_transfer": [
+          "decision mechanisms, patterns, and implementation guidance within declared scope"
+        ],
+        "must_reconcile": [
+          "local product intent",
+          "local accessibility and safety obligations",
+          "local content and visual identity"
+        ],
+        "must_not_assume": [
+          "source brand is product fit",
+          "one source is authoritative outside its declared dimension"
+        ]
+      },
+      "live_verification_required": true
+    },
+    {
+      "source_id": "gsap",
+      "name": "GSAP",
+      "kind": "motion-engine",
+      "url": "https://gsap.com/",
+      "verified_at": "2026-08-13",
+      "authority_dimensions": [
+        {
+          "dimension": "motion-system",
+          "strength": "primary",
+          "scope": "timeline/scroll/complex web animation",
+          "basis": "Timeline sequencing and dedicated animation mechanisms provide deep implementation authority for orchestrated web motion."
+        }
+      ],
+      "applicability": {},
+      "transfer_boundary": {
+        "may_transfer": [
+          "decision mechanisms, patterns, and implementation guidance within declared scope"
+        ],
+        "must_reconcile": [
+          "local product intent",
+          "local accessibility and safety obligations",
+          "local content and visual identity"
+        ],
+        "must_not_assume": [
+          "source brand is product fit",
+          "one source is authoritative outside its declared dimension"
+        ]
+      },
+      "live_verification_required": true
+    },
+    {
+      "source_id": "primer-mcp",
+      "name": "Primer MCP",
+      "kind": "agent-access",
+      "url": "https://primer.style/product/getting-started/foundations/mcp/",
+      "verified_at": "2026-08-13",
+      "authority_dimensions": [
+        {
+          "dimension": "agent-readable-access",
+          "strength": "primary",
+          "scope": "Primer-based product UI",
+          "basis": "MCP exposes component APIs/examples, usage/accessibility guidance, patterns, tokens, icons and lint/review tools to agents."
+        }
+      ],
+      "applicability": {},
+      "transfer_boundary": {
+        "may_transfer": [
+          "decision mechanisms, patterns, and implementation guidance within declared scope"
+        ],
+        "must_reconcile": [
+          "local product intent",
+          "local accessibility and safety obligations",
+          "local content and visual identity"
+        ],
+        "must_not_assume": [
+          "source brand is product fit",
+          "one source is authoritative outside its declared dimension"
+        ]
+      },
+      "access_modes": [
+        "mcp"
+      ],
+      "live_verification_required": true
+    },
+    {
+      "source_id": "mantine-agent-docs",
+      "name": "Mantine LLM/MCP/Skills",
+      "kind": "agent-access",
+      "url": "https://mantine.dev/guides/llms/",
+      "verified_at": "2026-08-13",
+      "authority_dimensions": [
+        {
+          "dimension": "agent-readable-access",
+          "strength": "primary",
+          "scope": "Mantine implementation",
+          "basis": "LLM docs, agent skills and MCP expose current component/hooks/theme knowledge directly to agents."
+        }
+      ],
+      "applicability": {},
+      "transfer_boundary": {
+        "may_transfer": [
+          "decision mechanisms, patterns, and implementation guidance within declared scope"
+        ],
+        "must_reconcile": [
+          "local product intent",
+          "local accessibility and safety obligations",
+          "local content and visual identity"
+        ],
+        "must_not_assume": [
+          "source brand is product fit",
+          "one source is authoritative outside its declared dimension"
+        ]
+      },
+      "access_modes": [
+        "llms-txt",
+        "mcp",
+        "agent-skill"
+      ],
+      "live_verification_required": true
+    },
+    {
+      "source_id": "carbon-mcp",
+      "name": "Carbon MCP",
+      "kind": "agent-access",
+      "url": "https://carbondesignsystem.com/",
+      "verified_at": "2026-08-13",
+      "authority_dimensions": [
+        {
+          "dimension": "agent-readable-access",
+          "strength": "strong",
+          "scope": "Carbon implementation",
+          "basis": "Carbon publishes AI workflow tooling including Carbon MCP, allowing agents to query design-system knowledge rather than rely on stale memory."
+        }
+      ],
+      "applicability": {},
+      "transfer_boundary": {
+        "may_transfer": [
+          "decision mechanisms, patterns, and implementation guidance within declared scope"
+        ],
+        "must_reconcile": [
+          "local product intent",
+          "local accessibility and safety obligations",
+          "local content and visual identity"
+        ],
+        "must_not_assume": [
+          "source brand is product fit",
+          "one source is authoritative outside its declared dimension"
+        ]
+      },
+      "access_modes": [
+        "mcp"
+      ],
+      "live_verification_required": true
+    },
+    {
+      "source_id": "shadcn-open-code",
+      "name": "shadcn/ui Open Code",
+      "kind": "agent-access",
+      "url": "https://ui.shadcn.com/docs",
+      "verified_at": "2026-08-13",
+      "authority_dimensions": [
+        {
+          "dimension": "agent-readable-access",
+          "strength": "strong",
+          "scope": "React open-code implementation",
+          "basis": "Open code gives agents direct inspectable/editable component implementation rather than opaque package APIs."
+        },
+        {
+          "dimension": "implementation-acceleration",
+          "strength": "strong",
+          "scope": "React/shadcn stacks",
+          "basis": "Copy-owned source can accelerate implementation when local semantics and visual identity are reconciled."
+        }
+      ],
+      "applicability": {},
+      "transfer_boundary": {
+        "may_transfer": [
+          "decision mechanisms, patterns, and implementation guidance within declared scope"
+        ],
+        "must_reconcile": [
+          "local product intent",
+          "local accessibility and safety obligations",
+          "local content and visual identity"
+        ],
+        "must_not_assume": [
+          "source brand is product fit",
+          "one source is authoritative outside its declared dimension"
+        ]
+      },
+      "access_modes": [
+        "open-code"
+      ],
+      "live_verification_required": true
+    },
+    {
+      "source_id": "ui-ux-pro-max",
+      "name": "UI/UX Pro Max",
+      "kind": "design-intelligence",
+      "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "verified_at": "2026-08-13",
+      "authority_dimensions": [
+        {
+          "dimension": "rapid-design-recommendation",
+          "strength": "primary",
+          "scope": "fast design-system recommendation",
+          "basis": "Searchable product/style/palette/type/guideline datasets provide a fast recommendation path and useful competitive prior."
+        },
+        {
+          "dimension": "agent-readable-access",
+          "strength": "supporting",
+          "scope": "multi-stack design planning",
+          "basis": "Skill/database format is directly consumable by coding agents."
+        }
+      ],
+      "applicability": {},
+      "transfer_boundary": {
+        "may_transfer": [
+          "decision mechanisms, patterns, and implementation guidance within declared scope"
+        ],
+        "must_reconcile": [
+          "local product intent",
+          "local accessibility and safety obligations",
+          "local content and visual identity"
+        ],
+        "must_not_assume": [
+          "source brand is product fit",
+          "one source is authoritative outside its declared dimension"
+        ]
+      },
+      "access_modes": [
+        "agent-skill"
+      ],
+      "live_verification_required": true
+    },
+    {
+      "source_id": "nui-internal-aesthetic",
+      "name": "NUI internal aesthetic intelligence",
+      "kind": "internal-framework",
+      "url": "https://github.com/Nolane-x/Nolane-UI-Intelligence",
+      "verified_at": "2026-08-13",
+      "authority_dimensions": [
+        {
+          "dimension": "visual-craft",
+          "strength": "supporting",
+          "scope": "cross-domain fallback",
+          "basis": "NUI owns cross-source synthesis, experiential intent, adequacy critique and aesthetic basin escape when no stronger domain-specific authority overrides it."
+        },
+        {
+          "dimension": "design-system-architecture",
+          "strength": "supporting",
+          "scope": "cross-domain meta-reasoning",
+          "basis": "NUI owns routing and evidence-gated synthesis rather than domain-specific institutional history."
+        },
+        {
+          "dimension": "commerce-workflow",
+          "strength": "supporting",
+          "scope": "generic commerce fallback only",
+          "basis": "NUI may synthesize generic commerce obligations when no platform-specific merchant authority applies; it must not pretend this equals lived platform practice."
+        }
+      ],
+      "applicability": {},
+      "transfer_boundary": {
+        "may_transfer": [
+          "decision mechanisms, patterns, and implementation guidance within declared scope"
+        ],
+        "must_reconcile": [
+          "local product intent",
+          "local accessibility and safety obligations",
+          "local content and visual identity"
+        ],
+        "must_not_assume": [
+          "source brand is product fit",
+          "one source is authoritative outside its declared dimension"
+        ]
+      },
+      "live_verification_required": false
+    }
+  ]
+}

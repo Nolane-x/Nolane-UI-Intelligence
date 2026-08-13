@@ -49,3 +49,14 @@ Remove explanatory prose and ask users to predict action scope, then introduce t
 
 ### Recovery
 Reduce autonomy, separate propose/preview/execute states, expose scope/evidence, and restore an obvious correction/override path.
+
+## V7 AI Surface Authority
+AI interaction should borrow product-language authority from the host system while using AI-specific guidance only for uncertainty, generation, agency, provenance, correction, streaming and control. A dedicated AI design dialect may make machine activity recognizable, but it must not create a visually isolated “AI universe” that breaks the surrounding task flow.
+
+Route enterprise-collaboration AI patterns when the product truly shares those workflow conditions, but preserve local product state and user control. Keep the human holding consequential keys: distinguish suggestion, draft, reversible action, delegated action and autonomous execution; surface provenance/uncertainty at the point where it changes a decision. Motion can signal streaming or state change, yet constant sparkle/gradient/ambient animation is not evidence of intelligence.
+
+### Falsification
+Replace the AI implementation with a deterministic assistant producing the same outputs. If the interface loses no necessary uncertainty/agency controls, the AI-specific layer was decorative; if users cannot tell what will happen before a consequential action, it was insufficient.
+
+### Recovery
+Fold generic chrome back into the host design system, add explicit agency/provenance controls, and reserve AI visual differentiation for states where it conveys operational meaning.

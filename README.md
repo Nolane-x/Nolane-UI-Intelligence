@@ -4,7 +4,7 @@
 
 Nolane UI Intelligence (NUI) is a platform-agnostic Agent Skill graph for serious UI/UX work. It treats interface design as a system of independent decisions — product semantics, human factors, interaction, visual craft, platform behavior, input modalities, accessibility, AI agency, safety, resilience, design systems, and verification — rather than one vague instruction to “make it beautiful.”
 
-The current v5 graph declares **154 skills**: the v2 industry-wide cognition system, v3 Product UI Closure + Visual Learning plane, v4 UI Ecosystem Intelligence plane, and the v5 Affective & Aesthetic Enforcement Spine. That number is descriptive, not a target. The router normally loads the **smallest sufficient graph** for the current task; high visual ambition is an explicit exception where required visual faculties become a hard route rather than optional context.
+The current v7 graph declares **166 canonical skills** spanning the v2 industry cognition system, v3 product closure, v4 ecosystem intelligence, v5 affective/aesthetic enforcement, v6 deep research/design synthesis, and v7 Concrete Craft & Authority Intelligence. That number is descriptive, not a target. The router normally loads the **smallest sufficient graph** for the current task; high visual ambition is an explicit exception where required visual faculties become a hard route rather than optional context.
 
 NUI does not promise objective beauty, automatic compliance, or permanent completeness. It constrains observable agent behavior so material assumptions become explicit, high-impact domains cannot be silently omitted, independent critics can falsify the design, machine-checkable invariants are enforced by code, and release claims remain bounded by actual evidence.
 
@@ -141,6 +141,23 @@ The v6 control path for material external influence is:
 
 `knowledge/ui-industry-ontology-v6.json` expands coverage from a few coarse axes to 15 independent axes with 222 current values and explicit high-risk interaction cells. Cross-axis ownership matters because “medical”, “voice”, and “agentic” can each look safe in isolation while their combination requires different confirmation, error-recovery and authority behavior.
 
-`knowledge/skill-depth-constitution-v6.json` defines ten behavior-bearing depth dimensions and forbids word/token/line/heading count as depth proxies. `knowledge/v6-depth-focus-obligations.json` now depth-locks all **158/158 canonical skills** with exactly five skill-specific semantic anchors (**790 globally unique anchors**) plus explicit falsification/recovery behavior. The repository validator requires this registry to match the canonical graph exactly. A long skill can fail; a concise skill can pass if it owns a real decision and carries observation, branching, falsification, evidence, output, failure, recovery and downstream verification behavior.
+`knowledge/skill-depth-constitution-v6.json` defines ten behavior-bearing depth dimensions and forbids word/token/line/heading count as depth proxies. `knowledge/v6-depth-focus-obligations.json` began as the v6 full-graph lock and is now maintained against the **current 166-skill canonical graph**, with exactly five skill-specific semantic anchors per skill plus explicit falsification/recovery behavior. The repository validator requires this registry to match the canonical graph exactly. A long skill can fail; a concise skill can pass if it owns a real decision and carries observation, branching, falsification, evidence, output, failure, recovery and downstream verification behavior.
 
 The v6 eval plane adds adversaries for README-only research, stale/unpinned sources, source-role mismatch, gallery monoculture, source collage, cross-axis omissions, semantic-force mutations, ablations, factorial interactions, transfer and correlated critic lineage. These are deterministic contracts and behavior specifications; they do not manufacture a claim of universal objective beauty.
+
+
+## Concrete Craft & Authority Intelligence (v7)
+
+NUI v7 targets the gap between **knowing where to reason** and possessing enough accumulated concrete design knowledge to make strong decisions quickly. It does not try to replace Apple HIG, Adobe Spectrum, GOV.UK, React Aria, Radix, SAP Fiori, Shopify, Carbon, specialist motion engines, or visual-frontier libraries. Instead it decides **which source is authoritative for which decision dimension**, extracts bounded mechanisms, and preserves local verification.
+
+The v7 control path is:
+
+`task profile → decision-dimensional authority → concrete design packet → implementation authority split → build → rendered perception → critique/recovery → release`
+
+The repository now contains a decision-dimensional authority mesh, **38 source-bound concrete pattern cards**, a bounded immediate-synthesis grammar, **9 agent-readable source adapters**, and an eight-plane rendered-perception rubric. The fast path is allowed to compress explanation but may not drop hard obligations, provenance, contraindications, unresolved authority, or validation debt. **Access protocol is not authority**: MCP, LLM-optimized docs, agent skills and open-code installers make sources easier to query, but do not increase the underlying source's authority.
+
+For transfer from external products and galleries, the rule is **mechanism, not trade dress**. A visual library may teach a shader, transition, spatial composition or typography mechanism without becoming semantic authority or a license to reproduce its recognizable product language. Tested semantic primitives may own focus/keyboard behavior without becoming art direction. Institutional systems may contribute mature workflow mechanisms while still creating local evidence debt when jurisdiction, users, hardware or organizational context changes.
+
+For flagship/exceptional/experiential work, v7 adds a rendered perception gate over the inherited v5 aesthetic gate. A screenshot is not evidence by itself: the record must observe attention hierarchy, resolved typography, subject-linked signature, material roles, responsive recomposition and—when material—temporal sequencing. Reference comparison and critique must identify a weakness, record a fix and verify the changed artifact. Optional pixel-diff evidence is renderer/environment scoped with calibrated tolerance so antialiasing noise is not mistaken for a meaningful visual regression.
+
+See `docs/V7-CONCRETE-KNOWLEDGE-CLOSURE.md` for the critique-to-mechanism closure map and `docs/research/UI-AUTHORITY-INTELLIGENCE-V7.md` for research/transfer boundaries.

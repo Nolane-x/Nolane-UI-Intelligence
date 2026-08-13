@@ -88,3 +88,14 @@ Modify the artifact after evidence capture or remove one gate's proof. If comple
 
 ### Recovery
 Invalidate stale gates, rerun the minimum affected evidence, resolve contradictions, and downgrade the release claim rather than extrapolating.
+
+## V7 Concrete Craft Gate
+For authority-sensitive work require a passing `ui-authority-route-plan`; for material institutional transfer require `institutional-knowledge-synthesis`; for external implementation composition require `implementation-authority-plan`. A fast path must provide a valid concrete design packet with no unresolved hard authority or dropped obligation.
+
+High visual ambition additionally requires `rendered-perception-evidence` that covers material viewports/states, resolved typography, observed signature/material structure, reference comparison, and critique/fix verification. Clean build, runtime success, accessibility tooling, and screenshot existence remain necessary where applicable but cannot certify visual adequacy. Agent-readable adapters are allowed only with authority escalation explicitly disabled and current source identity preserved.
+
+### Falsification
+Remove the rendered evidence while leaving code/test status green, or replace a platform authority with a visual gallery. Completion must change to BLOCKED. If it does not, v7 is cosmetic.
+
+### Recovery
+Reopen only the failed authority, concrete, implementation or perceptual evidence plane, preserve independently valid gates, and rerun completion after fresh evidence.

@@ -206,3 +206,14 @@ Mutate a profile field (e.g., material external source, medical risk, high visua
 
 ### Recovery
 Recompute from the corrected task profile, preserve unaffected outputs, invalidate skipped/changed dependencies, and rerun closure checks.
+
+## V7 Authority-Aware Routing
+When a decision depends on external accumulated practice, route `routing-to-ui-authorities` before a source can control the result. The trigger is not merely “an external link exists”; it is that platform convention, component semantics, accessibility evidence, service/enterprise/commerce workflow, implementation mechanics, or visual-frontier knowledge could materially change the decision. Record the requested authority dimensions in `UI_TASK_PROFILE`.
+
+Do not route every design system. Resolve only dimensions that exist. If a public-service flow uses a React front end, service-journey authority and component-semantics authority may be separate; if the target is iOS, platform guidance becomes a distinct route. Agent-readable access is a retrieval capability, never a reason to promote a source. For fast execution, route `compiling-concrete-design-packets` only after authority-sensitive questions are resolved or explicitly blocked.
+
+### Falsification
+Change platform/domain while holding visual prompt constant. Authority routes must change where applicability changes. If they do not, the router is treating external knowledge as a generic style pool.
+
+### Recovery
+Recompute only authority-sensitive routes, preserve unrelated outputs, and block downstream concrete compilation if a required authority dimension becomes unresolved.

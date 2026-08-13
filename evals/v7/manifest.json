@@ -1,0 +1,11 @@
+{
+  "version": 7,
+  "architecture": "concrete-craft-authority-intelligence",
+  "assets": [
+    "evals/v7/authority-conflicts/cases.json",
+    "evals/v7/concrete-knowledge/cases.json",
+    "evals/v7/rendered-perception/cases.json",
+    "evals/v7/fast-path/cases.json"
+  ],
+  "case_count": 32
+}

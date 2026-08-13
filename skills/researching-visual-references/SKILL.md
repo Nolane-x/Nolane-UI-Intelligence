@@ -77,3 +77,14 @@ Try the mechanism under the target product's worst content/state and compare aga
 
 ### Recovery
 Reopen reference research with a narrower design question, inspect additional states/source classes, and rebind candidate directions. Do not repair a weak reference thesis by copying more surface details.
+
+## V7 Reference Authority Split
+A visual reference has two independent values: **possibility evidence** and **decision authority**. A shader gallery, animated component collection, award site, or experimental canvas can prove that a visual mechanism is feasible and expand aesthetic search. It usually cannot certify focus semantics, platform convention, service workflow, or accessibility behavior. Record the reference's authority role before extracting anything.
+
+For material references, extract mechanism-level observations—composition tension, temporal staging, type/image relationship, depth construction, interaction reveal, data-to-form mapping—then send subject-specific signature work to `designing-domain-native-signatures`. Preserve a trade-dress firewall: do not transfer recognizable copy, palette, illustration, layout arrangement, branded motifs, or distinctive motion sequence when the mechanism can be rebuilt from product truth.
+
+### Falsification
+Ask whether the reference would still be useful if all styling were removed and only the underlying mechanism remained. If not, it is aesthetic inspiration only and must stay out of semantic authority.
+
+### Recovery
+Downgrade the source role, find stronger behavioral/platform authority for non-visual decisions, and keep the reference solely on the visual frontier.
