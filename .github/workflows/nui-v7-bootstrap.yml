@@ -1,0 +1,38 @@
+name: NUI v7 bootstrap
+
+on:
+  push:
+    branches:
+      - build/concrete-craft-authority-v7
+
+permissions:
+  contents: write
+
+jobs:
+  materialize-v7:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout payload branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Apply verified NUI v7 source patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "ab857936d9ee3f4e5d742b8d425dacd7dc50c1b5a491c8f1ee196a33febaecec  .nui-v7-payload.xz.b64" | sha256sum -c -
+          base64 -d .nui-v7-payload.xz.b64 > /tmp/nui-v7.patch.xz
+          echo "6ed4c42574ce1158d974e41eacda17b4eaffc0d5479b599c82a6ae443dfbfbd8  /tmp/nui-v7.patch.xz" | sha256sum -c -
+          xz -t /tmp/nui-v7.patch.xz
+          xz -dc /tmp/nui-v7.patch.xz > /tmp/nui-v7.patch
+          echo "3b7d6f9738a3f0481658b2a45db766bfb43de6791b9f1243d13747502c779fd1  /tmp/nui-v7.patch" | sha256sum -c -
+          git apply --check /tmp/nui-v7.patch
+          git apply /tmp/nui-v7.patch
+          rm .nui-v7-payload.xz.b64
+          git config user.name "Nolane v7 bootstrap"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git diff --cached --check
+          git commit -m "feat: NUI v7 Concrete Craft & Authority Intelligence"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
