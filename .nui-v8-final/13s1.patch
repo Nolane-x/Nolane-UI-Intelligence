@@ -1,0 +1,27 @@
+-            {"id": "O-V6-BEHAVIORAL-SKILL-DEPTH", "status": "PASS", "evidence_refs": common},
+-            {"id": "O-V7-AUTHORITY-MESH", "status": "PASS", "evidence_refs": common},
+-            {"id": "O-V7-CONCRETE-KNOWLEDGE", "status": "PASS", "evidence_refs": common},
+-            {"id": "O-V7-RENDERED-PERCEPTION", "status": "PASS", "evidence_refs": common},
+-            {"id": "O-V7-AGENT-READABLE-CONTEXT", "status": "PASS", "evidence_refs": common},
+-            {"id": "O-V7-ADVERSARIAL-EVAL", "status": "PASS", "evidence_refs": common},
+-        ],
+-        "evidence": evidence,
+-        "findings": [],
+-        "checks": {"unit-tests": "PASS", "repository-validator": "PASS", "completion-gate": "PASS"},
+-        "claim": "This exact revision satisfies NUI v7 structural and contract checks for concrete craft, decision-dimensional authority routing, bounded concrete design packets, agent-readable source adapters, rendered perception, inherited v5/v6 enforcement and the v7 adversarial corpus in the fail-fast verification job that generated this packet.",
+-        "bounds": [
+-            "Structural verification proves the v7 mechanisms and deterministic repository invariants exist and pass; it does not prove every future interface is objectively beautiful or superior to every production design system.",
+-            "Authority is decision-dimensional. A source or MCP that is authoritative for one dimension does not become global product authority, and an access protocol is not authority.",
+-            "Concrete cards preserve provenance, contraindications and transfer boundaries; they are mechanism knowledge, not trade dress or permission to clone an upstream product language.",
+-            "Flagship, exceptional and experiential work still requires task-specific rendered perception evidence, reference comparison, critique/recovery and inherited aesthetic adequacy gates.",
+-            "Institutional patterns and production primitives still require local-context, runtime, accessibility, licensing and current-version verification when those facts are material.",
+-            "Repository adversarial cases are executable specifications, not live cross-model benchmark wins. Causal superiority requires controlled runtime evaluation.",
+-        ],
+-        "unknowns": [
+-            "Cross-model preference scores, human preference results and product-specific usability outcomes remain outside repository-only CI unless an external runtime supplies that evidence.",
+-            "Browser, screenshot, semantic-tree, MCP and independent-worker capabilities vary by host runtime.",
+-        ],
+-        "decision": "PASS",
+-    }
+-    output = Path(args.output)
+-    output.parent.mkdir(parents=True, exist_ok=True)
