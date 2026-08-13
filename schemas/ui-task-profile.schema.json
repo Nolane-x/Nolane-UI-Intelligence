@@ -1,19 +1,151 @@
 {
-  "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "$id":"nui://schemas/ui-task-profile",
-  "type":"object",
-  "required":["intent","surface","platforms","users","information","interaction","visual","constraints","references","selected_skills"],
-  "properties":{
-    "intent":{"type":"array","items":{"type":"string"},"minItems":1},
-    "surface":{"type":"object","required":["family"]},
-    "platforms":{"type":"array","items":{"type":"string"},"minItems":1},
-    "users":{"type":"object"},
-    "information":{"type":"object"},
-    "interaction":{"type":"object"},
-    "visual":{"type":"object"},
-    "constraints":{"type":"object"},
-    "references":{"type":"object"},
-    "selected_skills":{"type":"array","items":{"type":"string"},"minItems":1},
-    "inactive_faculties":{"type":"array","items":{"type":"object","required":["faculty","reason"]}}
-  }
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "nui://schemas/ui-task-profile",
+  "type": "object",
+  "required": [
+    "intent",
+    "surface",
+    "platforms",
+    "users",
+    "information",
+    "interaction",
+    "visual",
+    "constraints",
+    "references",
+    "selected_skills"
+  ],
+  "properties": {
+    "intent": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "surface": {
+      "type": "object",
+      "required": [
+        "family"
+      ]
+    },
+    "platforms": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "users": {
+      "type": "object"
+    },
+    "information": {
+      "type": "object"
+    },
+    "interaction": {
+      "type": "object"
+    },
+    "visual": {
+      "type": "object"
+    },
+    "constraints": {
+      "type": "object"
+    },
+    "references": {
+      "type": "object"
+    },
+    "selected_skills": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "inactive_faculties": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "faculty",
+          "reason"
+        ]
+      }
+    },
+    "platform_surfaces": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "input_modalities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ai_role": {
+      "type": "string"
+    },
+    "risk_class": {
+      "type": "string"
+    },
+    "temporal_behaviors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "specialized_ui_domains": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "product_wide": {
+      "type": "boolean"
+    },
+    "scope": {
+      "type": "string"
+    },
+    "delivery_stage": {
+      "type": "string"
+    },
+    "claims_runtime_behavior": {
+      "type": "boolean"
+    },
+    "visual_evidence_iteration": {
+      "type": "boolean"
+    },
+    "external_ui_sources": {
+      "type": "boolean"
+    },
+    "named_ui_source": {
+      "type": "string"
+    },
+    "adoption_intent": {
+      "enum": [
+        "adopt",
+        "adapt",
+        "inspire",
+        "build",
+        "reject",
+        "unresolved"
+      ]
+    },
+    "rich_interaction": {
+      "type": "boolean"
+    },
+    "ui_registry_maintenance": {
+      "type": "boolean"
+    },
+    "research_freshness_requirement": {
+      "type": "string"
+    },
+    "evidence_capabilities": {
+      "type": [
+        "array",
+        "object"
+      ]
+    }
+  },
+  "title": "NUI UI Task Profile v4-compatible schema"
 }

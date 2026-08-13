@@ -31,6 +31,10 @@ Profile observable conditions rather than prompt keywords. Record unknowns expli
 - `information_context`: density, hierarchy depth, volatility, comparability, reading versus scanning, real-time ordering, provenance needs.
 - `interaction_context`: selection, direct manipulation, drag/drop, destructive action, permissions, undo, concurrency, collaboration, async behavior, latency sensitivity.
 - `visual_context`: brand maturity, existing design-system strength, reference fidelity, desired character, novelty tolerance, imagery availability, density, and whether memorability or task transparency dominates.
+- `external_ui_sources`: whether implementation materially depends on discovering or reusing external UI code, primitives, engines, SDKs, component galleries, design systems, or agent skills.
+- `named_ui_source`: canonical or user-supplied source ID/name when a specific repository/library such as React Bits, Radix, GSAP, tldraw, Tiptap, or another source is requested. A named source is a research seed, not an adoption decision.
+- `adoption_intent`: inspire, adapt, adopt, build, reject, or unresolved. `adapt`/`adopt` require current license and implementation inspection plus integration audit.
+- `rich_interaction`: whether the task introduces animated/direct-manipulation/gesture/layout/scroll/spatial behavior whose interruption, modality, reduced-motion, SSR/hydration, performance or cleanup semantics are material.
 - `evidence_capabilities`: design source, browser/runtime inspection, screenshot capture, accessibility tree, interaction automation, component explorer, device access, human review, domain-expert review, user research, simulation, operational validation.
 
 An unclassified high-impact dimension becomes a `capability_gap` or routing unknown. It does not inherit a convenient default.
@@ -110,6 +114,13 @@ Streaming → `designing-latency-and-progressive-feedback`, resilience critique,
 ## Accessibility specialist routing
 Root accessibility remains mandatory when accessibility is material. Add `designing-cognitive-accessibility`, `designing-low-vision-and-high-contrast`, `designing-screen-reader-experiences`, `designing-reduced-motion-and-photosensitivity`, `designing-accessibility-settings-and-profiles`, `designing-accessible-media-alternatives`, `designing-sign-language-presentation`, alternative input, AAC, or another specialist faculty according to real needs and failure modes. Specialist faculties augment root semantics; they never replace them. A sign-language task inherits accessible-media obligations, and an AAC task separately routes the person’s real input modality.
 
+## External implementation ecosystem routing
+A named or materially used external source routes `researching-ui-implementation-ecosystems` and `selecting-ui-building-blocks`. `adapt` additionally routes `adapting-external-ui-patterns` and `auditing-ui-library-integration`; `adopt` routes the integration audit. Rich interactive behavior routes `engineering-rich-interactive-components`, and when an external source participates, integration audit is mandatory.
+
+Do not confuse source roles. Animated galleries contribute visual/interaction mechanisms; headless primitives contribute semantics/state; motion engines contribute animation mechanics; design systems contribute coherent component/token systems; specialist SDKs contribute domain abstractions. None may silently assume product capability, authority, accessibility, licensing or release ownership outside its role.
+
+If registry candidates are missing, stale, high-drift or legally ambiguous, route live primary-source research. The local registry is a retrieval cache, not current-world truth. Material source use requires a URL-backed reference ledger and local evidence; upstream demos do not certify local wrappers.
+
 ## Design-system and content routing
 New or materially changed component language routes to `architecting-component-systems`, `architecting-design-tokens`, and when shared across teams `governing-design-systems`. Breaking component semantics or API changes route to `evolving-component-apis`. Theme/personalization changes route to `managing-theming-and-personalization`. Durable rationale routes to `documenting-design-decisions`; accessibility intent crossing design/engineering boundaries routes to `annotating-accessibility-intent`.
 
@@ -134,6 +145,8 @@ The following are non-optional examples enforced by deterministic predicates rat
 - sign-language-presentation → media-alternatives owner + sign-language owner + accessibility critic.
 - in-product-assistance → assistance owner + UX critic.
 - robotics, ambient, supervisory-control, and neuroinput → their extension-owned mandatory routes.
+- external UI source or named repository → `researching-ui-implementation-ecosystems` + `selecting-ui-building-blocks`; `adapt`/`adopt` adds integration audit and `adapt` adds adaptation ownership.
+- rich interaction → `engineering-rich-interactive-components`; external rich interaction also adds `auditing-ui-library-integration`.
 
 ## Verification routing
 Generation and verification are independent. Select critic lenses based on plausible harm, not on which creation skill ran. Material completion commonly needs visual and UX critique; add accessibility, responsive, platform, human-factors/safety, AI agency, input modality, cognitive load, security/privacy, research-validity, performance/resilience, localization, design-system, or fidelity courts when their failure dimensions are present.
@@ -175,3 +188,7 @@ Before emitting the profile, compare selected skills with deterministic mandator
 - Using one modality to justify deleting alternative input paths.
 - Marking a standard “current” without checking its status when freshness is material.
 - Allowing a high beauty score to compensate for a hard-gate failure.
+- Selecting an external library because it has many stars, looks current, or appears in many generated examples.
+- Copying a component without current license/terms and implementation inspection.
+- Treating an animated gallery as focus/keyboard semantics authority or a headless primitive as visual art direction.
+- Trusting an upstream accessibility/performance demo as proof of the local integration.

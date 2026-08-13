@@ -1,34 +1,3 @@
- source role, accessibility/interaction posture, current license, dependency footprint, SSR/hydration behavior, performance, API drift and exit strategy.
-
-### Source roles are not interchangeable
-
-Examples of role separation:
-
-- an animated component gallery can contribute a visual/interaction mechanism, but does not automatically own dialog semantics or keyboard policy;
-- a headless primitive can own robust semantics/state mechanics without determining the product's visual identity;
-- a motion engine can implement timing/layout/gesture mechanics without deciding whether the motion belongs in the product;
-- a design system can provide coherent primitives/tokens but cannot override product capability closure;
-- a whiteboard/editor/data-grid SDK is appropriate only when the product needs that abstraction, and may carry meaningful licensing, bundle, lifecycle or lock-in cost.
-
-### Rich interaction completion
-
-For animated/direct-manipulation components, the `rich-interaction-contract` records idle/active/interrupted/completed states, activation thresholds, semantic commit point, pointer/touch/keyboard equivalence, focus behavior, reduced-motion behavior, interruption/retargeting, SSR/hydration boundary, cleanup, performance budget and exit strategy.
-
-Animation is not complete because the happy-path demo looks smooth. Test rapid repeated input, cancellation, route changes during animation, slow devices, resized containers, hydration, reduced motion, focus restoration, keyboard-only operation and the non-enhanced fallback.
-
-### Registry fallback
-
-
-Query the curated ecosystem deterministically before live fallback:
-
-```bash
-python scripts/nui-ecosystem-query --capability animated-components --stack react --intent adapt
-```
-
-The output is a candidate set with canonical URLs, source roles, license-status hints and `verify_live_before_use`; it is **not** an install command or permission to copy code.
-
-`knowledge/ui-ecosystem-registry.json` is a curated cache, not a claim that NUI has indexed every current library. If no candidate fits, if a candidate is high-drift, or if license/API facts are ambiguous, perform live primary-source research and write the evidence into the reference ledger. Registry maintenance is owned by `maintaining-ui-resource-registry`; task execution should not silently rewrite the registry from unverified search snippets.
-NUIV4FILE	100644	5208	docs/research/UI-ECOSYSTEM-RESEARCH-2026-08-13.md
 # NUI v4 — UI Ecosystem Intelligence Research
 
 **As of:** 2026-08-13  
@@ -91,25 +60,3 @@ The v4 adversarial suite contains 14 distinct failure classes: popularity-only s
 ## Bounds
 
 NUI does not claim that the registry lists every useful UI repository, that every listed source is safe/current for a future project, or that a source's upstream quality transfers unchanged into local integration. Live primary-source verification and local runtime evidence remain required where the task depends on them.
-NUIV4FILE	100644	1923	docs/superpowers/plans/2026-08-13-ui-ecosystem-intelligence-v4.md
-# NUI v4 Implementation Plan — UI Ecosystem Intelligence
-
-**Date:** 2026-08-13
-
-1. **Contract-integrity baseline.** Preserve 135 v3 canonical contracts; add six v4 owner contracts without overlap.
-2. **Ecosystem kernel RED→GREEN.** Test typed registry, popularity rejection, license/inspection requirements, reference-ledger provenance and rich-interaction invariants; implement `src/nolane_ui/ecosystem.py`.
-3. **Broad curated registry.** Build cross-category registry spanning animated components, motion, headless semantics, design systems, viz, editors/forms/tables, drag/drop, canvas/whiteboard, 3D/spatial, mobile and agent skills. Preserve source-role and live-verification boundaries.
-4. **Deep faculties.** Write six >700-word decision-owner skills with explicit boundaries, evidence, output contracts and failure traps. Register graph/manifest canonically.
-5. **Router/completion integration.** Add deterministic v4 profile predicates and block external reuse/rich interaction without selection, provenance, adaptation/audit and runtime evidence.
-6. **Citation schemas and CLI.** Add machine-readable reference/selection/rich-interaction schemas plus `scripts/nui-ecosystem-query`.
-7. **Adversarial eval court.** Encode 14 distinct failure classes with required skills and falsifiable findings.
-8. **Repository hard gate.** Require v4 manifest/registry/ledger/schemas/evals; validate 141 contracts, 52+ sources, broad categories and v4 eval integrity. Mutation tests must fail when v4 assets or canonical graph contracts are removed/drifted.
-9. **Documentation, GitHub verification and release.** Update README/USAGE/AGENTS/research, rename CI artifacts to v4, run full suite + exact-revision packet, push every source/test/doc to a branch from v3 main, review PR diff for cache/transport artifacts, merge only after exact-head CI, run post-merge CI, package exact-main ZIP/checkpoint and persist to Library.
-NUIV4FILE	100644	4204	docs/superpowers/specs/2026-08-13-ui-ecosystem-intelligence-v4-design.md
-# NUI v4 Design — UI Ecosystem & Rich Interaction Intelligence
-
-**Date:** 2026-08-13
-
-## Problem
-
-NUI v3 can close product capability/action/navigation/state graphs and iterate visual evidence, but an agent can still create generic implementation because it l

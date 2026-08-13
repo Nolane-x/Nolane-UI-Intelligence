@@ -1,36 +1,3 @@
-ent behind client effect or render a stable non-morphing server state” is actionable.
-
-## Output Contract
-Return `ui-integration-audit` with:
-- `source_revision`
-- `local_integration_paths[]`
-- `checks {license, dependency, accessibility, reduced_motion, ssr_hydration, performance, api_drift, security, exit_strategy, local_runtime}` where each is `{status: PASS|FAIL|UNKNOWN|N/A, evidence[], findings[]}`
-- `dependency_delta`
-- `upstream_specific_leaks[]`
-- `runtime_probe_refs[]`
-- `blocking_findings[]`
-- `accepted_residual_risks[]`
-- `revalidation_triggers[]`
-- `decision: PASS|BLOCKED|UNKNOWN`
-
-A release PASS requires every applicable check to be evidence-backed PASS and no blocking finding.
-
-## Failure Traps
-- Copying the license name from registry memory without checking current terms for a material release.
-- Treating upstream accessibility tests as local proof.
-- Auditing source code but not the wrapper/composition that actually ships.
-- Ignoring hydration because the client eventually “looks correct.”
-- Ignoring dependency duplication because tree shaking might remove it.
-- Measuring a component alone instead of inside realistic screen density/data volume.
-- Forgetting cleanup of observers, event listeners, timelines, editor instances or WebGL resources.
-- Passing reduced motion because animations are merely shorter.
-- Accepting a core SDK with no replacement boundary because migration is “unlikely.”
-- Allowing a visual effect to introduce unsafe HTML or remote asset behavior without review.
-- Using `N/A` to avoid producing evidence.
-- Fixing findings while auditing and then marking the same evidence PASS without a new revision/probe.
-
-**Hard gate:** external UI integration has no release authority until license, dependency, accessibility, reduced motion, rendering lifecycle, performance, API drift, security, exit strategy and local runtime obligations are explicitly resolved or legitimately N/A with evidence.
-NUIV4FILE	100644	8300	skills/engineering-rich-interactive-components/SKILL.md
 ---
 name: engineering-rich-interactive-components
 description: Use when a UI contains animation, direct manipulation, drag, morphing, gesture, scroll-linked behavior, shared-layout transitions, 3D/canvas interaction, or other rich interaction whose behavior must remain precise under interruption, alternate input, reduced motion, hydration and performance pressure.
@@ -106,3 +73,6 @@ At minimum, an interactive pointer path that owns a product action must have a k
 - Leaving RAF, observers, timelines or WebGL resources running after the surface disappears.
 - Running decorative ambient effects at full fidelity behind a data-heavy task.
 - Trusting an upstream demo's focus behavior after wrapping it in portals/layout animation.
+- Making the business task impossible when the animation dependency is disabled.
+
+**Hard gate:** rich interaction cannot ship without explicit states, modality equivalence, interruption/retargeting, reduced motion, focus semantics, rendering lifecycle, performance budget and a testable exit/degradation strategy.

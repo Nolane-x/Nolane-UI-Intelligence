@@ -1,7 +1,3 @@
-- Making the business task impossible when the animation dependency is disabled.
-
-**Hard gate:** rich interaction cannot ship without explicit states, modality equivalence, interruption/retargeting, reduced motion, focus semantics, rendering lifecycle, performance budget and a testable exit/degradation strategy.
-NUIV4FILE	100644	7617	skills/maintaining-ui-resource-registry/SKILL.md
 ---
 name: maintaining-ui-resource-registry
 description: Use when the curated UI ecosystem index must add, update, deduplicate, reclassify, deprecate, or retire external component, motion, primitive, design-system, editor, visualization, mobile, canvas, 3D or agent-skill sources without turning the registry into stale or popularity-biased memory.
@@ -82,23 +78,3 @@ Every delta must validate against the registry schema before it becomes durable 
 - Allowing registry rank to become a popularity leaderboard.
 
 **Hard gate:** no registry claim about role, license, stack, capability or currentness may become durable without primary provenance and an explicit freshness boundary.
-NUIV4FILE	100644	8668	skills/researching-ui-implementation-ecosystems/SKILL.md
----
-name: researching-ui-implementation-ecosystems
-description: Use when UI work may benefit from current external component libraries, motion engines, headless primitives, editors, canvas SDKs, data visualization systems, mobile systems, design-agent skills, or other implementation ecosystems and the agent must discover evidence rather than invent from memory.
----
-
-# Researching UI Implementation Ecosystems
-
-## Parent Contract
-**Required parent:** `routing-ui-work`.
-
-Receive the product obligation, required capability, platform and framework truth, interaction complexity, accessibility requirements, visual direction, dependency constraints, adoption intent, and any source already named by the user. The parent owns whether ecosystem research is necessary; this faculty owns the search space and the evidence returned from it.
-
-## Decision Boundary
-This faculty owns **task-specific discovery**. It answers *what current sources could materially help this exact UI problem, what role does each source play, and what must be inspected before another faculty may select it?* It does not decide to install a dependency, copy code, approve a license, choose final visual style, or declare an upstream demo correct in the local product.
-
-Discovery is typed. A motion engine is not a component library. A headless dialog primitive is not an aesthetic reference. A chart grammar is not a dashboard design system. A canvas SDK is not a generic page-layout solution. A catalogue of AI skills is not evidence that all of those skills should be loaded. Every candidate must therefore carry a **source role** before it may enter the selection stage.
-
-## Product Truth
-AI agents routinely know the names of famous libraries but use that memory poorly. They recommend whatever is salient, copy an attractive demo without reading its source, miss a smaller primitive that fits better, treat stars as quality, or use a gallery com

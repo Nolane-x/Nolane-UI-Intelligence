@@ -1,0 +1,39 @@
+{
+  "packet_id": "NUI-V4-EXAMPLE-NOT-VERIFIED",
+  "artifact_revision": "EXAMPLE-ONLY",
+  "phase": "VERIFIED",
+  "task_profile": "Example only: NUI v4 structural repository packet; not evidence of a real run",
+  "obligations": [
+    {
+      "id": "O-STRUCTURE",
+      "status": "PASS",
+      "evidence_refs": [
+        "E-EXAMPLE"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "E-EXAMPLE",
+      "method": "example",
+      "source": "static example",
+      "scope": "format only",
+      "claim": "illustrates packet shape only",
+      "observed_at": "2026-08-13T00:00:00Z",
+      "result": "PASS"
+    }
+  ],
+  "findings": [],
+  "checks": {
+    "example": "PASS"
+  },
+  "claim": "FORMAT EXAMPLE ONLY. This file is not release evidence.",
+  "bounds": [
+    "Do not cite this static example as CI or runtime proof.",
+    "Third-party UI sources require task-time source/license/runtime evidence."
+  ],
+  "unknowns": [
+    "All task-specific quality remains untested in this example."
+  ],
+  "decision": "PASS"
+}

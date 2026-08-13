@@ -1,0 +1,51 @@
+#!/usr/bin/env python3
+"""Query NUI's typed UI implementation ecosystem registry."""
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+
+from nolane_ui.ecosystem import query_ui_ecosystem, validate_ui_ecosystem_registry
+
+
+def _csv(value: str) -> list[str]:
+    return [item.strip() for item in value.split(",") if item.strip()]
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Query the NUI v4 UI ecosystem registry")
+    parser.add_argument("--registry", default=str(ROOT / "knowledge/ui-ecosystem-registry.json"))
+    parser.add_argument("--capability", action="append", default=[], help="Capability; repeat or comma-separate")
+    parser.add_argument("--stack", action="append", default=[], help="Stack/platform; repeat or comma-separate")
+    parser.add_argument("--category", action="append", default=[], help="Category; repeat or comma-separate")
+    parser.add_argument("--intent", choices=["adopt", "adapt", "inspire", "build", "reject"], default="inspire")
+    parser.add_argument("--limit", type=int, default=12)
+    args = parser.parse_args()
+
+    registry = json.loads(Path(args.registry).read_text(encoding="utf-8"))
+    validation = validate_ui_ecosystem_registry(registry)
+    if not validation["valid"]:
+        print(json.dumps({"valid": False, "errors": validation["errors"]}, indent=2), file=sys.stderr)
+        return 2
+
+    flatten = lambda groups: [x for group in groups for x in _csv(group)]
+    query = {
+        "capabilities": flatten(args.capability),
+        "stacks": flatten(args.stack),
+        "categories": flatten(args.category),
+        "intent": args.intent,
+    }
+    result = query_ui_ecosystem(registry, query)
+    result["query"] = query
+    result["matches"] = result["matches"][: max(args.limit, 0)]
+    print(json.dumps(result, indent=2, ensure_ascii=False))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -4,7 +4,7 @@
 
 Nolane UI Intelligence (NUI) is a platform-agnostic Agent Skill graph for serious UI/UX work. It treats interface design as a system of independent decisions — product semantics, human factors, interaction, visual craft, platform behavior, input modalities, accessibility, AI agency, safety, resilience, design systems, and verification — rather than one vague instruction to “make it beautiful.”
 
-The current v2 research snapshot declares **125 skills** across a universal core and specialist faculties. That number is descriptive, not a target. The router loads the **smallest sufficient graph** for the current task; preloading every skill is a defect.
+The current v4 graph declares **141 skills**: the v2 industry-wide cognition system, v3 Product UI Closure + Visual Learning plane, and v4 UI Ecosystem Intelligence plane. That number is descriptive, not a target. The router loads the **smallest sufficient graph** for the current task; preloading every skill is a defect.
 
 NUI does not promise objective beauty, automatic compliance, or permanent completeness. It constrains observable agent behavior so material assumptions become explicit, high-impact domains cannot be silently omitted, independent critics can falsify the design, machine-checkable invariants are enforced by code, and release claims remain bounded by actual evidence.
 
@@ -24,13 +24,29 @@ NUI does not promise objective beauty, automatic compliance, or permanent comple
 - **Deterministic invariants.** Graphs, ownership, routes, source freshness, state/token contracts, completion packets, and bounded research saturation are checked by Python rather than trusted to model self-report.
 - **Research that can reopen.** High-drift standards/platforms live in `knowledge/research-radar.json`; a changed authority can reopen a domain and force a new research wave.
 
+## Product closure and ecosystem intelligence
+
+NUI v3/v4 adds two system-wide planes that address common agent failures which screen-level design advice does not catch.
+
+**Product UI Closure** treats the product as a connected capability/action/state graph. A screen that exists but has no discoverable path, an action with no binding, a hidden route that only works by typing a URL, a duplicated command with conflicting semantics, or a responsive layout that drops a material capability is a release blocker rather than a small polish issue.
+
+**UI Ecosystem Intelligence** gives the agent a typed, evidence-bound way to use the external UI ecosystem. `knowledge/ui-ecosystem-registry.json` contains curated implementation sources across animated components, motion engines, headless accessibility primitives, design systems, data visualization, editors, tables/forms, drag-and-drop, canvas/whiteboard, 3D/spatial, mobile and agent-skill catalogues. It is not a popularity leaderboard and it does not authorize copying.
+
+For any material external source, the agent follows:
+
+`need → research → inspect primary source → cite → classify source role → select adopt/adapt/inspire/build/reject → reconcile with local semantics/tokens/content → audit integration → verify local runtime`
+
+High-drift or legally ambiguous sources require live re-verification before use. A repository's upstream accessibility demo is not evidence that the local wrapper remains accessible. A visually strong component gallery is not the semantic authority for focus, keyboard behavior or product actions.
+
+The registry is intentionally incomplete by design: when no current source fits, or registered candidates are stale/high-drift, `query_ui_ecosystem` reports `live_search_required` and the research faculty must extend the reference ledger instead of hallucinating a library from model memory.
+
 ## Canonical lifecycle
 
 `INTAKE → CONTRACTED → ROUTED → DISCOVERED → ARCHITECTED → DIVERGED → DESIGN_SELECTED → SYSTEMIZED → SPECIFIED → IMPLEMENTABLE → RENDERED → CRITIQUED → VERIFIED → RELEASED`
 
 Any failed obligation, stale evidence, contradiction, missing mandatory route, or material regression routes to `RECOVERY` or `BLOCKED`.
 
-## v2 domain families
+## v4 domain families
 
 NUI currently separates responsibilities across:
 

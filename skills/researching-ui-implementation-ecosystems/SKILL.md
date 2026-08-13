@@ -1,4 +1,22 @@
-ponent to solve a semantic problem. They also freeze an ecosystem at the model's training date while APIs, licenses, maintainers, package names, accessibility behavior and commercial terms continue to change.
+---
+name: researching-ui-implementation-ecosystems
+description: Use when UI work may benefit from current external component libraries, motion engines, headless primitives, editors, canvas SDKs, data visualization systems, mobile systems, design-agent skills, or other implementation ecosystems and the agent must discover evidence rather than invent from memory.
+---
+
+# Researching UI Implementation Ecosystems
+
+## Parent Contract
+**Required parent:** `routing-ui-work`.
+
+Receive the product obligation, required capability, platform and framework truth, interaction complexity, accessibility requirements, visual direction, dependency constraints, adoption intent, and any source already named by the user. The parent owns whether ecosystem research is necessary; this faculty owns the search space and the evidence returned from it.
+
+## Decision Boundary
+This faculty owns **task-specific discovery**. It answers *what current sources could materially help this exact UI problem, what role does each source play, and what must be inspected before another faculty may select it?* It does not decide to install a dependency, copy code, approve a license, choose final visual style, or declare an upstream demo correct in the local product.
+
+Discovery is typed. A motion engine is not a component library. A headless dialog primitive is not an aesthetic reference. A chart grammar is not a dashboard design system. A canvas SDK is not a generic page-layout solution. A catalogue of AI skills is not evidence that all of those skills should be loaded. Every candidate must therefore carry a **source role** before it may enter the selection stage.
+
+## Product Truth
+AI agents routinely know the names of famous libraries but use that memory poorly. They recommend whatever is salient, copy an attractive demo without reading its source, miss a smaller primitive that fits better, treat stars as quality, or use a gallery component to solve a semantic problem. They also freeze an ecosystem at the model's training date while APIs, licenses, maintainers, package names, accessibility behavior and commercial terms continue to change.
 
 The correct unit of research is not “best UI library.” It is a bounded need such as: *a keyboard-operable sortable interaction for a React data workspace; a morphing continuity effect that survives reduced motion; a headless combobox with strong screen-reader behavior; a block editor that can be themed into an existing design system; a high-density chart layer with custom interaction; or a canvas abstraction whose production license is acceptable.* A useful result narrows a decision; a long list of fashionable repositories increases uncertainty.
 
@@ -50,37 +68,3 @@ Candidate order must be explainable through capability, stack, role, accessibili
 - Letting research choose final architecture; selection belongs downstream.
 
 **Hard gate:** a source cannot become a material candidate unless its role, product-fit mechanism, canonical citation, inspected evidence and freshness/license requirements are explicit.
-NUIV4FILE	100644	22448	skills/routing-ui-work/SKILL.md
----
-name: routing-ui-work
-description: Use when a contracted UI task needs the smallest sufficient set of product, human-factors, architecture, interaction, visual, platform, modality, inclusive, AI, specialist, research, and verification faculties.
----
-
-# Routing UI Work
-
-## Overview
-The router is a classifier, dependency planner, and obligation selector. It is not a designer and must not solve domain work inside routing. Its job is to construct the smallest sufficient faculty graph for the actual interface while making silent omission of a material domain difficult. Minimal routing means no irrelevant context; it never means skipping a high-impact owner or verifier.
-
-## Parent Contract
-**Required parent:** `nolane-ui`.
-
-Require a valid `ui-contract`. If the contract is absent, contradictory, or too vague to classify platform, users, task, risk, and evidence needs, return to `ui-contracting`. Do not invent a replacement contract inside the router.
-
-## Build `UI_TASK_PROFILE`
-Profile observable conditions rather than prompt keywords. Record unknowns explicitly instead of converting them into defaults.
-
-- `intent[]`: design-new, redesign, extend, audit, reproduce, implement, verify, systemize, research.
-- `platform_surfaces[]`: web, mobile, desktop, large-screen-foldable, tv-ten-foot, wearable, automotive, flight-deck, spatial-xr, game-hud, cli-tui, embedded-kiosk, robotics-teleoperation, ambient-context-aware, supervisory-control-room, or another atlas-owned emerging surface.
-- `input_modalities[]`: pointer, touch, pen, keyboard, alternative-input, physical-controls, gamepad, remote, voice, gaze, hand-gesture, motion, haptics, neuroinput, or another explicitly modeled modality.
-- `ai_role`: none, assistive, generative, agentic, multi-agent, generative-ui.
-- `risk_class`: routine, privacy-sensitive, security-sensitive, financial, medical, safety-critical.
-- `temporal_behaviors[]`: streaming, realtime, offline-degraded, long-running, interruption-sensitive, background-work.
-- `social_context`: personal, shared-screen, collaborative, public, supervised, multi-operator.
-- `specialized_ui_domains[]`: affective-adaptive, avatar-embodied, aac-communication, cross-device-action-equivalence, accessibility-settings, accessible-media, sign-language-presentation, in-product-assistance, or another specialized decision class with explicit atlas ownership.
-- `regulatory_or_standard_sensitivity`: low, medium, high, regulated.
-- `research_freshness_requirement`: stable-foundation, current-platform, current-standard, frontier.
-- `driving_context`: not-applicable, parked, driving, mixed.
-- `user_context`: expertise, frequency, time pressure, cognitive load, accessibility needs, environment, error cost, fatigue, and whether assistance is available.
-- `information_context`: density, hierarchy depth, volatility, comparability, reading versus scanning, real-time ordering, provenance needs.
-- `interaction_context`: selection, direct manipulation, drag/drop, destructive action, permissions, undo, concurrency, collaboration, async behavior, latency sensitivity.
-- `visual_context`: brand maturity, existing design-system strength, reference fidelity, desired character, novelty tole

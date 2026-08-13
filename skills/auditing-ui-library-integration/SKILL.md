@@ -1,51 +1,3 @@
-performance behavior.
-8. **Reconcile responsive behavior.** Define what the mechanism becomes under smaller viewport, touch, keyboard, coarse pointer, zoom, large text and reduced motion. An effect may collapse to a simpler transition without losing the action.
-9. **Remove foreign coupling.** Strip demo analytics, unused providers, unrelated dependencies, global CSS, sample assets and source-specific layout assumptions. If a dependency is retained, expose it through a local component or adapter boundary appropriate to its depth.
-10. **Record provenance in the implementation.** Keep a reference-ledger citation and adaptation boundary near the decision record. Attribution/license notices are preserved where required. Inspiration and code reuse must remain distinguishable after months of maintenance.
-11. **Define verification obligations.** Name the local behaviors that must be runtime-tested after adaptation, especially focus, keyboard, hydration, drag/drop, async transitions and reduced motion.
-
-## Evidence
-Evidence is the selected source's inspected files and docs plus local product contracts. Before/after renders can prove visual reconciliation; accessibility-tree snapshots and keyboard tests can prove semantic reconciliation; performance traces can prove the mechanism fits the budget; localized content fixtures can prove geometry survives realistic content.
-
-A material external mechanism must keep its canonical source citation even after heavy adaptation. This is not only attribution hygiene: it lets future agents trace why an unusual mechanism exists, revisit upstream fixes, and detect when a copied implementation has diverged beyond safe updateability.
-
-If the selected decision was `inspire`, the contract should explicitly state that final code is locally implemented and which abstract mechanism was learned. If `adapt`, identify the retained code/algorithmic boundary and license obligations. Never blur the two to make provenance easier to ignore.
-
-## Output Contract
-Return `ui-adaptation-contract` with:
-- `source {id, canonical_url, usage: adapt|inspire, inspected[], provenance_refs[]}`
-- `mechanism`
-- `adaptation_boundary`
-- `product_actions[] {source_event, canonical_action_id}`
-- `state_mapping[] {source_state, local_state, disposition}`
-- `semantic_mapping {roles, keyboard, focus, announcements}`
-- `content_rewrite[]`
-- `token_mapping[]`
-- `motion_mapping {purpose, timing, interruption, retargeting, reduced_motion}`
-- `responsive_mapping[]`
-- `dependency_cleanup[]`
-- `attribution_and_license_obligations[]`
-- `runtime_verification_obligations[]`
-- `unresolved_conflicts[]`
-
-No unresolved semantic or product-action conflict may be silently accepted.
-
-## Failure Traps
-- Copying demo labels such as “Get Started” into a domain workflow with a specific action name.
-- Keeping foreign radii, gradient palette, shadow system and hover language because “it looks premium.”
-- Mapping two distinct source events to one vague product action.
-- Preserving an animation even when reduced motion removes the information it carried.
-- Reimplementing dialog/menu semantics just to keep an effect rather than composing with a stronger local primitive.
-- Leaving provider/global-style dependencies that exist only for the demo page.
-- Treating responsive adaptation as scaling the desktop component smaller.
-- Forgetting long labels, RTL, text zoom, touch and coarse-pointer behavior.
-- Removing attribution or license notices required by the selected material.
-- Losing the source citation after code is copied into a local component.
-- Copying a recognizable brand composition or trade dress when only a mechanism was needed.
-- Declaring the adaptation correct without downstream integration and runtime proof.
-
-**Hard gate:** adaptation must map the external mechanism to canonical product actions, states, semantics, tokens, content, motion and responsive behavior; visual resemblance alone is never sufficient.
-NUIV4FILE	100644	7948	skills/auditing-ui-library-integration/SKILL.md
 ---
 name: auditing-ui-library-integration
 description: Use when external UI code, a component library, motion engine, editor, canvas SDK, charting system, primitive or copied implementation is about to ship and an independent critic must test legal, semantic, accessibility, rendering, performance, lifecycle and local-behavior risks.
@@ -85,4 +37,35 @@ AI-generated code is especially vulnerable because agents see the happy-path exa
 ## Evidence
 Evidence includes primary license/terms, package lock or exact copied revision, dependency diff, local source paths, accessibility-tree and keyboard traces, reduced-motion screenshots/video, server/client console traces, performance profiles, runtime probes, build output and upgrade tests. Each PASS needs an evidence reference. `N/A` is allowed only with a reason proving the dimension is genuinely inapplicable.
 
-Audit findings should state consequence and remediation boundary. “Hydration risk” is weak; “MorphingDialog reads layout before client hydration, producing different initial DOM; move measurem
+Audit findings should state consequence and remediation boundary. “Hydration risk” is weak; “MorphingDialog reads layout before client hydration, producing different initial DOM; move measurement behind client effect or render a stable non-morphing server state” is actionable.
+
+## Output Contract
+Return `ui-integration-audit` with:
+- `source_revision`
+- `local_integration_paths[]`
+- `checks {license, dependency, accessibility, reduced_motion, ssr_hydration, performance, api_drift, security, exit_strategy, local_runtime}` where each is `{status: PASS|FAIL|UNKNOWN|N/A, evidence[], findings[]}`
+- `dependency_delta`
+- `upstream_specific_leaks[]`
+- `runtime_probe_refs[]`
+- `blocking_findings[]`
+- `accepted_residual_risks[]`
+- `revalidation_triggers[]`
+- `decision: PASS|BLOCKED|UNKNOWN`
+
+A release PASS requires every applicable check to be evidence-backed PASS and no blocking finding.
+
+## Failure Traps
+- Copying the license name from registry memory without checking current terms for a material release.
+- Treating upstream accessibility tests as local proof.
+- Auditing source code but not the wrapper/composition that actually ships.
+- Ignoring hydration because the client eventually “looks correct.”
+- Ignoring dependency duplication because tree shaking might remove it.
+- Measuring a component alone instead of inside realistic screen density/data volume.
+- Forgetting cleanup of observers, event listeners, timelines, editor instances or WebGL resources.
+- Passing reduced motion because animations are merely shorter.
+- Accepting a core SDK with no replacement boundary because migration is “unlikely.”
+- Allowing a visual effect to introduce unsafe HTML or remote asset behavior without review.
+- Using `N/A` to avoid producing evidence.
+- Fixing findings while auditing and then marking the same evidence PASS without a new revision/probe.
+
+**Hard gate:** external UI integration has no release authority until license, dependency, accessibility, reduced motion, rendering lifecycle, performance, API drift, security, exit strategy and local runtime obligations are explicitly resolved or legitimately N/A with evidence.

@@ -1,13 +1,3 @@
-        result = validate_repository(dest)
-            self.assertFalse(result["valid"])
-            self.assertTrue(any("selecting-ui-building-blocks" in error for error in result["errors"]), result)
-        finally:
-            temp.cleanup()
-
-
-if __name__ == "__main__":
-    unittest.main()
-NUIV4FILE	100644	1358	tests/test_v4_skill_depth.py
 import json,re,sys,unittest
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
@@ -24,4 +14,3 @@ class V4DepthTests(unittest.TestCase):
    self.assertIn(f"`{item['parent']}`",text); self.assertIn(f"`{item['output']}`",text)
    self.assertIn(item['name'],GRAPH); self.assertEqual(GRAPH[item['name']]['family'],item['family']); self.assertEqual(GRAPH[item['name']]['parent'],item['parent']); self.assertEqual(GRAPH[item['name']]['output'],item['output'])
 if __name__=='__main__':unittest.main()
-NUIV4-END

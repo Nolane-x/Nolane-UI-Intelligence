@@ -12,5 +12,7 @@ When this repository is used as an Agent Skill pack:
 8. Use deterministic validators for deterministic facts. Do not substitute model confidence for a validator result.
 9. Do not bulk-copy third-party skill text into this repository. Synthesize mechanisms and record sources in `docs/research/SOURCES.md`.
 10. Completion claims must name their bounds and unverified areas.
+11. When a task materially uses an external UI repository, library, component, animation engine, design-system implementation, editor/canvas SDK, or agent skill, route the v4 ecosystem plane. Record canonical source citations, current license posture, inspected implementation evidence, adoption mode, adaptation boundary and local runtime proof. GitHub stars or a polished demo are never sufficient authority.
+12. High/very-high-drift ecosystem sources must be re-verified against primary sources before material adopt/adapt use. Never treat the curated registry as permanent current truth.
 
 These rules are repository policy. Runtime adapters may change tool syntax, not these semantics.
