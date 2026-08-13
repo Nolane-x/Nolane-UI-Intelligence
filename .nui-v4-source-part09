@@ -1,0 +1,391 @@
+_to_use": [
+        "Need charts with a source role matching data-visualization."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "vega-lite",
+      "name": "Vega Lite",
+      "url": "https://github.com/vega/vega-lite",
+      "role": "data-visualization",
+      "categories": [
+        "data-visualization"
+      ],
+      "capabilities": [
+        "declarative-charts",
+        "grammar-of-graphics"
+      ],
+      "stacks": [
+        "javascript",
+        "web"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need declarative-charts with a source role matching data-visualization."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "observable-plot",
+      "name": "Observable Plot",
+      "url": "https://github.com/observablehq/plot",
+      "role": "data-visualization",
+      "categories": [
+        "data-visualization"
+      ],
+      "capabilities": [
+        "concise-charts",
+        "exploratory-visualization"
+      ],
+      "stacks": [
+        "javascript",
+        "web"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need concise-charts with a source role matching data-visualization."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "visx",
+      "name": "Visx",
+      "url": "https://github.com/airbnb/visx",
+      "role": "data-visualization",
+      "categories": [
+        "data-visualization"
+      ],
+      "capabilities": [
+        "low-level-charts",
+        "custom-svg-visualization"
+      ],
+      "stacks": [
+        "react",
+        "web"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need low-level-charts with a source role matching data-visualization."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "recharts",
+      "name": "Recharts",
+      "url": "https://github.com/recharts/recharts",
+      "role": "data-visualization",
+      "categories": [
+        "data-visualization"
+      ],
+      "capabilities": [
+        "react-charts",
+        "dashboards"
+      ],
+      "stacks": [
+        "react",
+        "web"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need react-charts with a source role matching data-visualization."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "nivo",
+      "name": "Nivo",
+      "url": "https://github.com/plouc/nivo",
+      "role": "data-visualization",
+      "categories": [
+        "data-visualization"
+      ],
+      "capabilities": [
+        "react-charts",
+        "animated-charts"
+      ],
+      "stacks": [
+        "react",
+        "web"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need react-charts with a source role matching data-visualization."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "tiptap",
+      "name": "Tiptap",
+      "url": "https://github.com/ueberdosis/tiptap",
+      "role": "rich-text-editor",
+      "categories": [
+        "editors-and-input"
+      ],
+      "capabilities": [
+        "rich-text-editor",
+        "extensions",
+        "collaboration"
+      ],
+      "stacks": [
+        "framework-agnostic",
+        "react",
+        "vue"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need rich-text-editor with a source role matching rich-text-editor."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "lexical",
+      "name": "Lexical",
+      "url": "https://github.com/facebook/lexical",
+      "role": "rich-text-editor",
+      "categories": [
+        "editors-and-input"
+      ],
+      "capabilities": [
+        "rich-text-editor",
+        "editor-state",
+        "plugins"
+      ],
+      "stacks": [
+        "react",
+        "javascript"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need rich-text-editor with a source role matching rich-text-editor."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "slate",
+      "name": "Slate",
+      "url": "https://github.com/ianstormtaylor/slate",
+      "role": "rich-text-editor",
+      "categories": [
+        "editors-and-input"
+      ],
+      "capabilities": [
+        "rich-text-editor",
+        "custom-editor-model"
+      ],
+      "stacks": [
+        "react"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need rich-text-editor with a source role matching rich-text-editor."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "blocknote",
+      "name": "Blocknote",
+      "url": "https://github.com/TypeCellOS/BlockNote",
+      "role": "rich-text-editor",
+      "categories": [
+        "editors-and-input"
+      ],
+      "capabilities": [
+        "block-editor",
+        "rich-text-editor"
+      ],
+      "stacks": [
+        "react"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provena

@@ -1,0 +1,64 @@
+name: NUI v4 source bootstrap
+
+on:
+  push:
+    branches:
+      - build/ui-ecosystem-intelligence-v4
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: ${{ github.actor != 'github-actions[bot]' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Reconstruct verified V4 source bundle
+        shell: bash
+        run: |
+          cat .nui-v4-source-part* > /tmp/nui-v4-master-bundle.txt
+          echo "6d60763122a617e9b86de7a724ba0f099665ae70663b44ae3429021260ebaa3e  /tmp/nui-v4-master-bundle.txt" | sha256sum -c -
+          python - <<'PY'
+          from pathlib import Path
+          data = Path('/tmp/nui-v4-master-bundle.txt').read_bytes()
+          start_marker = b'NUIV4-BUNDLE-1\n'
+          end_marker = b'NUIV4-END\n'
+          assert data.startswith(start_marker)
+          pos = len(start_marker)
+          while not data.startswith(end_marker, pos):
+              nl = data.index(b'\n', pos)
+              tag, mode, size_s, path = data[pos:nl].decode('utf-8').split('\t', 3)
+              assert tag == 'NUIV4FILE'
+              size = int(size_s)
+              begin = nl + 1
+              payload = data[begin:begin + size]
+              assert len(payload) == size
+              target = Path(path)
+              target.parent.mkdir(parents=True, exist_ok=True)
+              target.write_bytes(payload)
+              target.chmod(0o755 if mode == '100755' else 0o644)
+              pos = begin + size
+          assert data[pos:] == end_marker
+          PY
+          rm -f .nui-v4-source-part*
+          rm -f artifacts/v1-completion-packet.example.json
+
+      - name: Verify exact V4 source
+        shell: bash
+        run: |
+          python -m unittest discover -s tests -v
+          python scripts/nui-validate .
+
+      - name: Commit clean V4 source tree
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && { echo "No V4 changes to commit"; exit 1; }
+          git commit -m "feat: add UI ecosystem and rich interaction intelligence v4"
+          git push origin HEAD:build/ui-ecosystem-intelligence-v4

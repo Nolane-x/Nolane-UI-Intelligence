@@ -1,0 +1,272 @@
+ning-permissions-and-consent`. Sensitive data visibility, inference, sharing, or retention → `designing-privacy-sensitive-interfaces` and security/privacy critique. Financial consequence → `designing-financial-transaction-ui` plus high-stakes decision review. Checkout funnels route to `designing-commerce-checkout`; do not trade clarity or recovery for conversion. Medical UI routes to `designing-medical-safety-critical-ui`, human factors, high-stakes decisions and safety critique.
+
+Hard gates for safety, security/privacy, accessibility, and AI agency cannot be offset by visual-quality scores.
+
+## Temporal and resilience routing
+Streaming → `designing-latency-and-progressive-feedback`, resilience critique, and AI streaming skill when AI is involved. Realtime → `designing-real-time-updates`; preserve ordering, staleness, conflict and attention behavior. Offline/degraded → `designing-offline-degraded-experiences`. Interruption-sensitive work → `designing-notifications-and-interruptions` and cognitive-load modeling. Long-running actions require progress, cancellation/continuation semantics, duplicate-action protection, and a truthful state model.
+
+## Accessibility specialist routing
+Root accessibility remains mandatory when accessibility is material. Add `designing-cognitive-accessibility`, `designing-low-vision-and-high-contrast`, `designing-screen-reader-experiences`, `designing-reduced-motion-and-photosensitivity`, `designing-accessibility-settings-and-profiles`, `designing-accessible-media-alternatives`, `designing-sign-language-presentation`, alternative input, AAC, or another specialist faculty according to real needs and failure modes. Specialist faculties augment root semantics; they never replace them. A sign-language task inherits accessible-media obligations, and an AAC task separately routes the person’s real input modality.
+
+## External implementation ecosystem routing
+A named or materially used external source routes `researching-ui-implementation-ecosystems` and `selecting-ui-building-blocks`. `adapt` additionally routes `adapting-external-ui-patterns` and `auditing-ui-library-integration`; `adopt` routes the integration audit. Rich interactive behavior routes `engineering-rich-interactive-components`, and when an external source participates, integration audit is mandatory.
+
+Do not confuse source roles. Animated galleries contribute visual/interaction mechanisms; headless primitives contribute semantics/state; motion engines contribute animation mechanics; design systems contribute coherent component/token systems; specialist SDKs contribute domain abstractions. None may silently assume product capability, authority, accessibility, licensing or release ownership outside its role.
+
+If registry candidates are missing, stale, high-drift or legally ambiguous, route live primary-source research. The local registry is a retrieval cache, not current-world truth. Material source use requires a URL-backed reference ledger and local evidence; upstream demos do not certify local wrappers.
+
+## Design-system and content routing
+New or materially changed component language routes to `architecting-component-systems`, `architecting-design-tokens`, and when shared across teams `governing-design-systems`. Breaking component semantics or API changes route to `evolving-component-apis`. Theme/personalization changes route to `managing-theming-and-personalization`. Durable rationale routes to `documenting-design-decisions`; accessibility intent crossing design/engineering boundaries routes to `annotating-accessibility-intent`.
+
+Forms, search, navigation, onboarding, data-dense surfaces, data visualization, collaboration, editor/canvas, empty/loading/error states, motion, localization, UX writing, and visual craft route only when their decision domains exist.
+
+## Hard routing
+The following are non-optional examples enforced by deterministic predicates rather than prose alone:
+- automotive driving → `designing-automotive-interfaces` + `engineering-human-factors` + `critiquing-human-factors-and-safety`.
+- flight-deck → `designing-flight-deck-interfaces` + human-factors + high-stakes decision + human-factors/safety critic.
+- spatial-xr → `designing-spatial-xr-interfaces` + `designing-gaze-hand-spatial-input` + platform/modality critics.
+- tv-ten-foot → `designing-tv-ten-foot-interfaces` + directional focus + modality critic.
+- wearable → `designing-wearable-glanceable-interfaces` + cognitive-load critic.
+- material AI → `designing-human-ai-interaction` + `critiquing-ai-trust-and-agency`.
+- agentic AI → `designing-agent-autonomy-and-control` + provenance + AI agency critic.
+- medical/safety-critical → high-stakes/human-factors owner paths + `critiquing-human-factors-and-safety`.
+- affective-adaptive → affective owner + consent/privacy + security/privacy critic.
+- avatar-embodied → avatar owner + security/privacy and accessibility critics.
+- aac-communication → root accessibility + AAC owner + accessibility critic.
+- cross-device-action-equivalence → cross-device owner + platform adaptation + modality critic.
+- accessibility-settings → root accessibility + settings owner + accessibility critic.
+- accessible-media → root accessibility + media-alternatives owner + accessibility critic.
+- sign-language-presentation → media-alternatives owner + sign-language owner + accessibility critic.
+- in-product-assistance → assistance owner + UX critic.
+- robotics, ambient, supervisory-control, and neuroinput → their extension-owned mandatory routes.
+- external UI source or named repository → `researching-ui-implementation-ecosystems` + `selecting-ui-building-blocks`; `adapt`/`adopt` adds integration audit and `adapt` adds adaptation ownership.
+- rich interaction → `engineering-rich-interactive-components`; external rich interaction also adds `auditing-ui-library-integration`.
+
+## Verification routing
+Generation and verification are independent. Select critic lenses based on plausible harm, not on which creation skill ran. Material completion commonly needs visual and UX critique; add accessibility, responsive, platform, human-factors/safety, AI agency, input modality, cognitive load, security/privacy, research-validity, performance/resilience, localization, design-system, or fidelity courts when their failure dimensions are present.
+
+A critic can produce findings but cannot silently rewrite its own evidence and certify itself. Repaired findings require fresh verification.
+
+## Inactive Faculties
+A neighboring faculty may be inactive only with a specific contract-bound reason. `designing-motion inactive — accepted static surface and no meaningful transition state` is valid. `not needed` is not. If a deterministic hard route is inactive, the router must return `BLOCKED` rather than invent an exemption.
+
+## Output Contract
+Return `ui-task-profile` with every profile dimension above plus:
+- `selected_skills[] {name, reason, required_inputs, expected_output, authority}`
+- `inactive_faculties[] {faculty, reason}`
+- `dependency_edges[]`
+- `critical_paths[]`
+- `verification_lenses[]`
+- `hard_routes[]`
+- `capability_gaps[]`
+- `research_freshness_state`
+- `routing_confidence`
+
+Before emitting the profile, compare selected skills with deterministic mandatory routes. Any missing hard route means the profile is invalid.
+
+## Failure Traps
+- Keyword routing: “dashboard” automatically means cards, charts, dark mode.
+- Maximal routing: every available skill loaded “to be safe.” Context dilution is a defect.
+- Aesthetic routing before product semantics and human constraints.
+- Treating responsive web as mobile-native design or treating mobile as a smaller desktop.
+- Treating a flight deck as a control-room theme without phase/crew/automation/certification evidence.
+- Treating an AI avatar as self-disclosing because it looks synthetic.
+- Treating affect inference as fact or AAC as an icon theme.
+- Treating cross-device consistency as identical gestures or identical pixels.
+- Treating accessible-media presence as equivalent to usable synchronization and information coverage.
+- Treating sign language as universal or as captions expressed with hands.
+- Making accessibility settings inaccessible until accessibility is already configured.
+- Using help overlays to excuse an interface that can simply be made clearer.
+- Treating a current visual trend as a universal style requirement.
+- Letting framework choice suppress accessibility, safety, state, or recovery obligations.
+- Using one modality to justify deleting alternative input paths.
+- Marking a standard “current” without checking its status when freshness is material.
+- Allowing a high beauty score to compensate for a hard-gate failure.
+- Selecting an external library because it has many stars, looks current, or appears in many generated examples.
+- Copying a component without current license/terms and implementation inspection.
+- Treating an animated gallery as focus/keyboard semantics authority or a headless primitive as visual art direction.
+- Trusting an upstream accessibility/performance demo as proof of the local integration.
+NUIV4FILE	100644	8074	skills/selecting-ui-building-blocks/SKILL.md
+---
+name: selecting-ui-building-blocks
+description: Use when ecosystem research produced candidate libraries, components, primitives, engines, editors, SDKs, or implementation patterns and the agent must make an evidence-bound adopt, adapt, inspire, build, or reject decision.
+---
+
+# Selecting UI Building Blocks
+
+## Parent Contract
+**Required parent:** `researching-ui-implementation-ecosystems`.
+
+Receive a typed candidate set with source roles, inspected evidence, product capability requirements, stack/platform truth, local design-system constraints, accessibility obligations, license posture, runtime risks and adoption intent. Do not select from an uninspected link dump.
+
+## Decision Boundary
+This faculty owns the **make/buy/adapt/inspire decision at UI-building-block granularity**. It chooses whether a candidate should supply implementation, supply a mechanism only, be wrapped behind a local boundary, be rejected, or be replaced by a local implementation. It does not perform detailed visual/semantic adaptation and it cannot certify integration after implementation.
+
+A decision is not “React Bits is good” or “Radix is accessible.” A decision binds one source to one need under one context. The same project may adapt a React Bits text effect, adopt a Radix dialog primitive, use Motion as an engine, inspire from a GSAP example, build a local button, and reject a heavy editor SDK. Selection is per capability and must preserve this granularity.
+
+## Product Truth
+External UI code creates leverage and debt simultaneously. Reuse can provide years of interaction refinement, accessibility engineering, motion knowledge, browser fixes and ecosystem testing. It can also introduce foreign visual language, duplicate runtimes, bundle weight, hydration assumptions, hard-to-debug abstractions, license obligations, security surface and lock-in. AI agents systematically overvalue the visible benefit because a demo is immediate while integration cost appears later.
+
+Selection must therefore compare **total product fit**, not visual excitement. A plain headless primitive may be the best foundation for a critical dialog while a spectacular animated card may be useful only as inspiration. Conversely, rebuilding a complex combobox, editor, collision engine or timeline system from scratch may be wasteful and less accessible than adopting a mature abstraction.
+
+## Decision Model
+1. **State the capability and consequence.** Name exactly what the source would own. Classify whether failure would be decorative, task-blocking, destructive, accessibility-critical, performance-critical or architecture-critical.
+2. **Validate source-role fit.** A gallery provides reusable visual mechanisms; a headless primitive provides semantics/interaction; a motion engine provides temporal mechanics; an editor or canvas SDK may own a major application subsystem. Reject candidates whose abstraction role cannot satisfy the obligation.
+3. **Compare `adopt`, `adapt`, `inspire`, `build`, `reject`.** For each serious candidate, describe the smallest viable commitment. `Adopt` retains most upstream abstraction. `Adapt` reuses implementation while reconciling local contracts. `Inspire` transfers a mechanism without material code dependency. `Build` implements locally. `Reject` records why the source is unsuitable.
+4. **Check stack and lifecycle compatibility.** Verify framework version, rendering environment, SSR/hydration assumptions, mobile/native constraints, browser support and release drift. A source can be excellent and still be wrong for the current stack.
+5. **Check license before material reuse.** `adopt` and `adapt` require current primary license/terms evidence and a compatible intended use. Do not infer rights from “public repository,” “free,” “open source,” README marketing or a model's memory. Distinguish application use from redistribution and development from production where terms do.
+6. **Evaluate accessibility and interaction ownership.** Ask which semantics the upstream source really owns and what composition can invalidate them. A visual gallery should not displace a stronger primitive for dialog/focus behavior. Upstream accessibility is evidence about the upstream implementation, not proof of local wrapping.
+7. **Evaluate dependency leverage.** Count new runtimes, transitive dependencies, global CSS or portals, provider requirements, client boundaries, package size and conceptual API surface. Prefer an already-adopted local engine when the experiential result is equivalent.
+8. **Evaluate design-system fit.** Determine how much of the source surface identity must be removed. If adaptation would fight every token, state, radius, spacing rule and content pattern, the source may be a poor choice even if technically compatible.
+9. **Evaluate exit strategy.** For deep dependencies, define the boundary that lets the product replace or upgrade the source. An editor/canvas/data-grid dependency deserves more architectural isolation than a decorative effect.
+10. **Make the decision falsifiable.** State conditions that would reverse the selection: license change, unacceptable bundle delta, accessibility regression, API instability, inability to meet reduced motion, or excessive local overrides.
+
+## Evidence
+A strong selection cites the research ledger, primary license evidence for material reuse, inspected implementation paths, release/version evidence where relevant, and local product constraints. For complex choices, a small spike can be evidence: render the candidate inside the actual shell, test focus and keyboard paths, measure bundle/performance, or prove SSR compatibility.
+
+Do not use star count as a proxy for maintainability, visual quality as a proxy for semantics, or upstream test claims as a proxy for local behavior. Evidence quality should increase with dependency depth. A copied CSS shimmer needs less architectural evidence than an infinite-canvas SDK that becomes the application's core interaction model.
+
+## Output Contract
+Return `ui-source-selection` with:
+- `capability_id`
+- `decision: adopt|adapt|inspire|build|reject`
+- `source_id` and `canonical_citations[]` when external
+- `source_role_fit`
+- `inspected[] {kind, location, evidence}`
+- `license {posture, evidence_ref, intended_use, redistribution_implications}`
+- `stack_fit`
+- `accessibility_fit`
+- `dependency_delta`
+- `design_system_reconciliation_cost`
+- `performance_and_rendering_risks[]`
+- `exit_strategy`
+- `alternatives_considered[]`
+- `reversal_conditions[]`
+- `handoff {adaptation_required, integration_audit_required, runtime_proof_required}`
+
+For `adopt` or `adapt`, license posture must be verified-compatible and README, license and representative implementation must have been inspected.
+
+## Failure Traps
+- “Use it because it has 40k stars.”
+- Choosing the first source named by the user without comparison.
+- Treating a permissive source-code license as proof every asset, font, trademark or hosted service has the same terms.
+- Copying a component gallery's dialog because it looks better than the project's semantic primitive.
+- Adding a second motion runtime for one decorative effect when the existing runtime can express it.
+- Selecting a core SDK without an adapter boundary or acknowledged lock-in.
+- Assuming a framework-agnostic visual idea implies framework-compatible source code.
+- Rejecting all dependencies reflexively and rebuilding difficult accessibility behavior poorly.
+- Selecting a full design system when only one headless primitive is needed.
+- Selecting a primitive without budgeting the design work needed to make it locally coherent.
+- Treating “MIT” as a substitute for reading the current license file and intended-use details.
+- Declaring integration successful here; that belongs to downstream audit and runtime verification.
+
+**Hard gate:** popularity, screenshots or remembered reputation cannot authorize material reuse; `adopt` and `adapt` require current license evidence, implementation inspection, role fit and an explicit integration/exit contract.
+NUIV4FILE	100644	22254	skills/skill-graph.json
+{
+  "version": 2,
+  "root": "using-nolane-ui",
+  "lifecycle": [
+    "INTAKE",
+    "CONTRACTED",
+    "ROUTED",
+    "DISCOVERED",
+    "ARCHITECTED",
+    "DIVERGED",
+    "DESIGN_SELECTED",
+    "SYSTEMIZED",
+    "SPECIFIED",
+    "IMPLEMENTABLE",
+    "RENDERED",
+    "CRITIQUED",
+    "VERIFIED",
+    "RELEASED"
+  ],
+  "exception_states": [
+    "RECOVERY",
+    "BLOCKED"
+  ],
+  "authority_order": [
+    "explicit-product-and-safety-constraints",
+    "applicable-law-regulation-and-normative-standards",
+    "safety-and-regulatory-authority-guidance",
+    "platform-authoritative-guidance",
+    "project-design-system-and-validated-product-evidence",
+    "empirical-human-factors-and-usability-evidence",
+    "mature-design-system-guidance",
+    "high-quality-community-heuristics",
+    "model-aesthetic-preference"
+  ],
+  "skills": {
+    "using-nolane-ui": {
+      "family": "kernel",
+      "parent": null,
+      "output": "bootstrap-directive"
+    },
+    "nolane-ui": {
+      "family": "kernel",
+      "parent": "using-nolane-ui",
+      "output": "ui-session"
+    },
+    "ui-contracting": {
+      "family": "kernel",
+      "parent": "nolane-ui",
+      "output": "ui-contract"
+    },
+    "routing-ui-work": {
+      "family": "kernel",
+      "parent": "nolane-ui",
+      "output": "ui-task-profile"
+    },
+    "compiling-ui-obligations": {
+      "family": "kernel",
+      "parent": "nolane-ui",
+      "output": "obligation-ledger"
+    },
+    "binding-ui-evidence": {
+      "family": "kernel",
+      "parent": "nolane-ui",
+      "output": "evidence-ledger"
+    },
+    "challenging-ui-designs": {
+      "family": "kernel",
+      "parent": "nolane-ui",
+      "output": "critic-plan"
+    },
+    "gating-ui-completion": {
+      "family": "kernel",
+      "parent": "nolane-ui",
+      "output": "completion-decision"
+    },
+    "recovering-ui-work": {
+      "family": "kernel",
+      "parent": "nolane-ui",
+      "output": "recovery-record"
+    },
+    "modeling-product-intent": {
+      "family": "product",
+      "parent": "routing-ui-work",
+      "output": "product-intent-model"
+    },
+    "modeling-users-and-tasks": {
+      "family": "product",
+      "parent": "routing-ui-work",
+      "output": "user-task-model"
+    },
+    "architecting-information": {
+      "family": "architecture",
+      "parent": "routing-ui-work",
+      "output": "information-architecture-map"
+    },
+    "designing-task-flows": {
+      "family": "architecture",
+      "parent": "routing-ui-work",
+      "output": "task-flow-model"
+    },
+    "designing-interactions": {
+      "family": "interaction",
+      "parent": "routing-ui-work",
+      "output": "interaction-contract"
+    },
+    "modeling-component-semantics": {
+      "family": "interaction",
+      "parent": "r

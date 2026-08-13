@@ -1,0 +1,448 @@
+ng external UI primitives, components, engines and implementation sources."
+    },
+    {
+      "name": "adapting-external-ui-patterns",
+      "family": "system",
+      "parent": "selecting-ui-building-blocks",
+      "output": "ui-adaptation-contract",
+      "ownership": "Own semantic and visual reconciliation of selected external mechanisms with local actions, tokens, components, accessibility, content and platform behavior."
+    },
+    {
+      "name": "engineering-rich-interactive-components",
+      "family": "interaction",
+      "parent": "designing-interactions",
+      "output": "rich-interaction-contract",
+      "ownership": "Own implementation mechanics for animated direct-manipulation and rich interactive components including interruption modalities reduced motion performance and state continuity."
+    },
+    {
+      "name": "auditing-ui-library-integration",
+      "family": "critic",
+      "parent": "selecting-ui-building-blocks",
+      "output": "ui-integration-audit",
+      "ownership": "Own integration-risk review for license dependency accessibility reduced-motion SSR hydration performance API drift security and exit strategy before external UI code ships."
+    },
+    {
+      "name": "maintaining-ui-resource-registry",
+      "family": "research",
+      "parent": "researching-ui-frontiers",
+      "output": "ui-resource-registry-delta",
+      "ownership": "Own lifecycle governance of the curated UI resource registry including source roles provenance freshness drift license posture deduplication and retirement."
+    }
+  ]
+}
+NUIV4FILE	100644	626	nui.config.json
+{
+  "version": "0.4.0",
+  "authority": [
+    "user-product-requirements",
+    "normative-standards",
+    "authoritative-platform-guidance",
+    "project-design-system",
+    "direct-measured-evidence",
+    "mature-design-system-guidance",
+    "high-quality-agent-heuristics",
+    "community-heuristics",
+    "model-preference"
+  ],
+  "completion_policy": {
+    "missing_evidence": "BLOCKED",
+    "self_certification": false,
+    "allow_unresolved_critical": false,
+    "allow_unresolved_major": false,
+    "require_bounds": true
+  },
+  "skill_root": "skills",
+  "graph": "skills/skill-graph.json",
+  "schema_root": "schemas"
+}
+NUIV4FILE	100644	376	pyproject.toml
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nolane-ui-intelligence"
+version = "0.4.0"
+description = "Universal Design Cognition & Verification System for AI agents"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Nolane-x"}]
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["src"]
+NUIV4FILE	100644	1266	schemas/rich-interaction-contract.schema.json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NUI Rich Interaction Contract",
+  "type": "object",
+  "required": [
+    "states",
+    "modalities",
+    "reduced_motion",
+    "focus_behavior",
+    "performance_budget",
+    "ssr_strategy",
+    "exit_strategy",
+    "interruptible",
+    "retargetable"
+  ],
+  "properties": {
+    "states": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "string"
+      }
+    },
+    "modalities": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "reduced_motion": {
+      "type": "string",
+      "minLength": 3
+    },
+    "focus_behavior": {
+      "type": "string",
+      "minLength": 3
+    },
+    "performance_budget": {
+      "type": "string",
+      "minLength": 3
+    },
+    "ssr_strategy": {
+      "type": "string",
+      "minLength": 3
+    },
+    "exit_strategy": {
+      "type": "string",
+      "minLength": 3
+    },
+    "interruptible": {
+      "const": true
+    },
+    "retargetable": {
+      "const": true
+    },
+    "activation_threshold": {
+      "type": "string"
+    },
+    "semantic_commit": {
+      "type": "string"
+    },
+    "cleanup": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}
+NUIV4FILE	100644	1638	schemas/ui-reference-ledger.schema.json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NUI UI Reference Ledger",
+  "type": "object",
+  "required": [
+    "references"
+  ],
+  "properties": {
+    "references": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "source_id",
+          "url",
+          "usage",
+          "mechanism",
+          "inspected",
+          "adaptation_boundary"
+        ],
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "usage": {
+            "enum": [
+              "adopt",
+              "adapt",
+              "inspire",
+              "build",
+              "reject"
+            ]
+          },
+          "mechanism": {
+            "type": "string",
+            "minLength": 3
+          },
+          "inspected": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "adaptation_boundary": {
+            "type": "string",
+            "minLength": 3
+          },
+          "verified_at": {
+            "type": "string"
+          },
+          "commit_or_version": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "notes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}
+NUIV4FILE	100644	1015	schemas/ui-source-selection.schema.json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NUI UI Source Selection",
+  "type": "object",
+  "required": [
+    "decision",
+    "source_id",
+    "rationale"
+  ],
+  "properties": {
+    "decision": {
+      "enum": [
+        "adopt",
+        "adapt",
+        "inspire",
+        "build",
+        "reject"
+      ]
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "rationale": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "citations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "license_posture": {
+      "type": "string"
+    },
+    "inspected": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_role_fit": {
+      "type": "boolean"
+    },
+    "dependency_cost": {
+      "type": "string"
+    },
+    "exit_strategy": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}
+NUIV4FILE	100644	2704	schemas/ui-task-profile.schema.json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "nui://schemas/ui-task-profile",
+  "type": "object",
+  "required": [
+    "intent",
+    "surface",
+    "platforms",
+    "users",
+    "information",
+    "interaction",
+    "visual",
+    "constraints",
+    "references",
+    "selected_skills"
+  ],
+  "properties": {
+    "intent": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "surface": {
+      "type": "object",
+      "required": [
+        "family"
+      ]
+    },
+    "platforms": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "users": {
+      "type": "object"
+    },
+    "information": {
+      "type": "object"
+    },
+    "interaction": {
+      "type": "object"
+    },
+    "visual": {
+      "type": "object"
+    },
+    "constraints": {
+      "type": "object"
+    },
+    "references": {
+      "type": "object"
+    },
+    "selected_skills": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "inactive_faculties": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "faculty",
+          "reason"
+        ]
+      }
+    },
+    "platform_surfaces": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "input_modalities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ai_role": {
+      "type": "string"
+    },
+    "risk_class": {
+      "type": "string"
+    },
+    "temporal_behaviors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "specialized_ui_domains": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "product_wide": {
+      "type": "boolean"
+    },
+    "scope": {
+      "type": "string"
+    },
+    "delivery_stage": {
+      "type": "string"
+    },
+    "claims_runtime_behavior": {
+      "type": "boolean"
+    },
+    "visual_evidence_iteration": {
+      "type": "boolean"
+    },
+    "external_ui_sources": {
+      "type": "boolean"
+    },
+    "named_ui_source": {
+      "type": "string"
+    },
+    "adoption_intent": {
+      "enum": [
+        "adopt",
+        "adapt",
+        "inspire",
+        "build",
+        "reject",
+        "unresolved"
+      ]
+    },
+    "rich_interaction": {
+      "type": "boolean"
+    },
+    "ui_registry_maintenance": {
+      "type": "boolean"
+    },
+    "research_freshness_requirement": {
+      "type": "string"
+    },
+    "evidence_capabilities": {
+      "type": [
+        "array",
+        "object"
+      ]
+    }
+  },
+  "title": "NUI UI Task Profile v4-compatible schema"
+}
+NUIV4FILE	100755	2026	scripts/nui-ecosystem-query
+#!/usr/bin/env python3
+"""Query NUI's typed UI implementation ecosystem registry."""
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+
+from nolane_ui.ecosystem import query_ui_ecosystem, validate_ui_ecosystem_registry
+
+
+def _csv(value: str) -> list[str]:
+    return [item.strip() for item in value.split(",") if

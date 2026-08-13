@@ -1,0 +1,372 @@
+e upstream claim",
+      "required_skills": [
+        "auditing-ui-library-integration",
+        "verifying-runtime-ui-behavior"
+      ],
+      "must_find": [
+        "Upstream accessibility is not local integration proof",
+        "Require local runtime verification"
+      ]
+    }
+  ]
+}
+NUIV4FILE	100644	94	evals/v4/manifest.json
+{
+  "version": 4,
+  "assets": [
+    "evals/v4/ecosystem/cases.json"
+  ],
+  "case_count": 14
+}
+NUIV4FILE	100644	5586	knowledge/source-ledger-ecosystem-v4.json
+{
+  "version": 4,
+  "as_of": "2026-08-13",
+  "purpose": "Primary-source evidence behind NUI v4 ecosystem architecture and representative registry classifications.",
+  "sources": [
+    {
+      "id": "react-bits",
+      "url": "https://github.com/DavidHDev/react-bits",
+      "kind": "primary-repository",
+      "drift": "very-high",
+      "claims": [
+        "animated interactive React component gallery",
+        "copy/adapt workflow",
+        "license has Commons Clause conditions"
+      ],
+      "inspected": [
+        "README.md",
+        "LICENSE.md",
+        "package metadata"
+      ]
+    },
+    {
+      "id": "magic-ui",
+      "url": "https://github.com/magicuidesign/magicui",
+      "kind": "primary-repository",
+      "drift": "high",
+      "claims": [
+        "animated copy-paste UI distribution",
+        "MIT license"
+      ],
+      "inspected": [
+        "README.md",
+        "LICENSE.md"
+      ]
+    },
+    {
+      "id": "motion-primitives",
+      "url": "https://github.com/ibelick/motion-primitives",
+      "kind": "primary-repository",
+      "drift": "high",
+      "claims": [
+        "motion component primitives",
+        "beta and active issue surface including accessibility/hydration"
+      ],
+      "inspected": [
+        "README.md",
+        "issues",
+        "license"
+      ]
+    },
+    {
+      "id": "animate-ui",
+      "url": "https://github.com/imskyleen/animate-ui",
+      "kind": "primary-repository",
+      "drift": "high",
+      "claims": [
+        "animated React Tailwind Motion distribution",
+        "MIT license"
+      ],
+      "inspected": [
+        "README.md",
+        "license"
+      ]
+    },
+    {
+      "id": "motion",
+      "url": "https://github.com/motiondivision/motion",
+      "kind": "primary-repository",
+      "drift": "very-high",
+      "claims": [
+        "motion engine for React JavaScript Vue",
+        "gestures layout scroll timelines",
+        "MIT license"
+      ],
+      "inspected": [
+        "README.md",
+        "LICENSE.md"
+      ]
+    },
+    {
+      "id": "radix-primitives",
+      "url": "https://github.com/radix-ui/primitives",
+      "kind": "primary-repository",
+      "drift": "high",
+      "claims": [
+        "low-level accessible primitives",
+        "MIT license"
+      ],
+      "inspected": [
+        "README.md",
+        "license"
+      ]
+    },
+    {
+      "id": "base-ui",
+      "url": "https://github.com/mui/base-ui",
+      "kind": "primary-repository",
+      "drift": "high",
+      "claims": [
+        "unstyled accessible React components",
+        "MIT license"
+      ],
+      "inspected": [
+        "README.md",
+        "license"
+      ]
+    },
+    {
+      "id": "react-aria",
+      "url": "https://github.com/adobe/react-spectrum",
+      "kind": "primary-repository",
+      "drift": "high",
+      "claims": [
+        "unstyled accessibility and interaction primitives",
+        "adaptive input and internationalization",
+        "Apache-2.0 license"
+      ],
+      "inspected": [
+        "README.md",
+        "license"
+      ]
+    },
+    {
+      "id": "zag",
+      "url": "https://github.com/chakra-ui/zag",
+      "kind": "primary-repository",
+      "drift": "high",
+      "claims": [
+        "cross-framework accessible state-machine component logic",
+        "MIT license"
+      ],
+      "inspected": [
+        "README.md",
+        "license"
+      ]
+    },
+    {
+      "id": "gsap-skills",
+      "url": "https://github.com/greensock/gsap-skills",
+      "kind": "primary-repository",
+      "drift": "high",
+      "claims": [
+        "official GSAP AI skills split by core timeline ScrollTrigger plugins React performance frameworks",
+        "MIT license"
+      ],
+      "inspected": [
+        "README.md",
+        "skills",
+        "LICENSE"
+      ]
+    },
+    {
+      "id": "tldraw",
+      "url": "https://github.com/tldraw/tldraw",
+      "kind": "primary-repository",
+      "drift": "very-high",
+      "claims": [
+        "infinite canvas SDK",
+        "production SDK use has license-key requirements under current tldraw license"
+      ],
+      "inspected": [
+        "README.md",
+        "LICENSE.md"
+      ]
+    },
+    {
+      "id": "react-three-fiber",
+      "url": "https://github.com/pmndrs/react-three-fiber",
+      "kind": "primary-repository",
+      "drift": "high",
+      "claims": [
+        "React renderer for Three.js and interactive 3D scenes",
+        "MIT license"
+      ],
+      "inspected": [
+        "README.md",
+        "license"
+      ]
+    },
+    {
+      "id": "design-agent-skills",
+      "url": "https://github.com/podo/design-agent-skills",
+      "kind": "primary-repository",
+      "drift": "very-high",
+      "claims": [
+        "large design-skill catalogue",
+        "two-level routing and on-demand pointers",
+        "explicit overlap and supply-chain concerns"
+      ],
+      "inspected": [
+        "README.md",
+        "design-catalogue/SKILL.md"
+      ]
+    },
+    {
+      "id": "tiptap",
+      "url": "https://github.com/ueberdosis/tiptap",
+      "kind": "primary-repository",
+      "drift": "high",
+      "claims": [
+        "headless extensible rich-text editor framework"
+      ],
+      "inspected": [
+        "README.md",
+        "releases"
+      ]
+    },
+    {
+      "id": "tanstack-table",
+      "url": "https://github.com/TanStack/table",
+      "kind": "primary-repository",
+      "drift": "very-high",
+      "claims": [
+        "headless data-table/datagrid core across frameworks",
+        "major-version prerelease activity requires live API verification"
+      ],
+      "inspected": [
+        "README.md",
+        "releases"
+      ]
+    }
+  ]
+}
+NUIV4FILE	100644	63183	knowledge/ui-ecosystem-registry.json
+{
+  "version": 4,
+  "as_of": "2026-08-13",
+  "policy": {
+    "purpose": "Curated typed retrieval index for UI implementation intelligence; never a popularity leaderboard or blanket endorsement.",
+    "selection_precedence": [
+      "product-obligations",
+      "capability-and-source-role-fit",
+      "stack-and-platform-fit",
+      "accessibility-and-interaction-fit",
+      "license-and-provenance",
+      "integration-cost-and-exit-strategy",
+      "visual-specificity"
+    ],
+    "live_search_fallback": "If local candidates are absent, stale, high-drift or legally ambiguous, perform live source research and write a reference ledger before selection.",
+    "no_third_party_code_embedded": true
+  },
+  "sources": [
+    {
+      "id": "react-bits",
+      "name": "React Bits",
+      "url": "https://github.com/DavidHDev/react-bits",
+      "role": "animated-component-gallery",
+      "categories": [
+        "motion-animation",
+        "visual-components",
+        "creative-effects"
+      ],
+      "capabilities": [
+        "animated-components",
+        "text-effects",
+        "background-effects",
+        "3d-effects"
+      ],
+      "stacks": [
+        "react",
+        "javascript",
+        "typescript"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "restricted",
+        "name": "MIT + Commons Clause",
+        "evidence_url": "https://github.com/DavidHDev/react-bits/blob/main/LICENSE.md",
+        "redistribution_note": "Application use is allowed by current terms, but redistribution of the components/library is restricted; inspect current LICENSE.md before reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "very-high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme",
+          "license"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Creative animated React components or effects where product fit justifies them."
+      ],
+      "when_not_to_use": [
+        "Do not redistribute React Bits components as a competing component library; do not use it as sole accessibility semantics authority."
+      ]
+    },
+    {
+      "id": "magic-ui",
+      "name": "Magic Ui",
+      "url": "https://github.com/magicuidesign/magicui",
+      "role": "animated-component-gallery",
+      "categories": [
+        "motion-animation",
+        "visual-components"
+      ],
+      "capabilities": [
+        "animated-components",
+        "effects",
+        "landing-sections"
+      ],
+      "stacks": [
+        "react",
+        "nextjs",
+        "tailwind"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "verified-compatible",
+        "name": "MIT",
+        "evidence_url": "https://github.com/magicuidesign/magicui/blob/main/LICENSE.md",
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme",
+          "license"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need animated-components with a source role matching animated-component-gallery."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "motion-primitives",
+      "name": "Motion Primitives",
+      "url": "https://github.com/ibelick/motion-primitives",
+      "role": "animated-component-gallery",
+      "categories": [
+        "motion-animation",
+        "interaction-polish"
+      ],
+      "capabilities": [
+        "animate

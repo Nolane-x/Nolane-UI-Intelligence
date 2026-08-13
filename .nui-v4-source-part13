@@ -1,0 +1,142 @@
+ item.strip()]
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Query the NUI v4 UI ecosystem registry")
+    parser.add_argument("--registry", default=str(ROOT / "knowledge/ui-ecosystem-registry.json"))
+    parser.add_argument("--capability", action="append", default=[], help="Capability; repeat or comma-separate")
+    parser.add_argument("--stack", action="append", default=[], help="Stack/platform; repeat or comma-separate")
+    parser.add_argument("--category", action="append", default=[], help="Category; repeat or comma-separate")
+    parser.add_argument("--intent", choices=["adopt", "adapt", "inspire", "build", "reject"], default="inspire")
+    parser.add_argument("--limit", type=int, default=12)
+    args = parser.parse_args()
+
+    registry = json.loads(Path(args.registry).read_text(encoding="utf-8"))
+    validation = validate_ui_ecosystem_registry(registry)
+    if not validation["valid"]:
+        print(json.dumps({"valid": False, "errors": validation["errors"]}, indent=2), file=sys.stderr)
+        return 2
+
+    flatten = lambda groups: [x for group in groups for x in _csv(group)]
+    query = {
+        "capabilities": flatten(args.capability),
+        "stacks": flatten(args.stack),
+        "categories": flatten(args.category),
+        "intent": args.intent,
+    }
+    result = query_ui_ecosystem(registry, query)
+    result["query"] = query
+    result["matches"] = result["matches"][: max(args.limit, 0)]
+    print(json.dumps(result, indent=2, ensure_ascii=False))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+NUIV4FILE	100755	4152	scripts/nui-release-packet
+#!/usr/bin/env python3
+"""Generate a fresh bounded structural release packet after tests succeed."""
+
+import argparse
+import json
+from datetime import datetime, timezone
+from pathlib import Path
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Generate NUI structural completion evidence")
+    parser.add_argument("--output", required=True)
+    parser.add_argument("--revision", required=True)
+    parser.add_argument("--source", required=True, help="Execution source, e.g. GitHub Actions run ID")
+    args = parser.parse_args()
+
+    observed_at = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+    evidence = [
+        {
+            "evidence_id": "E-UNIT-SUITE",
+            "method": "test-run",
+            "source": args.source,
+            "scope": "repository unit and contract suite",
+            "claim": "all repository unit and contract tests completed successfully before packet generation",
+            "observed_at": observed_at,
+            "result": "PASS"
+        },
+        {
+            "evidence_id": "E-REPOSITORY-VALIDATOR",
+            "method": "automated-audit",
+            "source": "scripts/nui-validate executed in the same fail-fast verification job",
+            "scope": "repository structure, graph, skills, schemas, docs and eval JSON",
+            "claim": "repository deterministic invariants are required to pass for this packet to be accepted",
+            "observed_at": observed_at,
+            "result": "PASS"
+        }
+    ]
+    packet = {
+        "packet_id": f"NUI-V4-STRUCTURAL-{args.revision}",
+        "artifact_revision": args.revision,
+        "phase": "VERIFIED",
+        "task_profile": "NUI v4 repository structural release: universal UI cognition, product closure, ecosystem retrieval, rich-interaction contracts, provenance and eval gates",
+        "obligations": [
+            {"id": "O-GRAPH-SKILLS", "status": "PASS", "evidence_refs": ["E-UNIT-SUITE", "E-REPOSITORY-VALIDATOR"]},
+            {"id": "O-DETERMINISTIC-KERNEL", "status": "PASS", "evidence_refs": ["E-UNIT-SUITE"]},
+            {"id": "O-ADAPTER-CONTRACT", "status": "PASS", "evidence_refs": ["E-UNIT-SUITE"]},
+            {"id": "O-EVAL-CONTRACT", "status": "PASS", "evidence_refs": ["E-UNIT-SUITE", "E-REPOSITORY-VALIDATOR"]},
+            {"id": "O-PROVENANCE-DOCS", "status": "PASS", "evidence_refs": ["E-REPOSITORY-VALIDATOR"]}
+        ],
+        "evidence": evidence,
+        "findings": [],
+        "checks": {"unit-tests": "PASS", "repository-validator": "PASS", "completion-gate": "PASS"},
+        "claim": "This exact repository revision satisfies NUI v4 structural, skill-contract, ecosystem-registry, adapter, eval-contract and deterministic completion-gate checks in the fail-fast verification job that generated this packet.",
+        "bounds": [
+            "This is structural/process verification; it does not prove the beauty, usability, accessibility or fidelity of every future UI generated with NUI.",
+            "Agent-behavior eval JSON files are pressure-test specifications; repository CI does not report them as live cross-model benchmark wins.",
+            "Product UI accessibility and fidelity require task-specific runtime and normative evidence through NUI obligations and critics.",
+            "NUI makes no objective superiority claim over all competing UI skills without controlled head-to-head runtime evaluation.",
+            "Repository CI verifies the ecosystem registry contract, not the current correctness or license compatibility of every third-party source at future use time; high-drift sources require live inspection."
+        ],
+        "unknowns": [
+            "Repeated cross-model behavior-eval scores are outside repository-only CI.",
+            "Browser, screenshot, semantic-tree and independent-worker capabilities vary by host runtime."
+        ],
+        "decision": "PASS"
+    }
+
+    output = Path(args.output)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(packet, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+NUIV4FILE	100644	8111	skills/adapting-external-ui-patterns/SKILL.md
+---
+name: adapting-external-ui-patterns
+description: Use when an external UI source has been selected for adaptation or inspiration and its mechanism must be reconciled with the product's actions, semantics, content, tokens, states, accessibility, platform behavior and visual identity without creating a foreign island.
+---
+
+# Adapting External UI Patterns
+
+## Parent Contract
+**Required parent:** `selecting-ui-building-blocks`.
+
+Receive a source selection whose decision is `adapt` or `inspire`, with canonical citation, inspected mechanism, source role, license posture where code reuse is material, local capability/action IDs, component system, design tokens, visual direction, platform constraints and known integration risks.
+
+## Decision Boundary
+This faculty owns **translation into the local product language**. It decides what of an external pattern survives, what is re-expressed, and what is discarded. It does not discover candidates, choose between libraries, or certify the final implementation. It must preserve the useful mechanism while preventing external code from importing a second semantic model, second design system or demo-specific content into the product.
+
+Adaptation is not restyling. Changing a purple gradient to the brand blue while leaving foreign states, labels, focus behavior, motion timing and data assumptions untouched is still a bad transplant. The adaptation contract operates across semantics, state, interaction, content, visual tokens, motion, responsiveness and accessibility.
+
+## Product Truth
+Copy-paste UI libraries optimize for demonstration and reuse. Their examples often contain placeholder labels, isolated states, ideal content lengths, default icons, demo timing, fixed assumptions about data, and their own radius/shadow/color vocabulary. When AI pastes them verbatim, the result becomes a collage: one section behaves like shadcn, another like a motion gallery, another like Material, while the underlying product has different actions and domain language.
+
+The strongest use of external work is usually **mechanism transfer**. A morphing card can teach object continuity; a command palette can teach progressive access; an animated number can teach change emphasis; a state-machine primitive can teach keyboard/focus transitions. The product then owns the final expression.
+
+## Decision Model
+1. **Name the source mechanism in neutral terms.** Replace brand/demo wording with behavior: shared-layout continuity, staggered reveal, inertial drag with snap, collision-aware popover, semantic disclosure, animated numeric interpolation, masked text transition, canvas pan/zoom, or another concrete relation.
+2. **Bind to canonical product actions.** Every trigger and completion event maps to `action-registry` IDs. Remove demo handlers and invented actions. If no action exists, return a closure defect rather than fabricating one.
+3. **Map state machines.** Align source states to the product's component and screen states. Add product-required loading, empty, error, disabled, permission, destructive confirmation, offline, interrupted and recovery states that the demo omitted. Delete source states that have no product meaning.
+4. **Reconcile semantics.** Use the product's roles, names, keyboard contract, focus policy and announcement requirements. If the source is visual-only, pair it with the selected semantic primitive instead of reimplementing semantics from scratch.
+5. **Reconcile content.** Replace demo copy with domain language, realistic lengths, localization stress cases, numbers, dates, errors and labels. Content geometry is part of adaptation; a card that only works with two-word English labels is not adapted.
+6. **Reconcile tokens.** Map typography, spacing, radius, color, border, elevation, iconography and density through the local token/component system. Record intentionally new tokens instead of scattering literal values.
+7. **Reconcile motion.** Preserve the information purpose, not exact spectacle. Map durations/easing to local motion grammar, define interruption and retargeting, reduced-motion alternative, focus continuity, entry/exit symmetry and low-

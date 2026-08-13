@@ -1,0 +1,104 @@
+- Making the business task impossible when the animation dependency is disabled.
+
+**Hard gate:** rich interaction cannot ship without explicit states, modality equivalence, interruption/retargeting, reduced motion, focus semantics, rendering lifecycle, performance budget and a testable exit/degradation strategy.
+NUIV4FILE	100644	7617	skills/maintaining-ui-resource-registry/SKILL.md
+---
+name: maintaining-ui-resource-registry
+description: Use when the curated UI ecosystem index must add, update, deduplicate, reclassify, deprecate, or retire external component, motion, primitive, design-system, editor, visualization, mobile, canvas, 3D or agent-skill sources without turning the registry into stale or popularity-biased memory.
+---
+
+# Maintaining UI Resource Registry
+
+## Parent Contract
+**Required parent:** `researching-ui-frontiers`.
+
+Receive new primary-source evidence, recurring research discoveries, source drift signals, selection/audit outcomes, broken links, license changes, ecosystem replacements and repeated live-search gaps. The parent owns frontier research; this faculty owns the durable typed index used by later agents.
+
+## Decision Boundary
+This faculty owns **registry lifecycle governance**, not product-specific source selection. It decides whether a source deserves an index entry, how it is typed, what claims can be stored, when those claims expire, whether two entries are duplicates, and when a source should be deprecated or retired. It cannot turn a successful use in one project into universal endorsement.
+
+The registry is deliberately compact metadata. It never vendors third-party code, copies whole documentation sets, embeds proprietary examples, or pretends a cached license/API fact is eternally current. Its purpose is to make the next search more intelligent and faster while preserving the need for live verification at the correct boundary.
+
+## Product Truth
+Persistent resource lists decay. Repositories change ownership, licenses, package names and maintenance status. Libraries merge or fork. A once-strong project becomes archived. A component catalogue adds commercial tiers. An API changes its recommended import. A design system's new version fixes an accessibility issue. If an AI treats a static list as timeless truth, memory becomes a source of error.
+
+The opposite failure is an uncurated link dump. Thousands of entries increase retrieval noise, create trigger overlap and make ranking vulnerable to popularity. The registry must store only sources that add a distinct source role, capability cluster, stack/platform coverage, mechanism or risk profile relevant to NUI.
+
+## Decision Model
+1. **Require primary provenance.** New entries need canonical repository/docs evidence and a verification date. Aggregator/blog discovery may propose a candidate but cannot establish the registry record.
+2. **Assign a source role.** Classify the source by what it can legitimately contribute: animated gallery, motion engine, headless primitive, state machine, design system, editor, grid, form engine, canvas SDK, 3D renderer, data-viz system, mobile system, skill suite or another controlled role. Do not use a generic `ui-library` bucket when a narrower role is known.
+3. **Assign capabilities and stack.** Use retrieval-oriented capability tags, not marketing adjectives. `dialog`, `shared-layout`, `rich-text-editor`, `infinite-canvas`, `keyboard-reorder`, `declarative-chart` are useful; `beautiful`, `modern`, `premium` are not.
+4. **Record adoption modes.** A source may be safe to `inspire` even when `adapt/adopt` requires license review or is inappropriate. Encode allowed modes conservatively; product-specific selection still rechecks them.
+5. **Record license posture with evidence class.** Distinguish `verified-compatible`, `restricted`, `live-check-required`, and `unknown`. A verified record names the evidence URL and date. Restricted does not mean unusable; it means selection must respect the specific terms.
+6. **Record accessibility posture carefully.** `strong` means the source explicitly engineers/tests accessibility in its role; `mixed` means useful components/effects still require significant local verification; `unknown` means no durable claim was established. Never label an entire project WCAG-compliant based on marketing.
+7. **Assign drift.** APIs, component galleries, agent skills and commercial terms often drift quickly; standards-oriented primitives may drift more slowly but still evolve. `high` and `very-high` force live verification before material use.
+8. **Deduplicate by role and canonical lineage.** Forks, ports and wrappers may deserve entries only if they create real platform coverage or different constraints. Do not index dozens of near-identical shadcn galleries unless they add a differentiated mechanism.
+9. **Capture negative boundaries.** Every entry states when not to use it. This is as important as capabilities because it protects routing from overgeneralizing a famous source.
+10. **Learn from downstream outcomes.** Repeated integration failures, license ambiguity, abandoned versions or successful local patterns can change risk metadata. Store outcome evidence without turning one project's taste into global ranking.
+11. **Retire responsibly.** Mark archived, superseded, unsafe, dead or duplicate sources with reason and replacement where known. Keep enough history to explain previous decisions.
+12. **Maintain research radar.** High-drift sources can be watched for major license, API, ownership or maintenance changes. The registry's `as_of` date must never imply currentness beyond its boundary.
+
+## Evidence
+Registry changes cite canonical repo/docs/license/releases and, when reclassification is based on NUI experience, the relevant integration-audit evidence. Star counts can help discover projects but are not stored as authority signals. Search-engine descriptions should not become durable claims until primary sources confirm them.
+
+A source with uncertain license is still useful as `inspire` if mechanism transfer is lawful and non-copying, but its material reuse modes stay blocked. A source with a strong accessibility mission still receives local integration tests. A source with an MIT license still needs version/API inspection if it is high drift. Registry metadata guides diligence; it never replaces it.
+
+## Output Contract
+Return `ui-resource-registry-delta` with:
+- `as_of`
+- `operations[] {add|update|reclassify|deprecate|retire}`
+- `source_id`
+- `canonical_url`
+- `source_role`
+- `categories[]`
+- `capabilities[]`
+- `stacks[]`
+- `allowed_intents[]`
+- `license {status, name, evidence_url, verified_at, redistribution_note}`
+- `accessibility_posture`
+- `drift`
+- `verify_live_before_use`
+- `provenance {inspected[], evidence_refs[]}`
+- `when_to_use[]`
+- `when_not_to_use[]`
+- `supersedes[]` or `superseded_by`
+- `reason`
+- `downstream_outcome_refs[]`
+
+Every delta must validate against the registry schema before it becomes durable knowledge.
+
+## Failure Traps
+- Adding a repo because it is trending or has many stars.
+- Using “open source” as the license value.
+- Storing a license claim without an evidence URL/date when marked verified.
+- Treating one successful project integration as universal recommendation.
+- Indexing every shadcn clone or gallery and creating retrieval noise.
+- Failing to distinguish official upstream from forks, ports and aggregators.
+- Letting a source change ownership or terms without increasing drift/reverification.
+- Keeping broken/dead sources because old prompts reference them.
+- Removing retired sources without history, making old decisions inexplicable.
+- Storing copied third-party source code in the registry.
+- Recording aesthetic adjectives rather than searchable capabilities.
+- Allowing registry rank to become a popularity leaderboard.
+
+**Hard gate:** no registry claim about role, license, stack, capability or currentness may become durable without primary provenance and an explicit freshness boundary.
+NUIV4FILE	100644	8668	skills/researching-ui-implementation-ecosystems/SKILL.md
+---
+name: researching-ui-implementation-ecosystems
+description: Use when UI work may benefit from current external component libraries, motion engines, headless primitives, editors, canvas SDKs, data visualization systems, mobile systems, design-agent skills, or other implementation ecosystems and the agent must discover evidence rather than invent from memory.
+---
+
+# Researching UI Implementation Ecosystems
+
+## Parent Contract
+**Required parent:** `routing-ui-work`.
+
+Receive the product obligation, required capability, platform and framework truth, interaction complexity, accessibility requirements, visual direction, dependency constraints, adoption intent, and any source already named by the user. The parent owns whether ecosystem research is necessary; this faculty owns the search space and the evidence returned from it.
+
+## Decision Boundary
+This faculty owns **task-specific discovery**. It answers *what current sources could materially help this exact UI problem, what role does each source play, and what must be inspected before another faculty may select it?* It does not decide to install a dependency, copy code, approve a license, choose final visual style, or declare an upstream demo correct in the local product.
+
+Discovery is typed. A motion engine is not a component library. A headless dialog primitive is not an aesthetic reference. A chart grammar is not a dashboard design system. A canvas SDK is not a generic page-layout solution. A catalogue of AI skills is not evidence that all of those skills should be loaded. Every candidate must therefore carry a **source role** before it may enter the selection stage.
+
+## Product Truth
+AI agents routinely know the names of famous libraries but use that memory poorly. They recommend whatever is salient, copy an attractive demo without reading its source, miss a smaller primitive that fits better, treat stars as quality, or use a gallery com

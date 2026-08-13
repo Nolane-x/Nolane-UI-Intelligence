@@ -1,0 +1,349 @@
+t()
+        declared = set(graph.get("skills", {})) if graph else set()
+        for asset in assets:
+            path = asset.get("path") if isinstance(asset, dict) else None
+            if not isinstance(path, str) or not path:
+                errors.append("v3 eval manifest asset requires path")
+                continue
+            doc = _load(root / path)
+            if doc.get("version") != 3:
+                errors.append(f"v3 eval asset {path} must declare version 3")
+            for case in doc.get("cases", []):
+                total += 1
+                cid = case.get("id")
+                if not isinstance(cid, str) or not cid:
+                    errors.append(f"v3 eval asset {path} contains case without id")
+                elif cid in case_ids:
+                    errors.append(f"duplicate v3 eval case id {cid}")
+                else:
+                    case_ids.add(cid)
+                if len(str(case.get("failure", "")).split()) < 6:
+                    errors.append(f"v3 eval case {cid} has weak failure scenario")
+                required = case.get("required_skills", [])
+                if not isinstance(required, list) or not required:
+                    errors.append(f"v3 eval case {cid} requires required_skills")
+                else:
+                    unknown = sorted(set(required) - declared)
+                    if unknown:
+                        errors.append(f"v3 eval case {cid} references unknown skills {unknown}")
+                must_find = case.get("must_find", [])
+                if not isinstance(must_find, list) or len(must_find) < 2:
+                    errors.append(f"v3 eval case {cid} requires at least two must_find findings")
+        if total < 17:
+            errors.append(f"v3 eval corpus requires at least 17 cases, found {total}")
+        metrics["v3_adversarial_cases"] = total
+    except Exception as exc:
+        errors.append(f"invalid v3 eval corpus: {exc}")
+
+    try:
+        v4 = _load(root / "knowledge/v4-skill-manifest.json")
+        v4_items = v4.get("skills", [])
+        if len(v4_items) != 6:
+            errors.append(f"v4 skill manifest must contain exactly 6 skills, found {len(v4_items)}")
+        declared = graph.get("skills", {}) if graph else {}
+        ownership: set[str] = set()
+        for item in v4_items:
+            name = item.get("name")
+            node = declared.get(name)
+            if not node:
+                errors.append(f"v4 manifest skill {name} is not declared in skill graph")
+                continue
+            for field in ("family", "parent", "output"):
+                if node.get(field) != item.get(field):
+                    errors.append(f"v4 manifest/graph mismatch for {name}.{field}")
+            owner = str(item.get("ownership", "")).strip().lower()
+            if not owner:
+                errors.append(f"v4 manifest skill {name} requires ownership")
+            elif owner in ownership:
+                errors.append(f"duplicate v4 ownership sentence for {name}")
+            ownership.add(owner)
+        metrics["v4_skill_count"] = len(v4_items)
+    except Exception as exc:
+        errors.append(f"invalid v4 skill manifest: {exc}")
+
+    try:
+        registry = _load(root / "knowledge/ui-ecosystem-registry.json")
+        rr = _ecosystem.validate_ui_ecosystem_registry(registry)
+        errors.extend(f"UI ecosystem registry: {x}" for x in rr["errors"])
+        warnings.extend(f"UI ecosystem registry: {x}" for x in rr["warnings"])
+        metrics["ecosystem_source_count"] = rr["source_count"]
+        metrics["ecosystem_category_count"] = rr["category_count"]
+        registry_ids = {x.get("id") for x in registry.get("sources", []) if isinstance(x, dict)}
+
+        ledger = _load(root / "knowledge/source-ledger-ecosystem-v4.json")
+        if ledger.get("version") != 4:
+            errors.append("v4 ecosystem source ledger must declare version 4")
+        if not isinstance(ledger.get("as_of"), str) or not ledger.get("as_of"):
+            errors.append("v4 ecosystem source ledger requires as_of")
+        ledger_ids: set[str] = set()
+        for index, source in enumerate(ledger.get("sources", [])):
+            if not isinstance(source, dict):
+                errors.append(f"v4 ecosystem source ledger item {index} must be an object")
+                continue
+            sid = source.get("id")
+            if not isinstance(sid, str) or not sid:
+                errors.append(f"v4 ecosystem source ledger item {index} requires id")
+                continue
+            if sid in ledger_ids:
+                errors.append(f"duplicate v4 ecosystem ledger source {sid}")
+            ledger_ids.add(sid)
+            if sid not in registry_ids:
+                errors.append(f"v4 ecosystem ledger references unknown registry source {sid}")
+            if not isinstance(source.get("url"), str) or not source.get("url", "").startswith("https://"):
+                errors.append(f"v4 ecosystem ledger source {sid} requires canonical URL")
+            if source.get("drift") not in {"low", "medium", "high", "very-high"}:
+                errors.append(f"v4 ecosystem ledger source {sid} has invalid drift")
+            if not isinstance(source.get("claims"), list) or not source.get("claims"):
+                errors.append(f"v4 ecosystem ledger source {sid} requires claims")
+            if not isinstance(source.get("inspected"), list) or not source.get("inspected"):
+                errors.append(f"v4 ecosystem ledger source {sid} requires inspected evidence")
+        metrics["v4_ecosystem_research_sources"] = len(ledger_ids)
+    except Exception as exc:
+        errors.append(f"invalid v4 ecosystem registry/ledger: {exc}")
+
+    try:
+        manifest = _load(root / "evals/v4/manifest.json")
+        if manifest.get("version") != 4:
+            errors.append("v4 eval manifest must declare version 4")
+        assets = manifest.get("assets", [])
+        total = 0
+        ids: set[str] = set()
+        failures: set[str] = set()
+        declared = set(graph.get("skills", {})) if graph else set()
+        for asset in assets:
+            path = asset.get("path") if isinstance(asset, dict) else asset
+            if not isinstance(path, str) or not path:
+                errors.append("v4 eval manifest asset requires path")
+                continue
+            doc = _load(root / path)
+            if doc.get("version") != 4:
+                errors.append(f"v4 eval asset {path} must declare version 4")
+            for case in doc.get("cases", []):
+                total += 1
+                cid = case.get("id")
+                failure = str(case.get("failure", "")).strip()
+                if not isinstance(cid, str) or not cid:
+                    errors.append(f"v4 eval asset {path} contains case without id")
+                elif cid in ids:
+                    errors.append(f"duplicate v4 eval case id {cid}")
+                else:
+                    ids.add(cid)
+                if len(failure.split()) < 5:
+                    errors.append(f"v4 eval case {cid} has weak failure scenario")
+                elif failure.lower() in failures:
+                    errors.append(f"v4 eval case {cid} duplicates a failure scenario")
+                failures.add(failure.lower())
+                required = case.get("required_skills", [])
+                if not isinstance(required, list) or not required:
+                    errors.append(f"v4 eval case {cid} requires required_skills")
+                else:
+                    unknown = sorted(set(required) - declared)
+                    if unknown:
+                        errors.append(f"v4 eval case {cid} references unknown skills {unknown}")
+                if not isinstance(case.get("must_find"), list) or len(case.get("must_find", [])) < 2:
+                    errors.append(f"v4 eval case {cid} requires at least two must_find findings")
+        expected = manifest.get("case_count")
+        if expected != total:
+            errors.append(f"v4 eval manifest case_count {expected} does not match discovered {total}")
+        if total < 14:
+            errors.append(f"v4 eval corpus requires at least 14 cases, found {total}")
+        metrics["v4_adversarial_cases"] = total
+    except Exception as exc:
+        errors.append(f"invalid v4 eval corpus: {exc}")
+
+    return {"valid": not errors, "errors": errors, "warnings": warnings, "metrics": metrics}
+
+
+__all__ = [
+    "validate_completion_packet", "validate_repository", "validate_skill_graph",
+    "validate_state_matrix", "validate_tokens", "validate_industry_atlas",
+    "validate_source_ledger", "validate_research_saturation", "validate_bounded_saturation",
+    "validate_research_radar", "validate_mandatory_routes", "mandatory_routes_for_profile",
+    "validate_v3_completion_evidence", "validate_v4_completion_evidence",
+]
+NUIV4FILE	100644	1214	tests/test_adapters.py
+import json
+import unittest
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+RUNTIMES = ["generic", "codex", "claude-code", "gemini-cli", "cursor", "opencode"]
+REQUIRED_CAPABILITIES = {
+    "file-read", "file-write", "test-execution", "browser-inspection",
+    "screenshot-capture", "semantic-tree", "subagent-review", "component-retrieval",
+    "external-source-research"
+}
+
+
+class AdapterTests(unittest.TestCase):
+    def test_all_runtime_adapters_exist(self):
+        missing = [name for name in RUNTIMES if not (ROOT / "adapters" / name / "README.md").is_file()]
+        self.assertEqual([], missing)
+
+    def test_capability_map_covers_runtime_and_fallbacks(self):
+        path = ROOT / "adapters" / "capabilities.json"
+        self.assertTrue(path.is_file(), "capability map missing")
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(REQUIRED_CAPABILITIES, set(data.get("capabilities", {})))
+        for capability, record in data["capabilities"].items():
+            self.assertIn("fallback", record, capability)
+            self.assertEqual(set(RUNTIMES), set(record.get("runtimes", {})), capability)
+
+
+if __name__ == "__main__":
+    unittest.main()
+NUIV4FILE	100644	1189	tests/test_completion_v4.py
+import sys,unittest
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'src'))
+from nolane_ui.validators import validate_v4_completion_evidence
+class CompletionV4Tests(unittest.TestCase):
+ def test_external_adaptation_blocks_without_integration_audit_and_reference_ledger(self):
+  r=validate_v4_completion_evidence({'external_ui_used':True,'adoption_intent':'adapt','source_selection':{'status':'PASS'}}); self.assertEqual(r['decision'],'BLOCKED')
+ def test_rich_interaction_blocks_without_local_runtime_evidence(self):
+  r=validate_v4_completion_evidence({'rich_interaction':True,'rich_interaction_contract':{'status':'PASS'}}); self.assertEqual(r['decision'],'BLOCKED')
+ def test_complete_evidence_passes(self):
+  r=validate_v4_completion_evidence({'external_ui_used':True,'adoption_intent':'adapt','source_selection':{'status':'PASS'},'reference_ledger':{'status':'PASS'},'adaptation_contract':{'status':'PASS'},'integration_audit':{'status':'PASS'},'rich_interaction':True,'rich_interaction_contract':{'status':'PASS'},'behavior_verification':{'status':'PASS'}}); self.assertEqual(r['decision'],'PASS')
+if __name__=='__main__':unittest.main()
+NUIV4FILE	100644	935	tests/test_ecosystem_cli.py
+import json
+import subprocess
+import sys
+import unittest
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+class EcosystemCLITests(unittest.TestCase):
+    def test_cli_returns_react_bits_with_canonical_citation_and_no_popularity_factor(self):
+        run = subprocess.run(
+            [sys.executable, str(ROOT / "scripts/nui-ecosystem-query"), "--capability", "animated-components", "--stack", "react", "--intent", "adapt"],
+            cwd=ROOT,
+            text=True,
+            capture_output=True,
+            check=True,
+        )
+        result = json.loads(run.stdout)
+        match = next(item for item in result["matches"] if item["id"] == "react-bits")
+        self.assertEqual(match["url"], "https://github.com/DavidHDev/react-bits")
+        self.assertNotIn("stars", result["ranking_factors"])
+        self.assertTrue(match["verify_live_before_use"])
+
+
+if __name__ == "__main__":
+    unittest.main()
+NUIV4FILE	100644	1292	tests/test_router_v4.py
+import sys,unittest
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'src'))
+from nolane_ui.validators import validate_mandatory_routes
+class RouterV4Tests(unittest.TestCase):
+ def test_external_rich_react_ui_routes_ecosystem_and_integration(self):
+  p={'platform_surfaces':['web'],'input_modalities':['pointer','keyboard'],'ai_role':'none','risk_class':'routine','temporal_behaviors':[],'external_ui_sources':True,'rich_interaction':True,'stack':'react','adoption_intent':'adapt'}
+  r=validate_mandatory_routes(p,[]); req={'researching-ui-implementation-ecosystems','selecting-ui-building-blocks','adapting-external-ui-patterns','engineering-rich-interactive-components','auditing-ui-library-integration'}; self.assertTrue(req.issubset(set(r['missing_routes'])),r)
+ def test_named_repo_reference_still_requires_research_and_audit(self):
+  p={'platform_surfaces':['web'],'input_modalities':['pointer'],'ai_role':'none','risk_class':'routine','temporal_behaviors':[],'named_ui_source':'react-bits','adoption_intent':'inspire'}
+  r=validate_mandatory_routes(p,[]); self.assertIn('researching-ui-implementation-ecosystems',r['missing_routes']); self.assertIn('selecting-ui-building-blocks',r['missing_routes'])
+if __name__=='__main__':unittest.main()
+NUIV4FILE	100644	3531	tests/test_ui_ecosystem.py
+import copy
+import json
+import sys
+import unittest
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/'src'))
+
+class UIEcosystemTests(unittest.TestCase):
+    def setUp(self):
+        from nolane_ui.ecosystem import validate_ui_ecosystem_registry, query_ui_ecosystem, validate_reference_ledger, validate_source_selection, validate_rich_interaction_contract
+        self.validate_registry=validate_ui_ecosystem_registry; self.query=query_ui_ecosystem; self.validate_ledger=validate_reference_ledger; self.validate_selection=validate_source_selection; self.validate_rich=validate_rich_interaction_contract
+        self.registry=json.loads((ROOT/'knowledge/ui-ecosystem-registry.json').read_text())
+    def test_registry_is_typed_and_has_broad_category_coverage(self):
+        r=self.validate_registry(self.registry)
+        self.assertTrue(r['valid'],r)
+        self.assertGreaterEqual(r['source_count'],40)
+        self.assertGreaterEqual(r['category_count'],12)
+    def test_react_animated_adapt_query_surfaces_react_bits_without_popularity_authority(self):
+        r=self.query(self.registry,{'capabilities':['animated-components'],'stacks':['react'],'intent':'adapt'})
+        ids=[x['id'] for x in r['matches']]
+        self.assertIn('react-bits',ids)
+        self.assertNotIn('stars', r['ranking_factors'])
+    def test_adopt_or_adapt_blocks_unresolved_license_or_missing_inspection(self):
+        bad={'decision':'adapt','source_id':'x','license_posture':'unresolved','inspected':['readme'],'citations':['https://example.test']}
+        r=self.validate_selection(bad)
+        self.assertFalse(r['valid']); self.assertTrue(any('license' in e.lower() for e in r['errors']))
+        bad['license_posture']='verified-compatible'; bad['inspected']=['readme','license']
+        r=self.validate_selection(bad); self.assertFalse(r['valid']); self.assertTrue(any('implementation' in e.lower() for e in r['errors']))
+    def test_popularity_only_selection_is_rejected(self):
+        r=self.validate_selection({'decision':'adapt','source_id':'react-bits','license_posture':'verified-compatible','inspected':['readme','license','implementation'],'citations':['https://github.com/DavidHDev/react-bits'],'rationale':['stars']})
+        self.assertFalse(r['valid']); self.assertTrue(any('popularity' in e.lower() for e in r['errors']))
+    def test_material_reference_ledger_requires_citation_and_mechanism_boundary(self):
+        r=self.validate_ledger({'references':[{'source_id':'react-bits','url':'https://github.com/DavidHDev/react-bits','mechanism':'shared layout morph','usage':'adapt','inspected':['README.md']} ]})
+        self.assertFalse(r['valid']); self.assertTrue(any('adaptation boundary' in e.lower() for e in r['errors']))
+    def test_rich_interaction_requires_reduced_motion_keyboard_and_exit_strategy(self):
+        base={'states':['idle','active','interrupted','complete'],'modalities':['pointer','keyboard'],'reduced_motion':'preserve information without transform motion','interruptible':True,'retargetable':True,'focus_behavior':'stable','performance_budget':'60fps target with measured fallback','ssr_strategy':'stable server markup; measure after hydration','exit_strategy':'remove enhancement without losing task'}
+        self.assertTrue(self.validate_rich(base)['valid'])
+        for key in ('reduced_motion','exit_strategy'):
+            bad=copy.deepcopy(base); bad.pop(key); self.assertFalse(self.validate_rich(bad)['valid'])
+
+if __name__=='__main__': unittest.main()
+NUIV4FILE	100644	738	tests/test_v4_eval_integrity.py
+import json,unittest
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1]
+class V4EvalIntegrityTests(unittest.TestCase):
+ def test_v4_manifest_discovers_all_assets_and_fourteen_distinct_failures(self):
+  m=json.loads((ROOT/'evals/v4/manifest.json').read_text()); self.assertEqual(m['case_count'],14); self.assertEqual(m['assets'],['evals/v4/ecosystem/cases.json'])
+  data=json.loads((ROOT/m['assets'][0]).read_text()); cases=data['cases']; self.assertEqual(len(cases),14); self.assertEqual(len({x['id'] for x in cases}),14); self.assertEqual(len({x['failure'] for x in cases}),14)
+  for c in cases: self.assertTrue(c['required_skills']); self.assertGreaterEqual(len(c['must_find']),2)
+if __name__=='__main__':unittest.main()
+NUIV4FILE	100644	2240	tests/test_v4_repository_gate.py
+import copy
+import json
+import shutil
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+from nolane_ui.validators import validate_repository
+
+
+class V4RepositoryGateTests(unittest.TestCase):
+    def _copy_repo(self):
+        temp = tempfile.TemporaryDirectory()
+        dest = Path(temp.name) / "repo"
+        shutil.copytree(ROOT, dest, ignore=shutil.ignore_patterns(".git", "__pycache__", "*.pyc", "milestone-artifacts"))
+        return temp, dest
+
+    def test_current_repository_passes_v4_gate(self):
+        result = validate_repository(ROOT)
+        self.assertTrue(result["valid"], result)
+        self.assertEqual(result["metrics"]["v4_skill_count"], 6)
+        self.assertGreaterEqual(result["metrics"]["ecosystem_source_count"], 40)
+        self.assertEqual(result["metrics"]["v4_adversarial_cases"], 14)
+        self.assertEqual(result["metrics"]["skill_contracts_checked"], 141)
+
+    def test_removing_registry_or_v4_manifest_fails_repository(self):
+        for relative in ("knowledge/ui-ecosystem-registry.json", "knowledge/v4-skill-manifest.json"):
+            temp, dest = self._copy_repo()
+            try:
+                (dest / relative).unlink()
+                result = validate_repository(dest)
+                self.assertFalse(result["valid"], relative)
+                self.assertTrue(any(relative in error for error in result["errors"]), result)
+            finally:
+                temp.cleanup()
+
+    def test_v4_graph_contract_drift_fails_repository(self):
+        temp, dest = self._copy_repo()
+        try:
+            graph_path = dest / "skills/skill-graph.json"
+            graph = json.loads(graph_path.read_text(encoding="utf-8"))
+            graph["skills"]["selecting-ui-building-blocks"]["output"] = "wrong-output"
+            graph_path.write_text(json.dumps(graph, indent=2) + "\n", encoding="utf-8")
+    

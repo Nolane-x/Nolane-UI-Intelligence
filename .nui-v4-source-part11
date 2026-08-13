@@ -1,0 +1,374 @@
+"creative-3d",
+        "spatial-ui"
+      ],
+      "capabilities": [
+        "3d-rendering",
+        "webgl",
+        "webgpu"
+      ],
+      "stacks": [
+        "javascript",
+        "web"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "neutral",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need 3d-rendering with a source role matching 3d-renderer."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "canvas-ui",
+      "name": "Canvas Ui",
+      "url": "https://github.com/DavidHDev/canvas-ui",
+      "role": "creative-canvas-gallery",
+      "categories": [
+        "creative-effects",
+        "canvas"
+      ],
+      "capabilities": [
+        "webgl-effects",
+        "canvas-components"
+      ],
+      "stacks": [
+        "react",
+        "vue",
+        "svelte",
+        "javascript"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "very-high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need webgl-effects with a source role matching creative-canvas-gallery."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "tamagui",
+      "name": "Tamagui",
+      "url": "https://github.com/tamagui/tamagui",
+      "role": "mobile-ui-system",
+      "categories": [
+        "mobile-native",
+        "design-systems"
+      ],
+      "capabilities": [
+        "cross-platform-components",
+        "design-system",
+        "responsive"
+      ],
+      "stacks": [
+        "react-native",
+        "react",
+        "web"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "explicit",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need cross-platform-components with a source role matching mobile-ui-system."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "gluestack-ui",
+      "name": "Gluestack Ui",
+      "url": "https://github.com/gluestack/gluestack-ui",
+      "role": "mobile-ui-system",
+      "categories": [
+        "mobile-native",
+        "design-systems"
+      ],
+      "capabilities": [
+        "cross-platform-components",
+        "mobile-ui"
+      ],
+      "stacks": [
+        "react-native",
+        "react"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "explicit",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need cross-platform-components with a source role matching mobile-ui-system."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "react-native-paper",
+      "name": "React Native Paper",
+      "url": "https://github.com/callstack/react-native-paper",
+      "role": "mobile-ui-system",
+      "categories": [
+        "mobile-native",
+        "design-systems"
+      ],
+      "capabilities": [
+        "mobile-components",
+        "material-design"
+      ],
+      "stacks": [
+        "react-native"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "explicit",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need mobile-components with a source role matching mobile-ui-system."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "sonner",
+      "name": "Sonner",
+      "url": "https://github.com/emilkowalski/sonner",
+      "role": "notification-system",
+      "categories": [
+        "feedback-notifications"
+      ],
+      "capabilities": [
+        "toast",
+        "notifications"
+      ],
+      "stacks": [
+        "react"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "explicit",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need toast with a source role matching notification-system."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "design-agent-skills",
+      "name": "Design Agent Skills",
+      "url": "https://github.com/podo/design-agent-skills",
+      "role": "agent-skill-catalog",
+      "categories": [
+        "agent-skills",
+        "design-intelligence"
+      ],
+      "capabilities": [
+        "skill-routing",
+        "motion-skills",
+        "accessibility-skills",
+        "design-review-skills"
+      ],
+      "stacks": [
+        "agent"
+      ],
+      "allowed_intents": [
+        "inspire"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "unknown",
+      "drift": "very-high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Agent needs to discover specialist design skills without bulk-loading overlapping prompts."
+      ],
+      "when_not_to_use": [
+        "Do not install the entire catalogue blindly; route by intent and inspect upstream skill provenance."
+      ]
+    },
+    {
+      "id": "ui-ux-pro-max-skill",
+      "name": "Ui Ux Pro Max Skill",
+      "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "role": "design-intelligence-skill",
+      "categories": [
+        "agent-skills",
+        "design-intelligence"
+      ],
+      "capabilities": [
+        "style-search",
+        "palette-search",
+        "typography-search",
+        "ux-guidelines",
+        "stack-guidance"
+      ],
+      "stacks": [
+        "agent"
+      ],
+      "allowed_intents": [
+        "inspire"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "unknown",
+      "drift": "very-high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need searchable design heuristic/database inspiration for an agent."
+      ],
+      "when_not_to_use": [
+        "Do not treat database suggestions as product truth or bypass NUI closure/accessibility evidence."
+      ]
+    }
+  ]
+}
+NUIV4FILE	100644	2184	knowledge/v4-skill-manifest.json
+{
+  "version": 4,
+  "skills": [
+    {
+      "name": "researching-ui-implementation-ecosystems",
+      "family": "research",
+      "parent": "routing-ui-work",
+      "output": "ui-ecosystem-query",
+      "ownership": "Own task-specific discovery of current UI implementation sources by capability, stack, platform, source role, risk and adoption intent."
+    },
+    {
+      "name": "selecting-ui-building-blocks",
+      "family": "system",
+      "parent": "researching-ui-implementation-ecosystems",
+      "output": "ui-source-selection",
+      "ownership": "Own evidence-based adopt adapt inspire build or reject decisions amo

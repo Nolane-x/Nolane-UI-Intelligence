@@ -1,0 +1,390 @@
+nce": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need block-editor with a source role matching rich-text-editor."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "tanstack-table",
+      "name": "Tanstack Table",
+      "url": "https://github.com/TanStack/table",
+      "role": "data-grid",
+      "categories": [
+        "interaction-mechanics"
+      ],
+      "capabilities": [
+        "headless-table",
+        "sorting",
+        "filtering",
+        "grouping",
+        "data-grid"
+      ],
+      "stacks": [
+        "react",
+        "vue",
+        "solid",
+        "svelte",
+        "javascript"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need headless-table with a source role matching data-grid."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "react-hook-form",
+      "name": "React Hook Form",
+      "url": "https://github.com/react-hook-form/react-hook-form",
+      "role": "form-engine",
+      "categories": [
+        "interaction-mechanics"
+      ],
+      "capabilities": [
+        "form-state",
+        "validation",
+        "performance"
+      ],
+      "stacks": [
+        "react"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need form-state with a source role matching form-engine."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "tanstack-form",
+      "name": "Tanstack Form",
+      "url": "https://github.com/TanStack/form",
+      "role": "form-engine",
+      "categories": [
+        "interaction-mechanics"
+      ],
+      "capabilities": [
+        "form-state",
+        "validation"
+      ],
+      "stacks": [
+        "react",
+        "vue",
+        "solid",
+        "angular"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need form-state with a source role matching form-engine."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "dnd-kit",
+      "name": "Dnd Kit",
+      "url": "https://github.com/clauderic/dnd-kit",
+      "role": "drag-drop-engine",
+      "categories": [
+        "interaction-mechanics"
+      ],
+      "capabilities": [
+        "drag-drop",
+        "sorting",
+        "direct-manipulation"
+      ],
+      "stacks": [
+        "react"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need drag-drop with a source role matching drag-drop-engine."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "tldraw",
+      "name": "Tldraw",
+      "url": "https://github.com/tldraw/tldraw",
+      "role": "canvas-sdk",
+      "categories": [
+        "canvas",
+        "collaboration"
+      ],
+      "capabilities": [
+        "infinite-canvas",
+        "whiteboard",
+        "diagramming",
+        "multiplayer"
+      ],
+      "stacks": [
+        "react"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "restricted",
+        "name": "tldraw license",
+        "evidence_url": "https://github.com/tldraw/tldraw/blob/main/LICENSE.md",
+        "redistribution_note": "Development is permitted; current production SDK use requires a license key or other applicable license. Verify current terms."
+      },
+      "accessibility_posture": "explicit",
+      "drift": "very-high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme",
+          "license"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need infinite-canvas with a source role matching canvas-sdk."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "excalidraw",
+      "name": "Excalidraw",
+      "url": "https://github.com/excalidraw/excalidraw",
+      "role": "canvas-library",
+      "categories": [
+        "canvas",
+        "diagramming"
+      ],
+      "capabilities": [
+        "whiteboard",
+        "diagramming",
+        "sketching"
+      ],
+      "stacks": [
+        "react",
+        "web"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "live-check-required",
+        "name": null,
+        "evidence_url": null,
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "mixed",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need whiteboard with a source role matching canvas-library."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "react-three-fiber",
+      "name": "React Three Fiber",
+      "url": "https://github.com/pmndrs/react-three-fiber",
+      "role": "3d-renderer",
+      "categories": [
+        "creative-3d",
+        "spatial-ui"
+      ],
+      "capabilities": [
+        "3d-rendering",
+        "interactive-scenes"
+      ],
+      "stacks": [
+        "react"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "verified-compatible",
+        "name": "MIT",
+        "evidence_url": "https://github.com/pmndrs/react-three-fiber/blob/master/LICENSE",
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "neutral",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme",
+          "license"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need 3d-rendering with a source role matching 3d-renderer."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "drei",
+      "name": "Drei",
+      "url": "https://github.com/pmndrs/drei",
+      "role": "3d-helper-library",
+      "categories": [
+        "creative-3d",
+        "spatial-ui"
+      ],
+      "capabilities": [
+        "3d-helpers",
+        "controls",
+        "loaders",
+        "staging"
+      ],
+      "stacks": [
+        "react"
+      ],
+      "allowed_intents": [
+        "inspire",
+        "adapt",
+        "adopt"
+      ],
+      "license": {
+        "status": "verified-compatible",
+        "name": "MIT",
+        "evidence_url": "https://github.com/pmndrs/drei/blob/master/LICENSE",
+        "redistribution_note": "Verify current upstream terms before material reuse."
+      },
+      "accessibility_posture": "neutral",
+      "drift": "high",
+      "verify_live_before_use": true,
+      "provenance": {
+        "inspected": [
+          "repository",
+          "readme",
+          "license"
+        ],
+        "verified_at": "2026-08-13"
+      },
+      "when_to_use": [
+        "Need 3d-helpers with a source role matching 3d-helper-library."
+      ],
+      "when_not_to_use": [
+        "Do not select from screenshots, popularity, or style resemblance alone."
+      ]
+    },
+    {
+      "id": "three-js",
+      "name": "Three Js",
+      "url": "https://github.com/mrdoob/three.js",
+      "role": "3d-renderer",
+      "categories": [
+        

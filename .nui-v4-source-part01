@@ -1,0 +1,223 @@
+marketing surface, an AAC communication app, a flight deck, a generative-UI agent, and a TV interface must not receive the same context.
+
+See `docs/USAGE.md` for route examples and task-profile guidance.
+
+## Research saturation
+
+The 2026-08-12 research wave is marked **bounded SATURATED**, not permanently complete. Earlier adversarial sweeps continued to reveal new owners; the final primary-source decomposition sweep added zero new non-decomposable decision classes. `validate_bounded_saturation` requires PASS evidence for breadth/depth/contradictions/novelty/freshness, a zero-novelty final sweep, explicit bounds, and reopen conditions.
+
+A new standard, platform, modality, AI behavior, empirical result, or unowned atlas cell reopens research.
+
+## Verification
+
+Run:
+
+```bash
+python -m unittest discover -s tests -v
+python scripts/nui-validate .
+```
+
+Repository validation proves structural and evidence-contract invariants only. It does not prove that a future interface is beautiful, usable, accessible, safe, certified, or faithful without task-specific evidence.
+NUIV4FILE	100644	5396	adapters/capabilities.json
+{
+  "version": 2,
+  "runtimes": [
+    "generic",
+    "codex",
+    "claude-code",
+    "gemini-cli",
+    "cursor",
+    "opencode"
+  ],
+  "capabilities": {
+    "file-read": {
+      "fallback": "Ask the runtime for the smallest relevant file excerpt; if files are inaccessible, keep repository-dependent claims UNKNOWN.",
+      "runtimes": {
+        "generic": "native file/read tool when exposed",
+        "codex": "native workspace file inspection",
+        "claude-code": "native workspace file inspection",
+        "gemini-cli": "native workspace file inspection",
+        "cursor": "workspace/context file inspection",
+        "opencode": "native workspace file inspection"
+      }
+    },
+    "file-write": {
+      "fallback": "Produce a patch/spec rather than claiming mutation; release remains BLOCKED for tasks requiring applied changes.",
+      "runtimes": {
+        "generic": "native file mutation tool when exposed",
+        "codex": "workspace editing",
+        "claude-code": "workspace editing",
+        "gemini-cli": "workspace editing",
+        "cursor": "workspace editing",
+        "opencode": "workspace editing"
+      }
+    },
+    "test-execution": {
+      "fallback": "Provide exact commands but record tests as UNEXECUTED; do not convert expected output into evidence.",
+      "runtimes": {
+        "generic": "shell/test tool when exposed",
+        "codex": "terminal/test execution",
+        "claude-code": "terminal/test execution",
+        "gemini-cli": "terminal/test execution",
+        "cursor": "terminal/agent execution when exposed",
+        "opencode": "terminal/test execution"
+      }
+    },
+    "browser-inspection": {
+      "fallback": "Use inspectable screenshots or static artifact analysis and narrow runtime/interaction claims.",
+      "runtimes": {
+        "generic": "browser automation tool when exposed",
+        "codex": "preferred browser capability available to the runtime; fall back to Playwright only when native inspection is unavailable",
+        "claude-code": "browser MCP/automation when configured",
+        "gemini-cli": "browser/Chrome tooling when configured",
+        "cursor": "browser/automation integration when configured",
+        "opencode": "browser/MCP tooling when configured"
+      }
+    },
+    "screenshot-capture": {
+      "fallback": "Request/provide an external capture; fidelity claims remain UNKNOWN without an inspectable render.",
+      "runtimes": {
+        "generic": "screenshot tool when exposed",
+        "codex": "runtime browser screenshot/capture capability",
+        "claude-code": "browser/MCP screenshot capability when configured",
+        "gemini-cli": "browser/Chrome screenshot capability when configured",
+        "cursor": "browser integration screenshot when configured",
+        "opencode": "browser/MCP screenshot when configured"
+      }
+    },
+    "semantic-tree": {
+      "fallback": "Inspect source semantics plus keyboard behavior if possible; mark assistive-technology runtime behavior UNKNOWN.",
+      "runtimes": {
+        "generic": "accessibility/semantic tree tool when exposed",
+        "codex": "browser accessibility snapshot/semantic inspection when supported",
+        "claude-code": "browser/Playwright/MCP accessibility snapshot when configured",
+        "gemini-cli": "browser accessibility inspection when configured",
+        "cursor": "browser/Playwright/MCP accessibility inspection when configured",
+        "opencode": "browser/Playwright/MCP accessibility inspection when configured"
+      }
+    },
+    "subagent-review": {
+      "fallback": "Use a fresh logical critic pass with generator context minimized; disclose that reviewer independence is weaker.",
+      "runtimes": {
+        "generic": "fresh-context worker/subagent when exposed",
+        "codex": "subagent/parallel worker capability when exposed",
+        "claude-code": "subagent capability",
+        "gemini-cli": "subagent/worker capability when exposed",
+        "cursor": "independent agent/review context when exposed",
+        "opencode": "subagent/worker capability when exposed"
+      }
+    },
+    "component-retrieval": {
+      "fallback": "Inspect the local component system directly; do not invent a library component that was not verified.",
+      "runtimes": {
+        "generic": "component registry/MCP when exposed",
+        "codex": "registry/MCP such as project-configured component tooling",
+        "claude-code": "registry/MCP such as project-configured component tooling",
+        "gemini-cli": "registry/MCP when configured",
+        "cursor": "registry/MCP when configured",
+        "opencode": "registry/MCP when configured"
+      }
+    },
+    "external-source-research": {
+      "fallback": "Query the curated NUI ecosystem registry and mark current API/license facts UNKNOWN; do not claim live verification or adopt/adapt high-drift sources without primary-source access.",
+      "runtimes": {
+        "generic": "web/search or repository connector when exposed",
+        "codex": "web or connected repository/documentation research capability when exposed",
+        "claude-code": "web/repository MCP or native web research when configured",
+        "gemini-cli": "web/search and repository tooling when configured",
+        "cursor": "web/repository context or MCP when configured",
+        "opencode": "web/repository MCP or search capability when configured"
+      }
+    }
+  }
+}
+NUIV4FILE	100644	1024	artifacts/v4-completion-packet.example.json
+{
+  "packet_id": "NUI-V4-EXAMPLE-NOT-VERIFIED",
+  "artifact_revision": "EXAMPLE-ONLY",
+  "phase": "VERIFIED",
+  "task_profile": "Example only: NUI v4 structural repository packet; not evidence of a real run",
+  "obligations": [
+    {
+      "id": "O-STRUCTURE",
+      "status": "PASS",
+      "evidence_refs": [
+        "E-EXAMPLE"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "E-EXAMPLE",
+      "method": "example",
+      "source": "static example",
+      "scope": "format only",
+      "claim": "illustrates packet shape only",
+      "observed_at": "2026-08-13T00:00:00Z",
+      "result": "PASS"
+    }
+  ],
+  "findings": [],
+  "checks": {
+    "example": "PASS"
+  },
+  "claim": "FORMAT EXAMPLE ONLY. This file is not release evidence.",
+  "bounds": [
+    "Do not cite this static example as CI or runtime proof.",
+    "Third-party UI sources require task-time source/license/runtime evidence."
+  ],
+  "unknowns": [
+    "All task-specific quality remains untested in this example."
+  ],
+  "decision": "PASS"
+}
+NUIV4FILE	100644	939	docs/UI-ECOSYSTEM-REGISTRY.md
+# UI Ecosystem Registry Contract
+
+`knowledge/ui-ecosystem-registry.json` is NUI's typed retrieval cache for external UI implementation sources. It is not an endorsement list or a popularity ranking.
+
+Every source declares a canonical URL, source role, categories, capabilities, stack/platform compatibility, allowed adoption intents, license posture/evidence, accessibility posture, drift level, provenance, and use/non-use conditions. High/very-high drift sources must require live verification.
+
+The registry contains no embedded third-party implementation code. Use `schemas/ui-reference-ledger.schema.json`, `schemas/ui-source-selection.schema.json`, and `schemas/rich-interaction-contract.schema.json` for task-local artifacts.
+
+When local candidates are absent or stale, route live research and extend the **task reference ledger** first. Registry changes belong to `maintaining-ui-resource-registry` and require primary provenance.
+NUIV4FILE	100644	13804	docs/USAGE.md
+# Usage
+
+## Start a material UI task
+
+Load `using-nolane-ui`. The bootstrap hands lifecycle ownership to `nolane-ui`, which compiles a contract, routes faculties, creates obligations, binds evidence, and owns release semantics.
+
+Do **not** preload the entire skill graph. The current v4 graph contains 141 skills, but progressive disclosure is a design constraint: the agent should receive only the smallest sufficient faculty graph for the task.
+
+## Build the v2 task profile
+
+`routing-ui-work` classifies observable conditions rather than keywords. A strong profile can include:
+
+- `intent[]`
+- `platform_surfaces[]`
+- `input_modalities[]`
+- `ai_role`
+- `risk_class`
+- `temporal_behaviors[]`
+- `social_context`
+- `specialized_ui_domains[]`
+- `regulatory_or_standard_sensitivity`
+- `research_freshness_requirement`
+- `user_context`
+- `information_context`
+- `interaction_context`
+- `visual_context`
+- `evidence_capabilities`
+
+Unknown high-impact dimensions remain unknown. Do not convert missing information into a convenient default merely to keep designing.
+
+## Example: expert AI-agent operations dashboard
+
+A likely route begins:
+
+`using-nolane-ui → nolane-ui → ui-contracting → routing-ui-work`
+
+Then selected faculties can include:
+
+`modeling-product-intent`, `modeling-users-and-tasks`, `architecting-information`, `designing-navigation`, `designing-inter
