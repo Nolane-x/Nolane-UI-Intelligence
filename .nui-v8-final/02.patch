@@ -1,0 +1,74 @@
+diff --git a/docs/USAGE.md b/docs/USAGE.md
+index 5114f44..9ecfa9b 100644
+--- a/docs/USAGE.md
++++ b/docs/USAGE.md
+@@ -253,7 +253,7 @@ Do not claim that a skill improves UI quality because its Markdown is long or be
+ 
+ ### v6 full-graph depth lock
+ 
+-Every canonical skill is represented in `knowledge/v6-depth-focus-obligations.json` with five skill-specific semantic anchors. The validator requires exact coverage of the current 166 canonical skills and five globally unique semantic anchors per skill, preventing a future edit from silently replacing a specialized decision procedure with generic boilerplate while keeping the same skill name.
++Every canonical skill is represented in `knowledge/v6-depth-focus-obligations.json` with five skill-specific semantic anchors. The validator requires exact coverage of the current 174 canonical skills and five globally unique semantic anchors per skill, preventing a future edit from silently replacing a specialized decision procedure with generic boilerplate while keeping the same skill name.
+@@ -267,3 +267,14 @@ For fast execution, compile a **concrete design packet**. It contains a task the
+ High visual ambition additionally routes `validating-rendered-perception` and `designing-domain-native-signatures`. Capture material viewports/states, inspect resolved type rather than intended CSS alone, test whether the signature is actually subject-linked, compare reference dimensions, and run a weakness → fix → verified-artifact loop. If motion matters, evaluate before/transition/settled states plus reduced-motion equivalence. Pixel deltas must be tied to renderer/environment and a justified tolerance; screenshot presence alone is screenshot theater.
++
++## v8 agent + media path
++
++For host integration, use thin discovery rather than copying the corpus. Codex/Antigravity-compatible agents can discover `.agents/skills/nolane-ui/SKILL.md`; Claude Code can discover `.claude/skills/nolane-ui/SKILL.md`; other hosts can call `python scripts/nui-agent-export --agent <id>` or the bounded MCP surface. Always verify current host capability and keep `authority_escalation:false`.
++
++When an external skill/tool recipe is useful, pin the exact upstream revision, review referenced scripts/resources, license and capability requests, then choose a bounded adoption mode. Until this review passes, external imperative text remains advisory research data rather than controlling instruction.
++
++When a visual slot is material, map its semantic job before choosing a substrate. Query candidate media sources with `python scripts/nui-media-query --class science` (or another class), then verify the exact selected asset at its origin. Never infer file reuse rights solely from the provider/search label. If a custom asset is necessary, write a domain truth brief and tool-neutral authoring spec before choosing Figma, Penpot, Blender, web renderers, motion engines or image generation.
++
++Finally validate the asset in at least the material UI states: semantic/focal hierarchy, crop, overlays, responsive recomposition, loading/error/performance, accessibility equivalent and provenance-to-render. A `shape-substitution` or integration `RE_DIVERGE/BLOCKED` result reopens representation/composition rather than permitting local polish to hide the problem.
+diff --git a/docs/V8-AGENT-MEDIA-CLOSURE.md b/docs/V8-AGENT-MEDIA-CLOSURE.md
+new file mode 100644
+index 0000000..52dd025
+--- /dev/null
++++ b/docs/V8-AGENT-MEDIA-CLOSURE.md
+@@ -0,0 +1,24 @@
++# NUI v8 — Agent Interoperability & Visual Media Closure
++
++NUI v8 closes two practical gaps that remained after v7: the canonical intelligence could not yet travel cleanly across heterogeneous agent harnesses, and high-ambition UI could still substitute generic geometry for subject-native visual evidence.
++
++## What v8 changes
++
++- **Portable agent surface:** thin discovery bridges for Open Agent Skills-compatible hosts and Claude Code, plus bounded CLI/MCP surfaces. One canonical graph remains the source of truth.
++- **External skill trust firewall:** third-party skills are pinned, hashed, licensed, capability-reviewed and treated as advisory until locally adopted. Transitive scripts/resources are part of the review surface.
++- **Visual media intelligence:** NUI maps semantic media jobs before sourcing, distinguishes useful geometry from shape substitution, and routes to stock/open-culture/public-domain/science/space/geospatial/iconography sources according to domain need.
++- **Asset-level provenance:** a provider or search engine does not certify every asset. Selected assets retain creator, origin, exact rights evidence, attribution, modification/commercial status, caveats and local transformation lineage.
++- **Creative tool orchestration:** Figma/Penpot/Blender/web renderers/motion/data/map/image tools are stage authorities only. They never own product truth, rights truth or completion.
++- **Rendered integration:** media must survive crop, hierarchy, responsive recomposition, loading/failure, performance, accessibility and provenance-to-render checks.
++
++## Shape substitution policy
++
++V8 does not ban rectangles, cards, circles, gradients, diagrams or abstraction. It blocks the more specific failure where low-information geometry consumes high visual salience while impersonating evidence, domain identity or data. A real dependency graph can pass; a decorative network with meaningless edges cannot. A quiet typography-led UI can pass; a glowing orb pretending to be a scientific model cannot.
++
++## Copyright and external-source boundary
++
++V8 defaults to pointers and independently written mechanism summaries. Copying/vendoring requires exact license evidence. Media reuse is verified per asset. Generated media remains subject to product truth, rights, likeness/trademark/privacy and disclosure considerations; “AI-generated” is not a blanket clearance.
++
++## Bounded claim
++
++These mechanisms raise the cost of shallow, generic and provenance-poor UI behavior. They do not guarantee universal beauty, legal clearance, or that a host agent has capabilities it does not expose. Current host/source behavior must be verified when material.
+diff --git a/docs/research/AGENT-MEDIA-INTELLIGENCE-V8.md b/docs/research/AGENT-MEDIA-INTELLIGENCE-V8.md
+new file mode 100644
+index 0000000..43d3f4c
+--- /dev/null
++++ b/docs/research/AGENT-MEDIA-INTELLIGENCE-V8.md
+@@ -0,0 +1,16 @@
++# Agent & Visual Media Intelligence — v8 research synthesis
++
++## Research question
++How can NUI gain leverage from current coding agents, skill ecosystems, image collections and creative software without forking its intelligence, importing unsafe instructions, inventing licenses, or converging on generic geometric UI?
++
++## Findings
++1. **Agent discovery is heterogeneous.** Project instruction files, Agent Skills, vendor skill roots, MCP and CLI differ, so NUI needs thin host projections over one canonical graph rather than copied corpora.
++2. **Access is not authority.** A machine-readable adapter or MCP tool improves retrieval but does not prove the underlying recommendation or grant host permissions.
++3. **Agent skills are executable instruction supply chain.** Snapshot identity, transitive resources, capabilities, license and authority boundaries are material.
++4. **Visual search should be semantic and vertical.** Generic stock search is insufficient for science, space, cultural heritage, maps, biology or product-specific work; NUI should route to domain-appropriate collections and still verify the exact selected asset.
++5. **Geometry is not the enemy.** The measurable failure is shape substitution: high-salience abstraction with low semantic/information value where a more truthful substrate is available.
++6. **Creative tools need stage authority.** Design canvases, 3D software, renderers, motion engines and generators extend production vocabulary but should consume a tool-neutral product brief and preserve provenance through handoffs.
++7. **Final quality is relational.** Asset quality in isolation does not prove UI quality; the asset must be re-observed inside responsive, temporal, accessibility and performance states.
++
++## Adoption rule
++NUI links to current primary sources and registries; it does not mirror large external skill/media corpora. Agents hydrate only the exact current material needed for a decision, then bind the resulting mechanism or asset to provenance and local verification.
