@@ -18,18 +18,21 @@ jobs:
           ref: ${{ github.ref_name }}
           fetch-depth: 0
 
-      - name: Reconstruct verified v6 tree
+      - name: Apply verified v6 patch
         shell: bash
         run: |
           set -euo pipefail
-          cat .nui-v6-payload/part-* > /tmp/nui-v6.tar.xz.b64
-          echo "645827f6285308483c6881c081274555808969b86860af37a47d2d0c96793647  /tmp/nui-v6.tar.xz.b64" | sha256sum -c -
-          base64 -d /tmp/nui-v6.tar.xz.b64 > /tmp/nui-v6.tar.xz
-          echo "c03caddebff157802ad26506ea7a5beb057a6f2134cc835ca845feb17d6eaf44  /tmp/nui-v6.tar.xz" | sha256sum -c -
-          tar -xJf /tmp/nui-v6.tar.xz
+          cat .nui-v6-payload/part-* > /tmp/nui-v6.patch.xz.b64
+          echo "a7996371f9175b3db91768389d0b719eb9ae1677a2a34f3ccf13e4afb973680a  /tmp/nui-v6.patch.xz.b64" | sha256sum -c -
+          base64 -d /tmp/nui-v6.patch.xz.b64 > /tmp/nui-v6.patch.xz
+          echo "6a9db52e42ab72a7767a861ed0a2211687b77fd87a98170ba57d18539f3d1ade  /tmp/nui-v6.patch.xz" | sha256sum -c -
+          xz -dc /tmp/nui-v6.patch.xz > /tmp/nui-v6.patch
+          git apply --check /tmp/nui-v6.patch
+          git apply /tmp/nui-v6.patch
           rm -rf .nui-v6-payload .nui-v6-ready .github/workflows/nui-v6-bootstrap.yml
           git config user.name "Nolane v6 bootstrap"
           git config user.email "actions@users.noreply.github.com"
           git add -A
+          git diff --cached --check
           git commit -m "feat: NUI v6 Deep Research & Design Synthesis"
           git push origin "HEAD:${GITHUB_REF_NAME}"
