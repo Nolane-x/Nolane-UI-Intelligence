@@ -1,0 +1,10 @@
+{
+  "version": 8,
+  "extends": "creative-toolchain-v8.json",
+  "tools": [
+    {"id":"inkscape","stage":["author","edit","optimize"],"authority":"SVG and vector construction","canonical":"https://inkscape.org/","boundary":"Product semantics, brand meaning and accessibility remain NUI decisions.","live_verify":true},
+    {"id":"gsap","stage":["animate","sequence","integrate"],"authority":"timeline and scroll-linked animation execution","canonical":"https://gsap.com/docs/v3/","boundary":"Temporal purpose, interruption behavior and reduced-motion alternatives remain NUI decisions.","live_verify":true},
+    {"id":"observable-plot","stage":["author","render","verify"],"authority":"declarative data visualization construction","canonical":"https://observablehq.com/plot/","boundary":"Analytic question, truthful encoding and provenance remain NUI decisions.","live_verify":true},
+    {"id":"maplibre-gl-js","stage":["author","render","integrate"],"authority":"interactive geospatial rendering","canonical":"https://maplibre.org/maplibre-gl-js/docs/","boundary":"Map semantics, data rights, layer meaning and interaction priority remain NUI decisions.","live_verify":true}
+  ]
+}
