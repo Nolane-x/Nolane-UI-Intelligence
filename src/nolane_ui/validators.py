@@ -1,7 +1,7 @@
-"""NUI v9 compatibility validator facade.
+"""NUI compatibility validator facade.
 
-Package imports receive the v9 overlay. Historical standalone imports keep the
-frozen v7 API so older kernel tests and direct file loaders remain compatible.
+Package imports receive the current overlay. Historical standalone imports keep
+the frozen v7 API so older kernel tests and direct file loaders remain compatible.
 """
 from __future__ import annotations
 
@@ -30,6 +30,7 @@ else:
     from . import validators_v7 as _v7
     from . import v8_repository as _repo8
     from . import v9_repository as _repo9
+    from . import v10_repository as _repo10
     from . import interop as _interop8
     from . import media as _media8
     from . import flagship as _flagship8
@@ -156,4 +157,5 @@ else:
         base["errors"] = [e for e in base.get("errors", []) if not str(e).startswith(prefix)]
         base["valid"] = not base["errors"]
         v8 = _repo8.extend(root, base)
-        return _repo9.extend(root, v8)
+        v9 = _repo9.extend(root, v8)
+        return _repo10.extend(root, v9)
