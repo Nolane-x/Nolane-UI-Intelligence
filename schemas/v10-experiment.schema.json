@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nolane.ai/schemas/v10-experiment.schema.json",
+  "title": "NUI V10 Controlled Experiment Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "experiment_id", "nui_revision", "tasks", "models", "treatments", "replicates", "tool_budget"],
+  "properties": {
+    "version": {"const": 10},
+    "experiment_id": {"type": "string", "minLength": 1},
+    "nui_revision": {"type": "string", "minLength": 7},
+    "tasks": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "models": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["provider", "family", "name", "snapshot", "runtime"],
+        "properties": {
+          "provider": {"type": "string", "minLength": 1},
+          "family": {"type": "string", "minLength": 1},
+          "name": {"type": "string", "minLength": 1},
+          "snapshot": {"type": "string", "minLength": 1},
+          "runtime": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "treatments": {
+      "type": "array", "minItems": 3, "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^(baseline|nui_full|nui_ablation:[A-Za-z0-9._-]+|nui_mutation:[A-Za-z0-9._-]+|placebo:[A-Za-z0-9._-]+)$"},
+      "allOf": [
+        {"contains": {"const": "baseline"}},
+        {"contains": {"const": "nui_full"}},
+        {"contains": {"type": "string", "pattern": "^nui_ablation:"}}
+      ]
+    },
+    "replicates": {"type": "integer", "minimum": 1},
+    "seeds": {"type": "array", "items": {"type": "integer"}, "uniqueItems": true},
+    "temperature": {"type": "number", "minimum": 0},
+    "tool_budget": {
+      "type": "object", "minProperties": 1,
+      "properties": {
+        "browser": {"type": "boolean"}, "screenshot": {"type": "boolean"}, "max_steps": {"type": "integer", "minimum": 1},
+        "max_wall_seconds": {"type": "number", "exclusiveMinimum": 0}, "network": {"type": "boolean"}
+      },
+      "additionalProperties": true
+    },
+    "notes": {"type": "string"}
+  }
+}
