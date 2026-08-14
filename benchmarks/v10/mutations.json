@@ -1,0 +1,121 @@
+{
+  "version": 10,
+  "purpose": "Behavioral perturbations used to determine whether a claimed NUI mechanism is causally identified rather than merely correlated with a larger prompt. Targeted mutations should degrade owned dimensions; placebos should leave unrelated dimensions materially stable.",
+  "mutations": [
+    {
+      "id": "scope-compress", "kind": "semantic", "target_hypothesis": "H-SCOPE-BREADTH", "target_owner": "modeling-product-intent",
+      "target_dimensions": ["capability-recall", "scope-disposition-quality"], "exposed_tasks": ["scope-01", "scope-02", "scope-03", "scope-04", "compound-01"],
+      "operation": "Replace broad-before-narrow discovery with prompt-literal feature extraction and permit the first recalled feature set to define scope.",
+      "expected_effect": {"direction": "targeted-degradation", "causal_rationale": "Implied but unstated product families should be omitted more often while explicitly bounded utilities should not benefit from extra expansion."},
+      "ablation_id": "product-envelope"
+    },
+    {
+      "id": "drop-expected-disposition", "kind": "semantic", "target_hypothesis": "H-CAPABILITY-DISPOSITION", "target_owner": "inventorying-product-capabilities",
+      "target_dimensions": ["scope-disposition-quality"], "exposed_tasks": ["scope-02", "scope-03", "scope-04", "compound-02"],
+      "operation": "Remove EXPECTED and UNKNOWN accounting; retain only implement-or-ignore choices.",
+      "expected_effect": {"direction": "targeted-degradation", "causal_rationale": "Plausible adjacent families should be silently omitted or overcommitted because uncertainty and explicit deferral lose representation."},
+      "ablation_id": "capability-disposition"
+    },
+    {
+      "id": "settings-flat-misc", "kind": "semantic", "target_hypothesis": "H-SETTINGS-ARCH", "target_owner": "architecting-information",
+      "target_dimensions": ["settings-account-lifecycle-completeness", "workflow-route-connectivity"], "exposed_tasks": ["settings-01", "settings-02", "settings-03", "settings-04", "compound-02"],
+      "operation": "Treat settings as a flat miscellaneous collection; remove explicit scope precedence, effective-value origin and recovery architecture.",
+      "expected_effect": {"direction": "targeted-degradation", "causal_rationale": "Multi-scope settings should become ambiguous while tiny settings systems may remain acceptable, exposing whether the evaluator over-penalizes simplicity."},
+      "ablation_id": "settings-architecture"
+    },
+    {
+      "id": "account-login-only", "kind": "semantic", "target_hypothesis": "H-ACCOUNT-CONTINUITY", "target_owner": "designing-authentication-and-passkeys",
+      "target_dimensions": ["settings-account-lifecycle-completeness", "state-recovery-completeness"], "exposed_tasks": ["account-01", "account-02", "account-03", "account-04", "compound-03"],
+      "operation": "Stop identity design at sign-up, sign-in and sign-out; omit durable membership, device/session, recovery, ownership and deletion consequences.",
+      "expected_effect": {"direction": "targeted-degradation", "causal_rationale": "Matched account/workspace tasks should develop lifecycle dead ends despite apparently complete authentication screens."},
+      "ablation_id": "account-continuity"
+    },
+    {
+      "id": "workspace-all-tools-visible", "kind": "semantic", "target_hypothesis": "H-WORKSPACE-INSTRUMENTS", "target_owner": "designing-editor-canvas-workspaces",
+      "target_dimensions": ["professional-workspace-instrument-adequacy", "visual-hierarchy-focal-authority"], "exposed_tasks": ["workspace-01", "workspace-02", "workspace-03", "workspace-04", "compound-04"],
+      "operation": "Expose every available tool and property persistently; remove selection/mode/context-sensitive instrument placement and progressive disclosure.",
+      "expected_effect": {"direction": "targeted-degradation", "causal_rationale": "Tool-rich tasks should accumulate visual and command competition while very small workspaces should show little or no penalty."},
+      "ablation_id": "workspace-instruments"
+    },
+    {
+      "id": "taste-scalar-self-score", "kind": "semantic", "target_hypothesis": "H-TASTE-COMPARATIVE", "target_owner": "exploring-aesthetic-directions",
+      "target_dimensions": ["genericness-resistance", "typographic-compositional-material-craft"], "exposed_tasks": ["taste-01", "taste-02", "taste-03", "taste-04", "compound-04"],
+      "operation": "Let the generator assign a single aesthetic score to its preferred candidate without blinded pairwise comparison or causal dimension evidence.",
+      "expected_effect": {"direction": "targeted-degradation", "causal_rationale": "Self-preference should become harder to distinguish from confident rationalization and generic polish should win more often over product-native authorship."},
+      "ablation_id": "taste-court"
+    },
+    {
+      "id": "critique-spec-only", "kind": "semantic", "target_hypothesis": "H-RENDER-CRITIQUE-CAUSAL", "target_owner": "critiquing-visual-design",
+      "target_dimensions": ["critique-causal-specificity", "repair-effectiveness-after-critique"], "exposed_tasks": ["critique-01", "critique-02", "critique-03", "critique-04", "compound-03"],
+      "operation": "Permit critique from component/source specifications alone and allow suggested repairs to close without a re-render.",
+      "expected_effect": {"direction": "targeted-degradation", "causal_rationale": "Rendered defects such as wrapping, accidental chrome, competing saliency and viewport-specific imbalance should be missed or repaired unverifiably."},
+      "ablation_id": "render-critique"
+    },
+    {
+      "id": "residue-default-accept", "kind": "semantic", "target_hypothesis": "H-RESIDUE-INTENTIONALITY", "target_owner": "verifying-design-fidelity",
+      "target_dimensions": ["rendered-residue-detection", "accessibility-platform-fit-preservation"], "exposed_tasks": ["residue-01", "residue-02", "residue-03", "residue-04", "fidelity-03"],
+      "operation": "Ignore low-level browser/platform appearances unless they cause an explicit functional failure; make no intentional native-versus-custom decision.",
+      "expected_effect": {"direction": "targeted-degradation", "causal_rationale": "Accidental legacy/default chrome should survive in highly authored surfaces, while native-first controls used intentionally should not be penalized by the full condition."},
+      "ablation_id": "residue-intentionality"
+    },
+    {
+      "id": "domain-theme-stereotype", "kind": "semantic", "target_hypothesis": "H-DOMAIN-AUDIENCE", "target_owner": "modeling-users-and-tasks",
+      "target_dimensions": ["domain-audience-fit"], "exposed_tasks": ["domain-01", "domain-02", "domain-03", "domain-04", "compound-01"],
+      "operation": "Map domain labels directly to a fixed aesthetic and density recipe; ignore audience expertise, decision posture and task frequency.",
+      "expected_effect": {"direction": "targeted-degradation", "causal_rationale": "Within-domain audience variants should become less appropriate even if the surface remains stylistically coherent."},
+      "ablation_id": "domain-audience"
+    },
+    {
+      "id": "motion-decoration-priority", "kind": "semantic", "target_hypothesis": "H-MOTION-SEMANTIC", "target_owner": "designing-motion",
+      "target_dimensions": ["motion-semantics-reduced-motion-equivalence", "functional-correctness"], "exposed_tasks": ["motion-01", "motion-02", "motion-03", "motion-04", "compound-04"],
+      "operation": "Prioritize expressive/ambient animation equally with task feedback and allow reduced motion to simply remove animations without semantic equivalents.",
+      "expected_effect": {"direction": "targeted-degradation", "causal_rationale": "High-frequency and high-pressure tasks should suffer attention or equivalence failures while contexts that benefit from stillness expose over-animation."},
+      "ablation_id": "motion-semantics"
+    },
+    {
+      "id": "fidelity-design-file-only", "kind": "semantic", "target_hypothesis": "H-RENDER-FIDELITY", "target_owner": "verifying-design-fidelity",
+      "target_dimensions": ["design-to-render-fidelity", "rendered-residue-detection"], "exposed_tasks": ["fidelity-01", "fidelity-02", "fidelity-03", "fidelity-04", "compound-03"],
+      "operation": "Treat the accepted design/component specification as fidelity proof; omit computed runtime state and rendered implementation evidence.",
+      "expected_effect": {"direction": "targeted-degradation", "causal_rationale": "Font fallback, state, overlay, wrapping, theme, browser chrome and target-runtime defects should escape verification."},
+      "ablation_id": "render-fidelity"
+    },
+    {
+      "id": "responsive-shrink-only", "kind": "semantic", "target_hypothesis": "H-RESPONSIVE-REAUTHORING", "target_owner": "designing-editor-canvas-workspaces",
+      "target_dimensions": ["responsive-recomposition", "workflow-route-connectivity"], "exposed_tasks": ["responsive-01", "responsive-02", "responsive-03", "responsive-04", "compound-02"],
+      "operation": "Preserve desktop information architecture and primarily shrink, stack or hide until the layout fits smaller viewports.",
+      "expected_effect": {"direction": "targeted-degradation", "causal_rationale": "Dense and professional tasks should lose capability context or action reachability on constrained postures."},
+      "ablation_id": "responsive-reauthoring"
+    },
+    {
+      "id": "compound-independent-pass", "kind": "interaction", "target_hypothesis": "H-COMPOUND-CLOSURE", "target_owner": "inventorying-product-capabilities",
+      "target_dimensions": ["workflow-route-connectivity", "functional-correctness", "state-recovery-completeness"], "exposed_tasks": ["compound-01", "compound-02", "compound-03", "compound-04"],
+      "operation": "Allow each local product/visual/fidelity subsystem to certify itself; remove cross-plane contradiction checks and end-to-end scenario reconciliation.",
+      "expected_effect": {"direction": "interaction-degradation", "causal_rationale": "Compound tasks should reveal failures at permission/configuration, responsive/capability, visual/state or workspace/context boundaries that local gates miss."},
+      "ablation_id": "compound-closure"
+    },
+    {
+      "id": "placebo-copy-tone", "kind": "placebo", "target_hypothesis": "H-SCOPE-BREADTH", "target_owner": "modeling-product-intent",
+      "target_dimensions": ["capability-recall"], "stable_dimensions": ["capability-recall", "scope-disposition-quality"], "exposed_tasks": ["scope-01", "scope-02"],
+      "operation": "Change explanatory prose from declarative to interrogative tone without changing product-scope obligations.",
+      "expected_effect": {"direction": "no-material-change", "causal_rationale": "A semantic-efficacy evaluator should not report scope improvement merely because instruction tone changes."}
+    },
+    {
+      "id": "placebo-id-renaming", "kind": "placebo", "target_hypothesis": "H-SETTINGS-ARCH", "target_owner": "architecting-information",
+      "target_dimensions": ["settings-account-lifecycle-completeness"], "stable_dimensions": ["settings-account-lifecycle-completeness", "workflow-route-connectivity"], "exposed_tasks": ["settings-01", "settings-02"],
+      "operation": "Rename internal evidence field identifiers while preserving settings decision semantics and judge-visible artifacts.",
+      "expected_effect": {"direction": "no-material-change", "causal_rationale": "Evaluation should respond to setting architecture behavior, not local identifier vocabulary."}
+    },
+    {
+      "id": "placebo-comment-order", "kind": "placebo", "target_hypothesis": "H-RENDER-FIDELITY", "target_owner": "verifying-design-fidelity",
+      "target_dimensions": ["design-to-render-fidelity"], "stable_dimensions": ["design-to-render-fidelity", "rendered-residue-detection"], "exposed_tasks": ["fidelity-01", "fidelity-02"],
+      "operation": "Reorder non-normative explanatory comments without changing runtime verification obligations or artifact evidence.",
+      "expected_effect": {"direction": "no-material-change", "causal_rationale": "Fidelity metrics should not move because repository prose ordering changed."}
+    },
+    {
+      "id": "placebo-nonsemantic-description", "kind": "placebo", "target_hypothesis": "H-MOTION-SEMANTIC", "target_owner": "designing-motion",
+      "target_dimensions": ["motion-semantics-reduced-motion-equivalence"], "stable_dimensions": ["motion-semantics-reduced-motion-equivalence", "functional-correctness"], "exposed_tasks": ["motion-01", "motion-02"],
+      "operation": "Replace one non-normative adjective describing motion quality while preserving temporal priority, interruption and reduced-motion rules.",
+      "expected_effect": {"direction": "no-material-change", "causal_rationale": "The benchmark should detect causal motion semantics rather than stylistic wording sensitivity."}
+    }
+  ]
+}
