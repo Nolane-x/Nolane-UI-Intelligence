@@ -104,3 +104,19 @@ Run the same interaction at normal speed, rapid repeated input, reduced motion, 
 
 ### V9 Recovery
 Centralize semantic state and event ownership, cancel stale async/animation work, simplify choreography, and restore task feedback before visual richness. If the engine makes correct interruption or reduced-motion semantics unreasonably fragile, replace or bound the engine instead of encoding product truth inside it.
+
+## V10 Temporal Runtime Realization Test
+This faculty participates in `H-MOTION-SEMANTIC` but does **not** own the product-level decision about whether motion should exist. Its empirical question is narrower: once a semantic motion contract exists, does implementation preserve canonical action truth under interruption, retargeting, alternate input, reduced motion, hydration and performance pressure?
+
+Record a runtime event trace for material interactions:
+
+`input/event → semantic action state → visual state → interruption/retarget event → authoritative commit/cancel → focus/announcement result → settled state`
+
+Pair that trace with the design-motion purpose and reduced-motion equivalent. A motion system can look identical in two screenshots while one version duplicates actions, loses focus, completes against stale data or keeps an offscreen loop alive. Those are runtime failures, not visual preferences.
+
+For the `motion-decoration-priority` mutation, implementation must not “rescue” the experiment by silently fixing the product-level priority; it should faithfully expose the consequence of the mutated contract while preserving basic runtime safety. Conversely, the full condition must degrade ambient/signature effects before task feedback when performance pressure rises. The evaluator should test throttling, rapid repeated input, changed destinations, unmount/navigation, reduced motion and keyboard-equivalent operations.
+
+### V10 failure attribution
+If the design-motion contract is semantically correct but runtime traces fail, attribute the defect here. If runtime follows the contract perfectly but the motion purpose is wrong, attribute it to `designing-motion`. This separation prevents a motion engine from being blamed for a bad product decision or a motion director from receiving credit for robust interruption mechanics supplied elsewhere.
+
+A targeted efficacy claim can mention this runtime owner only when full NUI shows lower impossible-state, duplicate-action, focus-loss or reduced-motion-equivalence failure rates than a matched ablation/mutation on rich-interaction tasks. Smoothness alone is not a V10 empirical success metric.
