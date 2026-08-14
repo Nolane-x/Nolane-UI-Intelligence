@@ -2,222 +2,350 @@
 
 # Nolane UI Intelligence
 
-### Hệ thống nhận thức thiết kế và kiểm chứng UI dành cho AI Agent
+### Nhận thức thiết kế, độ đầy đủ sản phẩm, chất lượng thị giác và kiểm chứng bằng evidence cho AI Agent
 
-**AI có thể dựng một giao diện trong vài giây. NUI được tạo ra để khiến AI hiểu vì sao giao diện đó phải tồn tại, điều gì không được phép đánh mất, nó nên tạo cảm giác gì — và cần bằng chứng nào trước khi dám gọi nó là tốt.**
+**AI có thể tạo giao diện trong vài giây. NUI được xây để buộc AI suy nghĩ như một đội product + design nghiêm túc trước khi dám giao nó cho người dùng.**
 
 [English](README.md) · [Tiếng Việt](README-VN.md) · [简体中文](README-CN.md)
 
-`v0.10.0` · `174 skill chuẩn` · `evidence-gated` · `đa nền tảng` · `MIT`
+`v0.10.0` · `174 skill chuẩn` · `9 agent projection` · `MCP + CLI` · `evidence-gated` · `MIT`
 
 </div>
 
 ---
 
-## Bài toán bây giờ không còn là “AI có viết được UI hay không”
+## Mô tả
 
-AI hiện đại có thể tạo page, dashboard, app, component, animation, thậm chí cả một frontend hoàn chỉnh với tốc độ đáng kinh ngạc.
+**Nolane UI Intelligence (NUI)** là một hệ thống nhận thức thiết kế và kiểm chứng UI/UX mã nguồn mở dành cho AI coding agent. NUI cung cấp cho agent một đồ thị skill được định tuyến theo nhiệm vụ: từ hiểu sản phẩm, người dùng, information architecture, interaction, typography, motion, accessibility, authentication, settings, professional workspace, product completeness cho tới render critique, design-to-code fidelity và empirical evaluation.
 
-Nhưng phần khó nhất lại nằm ở **trước và sau lúc code được sinh ra**.
+NUI **không phải** component library, bộ style preset, mega-prompt, công cụ chép screenshot hay một “điểm đẹp” duy nhất. Mục tiêu của nó là làm cho quyết định thiết kế trở nên **rõ ràng, có owner, có thể phản biện, có thể kiểm chứng và có giới hạn claim**.
 
-AI có thực sự hiểu sản phẩm, hay chỉ ép yêu cầu vào một mẫu giao diện quen thuộc? Những capability quan trọng có bị mất vì chúng không “đẹp để demo” không? Một công cụ chuyên nghiệp có bị biến thành vài card khổng lồ? “Premium” có lại đồng nghĩa với nền tối + blur + gradient? Mobile có chỉ là desktop bị ép nhỏ? Motion có đang truyền đạt quan hệ và trạng thái, hay chỉ chuyển động cho vui? Accessibility, permission, recovery, trust và platform behavior có sống sót sau khi thiết kế trở nên đẹp hơn không?
+### Tags / chủ đề
 
-Và còn một câu hỏi khó hơn:
-
-> Khi một hệ thống tuyên bố “skill này giúp AI thiết kế tốt hơn”, **bằng chứng nào chứng minh điều đó?**
-
-**Nolane UI Intelligence (NUI)** được xây dựng cho chính tầng vấn đề này.
-
-NUI không phải UI kit. Không phải kho theme. Không phải một mega-prompt kiểu “hãy làm giao diện cực đẹp”. NUI là một **hệ thống design intelligence có cấu trúc dành cho AI Agent**: gồm graph các decision owner chuyên biệt, router, evidence contract, critic độc lập, provenance nghiên cứu, validator deterministic và bộ máy thực nghiệm để kiểm soát claim.
-
-Mục tiêu của NUI có thể tóm lại trong một câu:
-
-> **Biến việc tạo UI từ một cú bắt chước một lần thành một quy trình có kỷ luật: hiểu sản phẩm → khám phá → phân kỳ → thiết kế → triển khai → quan sát render thật → phản biện → sửa → kiểm chứng → mới được release.**
+`ai-agents` · `agent-skills` · `ui-ux` · `design-intelligence` · `design-system` · `frontend` · `codex` · `claude-code` · `gemini-cli` · `opencode` · `cursor` · `vscode` · `mcp` · `accessibility` · `human-computer-interaction` · `ai-coding`
 
 ---
 
-## NUI thay đổi cách AI thiết kế như thế nào?
+# Dùng NUI với AI agent của bạn
 
-Một agent không có tầng design cognition rất dễ rơi vào vòng lặp:
+NUI được thiết kế để dùng với **Codex, Claude Code, Google Antigravity, Gemini CLI, OpenCode, Cursor, VS Code/Copilot-compatible agents, mọi MCP host và các AI agent có shell/CLI** mà không phải tạo chín bản copy của cùng một bộ skill.
 
-`prompt → pattern quen thuộc → code → “trông ổn” → xong`
-
-NUI thay nó bằng lifecycle có trạng thái rõ ràng:
+Kiến trúc cốt lõi:
 
 ```text
-INTAKE
-  ↓
-CONTRACTED
-  ↓
-ROUTED
-  ↓
-DISCOVERED
-  ↓
-ARCHITECTED
-  ↓
-DIVERGED
-  ↓
-DESIGN_SELECTED
-  ↓
-SYSTEMIZED
-  ↓
-SPECIFIED
-  ↓
-IMPLEMENTABLE
-  ↓
-RENDERED
-  ↓
-CRITIQUED
-  ↓
-VERIFIED
-  ↓
-RELEASED
+một NUI cognition graph chuẩn
+            ↓
+      bridge mỏng theo host
+            ↓
+Codex / Claude / Gemini / OpenCode / Cursor / VS Code / MCP / CLI
 ```
 
-Nếu obligation thất bại, source bị stale, capability bị thiếu, thiết kế mắc trong một visual basin yếu, runtime có lỗi, hoặc claim vượt quá evidence, hệ thống có thể quay về `RECOVERY` hoặc dừng ở `BLOCKED`.
+## Cài nhanh
 
-Điểm cốt lõi là: **mỗi giai đoạn được phép trả lời một loại câu hỏi khác nhau**.
+```bash
+git clone https://github.com/Nolane-x/Nolane-UI-Intelligence.git
+cd Nolane-UI-Intelligence
+```
 
-Product intent không được phép biến thành layout quá sớm. Visual direction không được phép khóa vào phương án thời thượng đầu tiên. Compile thành công không được phép đóng vai bằng chứng thẩm mỹ. Một generator không được tự vừa tạo vừa lặng lẽ chứng nhận chính sản phẩm của nó.
+Xem plan tích hợp dành cho agent của bạn:
 
----
+```bash
+python scripts/nui-agent-export --agent openai-codex
+```
 
-## 174 skill — nhưng chỉ có một hệ thống
-
-NUI hiện có **174 canonical skills**.
-
-174 không phải con số để khoe và càng không phải số lượng context phải nạp vào mỗi task. Router `routing-ui-work` chỉ chọn **graph nhỏ nhất nhưng đủ** cho bài toán hiện tại.
-
-Một landing page, một video editor, một financial console, một hệ thống y tế, một giao diện TV, một ứng dụng AAC, một workspace AI agent và một flight deck không thể bị suy nghĩ bằng cùng một bộ context.
-
-Graph của NUI bao phủ nhiều tầng khác nhau, trong đó có:
-
-- product intent, capability, product scope và completeness;
-- user/task model, expertise, error cost và human factors;
-- information architecture, navigation và settings architecture;
-- interaction, state, form, search, table và data-dense workflow;
-- web, mobile, desktop, foldable, TV, wearable, automotive, XR, terminal, kiosk và các surface chuyên biệt;
-- keyboard, pointer, touch, pen, remote, voice, gaze, haptic và alternative input;
-- accessibility, cognitive access, low vision, screen reader, reduced motion, AAC và accessible media;
-- human-AI interaction, uncertainty, agent autonomy, generative UI và multi-agent surface;
-- authentication, permissions, privacy, finance, medical và high-consequence UX;
-- typography, color, spacing, composition, material, imagery, motion và visual hierarchy;
-- editor/canvas, professional workspace, command system và rich interaction;
-- design token, component architecture, design system và implementation fidelity;
-- source authority, repository archaeology, external library và integration audit;
-- các critic độc lập cho visual, UX, accessibility, safety, platform, resilience và fidelity.
-
-Một skill mới chỉ đáng tồn tại khi nó sở hữu **một decision boundary hoặc failure class thực sự khác biệt**. NUI các đời sau cố tình ưu tiên đào sâu owner cũ thay vì sinh thêm skill gần giống nhau chỉ để tăng số lượng.
-
----
-
-## Flagship Visual Intelligence: “đẹp” không phải một checkbox
-
-NUI coi mức độ tham vọng thẩm mỹ là một contract thật.
-
-Với `flagship`, `exceptional` hoặc `experiential`, một screenshot bóng bẩy là chưa đủ. AI phải chứng minh rằng visual direction đã được khám phá, phân kỳ và stress-test chứ không phải tình cờ rơi vào một mẫu đẹp quen thuộc.
-
-### Ba hướng phải thực sự khác nhau
-
-Ít nhất ba candidate phải khác đáng kể ở **composition, typography, material language và signature mechanism**. Đổi màu một layout không được tính là divergence.
-
-### Generic-transfer test
-
-Ẩn logo và tên sản phẩm. Nếu cùng một shell đó có thể gắn vào hàng chục SaaS không liên quan mà gần như không mất ý nghĩa, identity layer vẫn còn generic.
-
-### Attention architecture
-
-Thiết kế phải cho thấy mắt người nên hiểu gì thứ nhất, thứ hai, thứ ba. “Mọi thứ đều đẹp và đều nổi” thường có nghĩa là hierarchy đã thất bại.
-
-### Domain-native signature
-
-Memorability nên được sinh ra từ chính subject, workflow, dữ liệu, công cụ hoặc interaction của sản phẩm — không phải vài hình cầu phát sáng vô nghĩa đặt phía sau content.
-
-### Responsive art direction
-
-Mobile không phải desktop xếp dọc. Khi cấu trúc nhiệm vụ thay đổi, composition phải được re-author chứ không chỉ co nhỏ.
-
-### Closed critique loop
-
-Một finding quan trọng phải được **sửa rồi quan sát lại trong một render cụ thể**. Critique chỉ nói đúng mà không làm evidence thay đổi thì chưa đóng vòng lặp.
-
-NUI vì vậy không sử dụng một “beauty score” toàn năng. Taste phải được so sánh theo ngữ cảnh và có bằng chứng. Product truth, accessibility và interaction correctness vẫn là hard boundary ngay cả khi một phương án khác trông “wow” hơn trong một bài preference test nông.
-
----
-
-## Product completeness phải đi trước screen completeness
-
-Một UI có thể cực kỳ logic bên trong chính nó nhưng vẫn đại diện cho **một sản phẩm bị cắt cụt ngay từ lúc model hóa**.
-
-Vì vậy NUI tách **discovery breadth** khỏi **implementation commitment**. Trước khi một sản phẩm tham vọng bị nén thành route và screen, các capability family hợp lý phải được phát hiện và gán disposition rõ ràng:
-
-`REQUIRED · EXPECTED · OPTIONAL · EXCLUDED · UNKNOWN`
-
-Điều này ngăn một “full platform” vô tình biến thành Dashboard + Items + Settings chỉ vì đó là ba thứ đầu tiên AI nghĩ tới.
-
-Nhưng broad discovery cũng không phải giấy phép biến mọi tool nhỏ thành enterprise suite. Scope vẫn phải đi theo actor, outcome, lifecycle, consequence và ambition thực tế.
-
-Với editor và professional tool, NUI còn ép kiểm tra workspace region, selection, inspector, command, history, asset/resource, status, import/export, collaboration và persistence. **Completeness là capability có thật và reachable**, không phải việc bày toàn bộ control lên màn hình.
-
----
-
-## Học từ hệ sinh thái UI mà không biến thành máy sao chép
-
-NUI có thể học từ platform guideline, design system, component library, paper, production product và toolchain ngoài repo — nhưng nó tách rõ **khả năng truy cập source** khỏi **quyền lực của source**.
-
-Một source nổi tiếng, đẹp, nhiều sao GitHub, có MCP hay có agent docs không vì thế mà trở thành authority cho mọi quyết định.
-
-NUI chia authority theo dimension. Platform guide có thể là authority của platform convention. Headless primitive có thể mạnh về semantics và state. Motion engine có thể mạnh về interpolation. Một sản phẩm đẳng cấp có thể nâng chuẩn composition. Nhưng không source nào tự động được quyền quyết định product strategy, accessibility hay visual identity ở ngoài phạm vi của nó.
-
-Nguyên tắc transfer là:
-
-> **Học mechanism, không copy trade dress.**
-
-Material influence từ source ngoài phải giữ provenance, source role, licensing posture, transfer boundary, contraindication và local verification. Đọc mỗi README rồi đem pattern vào production không được coi là deep research.
-
----
-
-## V10: từ “skill nghe có vẻ thông minh” sang design intelligence có thể bị bác bỏ
-
-V10 thay đổi một điều rất quan trọng:
-
-**Một skill không còn được xem là sâu chỉ vì nó được viết dài, logic và thuyết phục. Nó phải có khả năng làm hành vi thay đổi — và hệ thống phải có cách phát hiện khi nó không làm được điều đó.**
-
-Evaluation layer của V10 hiện có:
-
-- **13 behavioral hypothesis có thể falsify**;
-- **48 benchmark task gốc**, chia thành **12 task family**;
-- boundary giữa public generation và hidden evaluator;
-- holdout task cho transfer-sensitive evaluation;
-- semantic mutation, targeted ablation và placebo control;
-- blinded pairwise judging;
-- run provenance gồm provider, model family, model, snapshot, runtime và artifact digest;
-- canonical SHA-256 cho experimental identity;
-- matched-pair aggregation và uncertainty-aware statistics;
-- hard-blocker regression gate;
-- claim promotion có giới hạn: `STRUCTURAL_ONLY`, `EMPIRICAL_LOCAL`, `EMPIRICAL_TRANSFER`, hoặc `REJECTED`.
-
-Phân biệt quan trọng nhất là:
+Các adapter ID đang được hỗ trợ thật trong repo:
 
 ```text
-artifact đẹp ≠ bằng chứng rằng NUI là nguyên nhân khiến artifact tốt hơn
+openai-codex
+claude-code
+google-antigravity
+gemini-cli
+opencode
+cursor-compatible
+vscode-agent-compatible
+generic-mcp
+generic-cli
 ```
 
-Một UI xuất sắc chứng minh UI đó xuất sắc. Nó chưa tự động chứng minh một skill cụ thể đã cải thiện model.
+### Bảng tích hợp agent
 
-Muốn claim efficacy, V10 đòi evidence lineage mạnh hơn: real validated runs, matched treatment pairs, blind judgment, bundle digest, targeted ablation và thống kê có giới hạn. Chỉ ghi `real_model_runs: true` trong JSON không có quyền nâng claim.
+| Agent / host | Cách NUI đề xuất | Đường vào |
+|---|---|---|
+| **Codex** | Agent Skills bridge + repository policy | `.agents/skills/nolane-ui/SKILL.md` + `python scripts/nui-agent-export --agent openai-codex` |
+| **Claude Code** | Project skill bridge | `.claude/skills/nolane-ui/SKILL.md` + `python scripts/nui-agent-export --agent claude-code` |
+| **Google Antigravity** | Agent Skills bridge hoặc MCP | `python scripts/nui-agent-export --agent google-antigravity` |
+| **Gemini CLI** | CLI/MCP projection | `python scripts/nui-agent-export --agent gemini-cli` |
+| **OpenCode** | CLI/MCP projection | `python scripts/nui-agent-export --agent opencode` |
+| **Cursor** | Repository guidance + MCP/CLI | `python scripts/nui-agent-export --agent cursor-compatible` |
+| **VS Code / Copilot-compatible agent** | Repository guidance + MCP/CLI | `python scripts/nui-agent-export --agent vscode-agent-compatible` |
+| **Mọi MCP host** | Local NUI MCP sidecar | `python scripts/nui-mcp-server` |
+| **Mọi agent có shell** | Canonical skill + CLI | `python scripts/nui-agent-export --agent generic-cli` |
 
-### Claim ceiling hiện tại
+## Gắn NUI vào một project khác
 
-CI thông thường và fixture đi kèm repository hiện đang chứng minh **evaluation framework và structural invariants**, chứ chưa chứng minh một tuyên bố phổ quát kiểu “NUI làm mọi model thiết kế đẹp hơn”.
+Không cần chép 174 skill vào prompt. Có thể giữ NUI dưới dạng sidecar trong project:
 
-Vì vậy default claim ceiling vẫn là:
+```bash
+git clone --depth 1 https://github.com/Nolane-x/Nolane-UI-Intelligence.git .nui
+```
 
-**`STRUCTURAL_ONLY`**
+Sau đó xem projection cho agent:
 
-Muốn lên `EMPIRICAL_LOCAL` hay `EMPIRICAL_TRANSFER`, phải chạy real provider/model bundle và vượt đúng gate V10.
+```bash
+python .nui/scripts/nui-agent-export --agent claude-code --root .nui
+```
 
-Đây không phải sự yếu đi của project. Đây là việc project **từ chối tự lừa mình bằng benchmark synthetic**.
+hoặc chạy NUI như một MCP sidecar local:
+
+```bash
+python .nui/scripts/nui-mcp-server --root .nui
+```
+
+Hãy đăng ký command trên bằng **cú pháp MCP/project config hiện tại của host**. NUI cố ý không hard-code config vendor vào cognition graph vì syntax của Codex/Claude/Gemini/editor có thể thay đổi nhanh hơn chính kiến thức thiết kế.
+
+> **Ranh giới quyền:** host vẫn là authority. NUI không tự mở rộng quyền shell, filesystem, network, browser, image hay MCP.
+
+Hướng dẫn đầy đủ theo từng agent nằm ở **[`docs/AGENT-INTEGRATION.md`](docs/AGENT-INTEGRATION.md)**.
+
+---
+
+## Vì sao NUI tồn tại?
+
+Vấn đề khó bây giờ không còn là “AI có viết được JSX/CSS không?”.
+
+Một AI có thể tạo code hợp lệ nhưng vẫn **nghĩ quá gọn**:
+
+- web quản lý bán hàng chỉ có Dashboard + Products + Orders;
+- editor có canvas nhưng thiếu inspector, history, asset flow, command system và workspace persistence;
+- login có nhưng recovery, device/session, account lifecycle không có;
+- Settings chỉ là vài toggle;
+- desktop đẹp nhưng mobile chỉ là desktop bị bóp nhỏ;
+- mọi vùng đều thành rounded card vì đó là cấu trúc dễ sinh nhất;
+- một scrollbar/select/date input mặc định phá hỏng toàn bộ phong cách;
+- animation có mặt chỉ vì “premium app thì phải có motion”;
+- agent nhìn screenshot do chính nó tạo rồi tự tuyên bố “xong”.
+
+NUI coi những trường hợp đó là **lỗi nhận thức thiết kế**, không đơn thuần là lỗi CSS.
+
+---
+
+## Cách NUI suy nghĩ
+
+Thay vì một prompt như:
+
+```text
+Hãy làm UI thật đẹp, hiện đại và premium.
+```
+
+NUI đưa agent vào một lifecycle gần với:
+
+```text
+product truth
+→ user / task / risk contract
+→ capability discovery
+→ specialist routing
+→ information & interaction architecture
+→ divergent visual directions
+→ design system
+→ implementation
+→ render thật
+→ critique độc lập
+→ sửa / render lại
+→ verification
+→ bounded release claim
+```
+
+Agent không tải toàn bộ 174 skill. Router chọn **graph owner nhỏ nhất nhưng đủ** cho nhiệm vụ hiện tại.
+
+---
+
+## 174 design faculties chuẩn
+
+NUI hiện giữ **174 canonical skills**. Con số này không phải KPI.
+
+Một skill chỉ nên tồn tại khi nó sở hữu một loại quyết định hoặc failure class riêng. Hệ thống cố tình chống lại việc tạo hàng chục “expert” gần giống nhau.
+
+Các nhóm lớn bao gồm:
+
+- product intent, users, jobs, capability modeling;
+- information architecture và settings architecture;
+- interaction state, rich component, direct manipulation;
+- typography, color, spacing, surface, icon, hierarchy;
+- semantic motion và reduced-motion equivalence;
+- responsive, mobile, desktop, TV, XR, automotive, wearables;
+- keyboard, touch, pen, remote, voice, gaze;
+- accessibility, cognitive accessibility, screen reader, low vision, AAC;
+- authentication, trust, privacy, financial, medical và các domain high-impact;
+- human-AI interaction, uncertainty, provenance, streaming, autonomous action;
+- editor/canvas workspace, desktop professional workspace;
+- external source research và authority routing;
+- visual media sourcing/authoring/integration;
+- product closure và route/action reachability;
+- rendered critique, adequacy critic và release verification;
+- mutation, ablation và empirical evaluation.
+
+Bootstrap chuẩn:
+
+```text
+skills/using-nolane-ui/SKILL.md
+```
+
+Graph chuẩn:
+
+```text
+skills/skill-graph.json
+```
+
+---
+
+## Product completeness: nghĩ rộng trước, thu gọn sau
+
+Một nguyên tắc quan trọng của NUI:
+
+> **Luôn khám phá phạm vi đủ rộng trước khi quyết định bỏ bớt.**
+
+Capability có thể được disposition thành:
+
+```text
+REQUIRED
+EXPECTED
+OPTIONAL
+EXCLUDED
+UNKNOWN
+```
+
+Vì vậy một “full sales management platform” không được phép dừng ngay ở bốn màn hình đầu tiên chỉ vì AI nghĩ ra chúng trước. Agent phải xem xét những capability hợp lý như account/workspace, roles/permissions, catalog/SKU, inventory, order lifecycle, fulfillment, returns/refunds, customer, payment, reporting, search, notifications, import/export, integrations, settings, audit/history và recovery.
+
+Nhưng “xem xét” **không đồng nghĩa bắt buộc triển khai hết**. NUI tìm kiếm intentional scope, không ép mọi sản phẩm thành enterprise monster.
+
+---
+
+## Professional tool phải có kiến trúc công cụ thật
+
+Đối với IDE, editor, design tool, media tool hoặc operations workspace, NUI suy nghĩ bằng **instrument architecture**:
+
+```text
+workspace shell
+→ modes / tools
+→ selection model
+→ primary work surface
+→ context inspector
+→ hierarchy / layers
+→ assets / resources
+→ command / search
+→ history / undo / redo
+→ import / export
+→ collaboration
+→ status / progress
+→ persistence
+```
+
+Đầy đủ không có nghĩa hiển thị hết mọi button. Progressive disclosure, command palette, keyboard path, context action và density vẫn phải được thiết kế.
+
+---
+
+## Flagship visual intelligence
+
+Với ambition `flagship`, `exceptional` hoặc `experiential`, NUI không chấp nhận một danh sách tính từ “premium / clean / modern” như art direction.
+
+Agent phải có visual thesis và khám phá các candidate **thật sự khác nhau** về:
+
+- composition;
+- type system;
+- material system;
+- signature mechanism.
+
+Sau đó mới hội tụ và kiểm tra attention hierarchy, typography, density/composition rhythm, color-material causality, motion, product-native signature, reference frontier, generic-transfer resistance, responsive re-authoring và critique loop.
+
+NUI không tuyên bố toán học hóa vẻ đẹp. Nó làm cho **claim về chất lượng cao có thể bị bác bỏ** nếu evidence không đủ.
+
+---
+
+## Render rồi mới được critique
+
+NUI phân biệt thiết kế trên giấy với kết quả người dùng thật sự nhìn thấy:
+
+```text
+render
+→ screenshot / runtime observation
+→ hierarchy critique
+→ typography / spacing / density critique
+→ browser/platform residue audit
+→ responsive critique
+→ correction
+→ re-render
+→ A/B
+```
+
+Nhờ vậy agent có thể bắt những lỗi mà đọc source không thấy: text wrapping, scrollbar lạc tông, focus/native chrome, optical alignment, crop, cramped mobile state, material inconsistency và motion sai causality.
+
+---
+
+## Không để “UI mặc định cổ điển” lọt vào một sản phẩm đẹp
+
+NUI audit nhiều default-chrome class, không chỉ scrollbar:
+
+```text
+scrollbar
+select
+file input
+date/time input
+number/range
+focus / selection / caret
+resize handle
+drag ghost
+native validation
+context menu
+tooltip / popover
+cursor
+overscroll
+```
+
+Nguyên tắc không phải “custom tất cả”. Native đúng platform có thể là lựa chọn tốt. Lỗi nằm ở **residue vô tình**, inconsistency hoặc custom sai làm mất khả năng sử dụng/accessibility.
+
+---
+
+## Học reference mà không copy
+
+NUI dùng các sản phẩm, design system, research và UI library như nguồn học **mechanism**, không phải mẫu để chép trade dress.
+
+Flow:
+
+```text
+need
+→ inspect current source
+→ identify authority role
+→ extract mechanism
+→ define transfer boundary
+→ adapt to product truth
+→ verify local runtime
+```
+
+Một reference có thể dạy density zoning, typography contrast, command architecture, motion continuity hay material layering. Nó không tự trở thành quyền để sao chép phong cách nhận diện của sản phẩm đó.
+
+---
+
+## V10 — Behavioral Design Intelligence & Empirical Proof
+
+V10 thêm một câu hỏi khó hơn:
+
+> **NUI có thật sự làm AI thay đổi hành vi theo chiều đúng hay không?**
+
+V10 hiện có:
+
+- **13 falsifiable behavioral hypotheses**;
+- **48 benchmark tasks / 12 task families**;
+- public-generation và evaluator-hidden boundary;
+- mutation, targeted ablation, placebo control;
+- provenance cho model/runtime/prompt/tool budget;
+- blind pairwise judging;
+- matched comparison units;
+- exact statistical gates;
+- bounded claim promotion.
+
+Không có một “NUI score” duy nhất. Nếu product completeness tăng nhưng một chiều khác không tăng, kết quả phải thể hiện điều đó.
+
+CI repo hiện vẫn giữ **structural evidence ceiling**; NUI không dùng synthetic fixture để tự quảng cáo rằng nó đã được empirical prove trên mọi model.
 
 ---
 
@@ -225,109 +353,61 @@ Muốn lên `EMPIRICAL_LOCAL` hay `EMPIRICAL_TRANSFER`, phải chạy real provi
 
 NUI không phải:
 
-- UI component kit;
-- bản thay thế Figma;
-- kho palette/font/template đẹp;
-- một mega-prompt để dán vào mọi cuộc hội thoại;
-- oracle có thể tính “độ đẹp khách quan”;
-- giấy chứng nhận rằng mọi UI do AI sinh ra đều accessible, safe hoặc production-ready;
-- công cụ để copy Apple, Linear, Stripe, Notion, Canva, VS Code hay bất kỳ sản phẩm nào khác;
-- một benchmark score được gọi nhầm là design intelligence.
+- React component library;
+- Tailwind preset;
+- Figma kit;
+- một system prompt duy nhất;
+- bộ screenshot trend;
+- máy tự cấp chứng chỉ accessibility;
+- hàm tính beauty score tuyệt đối;
+- giấy phép copy Apple/Linear/Stripe/Canva/CapCut/VS Code;
+- bảo đảm mọi output của AI tự động thành tuyệt phẩm.
 
-NUI là infrastructure cho **reasoning, routing, design decision, criticism, evidence và recovery**.
+NUI là một nỗ lực xây **design cognition layer bao quanh AI agent**, sau đó làm lớp nhận thức đó có thể định tuyến, quan sát, phản biện và kiểm thử.
 
 ---
 
-## Kiến trúc repository
+## Cấu trúc repo
 
 ```text
-Nolane-UI-Intelligence/
-├── skills/                 # canonical design cognition graph
-│   └── skill-graph.json    # ownership, parent và output
-├── knowledge/              # authority, research, design & evidence memory
-├── benchmarks/v10/         # public tasks, hidden evaluator data, mutations
-├── evals/                  # adversarial / behavioral pressure tests
-├── schemas/                # typed evidence contracts
-├── src/nolane_ui/          # deterministic validators & reasoning kernels
-├── scripts/                # validation, release, empirical tooling
-├── adapters/               # mapping cho agent/runtime
-├── docs/                   # architecture, research, run protocol
-└── tests/                  # behavioral, repository, mutation, claim gates
+skills/                         174 canonical faculties
+skills/skill-graph.json        routing / ownership graph
+knowledge/                     authority, ontology, benchmark, evidence
+schemas/                       typed evidence contracts
+src/nolane_ui/                 deterministic kernels
+evals/                         adversarial / behavioral fixtures
+benchmarks/v10/                V10 benchmark corpus
+.agents/skills/nolane-ui/      Codex / Agent Skills bridge
+.claude/skills/nolane-ui/      Claude Code bridge
+scripts/nui-agent-export       agent projection CLI
+scripts/nui-mcp-server         local MCP entry point
+docs/AGENT-INTEGRATION.md      hướng dẫn tích hợp agent đầy đủ
 ```
-
-Entry point chuẩn cho material UI/UX task:
-
-`skills/using-nolane-ui/SKILL.md`
-
-Bootstrap này giao task cho `nolane-ui`, sau đó `routing-ui-work` chọn những faculty thực sự cần. **Không nạp cả 174 skill vào một context.** Progressive disclosure là một phần của kiến trúc, không phải tối ưu phụ.
 
 ---
 
-## Chạy thử
-
-Kiểm tra repository:
+## Kiểm chứng repository
 
 ```bash
-PYTHONPATH=src python scripts/nui-validate .
+python -m unittest discover -s tests -v
+python scripts/nui-validate .
 ```
 
-Chạy toàn bộ test suite:
-
-```bash
-PYTHONPATH=src python -m unittest discover -s tests -v
-```
-
-Bắt đầu với V10 controlled evaluation:
-
-```bash
-python scripts/nui-v10-build-run-matrix examples/v10/experiment.example.json
-python scripts/nui-v10-validate-run-bundle <manifest.json> <runs.jsonl>
-python scripts/nui-v10-aggregate <runs.jsonl>
-```
-
-Trước khi diễn giải bất kỳ efficacy result nào, đọc `docs/V10-EMPIRICAL-RUN-PROTOCOL.md`.
-
----
-
-## 10 nguyên tắc thể hiện tinh thần của NUI
-
-1. **Product truth đứng trước visual polish.**
-2. **UI hợp lý đầu tiên chỉ là hypothesis, không phải đáp án.**
-3. **Ambition cao phải divergence trước khi refinement.**
-4. **Interaction quen thuộc vẫn có thể sống cùng identity khác biệt.**
-5. **Thiếu evidence là `UNKNOWN/BLOCKED`, không phải `PASS`.**
-6. **Generator không được lặng lẽ tự chứng nhận chính sản phẩm nó tạo.**
-7. **Pixel cuối cùng người dùng nhìn thấy quan trọng; source code chưa phải interface cuối.**
-8. **Authority là theo decision dimension, không phải theo độ nổi tiếng.**
-9. **Skill sâu vì nó đổi quyết định và bắt được failure — không phải vì nó nhiều chữ.**
-10. **Claim cải thiện phải có controlled evidence, không phải confidence.**
-
----
-
-## Research & provenance
-
-NUI tổng hợp mechanism từ platform guidance, accessibility standard, human-factors research, design system, implementation ecosystem và agent-design research nhưng luôn giữ source role và reuse boundary.
-
-Provenance chi tiết nằm ở `docs/research/SOURCES.md` và các machine-readable ledger trong `knowledge/`.
-
-Project chủ động không bulk-copy skill prose của bên thứ ba, không nhập proprietary design database, và không biến visual identity của sản phẩm khác thành template của mình. Source có độ drift cao có thể mở lại research wave khi guidance thay đổi.
-
----
-
-## Vì sao dự án này tồn tại?
-
-Tương lai của AI-generated software sẽ không chỉ thuộc về model viết được nhiều JSX nhất.
-
-Nó còn phụ thuộc vào **môi trường nhận thức bao quanh model**: môi trường giữ product truth không bị rơi mất, phát hiện assumption còn thiếu, gọi đúng chuyên môn đúng lúc, chống generic attractor, hiểu risk, tạo phương án khác nhau, quan sát render thật, tự phản biện độc lập, quay lại sửa khi sai — và biết khi nào evidence vẫn chưa đủ để tuyên bố chiến thắng.
-
-**Nolane UI Intelligence là một nỗ lực xây dựng chính tầng thiết kế đó.**
-
-Không phải một prompt đẹp hơn.
-
-Mà là một cách nghiêm túc hơn để AI học cách thiết kế.
+Validator chứng minh structural/evidence-contract invariants của revision đang kiểm tra. Nó không tự chứng minh mọi UI tương lai sẽ đẹp, usable, accessible, lawful hay empirically superior.
 
 ---
 
 ## License
 
-MIT. Xem `LICENSE` để biết chi tiết.
+MIT. Xem [`LICENSE`](LICENSE).
+
+---
+
+<div align="center">
+
+### AI đã biết sinh UI.
+### Nolane UI Intelligence cố gắng dạy nó **thiết kế, quan sát và chứng minh** UI đó.
+
+**Bắt đầu:** [`skills/using-nolane-ui/SKILL.md`](skills/using-nolane-ui/SKILL.md) · **Cài cho AI agent:** [`docs/AGENT-INTEGRATION.md`](docs/AGENT-INTEGRATION.md)
+
+</div>
