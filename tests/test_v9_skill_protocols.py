@@ -1,3 +1,4 @@
+import json
 import unittest
 from pathlib import Path
 
@@ -54,10 +55,9 @@ class V9SkillProtocolTests(unittest.TestCase):
             "V9 Motion Implementation Fidelity", "semantic motion", "performance degradation"
         ])
 
-    def test_router_activates_v9_planes(self):
-        self.assert_anchors("routing-ui-work", [
-            "V9 Product Completeness and Taste Routing", "capability envelope", "rendered critique", "interface residue"
-        ])
+    def test_v9_does_not_inflate_canonical_skill_count_with_duplicate_owners(self):
+        graph = json.loads((ROOT / "skills" / "skill-graph.json").read_text(encoding="utf-8"))
+        self.assertEqual(len(graph["skills"]), 174)
 
 
 if __name__ == "__main__":
