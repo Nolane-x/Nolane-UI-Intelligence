@@ -88,3 +88,23 @@ Take a full-platform ledger and remove one unglamorous expected family while lea
 
 ### V9 Recovery
 Return to the product envelope, restore the family, split it into independently meaningful capabilities, assign evidence/dispositions and rerun downstream action, route, scenario and runtime closure. Do not compensate for missing product breadth by increasing visible widget count.
+
+## V10 Disposition Attribution Protocol
+`H-CAPABILITY-DISPOSITION` owns a narrower empirical claim than broad product discovery: after candidate families are found, this faculty should make the model **account for ambiguity and deliberate absence instead of silently converting “remembered” into “implemented” or “forgotten.”** The target observable is not feature count. It is the quality of the `REQUIRED | EXPECTED | OPTIONAL | EXCLUDED | UNKNOWN` decision and the product evidence supporting it.
+
+The semantic mutation `drop-expected-disposition` removes `EXPECTED` and `UNKNOWN`, forcing a crude implement-or-ignore boundary. The `capability-disposition` ablation removes this accounting plane entirely. A matched benchmark should then show more silent omissions, unsupported promotions, or missing exclusion rationale on tasks where capability plausibility exceeds certainty. On a fixed reproduction task, by contrast, this faculty should not invent a speculative product roadmap merely because a generic platform usually has more features.
+
+### V10 evaluator-visible evidence
+For an empirical run, emit a disposition trace that preserves:
+- candidate family provenance;
+- why the family affects an actor, lifecycle, consequence, recovery path, or production claim;
+- the selected disposition and confidence/evidence status;
+- authority for `EXCLUDED` or product-changing demotion;
+- the downstream UI obligation created by `REQUIRED`/`EXPECTED` without prematurely selecting a screen.
+
+The hidden benchmark rubric may judge those relations, but its language must never be injected into generation. A benchmark that scores “number of EXPECTED labels” is invalid because a model can game it without making better scope decisions.
+
+### V10 falsification and recovery
+If full NUI produces more explicit dispositions but judges find no reduction in silent product loss, the labels may be ceremonial. If it avoids omission by marking nearly everything `REQUIRED`, the faculty is over-expanding. If the targeted ablation has no measurable effect while the parent `H-SCOPE-BREADTH` does, inspect whether this owner is redundant, insufficiently routed, or evaluated on tasks with no genuine uncertainty. Do not deepen the skill by adding more categories until the failure topology is understood.
+
+No successful artifact, validator result, or repository test may be cited as empirical proof that this faculty improves scope reasoning. Without matched real-model treatment evidence and targeted degradation, the claim ceiling is `STRUCTURAL_ONLY`.
