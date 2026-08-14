@@ -13,6 +13,7 @@ class V8SchemaTests(unittest.TestCase):
             'schemas/visual-media-plan.schema.json',
             'schemas/creative-toolchain.schema.json',
             'schemas/visual-asset-integration.schema.json',
+            'schemas/flagship-visual-synthesis.schema.json',
         ):
             path=ROOT/rel
             self.assertTrue(path.is_file(),rel)
