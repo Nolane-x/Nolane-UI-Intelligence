@@ -31,6 +31,7 @@ else:
     from . import v8_repository as _repo8
     from . import interop as _interop8
     from . import media as _media8
+    from . import flagship as _flagship8
 
     def mandatory_routes_for_profile(profile: dict[str, Any]) -> set[str]:
         return _v7.mandatory_routes_for_profile(profile) | _media8.mandatory_v8_routes(profile)
@@ -80,6 +81,16 @@ else:
             value = record.get("visual_asset_integration")
             checked = _media8.validate_visual_asset_integration(value) if isinstance(value, dict) else {"errors": ["missing visual asset integration evidence"]}
             errors.extend(checked.get("errors", []))
+
+        ambition = str(record.get("visual_ambition", "")).strip().lower()
+        if ambition in {"flagship", "exceptional", "experiential"}:
+            value = record.get("flagship_visual_synthesis")
+            if isinstance(value, dict):
+                checked = _flagship8.validate_flagship_visual_synthesis(value)
+                errors.extend(f"flagship visual synthesis: {error}" for error in checked.get("errors", []))
+            else:
+                errors.append("flagship visual synthesis evidence is required for flagship, exceptional, or experiential completion")
+
         return {"decision": "BLOCKED" if errors else "PASS", "errors": errors}
 
     def validate_repository(root: Path | str) -> dict[str, Any]:
