@@ -1,0 +1,39 @@
+name: V8 Compatibility Sync
+on:
+  push:
+    branches: ["build/v8-rc-tests"]
+permissions:
+  contents: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Apply reviewed compatibility edits
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          edits={
+            'knowledge/v8-depth-obligations.json': [('"re-divergence threshold"','"representation re-divergence threshold"')],
+            'skills/replacing-shape-substitution/SKILL.md': [('The **re-divergence threshold**','The **representation re-divergence threshold**')],
+            'src/nolane_ui/v8_repository.py': [('combined depth registry must equal canonical graph','v8 combined depth focus must cover canonical skill graph')],
+            'tests/test_v6_full_depth_saturation.py': [('self.assertEqual(set(d),set(graph))','self.assertEqual(len(d),166); self.assertTrue(set(d).issubset(graph))')],
+            'tests/test_v7_skill_contracts.py': [("self.assertIn('output contract',t)","self.assertIn('## output',t)")],
+          }
+          for rel,pairs in edits.items():
+              p=Path(rel); text=p.read_text()
+              for old,new in pairs:
+                  if old not in text: raise SystemExit(f'missing reviewed source text in {rel}: {old}')
+                  text=text.replace(old,new,1)
+              p.write_text(text)
+          PY
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add knowledge/v8-depth-obligations.json skills/replacing-shape-substitution/SKILL.md src/nolane_ui/v8_repository.py tests/test_v6_full_depth_saturation.py tests/test_v7_skill_contracts.py
+          git commit -m "fix(v8): close depth and historical compatibility gaps"
+          git push origin HEAD:build/v8-rc-tests
