@@ -76,3 +76,31 @@ Blind product name/logo and compare candidate silhouettes, type behavior, materi
 
 ### V8 recovery
 Preserve valid product truth and specialist evidence, discard only the collapsed visual basin, reopen reference frontier/divergence, choose a materially different mechanism set, render the affected viewport/state again, and close the critique loop before recomputing completion.
+
+## V10 Empirical Claim Lifecycle
+V10 introduces a second lifecycle that must **not** be confused with product completion. A UI can reach `RELEASED` for its bounded product contract while every claim that NUI itself improved the model remains `STRUCTURAL_ONLY`. Efficacy is an experiment about the design system, not another stage a normal product must traverse.
+
+When the session purpose includes empirical evaluation of NUI, create an `efficacy-session` alongside the normal UI session. Its states are:
+
+`HYPOTHESIS_BOUND → MATRIX_VALIDATED → RUNS_CAPTURED → BLINDED → JUDGED → PAIRED → ABLATION_IDENTIFIED → CLAIM_REVIEWED`
+
+Exception states are `CONTAMINATED`, `UNDERPOWERED`, `CONFOUNDED`, and `REJECTED`. Do not reuse `VERIFIED` or `RELEASED` to imply empirical truth.
+
+### Evidence-class ceiling
+The controller enforces a monotonic claim ceiling:
+- repository/schema/unit-test evidence → `STRUCTURAL_ONLY`;
+- one excellent NUI-generated product → still `STRUCTURAL_ONLY` for causal efficacy;
+- matched real-model baseline/full evidence plus blinded judgment and targeted ablation → eligible for bounded `EMPIRICAL_LOCAL` review;
+- multiple model families plus genuine holdout evidence and positive per-family direction → eligible for `EMPIRICAL_TRANSFER` review;
+- hard accessibility/security/function regressions or failed causal attribution → `REJECTED` for the affected claim.
+
+`EMPIRICAL_TRANSFER` is therefore not a marketing adjective. It is a state reachable only through the V10 claim gate with exact bundle digests, task/model/runtime bounds, holdout status, ablation identification, uncertainty evidence and no hidden contradictory family.
+
+### Cross-revision invalidation
+Empirical evidence binds to the exact NUI revision. If a skill, router, benchmark treatment context, evaluator rubric, mutation or claim rule changes after a run, mark which hypotheses are affected. An old result may remain historical evidence but cannot silently certify the changed revision. Preserve unaffected evidence only when the causal treatment and evaluation contract are demonstrably unchanged.
+
+### No empirical self-certification
+A completion packet may report that the V10 empirical framework is installed, structurally validated and ready for real-model runs. It may not upgrade that fact into an efficacy result. Ordinary GitHub CI without imported validated real-run bundles must end with `claim_ceiling: STRUCTURAL_ONLY` and state what empirical work was not run.
+
+### V10 recovery
+If a run is contaminated by hidden evaluator material, treatment mismatch, missing provenance, asymmetric exclusion or judge leakage, preserve the raw result, mark the affected efficacy-session non-promotable, repair the protocol, and rerun only invalid cells. If full NUI loses to a targeted ablation, do not massage aggregate weights; keep the negative result and reopen the owning hypothesis or benchmark sensitivity.
