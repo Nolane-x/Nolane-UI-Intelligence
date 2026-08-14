@@ -82,3 +82,20 @@ Swap two labels while retaining the same layout, or remove breadcrumbs/search sh
 
 ### Recovery
 If scent or scale fails, return to the object-action taxonomy and regroup by user decisions rather than tweaking menu styling. Preserve stable object IDs and deep links while changing presentation; document migrations when canonical paths move.
+
+## V9 Settings Architecture
+Treat a material settings system as an information architecture in its own right, not as a final page named “Settings” containing unrelated toggles. Start from the capability ledger and separate preference, policy, account/security, workspace administration, billing, notifications, integrations, data/export/retention, accessibility, appearance, developer/advanced and product-specific configuration only where those concepts truly exist.
+
+Model **scope precedence** explicitly. A setting may belong to device, session, user, workspace, organization, project/document, role/policy or another product-local scope. State inheritance and override semantics, including locked organization policy and what a user sees when a lower scope cannot override a higher one. Do not display an editable-looking control whose effective value is actually owned elsewhere.
+
+Design **settings search** as semantic retrieval when the inventory becomes large: synonyms, old names, task language and destination context may be needed. Search results must land at the owning setting with enough surrounding context to understand scope and consequence. Deep links, command palette entries or contextual “configure…” actions may accelerate access but do not create duplicate setting ownership.
+
+For every configurable value define default/source, current effective value, persistence/sync behavior, dependency on other settings, validation, preview where meaningful, and **recovery/reset**. Reset may target one setting, one group, one scope or all user customizations; destructive/security/policy configuration needs consequences and appropriate confirmation. Settings that can make the product difficult to operate—density, motion, shortcuts, accessibility, language, high-contrast or custom themes—must retain a safe rollback path.
+
+Scale-test the taxonomy with novice and expert users. Novices should not need to understand backend ownership; experts should not be forced through a wizard for repeated configuration. “General / Advanced / Other” is not acceptable as the main architecture when task- or domain-based distinctions can be named.
+
+### V9 Falsification
+Take twenty unrelated settings and place them in one beautiful searchable page. If users can find controls but cannot predict scope, inheritance, effective value, dependency or reset behavior, the settings surface is reachable yet architecturally incomplete.
+
+### V9 Recovery
+Return to capability ownership and scope, split configuration by conceptual responsibility, define precedence/persistence/recovery, then redesign navigation and search. Do not repair a broken settings model by adding more cards or a stronger visual hierarchy alone.
