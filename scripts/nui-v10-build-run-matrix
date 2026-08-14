@@ -1,0 +1,58 @@
+#!/usr/bin/env python3
+"""Expand a V10 experiment manifest into deterministic provider-neutral JSONL cells."""
+from __future__ import annotations
+
+import hashlib
+import json
+import sys
+from pathlib import Path
+
+
+def canonical_hash(value) -> str:
+    raw = json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
+    return hashlib.sha256(raw).hexdigest()
+
+
+def main() -> int:
+    if len(sys.argv) != 2:
+        print("usage: nui-v10-build-run-matrix <experiment.json>", file=sys.stderr)
+        return 2
+    path = Path(sys.argv[1])
+    manifest = json.loads(path.read_text(encoding="utf-8"))
+    tasks = manifest.get("tasks", [])
+    models = manifest.get("models", [])
+    treatments = manifest.get("treatments", [])
+    replicates = int(manifest.get("replicates", 1))
+    seeds = manifest.get("seeds") or list(range(replicates))
+    if len(seeds) < replicates:
+        print("experiment seeds must cover every replicate", file=sys.stderr)
+        return 2
+    budget_hash = canonical_hash(manifest.get("tool_budget", {}))
+    rows = []
+    for task_id in tasks:
+        for model in models:
+            for treatment in treatments:
+                for replicate in range(replicates):
+                    identity = {
+                        "experiment_id": manifest["experiment_id"], "task_id": task_id,
+                        "model_family": model.get("family"), "model_name": model.get("name"),
+                        "model_snapshot": model.get("snapshot"), "runtime": model.get("runtime"),
+                        "treatment": treatment, "replicate": replicate, "seed": seeds[replicate],
+                    }
+                    cell_id = hashlib.sha256(json.dumps(identity, sort_keys=True, separators=(",", ":")).encode("utf-8")).hexdigest()[:24]
+                    rows.append({
+                        "cell_id": cell_id, "experiment_id": manifest["experiment_id"], "nui_revision": manifest["nui_revision"],
+                        "task_id": task_id, "provider": model.get("provider"), "model_family": model.get("family"),
+                        "model_name": model.get("name"), "model_snapshot": model.get("snapshot"), "runtime": model.get("runtime"),
+                        "treatment": treatment, "replicate": replicate, "seed": seeds[replicate],
+                        "temperature": manifest.get("temperature", 0), "tool_budget": manifest.get("tool_budget", {}),
+                        "tool_budget_hash": budget_hash,
+                    })
+    rows.sort(key=lambda row: (row["task_id"], row["model_family"] or "", row["model_name"] or "", row["treatment"], row["replicate"]))
+    for row in rows:
+        print(json.dumps(row, sort_keys=True, separators=(",", ":"), ensure_ascii=False))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
