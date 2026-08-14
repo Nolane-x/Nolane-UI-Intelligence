@@ -1,188 +1,323 @@
+<div align="center">
+
 # Nolane UI Intelligence
 
-**Universal Design Cognition, Industry Routing & Verification System for AI agents.**
+### A design cognition and verification system for AI agents
 
-Nolane UI Intelligence (NUI) is a platform-agnostic Agent Skill graph for serious UI/UX work. It treats interface design as a system of independent decisions — product semantics, human factors, interaction, visual craft, platform behavior, input modalities, accessibility, AI agency, safety, resilience, design systems, and verification — rather than one vague instruction to “make it beautiful.”
+**AI can generate an interface in seconds. NUI is built to make it understand why that interface should exist, what it must preserve, how it should feel, and what evidence is required before calling it good.**
 
-The current v9 graph preserves **174 canonical skills** spanning the v2 industry cognition system, v3 product closure, v4 ecosystem intelligence, v5 affective/aesthetic enforcement, v6 deep research/design synthesis, v7 Concrete Craft & Authority Intelligence, v8 agent/media intelligence, and v9 Product Completeness & Taste Intelligence. That number is descriptive, not a target. The router normally loads the **smallest sufficient graph** for the current task; high product or visual ambition activates additional hard evidence routes rather than preloading the whole graph.
+[English](README.md) · [Tiếng Việt](README-VN.md) · [简体中文](README-CN.md)
 
-NUI does not promise objective beauty, automatic compliance, or permanent completeness. It constrains observable agent behavior so material assumptions become explicit, high-impact domains cannot be silently omitted, independent critics can falsify the design, machine-checkable invariants are enforced by code, and release claims remain bounded by actual evidence.
+`v0.10.0` · `174 canonical skills` · `evidence-gated` · `platform-agnostic` · `MIT`
 
-## What makes NUI different
+</div>
 
-- **Industry Atlas instead of an app-template catalogue.** Tasks are profiled across surface, modality, AI role, risk, time, social context, specialist domains, authority sensitivity, and evidence capability.
-- **Depth-locked ownership.** A skill exists only when it owns a distinct decision or failure class. Child skills cannot waive parent obligations.
-- **Progressive disclosure.** `routing-ui-work` selects the minimum sufficient faculties and records why nearby faculties are inactive.
-- **Human factors before decoration.** Error cost, cognitive load, perception, motor control, attention, fatigue, task frequency, and operating environment can change the design before visual styling begins.
-- **Aesthetic intelligence without preset determinism.** Product category informs search but never dictates `fintech = dark navy` or `AI = purple gradient`.
-- **Contextual anti-slop.** Cards, gradients, glass, serif faces, motion, minimalism, and maximalism are judged by function and context rather than blanket bans.
-- **Multi-platform and multi-modality reasoning.** Web, mobile, desktop, foldables, TV, wearables, automotive, flight deck, XR, games, terminal UI, kiosks, robotics, ambient systems, control rooms, keyboard, touch, pen, remote, voice, gaze, haptics, alternative input, and BCI can receive specialized ownership.
-- **AI/agent-specific authority.** Human-AI interaction, uncertainty/provenance, streaming, correction, autonomous action, multi-agent attribution, generative UI, affective adaptation, and embodied/avatar representation are separate contracts.
-- **Deep inclusive design.** Root accessibility is augmented by cognitive, low-vision/high-contrast, screen-reader, motion/photosensitivity, accessibility-settings, AAC, accessible-media, and sign-language faculties.
-- **Independent criticism.** The generator may not certify material UI completion by itself.
-- **Evidence-gated release.** Missing verification remains UNKNOWN/BLOCKED rather than being converted into confidence.
-- **Deterministic invariants.** Graphs, ownership, routes, source freshness, state/token contracts, completion packets, product-scope adequacy, render-fidelity evidence, and bounded research saturation are checked by Python rather than trusted to model self-report.
-- **Research that can reopen.** High-drift standards/platforms live in `knowledge/research-radar.json`; a changed authority can reopen a domain and force a new research wave.
+---
 
-## Product Completeness & Taste Intelligence (v9)
+## The problem is not generating UI anymore
 
-NUI v9 addresses two gaps that can survive otherwise strong UI reasoning. First, an AI can create an internally coherent product whose **initial capability model was too small**. Second, a design can be correct in text/spec form while the **final rendered interface still feels generic, cheap, mismatched, or contains accidental browser/platform residue**.
+Modern AI can produce pages, dashboards, apps, components, animations and entire front ends astonishingly fast.
 
-For product-wide work, v9 uses a broad-before-narrow capability envelope. Candidate product families are discovered before information architecture compresses them, then explicitly dispositioned as `REQUIRED`, `EXPECTED`, `OPTIONAL`, `EXCLUDED`, or `UNKNOWN`. A full sales platform therefore cannot silently stop at Dashboard + Products + Orders + Customers merely because those were the first obvious screens. Settings, account/workspace lifecycle, permissions, reporting, import/export, recovery, integrations, history and other plausible families must be considered and intentionally resolved. Broad discovery does **not** force every product to become enterprise software; explicit bounded exclusions remain valid.
+The harder problem is everything that happens **before and after the code appears**:
 
-For professional/editor products, v9 deepens instrument and workspace architecture: document/object context, modes/tools, selection, context inspectors, hierarchy/layers, asset/resource workflows, command/search surfaces, history, status/progress, import/export, collaboration and persistent workspace regions are capability-driven rather than copied from VS Code, Canva, CapCut or another reference. Completeness means semantic reachability, not displaying every control at once.
+- Did the model understand the actual product, or did it reduce the brief to a familiar template?
+- Did important capabilities disappear because they were not visually exciting?
+- Did a professional tool become a collection of oversized cards?
+- Did “premium” collapse into dark backgrounds, blur and gradients?
+- Did mobile become a squeezed desktop layout?
+- Did motion explain state, or merely decorate it?
+- Did the implementation preserve accessibility, platform behavior, permissions, recovery and trust?
+- Did the critic actually inspect the rendered result, or simply agree with the design rationale?
+- And when the system says a skill “improves UI quality”, **what evidence makes that claim true?**
 
-For perceptual quality, v9 adds comparative taste discrimination and a rendered design-director court. High-ambition work must compare actual rendered candidates/refinement states on named visual dimensions instead of self-assigning a beauty score, then run `render → capture → critique → repair → re-render → A/B`. The court checks focal hierarchy, visual rhythm, density modulation, typography, spacing, material consistency, mobile recomposition and representative states.
+**Nolane UI Intelligence (NUI)** is an attempt to solve that layer.
 
-V9 also adds an explicit browser/platform residue audit. Scrollbars are one example, but the audit extends to selects, file/date/number/range inputs, focus rings, selection, carets, resize handles, drag ghosts, native validation UI, context menus, tooltips/popovers, cursors and overscroll. The rule is **intentional platform fit**, not “customize everything”: native controls can be the correct choice; accidental classic chrome or styling that destroys operability cannot.
+It is not another component library, not a style preset, and not a giant “make this beautiful” prompt. NUI is a **structured design-intelligence system for agents**: a graph of specialized decision owners, routing rules, evidence contracts, independent critics, research provenance, deterministic validators and empirical-evaluation machinery.
 
-The new curated benchmark memory stores mechanism-level lessons from high-bar product/system references without turning them into copy targets. Domain signatures and audience strategy constrain density, trust, emotion and interaction tone without hard-coding aesthetic stereotypes. Design-to-render fidelity connects semantic tokens, component constraints, CSS/platform expression, runtime evidence and visual regression. Motion is deepened around structural teaching, causality, emotional cadence, intentional absence, reduced-motion equivalence and performance degradation priority.
+The goal is simple to state and difficult to achieve:
 
-V9 deliberately keeps the canonical graph at **174 skills**. The upgrade deepens existing owners and adds deterministic kernels/routing/critics rather than manufacturing near-duplicate skill names. See `docs/V9-PRODUCT-COMPLETENESS-TASTE-CLOSURE.md` for the complete architecture and bounded claims.
+> **Turn UI generation from a one-shot act of imitation into a disciplined process of product reasoning, design divergence, implementation, rendered critique, recovery and evidence-bound release.**
 
-## Affective & Aesthetic Enforcement (v5)
+---
 
-NUI v5 closes a failure exposed by the ATLAS regression: a UI can pass code, viewport, overflow and browser-error checks while still failing the original request for exceptional beauty, awe, magnitude, memorability or aspirational identity. v5 treats those experiential goals as product requirements rather than decoration.
+## What NUI changes in an AI design workflow
 
-The v5 control path is:
+Without a design cognition layer, an agent often follows a short loop:
 
-`raw intent → experiential intent → visual ambition → hard routes → divergent candidates + reference frontier → craft → global perceptual/semantic evidence → execution critic → adequacy critic → refine/re-diverge → release gate`
+`prompt → familiar pattern → code → “looks good” → done`
 
-Flagship/exceptional/experiential work cannot silently drop reference research, aesthetic divergence, typography/color/spacing/surface/media/motion craft, anti-generic analysis, computed legibility, visual-energy evidence, signature-depth analysis, adequacy criticism, rendered iteration or basin escape merely to save context. Material visualization adds channel provenance; role fantasy adds aspirational-identity modeling; magnitude adds spatial dramaturgy; multi-screen products add perceptual-diversity evidence.
+NUI replaces that with a lifecycle:
 
-The system deliberately does **not** compute a universal beauty score. It separates aesthetic specificity from aesthetic excellence and requires evidence against the preserved intent. A coherent implementation of a weak thesis can be marked `INADEQUATE`; repeated failure can emit `RE_DIVERGE` instead of polishing the wrong aesthetic basin.
+```text
+INTAKE
+  ↓
+CONTRACTED
+  ↓
+ROUTED
+  ↓
+DISCOVERED
+  ↓
+ARCHITECTED
+  ↓
+DIVERGED
+  ↓
+DESIGN_SELECTED
+  ↓
+SYSTEMIZED
+  ↓
+SPECIFIED
+  ↓
+IMPLEMENTABLE
+  ↓
+RENDERED
+  ↓
+CRITIQUED
+  ↓
+VERIFIED
+  ↓
+RELEASED
+```
 
-NUI v5 also adds semantic-mutation and factorial skill-interaction eval specifications so “well-written skill prose” is not treated as proof of behavioral effect. Historical token-length depth proxies have been removed from the v2-v4 depth tests; v5 tests focus on contracts, decisions, failure detection, routing, mutation sensitivity and interaction regressions.
+A failed obligation, stale source, missing capability, weak visual basin, runtime defect or unsupported claim can send the system to `RECOVERY` or `BLOCKED` instead of letting confidence substitute for evidence.
 
-## Product closure and ecosystem intelligence
+The agent is therefore encouraged to ask different questions at different moments. Product intent is not allowed to become layout prematurely. Visual direction is not allowed to collapse into the first fashionable answer. Implementation success is not allowed to certify visual quality. A generator is not allowed to silently certify its own material work.
 
-NUI v3/v4 adds two system-wide planes that address common agent failures which screen-level design advice does not catch.
+---
 
-**Product UI Closure** treats the product as a connected capability/action/state graph. A screen that exists but has no discoverable path, an action with no binding, a hidden route that only works by typing a URL, a duplicated command with conflicting semantics, or a responsive layout that drops a material capability is a release blocker rather than a small polish issue.
+## 174 skills — one graph, not 174 prompts
 
-**UI Ecosystem Intelligence** gives the agent a typed, evidence-bound way to use the external UI ecosystem. `knowledge/ui-ecosystem-registry.json` contains curated implementation sources across animated components, motion engines, headless accessibility primitives, design systems, data visualization, editors, tables/forms, drag-and-drop, canvas/whiteboard, 3D/spatial, mobile and agent-skill catalogues. It is not a popularity leaderboard and it does not authorize copying.
+NUI currently contains **174 canonical skills**.
 
-For any material external source, the agent follows:
+That number is descriptive, not a target and not a reason to load everything. The system uses `routing-ui-work` to activate the **smallest sufficient graph** for the actual task.
 
-`need → research → inspect primary source → cite → classify source role → select adopt/adapt/inspire/build/reject → reconcile with local semantics/tokens/content → audit integration → verify local runtime`
+A marketing site, a video editor, a fintech console, a medical workflow, a TV interface, an AAC communication surface, an AI agent workspace and a flight deck should not receive the same reasoning context.
 
-High-drift or legally ambiguous sources require live re-verification before use. A repository's upstream accessibility demo is not evidence that the local wrapper remains accessible. A visually strong component gallery is not the semantic authority for focus, keyboard behavior or product actions.
+The skill graph spans, among other areas:
 
-The registry is intentionally incomplete by design: when no current source fits, or registered candidates are stale/high-drift, `query_ui_ecosystem` reports `live_search_required` and the research faculty must extend the reference ledger instead of hallucinating a library from model memory.
+- product intent, capability modeling and product completeness;
+- users, tasks, expertise, error cost and human factors;
+- information architecture, navigation and settings architecture;
+- interaction, state, forms, search, tables and data-dense workflows;
+- desktop, mobile, large-screen, TV, wearable, automotive, XR, terminal, kiosk and specialist surfaces;
+- keyboard, pointer, touch, pen, remote, voice, gaze, haptics and alternative input;
+- accessibility, cognitive access, low vision, screen readers, reduced motion, AAC and accessible media;
+- AI uncertainty, human-AI interaction, agent autonomy, generative UI and multi-agent surfaces;
+- authentication, permissions, privacy, finance, medical and other high-consequence interfaces;
+- typography, color, spacing, material, composition, imagery, motion and visual hierarchy;
+- editors, canvases, professional workspaces, command systems and rich interaction;
+- design systems, tokens, component architecture and implementation fidelity;
+- research authority, external libraries, source archaeology and integration audits;
+- independent visual, UX, accessibility, safety, platform, resilience and fidelity critics.
 
-## Canonical lifecycle
+A new skill is justified only when it owns a genuinely distinct decision or failure class. Later NUI versions deliberately deepen existing owners rather than inflating the graph with near-duplicates.
 
-`INTAKE → CONTRACTED → ROUTED → DISCOVERED → ARCHITECTED → DIVERGED → DESIGN_SELECTED → SYSTEMIZED → SPECIFIED → IMPLEMENTABLE → RENDERED → CRITIQUED → VERIFIED → RELEASED`
+---
 
-Any failed obligation, stale evidence, contradiction, missing mandatory route, or material regression routes to `RECOVERY` or `BLOCKED`.
+## Flagship visual intelligence: beautiful is not a checkbox
 
-## v5 domain families
+NUI treats visual ambition as a real contract.
 
-NUI currently separates responsibilities across:
+For `flagship`, `exceptional` or `experiential` work, one polished screenshot is not enough. The system expects evidence that the visual direction was actually discovered and stress-tested.
 
-- kernel / contract / routing / evidence / release;
-- product and information architecture;
-- interaction and component state semantics;
-- visual art direction and craft;
-- design tokens and component systems;
-- human factors and usability research;
-- input modalities;
-- platform/surface specialists;
-- AI, agents, generative UI, affective and embodied systems;
-- trust, privacy, authentication, financial, medical, aviation and other high-risk domains;
-- temporal/resilience behavior;
-- accessibility and communication specialists;
-- design-system governance;
-- independent critic courts;
-- research authority, atlas maintenance, and saturation measurement.
+High-ambition work includes mechanisms such as:
 
-See `docs/research/UI-INDUSTRY-RESEARCH-2026-08-12.md` for the full research rationale and the four adversarial expansion waves.
+**Material divergence.** At least three candidates must differ meaningfully in composition, typography, material language and signature mechanism. A palette swap is not a new direction.
 
-## Repository map
+**Generic-transfer resistance.** Blind the logo and product name. If the same authored shell could host an unrelated SaaS product without losing important meaning, the identity layer is not finished.
 
-- `skills/` — universal and specialist cognitive/design skills
-- `skills/skill-graph.json` — parent/owner/output graph
-- `knowledge/` — UI Industry Atlas, source ledgers, research radar, manifests, saturation evidence
-- `schemas/` — typed record contracts
-- `src/nolane_ui/` — deterministic validators and modular routing predicates
-- `evals/` — routing, pressure, craft, accessibility, safety, emerging-domain and adversarial fixtures
-- `adapters/` — runtime capability mappings for supported agents
-- `docs/research/` — provenance, research synthesis, and bounded saturation report
-- `artifacts/` — bounded completion packets and verification outputs
+**Attention architecture.** The design must establish what the eye should understand first, second and third — not simply make every region equally polished.
 
-## Authority order
+**Domain-native signature.** Memorability should come from the subject, workflow, information or interaction itself rather than decorative geometry pasted on top.
 
-Explicit product/safety constraints > applicable law/regulation/normative standards > safety/regulatory guidance > authoritative platform guidance > project design system and validated product evidence > empirical human-factors/usability evidence > mature design-system guidance > high-quality agent/community heuristics > model aesthetic preference.
+**Responsive art direction.** Smaller screens must structurally recompose the experience when needed, not merely stack desktop rectangles vertically.
 
-Source status matters. A draft standard remains a draft. Current platform guidance can override an older heuristic. A community UI rule never becomes normative because it is popular.
+**Closed critique loops.** A material visual finding must be corrected and re-observed in a named render. NUI requires critique to change evidence, not just produce commentary.
 
-## Start here
+This is why NUI does not expose a universal “beauty score.” Taste is comparative, contextual and evidence-bearing. Product truth, accessibility and interaction correctness remain hard boundaries even when a visually louder answer would score better in a superficial preference test.
 
-For any material UI/UX task, load:
+---
+
+## Product completeness before screen completeness
+
+A UI can be internally coherent and still represent an incomplete product.
+
+NUI therefore separates **discovery breadth** from **implementation commitment**. Before an ambitious product is compressed into routes and screens, plausible capability families are discovered and explicitly dispositioned as:
+
+`REQUIRED · EXPECTED · OPTIONAL · EXCLUDED · UNKNOWN`
+
+This prevents a “full platform” from quietly becoming Dashboard + Items + Settings simply because those were the first screens the model imagined.
+
+At the same time, broad discovery is not permission to turn every utility into enterprise software. Scope must remain tied to actors, outcomes, lifecycle, consequence and declared product ambition.
+
+Professional tools receive additional scrutiny around workspace regions, selection, inspectors, commands, history, assets, status, import/export, collaboration and persistence. Completeness is measured by meaningful capability and reachability — not by showing every control simultaneously.
+
+---
+
+## Authority without imitation
+
+NUI can learn from external design systems, platforms, component libraries, research and production products, but it separates **access** from **authority**.
+
+A source being famous, beautiful, easy to query through MCP, or available as agent-readable documentation does not make it authoritative for every decision.
+
+NUI resolves authority by dimension. A platform guide may own platform convention. A headless primitive may contribute semantic interaction mechanics. A motion engine may contribute interpolation mechanics. A visual reference may raise the bar for composition. None of those sources silently inherits product strategy, accessibility proof or visual ownership outside its scope.
+
+The transfer rule is:
+
+> **Transfer mechanism, not trade dress.**
+
+Material external influence is expected to carry provenance, role classification, licensing posture, transfer boundaries, contraindications and local runtime verification. README-only research does not authorize production influence when deeper evidence is required.
+
+---
+
+## V10: from design rules to falsifiable design intelligence
+
+V10 introduces one of the most important changes in the project: **NUI is no longer satisfied with a skill merely sounding intelligent.**
+
+A behavioral rule should be capable of failing.
+
+The V10 evaluation layer currently contains:
+
+- **13 falsifiable behavioral hypotheses**;
+- **48 original benchmark tasks** across **12 task families**;
+- a public-generation / hidden-evaluator boundary;
+- holdout tasks for transfer-sensitive evaluation;
+- targeted semantic mutations, ablations and placebo controls;
+- blinded pairwise judging support;
+- run records with provider, model, snapshot, runtime and artifact provenance;
+- canonical SHA-256 hashing for experimental identity;
+- matched-pair aggregation and uncertainty-aware statistics;
+- hard-blocker regression checks;
+- bounded claim promotion: `STRUCTURAL_ONLY`, `EMPIRICAL_LOCAL`, `EMPIRICAL_TRANSFER`, or `REJECTED`.
+
+The crucial distinction is this:
+
+```text
+artifact quality ≠ evidence that NUI caused the improvement
+```
+
+A beautiful result can demonstrate artifact quality. It does not, by itself, prove that a particular NUI skill made a model better.
+
+For an empirical claim, NUI requires stronger lineage: real validated runs, matched treatment pairs, blinded evaluation, bundle digests, targeted ablation evidence and bounded statistics. A boolean such as `real_model_runs: true` cannot promote a claim by itself.
+
+### Current claim ceiling
+
+The repository's ordinary CI and bundled structural fixtures currently certify the **evaluation framework**, not universal model-quality improvement. Therefore the default repository claim ceiling remains:
+
+**`STRUCTURAL_ONLY`**
+
+That is intentional. `EMPIRICAL_LOCAL` or `EMPIRICAL_TRANSFER` must be earned from real provider/model run bundles that satisfy the V10 gates. NUI would rather say “not yet proven” than turn synthetic fixtures into marketing evidence.
+
+---
+
+## What NUI is not
+
+NUI is **not**:
+
+- a component kit;
+- a Figma replacement;
+- a collection of fashionable palettes;
+- a mega-prompt that should be pasted into every conversation;
+- an objective oracle of beauty;
+- a certificate that every generated UI is accessible, safe or production-ready;
+- a license to copy Apple, Linear, Stripe, Notion, Canva, VS Code or any other product;
+- a benchmark score pretending to be design intelligence.
+
+It is infrastructure for **reasoning, routing, design decisions, criticism, evidence and recovery**.
+
+---
+
+## Architecture at a glance
+
+```text
+Nolane-UI-Intelligence/
+├── skills/                 # canonical design cognition graph
+│   └── skill-graph.json    # ownership, parents and outputs
+├── knowledge/              # authority, research, design and V10 evidence memory
+├── benchmarks/v10/         # public tasks, hidden evaluator data, mutations
+├── evals/                  # adversarial and behavioral pressure tests
+├── schemas/                # typed evidence contracts
+├── src/nolane_ui/          # deterministic validators and reasoning kernels
+├── scripts/                # validation, release and V10 empirical tooling
+├── adapters/               # agent/runtime capability mappings
+├── docs/                   # architecture, research and run protocols
+└── tests/                  # repository, behavior, mutation and claim gates
+```
+
+The canonical entry point for material UI work is:
 
 `skills/using-nolane-ui/SKILL.md`
 
-The bootstrap hands control to `nolane-ui`, which contracts the task and invokes `routing-ui-work`. Do **not** preload all skills. A web marketing surface, an AAC communication app, a flight deck, a generative-UI agent, and a TV interface must not receive the same context.
+That bootstrap hands the task to `nolane-ui`, which contracts the work and invokes `routing-ui-work`. **Do not preload all 174 skills.** Progressive disclosure is part of the architecture.
 
-See `docs/USAGE.md` for route examples and task-profile guidance.
+---
 
-## Research saturation
+## Quick start
 
-The 2026-08-12 research wave is marked **bounded SATURATED**, not permanently complete. Earlier adversarial sweeps continued to reveal new owners; the final primary-source decomposition sweep added zero new non-decomposable decision classes. `validate_bounded_saturation` requires PASS evidence for breadth/depth/contradictions/novelty/freshness, a zero-novelty final sweep, explicit bounds, and reopen conditions.
-
-A new standard, platform, modality, AI behavior, empirical result, or unowned atlas cell reopens research.
-
-## Verification
-
-Run:
+Validate the repository:
 
 ```bash
-python -m unittest discover -s tests -v
-python scripts/nui-validate .
+PYTHONPATH=src python scripts/nui-validate .
 ```
 
-Repository validation proves structural and evidence-contract invariants only. It does not prove that a future interface is beautiful, usable, accessible, safe, certified, or faithful without task-specific evidence.
+Run the complete test suite:
 
-## Deep Research & Design Synthesis Intelligence (v6)
+```bash
+PYTHONPATH=src python -m unittest discover -s tests -v
+```
 
-NUI v6 addresses a different failure from v5: an agent can know many UI rules and even have a curated ecosystem registry while still **researching shallowly, combining excellent sources incoherently, overlooking cross-axis industry edge cases, or mistaking long skill prose for behavioral depth**.
+For V10 controlled evaluation, start with:
 
-The current v6 graph declares **158 skills**. Only four decision owners were added in v6—`performing-ui-repository-archaeology`, `synthesizing-cross-source-ui-language`, `auditing-ui-research-depth`, and `benchmarking-ui-skill-effect`. v6 deliberately deepens existing owners rather than treating skill count as progress.
+```bash
+python scripts/nui-v10-build-run-matrix examples/v10/experiment.example.json
+python scripts/nui-v10-validate-run-bundle <manifest.json> <runs.jsonl>
+python scripts/nui-v10-aggregate <runs.jsonl>
+```
 
-The v6 control path for material external influence is:
+Read `docs/V10-EMPIRICAL-RUN-PROTOCOL.md` before interpreting any efficacy result.
 
-`task/source need → ecosystem discovery → role-specific source research plan → pinned repository archaeology → research-depth critic → source selection → cross-source layer ownership → local semantic/interaction/visual synthesis → integration/runtime/render verification → bounded completion gate`
+---
 
-`knowledge/ui-source-intelligence-v6.json` expands the source plane to 85 curated canonical candidates across 35 source roles and 20 explicit source domains, including icons, typography, design tokens/style systems, visual/accessibility testing, graph/diagram UI, geospatial UI, code editors, terminal UI, AI-native UI, creative rendering and animation-asset runtimes. These counts describe the current retrieval surface; they are **not authority or completeness scores**. `anchor`, `specialist`, and `discovery` are evidence postures. Eight cross-role anchors are pinned to exact upstream commit SHAs with artifact-level findings across implementation plus tests/runtime/examples; all other sources still require live verification before material influence. README-only research cannot authorize material source influence.
+## Design principles encoded into the project
 
-`knowledge/ui-industry-ontology-v6.json` expands coverage from a few coarse axes to 15 independent axes with 222 current values and explicit high-risk interaction cells. Cross-axis ownership matters because “medical”, “voice”, and “agentic” can each look safe in isolation while their combination requires different confirmation, error-recovery and authority behavior.
+A few rules summarize the spirit of NUI:
 
-`knowledge/skill-depth-constitution-v6.json` defines ten behavior-bearing depth dimensions and forbids word/token/line/heading count as depth proxies. `knowledge/v6-depth-focus-obligations.json` began as the v6 full-graph lock and is now maintained against the **current 166-skill canonical graph**, with exactly five skill-specific semantic anchors per skill plus explicit falsification/recovery behavior. The repository validator requires this registry to match the canonical graph exactly. A long skill can fail; a concise skill can pass if it owns a real decision and carries observation, branching, falsification, evidence, output, failure, recovery and downstream verification behavior.
+1. **Product truth precedes visual polish.**
+2. **The first plausible UI is a hypothesis, not an answer.**
+3. **High ambition requires divergence before refinement.**
+4. **Familiar interaction can coexist with distinctive visual identity.**
+5. **Missing evidence is `UNKNOWN` or `BLOCKED`, never `PASS`.**
+6. **A generator cannot silently certify its own material completion.**
+7. **Rendered perception matters; source code is not the final interface.**
+8. **External authority is decision-dimensional, never global by prestige.**
+9. **A skill is deep because it changes decisions and catches failures — not because it is long.**
+10. **Claims about improvement require controlled evidence, not confidence.**
 
-The v6 eval plane adds adversaries for README-only research, stale/unpinned sources, source-role mismatch, gallery monoculture, source collage, cross-axis omissions, semantic-force mutations, ablations, factorial interactions, transfer and correlated critic lineage. These are deterministic contracts and behavior specifications; they do not manufacture a claim of universal objective beauty.
+---
 
+## Research and provenance
 
-## Concrete Craft & Authority Intelligence (v7)
+NUI synthesizes mechanisms from platform guidance, accessibility standards, human-factors material, production design systems, implementation ecosystems and agent-design research while preserving source role and reuse boundaries.
 
-NUI v7 targets the gap between **knowing where to reason** and possessing enough accumulated concrete design knowledge to make strong decisions quickly. It does not try to replace Apple HIG, Adobe Spectrum, GOV.UK, React Aria, Radix, SAP Fiori, Shopify, Carbon, specialist motion engines, or visual-frontier libraries. Instead it decides **which source is authoritative for which decision dimension**, extracts bounded mechanisms, and preserves local verification.
+Detailed provenance lives in `docs/research/SOURCES.md` and the machine-readable ledgers under `knowledge/`.
 
-The v7 control path is:
+The project intentionally does not bulk-copy third-party skill prose, proprietary design databases or recognizable product trade dress. High-drift sources can reopen research when their guidance changes.
 
-`task profile → decision-dimensional authority → concrete design packet → implementation authority split → build → rendered perception → critique/recovery → release`
+---
 
-The repository now contains a decision-dimensional authority mesh, **38 source-bound concrete pattern cards**, a bounded immediate-synthesis grammar, **9 agent-readable source adapters**, and an eight-plane rendered-perception rubric. The fast path is allowed to compress explanation but may not drop hard obligations, provenance, contraindications, unresolved authority, or validation debt. **Access protocol is not authority**: MCP, LLM-optimized docs, agent skills and open-code installers make sources easier to query, but do not increase the underlying source's authority.
+## Why this project exists
 
-For transfer from external products and galleries, the rule is **mechanism, not trade dress**. A visual library may teach a shader, transition, spatial composition or typography mechanism without becoming semantic authority or a license to reproduce its recognizable product language. Tested semantic primitives may own focus/keyboard behavior without becoming art direction. Institutional systems may contribute mature workflow mechanisms while still creating local evidence debt when jurisdiction, users, hardware or organizational context changes.
+The future of AI-generated software will not be won only by the model that can emit the most JSX.
 
-For flagship/exceptional/experiential work, v7 adds a rendered perception gate over the inherited v5 aesthetic gate. A screenshot is not evidence by itself: the record must observe attention hierarchy, resolved typography, subject-linked signature, material roles, responsive recomposition and—when material—temporal sequencing. Reference comparison and critique must identify a weakness, record a fix and verify the changed artifact. Optional pixel-diff evidence is renderer/environment scoped with calibrated tolerance so antialiasing noise is not mistaken for a meaningful visual regression.
+It will also depend on the systems surrounding the model: systems that preserve product truth, expose missing assumptions, retrieve the right expertise, resist generic attractors, understand risk, compare alternatives, observe actual rendered behavior, criticize independently, recover from failure and know when a claim has not yet been proven.
 
-See `docs/V7-CONCRETE-KNOWLEDGE-CLOSURE.md` for the critique-to-mechanism closure map and `docs/research/UI-AUTHORITY-INTELLIGENCE-V7.md` for research/transfer boundaries.
+**Nolane UI Intelligence is an attempt to build that design layer.**
 
+Not a prettier prompt.
 
-## Agent Interoperability & Visual Media Intelligence (v8)
+A more rigorous way for an AI to design.
 
-V8 projects one canonical NUI graph through thin Codex, Claude Code, Antigravity, MCP, CLI and editor-agent surfaces instead of copying the skill corpus per vendor. The current registry contains **9 agent adapters**, while host tool availability and permission settings remain explicit runtime facts rather than design authority.
+---
 
-V8 also adds a visual-media decision plane. It does not ban cards or geometry; it detects **shape substitution**, where low-information abstract forms consume high-attention slots that could carry stronger subject-native imagery, real data, diagrams, maps, direct manipulation, domain-derived 3D or deliberate typography. The combined registries currently expose **14 tool-learning sources, 14 visual-media sources across 8+ source classes, and 14 creative tools**. Selected external media remains item-specific and is checked before material use.
+## License
 
-The eight new owners cover host projection, external skill review, media opportunity mapping, media sourcing, domain-native asset briefs, creative toolchains, representation substitution and rendered asset integration. They extend semantic depth coverage to **174/174 skills** and add **32 v8 adversarial cases**. Material media must survive responsive crop, overlay legibility, performance, accessible-equivalent and render→critique→correction→re-render evidence.
+MIT. See `LICENSE` for details.
