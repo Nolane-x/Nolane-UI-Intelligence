@@ -103,3 +103,25 @@ Take one visually strong proposal and test it against two materially different a
 
 ### V9 Recovery
 Return to jobs, consequence and expertise; split the audience model where behavior truly differs, update attention budgets and progressive disclosure, then reroute aesthetic/domain decisions. Do not fix an audience mismatch by merely changing colors, illustrations or marketing copy.
+
+## V10 Cross-Audience Behavioral Test
+`H-DOMAIN-AUDIENCE` tests whether audience/domain reasoning changes **task-relevant interface decisions while preserving shared product truth**. A domain signature is useful only when it changes explanation, density, default control exposure, trust cues, exception visibility or interaction pacing for a reason tied to users and consequences. A domain-colored theme is not audience adaptation.
+
+Use a **same-truth counterfactual** whenever the benchmark offers two audiences in one domain. Freeze the underlying money, clinical, asset, provenance or permission semantics, then vary one evidenced user dimension such as expertise, task frequency, time pressure, precision need or decision posture. Record which design decisions should change and which must remain invariant. This makes the audience model falsifiable instead of decorative.
+
+The semantic mutation `domain-theme-stereotype` maps the domain directly to a visual/density recipe and removes audience consequences. The `domain-audience` ablation removes this plane. On matched tasks, those controls should reduce `domain-audience-fit` even when their surfaces remain visually polished. Full NUI must also pass the negative control: if the audience is fixed or the task is faithful reproduction, it must not manufacture role variants to create benchmark evidence.
+
+### V10 evidence contract
+For every audience-dependent decision record:
+- evidence status for the audience assumption;
+- invariant product truth shared across variants;
+- decision-posture or task-pressure difference;
+- concrete consequence in hierarchy, density, disclosure, action exposure, recovery or trust behavior;
+- a counterexample showing when the same domain prior would be inappropriate.
+
+A fintech consumer and a finance operator may legitimately need different density, but both must see truthful money state. A casual creator and professional creator may receive different precision exposure, but both must preserve selection/history truth. If the only differences are color, illustration, tone adjectives or marketing copy, the hypothesis has not fired.
+
+### V10 attribution and overcorrection
+A positive efficacy claim requires matched baseline/full/ablation evidence and a targeted degradation on within-domain audience contrasts. Raw preference alone is insufficient because a judge may simply prefer one visual style. Track accessibility, safety and shared semantic invariants as hard constraints. If full NUI improves one audience by making another materially worse, report the conflict rather than pooling the average.
+
+Until cross-audience real-model evidence exists, domain signatures remain design priors and `STRUCTURAL_ONLY` research assets, not empirical proof that NUI understands people better.
