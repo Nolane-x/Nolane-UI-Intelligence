@@ -6,14 +6,23 @@ from pathlib import Path
 
 DEFAULT_ROOT = Path(__file__).resolve().parents[1]
 
+# Import the supported host set from the same implementation that builds plans,
+# so the CLI and registry cannot silently drift apart again.
+sys.path.insert(0, str(DEFAULT_ROOT / "src"))
+from nolane_ui.interop import SUPPORTED_AGENT_IDS, build_agent_install_plan  # noqa: E402
+
+
 def main() -> int:
-    p=argparse.ArgumentParser(description="Emit a thin NUI installation/invocation plan for an AI agent harness")
-    p.add_argument("--agent", required=True, choices=["openai-codex","claude-code","google-antigravity","generic-mcp","generic-cli","cursor-compatible","vscode-agent-compatible"])
+    p = argparse.ArgumentParser(
+        description="Emit a thin NUI installation/invocation plan for an AI agent harness"
+    )
+    p.add_argument("--agent", required=True, choices=SUPPORTED_AGENT_IDS)
     p.add_argument("--root", default=str(DEFAULT_ROOT))
-    args=p.parse_args()
-    root=Path(args.root).resolve()
-    sys.path.insert(0,str(root/"src"))
-    from nolane_ui.interop import build_agent_install_plan
-    print(json.dumps(build_agent_install_plan(args.agent,root),indent=2,ensure_ascii=False))
+    args = p.parse_args()
+    root = Path(args.root).resolve()
+    print(json.dumps(build_agent_install_plan(args.agent, root), indent=2, ensure_ascii=False))
     return 0
-if __name__=="__main__": raise SystemExit(main())
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
