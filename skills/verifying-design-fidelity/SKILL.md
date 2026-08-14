@@ -79,3 +79,22 @@ Deliberately introduce one semantic regression with nearly identical pixels and 
 
 ### Recovery
 Use the appropriate evidence class for each invariant, normalize nondeterminism, and reopen implementation only on authoritative mismatches. Never chase screenshot pixels at the expense of correct behavior.
+
+## V9 Design-to-Render Fidelity
+Treat implementation as a translation chain: **design intent → semantic tokens → component constraints → platform/CSS expression → runtime render → visual regression evidence**. Every link can degrade quality. A correct mockup plus approximate CSS is not fidelity; a perfect token file plus components that ignore state/density is not fidelity; a clean default screenshot plus broken browser chrome or responsive states is not fidelity.
+
+Audit token resolution at rendered scale: font family/fallback, optical size where relevant, font weight, line-height, tracking, spacing, radius, border opacity, elevation, status colors, density and motion. Look for “almost right everywhere” drift—e.g. one line-height too loose, borders too opaque, shadows too hard, every radius too large, or spacing tokens applied mechanically where optical correction is required. Repeated small deviations can change perceived quality more than one obvious local bug.
+
+Inspect **default chrome** explicitly. Browser/OS controls are not defects merely because they are native; they are defects when their appearance or behavior is accidental and visually/semantically incompatible with the product. Audit scrollbar, select, file input, date/time/number/range controls, focus ring, text/object selection, caret, resize handles, drag ghost, validation UI, context menu, tooltip/popover, cursor and overscroll. Each receives an intentional strategy: native and appropriate, styled, adapted, overlay/reveal, or custom with equivalent semantics.
+
+For the user's scrollbar class of defect, never adopt the simplistic rule “hide all scrollbars.” Verify scroll ownership, pointer/touch/keyboard/wheel operability, platform preferences, discoverability and contrast. A themed or reveal-on-interaction scrollbar may improve material coherence; a native scrollbar may be the correct platform expression; a hidden scrollbar without an equivalent visible/operable affordance can be worse than the original visual mismatch.
+
+Bind responsive implementation to rendered evidence. Check real wrapping, min-content/max-content behavior, sticky/fixed regions, tables, panels, canvas/timeline regions, overlays, safe areas, software keyboard, localization and browser zoom. CSS breakpoints are implementation hypotheses; the final criterion is whether hierarchy and required capability semantics survive the rendered state.
+
+Require **visual regression** evidence for material changes. Use deterministic screenshot comparison to locate geometry/style drift, then independent visual review to decide whether the delta is harmful. Preserve accepted deltas explicitly. Do not let a low pixel-diff percentage certify typography quality, motion, focus behavior or interaction correctness.
+
+### V9 Falsification
+Introduce one accidental browser-default control into a polished surface, one subtle systematic spacing/type drift, and one harmless antialiasing difference. If the fidelity process ignores the first two or blocks on only the harmless pixel noise, the implementation-quality model is wrong.
+
+### V9 Recovery
+Fix the earliest causal layer that owns the drift: token, component, CSS/platform expression or runtime state. Re-capture the same state and viewport, compare against the target/baseline, and retain both semantic runtime probes and screenshot evidence. Do not patch individual pages around a systemic token/component defect.
