@@ -4,7 +4,7 @@
 
 Nolane UI Intelligence (NUI) is a platform-agnostic Agent Skill graph for serious UI/UX work. It treats interface design as a system of independent decisions — product semantics, human factors, interaction, visual craft, platform behavior, input modalities, accessibility, AI agency, safety, resilience, design systems, and verification — rather than one vague instruction to “make it beautiful.”
 
-The current v8 graph declares **174 canonical skills** spanning the v2 industry cognition system, v3 product closure, v4 ecosystem intelligence, v5 affective/aesthetic enforcement, v6 deep research/design synthesis, and v7 Concrete Craft & Authority Intelligence. That number is descriptive, not a target. The router normally loads the **smallest sufficient graph** for the current task; high visual ambition is an explicit exception where required visual faculties become a hard route rather than optional context.
+The current v9 graph preserves **174 canonical skills** spanning the v2 industry cognition system, v3 product closure, v4 ecosystem intelligence, v5 affective/aesthetic enforcement, v6 deep research/design synthesis, v7 Concrete Craft & Authority Intelligence, v8 agent/media intelligence, and v9 Product Completeness & Taste Intelligence. That number is descriptive, not a target. The router normally loads the **smallest sufficient graph** for the current task; high product or visual ambition activates additional hard evidence routes rather than preloading the whole graph.
 
 NUI does not promise objective beauty, automatic compliance, or permanent completeness. It constrains observable agent behavior so material assumptions become explicit, high-impact domains cannot be silently omitted, independent critics can falsify the design, machine-checkable invariants are enforced by code, and release claims remain bounded by actual evidence.
 
@@ -21,8 +21,24 @@ NUI does not promise objective beauty, automatic compliance, or permanent comple
 - **Deep inclusive design.** Root accessibility is augmented by cognitive, low-vision/high-contrast, screen-reader, motion/photosensitivity, accessibility-settings, AAC, accessible-media, and sign-language faculties.
 - **Independent criticism.** The generator may not certify material UI completion by itself.
 - **Evidence-gated release.** Missing verification remains UNKNOWN/BLOCKED rather than being converted into confidence.
-- **Deterministic invariants.** Graphs, ownership, routes, source freshness, state/token contracts, completion packets, and bounded research saturation are checked by Python rather than trusted to model self-report.
+- **Deterministic invariants.** Graphs, ownership, routes, source freshness, state/token contracts, completion packets, product-scope adequacy, render-fidelity evidence, and bounded research saturation are checked by Python rather than trusted to model self-report.
 - **Research that can reopen.** High-drift standards/platforms live in `knowledge/research-radar.json`; a changed authority can reopen a domain and force a new research wave.
+
+## Product Completeness & Taste Intelligence (v9)
+
+NUI v9 addresses two gaps that can survive otherwise strong UI reasoning. First, an AI can create an internally coherent product whose **initial capability model was too small**. Second, a design can be correct in text/spec form while the **final rendered interface still feels generic, cheap, mismatched, or contains accidental browser/platform residue**.
+
+For product-wide work, v9 uses a broad-before-narrow capability envelope. Candidate product families are discovered before information architecture compresses them, then explicitly dispositioned as `REQUIRED`, `EXPECTED`, `OPTIONAL`, `EXCLUDED`, or `UNKNOWN`. A full sales platform therefore cannot silently stop at Dashboard + Products + Orders + Customers merely because those were the first obvious screens. Settings, account/workspace lifecycle, permissions, reporting, import/export, recovery, integrations, history and other plausible families must be considered and intentionally resolved. Broad discovery does **not** force every product to become enterprise software; explicit bounded exclusions remain valid.
+
+For professional/editor products, v9 deepens instrument and workspace architecture: document/object context, modes/tools, selection, context inspectors, hierarchy/layers, asset/resource workflows, command/search surfaces, history, status/progress, import/export, collaboration and persistent workspace regions are capability-driven rather than copied from VS Code, Canva, CapCut or another reference. Completeness means semantic reachability, not displaying every control at once.
+
+For perceptual quality, v9 adds comparative taste discrimination and a rendered design-director court. High-ambition work must compare actual rendered candidates/refinement states on named visual dimensions instead of self-assigning a beauty score, then run `render → capture → critique → repair → re-render → A/B`. The court checks focal hierarchy, visual rhythm, density modulation, typography, spacing, material consistency, mobile recomposition and representative states.
+
+V9 also adds an explicit browser/platform residue audit. Scrollbars are one example, but the audit extends to selects, file/date/number/range inputs, focus rings, selection, carets, resize handles, drag ghosts, native validation UI, context menus, tooltips/popovers, cursors and overscroll. The rule is **intentional platform fit**, not “customize everything”: native controls can be the correct choice; accidental classic chrome or styling that destroys operability cannot.
+
+The new curated benchmark memory stores mechanism-level lessons from high-bar product/system references without turning them into copy targets. Domain signatures and audience strategy constrain density, trust, emotion and interaction tone without hard-coding aesthetic stereotypes. Design-to-render fidelity connects semantic tokens, component constraints, CSS/platform expression, runtime evidence and visual regression. Motion is deepened around structural teaching, causality, emotional cadence, intentional absence, reduced-motion equivalence and performance degradation priority.
+
+V9 deliberately keeps the canonical graph at **174 skills**. The upgrade deepens existing owners and adds deterministic kernels/routing/critics rather than manufacturing near-duplicate skill names. See `docs/V9-PRODUCT-COMPLETENESS-TASTE-CLOSURE.md` for the complete architecture and bounded claims.
 
 ## Affective & Aesthetic Enforcement (v5)
 
