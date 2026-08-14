@@ -49,3 +49,18 @@ Use multiple accounts, no matching passkey, cancelled platform UI, offline/clock
 
 ### Recovery
 Return to known account/device context, surface secure recovery options, and preserve intent without repeatedly firing opaque platform prompts.
+
+## V9 Account Continuity Boundary
+Authentication is only one segment of the **account/workspace lifecycle**. When the product is account-based, this faculty must bind its ceremony contract to the broader lifecycle owned by product/capability architecture: registration or invitation, account establishment, authenticated sessions, profile/account identity, workspace or organization membership where applicable, workspace switching, session/device continuity, credential/security management, recovery, sign-out/revocation, ownership or membership transition, deactivation and deletion. Do not claim the whole account experience is complete because login succeeds.
+
+Keep the boundary precise. This faculty still owns authentication assurance, credential choice, reauthentication, enumeration resistance and secure recovery ceremonies. It does not invent organization policy, role authorization, billing or workspace product strategy. Instead, expose the identity/session facts those systems require: current account, current workspace/tenant context, current assurance level, active/revoked sessions, trusted or enrolled authenticators, and whether a sensitive action requires fresh authentication.
+
+Model **session/device continuity** as visible product truth. Users may sign in on multiple devices, lose one, revoke a session, change credentials, create a passkey elsewhere, switch accounts or return after expiry. The UI must distinguish “signed out on this device” from “all server sessions revoked,” and must not imply that deleting a local credential deletes the account or workspace. Sensitive settings should preserve the user's intended destination through reauthentication when safe.
+
+For multi-workspace products, prevent identity-context ambiguity. Switching workspace is not authentication, but authentication must not silently return a person to the wrong workspace when the intended action or deep link belongs elsewhere. A revoked membership, deleted workspace, transferred ownership or expired invitation needs an explicit recovery/next-step state instead of an auth loop.
+
+### V9 Falsification
+Start with a working sign-in screen and test lost device, session expiry during a sensitive setting, membership revoked while signed in, account deletion initiation, reauthentication return, and sign-out-all-devices. If the product cannot explain which account/workspace/session survives each transition, the account continuity model is incomplete.
+
+### V9 Recovery
+Return to canonical identity + session + workspace context, re-establish the minimum secure authentication ceremony required, then hand control back to the owning lifecycle surface with the user's safe intent preserved. Do not solve lifecycle ambiguity by repeatedly asking for credentials.
