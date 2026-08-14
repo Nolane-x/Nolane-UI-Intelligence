@@ -217,3 +217,32 @@ Change platform/domain while holding visual prompt constant. Authority routes mu
 
 ### Recovery
 Recompute only authority-sensitive routes, preserve unrelated outputs, and block downstream concrete compilation if a required authority dimension becomes unresolved.
+
+## V10 Empirical-Evaluation Routing
+Add `evaluation_mode: none | structural-evaluation | empirical-evaluation` only when the task is evaluating NUI itself. Do **not** route benchmark machinery during ordinary product design: doing so would waste context and risk contaminating generation with evaluator expectations.
+
+For `empirical-evaluation`, extend the profile with:
+- `hypothesis_ids[]` — exact behavioral claims under test;
+- `benchmark_task_ids[]` and split (`dev` or `holdout`);
+- `treatments[]` including `baseline`, `nui_full`, and every targeted `ablation` or semantic mutation needed for attribution;
+- `model_matrix[]` with provider/family/name/snapshot/runtime;
+- `replicates`, seeds/temperature controls where available;
+- `tool_budget` and evidence capabilities;
+- `judge_channels[]` and independence/lineage limits;
+- `claim_target: STRUCTURAL_ONLY | EMPIRICAL_LOCAL | EMPIRICAL_TRANSFER`.
+
+The router must resolve a **hypothesis-to-owner-to-task-to-mutation** chain. If the claim names `H-TASTE-COMPARATIVE`, load the taste owner into the full treatment, expose its `taste-court` ablation/mutation, and select benchmark tasks whose visual direction is genuinely open. Do not test a faculty on tasks where its decision boundary does not exist merely to increase sample count.
+
+### Treatment isolation
+The full, baseline and ablation cells share task, generation model snapshot/runtime, sampling policy and tool budget. NUI context is allowed to differ because it is the treatment. Any extra browser access, hidden reference, manual coaching, retry policy or evaluator hint applied to only one treatment becomes a confound and invalidates pairing.
+
+The router does not read `benchmarks/v10/tasks-hidden.json` when building generation context. Hidden rubrics belong to the evaluator stage and are inaccessible to `baseline`, `nui_full`, mutation and ablation generators alike.
+
+### V10 ablation routing integrity
+An `ablation` must name the owner/mechanism it removes and the dimensions expected to degrade. If the ablation deletes unrelated safety/accessibility/platform obligations merely to make the full condition win, mark it non-specific. Interaction hypotheses may deliberately ablate two cooperating owners, but the claim must be about the joint mechanism rather than assigning the whole effect to one skill.
+
+### V10 claim routing
+`EMPIRICAL_LOCAL` requires a real-model matched matrix plus blind evaluation and targeted ablation evidence. `EMPIRICAL_TRANSFER` additionally hard-routes holdout tasks and at least two materially different model families. If the runtime cannot execute that matrix, downgrade the requested claim rather than simulating missing evidence.
+
+### V10 falsification
+Mutate one hypothesis, model family, task split or tool budget. The experimental route must update the corresponding owner, ablation, holdout or pairing obligations. If adding `EMPIRICAL_TRANSFER` does not force holdout + multi-family evidence, or if changing a visual task into fixed reproduction still routes open-ended taste exploration, empirical routing is under-sensitive.
