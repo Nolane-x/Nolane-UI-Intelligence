@@ -66,3 +66,21 @@ At the minimum supported window, close/collapse each non-primary region one at a
 
 ### V9 Recovery
 Restore semantic region ownership, centralize command state, define collapse/detach/persistence rules, and reallocate density by task. Do not solve a weak professional workspace by permanently exposing every panel.
+
+## V10 Desktop Workspace Persistence & Zoning Evidence
+The desktop contribution to `H-WORKSPACE-INSTRUMENTS` is narrower than generic editor completeness: **desktop-specific zoning, command parity, persistent user-owned layout, window resizing and long-session density should preserve context without making every region permanently visible.** The evaluator should be able to tell whether a pane exists because its information benefits from concurrency, not because professional software is expected to have many panes.
+
+For empirical tasks, emit a `desktop-zone-evidence` record for each material region with `scope`, `concurrent_value`, `collapse_or_detach_rule`, `command_binding`, `minimum_window_behavior`, `persistence_boundary`, and `privacy_or_recovery_constraint`. Include at least one state after relaunch or workspace restoration when persistence is part of the product claim. A screenshot showing many panels is weak evidence; a restoration trace that returns the user to the right document, selection, command state and safe geometry is stronger.
+
+The `workspace-all-tools-visible` mutation should especially harm desktop tasks by erasing region ownership and density modulation. The `workspace-instruments` ablation should increase one of three measurable failures: essential commands become destination-bound and slow to reach; simultaneous panes compete without stable scope; or persistent workspace state loses the user's working context. It should **not** be rewarded for simply making the interface denser than baseline.
+
+### V10 desktop counterfactuals
+Test the same task under:
+- wide window with concurrent reference/context available;
+- minimum supported width where secondary regions must collapse or relocate;
+- relaunch after deliberate user customization;
+- monitor/display removal when multi-display placement exists;
+- keyboard-only command access with toolbars hidden;
+- a novice/default workspace versus a power-user customized workspace when the product supports both.
+
+If full NUI preserves visual chrome but not document/selection/status truth, the hypothesis fails. If the ablation is equivalent because the task has no long-session, resizing, command-density or persistence pressure, the desktop owner should be marked non-material rather than loaded to manufacture an effect. Empirical attribution remains bounded to matched tasks and cannot be inferred from the existence of a sophisticated desktop workspace example.
