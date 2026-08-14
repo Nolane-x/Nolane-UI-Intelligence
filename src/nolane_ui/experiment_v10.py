@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 from typing import Any
 
 VALID_STATUSES = {"success", "failed", "timeout", "excluded"}
@@ -53,7 +54,10 @@ def validate_experiment_manifest(record: dict[str, Any], corpus: dict[str, Any],
         if not isinstance(model, dict):
             errors.append(f"model[{i}] must be an object")
             continue
-        for field in ("family", "name", "snapshot"):
+        # A model name alone is not reproducible evidence. Provider and runtime
+        # are part of the experimental identity because the same nominal model
+        # can behave differently across serving stacks and execution harnesses.
+        for field in ("family", "name", "snapshot", "provider", "runtime"):
             if not _text(model.get(field)):
                 errors.append(f"model[{i}] requires {field}")
     treatments = record.get("treatments")
@@ -132,7 +136,15 @@ def pairing_key(run: dict[str, Any]) -> tuple[Any, ...]:
 
 
 def stable_hash_jsonish(value: Any) -> str:
-    return hashlib.sha256(repr(value).encode("utf-8")).hexdigest()
+    """Hash JSON-like data canonically rather than by Python insertion order."""
+    payload = json.dumps(
+        value,
+        sort_keys=True,
+        separators=(",", ":"),
+        ensure_ascii=False,
+        allow_nan=False,
+    ).encode("utf-8")
+    return hashlib.sha256(payload).hexdigest()
 
 
 __all__ = ["validate_experiment_manifest", "validate_run_record", "pairing_key", "stable_hash_jsonish", "EXCLUSION_REASONS"]
