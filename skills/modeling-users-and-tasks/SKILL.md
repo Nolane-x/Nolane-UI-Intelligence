@@ -86,3 +86,20 @@ Find a real role/context whose job cannot be represented without changing the fl
 
 ### Recovery
 Split/refine roles/tasks, update evidence status, and reroute affected product/interaction decisions.
+
+## V9 Audience Strategy Sensitivity
+In addition to operational roles, model the **decision posture** that changes what “good design” means for the audience. Do not infer taste from demographics. Record whether the experience is primarily `trust-first`, `delight-first`, `speed-first`, `comprehension-first`, `precision-first`, `exploration-first`, or a justified combination, then tie that posture to actual tasks and consequences.
+
+Distinguish a founder/owner who wants fast system overview from a mass consumer who needs recognition and confidence, a professional creator who needs dense precision from a casual creator who needs progressive discovery, and an operator who needs exceptions/history from an executive who needs decision compression. The same feature set can require radically different density, explanation, action exposure and visual tone.
+
+For each material audience profile record `expertise`, `primary_intent`, and `decision_mode`, plus the evidence status for each assumption. Ask whether the person is buying quickly or reading deeply, comparing or creating, monitoring or acting, exploring or completing a known task, and whether trust, emotional delight, status, mastery, calm or speed should dominate. Translate these into design consequences rather than persona adjectives.
+
+Use domain signatures as a prior, not destiny. Fintech often raises trust/precision needs; creative tools often raise agency/flow; education often raises scaffolding/cognitive load. But a consumer investing app and an institutional trading console should not inherit one visual-density signature just because both are “fintech.” Product-local role and task evidence override generic domain expectation.
+
+When audiences conflict, create layered access rather than averaging them into a mediocre middle. Keep essential meaning stable while varying default density, progressive disclosure, shortcut exposure, onboarding, explanation depth, workspace persistence or role-specific home surfaces where justified. Personalization cannot hide safety/trust essentials.
+
+### V9 Falsification
+Take one visually strong proposal and test it against two materially different audiences who share the product. If no hierarchy, density, explanation, control exposure or trust behavior needs to change, the audience model is probably decorative. Also swap `trust-first` and `delight-first`; if the design consequences remain identical, the strategic label has no causal value.
+
+### V9 Recovery
+Return to jobs, consequence and expertise; split the audience model where behavior truly differs, update attention budgets and progressive disclosure, then reroute aesthetic/domain decisions. Do not fix an audience mismatch by merely changing colors, illustrations or marketing copy.
