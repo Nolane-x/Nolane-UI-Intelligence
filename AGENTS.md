@@ -59,3 +59,28 @@ These rules are repository policy. Runtime adapters may change tool syntax, not 
 43. High-ambition divergence means at least three materially different composition/type/material/signature systems. Palette swaps, renamed variants, or one component skeleton with cosmetic changes do not satisfy divergence.
 44. A high-ambition identity layer must fail the generic-transfer test: after blinding logo/name, an unrelated product should not accept the same authored composition and signature without losing important meaning. Familiar controls may remain familiar.
 45. Do not certify high-end visual quality with a scalar beauty score or one screenshot. Require structural responsive evidence and at least two closed critique cycles where a concrete finding is corrected and re-observed in a named render.
+
+## V9 product-completeness and perceptual-craft invariants
+
+46. Think **broad before narrow**. A full/production product claim cannot use the first recalled feature list as its scope boundary. Discover plausible actor, lifecycle, configuration, recovery and operational capability families first; implementation may then narrow them only through explicit disposition.
+47. `REQUIRED`, `EXPECTED`, `OPTIONAL`, `EXCLUDED`, and `UNKNOWN` are scope-accounting states, not page-count instructions. `EXCLUDED` needs authority/rationale; material `UNKNOWN` blocks high-ambition product completion.
+48. Settings are configuration architecture when scope/precedence matters. Preserve effective-value origin, inheritance/lock semantics, persistence, dependencies and recovery; do not force enterprise settings machinery into a tiny preference set.
+49. Authentication completion is not account completion. When durable identity exists, account/session/device/recovery/membership/ownership/deactivation consequences must connect to the wider product lifecycle; do not invent team workspaces where the product is personal or anonymous.
+50. Professional workspaces prove completeness through semantic command/instrument reachability and context, not by displaying every tool. Panel, inspector, status, command and persistence regions require stable ownership.
+51. Default browser/OS chrome is neither automatically correct nor automatically ugly. Audit intentionality, platform fit and operability. Never hide scrollbars, focus, validation or another affordance solely for visual cleanliness.
+52. Comparative taste, rendered critique and fidelity are evidence-bound. Preserve actual render states, causal findings, before/after repair and runtime/platform context; no scalar “beauty” score may compensate for product, accessibility or functional truth.
+
+## V10 behavioral-design and empirical-proof invariants
+
+53. **Artifact quality is not NUI efficacy.** A beautiful, complete, verified interface proves bounded facts about that artifact. It does not prove NUI caused the quality.
+54. Empirical generation sees only public task material plus its declared treatment context. The hidden evaluator rubric, failure traps, hard blockers, contamination markers and judge answer keys MUST NOT enter generation, routing, retrieval or tool context.
+55. A causal efficacy comparison requires matched `baseline` and `nui_full` conditions plus a targeted ablation or semantic mutation for the claimed mechanism. Task, model snapshot/runtime, sampling policy and tool budget remain comparable; treatment context is the deliberate difference.
+56. Treatment labels, NUI routes, ablation identities, generator preference and provider/model identity are removed from qualitative judge payloads. Pair orientation varies deterministically so condition is not encoded by left/right position.
+57. Failures, timeouts and exclusions remain in the denominator/audit trail. Exclusion uses only protocol/infrastructure reasons from the closed contract. “Bad result,” “outlier,” or “hurts the claim” are forbidden exclusions.
+58. Mutation sensitivity is behavioral evidence only when the owned dimension degrades as predicted and unrelated/placebo dimensions remain materially stable. Broad prompt damage cannot be attributed to one skill.
+59. V10 reports a vector of product, functional, visual, accessibility, fidelity and cost dimensions. Do not create a universal NUI or beauty score that allows a soft visual gain to compensate for hard security, accessibility, destructive-action or functional regression.
+60. `EMPIRICAL_LOCAL` requires validated real-model provenance, matched comparison, positive bounded uncertainty evidence, targeted ablation identification and no material hard-blocker regression. Synthetic fixtures and repository CI cannot produce this state.
+61. `EMPIRICAL_TRANSFER` additionally requires genuine holdout evidence, at least two materially different model families, per-family direction consistency, exact evidence-bundle digests and no pooled averaging that hides a contradictory family.
+62. Empirical evidence binds to an exact NUI revision, task/evaluator contract, model/runtime matrix and evidence bundle. Changing a treatment-relevant skill, route, mutation or rubric reopens the affected claim.
+63. Ordinary GitHub CI without imported validated real-model bundles MUST publish `claim_ceiling: STRUCTURAL_ONLY` and state what empirical work was not run. A green harness is not permission to say NUI empirically improves UI generation.
+64. Benchmark depth is not task count. Each material hypothesis needs a decision boundary, observable behavior, baseline failure, positive and negative controls, evidence channels, falsifiers, targeted tasks, semantic mutation/ablation exposure and bounded overclaim language.
