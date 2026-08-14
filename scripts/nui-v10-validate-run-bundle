@@ -1,0 +1,55 @@
+#!/usr/bin/env python3
+"""Validate a V10 JSONL run bundle against optional experiment provenance."""
+from __future__ import annotations
+
+import hashlib
+import json
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+from nolane_ui.experiment_v10 import validate_run_record  # noqa: E402
+
+
+def sha256_file(path: Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as fh:
+        for chunk in iter(lambda: fh.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def main() -> int:
+    if len(sys.argv) not in {2, 3}:
+        print("usage: nui-v10-validate-run-bundle <runs.jsonl> [experiment.json]", file=sys.stderr)
+        return 2
+    run_path = Path(sys.argv[1])
+    manifest = {}
+    if len(sys.argv) == 3:
+        manifest = json.loads(Path(sys.argv[2]).read_text(encoding="utf-8"))
+    errors = []
+    count = 0
+    run_ids = set()
+    for line_no, line in enumerate(run_path.read_text(encoding="utf-8").splitlines(), 1):
+        if not line.strip():
+            continue
+        count += 1
+        try:
+            record = json.loads(line)
+        except json.JSONDecodeError as exc:
+            errors.append(f"line {line_no}: invalid JSON: {exc}")
+            continue
+        result = validate_run_record(record, manifest)
+        errors.extend(f"line {line_no}: {e}" for e in result["errors"])
+        run_id = record.get("run_id") if isinstance(record, dict) else None
+        if run_id in run_ids:
+            errors.append(f"line {line_no}: duplicate run_id {run_id}")
+        run_ids.add(run_id)
+    payload = {"valid": not errors, "run_count": count, "errors": errors, "bundle_sha256": sha256_file(run_path)}
+    print(json.dumps(payload, sort_keys=True, ensure_ascii=False))
+    return 0 if not errors else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
