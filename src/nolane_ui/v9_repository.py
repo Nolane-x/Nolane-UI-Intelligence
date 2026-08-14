@@ -159,11 +159,20 @@ def extend(root: Path, base: dict[str, Any]) -> dict[str, Any]:
 
     try:
         workflow = (root / ".github/workflows/verify.yml").read_text(encoding="utf-8")
-        if "nui-v9-completion-packet" not in workflow or "Nolane-UI-Intelligence-v9-complete.zip" not in workflow:
-            errors.append("v9 workflow must upload the v9 completion packet and complete-project ZIP")
+        historical_artifacts = (
+            "nui-v9-completion-packet" in workflow and "Nolane-UI-Intelligence-v9-complete.zip" in workflow
+        )
+        inherited_artifacts = (
+            "nui-v10-completion-packet" in workflow and "Nolane-UI-Intelligence-v10-complete.zip" in workflow
+        )
+        if not (historical_artifacts or inherited_artifacts):
+            errors.append("v9 release compatibility requires a V9-or-later completion packet and complete-project ZIP")
+
         script = (root / "scripts/nui-release-packet").read_text(encoding="utf-8")
-        if "NUI-V9-STRUCTURAL" not in script or "validate_v9_completion_evidence" not in script:
-            errors.append("v9 release packet script must generate V9 structural evidence")
+        historical_packet = "NUI-V9-STRUCTURAL" in script and "validate_v9_completion_evidence" in script
+        inherited_packet = "NUI-V10-STRUCTURAL" in script and "validate_v10_completion_evidence" in script
+        if not (historical_packet or inherited_packet):
+            errors.append("v9 release compatibility requires a V9-or-later structural completion packet")
     except Exception as exc:
         errors.append(f"v9 release plane: {exc}")
 
