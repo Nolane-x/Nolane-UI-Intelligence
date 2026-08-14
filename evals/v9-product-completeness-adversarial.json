@@ -1,0 +1,278 @@
+{
+  "version": 9,
+  "purpose": "Adversarial cases that attack under-scoped products, visually polished incompleteness, accidental platform residue, weak taste discrimination, spec-only critique, domain/audience mismatch and motion/render drift. ALLOW cases prevent over-correction into feature bloat or anti-native dogma.",
+  "cases": [
+    {
+      "id": "v9-scope-001",
+      "category": "scope",
+      "scenario": "A generator calls a sales-management product complete after implementing only Dashboard, Products, Orders and Customers.",
+      "expected_verdict": "BLOCK",
+      "protected_invariant": "A full-platform claim needs a capability envelope broader than the first familiar navigation items.",
+      "must_detect": ["identity/workspace/settings/reporting/import-export/roles/recovery families were never dispositioned"]
+    },
+    {
+      "id": "v9-scope-002",
+      "category": "scope",
+      "scenario": "A deliberately small single-user inventory utility explicitly excludes teams, billing, integrations and audit history with product-owner rationale.",
+      "expected_verdict": "ALLOW",
+      "protected_invariant": "Broad discovery must not force enterprise feature inflation when ambition is intentionally bounded.",
+      "must_detect": ["explicit exclusions are legitimate and do not need visible UI"]
+    },
+    {
+      "id": "v9-scope-003",
+      "category": "scope",
+      "scenario": "Every declared capability has a route, action, binding and scenario, but the initial ledger omitted account recovery and export for a production SaaS product.",
+      "expected_verdict": "BLOCK",
+      "protected_invariant": "Internal graph closure cannot certify an under-scoped capability set.",
+      "must_detect": ["scope adequacy failure despite functional closure"]
+    },
+    {
+      "id": "v9-settings-001",
+      "category": "settings",
+      "scenario": "A beautiful Settings page contains theme, billing, MFA, notification, data retention and workspace policy toggles in one undifferentiated list.",
+      "expected_verdict": "BLOCK",
+      "protected_invariant": "Settings need conceptual ownership, scope and consequence, not merely findability.",
+      "must_detect": ["missing taxonomy", "missing scope/inheritance model"]
+    },
+    {
+      "id": "v9-settings-002",
+      "category": "settings",
+      "scenario": "Organization policy locks a notification setting, but the user-level surface shows an enabled editable toggle with no indication of inherited effective value.",
+      "expected_verdict": "BLOCK",
+      "protected_invariant": "Effective setting value and scope precedence must be truthful.",
+      "must_detect": ["editable-looking control conflicts with higher-scope policy"]
+    },
+    {
+      "id": "v9-settings-003",
+      "category": "settings",
+      "scenario": "A product has five simple personal preferences with explicit defaults, persistence and reset; no settings search is provided.",
+      "expected_verdict": "ALLOW",
+      "protected_invariant": "Search is not mandatory for a small predictable settings inventory.",
+      "must_detect": ["small settings system remains discoverable without search"]
+    },
+    {
+      "id": "v9-account-001",
+      "category": "account-lifecycle",
+      "scenario": "Sign-up, sign-in and MFA are polished, but there is no lost-device recovery, session management, deactivation or deletion path.",
+      "expected_verdict": "BLOCK",
+      "protected_invariant": "Authentication success is not full account lifecycle completeness.",
+      "must_detect": ["post-auth lifecycle gaps"]
+    },
+    {
+      "id": "v9-account-002",
+      "category": "account-lifecycle",
+      "scenario": "A user reauthenticates to change a sensitive setting; success returns them to the home dashboard and discards the intended setting change.",
+      "expected_verdict": "BLOCK",
+      "protected_invariant": "Secure reauthentication should preserve safe user intent.",
+      "must_detect": ["reauthentication continuity failure"]
+    },
+    {
+      "id": "v9-account-003",
+      "category": "account-lifecycle",
+      "scenario": "A personal offline-only desktop app has no account system and explicitly declares account lifecycle not applicable.",
+      "expected_verdict": "ALLOW",
+      "protected_invariant": "Account completeness is conditional on the product actually having accounts.",
+      "must_detect": ["do not invent authentication requirements"]
+    },
+    {
+      "id": "v9-workspace-001",
+      "category": "workspace",
+      "scenario": "A video editor shows canvas, timeline and a large toolbar, but has no selection-bound inspector, history model, asset/resource workflow or export status.",
+      "expected_verdict": "BLOCK",
+      "protected_invariant": "A professional editor needs coherent instruments traced to capabilities, not only a toolbar.",
+      "must_detect": ["instrument architecture gaps"]
+    },
+    {
+      "id": "v9-workspace-002",
+      "category": "workspace",
+      "scenario": "An IDE-like app exposes every command as a visible icon in three permanent toolbars to prove completeness.",
+      "expected_verdict": "BLOCK",
+      "protected_invariant": "Completeness is reachability, not simultaneous visibility.",
+      "must_detect": ["panel/toolbar dumping", "missing progressive disclosure"]
+    },
+    {
+      "id": "v9-workspace-003",
+      "category": "workspace",
+      "scenario": "A focused writing editor intentionally has document navigation, editor, small formatting context bar, command search, history and export; it has no secondary inspector because the object model does not need one.",
+      "expected_verdict": "ALLOW",
+      "protected_invariant": "Instrument categories are capability-driven rather than copied from IDEs or creative suites.",
+      "must_detect": ["absence of irrelevant panels is intentional restraint"]
+    },
+    {
+      "id": "v9-residue-001",
+      "category": "residue",
+      "scenario": "A premium dark web app uses an untouched bright classic scrollbar that visually cuts through the product shell.",
+      "expected_verdict": "BLOCK",
+      "protected_invariant": "Accidental browser chrome may not break an otherwise intentional material system.",
+      "must_detect": ["unintentional scrollbar residue"]
+    },
+    {
+      "id": "v9-residue-002",
+      "category": "residue",
+      "scenario": "The designer hides all scrollbars for a cleaner look; keyboard and wheel still work but users have no visible scroll affordance in a long settings panel.",
+      "expected_verdict": "BLOCK",
+      "protected_invariant": "Modern styling cannot erase operability/discoverability merely to remove ugly chrome.",
+      "must_detect": ["hidden scrollbar lacks adequate affordance"]
+    },
+    {
+      "id": "v9-residue-003",
+      "category": "residue",
+      "scenario": "A macOS-oriented application intentionally uses a native platform scrollbar whose behavior matches user preferences and the rest of the application.",
+      "expected_verdict": "ALLOW",
+      "protected_invariant": "Native controls are valid when intentional and platform-appropriate.",
+      "must_detect": ["avoid anti-native styling dogma"]
+    },
+    {
+      "id": "v9-residue-004",
+      "category": "residue",
+      "scenario": "A custom design system styles buttons and text fields but leaves file input, focus ring, date picker trigger and text selection colors as mismatched browser defaults.",
+      "expected_verdict": "BLOCK",
+      "protected_invariant": "Default-chrome audit covers the whole interaction surface, not only scrollbars.",
+      "must_detect": ["multiple accidental default chrome leaks"]
+    },
+    {
+      "id": "v9-taste-001",
+      "category": "taste",
+      "scenario": "A single candidate receives a score of 9.4/10 for 'premium feel' with no alternative render or dimension-level evidence.",
+      "expected_verdict": "BLOCK",
+      "protected_invariant": "Taste must be comparative and evidence-bearing, not an opaque self-score.",
+      "must_detect": ["no pairwise comparison", "unexplained quality label"]
+    },
+    {
+      "id": "v9-taste-002",
+      "category": "taste",
+      "scenario": "Two accessible and functional candidates are compared: one has uniform cards, stock gradient and equal density; the other has stronger focal hierarchy, controlled material boundaries and domain-native composition.",
+      "expected_verdict": "ALLOW",
+      "protected_invariant": "Comparative taste may legitimately prefer the more refined candidate when the causal reasons are observable.",
+      "must_detect": ["dimension-level preference is justified"]
+    },
+    {
+      "id": "v9-taste-003",
+      "category": "taste",
+      "scenario": "The critic chooses a lower-contrast subtle treatment as 'more premium' even though selection and focus become harder to perceive.",
+      "expected_verdict": "BLOCK",
+      "protected_invariant": "Taste cannot override accessibility or state truth.",
+      "must_detect": ["perceptual refinement broke semantic visibility"]
+    },
+    {
+      "id": "v9-render-001",
+      "category": "render-critique",
+      "scenario": "An AI critiques focal point, breathing room and type rhythm from component code and a design spec without seeing a rendered screenshot.",
+      "expected_verdict": "BLOCK",
+      "protected_invariant": "Rendered visual claims require rendered evidence.",
+      "must_detect": ["spec-only critique masquerades as screenshot critique"]
+    },
+    {
+      "id": "v9-render-002",
+      "category": "render-critique",
+      "scenario": "Desktop screenshot is excellent, but no mobile render is inspected before a responsive flagship claim is closed.",
+      "expected_verdict": "BLOCK",
+      "protected_invariant": "Responsive visual quality must survive actual mobile/small rendering.",
+      "must_detect": ["missing mobile capture"]
+    },
+    {
+      "id": "v9-render-003",
+      "category": "render-critique",
+      "scenario": "A before/after A/B fixes typography but accidentally weakens the primary action; the critic records both the improvement and regression rather than declaring the newer image universally better.",
+      "expected_verdict": "ALLOW",
+      "protected_invariant": "A/B critique can preserve strengths and reject one-dimensional optimization.",
+      "must_detect": ["mixed verdict is evidence-calibrated"]
+    },
+    {
+      "id": "v9-reference-001",
+      "category": "reference",
+      "scenario": "A developer tool copies Linear's dark styling, sidebar proportions and interaction details because Linear appears in the benchmark gallery.",
+      "expected_verdict": "BLOCK",
+      "protected_invariant": "Reference memory teaches mechanisms rather than imitation.",
+      "must_detect": ["brand/expression copying", "missing product-specific transfer rationale"]
+    },
+    {
+      "id": "v9-reference-002",
+      "category": "reference",
+      "scenario": "A creative editor studies VS Code for semantic workspace zoning, Canva for progressive complexity and Spectrum for density behavior, then derives an original instrument layout from its own capabilities.",
+      "expected_verdict": "ALLOW",
+      "protected_invariant": "Multiple references can calibrate mechanisms without producing a clone.",
+      "must_detect": ["mechanism-level synthesis"]
+    },
+    {
+      "id": "v9-domain-001",
+      "category": "domain-audience",
+      "scenario": "A clinical operations tool uses playful elastic success animations, ambiguous pastel severity and low-density marketing cards because the visual direction tested well for a consumer lifestyle app.",
+      "expected_verdict": "BLOCK",
+      "protected_invariant": "Domain risk and audience task posture constrain visual and motion choices.",
+      "must_detect": ["medtech trust/risk mismatch"]
+    },
+    {
+      "id": "v9-domain-002",
+      "category": "domain-audience",
+      "scenario": "The same commerce platform gives shoppers a discovery-first surface and merchants a denser operations workspace while preserving shared product semantics.",
+      "expected_verdict": "ALLOW",
+      "protected_invariant": "Audience-specific density and information structure may differ when jobs differ.",
+      "must_detect": ["role/audience strategy is causally justified"]
+    },
+    {
+      "id": "v9-domain-003",
+      "category": "domain-audience",
+      "scenario": "A developer platform is automatically made black-and-white, tiny and keyboard-heavy despite targeting first-time nontechnical operators.",
+      "expected_verdict": "RE_DIVERGE",
+      "protected_invariant": "Domain signature is a prior, not a rigid aesthetic template; audience evidence can override it.",
+      "must_detect": ["developer-tool stereotype conflicts with audience"]
+    },
+    {
+      "id": "v9-fidelity-001",
+      "category": "render-fidelity",
+      "scenario": "Design tokens specify refined spacing and typography, but components use local magic values and the rendered product drifts systematically.",
+      "expected_verdict": "BLOCK",
+      "protected_invariant": "Skill/design intent must survive the token-to-component-to-runtime chain.",
+      "must_detect": ["component constraints do not consume canonical tokens"]
+    },
+    {
+      "id": "v9-fidelity-002",
+      "category": "render-fidelity",
+      "scenario": "A screenshot diff reports a tiny antialiasing delta and fails the build even though geometry, typography, states and interaction semantics are unchanged.",
+      "expected_verdict": "ALLOW",
+      "protected_invariant": "Visual regression needs a false-positive audit and accepted delta path.",
+      "must_detect": ["harmless rendering noise should not outrank semantic fidelity"]
+    },
+    {
+      "id": "v9-fidelity-003",
+      "category": "render-fidelity",
+      "scenario": "Desktop components pass screenshots, but browser zoom and long localized labels make toolbars overlap and hide required actions.",
+      "expected_verdict": "BLOCK",
+      "protected_invariant": "Render fidelity includes content and responsive stress, not only baseline pixels.",
+      "must_detect": ["runtime responsive/action reachability drift"]
+    },
+    {
+      "id": "v9-motion-001",
+      "category": "motion",
+      "scenario": "Every card rises, glows and springs on hover in a high-frequency accounting console; none of the motion communicates state.",
+      "expected_verdict": "BLOCK",
+      "protected_invariant": "Decorative motion has the lowest budget and cannot tax repeated professional work.",
+      "must_detect": ["motion has no semantic purpose", "emotional cadence mismatches domain"]
+    },
+    {
+      "id": "v9-motion-002",
+      "category": "motion",
+      "scenario": "Reduced-motion mode sets all animation durations to zero, causing focus to jump during a shared-element transition and removing the only indication that an object moved to another group.",
+      "expected_verdict": "BLOCK",
+      "protected_invariant": "Reduced motion requires semantic equivalence, not duration zero.",
+      "must_detect": ["lost continuity", "focus transition failure"]
+    },
+    {
+      "id": "v9-motion-003",
+      "category": "motion",
+      "scenario": "A creative tool uses a restrained transition to preserve object continuity when opening an inspector, while repeated property changes remain nearly instant and reduced-motion uses a stable highlight instead.",
+      "expected_verdict": "ALLOW",
+      "protected_invariant": "Motion can teach structure while respecting expert speed and reduced-motion equivalence.",
+      "must_detect": ["semantic motion and intentional absence are balanced"]
+    },
+    {
+      "id": "v9-motion-004",
+      "category": "motion",
+      "scenario": "A decorative WebGL background consumes GPU time and makes drag feedback and timeline scrubbing stutter on a low-end machine.",
+      "expected_verdict": "BLOCK",
+      "protected_invariant": "Performance degradation removes decorative motion before task interaction quality.",
+      "must_detect": ["performance budget priority inversion"]
+    }
+  ]
+}
