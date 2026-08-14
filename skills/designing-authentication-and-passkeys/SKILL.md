@@ -64,3 +64,19 @@ Start with a working sign-in screen and test lost device, session expiry during 
 
 ### V9 Recovery
 Return to canonical identity + session + workspace context, re-establish the minimum secure authentication ceremony required, then hand control back to the owning lifecycle surface with the user's safe intent preserved. Do not solve lifecycle ambiguity by repeatedly asking for credentials.
+
+## V10 Account-Lifecycle Empirical Boundary
+`H-ACCOUNT-CONTINUITY` tests a recurring AI failure: **a polished sign-in/sign-up flow is mistaken for a complete account system.** This owner should change behavior only when durable identity exists. It should surface lifecycle consequences around sessions/devices, secure recovery, membership/workspace context, revocation and terminal account states without inventing organizations for an anonymous or personal-only product.
+
+The targeted mutation `account-login-only` deliberately stops at authentication ceremony. The `account-continuity` ablation removes the bridge into the wider account/workspace lifecycle. Benchmark judgment therefore focuses on **dead-end and wrong-context transitions**, not on whether the login screen contains more controls. Relevant probes include lost devices, session expiry during a sensitive action, invitation versus active membership, workspace switching, membership revocation, owner departure, account deletion with shared resources, and safe return after reauthentication.
+
+### V10 evidence partition
+Keep three evidence layers separate:
+- **security ceremony evidence** — credential/factor, enumeration resistance, reauthentication and recovery assurance owned here;
+- **product lifecycle evidence** — membership/ownership/account states supplied by product/capability architecture;
+- **efficacy evidence** — matched baseline/full/ablation runs showing that this skill reduces lifecycle dead ends.
+
+A good authentication artifact is not efficacy evidence. Likewise, a benchmark result may show better account-lifecycle completeness without proving the backend security design is correct. Security claims remain subject to their own authority and runtime evidence.
+
+### V10 falsification
+The hypothesis fails attribution if `account-login-only` performs equivalently on tasks that genuinely contain multi-device, recovery, membership or terminal-state consequences. It also fails by overreach if full NUI adds team/workspace machinery to `account-01` or an anonymous product. For `EMPIRICAL_TRANSFER`, require holdout account tasks and multiple model families; same-model architectural examples support only `STRUCTURAL_ONLY` until real comparative evidence exists.
