@@ -2,322 +2,439 @@
 
 # Nolane UI Intelligence
 
-### A design cognition and verification system for AI agents
+### Design cognition, product completeness, visual craft and evidence-gated verification for AI agents
 
-**AI can generate an interface in seconds. NUI is built to make it understand why that interface should exist, what it must preserve, how it should feel, and what evidence is required before calling it good.**
+**AI can generate an interface in seconds. NUI is built to make it think like a serious product/design team before it ships one.**
 
 [English](README.md) · [Tiếng Việt](README-VN.md) · [简体中文](README-CN.md)
 
-`v0.10.0` · `174 canonical skills` · `evidence-gated` · `platform-agnostic` · `MIT`
+`v0.10.0` · `174 canonical skills` · `9 agent projections` · `MCP + CLI` · `evidence-gated` · `MIT`
 
 </div>
 
 ---
 
-## The problem is not generating UI anymore
+## Description
 
-Modern AI can produce pages, dashboards, apps, components, animations and entire front ends astonishingly fast.
+**Nolane UI Intelligence (NUI)** is an open design-cognition and verification system for AI coding agents. It gives an agent a routed graph of specialized UI/UX faculties for product modeling, information architecture, interaction, visual direction, typography, motion, accessibility, platform behavior, professional workspaces, authentication, settings, product completeness, rendered critique, design-to-code fidelity and empirical evaluation.
 
-The harder problem is everything that happens **before and after the code appears**:
+NUI is **not** a component library, style preset, mega-prompt, screenshot copier or universal beauty score. It is a system that tries to make design decisions explicit, routed, falsifiable and evidence-bound.
 
-- Did the model understand the actual product, or did it reduce the brief to a familiar template?
-- Did important capabilities disappear because they were not visually exciting?
-- Did a professional tool become a collection of oversized cards?
-- Did “premium” collapse into dark backgrounds, blur and gradients?
-- Did mobile become a squeezed desktop layout?
-- Did motion explain state, or merely decorate it?
-- Did the implementation preserve accessibility, platform behavior, permissions, recovery and trust?
-- Did the critic actually inspect the rendered result, or simply agree with the design rationale?
-- And when the system says a skill “improves UI quality”, **what evidence makes that claim true?**
+### Topics / tags
 
-**Nolane UI Intelligence (NUI)** is an attempt to solve that layer.
-
-It is not another component library, not a style preset, and not a giant “make this beautiful” prompt. NUI is a **structured design-intelligence system for agents**: a graph of specialized decision owners, routing rules, evidence contracts, independent critics, research provenance, deterministic validators and empirical-evaluation machinery.
-
-The goal is simple to state and difficult to achieve:
-
-> **Turn UI generation from a one-shot act of imitation into a disciplined process of product reasoning, design divergence, implementation, rendered critique, recovery and evidence-bound release.**
+`ai-agents` · `agent-skills` · `ui-ux` · `design-intelligence` · `design-system` · `frontend` · `codex` · `claude-code` · `gemini-cli` · `opencode` · `cursor` · `vscode` · `mcp` · `accessibility` · `human-computer-interaction` · `ai-coding`
 
 ---
 
-## What NUI changes in an AI design workflow
+# Use NUI with your AI agent
 
-Without a design cognition layer, an agent often follows a short loop:
+NUI is designed to work with **Codex, Claude Code, Google Antigravity, Gemini CLI, OpenCode, Cursor, VS Code/Copilot-compatible agents, any MCP host, and generic shell/CLI agents** without maintaining nine copies of the skill graph.
 
-`prompt → familiar pattern → code → “looks good” → done`
-
-NUI replaces that with a lifecycle:
+The architecture is:
 
 ```text
-INTAKE
-  ↓
-CONTRACTED
-  ↓
-ROUTED
-  ↓
-DISCOVERED
-  ↓
-ARCHITECTED
-  ↓
-DIVERGED
-  ↓
-DESIGN_SELECTED
-  ↓
-SYSTEMIZED
-  ↓
-SPECIFIED
-  ↓
-IMPLEMENTABLE
-  ↓
-RENDERED
-  ↓
-CRITIQUED
-  ↓
-VERIFIED
-  ↓
-RELEASED
+one canonical NUI cognition graph
+            ↓
+     thin host projection
+            ↓
+Codex / Claude / Gemini / OpenCode / Cursor / VS Code / MCP / CLI
 ```
 
-A failed obligation, stale source, missing capability, weak visual basin, runtime defect or unsupported claim can send the system to `RECOVERY` or `BLOCKED` instead of letting confidence substitute for evidence.
+## Quick start
 
-The agent is therefore encouraged to ask different questions at different moments. Product intent is not allowed to become layout prematurely. Visual direction is not allowed to collapse into the first fashionable answer. Implementation success is not allowed to certify visual quality. A generator is not allowed to silently certify its own material work.
+Clone NUI:
 
----
+```bash
+git clone https://github.com/Nolane-x/Nolane-UI-Intelligence.git
+cd Nolane-UI-Intelligence
+```
 
-## 174 skills — one graph, not 174 prompts
+Ask NUI for the integration plan for your agent:
 
-NUI currently contains **174 canonical skills**.
+```bash
+python scripts/nui-agent-export --agent openai-codex
+```
 
-That number is descriptive, not a target and not a reason to load everything. The system uses `routing-ui-work` to activate the **smallest sufficient graph** for the actual task.
+Replace `openai-codex` with any supported adapter ID:
 
-A marketing site, a video editor, a fintech console, a medical workflow, a TV interface, an AAC communication surface, an AI agent workspace and a flight deck should not receive the same reasoning context.
+```text
+openai-codex
+claude-code
+google-antigravity
+gemini-cli
+opencode
+cursor-compatible
+vscode-agent-compatible
+generic-mcp
+generic-cli
+```
 
-The skill graph spans, among other areas:
+### Agent matrix
 
-- product intent, capability modeling and product completeness;
-- users, tasks, expertise, error cost and human factors;
-- information architecture, navigation and settings architecture;
-- interaction, state, forms, search, tables and data-dense workflows;
-- desktop, mobile, large-screen, TV, wearable, automotive, XR, terminal, kiosk and specialist surfaces;
-- keyboard, pointer, touch, pen, remote, voice, gaze, haptics and alternative input;
-- accessibility, cognitive access, low vision, screen readers, reduced motion, AAC and accessible media;
-- AI uncertainty, human-AI interaction, agent autonomy, generative UI and multi-agent surfaces;
-- authentication, permissions, privacy, finance, medical and other high-consequence interfaces;
-- typography, color, spacing, material, composition, imagery, motion and visual hierarchy;
-- editors, canvases, professional workspaces, command systems and rich interaction;
-- design systems, tokens, component architecture and implementation fidelity;
-- research authority, external libraries, source archaeology and integration audits;
-- independent visual, UX, accessibility, safety, platform, resilience and fidelity critics.
+| Agent / host | Recommended NUI surface | Command / bridge |
+|---|---|---|
+| **Codex** | Native Agent Skills bridge + repository policy | `.agents/skills/nolane-ui/SKILL.md` + `python scripts/nui-agent-export --agent openai-codex` |
+| **Claude Code** | Native project skill bridge | `.claude/skills/nolane-ui/SKILL.md` + `python scripts/nui-agent-export --agent claude-code` |
+| **Google Antigravity** | Agent-Skills-compatible bridge or MCP | `python scripts/nui-agent-export --agent google-antigravity` |
+| **Gemini CLI** | CLI/MCP projection | `python scripts/nui-agent-export --agent gemini-cli` |
+| **OpenCode** | CLI/MCP projection | `python scripts/nui-agent-export --agent opencode` |
+| **Cursor** | Repository guidance + MCP/CLI | `python scripts/nui-agent-export --agent cursor-compatible` |
+| **VS Code / Copilot-compatible agent** | Repository guidance + MCP/CLI | `python scripts/nui-agent-export --agent vscode-agent-compatible` |
+| **Any MCP host** | Local NUI MCP sidecar | `python scripts/nui-mcp-server` |
+| **Any shell-capable agent** | Canonical skill + CLI | `python scripts/nui-agent-export --agent generic-cli` |
 
-A new skill is justified only when it owns a genuinely distinct decision or failure class. Later NUI versions deliberately deepen existing owners rather than inflating the graph with near-duplicates.
+## Put NUI inside another project
 
----
+If NUI is not the repository itself, keep it as a sidecar instead of copying 174 skill files into a giant prompt:
 
-## Flagship visual intelligence: beautiful is not a checkbox
+```bash
+git clone --depth 1 https://github.com/Nolane-x/Nolane-UI-Intelligence.git .nui
+```
 
-NUI treats visual ambition as a real contract.
+Then inspect an agent projection:
 
-For `flagship`, `exceptional` or `experiential` work, one polished screenshot is not enough. The system expects evidence that the visual direction was actually discovered and stress-tested.
+```bash
+python .nui/scripts/nui-agent-export --agent claude-code --root .nui
+```
 
-High-ambition work includes mechanisms such as:
+or expose NUI through a local MCP server:
 
-**Material divergence.** At least three candidates must differ meaningfully in composition, typography, material language and signature mechanism. A palette swap is not a new direction.
+```bash
+python .nui/scripts/nui-mcp-server --root .nui
+```
 
-**Generic-transfer resistance.** Blind the logo and product name. If the same authored shell could host an unrelated SaaS product without losing important meaning, the identity layer is not finished.
+Use the **current MCP/project configuration syntax of your host** to register that command. NUI intentionally keeps vendor configuration outside the canonical graph because host syntax changes faster than design cognition.
 
-**Attention architecture.** The design must establish what the eye should understand first, second and third — not simply make every region equally polished.
+> **Permission rule:** the host remains authoritative. NUI never expands shell, filesystem, network, browser, image or MCP permissions by itself.
 
-**Domain-native signature.** Memorability should come from the subject, workflow, information or interaction itself rather than decorative geometry pasted on top.
-
-**Responsive art direction.** Smaller screens must structurally recompose the experience when needed, not merely stack desktop rectangles vertically.
-
-**Closed critique loops.** A material visual finding must be corrected and re-observed in a named render. NUI requires critique to change evidence, not just produce commentary.
-
-This is why NUI does not expose a universal “beauty score.” Taste is comparative, contextual and evidence-bearing. Product truth, accessibility and interaction correctness remain hard boundaries even when a visually louder answer would score better in a superficial preference test.
-
----
-
-## Product completeness before screen completeness
-
-A UI can be internally coherent and still represent an incomplete product.
-
-NUI therefore separates **discovery breadth** from **implementation commitment**. Before an ambitious product is compressed into routes and screens, plausible capability families are discovered and explicitly dispositioned as:
-
-`REQUIRED · EXPECTED · OPTIONAL · EXCLUDED · UNKNOWN`
-
-This prevents a “full platform” from quietly becoming Dashboard + Items + Settings simply because those were the first screens the model imagined.
-
-At the same time, broad discovery is not permission to turn every utility into enterprise software. Scope must remain tied to actors, outcomes, lifecycle, consequence and declared product ambition.
-
-Professional tools receive additional scrutiny around workspace regions, selection, inspectors, commands, history, assets, status, import/export, collaboration and persistence. Completeness is measured by meaningful capability and reachability — not by showing every control simultaneously.
+For complete agent-by-agent setup, see **[`docs/AGENT-INTEGRATION.md`](docs/AGENT-INTEGRATION.md)**.
 
 ---
 
-## Authority without imitation
+## Why NUI exists
 
-NUI can learn from external design systems, platforms, component libraries, research and production products, but it separates **access** from **authority**.
+The difficult problem is no longer “can AI write JSX or CSS?”
 
-A source being famous, beautiful, easy to query through MCP, or available as agent-readable documentation does not make it authoritative for every decision.
+The difficult problem is that an AI can produce something technically valid while still thinking too narrowly:
 
-NUI resolves authority by dimension. A platform guide may own platform convention. A headless primitive may contribute semantic interaction mechanics. A motion engine may contribute interpolation mechanics. A visual reference may raise the bar for composition. None of those sources silently inherits product strategy, accessibility proof or visual ownership outside its scope.
+- a sales platform becomes only Dashboard + Products + Orders;
+- a professional editor has a canvas but no command model, inspector, history, asset workflow or workspace persistence;
+- authentication exists but recovery, session/device management or account lifecycle is missing;
+- settings are a handful of toggles instead of a scoped preference architecture;
+- desktop looks attractive while mobile is merely the same layout squeezed smaller;
+- every region becomes a rounded card because that is the easiest visual primitive to synthesize;
+- native browser chrome suddenly appears inside an otherwise polished interface;
+- motion exists because “premium apps animate,” not because it teaches state or causality;
+- a screenshot looks good, so the generating agent certifies its own work.
 
-The transfer rule is:
-
-> **Transfer mechanism, not trade dress.**
-
-Material external influence is expected to carry provenance, role classification, licensing posture, transfer boundaries, contraindications and local runtime verification. README-only research does not authorize production influence when deeper evidence is required.
+NUI treats those as **reasoning failures**, not just styling mistakes.
 
 ---
 
-## V10: from design rules to falsifiable design intelligence
+## The core idea
 
-V10 introduces one of the most important changes in the project: **NUI is no longer satisfied with a skill merely sounding intelligent.**
+Instead of telling an agent:
 
-A behavioral rule should be capable of failing.
+```text
+Make a beautiful modern UI.
+```
 
-The V10 evaluation layer currently contains:
+NUI drives a lifecycle closer to:
+
+```text
+product truth
+→ task / user / risk contract
+→ capability discovery
+→ specialist routing
+→ information & interaction architecture
+→ divergent visual directions
+→ design-system decisions
+→ implementation
+→ real render
+→ independent critique
+→ repair / re-render
+→ verification
+→ bounded release claim
+```
+
+The agent does not preload every rule. It routes to the **smallest sufficient graph of owners** for the product and task.
+
+---
+
+## 174 canonical design faculties
+
+NUI currently preserves **174 canonical skills**. The number is descriptive, not a growth target.
+
+A skill is allowed to exist only when it owns a distinct decision or failure class. NUI deliberately avoids turning every new idea into another overlapping “expert.”
+
+The graph spans areas such as:
+
+- product intent, jobs, users and capability modeling;
+- information architecture and settings systems;
+- interaction states, rich components and direct manipulation;
+- typography, color, spacing, surfaces, icons and visual hierarchy;
+- motion semantics and reduced-motion equivalence;
+- responsive, mobile, desktop, TV, XR, automotive, wearables and specialist surfaces;
+- keyboard, touch, pen, remote, voice, gaze and other modalities;
+- accessibility, cognitive accessibility, low vision, screen readers, AAC and accessible media;
+- authentication, trust, privacy, financial, medical and other high-impact domains;
+- AI/agent uncertainty, streaming, provenance, correction and autonomous action;
+- editor/canvas workspaces, professional desktop workspaces and complex instrument architecture;
+- external UI-source research, authority selection and safe adaptation;
+- visual media opportunity mapping, sourcing, authoring and integration;
+- product closure, route/action reachability and responsive capability preservation;
+- rendered criticism, adequacy criticism and release verification;
+- behavioral evaluation, mutation, ablation and empirical claim discipline.
+
+The canonical bootstrap is:
+
+```text
+skills/using-nolane-ui/SKILL.md
+```
+
+The canonical graph is:
+
+```text
+skills/skill-graph.json
+```
+
+---
+
+## Product completeness: broad before narrow
+
+A major NUI rule is simple:
+
+> **Think broadly before deciding what to omit.**
+
+When a product is underspecified, NUI first discovers a plausible capability envelope and then dispositions capabilities as:
+
+```text
+REQUIRED
+EXPECTED
+OPTIONAL
+EXCLUDED
+UNKNOWN
+```
+
+This prevents the common AI failure where the first four obvious screens become the whole product.
+
+A “full sales management platform,” for example, may need the agent to consider—not automatically implement—areas such as account/workspace lifecycle, roles and permissions, catalog/SKU, inventory, orders, fulfillment, returns/refunds, customers, payments, reporting, search, notifications, import/export, integrations, settings, audit/history and recovery.
+
+The goal is **intentional scope**, not enterprise bloat.
+
+---
+
+## Professional tools should behave like professional tools
+
+For editor-, IDE-, design-, media- and operations-class products, NUI reasons in terms of **instrument architecture**, not “more buttons.”
+
+Depending on the product, that can include:
+
+```text
+workspace shell
+→ mode/tool system
+→ selection model
+→ primary work surface
+→ context inspector
+→ hierarchy/layers
+→ asset/resource system
+→ command/search surface
+→ history / undo / redo
+→ import/export
+→ collaboration
+→ status/progress
+→ persistence
+```
+
+Completeness does not mean showing everything simultaneously. Progressive disclosure, keyboard power paths, contextual controls and density strategy remain design decisions.
+
+---
+
+## Flagship visual intelligence
+
+For `flagship`, `exceptional` and `experiential` work, NUI does not accept “premium, clean, modern” as proof of art direction.
+
+High-ambition work must establish a visual thesis and explore **materially different candidates** across composition, type system, material system and signature mechanism. It then resolves:
+
+- attention architecture;
+- typographic voice and optical hierarchy;
+- composition rhythm and density;
+- color/material causality;
+- motion purpose;
+- domain-native signature;
+- bounded reference frontier;
+- generic-transfer resistance;
+- responsive re-authoring;
+- closed render/critique/correction cycles.
+
+The point is not to mathematically prove beauty. The point is to make unsupported high-end visual claims **falsifiable**.
+
+---
+
+## Render first. Critique the thing users actually see.
+
+NUI distinguishes a design specification from its rendered result.
+
+A high-ambition workflow can require:
+
+```text
+render
+→ screenshot / runtime observation
+→ focal hierarchy critique
+→ typography / spacing / density critique
+→ platform-residue audit
+→ responsive critique
+→ correction
+→ re-render
+→ A/B comparison
+```
+
+This catches failures that source inspection alone misses: wrong wrapping, accidental scrollbars, browser defaults, optical misalignment, weak hierarchy, poor crops, cramped mobile states, inconsistent materials and motion that feels disconnected from the actual interaction.
+
+---
+
+## Modern interface residue audit
+
+A polished product can still feel cheap when one low-level control falls back to accidental platform chrome.
+
+NUI explicitly examines classes such as:
+
+```text
+scrollbars
+selects
+file inputs
+date/time controls
+number/range controls
+focus / selection / caret
+resize handles
+drag ghosts
+native validation UI
+context menus
+tooltips / popovers
+cursors
+overscroll behavior
+```
+
+The rule is **not** “customize everything.” Native controls can be correct. The failure is accidental residue, inconsistent styling, or customization that destroys usability/accessibility.
+
+---
+
+## References without cloning
+
+NUI uses external design systems, products, research and UI libraries as **mechanism sources**, not trade-dress targets.
+
+A reference may teach:
+
+- density zoning;
+- editorial scale contrast;
+- command architecture;
+- motion continuity;
+- material layering;
+- data treatment;
+- platform behavior;
+- accessibility semantics.
+
+It does not become permission to reproduce a recognizable product aesthetic.
+
+The source flow is:
+
+```text
+need
+→ inspect current source
+→ identify authority role
+→ extract mechanism
+→ define transfer boundary
+→ adapt to local product truth
+→ verify local runtime
+```
+
+---
+
+## V10: Behavioral Design Intelligence & Empirical Proof
+
+NUI v10 adds a second question after “is the repository structurally deep?”
+
+> **Does using NUI actually change agent behavior in the intended direction?**
+
+The V10 evaluation plane includes:
 
 - **13 falsifiable behavioral hypotheses**;
-- **48 original benchmark tasks** across **12 task families**;
-- a public-generation / hidden-evaluator boundary;
-- holdout tasks for transfer-sensitive evaluation;
-- targeted semantic mutations, ablations and placebo controls;
-- blinded pairwise judging support;
-- run records with provider, model, snapshot, runtime and artifact provenance;
-- canonical SHA-256 hashing for experimental identity;
-- matched-pair aggregation and uncertainty-aware statistics;
-- hard-blocker regression checks;
-- bounded claim promotion: `STRUCTURAL_ONLY`, `EMPIRICAL_LOCAL`, `EMPIRICAL_TRANSFER`, or `REJECTED`.
+- **48 benchmark tasks across 12 task families**;
+- public-generation vs evaluator-hidden boundaries;
+- semantic mutations, targeted ablations and placebo controls;
+- model/runtime/prompt/tool-budget provenance;
+- treatment-blind pairwise judging;
+- matched comparison units;
+- exact statistical gates;
+- bounded promotion from structural evidence to empirical claims.
 
-The crucial distinction is this:
+NUI does not collapse this into one “NUI score.” Product completeness can improve while another dimension does not. Those trade-offs should remain visible.
 
-```text
-artifact quality ≠ evidence that NUI caused the improvement
-```
-
-A beautiful result can demonstrate artifact quality. It does not, by itself, prove that a particular NUI skill made a model better.
-
-For an empirical claim, NUI requires stronger lineage: real validated runs, matched treatment pairs, blinded evaluation, bundle digests, targeted ablation evidence and bounded statistics. A boolean such as `real_model_runs: true` cannot promote a claim by itself.
-
-### Current claim ceiling
-
-The repository's ordinary CI and bundled structural fixtures currently certify the **evaluation framework**, not universal model-quality improvement. Therefore the default repository claim ceiling remains:
-
-**`STRUCTURAL_ONLY`**
-
-That is intentional. `EMPIRICAL_LOCAL` or `EMPIRICAL_TRANSFER` must be earned from real provider/model run bundles that satisfy the V10 gates. NUI would rather say “not yet proven” than turn synthetic fixtures into marketing evidence.
+Repository-only CI currently supports a **structural evidence ceiling**. It does not pretend synthetic fixtures are proof that NUI is universally superior across real models.
 
 ---
 
 ## What NUI is not
 
-NUI is **not**:
+NUI is not:
 
-- a component kit;
-- a Figma replacement;
-- a collection of fashionable palettes;
-- a mega-prompt that should be pasted into every conversation;
-- an objective oracle of beauty;
-- a certificate that every generated UI is accessible, safe or production-ready;
-- a license to copy Apple, Linear, Stripe, Notion, Canva, VS Code or any other product;
-- a benchmark score pretending to be design intelligence.
+- a React component library;
+- a Tailwind preset;
+- a Figma kit;
+- a single system prompt;
+- a collection of trendy screenshots;
+- an automatic accessibility certification service;
+- a universal numerical beauty function;
+- permission to copy Apple, Linear, Stripe, Canva, CapCut, VS Code or any other product;
+- proof that every AI output becomes excellent just because NUI is present.
 
-It is infrastructure for **reasoning, routing, design decisions, criticism, evidence and recovery**.
+It is an attempt to build a **design cognition layer around an AI agent** and make that layer inspectable, routable and testable.
 
 ---
 
-## Architecture at a glance
+## Repository map
 
 ```text
-Nolane-UI-Intelligence/
-├── skills/                 # canonical design cognition graph
-│   └── skill-graph.json    # ownership, parents and outputs
-├── knowledge/              # authority, research, design and V10 evidence memory
-├── benchmarks/v10/         # public tasks, hidden evaluator data, mutations
-├── evals/                  # adversarial and behavioral pressure tests
-├── schemas/                # typed evidence contracts
-├── src/nolane_ui/          # deterministic validators and reasoning kernels
-├── scripts/                # validation, release and V10 empirical tooling
-├── adapters/               # agent/runtime capability mappings
-├── docs/                   # architecture, research and run protocols
-└── tests/                  # repository, behavior, mutation and claim gates
+skills/                         canonical design faculties
+skills/skill-graph.json        routing / ownership graph
+knowledge/                     authority, ontology, benchmark and evidence knowledge
+schemas/                       typed evidence contracts
+src/nolane_ui/                 deterministic routing / validation kernels
+evals/                         adversarial and behavioral fixtures
+benchmarks/v10/                V10 behavioral benchmark corpus
+.adapters / bridges            thin agent-specific discovery surfaces
+.agents/skills/nolane-ui/      Codex / Agent Skills bridge
+.claude/skills/nolane-ui/      Claude Code bridge
+scripts/nui-agent-export       agent projection CLI
+scripts/nui-mcp-server         local MCP entry point
+docs/AGENT-INTEGRATION.md      complete AI-agent setup guide
+docs/research/                 research provenance and bounded synthesis
 ```
-
-The canonical entry point for material UI work is:
-
-`skills/using-nolane-ui/SKILL.md`
-
-That bootstrap hands the task to `nolane-ui`, which contracts the work and invokes `routing-ui-work`. **Do not preload all 174 skills.** Progressive disclosure is part of the architecture.
 
 ---
 
-## Quick start
-
-Validate the repository:
+## Verify NUI
 
 ```bash
-PYTHONPATH=src python scripts/nui-validate .
+python -m unittest discover -s tests -v
+python scripts/nui-validate .
 ```
 
-Run the complete test suite:
-
-```bash
-PYTHONPATH=src python -m unittest discover -s tests -v
-```
-
-For V10 controlled evaluation, start with:
-
-```bash
-python scripts/nui-v10-build-run-matrix examples/v10/experiment.example.json
-python scripts/nui-v10-validate-run-bundle <manifest.json> <runs.jsonl>
-python scripts/nui-v10-aggregate <runs.jsonl>
-```
-
-Read `docs/V10-EMPIRICAL-RUN-PROTOCOL.md` before interpreting any efficacy result.
-
----
-
-## Design principles encoded into the project
-
-A few rules summarize the spirit of NUI:
-
-1. **Product truth precedes visual polish.**
-2. **The first plausible UI is a hypothesis, not an answer.**
-3. **High ambition requires divergence before refinement.**
-4. **Familiar interaction can coexist with distinctive visual identity.**
-5. **Missing evidence is `UNKNOWN` or `BLOCKED`, never `PASS`.**
-6. **A generator cannot silently certify its own material completion.**
-7. **Rendered perception matters; source code is not the final interface.**
-8. **External authority is decision-dimensional, never global by prestige.**
-9. **A skill is deep because it changes decisions and catches failures — not because it is long.**
-10. **Claims about improvement require controlled evidence, not confidence.**
-
----
-
-## Research and provenance
-
-NUI synthesizes mechanisms from platform guidance, accessibility standards, human-factors material, production design systems, implementation ecosystems and agent-design research while preserving source role and reuse boundaries.
-
-Detailed provenance lives in `docs/research/SOURCES.md` and the machine-readable ledgers under `knowledge/`.
-
-The project intentionally does not bulk-copy third-party skill prose, proprietary design databases or recognizable product trade dress. High-drift sources can reopen research when their guidance changes.
-
----
-
-## Why this project exists
-
-The future of AI-generated software will not be won only by the model that can emit the most JSX.
-
-It will also depend on the systems surrounding the model: systems that preserve product truth, expose missing assumptions, retrieve the right expertise, resist generic attractors, understand risk, compare alternatives, observe actual rendered behavior, criticize independently, recover from failure and know when a claim has not yet been proven.
-
-**Nolane UI Intelligence is an attempt to build that design layer.**
-
-Not a prettier prompt.
-
-A more rigorous way for an AI to design.
+Repository validation proves structural and evidence-contract invariants for the checked revision. It does not, by itself, prove that a future interface is beautiful, usable, accessible, safe, lawful or empirically superior.
 
 ---
 
 ## License
 
-MIT. See `LICENSE` for details.
+MIT. See [`LICENSE`](LICENSE).
+
+---
+
+<div align="center">
+
+### AI already knows how to generate UI.
+### Nolane UI Intelligence is an attempt to make it learn how to **design, inspect and justify** one.
+
+**Start:** [`skills/using-nolane-ui/SKILL.md`](skills/using-nolane-ui/SKILL.md) · **Agent setup:** [`docs/AGENT-INTEGRATION.md`](docs/AGENT-INTEGRATION.md)
+
+</div>
