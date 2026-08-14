@@ -85,3 +85,18 @@ Construct a deliberately polished solution that satisfies the requested feature 
 
 ### Recovery
 When intent drift is found, do not patch copy around the current design. Reopen the affected capability, flow, and evidence contracts; demote unsupported preferences, restore invariants, and reroute downstream faculties from the first causal divergence.
+
+## V9 Product Envelope Discovery
+Before compressing a product into screens, routes, or a familiar app archetype, perform **broad-before-narrow** discovery. The first model of “what exists” is a hypothesis, not a scope boundary. A prompt such as “sales management platform,” “video editor,” “IDE,” or “team workspace” must trigger a search across actors, entity lifecycles, administration, configuration, trust, recovery, import/export, collaboration, history, integrations, help, system state, and domain-specific operational edges that plausibly matter. This discovery step exists even when the final implementation is intentionally small.
+
+Separate **discovery breadth** from **implementation commitment**. Candidate capability families may become `REQUIRED`, `EXPECTED`, `OPTIONAL`, `EXCLUDED`, or `UNKNOWN`; discovering a capability does not force it onto the screen. The purpose is to prevent the model from silently equating “what I thought of first” with “the whole product.” Every exclusion that would materially change a full-product claim needs rationale and authority, while unresolved high-impact unknowns block that claim.
+
+Calibrate the envelope by ambition. A bounded prototype may explicitly exclude billing, team administration, recovery, audit history, integrations or advanced settings. A production/full-platform claim cannot simply omit such families because they are not visually exciting. Conversely, do not inflate a small utility into enterprise software merely to satisfy a generic completeness checklist. Product class, actors, consequence, lifecycle and stated ambition determine which families deserve disposition.
+
+Run a **scope adequacy challenge** independently from the generator before declaring the envelope closed. Construct an artificially tiny but internally coherent product model—such as dashboard + products + orders for a purported full sales platform—and ask whether important actor outcomes, lifecycle transitions, trust obligations or recovery paths disappear. Probe omitted capability families and compare against product-local evidence, domain expectations and representative real workflows. If the tiny model survives the challenge, the challenge is too weak.
+
+### V9 Falsification
+Remove a plausible but non-glamorous family such as settings, account lifecycle, import/export, permission administration, history, recovery, notifications or help. If the product can still claim “full platform” without an explicit disposition and without any consequence appearing in the intent model, the product envelope is under-specified.
+
+### V9 Recovery
+Reopen discovery before information architecture. Add the missing family as a hypothesis, identify its actor/outcome/lifecycle consequence, route it to capability inventory, and only then decide whether it is required, expected, optional or explicitly excluded. Never repair an under-scoped model merely by adding more dashboard widgets.
