@@ -67,11 +67,11 @@ A thesis is not a style adjective list. It says what the interface is trying to 
 
 ### 3.2 Material divergence before convergence
 
-High visual freedom requires at least three candidates that are materially different along **composition, type system, material model and signature mechanism**. Changing palette, corner radius or hero art while preserving the same skeleton is not divergence.
+High visual freedom requires at least three candidates that are materially different along **composition, type system, material model and signature mechanism**. Every one of those four axes must exhibit material variation across the candidate set; changing palette, corner radius or hero art while preserving the same skeleton is not divergence.
 
 The point is not to maximize novelty. Divergence is a search instrument that lets the agent compare different ways of expressing the same product truth before local polish makes the first plausible answer emotionally expensive to abandon.
 
-**Falsification:** normalize color and copy across candidates. If their silhouette, typographic behavior, material hierarchy and signature remain nearly identical, the candidates converged too early.
+**Falsification:** normalize color and copy across candidates. If their silhouette, typographic behavior, material hierarchy or signature mechanism collapses to one static axis, the search has converged too early for a high-ambition claim.
 
 ### 3.3 Attention architecture
 
@@ -123,7 +123,7 @@ The signature must explain its subject link: what fact, form, process, environme
 
 ### 3.9 Reference frontier, not reference monoculture
 
-At least three reference mechanisms are recorded with explicit transfer boundaries. A reference can teach editorial scale, density zoning, motion continuity, data treatment, material layering or another mechanism. Prestige and popularity do not raise authority.
+At least three **distinct mechanism-level learnings** are recorded with explicit transfer boundaries. A reference can teach editorial scale, density zoning, motion continuity, data treatment, material layering or another mechanism. Prestige and popularity do not raise authority.
 
 The frontier exists to prevent two opposite errors: designing from memory with no competitive awareness, and visually cloning the first admired reference.
 
@@ -131,7 +131,7 @@ The frontier exists to prevent two opposite errors: designing from memory with n
 
 ### 3.10 Generic transfer resistance
 
-For `exceptional` and `experiential` claims, the packet must report `FAILS_TRANSFER`: if product/domain truth is stripped out, the visual solution should lose important structure or identity rather than revealing a generic shell that could host any SaaS copy.
+For every `flagship`, `exceptional` and `experiential` claim, the packet must report `FAILS_TRANSFER`: if product/domain truth is stripped out, the visual solution should lose important structure or identity rather than revealing a generic shell that could host any SaaS copy.
 
 This is not a demand for novelty everywhere. Familiar controls may and often should remain familiar. The test targets the **authored composition and identity layer**, not basic usability conventions.
 
@@ -139,13 +139,13 @@ This is not a demand for novelty everywhere. Familiar controls may and often sho
 
 Rendered evidence includes structural changes, not merely viewport labels. Narrow states may reorder evidence, change navigation modality, alter media crops, collapse persistent utilities into contextual controls, or substitute a representation when the original loses meaning.
 
-For `exceptional` and `experiential`, at least three material rendered states are required and at least two viewport classes must be represented. A loading, theme, long-content or interaction state can be the third state when it materially tests the direction.
+`flagship` requires at least two material rendered states. `exceptional` and `experiential` require at least three. All high-ambition packets must represent at least two viewport classes. A loading, theme, long-content or interaction state can provide additional evidence when it materially tests the direction.
 
-**Falsification:** if mobile can be described as “same interface, smaller,” the responsive design has not been authored deeply enough for an exceptional claim.
+**Falsification:** if mobile can be described as “same interface, smaller,” the responsive design has not been authored deeply enough for a high-ambition claim.
 
 ### 3.12 Closed critique cycles
 
-At least two critique cycles attack different failure dimensions. Each cycle records a concrete observed finding, a correction and the exact rendered state where the correction was re-observed. “Looks good” is not critique, and a defect report with no re-render is unfinished work.
+At least two critique cycles attack different failure dimensions. Each cycle records a concrete observed finding, a correction and the exact declared rendered-state ID where the correction was re-observed. `verified_in` cannot point to an imaginary or stale render. “Looks good” is not critique, and a defect report with no re-render is unfinished work.
 
 Useful categories include perception, hierarchy, typography, media integration, responsive behavior, motion, accessibility, performance and product specificity. The validator does not prescribe which pair must be used because the highest-risk dimensions differ by product.
 
@@ -190,4 +190,4 @@ A passing flagship synthesis packet means:
 - responsive states are structurally re-authored where necessary;
 - rendered critique produced and verified real corrections.
 
-It **does not** mean NUI has mathematically proven beauty. Aesthetic judgment remains partly contextual and human. V8's improvement is that an agent can no longer support an “exceptional” claim with style adjectives, a component library, a single screenshot or a self-issued score. The claim must survive evidence that can disagree with it.
+It **does not** mean NUI has mathematically proven beauty. Aesthetic judgment remains partly contextual and human. V8's improvement is that an agent can no longer support a high-ambition claim with style adjectives, a component library, a single screenshot or a self-issued score. The claim must survive evidence that can disagree with it.
