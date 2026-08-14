@@ -44,3 +44,18 @@ Compare a candidate produced under the selected ambition level against one level
 
 ### Recovery
 When the evidence ladder cannot be satisfied, do not self-certify. Either reduce the claim through the de-escalation rule or reopen references, divergence and implementation capacity. Repeated **ambition mismatch** after local polish routes to re-divergence rather than another pass of shadows, gradients or microanimation.
+
+## V8 Flagship Synthesis Contract
+For `flagship`, `exceptional`, and `experiential`, the hard route culminates in a cross-owner `flagship-visual-synthesis` packet. This owner still does not choose the art direction; it declares that the selected ambition cannot be completed unless the combined craft system can be falsified as a whole.
+
+The synthesis contract separates **aesthetic dimensions that are often collapsed by generative systems**: visual thesis, material divergence, attention architecture, typographic voice, composition rhythm, color/material causality, temporal continuity, domain-native signature, reference frontier, generic-transfer resistance, responsive art direction, and closed perceptual correction. Each dimension needs its own evidence because one impressive hero treatment cannot compensate for weak typography, generic composition, inaccessible contrast, or shrink-only mobile behavior.
+
+High freedom requires three directions that remain materially different after color and copy are normalized. Selection requires a product-value rationale rather than “looks most premium.” Exceptional/experiential claims require at least three material rendered states and at least two viewport classes; flagship requires at least two material rendered states. All three levels require two critique cycles that expose different failure dimensions and prove the correction in a named render.
+
+Do not compute a scalar beauty score. Aesthetic judgment is contextual; the gate instead rejects unsupported high-ambition claims. The decisive product-specificity test is `FAILS_TRANSFER`: blind logo/name and ask whether the authored composition/signature would remain equally valid for an unrelated product. Familiar controls may transfer; the identity-bearing solution should not.
+
+### V8 falsification
+Normalize palette and copy across the three candidates, thumbnail or blur them, and compare composition/type/material/signature. Then blind product identity. If candidates collapse into one silhouette or the selected solution transfers cleanly to an unrelated domain, the ambition claim is still aspirational rather than evidenced.
+
+### V8 recovery
+Do not add another shadow, gradient, card or microanimation to rescue a collapsed basin. Reopen the weakest synthesis plane, return to references or subject truth, create a materially different mechanism, and re-render before re-evaluating the ambition level.
