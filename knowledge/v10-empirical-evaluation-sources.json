@@ -1,0 +1,78 @@
+{
+  "version": 10,
+  "purpose": "Primary-source research ledger for V10 evaluation mechanisms. These sources inform benchmark methodology; none is evidence that NUI itself improves UI generation, and none receives global design authority.",
+  "sources": [
+    {
+      "id": "webcoderbench-acl-2026",
+      "title": "WebCoderBench: Benchmarking Web Application Generation with Comprehensive and Interpretable Evaluation Metrics",
+      "primary_url": "https://aclanthology.org/2026.acl-long.535/",
+      "source_type": "peer-reviewed-benchmark-paper",
+      "authority_role": "web-generation-evaluation-methodology",
+      "inspected_mechanisms": ["fine-grained multi-perspective metric vector", "combination of rule-based and LLM-as-judge evaluation", "human-preference-aligned interpretation", "cross-model metric breakdown rather than one dominant-score narrative"],
+      "transfer_boundary": "V10 transfers the principle of interpretable multi-dimensional evaluation and cross-model breakdown. It does not copy WebCoderBench requirements, proprietary evaluation prompts, weights, or treat its overall score as a NUI metric.",
+      "contraindications": ["Human-preference weighting can hide hard product/safety regressions if treated as compensatory", "Metrics optimized for general web generation do not directly validate NUI-specific product-scope or skill-ablation hypotheses"],
+      "drift_posture": "stable-paper; implementation assets may evolve separately",
+      "v10_uses": ["multi-dimensional result vector", "cross-model stratification", "prohibition on one universal NUI score", "H-COMPOUND-CLOSURE"]
+    },
+    {
+      "id": "artifactsbench-2025",
+      "title": "ArtifactsBench: Bridging the Visual-Interactive Gap in LLM Code Generation Evaluation",
+      "primary_url": "https://arxiv.org/abs/2507.04952",
+      "source_type": "research-benchmark-paper",
+      "authority_role": "rendered-artifact-evaluation-methodology",
+      "inspected_mechanisms": ["programmatic rendering before evaluation", "temporal screenshot evidence for dynamic behavior", "fine-grained per-task checklist guidance", "automated ranking validation against human preference"],
+      "transfer_boundary": "V10 transfers render-first evidence, temporal observation and task-specific rubric discipline. It does not reuse ArtifactsBench task content, its judge prompt, ranking calibration, or infer that the same judge agreement applies to NUI tasks.",
+      "contraindications": ["MLLM-as-judge remains model-dependent and can share correlated visual biases", "Temporal screenshots cannot by themselves prove keyboard, accessibility-tree or backend correctness", "Human-agreement figures from ArtifactsBench cannot be imported as NUI judge reliability"],
+      "drift_posture": "stable-paper; open-source harness is an implementation reference that must be pinned before code reuse",
+      "v10_uses": ["rendered evidence court", "blind pairwise judging", "H-RENDER-CRITIQUE-CAUSAL", "H-TASTE-COMPARATIVE"]
+    },
+    {
+      "id": "vision2web-2026",
+      "title": "Vision2Web: A Hierarchical Benchmark for Visual Website Development with Agent Verification",
+      "primary_url": "https://arxiv.org/abs/2603.26648",
+      "source_type": "research-benchmark-paper",
+      "authority_role": "hierarchical-web-development-evaluation-methodology",
+      "inspected_mechanisms": ["separate evaluation levels for static UI, interactive multi-page frontend and long-horizon full-stack work", "GUI-agent verifier combined with VLM-based judge", "workflow-oriented functional verification"],
+      "transfer_boundary": "V10 transfers hierarchical separation of artifact difficulty and the principle of combining executable interaction evidence with visual judgment. It does not copy Vision2Web website prototypes, tasks, test cases or evaluator internals.",
+      "contraindications": ["Website reproduction hierarchy does not directly measure open-ended product discovery", "GUI agent success can miss semantic or safety quality when the tested workflow is underspecified", "A VLM visual judge is not authority for product scope"],
+      "drift_posture": "new-paper; methodology stable enough to cite, code/assets should be version-pinned if adopted",
+      "v10_uses": ["complexity strata", "functional-plus-visual court", "H-RENDER-FIDELITY", "H-COMPOUND-CLOSURE"]
+    },
+    {
+      "id": "webgen-bench-2025",
+      "title": "WebGen-Bench: Evaluating LLMs on Generating Interactive and Functional Websites from Scratch",
+      "primary_url": "https://arxiv.org/abs/2505.03733",
+      "source_type": "research-benchmark-paper",
+      "authority_role": "executable-web-functionality-evaluation-methodology",
+      "inspected_mechanisms": ["multi-file website generation from open instructions", "operation-plus-expected-result functional test cases", "web-navigation agent executes tests for reproducibility", "manual filtering and adjustment of generated functional checks"],
+      "transfer_boundary": "V10 transfers executable operation/expected-result thinking into functionality and workflow dimensions. It does not copy the 647 WebGen-Bench test cases or assume an automated navigation agent covers visual or product-quality judgments.",
+      "contraindications": ["Passing operation tests does not prove visual quality or capability adequacy", "Test generation from the same specification can inherit omissions in that specification", "Agent navigation errors must be distinguished from product implementation errors"],
+      "drift_posture": "stable-paper; runner implementations are high-drift and must be pinned before reuse",
+      "v10_uses": ["functional correctness channel", "workflow trace evidence", "H-COMPOUND-CLOSURE", "H-WORKSPACE-INSTRUMENTS"]
+    },
+    {
+      "id": "design2code-2024",
+      "title": "Design2Code: Benchmarking Multimodal Code Generation for Automated Front-End Engineering",
+      "primary_url": "https://arxiv.org/abs/2403.03163",
+      "source_type": "research-benchmark-paper",
+      "authority_role": "visual-fidelity-evaluation-methodology",
+      "inspected_mechanisms": ["curated real-world webpage reference set", "automatic visual evaluation metrics", "human evaluation used to validate model ranking", "fine-grained analysis of visual-element recall and layout correctness"],
+      "transfer_boundary": "V10 transfers the separation between automatic evidence and human-perceived validation, plus the need to inspect layout and element-level failure rather than trust one similarity score. It does not copy Design2Code screenshots or benchmark webpages.",
+      "contraindications": ["Screenshot similarity is not product completeness", "Reference reproduction tasks reward fidelity rather than original art direction", "Human ranking on reproduction does not establish universal aesthetic taste"],
+      "drift_posture": "stable-paper",
+      "v10_uses": ["design-to-render fidelity", "human-validation option", "H-RENDER-FIDELITY", "H-TASTE-COMPARATIVE"]
+    },
+    {
+      "id": "autogui-v2-2026",
+      "title": "AutoGUI-v2: A Comprehensive Multi-Modal GUI Functionality Understanding Benchmark",
+      "primary_url": "https://arxiv.org/abs/2604.24441",
+      "source_type": "research-benchmark-paper",
+      "authority_role": "gui-functionality-understanding-methodology",
+      "inspected_mechanisms": ["multi-platform GUI functional-region decomposition", "element and region semantics", "dynamic state and interaction-outcome prediction", "evaluation of uncommon action logic rather than only element grounding"],
+      "transfer_boundary": "V10 uses the insight that GUI evaluation should reason about state consequences, not only visual element presence. It does not import AutoGUI-v2 tasks or treat functionality-captioning scores as UI design quality.",
+      "contraindications": ["Understanding an existing GUI is different from designing a new product", "State prediction does not establish product-scope adequacy or visual refinement"],
+      "drift_posture": "new-paper; verify current release artifacts before implementation reuse",
+      "v10_uses": ["state-recovery completeness", "interaction outcome evidence", "H-ACCOUNT-CONTINUITY", "H-MOTION-SEMANTIC"]
+    }
+  ]
+}
