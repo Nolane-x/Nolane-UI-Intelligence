@@ -1,4 +1,9 @@
-"""NUI v8 portable agent interoperability and external-skill trust invariants."""
+"""Portable NUI agent interoperability and external-skill trust invariants.
+
+NUI keeps one canonical cognition graph and projects it through thin host
+surfaces.  Host adapters change discovery and invocation only; they never gain
+design authority and never expand the host's permissions.
+"""
 from __future__ import annotations
 
 import re
@@ -8,6 +13,75 @@ from typing import Any
 _SHA40 = re.compile(r"^[0-9a-f]{40}$", re.I)
 _SHA256 = re.compile(r"^sha256:[0-9a-f]{64}$", re.I)
 _ALLOWED_ADOPTION = {"mechanism-summary-only", "reference-only", "vendored-reviewed", "local-rewrite"}
+
+SUPPORTED_AGENT_IDS = (
+    "openai-codex",
+    "claude-code",
+    "google-antigravity",
+    "gemini-cli",
+    "opencode",
+    "cursor-compatible",
+    "vscode-agent-compatible",
+    "generic-mcp",
+    "generic-cli",
+)
+
+_AGENT_PROJECTIONS: dict[str, dict[str, Any]] = {
+    "openai-codex": {
+        "surface": "Open Agent Skills bridge + repository policy + optional MCP/CLI",
+        "project_files": [".agents/skills/nolane-ui/SKILL.md", "AGENTS.md"],
+        "recommended_mode": "project-skill",
+        "discovery_note": "Use the repository-local .agents skill bridge, then follow the canonical bootstrap instead of copying 174 skills into Codex instructions.",
+    },
+    "claude-code": {
+        "surface": "Claude project skill bridge + repository policy + optional MCP/CLI",
+        "project_files": [".claude/skills/nolane-ui/SKILL.md", "AGENTS.md"],
+        "recommended_mode": "project-skill",
+        "discovery_note": "Use the repository-local Claude skill bridge; it points to the same canonical NUI bootstrap and graph.",
+    },
+    "google-antigravity": {
+        "surface": "Open Agent Skills compatible workspace bridge + repository policy",
+        "project_files": [".agents/skills/nolane-ui/SKILL.md", "AGENTS.md"],
+        "recommended_mode": "workspace-skill",
+        "discovery_note": "Use the .agents skill bridge when the current Antigravity workspace supports Agent Skills; verify host syntax live because the surface can drift.",
+    },
+    "gemini-cli": {
+        "surface": "repository context + provider-neutral CLI/MCP projection",
+        "project_files": ["AGENTS.md", "scripts/nui-agent-export", "scripts/nui-mcp-server"],
+        "recommended_mode": "cli-or-mcp",
+        "discovery_note": "Keep NUI inside the target repository and connect through the generic CLI/MCP projection; verify the current Gemini CLI project-instruction/MCP syntax before wiring host config.",
+    },
+    "opencode": {
+        "surface": "repository context + provider-neutral CLI/MCP projection",
+        "project_files": ["AGENTS.md", "scripts/nui-agent-export", "scripts/nui-mcp-server"],
+        "recommended_mode": "cli-or-mcp",
+        "discovery_note": "Use the NUI CLI/MCP boundary rather than inventing an OpenCode-specific copy of the skill graph; verify current host configuration live.",
+    },
+    "cursor-compatible": {
+        "surface": "repository instructions + provider-neutral MCP/CLI projection",
+        "project_files": ["AGENTS.md", "scripts/nui-agent-export", "scripts/nui-mcp-server"],
+        "recommended_mode": "repository-plus-mcp",
+        "discovery_note": "Keep the canonical NUI graph in the repository and expose it through the current editor's repository-instruction and/or MCP surface.",
+    },
+    "vscode-agent-compatible": {
+        "surface": "repository instructions + provider-neutral MCP/CLI projection",
+        "project_files": ["AGENTS.md", "scripts/nui-agent-export", "scripts/nui-mcp-server"],
+        "recommended_mode": "repository-plus-mcp",
+        "discovery_note": "Use repository guidance plus the host's current MCP/agent integration; workspace trust and editor permissions remain host-owned.",
+    },
+    "generic-mcp": {
+        "surface": "local Model Context Protocol server",
+        "project_files": ["scripts/nui-mcp-server", "skills/using-nolane-ui/SKILL.md"],
+        "recommended_mode": "mcp",
+        "discovery_note": "Register the local stdio server with any compatible MCP host and let the host own connection approval and permissions.",
+    },
+    "generic-cli": {
+        "surface": "process/CI/shell projection",
+        "project_files": ["scripts/nui-agent-export", "scripts/nui-validate", "skills/using-nolane-ui/SKILL.md"],
+        "recommended_mode": "cli",
+        "discovery_note": "Use the export plan plus the canonical bootstrap from any shell-capable agent or CI harness.",
+    },
+}
 
 
 def validate_agent_interop_registry(record: dict[str, Any]) -> dict[str, Any]:
@@ -42,10 +116,12 @@ def validate_agent_interop_registry(record: dict[str, Any]) -> dict[str, Any]:
             errors.append(f"adapter {aid} requires permission_boundary")
         if item.get("authority_escalation") is not False:
             errors.append(f"adapter {aid} must set authority_escalation=false")
-    required = {"openai-codex", "claude-code", "google-antigravity", "generic-mcp", "generic-cli"}
-    missing = sorted(required - ids)
+    missing = sorted(set(SUPPORTED_AGENT_IDS) - ids)
+    extra = sorted(ids - set(SUPPORTED_AGENT_IDS))
     if missing:
-        errors.append(f"agent interoperability registry missing required adapters {missing}")
+        errors.append(f"agent interoperability registry missing supported adapters {missing}")
+    if extra:
+        errors.append(f"agent interoperability registry declares adapters with no executable projection {extra}")
     return {"valid": not errors, "errors": errors, "adapter_count": len(ids)}
 
 
@@ -94,24 +170,45 @@ def validate_external_skill_trust(record: dict[str, Any]) -> dict[str, Any]:
 
 
 def build_agent_install_plan(agent_id: str, root: Path | str) -> dict[str, Any]:
+    """Return a thin, executable projection plan for one supported agent host."""
     root = Path(root)
-    adapters = {
-        "openai-codex": [".agents/skills/nolane-ui/SKILL.md", "AGENTS.md"],
-        "claude-code": [".claude/skills/nolane-ui/SKILL.md", "AGENTS.md"],
-        "google-antigravity": [".agents/skills/nolane-ui/SKILL.md", "AGENTS.md"],
-        "generic-mcp": ["scripts/nui-mcp-server"],
-        "generic-cli": ["scripts/nui-agent-export", "scripts/nui-validate"],
-    }
-    if agent_id not in adapters:
-        raise ValueError(f"unsupported agent adapter: {agent_id}")
-    files = [p for p in adapters[agent_id] if (root / p).exists()]
-    files = adapters[agent_id] if agent_id in {"openai-codex", "claude-code", "google-antigravity"} else files
+    if agent_id not in _AGENT_PROJECTIONS:
+        raise ValueError(f"unsupported agent adapter: {agent_id}; choose one of {', '.join(SUPPORTED_AGENT_IDS)}")
+
+    projection = _AGENT_PROJECTIONS[agent_id]
+    declared_files = list(projection["project_files"])
+    missing_files = [path for path in declared_files if not (root / path).exists()]
+    if missing_files:
+        raise ValueError(f"agent adapter {agent_id} references missing repository files: {missing_files}")
+
     return {
         "agent_id": agent_id,
+        "surface": projection["surface"],
+        "recommended_mode": projection["recommended_mode"],
         "canonical_skill": "skills/using-nolane-ui/SKILL.md",
-        "project_files": files,
-        "mcp": {"supported": True, "command": "python scripts/nui-mcp-server", "transport": "stdio-or-host-configured"},
-        "cli": {"supported": True, "command": f"python scripts/nui-agent-export --agent {agent_id}"},
+        "canonical_graph": "skills/skill-graph.json",
+        "project_files": declared_files,
+        "bootstrap_instruction": "Read skills/using-nolane-ui/SKILL.md, route through skills/nolane-ui/SKILL.md, and load only the owners triggered by the task profile.",
+        "discovery_note": projection["discovery_note"],
+        "mcp": {
+            "supported": True,
+            "command": "python scripts/nui-mcp-server",
+            "transport": "stdio-or-host-configured",
+            "configuration_boundary": "Use the current host's MCP configuration format; NUI intentionally does not hard-code vendor config syntax that can drift.",
+        },
+        "cli": {
+            "supported": True,
+            "command": f"python scripts/nui-agent-export --agent {agent_id}",
+            "validate": "python scripts/nui-validate .",
+        },
         "permission_boundary": "host permissions remain authoritative; the adapter never expands shell, network, filesystem, browser, MCP or image capabilities",
         "copy_policy": "bridge files point to canonical NUI contracts; do not duplicate the canonical skill body",
     }
+
+
+__all__ = [
+    "SUPPORTED_AGENT_IDS",
+    "build_agent_install_plan",
+    "validate_agent_interop_registry",
+    "validate_external_skill_trust",
+]
