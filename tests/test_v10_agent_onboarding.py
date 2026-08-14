@@ -1,4 +1,6 @@
 import json
+import subprocess
+import sys
 import unittest
 from pathlib import Path
 
@@ -35,10 +37,19 @@ class V10AgentOnboardingTests(unittest.TestCase):
             self.assertIn("command", plan["cli"])
             self.assertIn("permission_boundary", plan)
 
-    def test_export_cli_exposes_every_registry_adapter(self):
-        script = (ROOT / "scripts/nui-agent-export").read_text(encoding="utf-8")
+    def test_export_cli_executes_for_every_registry_adapter(self):
+        script = ROOT / "scripts/nui-agent-export"
         for agent_id in EXPECTED_AGENTS:
-            self.assertIn(agent_id, script, agent_id)
+            completed = subprocess.run(
+                [sys.executable, str(script), "--agent", agent_id, "--root", str(ROOT)],
+                cwd=ROOT,
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(completed.returncode, 0, f"{agent_id}: {completed.stderr}")
+            payload = json.loads(completed.stdout)
+            self.assertEqual(payload["agent_id"], agent_id)
 
     def test_readmes_make_agent_installation_a_first_class_entry_point(self):
         expectations = {
