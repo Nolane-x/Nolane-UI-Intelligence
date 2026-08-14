@@ -115,10 +115,14 @@ def validate_flagship_visual_synthesis(record: dict[str, Any]) -> dict[str, Any]
     if ids and len(ids) != len(set(ids)):
         errors.append("direction candidate ids must be unique")
     if len(fingerprints) >= 3:
-        all_same = len(set(fingerprints)) == 1
-        weak_dimensions = [name for name, values in dimension_values.items() if len(values) < 2]
-        if all_same or len(weak_dimensions) >= 3:
+        if len(set(fingerprints)) == 1:
             errors.append("direction candidates converged on the same solution instead of materially diverging")
+        static_dimensions = [name for name, values in dimension_values.items() if len(values) < 2]
+        if static_dimensions:
+            errors.append(
+                "direction candidates must materially diverge across composition/type/material/signature; "
+                f"static dimensions: {', '.join(static_dimensions)}"
+            )
 
     selected = _text(record.get("selected_direction_id"))
     if not selected or selected not in set(ids):
@@ -178,17 +182,21 @@ def validate_flagship_visual_synthesis(record: dict[str, Any]) -> dict[str, Any]
         errors.append("reference_frontier requires at least three mechanism-level references")
     else:
         reference_ids: list[str] = []
+        reference_mechanisms: list[str] = []
         for index, item in enumerate(frontier):
             if not isinstance(item, dict) or not all(item.get(k) for k in ("id", "mechanism", "transfer_boundary")):
                 errors.append(f"reference_frontier[{index}] requires id/mechanism/transfer_boundary")
                 continue
             reference_ids.append(_text(item.get("id")))
+            reference_mechanisms.append(_text(item.get("mechanism")).lower())
         if reference_ids and len(reference_ids) != len(set(reference_ids)):
             errors.append("reference_frontier ids must be unique")
+        if reference_mechanisms and len(set(reference_mechanisms)) < 3:
+            errors.append("reference_frontier requires three distinct mechanism-level learnings")
 
     transfer = record.get("generic_transfer_test")
     if not isinstance(transfer, dict) or transfer.get("verdict") != "FAILS_TRANSFER" or not transfer.get("reason"):
-        errors.append("exceptional product specificity requires a documented generic transfer test that FAILS_TRANSFER")
+        errors.append("high-ambition product specificity requires a documented generic transfer test that FAILS_TRANSFER")
 
     states = record.get("rendered_states", [])
     required_states = 3 if ambition in {"exceptional", "experiential"} else 2
@@ -196,18 +204,27 @@ def validate_flagship_visual_synthesis(record: dict[str, Any]) -> dict[str, Any]
         errors.append(f"{ambition or 'high-ambition'} synthesis requires at least {required_states} rendered states")
         states = []
     viewports: set[str] = set()
+    state_ids: set[str] = set()
+    duplicate_state_ids: set[str] = set()
     for index, state in enumerate(states):
         if not isinstance(state, dict):
             errors.append(f"rendered_states[{index}] must be an object")
             continue
         if not all(state.get(k) for k in ("id", "viewport")):
             errors.append(f"rendered_states[{index}] requires id/viewport")
+        sid = _text(state.get("id"))
+        if sid:
+            if sid in state_ids:
+                duplicate_state_ids.add(sid)
+            state_ids.add(sid)
         changes = state.get("structural_changes", [])
         if not isinstance(changes, list) or not [x for x in changes if _text(x)]:
             errors.append(f"rendered_states[{index}] requires observed structural_changes; shrink-only evidence is insufficient")
         viewport = _text(state.get("viewport"))
         if viewport:
             viewports.add(viewport)
+    if duplicate_state_ids:
+        errors.append(f"rendered state ids must be unique: {', '.join(sorted(duplicate_state_ids))}")
     if states and len(viewports) < 2:
         errors.append("rendered evidence requires at least two materially different viewport classes")
 
@@ -221,6 +238,9 @@ def validate_flagship_visual_synthesis(record: dict[str, Any]) -> dict[str, Any]
             errors.append(f"critique_cycles[{index}] requires category/finding/correction/verified_in")
             continue
         categories.add(_text(cycle.get("category")).lower())
+        verified_in = _text(cycle.get("verified_in"))
+        if verified_in not in state_ids:
+            errors.append(f"critique_cycles[{index}].verified_in must reference a declared rendered state")
     if len(cycles) >= 2 and len(categories) < 2:
         errors.append("critique cycles must attack at least two distinct failure dimensions")
 
