@@ -45,3 +45,27 @@ Try to falsify the bootstrap by deleting one user constraint, changing one risk/
 
 ### Recovery
 When the task-profile checksum or route-justification ledger fails, stop implementation work. Reconstruct the profile from source language, mark uncertain inferences explicitly, rerun routing, and regenerate only artifacts whose parent obligations changed. A bootstrap defect cannot be waived by later visual quality.
+
+## V10 Generation/Evaluation Isolation
+Normal product generation and an **empirical-evaluation** experiment are different execution modes. In ordinary UI work, use NUI to design the product and produce task-specific evidence; do not load benchmark files simply because they exist. In empirical mode, the treatment manifest controls what NUI context is available and the generation side may receive **only** the public benchmark task plus treatment context.
+
+The **hidden evaluator rubric** is evaluator-only material. Never add `benchmarks/v10/tasks-hidden.json`, its checklists, failure traps, hard blockers, contamination markers, or judge answers to a generator prompt, retrieval index, route packet, chain of source context, or NUI-full treatment. If the generator can retrieve the answer key while baseline cannot, the experiment measures leakage rather than design intelligence.
+
+Before a benchmark run, create separate hashes for:
+- public task material;
+- routed treatment context;
+- tool budget;
+- exact NUI revision.
+
+The bootstrap must be reproducible from those inputs. Any unrecorded extra hint, manual coaching, hidden-reference injection, or condition-specific tool access invalidates a matched empirical comparison.
+
+### V10 evidence-class declaration
+At bootstrap, label the intended evidence class:
+- `ARTIFACT_WORK` — design/implementation quality for the current product;
+- `STRUCTURAL_EVAL` — testing the V10 harness or synthetic fixtures;
+- `EMPIRICAL_EVAL` — matched real-model treatment comparison.
+
+Do not let those classes inherit each other's claims. `ARTIFACT_WORK` may produce a beautiful verified UI without saying NUI caused it. `STRUCTURAL_EVAL` may prove benchmark machinery is sound enough to run without claiming empirical improvement. `EMPIRICAL_EVAL` is the only class that can proceed toward a bounded efficacy claim, and even then only after downstream blind judgment, ablation and statistical gates.
+
+### V10 contamination recovery
+If hidden evaluator material enters generation context, mark the affected run `protocol-violation`; do not rewrite the output and keep it as valid evidence. Rebuild the treatment context from public sources, rerun the affected cells, and retain the contaminated run in the audit trail. A benchmark that needs answer-key hints to make NUI look strong is evidence against the experiment, not evidence for NUI.
