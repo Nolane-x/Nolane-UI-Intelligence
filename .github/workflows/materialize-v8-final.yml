@@ -1,0 +1,41 @@
+name: Materialize V8 Final
+on:
+  push:
+    branches: ["build/v8-final-clean-materializer"]
+permissions:
+  contents: write
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Materialize reviewed product delta
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin \
+            main:refs/remotes/origin/main \
+            build/v8-rc-tests:refs/remotes/origin/build/v8-rc-tests \
+            build/v8-final-clean:refs/remotes/origin/build/v8-final-clean
+          git checkout -B build/v8-final-clean origin/build/v8-final-clean
+          git diff --name-only origin/main...origin/build/v8-rc-tests \
+            | grep -v '^\.github/workflows/' \
+            | grep -v '^\.nui-v8-ci-trigger$' \
+            > /tmp/v8-product-files.txt
+          count=$(wc -l < /tmp/v8-product-files.txt)
+          test "$count" -ge 50
+          while IFS= read -r path; do
+            [ -n "$path" ] || continue
+            git checkout origin/build/v8-rc-tests -- "$path"
+          done < /tmp/v8-product-files.txt
+          git add -A
+          if git diff --cached --name-only | grep -E '^\.github/workflows/|^\.nui-v8-ci-trigger$'; then
+            echo 'forbidden staging path detected' >&2
+            exit 1
+          fi
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git commit -m "feat(v8): materialize clean agent-media release"
+          git push origin HEAD:build/v8-final-clean
