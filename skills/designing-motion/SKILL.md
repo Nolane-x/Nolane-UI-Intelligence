@@ -107,3 +107,16 @@ Watch the interface at normal speed, 2× interaction speed, reduced motion, thro
 
 ### V9 Recovery
 Preserve state truth, remove low-value channels, rebalance cadence around meaningful moments, and simplify spatial travel. When motion is necessary but implementation cannot hit the interaction/performance budget, degrade the effect before degrading task responsiveness or feedback.
+
+## V10 Semantic Motion Identification
+`H-MOTION-SEMANTIC` tests whether the motion direction changes **temporal information quality**, not whether NUI causes more animation. The desired effect is selective: task feedback, progress, direct manipulation and orientation remain causally legible; expressive/ambient channels appear only when they add justified identity or cadence; reduced-motion users retain equivalent state information; intentional stillness is rewarded when movement would slow or confuse the task.
+
+For empirical tasks, emit a `temporal-evidence-map` linking each material transition to `trigger`, `authoritative state change`, `continuity anchor`, `priority`, `interruption rule`, `settled condition`, `reduced_motion_equivalent`, and `performance_degradation_order`. A smooth clip without those relations is aesthetic evidence, not semantic motion evidence.
+
+The mutation `motion-decoration-priority` lets expressive/ambient animation compete equally with task signals and reduces reduced-motion handling to removal. The `motion-semantics` ablation removes this decision plane. Full NUI should improve `motion-semantics-reduced-motion-equivalence` and functional temporal clarity on upload, kanban/editor, 3D and incident tasks. It should **not** be rewarded for extra movement; on high-pressure or repetitive negative controls, less motion can be the stronger result.
+
+### V10 temporal counterfactuals
+Evaluate normal speed, rapid repeated input, mid-transition reversal, async completion during another transition, reduced-motion mode and throttled performance. Ask which information survives when animation is removed and which animation survives when the latency budget tightens. Decorative motion that remains while progress or direct manipulation degrades indicates priority inversion.
+
+### V10 efficacy boundary
+A video that looks polished proves a rendered temporal artifact exists. It does not prove NUI caused a better temporal model. Attributed efficacy requires matched treatment runs and targeted degradation under `motion-decoration-priority` or `motion-semantics`, while hard accessibility/function regressions remain blockers. If the full condition and ablation are equivalent, inspect whether the task actually contains temporal causality before adding more motion rules.
