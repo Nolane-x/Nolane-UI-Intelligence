@@ -1,0 +1,93 @@
+name: Materialize V8 Main Cleanup
+on:
+  push:
+    branches: ["build/v8-main-cleanup-helper"]
+permissions:
+  contents: write
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Build clean v8 release surface
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin build/v8-main-cleanup:refs/remotes/origin/build/v8-main-cleanup
+          git checkout -B build/v8-main-cleanup origin/build/v8-main-cleanup
+          rm -f .github/workflows/v8-graph-sync.yml
+          rm -f .github/workflows/v8-release-sync.yml
+          rm -f .nui-v8-ci-trigger
+          cat > .github/workflows/verify.yml <<'EOF'
+          name: Verify NUI
+          on:
+            push:
+              branches:
+                - main
+                - "build/**"
+            pull_request:
+              branches:
+                - main
+          permissions:
+            contents: read
+          jobs:
+            verify:
+              runs-on: ubuntu-latest
+              timeout-minutes: 10
+              steps:
+                - name: Checkout
+                  uses: actions/checkout@v4
+                - name: Setup Python
+                  uses: actions/setup-python@v5
+                  with:
+                    python-version: "3.12"
+                - name: Run unit and contract tests
+                  run: PYTHONPATH=src python -m unittest discover -s tests -v
+                - name: Generate fresh bounded completion packet
+                  run: |
+                    PYTHONPATH=src python scripts/nui-release-packet \
+                      --output /tmp/nui-v8-completion-packet.json \
+                      --revision "$GITHUB_SHA" \
+                      --source "GitHub Actions run $GITHUB_RUN_ID"
+                - name: Validate repository and exact-revision completion packet
+                  run: |
+                    PYTHONPATH=src python scripts/nui-validate . \
+                      --packet /tmp/nui-v8-completion-packet.json \
+                      --revision "$GITHUB_SHA"
+                - name: Upload verified completion packet
+                  uses: actions/upload-artifact@v4
+                  with:
+                    name: nui-v8-completion-packet
+                    path: /tmp/nui-v8-completion-packet.json
+                    if-no-files-found: error
+                    retention-days: 90
+                - name: Package complete project
+                  run: zip -q -r /tmp/Nolane-UI-Intelligence-v8-complete.zip . -x '.git/*'
+                - name: Upload complete project archive
+                  uses: actions/upload-artifact@v4
+                  with:
+                    name: nui-v8-complete-project
+                    path: /tmp/Nolane-UI-Intelligence-v8-complete.zip
+                    if-no-files-found: error
+                    retention-days: 90
+          EOF
+          sed -i 's/^          //' .github/workflows/verify.yml
+          git add -A
+          mapfile -t changed < <(git diff --cached --name-only)
+          test "${#changed[@]}" -eq 4
+          printf '%s\n' "${changed[@]}" | sort > /tmp/changed.txt
+          cat > /tmp/expected.txt <<'EOF'
+          .github/workflows/v8-graph-sync.yml
+          .github/workflows/v8-release-sync.yml
+          .github/workflows/verify.yml
+          .nui-v8-ci-trigger
+          EOF
+          sed -i 's/^          //' /tmp/expected.txt
+          sort /tmp/expected.txt -o /tmp/expected.txt
+          diff -u /tmp/expected.txt /tmp/changed.txt
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git commit -m "chore(v8): clean release automation and publish v8 artifacts"
+          git push origin HEAD:build/v8-main-cleanup
