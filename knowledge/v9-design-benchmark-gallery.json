@@ -1,0 +1,153 @@
+{
+  "version": 9,
+  "purpose": "Curated high-bar reference memory for comparative design reasoning. References teach mechanisms and quality thresholds; they are never templates, style-transfer targets, or permission to copy proprietary expression.",
+  "selection_policy": [
+    "Prefer products with a strong, legible design thesis and mature interaction craft.",
+    "Store mechanism lessons separately from brand expression and exact visual appearance.",
+    "Re-inspect live first-party sources when a current implementation detail materially affects a decision.",
+    "Use multiple references when making a consequential aesthetic choice so one brand cannot become the house style.",
+    "A reference loses authority when its mechanism conflicts with the product's users, platform, accessibility, risk, or information density."
+  ],
+  "references": [
+    {
+      "id": "stripe-product",
+      "name": "Stripe",
+      "category": "fintech-product",
+      "source": "https://stripe.com/",
+      "mechanisms": ["trust-through-precision", "documentation-product-continuity", "controlled-density", "restrained-brand-accent"],
+      "use_for": ["fintech trust", "technical-product clarity", "dense information with calm hierarchy"],
+      "anti_copy": "Do not reproduce Stripe gradients, illustrations, layouts, typography, or page composition; abstract only the mechanism that precision and trust can coexist with distinctive brand expression.",
+      "refresh_policy": "Treat live visual details as high-drift; inspect current first-party surfaces before citing a concrete treatment."
+    },
+    {
+      "id": "linear-product",
+      "name": "Linear",
+      "category": "developer-productivity",
+      "source": "https://linear.app/",
+      "mechanisms": ["fast-command-density", "quiet-dark-materials", "keyboard-first-discoverability", "low-friction-state-transitions"],
+      "use_for": ["expert productivity", "dense SaaS", "speed without visual noise"],
+      "anti_copy": "Do not turn every B2B application into a dark Linear clone; use the reference to study prioritization, speed, hierarchy and command reachability.",
+      "refresh_policy": "Verify current product behavior when exact navigation or command mechanics matter."
+    },
+    {
+      "id": "notion-product",
+      "name": "Notion",
+      "category": "knowledge-productivity",
+      "source": "https://www.notion.com/",
+      "mechanisms": ["content-first-chrome", "progressive-disclosure", "block-direct-manipulation", "workspace-scalability"],
+      "use_for": ["document tools", "knowledge work", "multi-surface progressive disclosure"],
+      "anti_copy": "Do not copy Notion's block language or neutral visual identity by default; learn how chrome can recede behind user content.",
+      "refresh_policy": "Inspect live editor behavior for current interaction claims."
+    },
+    {
+      "id": "framer-product",
+      "name": "Framer",
+      "category": "creative-tools",
+      "source": "https://www.framer.com/",
+      "mechanisms": ["canvas-inspector-relationship", "direct-manipulation", "preview-to-production-continuity", "high-polish-motion"],
+      "use_for": ["visual editors", "creative tooling", "design-to-render workflow"],
+      "anti_copy": "Do not reuse Framer's specific panel arrangement or visual language as a generic editor template; extract tool/context/preview coordination principles.",
+      "refresh_policy": "Editor mechanics are high-drift; verify current first-party documentation or product behavior."
+    },
+    {
+      "id": "apple-platform",
+      "name": "Apple platform experiences",
+      "category": "platform-system",
+      "source": "https://developer.apple.com/design/human-interface-guidelines/",
+      "mechanisms": ["platform-native-continuity", "material-restraint", "spatial-hierarchy", "motion-as-causality"],
+      "use_for": ["native platform fit", "high-fidelity system behavior", "motion restraint"],
+      "anti_copy": "Do not paste Apple aesthetics onto web or non-Apple platforms; separate platform convention from transferable craft principles.",
+      "refresh_policy": "First-party platform guidance is authoritative for current Apple conventions and must be refreshed when platform behavior changes."
+    },
+    {
+      "id": "airbnb-product",
+      "name": "Airbnb",
+      "category": "consumer-marketplace",
+      "source": "https://www.airbnb.com/",
+      "mechanisms": ["imagery-led-decision-support", "trust-and-delight-balance", "search-filter-progression", "transactional-continuity"],
+      "use_for": ["marketplaces", "consumer discovery", "visual browsing with trust"],
+      "anti_copy": "Do not reproduce Airbnb cards, iconography or marketplace structure unless product semantics independently demand them.",
+      "refresh_policy": "Re-check live marketplace flows before relying on concrete interaction details."
+    },
+    {
+      "id": "arc-browser",
+      "name": "Arc browser",
+      "category": "desktop-productivity",
+      "source": "https://arc.net/",
+      "mechanisms": ["workspace-reframing", "chrome-reduction", "contextual-sidebar", "personal-workspace-ownership"],
+      "use_for": ["desktop workspace alternatives", "navigation rethinking", "persistent personal organization"],
+      "anti_copy": "Do not assume sidebar-first browser conventions generalize to unrelated products; use Arc as evidence that familiar chrome can be reconsidered when the task model supports it.",
+      "refresh_policy": "Product availability and interaction details can change; verify before concrete adoption."
+    },
+    {
+      "id": "vercel-product",
+      "name": "Vercel",
+      "category": "developer-platform",
+      "source": "https://vercel.com/",
+      "mechanisms": ["technical-clarity", "systematic-typography", "status-legibility", "brand-through-restraint"],
+      "use_for": ["developer platforms", "deployment/status surfaces", "technical product communication"],
+      "anti_copy": "Do not use monochrome minimalism as an automatic developer-tool style; study the alignment between product semantics, status information and restrained presentation.",
+      "refresh_policy": "Verify current dashboard/docs details when implementation-specific."
+    },
+    {
+      "id": "ramp-product",
+      "name": "Ramp",
+      "category": "fintech-enterprise",
+      "source": "https://ramp.com/",
+      "mechanisms": ["financial-trust-cues", "operational-density", "high-signal-actions", "brand-confidence"],
+      "use_for": ["financial operations", "enterprise admin", "dense decision surfaces"],
+      "anti_copy": "Do not inherit Ramp's brand system or exact data composition; study how high-consequence financial tasks can remain fast and legible.",
+      "refresh_policy": "Refresh current product claims and UI before concrete comparison."
+    },
+    {
+      "id": "raycast-product",
+      "name": "Raycast",
+      "category": "developer-productivity",
+      "source": "https://www.raycast.com/",
+      "mechanisms": ["command-first-navigation", "keyboard-efficiency", "extension-scalability", "compact-feedback"],
+      "use_for": ["command palettes", "power-user tools", "extensible action systems"],
+      "anti_copy": "Do not force command-palette interaction onto novice or touch-first audiences; transfer the command registry and discoverability logic only when task frequency supports it.",
+      "refresh_policy": "Inspect current extension and command behavior when exact mechanics matter."
+    },
+    {
+      "id": "vscode-product",
+      "name": "Visual Studio Code",
+      "category": "developer-desktop",
+      "source": "https://code.visualstudio.com/",
+      "mechanisms": ["instrument-zoning", "command-registry", "panel-sidebar-editor-coordination", "workspace-persistence"],
+      "use_for": ["professional desktop workspaces", "tool-rich information architecture", "expert customization"],
+      "anti_copy": "Do not create an Activity Bar, Explorer and Panel merely because an application is complex; learn how distinct zones own distinct command and context scopes.",
+      "refresh_policy": "Use current first-party documentation for exact workbench conventions and settings behavior."
+    },
+    {
+      "id": "canva-product",
+      "name": "Canva",
+      "category": "creative-tools",
+      "source": "https://www.canva.com/",
+      "mechanisms": ["novice-to-power-progression", "asset-discovery", "canvas-context-tools", "progressive-complexity"],
+      "use_for": ["mass-market creative tools", "discoverable editing", "large capability sets"],
+      "anti_copy": "Do not copy Canva's asset panels or consumer visual language; study how many capabilities remain approachable through progressive disclosure and context.",
+      "refresh_policy": "Creative-tool surfaces change frequently; verify exact behavior live before adoption."
+    },
+    {
+      "id": "capcut-product",
+      "name": "CapCut",
+      "category": "creative-tools",
+      "source": "https://www.capcut.com/",
+      "mechanisms": ["timeline-tool-coordination", "media-preview-feedback", "mode-specific-inspection", "high-capability-discoverability"],
+      "use_for": ["video editors", "timeline products", "media transformation workflows"],
+      "anti_copy": "Do not reproduce CapCut's timeline, asset browser or branding; abstract the coordination between media, timeline, tools, preview, inspector and export lifecycle.",
+      "refresh_policy": "Verify current editor behavior because tool placement and feature sets drift quickly."
+    },
+    {
+      "id": "adobe-spectrum",
+      "name": "Adobe Spectrum",
+      "category": "design-system",
+      "source": "https://spectrum.adobe.com/",
+      "mechanisms": ["professional-application-frame", "density-governance", "component-state-rigor", "cross-surface-systemization"],
+      "use_for": ["professional tools", "design-system implementation", "dense application chrome"],
+      "anti_copy": "Do not treat Spectrum components as a universal aesthetic; use first-party guidance to study robust system behavior and application-frame mechanics.",
+      "refresh_policy": "Re-check first-party Spectrum guidance for current component and platform decisions."
+    }
+  ]
+}
