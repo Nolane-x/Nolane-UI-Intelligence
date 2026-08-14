@@ -99,3 +99,20 @@ Take twenty unrelated settings and place them in one beautiful searchable page. 
 
 ### V9 Recovery
 Return to capability ownership and scope, split configuration by conceptual responsibility, define precedence/persistence/recovery, then redesign navigation and search. Do not repair a broken settings model by adding more cards or a stronger visual hierarchy alone.
+
+## V10 Settings-Architecture Identification
+`H-SETTINGS-ARCH` claims something more specific than “settings should be organized”: when configuration has multiple owners/scopes, this faculty should reduce **effective-value ambiguity, configuration dead ends, and flat miscellaneous grouping** while avoiding needless machinery in small preference sets.
+
+The empirical evidence object for this owner is a **configuration semantics map**, not a screenshot of a clean settings page. For each material configuration class it should identify the conceptual owner, scope, default/source, current effective value, override/lock relationship, persistence/sync, dependencies, consequence, and useful recovery/reset boundary. Search and taxonomy are evaluated as retrieval mechanisms only when scale justifies them; their presence is not scored as quality by itself.
+
+`settings-flat-misc` intentionally removes scope precedence, effective-value origin and recovery architecture. The `settings-architecture` ablation removes this V9/V10 extension. On multi-scope tasks, those treatments should increase conflicting or unexplained configuration behavior; on `settings-01`, full NUI must resist the opposite failure of creating enterprise hierarchy for six preferences.
+
+### V10 causal probes
+Use paired counterfactuals rather than menu aesthetics:
+- switch user, workspace, project or device and ask which value is effective;
+- introduce a policy lock and test whether the UI can explain both stored and effective state;
+- reset one scope and verify unrelated scopes are preserved;
+- deep-link from contextual “configure…” access and verify one canonical setting identity;
+- remove search on a large inventory and measure findability, then remove search on a tiny inventory and verify no material harm.
+
+If the full condition merely adds categories/search while precedence remains unclear, the hypothesis fails. If the ablation performs equivalently because every benchmark setting is single-scope, the task corpus is insensitive rather than the skill automatically useless. `STRUCTURAL_ONLY` remains the claim ceiling until matched real-run evidence shows targeted degradation and no over-architecture regression.
