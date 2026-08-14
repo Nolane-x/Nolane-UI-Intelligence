@@ -87,3 +87,20 @@ Grayscale candidates, strip brand names, normalize copy, and compare silhouettes
 
 ### Recovery
 Return to experiential intent and reference contradictions, mutate one or more structural mechanisms, and regenerate candidates from different constraints. Do not manufacture variety with decoration.
+
+## V9 Comparative Taste Discrimination
+Aesthetic selection must distinguish **correct** from **refined**. A candidate can satisfy hierarchy, accessibility, brand and layout rules while still reading as cheap-looking, overdesigned, generically “AI,” visually timid, plasticky, template-derived, insufficiently premium, or insufficiently editorial for the intended product. Taste is therefore a comparative judgment layer, not another compliance checklist and not a single opaque score.
+
+For flagship or materially aesthetic work, compare at least two rendered candidates or two materially different refinement states on explicit dimensions: focal authority, compositional tension, negative-space quality, density modulation, typographic character, optical alignment, material restraint, border/elevation calibration, visual rhythm, signature-to-quiet ratio, domain fit, audience fit, motion posture and perceived production maturity. Name which candidate is stronger **per dimension**, why, and what rendered evidence supports the distinction. If no candidate clearly wins, return `tie` or `re-diverge`; never invent confidence to close the task.
+
+Use qualitative discriminators carefully. **Premium** should mean controlled hierarchy, material precision, intentional detail, confidence and absence of accidental residue—not simply dark backgrounds, thin fonts or more whitespace. **Editorial** should mean deliberate typography, pacing, image/text relationship and compositional authorship—not automatically serif display type. **Cheap-looking** is a diagnostic shorthand that must be decomposed into observable causes such as indiscriminate borders, stock gradients, uniform card radii, weak type metrics, default browser chrome, noisy shadows, decorative icon excess, over-rounded controls or undifferentiated density.
+
+Calibrate against the curated benchmark gallery at the **mechanism** level. A reference can raise the perceptual threshold for density, typography, workspace organization, motion restraint or material precision, but cannot donate its exact expression. Compare more than one relevant reference when possible and state why a mechanism transfers to this product's domain/audience. If the candidate becomes recognizable as a specific reference rather than the product itself, taste has become imitation.
+
+Taste never overrides hard product truth, security, accessibility, platform behavior or functional closure. A visually subtler treatment loses when it makes focus, state, consequence, selection, error or permission harder to perceive. The high bar is “more refined while preserving truth,” not “more beautiful at any cost.”
+
+### V9 Falsification
+Render two structurally valid candidates, remove logos/brand names, and ask an independent critic to compare them without knowing which one the generator preferred. If the critic can only repeat rule compliance or assign unexplained numeric scores, taste discrimination has not occurred. Also compare a deliberately polished-but-generic candidate against a more product-native one; if the court automatically chooses polish, it is rewarding fashion over fit.
+
+### V9 Recovery
+Identify the smallest causal differences driving the weaker perception—type metrics, spacing rhythm, material boundary, density distribution, focal competition, signature excess, residue or domain mismatch—and revise those mechanisms. Re-render and compare again. Do not “premiumize” by stacking decoration, glass, gradients, blur or animation.
