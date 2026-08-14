@@ -874,6 +874,54 @@
       "parent": "compiling-ui-implementation-specifications",
       "output": "ui-execution-brief",
       "ownership": "Own loss-minimized compression of routed UI decisions into an executable brief with hard obligations, rationale handles, ambiguity budgets, and explicit re-expansion triggers."
+    },
+    "exporting-nui-to-agent-harnesses": {
+      "family": "kernel",
+      "parent": "building-agent-readable-ui-context",
+      "output": "agent-harness-export-plan",
+      "ownership": "Own loss-minimized, permission-preserving exposure of canonical NUI to vendor agent skill roots, MCP hosts and generic CLI callers without duplicating the knowledge graph."
+    },
+    "governing-external-agent-skills": {
+      "family": "verification",
+      "parent": "auditing-ui-research-depth",
+      "output": "external-skill-trust-decision",
+      "ownership": "Own supply-chain trust decisions for third-party agent skills, including immutable snapshot, rights, executable capability envelope, instruction/data boundary and bounded adoption mode."
+    },
+    "mapping-visual-media-opportunities": {
+      "family": "visual",
+      "parent": "directing-visual-ambition",
+      "output": "visual-media-opportunity-map",
+      "ownership": "Own the decision of where subject-native photographs, illustrations, diagrams, archival material, video, 3D or generated media carry more product meaning than generic interface geometry."
+    },
+    "sourcing-rights-safe-visual-media": {
+      "family": "research",
+      "parent": "researching-visual-references",
+      "output": "visual-asset-provenance-ledger",
+      "ownership": "Own discovery and asset-level rights/provenance verification for external visual media; public discoverability never substitutes for reuse permission."
+    },
+    "authoring-domain-native-visual-assets": {
+      "family": "visual",
+      "parent": "designing-domain-native-signatures",
+      "output": "domain-native-asset-brief",
+      "ownership": "Own the conception and creation brief for custom imagery/illustration/3D/data-art assets whose visual grammar emerges from subject truth rather than generic AI/SaaS motifs."
+    },
+    "orchestrating-creative-toolchains": {
+      "family": "implementation",
+      "parent": "orchestrating-implementation-authorities",
+      "output": "creative-toolchain-plan",
+      "ownership": "Own stage-by-stage routing across image generation, design canvas, vector/raster editing, 3D, animation and browser rendering tools while keeping semantic and rights authority outside the tools themselves."
+    },
+    "replacing-shape-substitution": {
+      "family": "visual",
+      "parent": "preventing-generic-ui",
+      "output": "shape-substitution-audit",
+      "ownership": "Own detection and removal of unjustified abstract cards, orbs, blobs, fake graphs and geometric stand-ins when stronger subject-native visual evidence exists."
+    },
+    "validating-visual-asset-integration": {
+      "family": "verification",
+      "parent": "validating-rendered-perception",
+      "output": "visual-asset-integration-evidence",
+      "ownership": "Own rendered evidence that selected/generated media survives composition, crop, responsive states, contrast, performance, accessibility and rights checks inside the actual product UI."
     }
   }
 }
