@@ -1,0 +1,118 @@
+{
+  "version": 9,
+  "purpose": "Domain signatures constrain aesthetic and interaction reasoning without turning product classes into rigid templates. Every signature is subordinate to product-local evidence and explicit audience needs.",
+  "domains": [
+    {
+      "id": "fintech",
+      "trust_profile": ["money state must be explicit", "precision outranks decorative ambiguity", "consequences and reversibility stay visible"],
+      "density_expectation": "medium-to-high for operational tools; lower for consumer purchase/decision moments",
+      "emotional_profile": ["calm confidence", "control", "measured optimism"],
+      "interaction_tone": ["fast but deliberate", "clear confirmations", "audit-friendly"],
+      "risk_profile": ["financial consequence", "identity", "fraud", "irreversible transfer"],
+      "audience_variants": [
+        {"id": "consumer", "needs": ["plain-language consequence", "guided trust", "low jargon"]},
+        {"id": "finance-operator", "needs": ["dense comparison", "batch operations", "history and traceability"]},
+        {"id": "founder-cfo", "needs": ["decision summary", "exceptions first", "drill-down on demand"]}
+      ],
+      "anti_patterns": ["playful motion around irreversible money movement", "status encoded only by color", "generic KPI-card monoculture", "hiding fees or pending states for visual cleanliness"]
+    },
+    {
+      "id": "medtech",
+      "trust_profile": ["clinical state must remain unambiguous", "uncertainty and provenance are first-class", "safety beats novelty"],
+      "density_expectation": "role-dependent; clinicians may require high density while patient surfaces often need guided progressive disclosure",
+      "emotional_profile": ["calm", "reassuring without false certainty", "serious"],
+      "interaction_tone": ["confirmation proportional to harm", "stable geometry", "low surprise"],
+      "risk_profile": ["patient safety", "privacy", "misinterpretation", "alarm fatigue"],
+      "audience_variants": [
+        {"id": "clinician", "needs": ["rapid scanning", "trend/context comparison", "exception visibility"]},
+        {"id": "patient", "needs": ["plain language", "reassurance with truthful uncertainty", "clear next steps"]},
+        {"id": "care-operator", "needs": ["queue management", "handoff clarity", "auditability"]}
+      ],
+      "anti_patterns": ["decorative novelty that resembles clinical status", "ambiguous severity hierarchy", "motion as the only alarm cue", "over-simplification that erases uncertainty"]
+    },
+    {
+      "id": "developer-tools",
+      "trust_profile": ["system state and side effects are inspectable", "automation is reversible where possible", "precision vocabulary is acceptable for experts"],
+      "density_expectation": "medium-to-very-high with strong hierarchy and command reachability",
+      "emotional_profile": ["competence", "speed", "focus"],
+      "interaction_tone": ["keyboard-capable", "low-latency", "context-preserving"],
+      "risk_profile": ["destructive commands", "credential/secrets exposure", "production impact"],
+      "audience_variants": [
+        {"id": "beginner-developer", "needs": ["discoverability", "safe defaults", "explainable errors"]},
+        {"id": "power-user", "needs": ["shortcuts", "command palette", "custom workspace"]},
+        {"id": "operator", "needs": ["status density", "incident context", "fast recovery actions"]}
+      ],
+      "anti_patterns": ["touch-sized empty dashboard on desktop", "command hidden behind deep page navigation", "monochrome minimalism with weak state distinction", "terminal cosplay unrelated to tasks"]
+    },
+    {
+      "id": "creative-tools",
+      "trust_profile": ["selection and edit target are obvious", "history is trustworthy", "preview reflects output constraints"],
+      "density_expectation": "high capability density organized by mode, selection and progressive disclosure",
+      "emotional_profile": ["flow", "agency", "creative energy", "ownership"],
+      "interaction_tone": ["direct manipulation", "instant feedback", "reversible experimentation"],
+      "risk_profile": ["work loss", "wrong-target edits", "export mismatch", "performance stalls"],
+      "audience_variants": [
+        {"id": "casual-creator", "needs": ["guided discovery", "templates as acceleration not constraint", "forgiving history"]},
+        {"id": "professional-creator", "needs": ["precision controls", "dense inspectors", "shortcuts and repeatability"]},
+        {"id": "team-creator", "needs": ["version awareness", "comments/handoff", "asset governance"]}
+      ],
+      "anti_patterns": ["all tools visible at once", "property inspector detached from selection meaning", "irreversible AI edit", "decorative animation slowing repeated edits"]
+    },
+    {
+      "id": "ai-products",
+      "trust_profile": ["generated versus sourced content is distinguishable", "uncertainty and tool action authority are visible", "correction and rollback are first-class"],
+      "density_expectation": "varies from conversational low density to expert agent consoles with high state density",
+      "emotional_profile": ["capable", "collaborative", "non-mystical"],
+      "interaction_tone": ["streaming-aware", "interruptible", "review-before-consequence when risk rises"],
+      "risk_profile": ["hallucination", "over-automation", "privacy", "unauthorized action", "provenance loss"],
+      "audience_variants": [
+        {"id": "consumer", "needs": ["clear next action", "simple correction", "bounded trust"]},
+        {"id": "knowledge-worker", "needs": ["source/provenance", "editable output", "workflow integration"]},
+        {"id": "agent-operator", "needs": ["plan/action visibility", "tool approvals", "trace and rollback"]}
+      ],
+      "anti_patterns": ["glowing AI gradient as substitute for product identity", "anthropomorphic certainty", "hidden tool actions", "streaming animation that obscures final state"]
+    },
+    {
+      "id": "education",
+      "trust_profile": ["progress meaning is truthful", "assessment state is clear", "assistance does not impersonate mastery"],
+      "density_expectation": "low-to-medium for learners; higher for instructors/administrators",
+      "emotional_profile": ["encouraging", "curious", "low shame", "focused"],
+      "interaction_tone": ["scaffolded", "feedback-rich", "progressive complexity"],
+      "risk_profile": ["mislearning", "assessment integrity", "student privacy", "cognitive overload"],
+      "audience_variants": [
+        {"id": "learner", "needs": ["clear goals", "manageable cognitive load", "actionable feedback"]},
+        {"id": "teacher", "needs": ["class overview", "exception detection", "content/assessment control"]},
+        {"id": "administrator", "needs": ["roles", "reporting", "policy and enrollment controls"]}
+      ],
+      "anti_patterns": ["gamification overpowering learning goals", "enterprise density imposed on young learners", "progress bars without semantic mastery", "punitive error tone"]
+    },
+    {
+      "id": "commerce",
+      "trust_profile": ["price and commitment are explicit", "inventory/order state is truthful", "returns/refunds are discoverable"],
+      "density_expectation": "consumer shopping is selective; merchant/admin operations often require high density",
+      "emotional_profile": ["confidence", "desire without coercion", "clarity"],
+      "interaction_tone": ["fast discovery", "friction proportional to commitment", "recoverable checkout"],
+      "risk_profile": ["payment", "misleading scarcity", "delivery expectations", "refund disputes"],
+      "audience_variants": [
+        {"id": "shopper", "needs": ["comparison", "trust", "clear total cost"]},
+        {"id": "merchant", "needs": ["catalog/inventory/order density", "bulk actions", "exceptions"]},
+        {"id": "support-agent", "needs": ["customer/order context", "refund/recovery tools", "audit trail"]}
+      ],
+      "anti_patterns": ["dark patterns", "merchant admin reduced to four KPI cards", "checkout celebration before transaction truth", "settings and returns treated as afterthoughts"]
+    },
+    {
+      "id": "consumer-social-content",
+      "trust_profile": ["identity and audience visibility are understandable", "privacy boundaries are discoverable", "recommendation/notification control is available"],
+      "density_expectation": "low-to-medium primary feed density with deeper control surfaces progressively disclosed",
+      "emotional_profile": ["human", "lively", "expressive"],
+      "interaction_tone": ["direct", "responsive", "social context visible"],
+      "risk_profile": ["privacy", "harassment", "attention capture", "accidental audience"],
+      "audience_variants": [
+        {"id": "casual-user", "needs": ["simple creation", "clear audience", "easy safety controls"]},
+        {"id": "creator", "needs": ["publishing tools", "analytics", "moderation and monetization context"]},
+        {"id": "community-moderator", "needs": ["queue density", "evidence context", "consistent enforcement actions"]}
+      ],
+      "anti_patterns": ["engagement optimization that hides exit/control", "hover-only moderation", "visual delight masking privacy state", "notification overload"]
+    }
+  ]
+}
