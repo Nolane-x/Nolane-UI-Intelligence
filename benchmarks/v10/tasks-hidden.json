@@ -1,0 +1,450 @@
+{
+  "version": 10,
+  "visibility": "evaluator-only",
+  "policy": "Never inject this file, its checklist language, traps, blockers, or leakage markers into generation context. Judges receive only the task-specific blinded rubric after artifacts exist.",
+  "tasks": [
+    {
+      "id": "scope-01",
+      "expected_failure_traps": ["Treating a small shop as dashboard plus products plus orders only", "Inflating the five-person business into enterprise administration without evidence"],
+      "judge_dimensions": ["capability-recall", "scope-disposition-quality"],
+      "hard_blockers": ["No distinction between operationally necessary capability and speculative expansion"],
+      "checklist": ["Account for catalog, stock truth, order lifecycle, customer/service recovery and basic configuration at a scale justified by the shop", "State at least one plausible family that is deliberately excluded because the business is small", "Tie inclusion decisions to owner or staff jobs rather than app-category convention"],
+      "leakage_sensitive_phrases": ["EVAL_SCOPE_BOOKSHOP_BALANCE", "EVAL_SMALL_SHOP_EXCLUSION"],
+      "hypotheses": ["H-SCOPE-BREADTH"], "ablations": ["product-envelope"]
+    },
+    {
+      "id": "scope-02",
+      "expected_failure_traps": ["Stopping at revenue charts and customer records", "Assuming every finance-adjacent capability is required"],
+      "judge_dimensions": ["capability-recall", "scope-disposition-quality", "workflow-route-connectivity"],
+      "hard_blockers": ["Material recurring-use capability families disappear without disposition"],
+      "checklist": ["Probe identity/access, data ingestion, billing/subscription semantics, reporting, alerting, export and settings before compression", "Mark uncertainty rather than inventing unsupported finance workflows", "Explain which recurring operator jobs justify product surfaces"],
+      "leakage_sensitive_phrases": ["EVAL_SUBSCRIPTION_ENVELOPE", "EVAL_RECURRING_OPERATOR_JOBS"],
+      "hypotheses": ["H-SCOPE-BREADTH", "H-CAPABILITY-DISPOSITION"], "ablations": ["product-envelope", "capability-disposition"]
+    },
+    {
+      "id": "scope-03",
+      "expected_failure_traps": ["Ignoring store-to-store stock movement and fulfillment exceptions", "Using one owner role for all twelve stores"],
+      "judge_dimensions": ["capability-recall", "scope-disposition-quality", "state-recovery-completeness"],
+      "hard_blockers": ["No role-aware operational exception model", "No lifecycle treatment for inventory/order failures"],
+      "checklist": ["Represent multi-location inventory and transfer consequences", "Separate routine order progression from exceptions and recovery", "Disposition staff/role administration, audit/history, customer service and import/integration concerns explicitly"],
+      "leakage_sensitive_phrases": ["EVAL_OMNICHANNEL_EXCEPTION_GRAPH", "EVAL_LOCATION_ROLE_SPLIT"],
+      "hypotheses": ["H-SCOPE-BREADTH", "H-CAPABILITY-DISPOSITION"], "ablations": ["product-envelope", "capability-disposition"]
+    },
+    {
+      "id": "scope-04",
+      "expected_failure_traps": ["Modeling the lab as calendar plus files", "Inventing compliance requirements not present in the brief"],
+      "judge_dimensions": ["capability-recall", "scope-disposition-quality", "workflow-route-connectivity"],
+      "hard_blockers": ["Sample or equipment handoff lifecycle is absent"],
+      "checklist": ["Trace experiment request, reservation, sample handoff, result return and collaboration as connected lifecycles", "Consider conflict, cancellation, history, notification and access boundaries without manufacturing regulation", "Make scope exclusions explicit where laboratory specialization is unknown"],
+      "leakage_sensitive_phrases": ["EVAL_LAB_HANDOFF_CHAIN", "EVAL_NO_FAKE_REGULATION"],
+      "hypotheses": ["H-SCOPE-BREADTH", "H-CAPABILITY-DISPOSITION"], "ablations": ["product-envelope", "capability-disposition"]
+    },
+
+    {
+      "id": "settings-01",
+      "expected_failure_traps": ["Building categories and search more complex than six preferences need", "No reset or backup consequence model"],
+      "judge_dimensions": ["settings-account-lifecycle-completeness", "workflow-route-connectivity"],
+      "hard_blockers": ["Potentially destructive backup preference lacks recovery treatment"],
+      "checklist": ["Use a lightweight conceptual grouping appropriate to six settings", "Distinguish appearance, editor behavior and backup consequence without enterprise scope machinery", "Offer reset/recovery at a useful granularity"],
+      "leakage_sensitive_phrases": ["EVAL_SETTINGS_SMALL_SCALE", "EVAL_BACKUP_RECOVERY"],
+      "hypotheses": ["H-SETTINGS-ARCH"], "ablations": ["settings-architecture"]
+    },
+    {
+      "id": "settings-02",
+      "expected_failure_traps": ["Showing stored values without explaining effective overridden values", "Policy-locked values appear broken or arbitrary"],
+      "judge_dimensions": ["settings-account-lifecycle-completeness", "state-recovery-completeness"],
+      "hard_blockers": ["Organization policy precedence is ambiguous"],
+      "checklist": ["Model user, project and organization scope precedence", "Expose source of effective value and reason for policy lock", "Define sync, reset and dependency behavior rather than only page navigation"],
+      "leakage_sensitive_phrases": ["EVAL_EFFECTIVE_SETTING_ORIGIN", "EVAL_POLICY_LOCK_EXPLANATION"],
+      "hypotheses": ["H-SETTINGS-ARCH"], "ablations": ["settings-architecture"]
+    },
+    {
+      "id": "settings-03",
+      "expected_failure_traps": ["Flat list of hundreds of settings", "Search finds labels but cannot explain override origin", "Extension settings have no namespace or ownership model"],
+      "judge_dimensions": ["settings-account-lifecycle-completeness", "professional-workspace-instrument-adequacy", "maintainability-system-coherence"],
+      "hard_blockers": ["Effective-value resolution across user/workspace/language is unspecified"],
+      "checklist": ["Support taxonomy and search as complementary discovery modes", "Make default, user, workspace, language and extension contributions inspectable", "Define import/export or reset behavior for debugging configuration"],
+      "leakage_sensitive_phrases": ["EVAL_EDITOR_OVERRIDE_PROVENANCE", "EVAL_EXTENSION_SETTING_NAMESPACE"],
+      "hypotheses": ["H-SETTINGS-ARCH"], "ablations": ["settings-architecture"]
+    },
+    {
+      "id": "settings-04",
+      "expected_failure_traps": ["Treating machine performance preferences as user cloud preferences", "Project export policy silently follows the wrong user"],
+      "judge_dimensions": ["settings-account-lifecycle-completeness", "workflow-route-connectivity", "state-recovery-completeness"],
+      "hard_blockers": ["Scope changes can unexpectedly alter another creator's or project's export behavior"],
+      "checklist": ["Separate creator, project, device and team-controlled configuration", "Define precedence during user/project switching", "Treat high-impact export and performance settings with preview, explanation or recovery appropriate to consequence"],
+      "leakage_sensitive_phrases": ["EVAL_STUDIO_SCOPE_SWITCH", "EVAL_EXPORT_POLICY_PRECEDENCE"],
+      "hypotheses": ["H-SETTINGS-ARCH"], "ablations": ["settings-architecture"]
+    },
+
+    {
+      "id": "account-01",
+      "expected_failure_traps": ["Ending the lifecycle at signed-in", "No multi-device revocation or account exit consequences"],
+      "judge_dimensions": ["settings-account-lifecycle-completeness", "state-recovery-completeness"],
+      "hard_blockers": ["No credible access recovery path"],
+      "checklist": ["Connect account creation, authenticated use, device/session visibility, recovery and deletion/deactivation", "Keep the model personal and omit team membership machinery", "Make subscription/account exit consequences visible"],
+      "leakage_sensitive_phrases": ["EVAL_PERSONAL_ACCOUNT_TERMINAL_STATE", "EVAL_DEVICE_SESSION_REVOCATION"],
+      "hypotheses": ["H-ACCOUNT-CONTINUITY"], "ablations": ["account-continuity"]
+    },
+    {
+      "id": "account-02",
+      "expected_failure_traps": ["Conflating person identity with current client workspace", "Leaving a client deletes the person's account", "Invitation and active membership share one state"],
+      "judge_dimensions": ["settings-account-lifecycle-completeness", "workflow-route-connectivity", "state-recovery-completeness"],
+      "hard_blockers": ["Workspace switching can cause an action in the wrong client context without visible context"],
+      "checklist": ["Separate global account from workspace membership", "Trace invitation, acceptance, switching, leaving and session/device control", "Clarify what data/access persists after membership changes"],
+      "leakage_sensitive_phrases": ["EVAL_IDENTITY_WORKSPACE_SEPARATION", "EVAL_CLIENT_CONTEXT_GUARD"],
+      "hypotheses": ["H-ACCOUNT-CONTINUITY"], "ablations": ["account-continuity"]
+    },
+    {
+      "id": "account-03",
+      "expected_failure_traps": ["Treating SSO user, contractor and service identity as identical principals", "No owner departure or incident revocation path"],
+      "judge_dimensions": ["settings-account-lifecycle-completeness", "state-recovery-completeness", "functional-correctness"],
+      "hard_blockers": ["No authority-safe ownership transition", "Revocation leaves active privileged sessions unaddressed"],
+      "checklist": ["Differentiate principal and membership lifecycles", "Handle contractor expiry and SSO-managed authority without fake local controls", "Define owner departure, emergency revocation and audit-visible consequences"],
+      "leakage_sensitive_phrases": ["EVAL_PRINCIPAL_CLASS_SEPARATION", "EVAL_OWNER_DEPARTURE_PATH"],
+      "hypotheses": ["H-ACCOUNT-CONTINUITY"], "ablations": ["account-continuity"]
+    },
+    {
+      "id": "account-04",
+      "expected_failure_traps": ["Deleting a person orphans a publication", "Publication ownership and author membership are conflated", "Suspension is represented as deletion"],
+      "judge_dimensions": ["settings-account-lifecycle-completeness", "state-recovery-completeness", "workflow-route-connectivity"],
+      "hard_blockers": ["Shared content has no owner-safe transition before personal deletion"],
+      "checklist": ["Separate personal identity from publication authority", "Model transfer before terminal personal account states", "Define suspension, revocation, leaving and deletion as distinct consequences"],
+      "leakage_sensitive_phrases": ["EVAL_PUBLICATION_ORPHAN_PREVENTION", "EVAL_SUSPEND_VS_DELETE"],
+      "hypotheses": ["H-ACCOUNT-CONTINUITY"], "ablations": ["account-continuity"]
+    },
+
+    {
+      "id": "workspace-01",
+      "expected_failure_traps": ["Building a miniature Photoshop-like toolset unrelated to annotation", "Hiding label/export commands so deeply that repeated work becomes slow"],
+      "judge_dimensions": ["professional-workspace-instrument-adequacy", "workflow-route-connectivity"],
+      "hard_blockers": ["Selection target or annotation mode becomes ambiguous"],
+      "checklist": ["Map draw/select/label/navigation/export instruments to annotation jobs", "Keep persistent orientation tools distinct from selection-context actions", "Provide efficient repeated command access without permanent visual clutter"],
+      "leakage_sensitive_phrases": ["EVAL_ANNOTATION_INSTRUMENT_BOUNDARY", "EVAL_SELECTION_CONTEXT_TOOLS"],
+      "hypotheses": ["H-WORKSPACE-INSTRUMENTS"], "ablations": ["workspace-instruments"]
+    },
+    {
+      "id": "workspace-02",
+      "expected_failure_traps": ["Transcript, timeline and effects compete as equal permanent panels", "Selection context does not change available edit controls"],
+      "judge_dimensions": ["professional-workspace-instrument-adequacy", "workflow-route-connectivity", "maintainability-system-coherence"],
+      "hard_blockers": ["Core edit operation is unreachable without leaving media context"],
+      "checklist": ["Coordinate timeline, transcript and preview around edit intent", "Expose contextual properties/effects based on selection and mode", "Preserve discoverability for new users and shortcut efficiency for repeated edits"],
+      "leakage_sensitive_phrases": ["EVAL_PODCAST_CONTEXT_COORDINATION", "EVAL_NOVICE_EXPERT_COMMAND_BRIDGE"],
+      "hypotheses": ["H-WORKSPACE-INSTRUMENTS"], "ablations": ["workspace-instruments"]
+    },
+    {
+      "id": "workspace-03",
+      "expected_failure_traps": ["Copying a familiar IDE activity-bar layout without capability reasoning", "Validation issues, comments or search become detached destinations with lost canvas context"],
+      "judge_dimensions": ["professional-workspace-instrument-adequacy", "workflow-route-connectivity", "maintainability-system-coherence"],
+      "hard_blockers": ["Command duplication produces conflicting semantics or target context"],
+      "checklist": ["Assign zones by scope and persistence of context", "Keep object hierarchy, properties, validation and collaboration traceable to canvas selection", "Model command registry and persistent workspace state without trade-dress copying"],
+      "leakage_sensitive_phrases": ["EVAL_DIAGRAM_ZONE_SCOPE", "EVAL_COMMAND_SEMANTIC_UNIQUENESS"],
+      "hypotheses": ["H-WORKSPACE-INSTRUMENTS"], "ablations": ["workspace-instruments"]
+    },
+    {
+      "id": "workspace-04",
+      "expected_failure_traps": ["All grading controls displayed at once regardless of active shot or comparison", "Scopes are decorative rather than part of decision workflow", "Preview history cannot identify which grade is active"],
+      "judge_dimensions": ["professional-workspace-instrument-adequacy", "workflow-route-connectivity", "visual-hierarchy-focal-authority"],
+      "hard_blockers": ["Wrong-target edits are plausible because active shot/version context is weak"],
+      "checklist": ["Make shot/version/selection scope explicit", "Coordinate scopes, comparison and parameter inspection with active grading task", "Provide repeat/copy/history actions with clear source and destination context"],
+      "leakage_sensitive_phrases": ["EVAL_GRADE_TARGET_CONTEXT", "EVAL_SCOPE_AS_DECISION_INSTRUMENT"],
+      "hypotheses": ["H-WORKSPACE-INSTRUMENTS"], "ablations": ["workspace-instruments"]
+    },
+
+    {
+      "id": "taste-01",
+      "expected_failure_traps": ["Selecting a finance direction because it looks more premium without causal evidence", "Equating dark material and whitespace with trust"],
+      "judge_dimensions": ["genericness-resistance", "visual-hierarchy-focal-authority", "domain-audience-fit"],
+      "hard_blockers": ["Preferred candidate weakens money-state clarity or accessibility"],
+      "checklist": ["Compare at least hierarchy, typography/material restraint and finance trust cues from rendered evidence", "Allow a tie when evidence is not decisive", "Keep product truth and accessible state distinction above stylistic preference"],
+      "leakage_sensitive_phrases": ["EVAL_FINANCE_TASTE_CAUSAL", "EVAL_NO_PREMIUM_SHORTCUT"],
+      "hypotheses": ["H-TASTE-COMPARATIVE", "H-DOMAIN-AUDIENCE"], "ablations": ["taste-court", "domain-audience"]
+    },
+    {
+      "id": "taste-02",
+      "expected_failure_traps": ["Three candidates share the same card skeleton", "Scientific identity is replaced by decorative particles or generic data motifs"],
+      "judge_dimensions": ["genericness-resistance", "typographic-compositional-material-craft", "visual-hierarchy-focal-authority"],
+      "hard_blockers": ["Candidate divergence is cosmetic only"],
+      "checklist": ["Require structural differences in composition, type voice and material/representation system", "Trace subject-specific identity to scientific information or practices rather than theme vocabulary", "Use pairwise rendered comparison rather than one scalar score"],
+      "leakage_sensitive_phrases": ["EVAL_SCIENCE_DIRECTION_DIVERGENCE", "EVAL_NONCOSMETIC_CANDIDATES"],
+      "hypotheses": ["H-TASTE-COMPARATIVE"], "ablations": ["taste-court"]
+    },
+    {
+      "id": "taste-03",
+      "expected_failure_traps": ["Marketing visual spectacle does not transfer into product home", "Distinctiveness comes from recognizable trade dress", "Technical tool identity disappears behind luxury styling"],
+      "judge_dimensions": ["genericness-resistance", "typographic-compositional-material-craft", "domain-audience-fit", "visual-hierarchy-focal-authority"],
+      "hard_blockers": ["Selected identity is generic-transferable or materially harms technical comprehension"],
+      "checklist": ["Compare marketing and product surfaces as one authored system", "Identify a subject-linked signature with a restraint rule", "Blind brand/name and test whether the direction still belongs to spatial-audio creation"],
+      "leakage_sensitive_phrases": ["EVAL_SPATIAL_AUDIO_SIGNATURE", "EVAL_MARKETING_PRODUCT_CONTINUITY"],
+      "hypotheses": ["H-TASTE-COMPARATIVE", "H-DOMAIN-AUDIENCE"], "ablations": ["taste-court", "domain-audience"]
+    },
+    {
+      "id": "taste-04",
+      "expected_failure_traps": ["Editorial hero treatment overwhelms catalog operations", "Generic black-and-cream luxury styling survives product-name removal unchanged", "Seller workflow looks like a marketing page"],
+      "judge_dimensions": ["genericness-resistance", "typographic-compositional-material-craft", "domain-audience-fit", "workflow-route-connectivity"],
+      "hard_blockers": ["Operational catalog/search state becomes secondary to brand theater"],
+      "checklist": ["Balance image-led editorial pacing with searchable operational density", "Compare buyer and seller states for system continuity", "Reject luxury cues that have no relation to archival fashion objects, provenance or task"],
+      "leakage_sensitive_phrases": ["EVAL_ARCHIVE_FASHION_TRANSFER", "EVAL_EDITORIAL_OPERATION_BALANCE"],
+      "hypotheses": ["H-TASTE-COMPARATIVE", "H-DOMAIN-AUDIENCE"], "ablations": ["taste-court", "domain-audience"]
+    },
+
+    {
+      "id": "critique-01",
+      "expected_failure_traps": ["Generic advice such as add hierarchy or whitespace", "Repair changes style but not the diagnosed scanning problem", "No after-render verification"],
+      "judge_dimensions": ["critique-causal-specificity", "repair-effectiveness-after-critique"],
+      "hard_blockers": ["Critique closes without a named changed render"],
+      "checklist": ["Locate a visible cause such as equal saliency, grouping rhythm or label/control alignment", "Prescribe a bounded mechanism change tied to that cause", "Re-observe the exact region/state after repair"],
+      "leakage_sensitive_phrases": ["EVAL_SETTINGS_CAUSAL_REPAIR", "EVAL_REOBSERVE_CHANGED_REGION"],
+      "hypotheses": ["H-RENDER-CRITIQUE-CAUSAL"], "ablations": ["render-critique"]
+    },
+    {
+      "id": "critique-02",
+      "expected_failure_traps": ["Only reviewing the normal state", "Calling browser-default chrome ugly without checking intentionality", "Data density is solved by deleting information"],
+      "judge_dimensions": ["critique-causal-specificity", "rendered-residue-detection", "repair-effectiveness-after-critique", "state-recovery-completeness"],
+      "hard_blockers": ["Error/status meaning becomes less clear after visual repair"],
+      "checklist": ["Compare normal/loading/error/dense states", "Separate content-density problem from hierarchy problem", "Verify any residue treatment preserves focus/scroll/input operability"],
+      "leakage_sensitive_phrases": ["EVAL_ORDER_MULTI_STATE_CRITIQUE", "EVAL_DENSITY_NOT_DELETION"],
+      "hypotheses": ["H-RENDER-CRITIQUE-CAUSAL", "H-RESIDUE-INTENTIONALITY"], "ablations": ["render-critique", "residue-intentionality"]
+    },
+    {
+      "id": "critique-03",
+      "expected_failure_traps": ["Generator rationale is repeated as critique", "Wide screenshot is treated as evidence for narrow layout", "Second critique cycle merely restates the first"],
+      "judge_dimensions": ["critique-causal-specificity", "repair-effectiveness-after-critique", "responsive-recomposition"],
+      "hard_blockers": ["No independent evidence lineage or no two closed repair cycles"],
+      "checklist": ["Inspect at least two materially different viewport/window states", "Each cycle must identify a new or residual visible cause and verify a concrete correction", "Distinguish workspace balance from simple component styling"],
+      "leakage_sensitive_phrases": ["EVAL_TWO_CLOSED_DIRECTOR_CYCLES", "EVAL_NARROW_STATE_INDEPENDENCE"],
+      "hypotheses": ["H-RENDER-CRITIQUE-CAUSAL", "H-RESPONSIVE-REAUTHORING"], "ablations": ["render-critique", "responsive-reauthoring"]
+    },
+    {
+      "id": "critique-04",
+      "expected_failure_traps": ["Visual calming removes severity distinction", "Clinical status becomes color-only", "Aesthetic cleanup hides exceptional cases"],
+      "judge_dimensions": ["critique-causal-specificity", "repair-effectiveness-after-critique", "accessibility-platform-fit-preservation", "visual-hierarchy-focal-authority"],
+      "hard_blockers": ["Clinical or appointment state truth is weakened by repair"],
+      "checklist": ["Preserve state semantics while reducing competing saliency", "Use hierarchy and grouping rather than suppressing important exceptions", "Verify repaired status/error states, not only a calm default screen"],
+      "leakage_sensitive_phrases": ["EVAL_CLINICAL_TRUTH_BEFORE_CALM", "EVAL_EXCEPTION_SALIENCY_PRESERVE"],
+      "hypotheses": ["H-RENDER-CRITIQUE-CAUSAL", "H-DOMAIN-AUDIENCE"], "ablations": ["render-critique", "domain-audience"]
+    },
+
+    {
+      "id": "residue-01",
+      "expected_failure_traps": ["Always hiding scrollbars for visual cleanliness", "Replacing native controls without an operability reason", "Focus styling disappears into dark theme"],
+      "judge_dimensions": ["rendered-residue-detection", "accessibility-platform-fit-preservation"],
+      "hard_blockers": ["Scroll or keyboard focus becomes undiscoverable/inoperable"],
+      "checklist": ["Make a per-surface intentionality decision", "Treat scroll indication and focus as operability signals, not decoration", "Allow native appearance when it is coherent and advantageous"],
+      "leakage_sensitive_phrases": ["EVAL_NATIVE_INTENT_NOT_BAN", "EVAL_DARK_FOCUS_OPERABILITY"],
+      "hypotheses": ["H-RESIDUE-INTENTIONALITY"], "ablations": ["residue-intentionality"]
+    },
+    {
+      "id": "residue-02",
+      "expected_failure_traps": ["Auditing only scrollbar", "Treating all platform variation as inconsistency", "No rendered interactive state evidence"],
+      "judge_dimensions": ["rendered-residue-detection", "accessibility-platform-fit-preservation", "design-to-render-fidelity"],
+      "hard_blockers": ["Essential control state is hidden or decorative-only after treatment"],
+      "checklist": ["Cover multiple low-level browser control classes", "Record whether native behavior is intentional, styled or replaced and why", "Verify focus, validation and input behavior after visual treatment"],
+      "leakage_sensitive_phrases": ["EVAL_RESIDUE_CLASS_BREADTH", "EVAL_POST_TREATMENT_OPERABILITY"],
+      "hypotheses": ["H-RESIDUE-INTENTIONALITY", "H-RENDER-FIDELITY"], "ablations": ["residue-intentionality", "render-fidelity"]
+    },
+    {
+      "id": "residue-03",
+      "expected_failure_traps": ["Customizing stable file picker behavior merely for brand consistency", "Drag divider affordance is invisible until impossible-to-discover hover", "Context menu and validation feel foreign to rest of product unintentionally"],
+      "judge_dimensions": ["rendered-residue-detection", "accessibility-platform-fit-preservation", "professional-workspace-instrument-adequacy"],
+      "hard_blockers": ["Low-level polishing breaks file selection, resize or keyboard access"],
+      "checklist": ["Classify each surface by semantic/operability authority before styling", "Use reveal-on-interaction only when discoverability remains sufficient", "Verify bespoke and native surfaces coexist without accidental visual discontinuity"],
+      "leakage_sensitive_phrases": ["EVAL_EDITOR_LOW_LEVEL_AUTHORITY", "EVAL_RESIZER_DISCOVERABILITY"],
+      "hypotheses": ["H-RESIDUE-INTENTIONALITY", "H-WORKSPACE-INSTRUMENTS"], "ablations": ["residue-intentionality", "workspace-instruments"]
+    },
+    {
+      "id": "residue-04",
+      "expected_failure_traps": ["One cross-platform custom treatment ignores desktop conventions", "Light and dark modes use identical low-contrast focus/selection tokens", "Drag/drop ghost reveals browser-default styling only during interaction"],
+      "judge_dimensions": ["rendered-residue-detection", "accessibility-platform-fit-preservation", "design-to-render-fidelity"],
+      "hard_blockers": ["A treatment is called platform-coherent without platform-specific evidence"],
+      "checklist": ["Compare light/dark and at least two supported desktop convention sets", "Inspect transient drag, selection, focus, overlay and scroll states", "Prefer intentional platform accommodation over forced visual sameness"],
+      "leakage_sensitive_phrases": ["EVAL_CROSS_DESKTOP_CONVENTION", "EVAL_TRANSIENT_RESIDUE_STATES"],
+      "hypotheses": ["H-RESIDUE-INTENTIONALITY", "H-RENDER-FIDELITY"], "ablations": ["residue-intentionality", "render-fidelity"]
+    },
+
+    {
+      "id": "domain-01",
+      "expected_failure_traps": ["Same layout and density with only copy changes", "Beginner flow hides money consequences for simplicity", "Expert flow uses jargon without adding control value"],
+      "judge_dimensions": ["domain-audience-fit", "visual-hierarchy-focal-authority"],
+      "hard_blockers": ["Financial semantics differ across variants"],
+      "checklist": ["Keep amount, timing and consequence truth invariant", "Adapt explanation, comparison density and advanced control exposure to decision posture", "Avoid infantilizing the first-time user"],
+      "leakage_sensitive_phrases": ["EVAL_SAVINGS_SHARED_MONEY_TRUTH", "EVAL_EXPERTISE_CONSEQUENCE_NOT_THEME"],
+      "hypotheses": ["H-DOMAIN-AUDIENCE"], "ablations": ["domain-audience"]
+    },
+    {
+      "id": "domain-02",
+      "expected_failure_traps": ["AI style is expressed through glow/gradient rather than trust behavior", "Senior analyst gets only more buttons", "Student loses provenance to reduce complexity"],
+      "judge_dimensions": ["domain-audience-fit", "workflow-route-connectivity", "state-recovery-completeness"],
+      "hard_blockers": ["Generated/sourced distinction or correction path disappears in either audience"],
+      "checklist": ["Preserve provenance/correction invariants", "Change review density and workflow integration based on expertise/frequency", "Keep AI uncertainty visible without mystical styling"],
+      "leakage_sensitive_phrases": ["EVAL_AI_PROVENANCE_INVARIANT", "EVAL_REVIEW_POSTURE_VARIATION"],
+      "hypotheses": ["H-DOMAIN-AUDIENCE"], "ablations": ["domain-audience"]
+    },
+    {
+      "id": "domain-03",
+      "expected_failure_traps": ["Three separate role-specific applications with no coherent shared model", "Casual users receive all professional controls", "Librarian governance is buried behind creative editing affordances"],
+      "judge_dimensions": ["domain-audience-fit", "professional-workspace-instrument-adequacy", "maintainability-system-coherence"],
+      "hard_blockers": ["Role adaptation creates conflicting asset state or permissions semantics"],
+      "checklist": ["Define common asset truth and role-specific task lenses", "Use progressive complexity rather than permanent role silos", "Keep governance, editing and contribution controls aligned to each role's responsibility"],
+      "leakage_sensitive_phrases": ["EVAL_SHARED_ASSET_TRUTH", "EVAL_ROLE_PROGRESSIVE_COMPLEXITY"],
+      "hypotheses": ["H-DOMAIN-AUDIENCE", "H-WORKSPACE-INSTRUMENTS"], "ablations": ["domain-audience", "workspace-instruments"]
+    },
+    {
+      "id": "domain-04",
+      "expected_failure_traps": ["Patient and coordinator share the same dense table-like representation", "Patient UI over-simplifies uncertainty or misses next action", "Coordinator UI hides exceptions for visual calm"],
+      "judge_dimensions": ["domain-audience-fit", "accessibility-platform-fit-preservation", "state-recovery-completeness"],
+      "hard_blockers": ["Health state is inferred or diagnosed beyond provided truth"],
+      "checklist": ["Keep medication/adherence facts consistent", "Patient surface emphasizes understandable next action and uncertainty", "Coordinator surface supports scanning, exception detection and context without unsafe compression"],
+      "leakage_sensitive_phrases": ["EVAL_HEALTH_SHARED_FACTS", "EVAL_COORDINATOR_EXCEPTION_SCAN"],
+      "hypotheses": ["H-DOMAIN-AUDIENCE"], "ablations": ["domain-audience"]
+    },
+
+    {
+      "id": "motion-01",
+      "expected_failure_traps": ["Success celebration gets more motion priority than progress/error truth", "Reduced motion removes feedback entirely", "Cancel does not define interruption state"],
+      "judge_dimensions": ["motion-semantics-reduced-motion-equivalence", "functional-correctness"],
+      "hard_blockers": ["User cannot determine upload state without animation"],
+      "checklist": ["Map progress, cancellation, retry and completion to semantic feedback", "Define interruption behavior", "Provide reduced-motion state equivalence without erasing state changes"],
+      "leakage_sensitive_phrases": ["EVAL_UPLOAD_TEMPORAL_CAUSALITY", "EVAL_REDUCED_MOTION_STATE_EQUIVALENCE"],
+      "hypotheses": ["H-MOTION-SEMANTIC"], "ablations": ["motion-semantics"]
+    },
+    {
+      "id": "motion-02",
+      "expected_failure_traps": ["Every filter/panel change animates at full expressive duration", "Drag/drop animation conflicts with keyboard alternative", "Async save status is decorative or delayed"],
+      "judge_dimensions": ["motion-semantics-reduced-motion-equivalence", "functional-correctness", "workflow-route-connectivity"],
+      "hard_blockers": ["Repeated expert action is slowed by mandatory decorative choreography"],
+      "checklist": ["Prioritize direct-manipulation causality and save truth", "Allow repeated interaction to remain fast/interruption-safe", "Specify equivalent non-drag and reduced-motion behavior"],
+      "leakage_sensitive_phrases": ["EVAL_KANBAN_REPETITION_LATENCY", "EVAL_DRAG_KEYBOARD_EQUIVALENCE"],
+      "hypotheses": ["H-MOTION-SEMANTIC"], "ablations": ["motion-semantics"]
+    },
+    {
+      "id": "motion-03",
+      "expected_failure_traps": ["Ambient scene motion competes with selection feedback", "Long processing has no truthful temporal state", "Retargeted camera/object animation snaps or misrepresents destination"],
+      "judge_dimensions": ["motion-semantics-reduced-motion-equivalence", "professional-workspace-instrument-adequacy", "functional-correctness"],
+      "hard_blockers": ["Motion obscures active selection or processing consequence"],
+      "checklist": ["Define priority ordering among direct manipulation, progress, structure teaching and ambience", "Specify interruption/retarget behavior", "Provide performance degradation and reduced-motion hierarchy"],
+      "leakage_sensitive_phrases": ["EVAL_3D_MOTION_PRIORITY_ORDER", "EVAL_RETARGET_CONTINUITY"],
+      "hypotheses": ["H-MOTION-SEMANTIC", "H-WORKSPACE-INSTRUMENTS"], "ablations": ["motion-semantics", "workspace-instruments"]
+    },
+    {
+      "id": "motion-04",
+      "expected_failure_traps": ["Pulsing or shaking creates urgency theater", "Critical alert meaning depends on movement", "Automation progress motion keeps drawing attention after ownership changes"],
+      "judge_dimensions": ["motion-semantics-reduced-motion-equivalence", "accessibility-platform-fit-preservation", "state-recovery-completeness"],
+      "hard_blockers": ["Critical incident state is motion-only or decorative animation increases alarm ambiguity"],
+      "checklist": ["Use temporal cues for ordering/change awareness without replacing persistent state encoding", "Bound notification/alert motion to attention need and interruption context", "Keep reduced-motion operators equally informed"],
+      "leakage_sensitive_phrases": ["EVAL_INCIDENT_NO_URGENCY_THEATER", "EVAL_PERSISTENT_STATE_OVER_MOTION"],
+      "hypotheses": ["H-MOTION-SEMANTIC"], "ablations": ["motion-semantics"]
+    },
+
+    {
+      "id": "fidelity-01",
+      "expected_failure_traps": ["Checking source CSS rather than resolved browser output", "Treating any pixel difference as failure", "Ignoring fallback fonts and interactive states"],
+      "judge_dimensions": ["design-to-render-fidelity", "typographic-compositional-material-craft"],
+      "hard_blockers": ["No renderer/environment metadata for a fidelity verdict"],
+      "checklist": ["Trace accepted intent to resolved typography and spacing", "Inspect representative interactive states and two viewport classes", "Calibrate meaningful drift separately from renderer noise"],
+      "leakage_sensitive_phrases": ["EVAL_RESOLVED_TYPE_NOT_SOURCE", "EVAL_RENDERER_CALIBRATED_DRIFT"],
+      "hypotheses": ["H-RENDER-FIDELITY"], "ablations": ["render-fidelity"]
+    },
+    {
+      "id": "fidelity-02",
+      "expected_failure_traps": ["Shared component usage is treated as proof of state correctness", "Loading/error overlays inherit wrong token or stacking behavior", "Dynamic text overflow is not tested"],
+      "judge_dimensions": ["design-to-render-fidelity", "functional-correctness", "accessibility-platform-fit-preservation"],
+      "hard_blockers": ["Focus or disabled/error semantics regress during migration"],
+      "checklist": ["Validate token mapping and computed component states", "Inspect overlays, wrapping and dynamic states in runtime", "Keep semantic/accessibility regressions as hard failures independent of visual match"],
+      "leakage_sensitive_phrases": ["EVAL_COMPONENT_MIGRATION_STATE_CHAIN", "EVAL_DYNAMIC_CONTENT_FIDELITY"],
+      "hypotheses": ["H-RENDER-FIDELITY"], "ablations": ["render-fidelity"]
+    },
+    {
+      "id": "fidelity-03",
+      "expected_failure_traps": ["Only default theme is verified", "Drag/popover/scroll states are omitted", "Default browser residue is mistaken for intentional design"],
+      "judge_dimensions": ["design-to-render-fidelity", "rendered-residue-detection", "professional-workspace-instrument-adequacy"],
+      "hard_blockers": ["Theme or transient-state divergence breaks task meaning or focus"],
+      "checklist": ["Trace both themes and dense state variants", "Inspect transient interaction states, scroll/drag/overlay behavior and computed runtime output", "Bind residue finding to intentionality and platform fit"],
+      "leakage_sensitive_phrases": ["EVAL_EDITOR_TRANSIENT_FIDELITY", "EVAL_THEME_STATE_MATRIX"],
+      "hypotheses": ["H-RENDER-FIDELITY", "H-RESIDUE-INTENTIONALITY"], "ablations": ["render-fidelity", "residue-intentionality"]
+    },
+    {
+      "id": "fidelity-04",
+      "expected_failure_traps": ["Desktop browser screenshot substitutes for tablet runtime", "Offline/error state is outside fidelity review", "System overlay or orientation hides an action"],
+      "judge_dimensions": ["design-to-render-fidelity", "responsive-recomposition", "state-recovery-completeness", "accessibility-platform-fit-preservation"],
+      "hard_blockers": ["Touch/action safety changes under orientation or degraded state"],
+      "checklist": ["Require actual target runtime/environment evidence", "Inspect orientation, degraded/offline and system overlay conditions", "Trace implementation drift to hierarchy or action safety consequence"],
+      "leakage_sensitive_phrases": ["EVAL_TABLET_RUNTIME_NOT_PROXY", "EVAL_DEGRADED_STATE_FIDELITY"],
+      "hypotheses": ["H-RENDER-FIDELITY", "H-RESPONSIVE-REAUTHORING"], "ablations": ["render-fidelity", "responsive-reauthoring"]
+    },
+
+    {
+      "id": "responsive-01",
+      "expected_failure_traps": ["Desktop columns merely stack with no priority change", "Secondary action is removed without replacement", "Type is shrunk to retain geometry"],
+      "judge_dimensions": ["responsive-recomposition", "workflow-route-connectivity"],
+      "hard_blockers": ["A required planning action is unreachable on phone"],
+      "checklist": ["Describe structural rather than scalar transformation", "Preserve important state context and action reachability", "Use progressive or contextual access for secondary functions instead of silent removal"],
+      "leakage_sensitive_phrases": ["EVAL_RESPONSIVE_NOT_SHRINK", "EVAL_PHONE_ACTION_CONTINUITY"],
+      "hypotheses": ["H-RESPONSIVE-REAUTHORING"], "ablations": ["responsive-reauthoring"]
+    },
+    {
+      "id": "responsive-02",
+      "expected_failure_traps": ["Desktop table squeezed into phone", "Bulk actions vanish on narrow laptop", "Filters become undiscoverable modal without current-state summary"],
+      "judge_dimensions": ["responsive-recomposition", "workflow-route-connectivity", "functional-correctness"],
+      "hard_blockers": ["Inventory exception or bulk operation loses an accessible path"],
+      "checklist": ["Re-author dense tabular comparison for each viewport based on task", "Preserve active filter/selection state across transformation", "Keep bulk and exception workflows semantically continuous"],
+      "leakage_sensitive_phrases": ["EVAL_INVENTORY_VIEWPORT_TASK_FORM", "EVAL_FILTER_SELECTION_CONTINUITY"],
+      "hypotheses": ["H-RESPONSIVE-REAUTHORING"], "ablations": ["responsive-reauthoring"]
+    },
+    {
+      "id": "responsive-03",
+      "expected_failure_traps": ["Canvas shrinks while all sidebars retain fixed width", "Properties disappear with no contextual replacement", "Selected object context is lost when panes collapse"],
+      "judge_dimensions": ["responsive-recomposition", "professional-workspace-instrument-adequacy", "workflow-route-connectivity"],
+      "hard_blockers": ["Current selection or command target becomes ambiguous after posture change"],
+      "checklist": ["Transform workspace zones by context and task frequency", "Preserve selection/inspector relation through collapsed or alternate access", "Keep command and comment access without permanently occupying scarce canvas space"],
+      "leakage_sensitive_phrases": ["EVAL_EDITOR_POSTURE_SELECTION", "EVAL_CANVAS_ZONE_REAUTHOR"],
+      "hypotheses": ["H-RESPONSIVE-REAUTHORING", "H-WORKSPACE-INSTRUMENTS"], "ablations": ["responsive-reauthoring", "workspace-instruments"]
+    },
+    {
+      "id": "responsive-04",
+      "expected_failure_traps": ["Phone view attempts full desktop authoring", "Approval/publish status becomes hidden behind navigation", "Emergency use loses safe confirmation context"],
+      "judge_dimensions": ["responsive-recomposition", "workflow-route-connectivity", "state-recovery-completeness"],
+      "hard_blockers": ["Publication or approval consequence is ambiguous on a constrained posture"],
+      "checklist": ["Prioritize emergency review/status/actions differently from full authoring", "Preserve approval and scheduling truth persistently enough for safe action", "Explain why omitted desktop instruments remain available elsewhere or intentionally unavailable"],
+      "leakage_sensitive_phrases": ["EVAL_NEWSROOM_EMERGENCY_POSTURE", "EVAL_PUBLISH_CONSEQUENCE_CONTINUITY"],
+      "hypotheses": ["H-RESPONSIVE-REAUTHORING"], "ablations": ["responsive-reauthoring"]
+    },
+
+    {
+      "id": "compound-01",
+      "expected_failure_traps": ["Small product inflates into enterprise suite", "Mobile simplification removes reschedule/cancel recovery", "Visual polish is evaluated independently of booking state truth"],
+      "judge_dimensions": ["capability-recall", "workflow-route-connectivity", "responsive-recomposition", "state-recovery-completeness"],
+      "hard_blockers": ["End-to-end booking cannot recover from cancellation/rescheduling or access loss"],
+      "checklist": ["Keep capability envelope proportionate to tutor business", "Trace booking lifecycle through account/notification/recovery", "Verify mobile transformation against scenarios rather than screen presence"],
+      "leakage_sensitive_phrases": ["EVAL_TUTOR_BOUNDED_CLOSURE", "EVAL_MOBILE_BOOKING_RECOVERY"],
+      "hypotheses": ["H-SCOPE-BREADTH", "H-COMPOUND-CLOSURE", "H-RESPONSIVE-REAUTHORING"], "ablations": ["product-envelope", "compound-closure", "responsive-reauthoring"]
+    },
+    {
+      "id": "compound-02",
+      "expected_failure_traps": ["Role-aware setting can be changed by a role that cannot use its effect", "Mobile hides bulk/exception alternatives with no task-aware fallback", "Each subsystem passes its own checklist despite contradiction"],
+      "judge_dimensions": ["scope-disposition-quality", "settings-account-lifecycle-completeness", "responsive-recomposition", "workflow-route-connectivity"],
+      "hard_blockers": ["Cross-plane role/configuration contradiction remains unresolved"],
+      "checklist": ["Cross-check settings authority with role/action authority", "Trace configuration consequences into desktop and mobile workflows", "Record and resolve at least one plausible boundary contradiction"],
+      "leakage_sensitive_phrases": ["EVAL_ROLE_SETTING_CROSS_PLANE", "EVAL_MOBILE_BULK_ALTERNATIVE"],
+      "hypotheses": ["H-CAPABILITY-DISPOSITION", "H-SETTINGS-ARCH", "H-RESPONSIVE-REAUTHORING", "H-COMPOUND-CLOSURE"], "ablations": ["capability-disposition", "settings-architecture", "responsive-reauthoring", "compound-closure"]
+    },
+    {
+      "id": "compound-03",
+      "expected_failure_traps": ["AI output provenance and organization permissions are reviewed separately", "Flagship visual treatment hides asynchronous or uncertain analysis state", "Design-file fidelity substitutes for runtime evidence"],
+      "judge_dimensions": ["capability-recall", "state-recovery-completeness", "genericness-resistance", "critique-causal-specificity", "design-to-render-fidelity", "functional-correctness"],
+      "hard_blockers": ["Sensitive or AI-authoritative action lacks correction/audit path", "Visual state obscures uncertainty or asynchronous truth"],
+      "checklist": ["Trace product, authority and account boundaries through complete review scenarios", "Require rendered critique on uncertainty/async states, not hero-only surfaces", "Keep empirical quality claims separate from artifact completion evidence"],
+      "leakage_sensitive_phrases": ["EVAL_AI_DOC_GLOBAL_COURT", "EVAL_UNCERTAINTY_VISUAL_TRUTH"],
+      "hypotheses": ["H-ACCOUNT-CONTINUITY", "H-RENDER-CRITIQUE-CAUSAL", "H-RENDER-FIDELITY", "H-COMPOUND-CLOSURE"], "ablations": ["account-continuity", "render-critique", "render-fidelity", "compound-closure"]
+    },
+    {
+      "id": "compound-04",
+      "expected_failure_traps": ["Desktop video workspace is miniaturized for mobile", "Approval status competes with decorative motion", "Version/comment/export contexts become disconnected", "Visual quality is claimed without blinded comparison"],
+      "judge_dimensions": ["professional-workspace-instrument-adequacy", "responsive-recomposition", "motion-semantics-reduced-motion-equivalence", "genericness-resistance", "workflow-route-connectivity"],
+      "hard_blockers": ["Review/approval consequence can target the wrong version", "Mobile cannot safely complete its intended review job"],
+      "checklist": ["Bind timeline/comments/versions/approval to explicit active context", "Re-author mobile as focused review rather than compressed edit suite", "Use motion to clarify status/context and preserve reduced-motion equivalence", "Evaluate visual direction through blinded evidence rather than generator preference"],
+      "leakage_sensitive_phrases": ["EVAL_CREATIVE_REVIEW_VERSION_TARGET", "EVAL_MOBILE_REVIEW_NOT_MINI_EDITOR"],
+      "hypotheses": ["H-WORKSPACE-INSTRUMENTS", "H-RESPONSIVE-REAUTHORING", "H-MOTION-SEMANTIC", "H-TASTE-COMPARATIVE", "H-COMPOUND-CLOSURE"], "ablations": ["workspace-instruments", "responsive-reauthoring", "motion-semantics", "taste-court", "compound-closure"]
+    }
+  ]
+}
