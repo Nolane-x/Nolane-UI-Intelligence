@@ -98,3 +98,22 @@ Introduce one accidental browser-default control into a polished surface, one su
 
 ### V9 Recovery
 Fix the earliest causal layer that owns the drift: token, component, CSS/platform expression or runtime state. Re-capture the same state and viewport, compare against the target/baseline, and retain both semantic runtime probes and screenshot evidence. Do not patch individual pages around a systemic token/component defect.
+
+## V10 Runtime Fidelity Attribution
+Two V10 hypotheses touch this owner and must remain distinct. `H-RENDER-FIDELITY` asks whether tracing intent through tokens/components/runtime catches implementation drift that design-file inspection misses. `H-RESIDUE-INTENTIONALITY` asks whether low-level browser/platform surfaces become deliberate without turning “native” into a defect category. In both cases, **artifact evidence is not efficacy evidence**.
+
+For `H-RENDER-FIDELITY`, preserve an evidence chain for each material mismatch:
+
+`accepted intent → token or component contract → computed/runtime state → rendered observation → consequence → repair owner → recaptured state`
+
+The mutation `fidelity-design-file-only` removes runtime and visual-regression evidence. The `render-fidelity` ablation removes the V9/V10 fidelity plane. Full NUI should then detect more consequential font fallback, wrapping, state, overlay, theme, responsive and implementation-drift failures than those controls, without inflating harmless renderer noise into failures.
+
+For `H-RESIDUE-INTENTIONALITY`, record each low-level surface with `semantic_role`, `platform_expectation`, `appearance`, `intentionality`, `treatment`, `operability_evidence`, and `render_ref`. The mutation `residue-default-accept` ignores this decision class. Full NUI should catch accidental default/legacy residue in authored products **and** preserve platform-native controls when native appearance is intentional, accessible and coherent. A benchmark that rewards customization count is invalid.
+
+### V10 false-positive controls
+Every empirical fidelity study should include at least one harmless rendering variation—antialiasing, platform font rasterization, subpixel position or another declared environment difference—and at least one semantically meaningful near-pixel-identical defect. This checks whether the verifier distinguishes perceptual/behavioral importance from raw image difference.
+
+Responsive fidelity uses a related counterfactual: `responsive-shrink-only` should fail when structure and capability access need reauthoring, but a fixed-size or externally constrained surface should not be penalized for remaining structurally stable. The evaluator scores semantic continuity and rendered hierarchy, not breakpoint count.
+
+### V10 claim boundary
+A faithful implementation under full NUI proves facts about that implementation. To claim this skill **caused** better fidelity, run the same task/model/runtime/tool budget under baseline, full and targeted ablation/mutation; bind comparisons to exact renderer/environment evidence; retain failures/timeouts; and require targeted degradation with no hard accessibility/function regression. Repository validators, screenshot existence, or a low visual diff alone leave the efficacy state at `STRUCTURAL_ONLY`.
