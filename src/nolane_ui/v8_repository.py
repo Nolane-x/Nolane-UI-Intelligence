@@ -53,7 +53,7 @@ def extend(root: Path, base: dict[str, Any]) -> dict[str, Any]:
         new = load(root / "knowledge/v8-depth-obligations.json").get("skills", {})
         if set(old) & set(new): errors.append("v8 depth extension overlaps earlier owner keys")
         union = dict(old); union.update(new)
-        if set(union) != set(graph): errors.append("combined depth registry must equal canonical graph")
+        if set(union) != set(graph): errors.append("v8 combined depth focus must cover canonical skill graph")
         terms: list[str] = []
         for name, anchors in union.items():
             if not isinstance(anchors, list) or len(anchors) != 5: errors.append(f"depth owner requires five anchors: {name}"); continue

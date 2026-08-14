@@ -19,7 +19,7 @@ class V7SkillContractsTests(unittest.TestCase):
   for n,(p,o) in V7.items(): self.assertEqual((g[n]['parent'],g[n]['output']),(p,o))
  def test_v7_documents_keep_behavior(self):
   for n in V7:
-   t=(ROOT/'skills'/n/'SKILL.md').read_text().lower(); self.assertIn('falsif',t); self.assertIn('recovery',t); self.assertIn('output contract',t)
+   t=(ROOT/'skills'/n/'SKILL.md').read_text().lower(); self.assertIn('falsif',t); self.assertIn('recovery',t); self.assertIn('## output',t)
  def test_outputs_unique(self): self.assertEqual(len(V7),len({x[1] for x in V7.values()}))
  def test_depth_subset(self):
   d=json.loads((ROOT/'knowledge/v6-depth-focus-obligations.json').read_text())['skills']; g=json.loads((ROOT/'skills/skill-graph.json').read_text())['skills']

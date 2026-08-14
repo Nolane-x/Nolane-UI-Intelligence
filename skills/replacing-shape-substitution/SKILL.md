@@ -16,7 +16,7 @@ Build a **geometric stand-in inventory** for the highest-attention abstract elem
 
 Apply an **information-gain removal test**: compare comprehension, hierarchy, task support, identity, and intended affect with the element removed and with the stronger alternative present. Retained abstraction requires **semantic geometry justification** that names what it organizes, encodes, affords, or expresses.
 
-Evaluate accumulation across the whole surface. The **re-divergence threshold** is crossed when several high-attention slots carry little subject information, the subject world becomes visually absent, or local replacement still leaves the same generic composition.
+Evaluate accumulation across the whole surface. The **representation re-divergence threshold** is crossed when several high-attention slots carry little subject information, the subject world becomes visually absent, or local replacement still leaves the same generic composition.
 
 ## Evidence
 Record slot, current representation, semantic job, subject-native alternative, comparison result, removal observation, keep/replace justification, global accumulation finding, and final decision.
