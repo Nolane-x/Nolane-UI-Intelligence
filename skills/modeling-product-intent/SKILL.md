@@ -100,3 +100,24 @@ Remove a plausible but non-glamorous family such as settings, account lifecycle,
 
 ### V9 Recovery
 Reopen discovery before information architecture. Add the missing family as a hypothesis, identify its actor/outcome/lifecycle consequence, route it to capability inventory, and only then decide whether it is required, expected, optional or explicitly excluded. Never repair an under-scoped model merely by adding more dashboard widgets.
+
+## V10 Empirical Scope Hypothesis
+`H-SCOPE-BREADTH` is the falsifiable claim owned by this skill: **broad-before-narrow reasoning should increase recall of consequential implied capability families without turning explicitly bounded utilities into accidental enterprise suites.** That is a behavioral hypothesis, not a statement this skill may certify about itself.
+
+For benchmarked work, preserve a provenance-bearing **scope discovery trace** before screen architecture: actor/job probes, object lifecycles, consequence/recovery probes, domain-specific operations, and candidate capability families. The trace must make it possible to distinguish genuinely discovered product structure from features copied out of the evaluator prompt. Hidden evaluator rubric language is never an input to this skill.
+
+The targeted semantic mutation `scope-compress` removes the broad-before-narrow obligation and lets prompt-literal first recall define the boundary. The `product-envelope` ablation removes this plane from the routed condition. On matched scope tasks, full NUI should improve `capability-recall` and `scope-disposition-quality` relative to those controls; on small negative-control utilities, it should **not** create gratuitous administration, billing, role, integration, or governance machinery. A result that merely contains more feature nouns is not a win.
+
+### V10 attribution test
+An efficacy claim for this skill requires all of the following:
+1. the same task/model/runtime/tool budget under `baseline`, `nui_full`, and the targeted ablation or mutation;
+2. judge evidence that omitted families mattered to actors, lifecycles, trust, or recovery rather than checklist breadth alone;
+3. measurable degradation when `scope-compress` or `product-envelope` is applied;
+4. no comparable capability-recall shift under a non-semantic placebo;
+5. holdout evidence before a cross-task or `EMPIRICAL_TRANSFER` claim;
+6. no material increase in unjustified product inflation on bounded negative controls.
+
+Until those runs exist, repository presence, passing validators, and good example outputs support only `STRUCTURAL_ONLY` evidence about this mechanism. Never translate a structural release into “NUI has empirically proven better product thinking.”
+
+### V10 failure interpretation
+If full NUI and the ablation perform the same, do not automatically add more product-scope prose. Investigate whether this owner is redundant with another routed faculty, whether the benchmark does not expose implied scope, whether the model ignores the instruction, or whether the evaluator rewards raw list length instead of product consequence. If full NUI recalls more capabilities but dispositions become worse, treat that as an over-expansion regression rather than a partial pass.
