@@ -1,6 +1,6 @@
-"""NUI v8 compatibility validator facade.
+"""NUI v9 compatibility validator facade.
 
-Package imports receive the v8 overlay. Historical standalone imports keep the
+Package imports receive the v9 overlay. Historical standalone imports keep the
 frozen v7 API so older kernel tests and direct file loaders remain compatible.
 """
 from __future__ import annotations
@@ -32,6 +32,8 @@ else:
     from . import interop as _interop8
     from . import media as _media8
     from . import flagship as _flagship8
+    from . import product_v9 as _product9
+    from . import scope_v9 as _scope9
 
     def mandatory_routes_for_profile(profile: dict[str, Any]) -> set[str]:
         return _v7.mandatory_routes_for_profile(profile) | _media8.mandatory_v8_routes(profile)
@@ -90,6 +92,54 @@ else:
                 errors.extend(f"flagship visual synthesis: {error}" for error in checked.get("errors", []))
             else:
                 errors.append("flagship visual synthesis evidence is required for flagship, exceptional, or experiential completion")
+
+        return {"decision": "BLOCKED" if errors else "PASS", "errors": errors}
+
+    def _extend_checked(errors: list[str], label: str, validator, value: Any) -> None:
+        if not isinstance(value, dict):
+            errors.append(f"{label} evidence is required")
+            return
+        checked = validator(value)
+        errors.extend(f"{label}: {error}" for error in checked.get("errors", []))
+
+    def validate_v9_completion_evidence(record: dict[str, Any]) -> dict[str, Any]:
+        """Gate product-wide and high-ambition visual completion claims.
+
+        V8 remains authoritative for inherited media, research, safety and flagship
+        synthesis obligations. V9 adds *scope adequacy* before closure and a
+        perceptual/render chain after implementation. No score can compensate for
+        a failed inherited hard gate.
+        """
+        if not isinstance(record, dict):
+            return {"decision": "BLOCKED", "errors": ["v9 completion evidence must be an object"]}
+
+        errors = list(validate_v8_completion_evidence(record).get("errors", []))
+        product_ambition = str(record.get("product_ambition", record.get("product_scope", ""))).strip().lower()
+        product_wide = product_ambition in {
+            "production", "full-platform", "platform", "enterprise", "production-platform", "full-product"
+        } or bool(record.get("product_wide_completion"))
+
+        if product_wide:
+            _extend_checked(errors, "capability envelope", _product9.validate_capability_envelope, record.get("capability_envelope"))
+            _extend_checked(errors, "scope adequacy", _scope9.validate_scope_adequacy, record.get("scope_adequacy"))
+
+        if record.get("settings_material") or record.get("settings_system"):
+            _extend_checked(errors, "settings architecture", _product9.validate_settings_architecture, record.get("settings_architecture"))
+
+        if record.get("account_workspace_material") or record.get("multi_account_workspace"):
+            _extend_checked(errors, "account/workspace lifecycle", _product9.validate_account_workspace_lifecycle, record.get("account_workspace_lifecycle"))
+
+        visual_ambition = str(record.get("visual_ambition", "")).strip().lower()
+        high_visual = visual_ambition in {"flagship", "exceptional", "experiential"}
+        rendered = bool(record.get("material_rendered_ui")) or high_visual
+        if rendered:
+            _extend_checked(errors, "interface residue audit", _product9.validate_interface_residue_audit, record.get("interface_residue_audit"))
+
+        if high_visual:
+            _extend_checked(errors, "taste comparison", _product9.validate_taste_comparison, record.get("taste_comparison"))
+            _extend_checked(errors, "render critique", _product9.validate_render_critique, record.get("render_critique"))
+            _extend_checked(errors, "domain/audience fit", _product9.validate_domain_audience_fit, record.get("domain_audience_fit"))
+            _extend_checked(errors, "render fidelity", _product9.validate_render_fidelity, record.get("render_fidelity"))
 
         return {"decision": "BLOCKED" if errors else "PASS", "errors": errors}
 
