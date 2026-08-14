@@ -49,3 +49,20 @@ Open the same object twice, edit concurrently, move windows between displays, re
 
 ### Recovery
 Re-anchor windows, reconcile object versions, centralize command state, and provide safe conflict handling rather than assuming one-window ownership.
+
+## V9 Professional Workspace Completeness
+For professional applications, reason about the **workspace as an operating environment**, not a collection of pages. Inventory concurrent regions that materially reduce context switching: global navigation/orientation, primary work/document region, primary sidebar, optional secondary sidebar/inspector, bottom/auxiliary **secondary panels**, command/search surface, menus/toolbars, notifications/problems/activity surfaces, and a compact **status surface** for persistent state that should remain visible without interrupting the task. Use only the regions justified by product capabilities; resemblance to an IDE is not evidence.
+
+Define ownership and disclosure for every region. A primary sidebar usually changes what object/context is being worked on; an inspector usually explains or edits the current selection; a panel often hosts secondary processes, logs, timeline, console, comments, assets, history or problems that benefit from simultaneous visibility. If two regions have no stable semantic difference, merge or reframe them rather than relying on visual position to teach the distinction.
+
+Support **layout persistence as user-owned state** when long-session workflows benefit: open panels, widths, selected tabs, inspector state, active document/workspace, density, pinned tools and other safe preferences. Persistence must survive resize and relaunch without restoring off-screen/inoperable geometry or privacy-sensitive content inappropriately. Provide reset/default workspace recovery when customization becomes confusing.
+
+Scale command access. Frequent actions may live in visible toolbars; complete commands remain available through menu/command registry; contextual commands may appear near the target; shortcuts accelerate repetition. Do not make a deeply nested settings page the only place to discover a command, and do not make context menus the sole path to essential outcomes. Command state, permission, loading and undo semantics stay consistent across all surfaces.
+
+Design density intentionally. Professional users often benefit from compact rows, aligned metadata and stable geometry, but density should vary by work region and task. A timeline, code/data grid or layers tree may be dense while an empty-state learning surface breathes. Avoid the “touch-sized desktop dashboard” failure where every row is oversized and large cards consume space without increasing comprehension.
+
+### V9 Falsification
+At the minimum supported window, close/collapse each non-primary region one at a time and verify that the user is not stranded. At a wide window, open the combinations professionals plausibly need and verify they do not become a wall of equal-weight panes. Relaunch after customization and after monitor removal. If context, commands or status disappear unpredictably, the workspace is not complete.
+
+### V9 Recovery
+Restore semantic region ownership, centralize command state, define collapse/detach/persistence rules, and reallocate density by task. Do not solve a weak professional workspace by permanently exposing every panel.
