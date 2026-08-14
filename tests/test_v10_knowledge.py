@@ -27,7 +27,7 @@ class V10KnowledgeTests(unittest.TestCase):
             self.assertEqual(sum(x["split"] == "holdout" for x in items), 1)
             self.assertEqual({x["complexity"] for x in items}, {"low", "medium", "high"})
 
-    def test_source_ledger_is_primary_mechanism_level_and_non_authority-smearing(self):
+    def test_source_ledger_is_primary_mechanism_level_and_non_authority_smearing(self):
         data = json.loads((ROOT / "knowledge/v10-empirical-evaluation-sources.json").read_text(encoding="utf-8"))
         self.assertEqual(data["version"], 10)
         self.assertGreaterEqual(len(data["sources"]), 5)
