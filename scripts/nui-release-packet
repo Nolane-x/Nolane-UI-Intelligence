@@ -30,7 +30,8 @@ def main() -> int:
       "packet_id":f"NUI-V9-STRUCTURAL-{a.revision}","artifact_revision":a.revision,"phase":"VERIFIED",
       "task_profile":"NUI v9 Product Completeness & Taste Intelligence: inherited v5-v8 cognition, authority, media and agent gates plus broad-before-narrow capability envelope discovery, independent scope adequacy, settings/account lifecycle depth, professional workspace instrument architecture, browser/platform residue auditing, comparative taste discrimination, render-first design-director critique, curated mechanism-level benchmark memory, domain/audience sensitivity, design-to-render fidelity and semantic motion direction.",
       "obligations":[{"id":x,"status":"PASS","evidence_refs":refs} for x in obligations],"evidence":evidence,"findings":[],
-      "checks":{"unit-tests":"PASS","repository-validator":"PASS","completion-gate":"PASS","completion-entrypoint":V9_COMPLETION_ENTRYPOINT},
+      "checks":{"unit-tests":"PASS","repository-validator":"PASS","completion-gate":"PASS"},
+      "completion_entrypoint":V9_COMPLETION_ENTRYPOINT,
       "claim":"This exact revision satisfies NUI v9 deterministic repository structural and contract checks while preserving the 174 canonical-skill ownership graph and extending high-ambition completion with product-scope, perceptual, runtime-fidelity and adversarial evidence requirements.",
       "bounds":[
         "Structural repository verification does not prove that every future UI is beautiful, usable, accessible, lawful, complete or superior. Task-specific product truth, rendered evidence and human/product outcomes remain separate evidence obligations.",
