@@ -6,6 +6,16 @@ from typing import Any
 STATUSES = {"STRUCTURAL_ONLY", "EMPIRICAL_LOCAL", "EMPIRICAL_TRANSFER", "REJECTED"}
 
 
+def _is_sha256(value: Any) -> bool:
+    if not isinstance(value, str) or len(value) != 64:
+        return False
+    try:
+        int(value, 16)
+        return True
+    except ValueError:
+        return False
+
+
 def _positive_aggregate(aggregate: dict[str, Any], errors: list[str]) -> bool:
     delta = aggregate.get("paired_delta")
     ci = aggregate.get("ci")
@@ -22,31 +32,61 @@ def _positive_aggregate(aggregate: dict[str, Any], errors: list[str]) -> bool:
     return ok
 
 
+def _validated_provenance(provenance: dict[str, Any], errors: list[str]) -> bool:
+    """Require derived evidence, not a self-declared ``real_model_runs`` flag."""
+    ok = True
+    if provenance.get("validated_bundle") is not True:
+        errors.append("empirical promotion requires a validated run/judgment bundle")
+        ok = False
+
+    digests = provenance.get("bundle_digests")
+    if not isinstance(digests, list) or not digests or not all(_is_sha256(x) for x in digests):
+        errors.append("validated empirical bundle requires non-empty SHA-256 bundle_digests")
+        ok = False
+
+    real_run_count = provenance.get("real_run_count")
+    if not isinstance(real_run_count, int) or isinstance(real_run_count, bool) or real_run_count <= 0:
+        errors.append("empirical promotion requires at least one validated real run")
+        ok = False
+
+    matched_pair_count = provenance.get("matched_pair_count")
+    if not isinstance(matched_pair_count, int) or isinstance(matched_pair_count, bool) or matched_pair_count <= 0:
+        errors.append("empirical promotion requires at least one validated matched pair")
+        ok = False
+
+    if provenance.get("judge_blind") is not True:
+        errors.append("empirical promotion requires blinded judgment evidence")
+        ok = False
+    return ok
+
+
 def promote_claim(claim: dict[str, Any], aggregate: dict[str, Any], provenance: dict[str, Any]) -> dict[str, Any]:
     errors: list[str] = []
-    requested = str(claim.get("requested_status", "STRUCTURAL_ONLY")) if isinstance(claim, dict) else "STRUCTURAL_ONLY"
+    claim = claim if isinstance(claim, dict) else {}
+    aggregate = aggregate if isinstance(aggregate, dict) else {}
+    provenance = provenance if isinstance(provenance, dict) else {}
+    requested = str(claim.get("requested_status", "STRUCTURAL_ONLY"))
     if requested not in STATUSES:
         errors.append("requested_status is invalid")
         requested = "STRUCTURAL_ONLY"
 
-    if not provenance.get("real_model_runs"):
+    if provenance.get("real_model_runs") is not True:
         errors.append("structural or synthetic fixtures cannot be promoted to empirical evidence")
-        return {"status": "STRUCTURAL_ONLY", "errors": errors, "bounded_claim": claim.get("bounded_claim") if isinstance(claim, dict) else None}
+        return {"status": "STRUCTURAL_ONLY", "errors": errors, "bounded_claim": claim.get("bounded_claim")}
 
-    blockers = aggregate.get("hard_blocker_regressions", []) if isinstance(aggregate, dict) else []
+    blockers = aggregate.get("hard_blocker_regressions", [])
     if blockers:
         errors.append(f"hard-blocker regression prevents positive efficacy claim: {blockers}")
-        return {"status": "REJECTED", "errors": errors, "bounded_claim": claim.get("bounded_claim") if isinstance(claim, dict) else None}
+        return {"status": "REJECTED", "errors": errors, "bounded_claim": claim.get("bounded_claim")}
 
+    provenance_ok = _validated_provenance(provenance, errors)
     empirical_ok = _positive_aggregate(aggregate, errors)
     if provenance.get("ablation_identified") is not True:
         errors.append("attributed efficacy requires targeted ablation identification")
         empirical_ok = False
-    if not empirical_ok:
-        return {"status": "REJECTED", "errors": errors, "bounded_claim": claim.get("bounded_claim") if isinstance(claim, dict) else None}
 
+    families = sorted({str(x) for x in provenance.get("model_families", []) if str(x).strip()})
     if requested == "EMPIRICAL_TRANSFER":
-        families = sorted({str(x) for x in provenance.get("model_families", []) if str(x).strip()})
         if len(families) < 2:
             errors.append("EMPIRICAL_TRANSFER requires at least two model families")
         if provenance.get("holdout") is not True:
@@ -56,14 +96,19 @@ def promote_claim(claim: dict[str, Any], aggregate: dict[str, Any], provenance: 
             errors.append("EMPIRICAL_TRANSFER requires per-model direction evidence")
         elif any(not isinstance(v, (int, float)) or float(v) <= 0 for v in directions.values()):
             errors.append("EMPIRICAL_TRANSFER cannot hide a contradictory model-family effect in pooled averaging")
-        if not errors:
+        if provenance_ok and empirical_ok and not errors:
             return {"status": "EMPIRICAL_TRANSFER", "errors": [], "bounded_claim": claim.get("bounded_claim"), "model_families": families}
-        return {"status": "EMPIRICAL_LOCAL", "errors": errors, "bounded_claim": claim.get("bounded_claim"), "model_families": families}
+        return {"status": "REJECTED", "errors": errors, "bounded_claim": claim.get("bounded_claim"), "model_families": families}
 
     if requested == "REJECTED":
         return {"status": "REJECTED", "errors": ["claim explicitly requested rejection"], "bounded_claim": claim.get("bounded_claim")}
-    if requested in {"EMPIRICAL_LOCAL", "STRUCTURAL_ONLY"}:
-        return {"status": "EMPIRICAL_LOCAL" if requested == "EMPIRICAL_LOCAL" else "STRUCTURAL_ONLY", "errors": errors, "bounded_claim": claim.get("bounded_claim")}
+
+    if requested == "EMPIRICAL_LOCAL":
+        if provenance_ok and empirical_ok:
+            return {"status": "EMPIRICAL_LOCAL", "errors": [], "bounded_claim": claim.get("bounded_claim")}
+        return {"status": "REJECTED", "errors": errors, "bounded_claim": claim.get("bounded_claim")}
+
+    # A structural-only request stays structural even if an empirical bundle exists.
     return {"status": "STRUCTURAL_ONLY", "errors": errors, "bounded_claim": claim.get("bounded_claim")}
 
 
