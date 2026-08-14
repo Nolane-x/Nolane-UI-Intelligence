@@ -1,0 +1,15 @@
+{
+  "version": 10,
+  "experiment_id": "nui-v10-example-scope",
+  "nui_revision": "REPLACE_WITH_EXACT_GIT_SHA",
+  "tasks": ["scope-01", "scope-04"],
+  "models": [
+    {"provider": "example-provider", "family": "example-family", "name": "example-model", "snapshot": "pinned-snapshot", "runtime": "provider-adapter-v1"}
+  ],
+  "treatments": ["baseline", "nui_full", "nui_ablation:product-envelope", "nui_mutation:scope-compress"],
+  "replicates": 2,
+  "seeds": [101, 202],
+  "temperature": 0.2,
+  "tool_budget": {"browser": true, "screenshot": true, "network": false, "max_steps": 40, "max_wall_seconds": 900},
+  "notes": "This example defines a matrix only. It is not empirical evidence until a real provider runner records complete provenance and artifacts."
+}
