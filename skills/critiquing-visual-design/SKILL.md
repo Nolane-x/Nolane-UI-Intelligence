@@ -71,3 +71,24 @@ Ask a critic who has not read the design rationale to identify the page's primar
 
 ### Recovery
 Change the smallest causal layer, recapture the failed state/viewport, and escalate to re-divergence when local polish cannot repair the thesis.
+
+## V9 Rendered Design-Director Court
+For flagship or high-visual-ambition work, perform a **screenshot-based critique loop** as a design director would: render the actual interface, capture the required viewport/state/theme matrix, inspect perception before source code, issue causal findings, repair, re-render, then compare the before/after evidence. A design spec, Figma-like intention, token file, component story or unit test cannot substitute for the final pixels users perceive.
+
+Start every pass by identifying **focal hierarchy**: what the eye sees first, second and third; whether the primary work/object/action owns enough saliency; and whether decoration, cards, badges, chrome or empty hero space steals attention. Then inspect **visual rhythm** across macro and micro scales: variation in dense/quiet regions, section cadence, row frequency, alignment beats, repeated boundaries, type intervals and the distribution of negative space. Uniform spacing can still feel dead; irregular spacing can still feel intentional when its rhythm is coherent.
+
+Judge density as a composition, not a number. Ask where information should breathe, where professional work should become compact, whether every region has the same weight, and whether progressive disclosure creates useful contrast between primary work and secondary controls. Inspect type at rendered size: actual glyph density, x-height, line breaks, line-height, weight contrast, numeral alignment, label compression and optical alignment. “The type scale is valid” is weaker evidence than “the rendered hierarchy reads with the intended authority.”
+
+Run the court at minimum on the critical desktop/wide state and, for responsive products, a real mobile/small state. Mobile is not a compliance screenshot. Ask whether the thesis, focal order, signature, content priority, action reachability and material quality survive recomposition. Inspect overlays, keyboard/safe-area pressure, sticky regions, truncation and accidental horizontal/nested scroll. A desktop masterpiece with a generic stacked mobile fallback is not a flagship result.
+
+Use **A/B** comparison whenever refinement is ambiguous. A/B may compare two candidate renders, before/after repair, or two mechanism variants. Compare one dimension at a time when possible—type, density, border/elevation, spacing, image crop, motion frame—then also judge the whole. Record which variant wins, why, and which strengths of the losing variant must be preserved. If evidence is inconclusive, do not average both into a muddy compromise.
+
+Explicitly inspect for “still feels cheap / AI-generated / template-like” residue and decompose it into observable causes: repeated rounded cards, indiscriminate borders, equal-density sections, stock gradients, weak type personality, excessive pills, icon noise, default browser controls, hard/dirty shadows, arbitrary glass, over-animated microinteractions, fake metrics, or visual effects disconnected from product semantics. These are hypotheses, not universal bans.
+
+The court must not over-polish one hero screenshot while states degrade. Inspect empty, loading, error, selected/focused, overflow/long-content and at least one representative populated state when those materially affect the surface. Preserve accessibility cues and product truth even when they make the composition less pristine.
+
+### V9 Falsification
+Give an independent critic only the screenshots, not the design rationale, and ask for the primary task, focal order, perceived quality level, domain cues and likely interaction hierarchy. If the answer differs materially from intent, the render failed. Then run A/B against the proposed repair; if the visual relation cannot be named, the repair is preference rather than evidence.
+
+### V9 Recovery
+Route macro composition failures to hierarchy/layout/aesthetic owners, systemic detail failures to token/component/fidelity owners, browser-residue failures to platform/fidelity, and thesis failures back to aesthetic divergence. Repair the smallest causal layer, recapture the same viewport/state, and keep the evidence pair so improvement is inspectable rather than asserted.
