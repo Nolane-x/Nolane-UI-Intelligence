@@ -115,6 +115,17 @@ class V8FlagshipVisualSynthesisTests(unittest.TestCase):
         self.assertFalse(result["valid"])
         self.assertTrue(any("converged" in e.lower() for e in result["errors"]))
 
+    def test_each_direction_axis_must_materially_diverge(self):
+        packet = complete_packet()
+        shared_material = packet["direction_candidates"][0]["material_system"]
+        shared_signature = packet["direction_candidates"][0]["signature_mechanism"]
+        for candidate in packet["direction_candidates"]:
+            candidate["material_system"] = shared_material
+            candidate["signature_mechanism"] = shared_signature
+        result = validate_flagship_visual_synthesis(packet)
+        self.assertFalse(result["valid"])
+        self.assertTrue(any("materially diverge" in e.lower() for e in result["errors"]))
+
     def test_generic_transfer_must_fail_for_exceptional_work(self):
         packet = complete_packet()
         packet["generic_transfer_test"] = {"verdict": "TRANSFERS", "reason": "works for any dashboard"}
@@ -135,6 +146,13 @@ class V8FlagshipVisualSynthesisTests(unittest.TestCase):
         result = validate_flagship_visual_synthesis(packet)
         self.assertFalse(result["valid"])
         self.assertTrue(any("critique" in e.lower() for e in result["errors"]))
+
+    def test_critique_must_verify_against_a_real_rendered_state(self):
+        packet = complete_packet()
+        packet["critique_cycles"][0]["verified_in"] = "imaginary-render"
+        result = validate_flagship_visual_synthesis(packet)
+        self.assertFalse(result["valid"])
+        self.assertTrue(any("verified_in" in e for e in result["errors"]))
 
 
 if __name__ == "__main__":
