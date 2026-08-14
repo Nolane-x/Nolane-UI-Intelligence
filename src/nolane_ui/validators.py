@@ -34,9 +34,14 @@ else:
     from . import flagship as _flagship8
     from . import product_v9 as _product9
     from . import scope_v9 as _scope9
+    from . import routing_v9 as _routing9
 
     def mandatory_routes_for_profile(profile: dict[str, Any]) -> set[str]:
-        return _v7.mandatory_routes_for_profile(profile) | _media8.mandatory_v8_routes(profile)
+        return (
+            _v7.mandatory_routes_for_profile(profile)
+            | _media8.mandatory_v8_routes(profile)
+            | _routing9.mandatory_v9_routes(profile)
+        )
 
     def validate_mandatory_routes(profile: dict[str, Any], selected_skills: Iterable[str]) -> dict[str, Any]:
         required = mandatory_routes_for_profile(profile)
