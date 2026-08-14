@@ -63,3 +63,16 @@ Delete one required routed artifact or substitute evidence from another revision
 
 ### Recovery
 Return to the earliest violated invariant, preserve valid downstream-independent artifacts, reroute/revalidate affected branches, and regenerate the completion packet.
+
+## V8 Flagship Synthesis Lock
+When `visual_ambition` is `flagship`, `exceptional`, or `experiential`, the lifecycle must bind the routed aesthetic and media owners into one `flagship-visual-synthesis` evidence packet before `VERIFIED`. This is an integration proof, not a new design owner: local decisions remain with their canonical skills.
+
+The packet must show a concrete visual thesis, at least three materially divergent directions before selection, an explicit attention hierarchy, resolved typography/composition/color-material/motion systems, a domain-linked signature with a restraint rule, bounded reference mechanisms, generic-transfer resistance, structural responsive evidence, and at least two closed critique/correction cycles. The executable contract lives in `src/nolane_ui/flagship.py`; its decision vocabulary lives in `knowledge/flagship-visual-synthesis-v8.json`.
+
+A high-ambition session cannot advance by presenting one polished screenshot, a beauty score, a fashionable component stack, or three cosmetic variants. If the direction candidates converge on the same solution, the generic-transfer test succeeds, responsive evidence is shrink-only, or critique has no re-observed correction, transition to `RECOVERY` and return to `DIVERGED` or the earliest affected craft phase.
+
+### V8 falsification
+Blind product name/logo and compare candidate silhouettes, type behavior, material logic and signatures. If the same shell can host an unrelated product without losing important structure or identity, the flagship claim remains unverified even when local implementation checks pass.
+
+### V8 recovery
+Preserve valid product truth and specialist evidence, discard only the collapsed visual basin, reopen reference frontier/divergence, choose a materially different mechanism set, render the affected viewport/state again, and close the critique loop before recomputing completion.
