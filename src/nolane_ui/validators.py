@@ -29,6 +29,7 @@ else:
     from .validators_v7 import *  # noqa: F401,F403
     from . import validators_v7 as _v7
     from . import v8_repository as _repo8
+    from . import v9_repository as _repo9
     from . import interop as _interop8
     from . import media as _media8
     from . import flagship as _flagship8
@@ -154,4 +155,5 @@ else:
         prefix = "v6 depth focus must exactly cover the canonical skill graph"
         base["errors"] = [e for e in base.get("errors", []) if not str(e).startswith(prefix)]
         base["valid"] = not base["errors"]
-        return _repo8.extend(root, base)
+        v8 = _repo8.extend(root, base)
+        return _repo9.extend(root, v8)
