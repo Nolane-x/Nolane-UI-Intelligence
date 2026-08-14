@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nolane.ai/schemas/v10-run-record.schema.json",
+  "title": "NUI V10 Empirical Run Record",
+  "type": "object",
+  "required": ["run_id", "experiment_id", "task_id", "treatment", "provider", "model_family", "model_name", "model_snapshot", "runtime", "nui_revision", "status", "seed", "temperature", "prompt_sha256", "context_sha256", "tool_budget_hash", "artifact_digests"],
+  "properties": {
+    "run_id": {"type": "string", "minLength": 1}, "experiment_id": {"type": "string", "minLength": 1}, "task_id": {"type": "string", "minLength": 1},
+    "treatment": {"type": "string", "pattern": "^(baseline|nui_full|nui_ablation:|nui_mutation:|placebo:).+|^(baseline|nui_full)$"},
+    "provider": {"type": "string", "minLength": 1}, "model_family": {"type": "string", "minLength": 1}, "model_name": {"type": "string", "minLength": 1},
+    "model_snapshot": {"type": "string", "minLength": 1}, "runtime": {"type": "string", "minLength": 1}, "nui_revision": {"type": "string", "minLength": 7},
+    "status": {"enum": ["success", "failed", "timeout", "excluded"]},
+    "exclusion_reason": {"enum": ["provider-outage", "infrastructure-corruption", "artifact-corruption", "protocol-violation", "duplicate-run"]},
+    "seed": {"type": "integer"}, "temperature": {"type": "number", "minimum": 0},
+    "prompt_sha256": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"}, "context_sha256": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"},
+    "tool_budget_hash": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"},
+    "artifact_digests": {"type": "array", "items": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"}, "uniqueItems": true},
+    "artifact_refs": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "input_tokens": {"type": "number", "minimum": 0}, "output_tokens": {"type": "number", "minimum": 0}, "cost_usd": {"type": "number", "minimum": 0},
+    "wall_time_seconds": {"type": "number", "minimum": 0}, "synthetic_example": {"type": "boolean"}, "output_text": {"type": "string"}
+  },
+  "allOf": [
+    {"if": {"properties": {"status": {"const": "excluded"}}, "required": ["status"]}, "then": {"required": ["exclusion_reason"]}},
+    {"if": {"properties": {"status": {"const": "success"}}, "required": ["status"]}, "then": {"properties": {"artifact_digests": {"minItems": 1}}}}
+  ]
+}
