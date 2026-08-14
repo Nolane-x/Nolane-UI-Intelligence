@@ -1,0 +1,305 @@
+{
+  "version": 10,
+  "license_note": "Original NUI benchmark prompts authored for this repository. External benchmark mechanisms informed evaluation architecture; no third-party task text is copied here.",
+  "tasks": [
+    {
+      "id": "scope-01", "family": "product-scope", "split": "dev", "complexity": "low",
+      "prompt": "Design the product structure for a small independent bookstore's web-based sales manager. The owner asked for a useful day-to-day tool, but did not enumerate features. Decide what the product needs before proposing screens; keep the result appropriate for a five-person shop rather than turning it into enterprise ERP.",
+      "artifact_requirements": ["product-scope-plan", "capability-map", "primary-navigation"],
+      "constraints": ["five staff", "one physical store", "online orders", "bounded operational complexity"], "platform": "web", "modalities": ["pointer", "keyboard"]
+    },
+    {
+      "id": "scope-02", "family": "product-scope", "split": "dev", "complexity": "medium",
+      "prompt": "Plan a production-ready subscription analytics platform for founders and finance operators. The brief mentions dashboards, customers and revenue charts but is intentionally incomplete. Build a reasoned product map that supports real recurring use and explicitly decide which adjacent capabilities belong, do not belong, or need clarification.",
+      "artifact_requirements": ["actor-map", "capability-ledger", "lifecycle-map", "scope-rationale"],
+      "constraints": ["multi-user", "financial data", "production product", "avoid speculative enterprise bloat"], "platform": "web", "modalities": ["pointer", "keyboard"]
+    },
+    {
+      "id": "scope-03", "family": "product-scope", "split": "dev", "complexity": "high",
+      "prompt": "Architect a complete merchant operations product for a regional seller running twelve stores and an online channel. Staff roles differ across locations; stock transfers, fulfillment exceptions and customer support all matter. Start from actors, objects and lifecycles rather than a dashboard template, and explain deliberate scope boundaries.",
+      "artifact_requirements": ["product-object-model", "capability-envelope", "role-capability-matrix", "critical-scenarios"],
+      "constraints": ["twelve stores", "omnichannel", "role separation", "operational exceptions", "auditable decisions"], "platform": "web", "modalities": ["pointer", "keyboard", "touch"]
+    },
+    {
+      "id": "scope-04", "family": "product-scope", "split": "holdout", "complexity": "high",
+      "prompt": "Define the product architecture for a research-lab platform that coordinates experiment requests, instrument reservations, sample handoffs, results and team collaboration. The client calls it a 'lab workspace' and gives no sitemap. Produce a bounded but production-plausible product model before designing navigation.",
+      "artifact_requirements": ["actor-job-map", "entity-lifecycles", "capability-envelope", "scope-decisions"],
+      "constraints": ["research staff", "shared equipment", "handoffs", "history matters", "no invented regulatory certification"], "platform": "web", "modalities": ["pointer", "keyboard"]
+    },
+
+    {
+      "id": "settings-01", "family": "settings-architecture", "split": "dev", "complexity": "low",
+      "prompt": "A personal note-taking app has six preferences covering appearance, editor behavior and backups. Design its settings experience so it is easy to understand and recover from mistakes, without adding enterprise configuration machinery that the product does not need.",
+      "artifact_requirements": ["settings-structure", "preference-behavior-notes", "reset-strategy"],
+      "constraints": ["personal product", "six preferences", "local plus cloud backup"], "platform": "web", "modalities": ["pointer", "keyboard"]
+    },
+    {
+      "id": "settings-02", "family": "settings-architecture", "split": "dev", "complexity": "medium",
+      "prompt": "Design settings for a collaborative project tool where a person's theme and notification choices differ from project defaults, and organization administrators can enforce security and retention policy. Make it clear what a user is changing and why a value may not be editable.",
+      "artifact_requirements": ["settings-taxonomy", "scope-model", "precedence-model", "state-examples"],
+      "constraints": ["user/project/organization scopes", "policy locks", "sync across devices"], "platform": "web", "modalities": ["pointer", "keyboard"]
+    },
+    {
+      "id": "settings-03", "family": "settings-architecture", "split": "dev", "complexity": "high",
+      "prompt": "Architect preferences for a desktop code editor with hundreds of options, extensions that contribute settings, per-language overrides, workspace overrides and sync. The product must remain understandable for newcomers while preserving expert control and debuggability of effective values.",
+      "artifact_requirements": ["configuration-scope-graph", "taxonomy-and-search-model", "override-resolution", "recovery-and-export-plan"],
+      "constraints": ["large settings inventory", "extension contributions", "user/workspace/language scope", "power users"], "platform": "desktop", "modalities": ["keyboard", "pointer"]
+    },
+    {
+      "id": "settings-04", "family": "settings-architecture", "split": "holdout", "complexity": "high",
+      "prompt": "Design the settings system for a team video editor used on shared studio machines. Some preferences follow the creator, some belong to a project, some are machine-performance choices, and team leads control export presets. Make the resulting model predictable across switching users and projects.",
+      "artifact_requirements": ["settings-domain-model", "scope-and-precedence-table", "dangerous-setting-treatment", "recovery-plan"],
+      "constraints": ["shared devices", "creator/project/device/team scopes", "performance-sensitive", "export governance"], "platform": "desktop", "modalities": ["keyboard", "pointer"]
+    },
+
+    {
+      "id": "account-01", "family": "account-workspace", "split": "dev", "complexity": "low",
+      "prompt": "Design account management for a paid personal writing app. Include the user journey around establishing access, staying signed in on multiple devices, recovering access and leaving the service. Keep it personal; there are no teams or organizations.",
+      "artifact_requirements": ["account-state-map", "security-surfaces", "recovery-flow", "exit-flow"],
+      "constraints": ["personal accounts", "subscription", "multiple devices", "no team model"], "platform": "web", "modalities": ["pointer", "keyboard", "touch"]
+    },
+    {
+      "id": "account-02", "family": "account-workspace", "split": "dev", "complexity": "medium",
+      "prompt": "Design identity and workspace continuity for a small agency product. A person may belong to several client workspaces, receive invitations, switch contexts, revoke old sessions and leave a client while keeping their own account. Explain ownership and recovery states clearly.",
+      "artifact_requirements": ["identity-workspace-state-model", "membership-flow", "session-device-model", "recovery-and-exit-cases"],
+      "constraints": ["multi-workspace", "invitations", "membership changes", "device sessions"], "platform": "web", "modalities": ["pointer", "keyboard"]
+    },
+    {
+      "id": "account-03", "family": "account-workspace", "split": "dev", "complexity": "high",
+      "prompt": "Architect account, membership and administrative continuity for a B2B analytics service. Companies can have multiple administrators, contractors with expiry, SSO-managed members and API-linked service identities. Cover what happens when an owner departs or access must be revoked during an incident.",
+      "artifact_requirements": ["principal-model", "membership-authority-map", "session-and-revocation-flow", "ownership-transition", "recovery-cases"],
+      "constraints": ["B2B", "SSO possible", "contractor lifecycle", "owner departure", "security-sensitive"], "platform": "web", "modalities": ["pointer", "keyboard"]
+    },
+    {
+      "id": "account-04", "family": "account-workspace", "split": "holdout", "complexity": "high",
+      "prompt": "Design account and organization continuity for a community publishing platform where one person can write personally, administer publications, transfer a publication, temporarily suspend access, and later delete their personal account without silently orphaning shared content.",
+      "artifact_requirements": ["account-organization-lifecycle", "ownership-transfer-model", "shared-content-consequences", "recovery-and-deletion-flow"],
+      "constraints": ["personal and organization contexts", "shared content", "transferable ownership", "deletion consequences"], "platform": "web", "modalities": ["pointer", "keyboard", "touch"]
+    },
+
+    {
+      "id": "workspace-01", "family": "professional-workspace", "split": "dev", "complexity": "low",
+      "prompt": "Design a lightweight image annotation workspace for researchers who draw boxes, label objects and export datasets. Decide which tools remain persistent, which appear only for a selection, and how a user discovers commands without filling the screen with controls.",
+      "artifact_requirements": ["instrument-map", "workspace-zones", "selection-context-model", "command-discovery-plan"],
+      "constraints": ["annotation not full image editing", "repeated expert work", "keyboard shortcuts useful"], "platform": "desktop", "modalities": ["pointer", "keyboard"]
+    },
+    {
+      "id": "workspace-02", "family": "professional-workspace", "split": "dev", "complexity": "medium",
+      "prompt": "Design the main editing workspace for a podcast editor with waveform/timeline editing, transcript-assisted cuts, clips, effects and export. Organize instruments by task and selection context so both first-time and frequent editors can work efficiently.",
+      "artifact_requirements": ["workspace-information-architecture", "instrument-capability-map", "contextual-inspector-model", "keyboard-command-plan"],
+      "constraints": ["timeline", "transcript", "effects", "export", "novice-to-expert progression"], "platform": "desktop", "modalities": ["pointer", "keyboard"]
+    },
+    {
+      "id": "workspace-03", "family": "professional-workspace", "split": "dev", "complexity": "high",
+      "prompt": "Architect a professional diagramming application for systems engineers. It supports large canvases, layers, reusable components, data bindings, comments, version history, validation issues, search and export. Define workspace zones, command access and persistence without copying the chrome of an existing editor.",
+      "artifact_requirements": ["instrument-topology", "zone-ownership", "command-registry", "context-transitions", "workspace-persistence"],
+      "constraints": ["large documents", "many instruments", "collaboration", "validation", "power-user workflows"], "platform": "desktop", "modalities": ["pointer", "keyboard"]
+    },
+    {
+      "id": "workspace-04", "family": "professional-workspace", "split": "holdout", "complexity": "high",
+      "prompt": "Design a color-grading workspace for independent filmmakers. Users compare shots, adjust scoped parameters, manage versions, inspect scopes, copy grades and render previews. Build the instrument organization from the workflow rather than imitating any named video application.",
+      "artifact_requirements": ["workflow-to-instrument-map", "workspace-zoning", "selection-and-scope-rules", "history/version-model"],
+      "constraints": ["precision editing", "comparison", "dense expert controls", "preview performance"], "platform": "desktop", "modalities": ["pointer", "keyboard"]
+    },
+
+    {
+      "id": "taste-01", "family": "visual-taste", "split": "dev", "complexity": "low",
+      "prompt": "Create and compare two polished visual directions for a calm personal finance overview. Both must be accessible and functionally equivalent. Choose one by explaining the visible relationships that make it feel more trustworthy and resolved for the target user, not by assigning a beauty score.",
+      "artifact_requirements": ["two-rendered-directions", "comparative-critique", "selection-rationale"],
+      "constraints": ["consumer finance", "calm confidence", "accessible contrast", "no dark-pattern urgency"], "platform": "web", "modalities": ["pointer", "touch"]
+    },
+    {
+      "id": "taste-02", "family": "visual-taste", "split": "dev", "complexity": "medium",
+      "prompt": "Develop three genuinely different visual directions for a scientific knowledge product. Avoid the generic gradient-card SaaS look, but also avoid novelty for novelty's sake. Compare hierarchy, typography, density, material treatment and subject-specific identity using rendered evidence.",
+      "artifact_requirements": ["three-rendered-directions", "dimension-comparison", "selected-direction", "reference-boundaries"],
+      "constraints": ["scientific content", "mixed reading and scanning", "credible but distinctive"], "platform": "web", "modalities": ["pointer", "keyboard"]
+    },
+    {
+      "id": "taste-03", "family": "visual-taste", "split": "dev", "complexity": "high",
+      "prompt": "Art-direct the flagship landing and in-product home for a premium spatial-audio creation tool. Produce materially different candidates and choose a coherent system that can feel authored and memorable without hiding the technical nature of the product or copying a famous creative brand.",
+      "artifact_requirements": ["direction-system-set", "rendered-key-states", "pairwise-taste-ledger", "generic-transfer-analysis"],
+      "constraints": ["premium creative tool", "technical credibility", "marketing-to-product continuity", "distinctive identity"], "platform": "web", "modalities": ["pointer", "keyboard"]
+    },
+    {
+      "id": "taste-04", "family": "visual-taste", "split": "holdout", "complexity": "high",
+      "prompt": "Create a high-end visual system for an archival fashion marketplace that combines editorial storytelling with serious catalog search and seller operations. Compare candidates on authored character and operational clarity, and reject any direction that becomes a generic luxury template when the brand name is removed.",
+      "artifact_requirements": ["candidate-renders", "comparative-taste-analysis", "operational-state-render", "identity-transfer-test"],
+      "constraints": ["editorial plus commerce", "image-rich", "seller and buyer contexts", "no trade-dress imitation"], "platform": "web", "modalities": ["pointer", "touch", "keyboard"]
+    },
+
+    {
+      "id": "critique-01", "family": "rendered-critique", "split": "dev", "complexity": "low",
+      "prompt": "Review a rendered settings screen whose controls are correct but the page feels visually flat and hard to scan. Diagnose causes using what is actually visible, propose the smallest meaningful correction, and verify the changed render rather than commenting only on source code.",
+      "artifact_requirements": ["before-render", "causal-findings", "repair-decision", "after-render"],
+      "constraints": ["preserve settings semantics", "no decorative overhaul"], "platform": "web", "modalities": ["pointer", "keyboard"]
+    },
+    {
+      "id": "critique-02", "family": "rendered-critique", "split": "dev", "complexity": "medium",
+      "prompt": "Critique a rendered merchant order workspace across normal, loading, error and dense-data states. Identify focal competition, rhythm, text wrapping, status clarity and accidental browser chrome; make bounded corrections and re-inspect the affected states.",
+      "artifact_requirements": ["state-render-set", "evidence-bound-findings", "repair-log", "verified-rerenders"],
+      "constraints": ["data density", "state truth", "production browser"], "platform": "web", "modalities": ["pointer", "keyboard"]
+    },
+    {
+      "id": "critique-03", "family": "rendered-critique", "split": "dev", "complexity": "high",
+      "prompt": "Act as an independent design director for a tool-rich desktop UI. Inspect wide and narrow rendered states, trace why hierarchy or workspace balance fails, and run at least two closed critique-repair cycles. Do not accept the generator's design rationale as proof.",
+      "artifact_requirements": ["multi-viewport-renders", "independent-observations", "two-repair-cycles", "comparison-verdict"],
+      "constraints": ["professional workspace", "dense chrome", "responsive window resizing"], "platform": "desktop", "modalities": ["pointer", "keyboard"]
+    },
+    {
+      "id": "critique-04", "family": "rendered-critique", "split": "holdout", "complexity": "high",
+      "prompt": "Evaluate a rendered healthcare appointment operations console that is functionally complete but visually noisy. Preserve clinical state clarity while improving attention hierarchy, density rhythm and error visibility. Every accepted fix must be checked in a new render of the relevant state.",
+      "artifact_requirements": ["representative-state-renders", "causal-critique", "correction-set", "reverification-evidence"],
+      "constraints": ["healthcare operations", "high information density", "status cannot be aestheticized away"], "platform": "web", "modalities": ["pointer", "keyboard"]
+    },
+
+    {
+      "id": "residue-01", "family": "interface-residue", "split": "dev", "complexity": "low",
+      "prompt": "Polish a dark-themed reading app where the content area scrolls and form controls appear in a few utility panels. Decide deliberately which browser-native appearances should remain and which should be harmonized, preserving clear focus and scroll operability.",
+      "artifact_requirements": ["native-control-audit", "treatment-decisions", "rendered-focus-scroll-states"],
+      "constraints": ["dark theme", "keyboard accessible", "do not hide functionality for cleanliness"], "platform": "web", "modalities": ["pointer", "keyboard"]
+    },
+    {
+      "id": "residue-02", "family": "interface-residue", "split": "dev", "complexity": "medium",
+      "prompt": "Audit a custom-styled analytics app for unintentional platform residue. Cover scroll areas, selects, date/number inputs, focus, text selection, validation, tooltips and resize behavior. For each finding choose an intentional native, styled or alternative treatment and verify operability.",
+      "artifact_requirements": ["residue-inventory", "platform-fit-decisions", "interaction-evidence", "representative-renders"],
+      "constraints": ["custom visual language", "desktop browser", "accessibility preserved"], "platform": "web", "modalities": ["pointer", "keyboard"]
+    },
+    {
+      "id": "residue-03", "family": "interface-residue", "split": "dev", "complexity": "high",
+      "prompt": "Bring a sophisticated browser-based editor to production polish. Its canvas, inspectors and panels are bespoke, but it also uses scrollbars, draggable dividers, native file selection, contextual menus and browser validation. Make every low-level surface intentional without replacing stable platform behavior gratuitously.",
+      "artifact_requirements": ["low-level-surface-ledger", "native-versus-custom-rationale", "keyboard-pointer-operability", "rendered-state-checks"],
+      "constraints": ["browser editor", "high polish", "mixed custom/native controls", "performance sensitive"], "platform": "web", "modalities": ["pointer", "keyboard"]
+    },
+    {
+      "id": "residue-04", "family": "interface-residue", "split": "holdout", "complexity": "high",
+      "prompt": "Audit the interface finish of a cross-platform desktop chat client implemented with web technology. It needs to feel coherent on each supported desktop without erasing expected platform cues. Examine subtle chrome, overlays, selection, focus, drag/drop and scrolling in both light and dark modes.",
+      "artifact_requirements": ["platform-residue-matrix", "intentionality-rationale", "theme-state-renders", "operability-checks"],
+      "constraints": ["cross-platform desktop", "light/dark", "native expectations vary"], "platform": "desktop", "modalities": ["pointer", "keyboard"]
+    },
+
+    {
+      "id": "domain-01", "family": "domain-audience", "split": "dev", "complexity": "low",
+      "prompt": "Design the same savings-goal feature for two audiences: a first-time consumer and a finance-savvy user. Keep the underlying money truth identical but adapt explanation, density and control depth where the user model supports it.",
+      "artifact_requirements": ["audience-models", "design-consequence-comparison", "two-interface-specs"],
+      "constraints": ["fintech", "same financial semantics", "no patronizing copy"], "platform": "mobile", "modalities": ["touch"]
+    },
+    {
+      "id": "domain-02", "family": "domain-audience", "split": "dev", "complexity": "medium",
+      "prompt": "Design an AI-assisted research workspace for a graduate student and for a senior analyst. Both need provenance and correction, but their task frequency, tolerance for density and review behavior differ. Show concrete interaction and hierarchy consequences rather than merely changing colors or terminology.",
+      "artifact_requirements": ["audience-posture-model", "risk-and-trust-map", "variant-design-consequences", "shared-invariants"],
+      "constraints": ["AI-generated content", "provenance", "two expertise levels"], "platform": "web", "modalities": ["pointer", "keyboard"]
+    },
+    {
+      "id": "domain-03", "family": "domain-audience", "split": "dev", "complexity": "high",
+      "prompt": "Design a creative asset-management product used by occasional marketing contributors, professional designers and team librarians. Create one coherent system whose density, explanation and controls adapt by task and role without fragmenting into three unrelated products.",
+      "artifact_requirements": ["role-task-model", "shared-system-invariants", "progressive-complexity-plan", "role-specific-state-examples"],
+      "constraints": ["creative tools domain", "three audiences", "shared asset governance"], "platform": "web", "modalities": ["pointer", "keyboard", "touch"]
+    },
+    {
+      "id": "domain-04", "family": "domain-audience", "split": "holdout", "complexity": "high",
+      "prompt": "Design medication-adherence interfaces for a patient and for a clinic coordinator reviewing many patients. Preserve truthful health information in both, but adapt information density, exception handling and next-action emphasis according to the different jobs and risk exposure.",
+      "artifact_requirements": ["audience-risk-model", "shared-clinical-invariants", "patient-surface-plan", "coordinator-surface-plan"],
+      "constraints": ["health domain", "do not imply diagnosis", "different density needs", "safety over novelty"], "platform": "web", "modalities": ["touch", "pointer", "keyboard"]
+    },
+
+    {
+      "id": "motion-01", "family": "motion-semantics", "split": "dev", "complexity": "low",
+      "prompt": "Specify motion for a file upload flow with progress, cancellation, success and retry. Explain what motion teaches or confirms, what should remain still, and how reduced-motion users receive equivalent state information.",
+      "artifact_requirements": ["motion-purpose-map", "temporal-state-sequence", "reduced-motion-equivalent"],
+      "constraints": ["functional feedback first", "interruptible", "accessible"], "platform": "web", "modalities": ["pointer", "keyboard"]
+    },
+    {
+      "id": "motion-02", "family": "motion-semantics", "split": "dev", "complexity": "medium",
+      "prompt": "Design motion behavior for a kanban-style planning tool with drag/drop, filtering, panel transitions and async saves. Preserve spatial causality and interruption while preventing repeated decorative animation from slowing expert work.",
+      "artifact_requirements": ["motion-semantics-ledger", "direct-manipulation-transitions", "interruption-rules", "reduced-motion-plan"],
+      "constraints": ["frequent use", "drag/drop", "async save", "keyboard alternative"], "platform": "web", "modalities": ["pointer", "keyboard", "touch"]
+    },
+    {
+      "id": "motion-03", "family": "motion-semantics", "split": "dev", "complexity": "high",
+      "prompt": "Create a motion system for a professional 3D scene editor. Selection, camera changes, object hierarchy, background processing and error recovery all have temporal behavior. Prioritize causality and continuity, define interruption/retargeting, and distinguish expressive moments from task feedback.",
+      "artifact_requirements": ["motion-priority-model", "state-transition-spec", "interruption-and-retargeting", "performance-degradation-plan"],
+      "constraints": ["professional editor", "high frequency", "performance sensitive", "reduced motion"], "platform": "desktop", "modalities": ["pointer", "keyboard"]
+    },
+    {
+      "id": "motion-04", "family": "motion-semantics", "split": "holdout", "complexity": "high",
+      "prompt": "Specify temporal behavior for an incident-response console where alerts arrive, incidents change ownership and automation runs long actions. Use motion only where it improves orientation or causality; avoid creating urgency theater or motion-dependent critical cues.",
+      "artifact_requirements": ["temporal-priority-map", "alert-transition-rules", "long-action-feedback", "reduced-motion-equivalence"],
+      "constraints": ["high pressure", "real-time", "critical status cannot rely on motion", "frequent expert use"], "platform": "web", "modalities": ["pointer", "keyboard"]
+    },
+
+    {
+      "id": "fidelity-01", "family": "render-fidelity", "split": "dev", "complexity": "low",
+      "prompt": "Verify a coded marketing page against its accepted design direction. Check resolved typography, spacing, interactive states and responsive behavior in the browser, and distinguish meaningful implementation drift from harmless renderer differences.",
+      "artifact_requirements": ["design-intent-trace", "runtime-renders", "state-checks", "drift-findings"],
+      "constraints": ["web implementation", "two viewport classes", "no raw pixel score as sole verdict"], "platform": "web", "modalities": ["pointer", "keyboard"]
+    },
+    {
+      "id": "fidelity-02", "family": "render-fidelity", "split": "dev", "complexity": "medium",
+      "prompt": "Audit implementation fidelity for a component-heavy web app after a design-system migration. Verify token mapping, focus/hover/disabled/loading/error states, overlays and content wrapping in real runtime states rather than assuming shared components guarantee correctness.",
+      "artifact_requirements": ["token-trace", "component-state-matrix", "runtime-observations", "visual-regression-rationale"],
+      "constraints": ["design-system migration", "dynamic content", "keyboard support"], "platform": "web", "modalities": ["pointer", "keyboard"]
+    },
+    {
+      "id": "fidelity-03", "family": "render-fidelity", "split": "dev", "complexity": "high",
+      "prompt": "Verify a browser-based editor implementation across light/dark themes, high-density panels, popovers, scroll areas, drag states and responsive window sizes. Trace failures from design intent through tokens/components to computed runtime behavior and rendered output.",
+      "artifact_requirements": ["intent-token-component-trace", "runtime-state-captures", "platform-chrome-audit", "regression-ledger"],
+      "constraints": ["complex editor", "multiple themes", "dense states", "browser platform"], "platform": "web", "modalities": ["pointer", "keyboard"]
+    },
+    {
+      "id": "fidelity-04", "family": "render-fidelity", "split": "holdout", "complexity": "high",
+      "prompt": "Audit the fidelity of a tablet-first field-service app implemented from an approved component specification. Verify typography fallback, touch targets, orientation changes, offline/error states and system overlays on the actual runtime surface, recording where the implementation changes the intended hierarchy or action safety.",
+      "artifact_requirements": ["runtime-environment-record", "state-and-orientation-captures", "implementation-drift-trace", "repair-verification"],
+      "constraints": ["tablet", "field use", "offline possible", "touch", "error recovery"], "platform": "mobile", "modalities": ["touch"]
+    },
+
+    {
+      "id": "responsive-01", "family": "responsive-recomposition", "split": "dev", "complexity": "low",
+      "prompt": "Adapt a two-column event-planning dashboard from desktop to phone. Preserve the important planning actions and state context; do not solve the problem by shrinking type or hiding everything secondary. Explain what changes structurally and why.",
+      "artifact_requirements": ["desktop-mobile-structure-map", "capability-preservation", "responsive-state-spec"],
+      "constraints": ["desktop and phone", "planning actions remain reachable"], "platform": "web", "modalities": ["pointer", "touch"]
+    },
+    {
+      "id": "responsive-02", "family": "responsive-recomposition", "split": "dev", "complexity": "medium",
+      "prompt": "Recompose a dense merchant inventory interface across wide desktop, narrow laptop and phone. Tables, bulk actions, filters, exceptions and item detail must remain usable, but identical geometry is not required. Preserve task meaning through appropriate structural changes.",
+      "artifact_requirements": ["viewport-capability-matrix", "structure-transformations", "interaction-replacements", "rendered-states"],
+      "constraints": ["high density", "bulk actions", "three viewport classes"], "platform": "web", "modalities": ["pointer", "keyboard", "touch"]
+    },
+    {
+      "id": "responsive-03", "family": "responsive-recomposition", "split": "dev", "complexity": "high",
+      "prompt": "Design responsive behavior for a collaborative diagram editor used in maximized desktop windows, split-screen and tablets. Canvas, hierarchy, properties, comments and commands compete for space. Re-author zones and access paths without losing selected-object context.",
+      "artifact_requirements": ["workspace-posture-map", "instrument-preservation-ledger", "context-transition-rules", "multi-posture-renders"],
+      "constraints": ["professional editor", "resizable desktop", "tablet", "selection context must survive"], "platform": "desktop", "modalities": ["pointer", "keyboard", "touch"]
+    },
+    {
+      "id": "responsive-04", "family": "responsive-recomposition", "split": "holdout", "complexity": "high",
+      "prompt": "Recompose a newsroom publishing workspace from a large desktop monitor to a small laptop and emergency phone view. Editing, preview, scheduling, approvals and publication status have different priorities by posture. Preserve safe publication control without forcing the desktop workspace onto every size.",
+      "artifact_requirements": ["posture-priority-model", "capability-continuity-map", "responsive-command-access", "representative-renders"],
+      "constraints": ["publishing consequences", "three posture classes", "approval and status truth"], "platform": "web", "modalities": ["pointer", "keyboard", "touch"]
+    },
+
+    {
+      "id": "compound-01", "family": "compound-closure", "split": "dev", "complexity": "low",
+      "prompt": "Design a small but production-ready appointment booking service for independent tutors. Connect product scope, account behavior, scheduling, notifications and a trustworthy visual system. Verify that simplification for mobile does not make a required action or recovery path disappear.",
+      "artifact_requirements": ["product-capability-map", "end-to-end-scenarios", "responsive-renders", "closure-review"],
+      "constraints": ["small business", "production-ready", "mobile and desktop", "avoid enterprise inflation"], "platform": "web", "modalities": ["touch", "pointer", "keyboard"]
+    },
+    {
+      "id": "compound-02", "family": "compound-closure", "split": "dev", "complexity": "medium",
+      "prompt": "Architect a team inventory app with role-aware settings, configurable notifications, bulk item work and responsive mobile access. Treat product capability, configuration scope, permissions and interface structure as one connected system; expose contradictions rather than letting each subsystem pass independently.",
+      "artifact_requirements": ["cross-plane-model", "role-and-settings-scenarios", "responsive-capability-map", "contradiction-ledger"],
+      "constraints": ["team product", "role differences", "mobile field use", "bulk desktop work"], "platform": "web", "modalities": ["pointer", "keyboard", "touch"]
+    },
+    {
+      "id": "compound-03", "family": "compound-closure", "split": "dev", "complexity": "high",
+      "prompt": "Build the design and verification plan for an AI-assisted document review platform with organizations, sensitive files, asynchronous analysis, human correction, audit history and high visual ambition. Connect scope, trust, account continuity, rendered critique and runtime fidelity so no local success can hide a global failure.",
+      "artifact_requirements": ["product-and-authority-map", "cross-plane-scenarios", "visual-system-evidence", "runtime-verification-plan", "global-critic-ledger"],
+      "constraints": ["AI assistance", "sensitive documents", "organization accounts", "async work", "flagship visual ambition"], "platform": "web", "modalities": ["pointer", "keyboard"]
+    },
+    {
+      "id": "compound-04", "family": "compound-closure", "split": "holdout", "complexity": "high",
+      "prompt": "Design a production creative-review platform where teams upload video, annotate a timeline, compare versions, discuss changes, manage approval and export decisions. It must work as a dense desktop workspace and a focused mobile review experience, with refined visual direction and motion that supports rather than distracts from review status.",
+      "artifact_requirements": ["full-capability-envelope", "workspace-instrument-model", "cross-device-scenarios", "rendered-visual-evidence", "motion-and-fidelity-verification"],
+      "constraints": ["team collaboration", "video timeline", "approvals", "desktop and mobile", "high visual quality"], "platform": "web", "modalities": ["pointer", "keyboard", "touch"]
+    }
+  ]
+}
