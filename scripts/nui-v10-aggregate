@@ -7,13 +7,18 @@ import sys
 from collections import Counter
 from pathlib import Path
 
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+
+from nolane_ui.experiment_v10 import validate_run_record  # noqa: E402
+
 
 def main() -> int:
     if len(sys.argv) != 2:
         print("usage: nui-v10-aggregate <runs.jsonl>", file=sys.stderr)
         return 2
     path = Path(sys.argv[1])
-    rows = []
+    rows: list[dict] = []
     if path.exists():
         for line_no, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
             if not line.strip():
@@ -27,13 +32,21 @@ def main() -> int:
                 print(f"run line {line_no} must be an object", file=sys.stderr)
                 return 2
             rows.append(item)
+
     statuses = Counter(str(x.get("status", "missing")) for x in rows)
-    real_rows = [x for x in rows if x.get("synthetic_example") is not True]
+    checked = [(row, validate_run_record(row, {})) for row in rows]
+    valid_rows = [row for row, result in checked if result.get("valid")]
+    invalid_rows = [row for row, result in checked if not result.get("valid")]
+    real_rows = [row for row in valid_rows if row.get("synthetic_example") is not True]
     families = sorted({str(x.get("model_family")) for x in real_rows if x.get("model_family")})
     treatments = sorted({str(x.get("treatment")) for x in rows if x.get("treatment")})
+
     payload = {
         "version": 10,
         "run_count": len(rows),
+        "valid_run_count": len(valid_rows),
+        "invalid_run_count": len(invalid_rows),
+        "real_run_count": len(real_rows),
         "real_model_runs": bool(real_rows),
         "model_families": families,
         "treatments": treatments,
