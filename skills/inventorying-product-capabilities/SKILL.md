@@ -73,3 +73,18 @@ Compare the inventory against actual runtime/API permissions and search for hidd
 
 ### Recovery
 Refresh authoritative sources, update action registry/routes, and explicitly mark unknown/unavailable capability instead of designing around an assumption.
+
+## V9 Expected-Capability Disposition
+Consume the parent's broad product envelope as **candidate obligations**, not as a mandatory feature dump. Every expected capability family must be reconciled into concrete capability records and receive one explicit product disposition: `REQUIRED`, `EXPECTED`, `OPTIONAL`, `EXCLUDED`, or `UNKNOWN`. These labels govern scope accounting; they do not directly prescribe visual prominence.
+
+`REQUIRED` means the claimed product outcome or release cannot truthfully succeed without it. `EXPECTED` means the family is strongly implied by product class, actor lifecycle, consequence or production ambition and therefore needs an explicit implementation/exclusion decision. `OPTIONAL` is valid enrichment whose absence does not break the stated outcome. `EXCLUDED` is deliberate absence with authority and rationale. `UNKNOWN` preserves unresolved truth and blocks high-ambition closure when material.
+
+Do not let broad nouns collapse independent obligations. “Settings” may conceal security, notifications, billing, workspace policy, appearance, accessibility, data/export, integrations and retention. “Account” may conceal registration, recovery, session/device management, profile, workspace membership, invitations, switching, ownership transfer, deactivation and deletion. “Editor tools” may conceal selection, history, assets, inspectors, export and precision alternatives. Split only where actor authority, lifecycle, consequence, state or recovery differs materially.
+
+Maintain **family coverage accounting** alongside the canonical ledger. A family counts as covered only when discovery evidence exists and its concrete capabilities have dispositions. A family is not covered because a page with the same noun exists. An `EXCLUDED` family remains visible in coverage accounting so future designers cannot accidentally rediscover or silently reintroduce it without the prior rationale.
+
+### V9 Falsification
+Take a full-platform ledger and remove one unglamorous expected family while leaving every remaining route and scenario perfectly closed. If the inventory still reports complete without surfacing the missing family/disposition, the ledger is only internally complete, not scope-adequate.
+
+### V9 Recovery
+Return to the product envelope, restore the family, split it into independently meaningful capabilities, assign evidence/dispositions and rerun downstream action, route, scenario and runtime closure. Do not compensate for missing product breadth by increasing visible widget count.
