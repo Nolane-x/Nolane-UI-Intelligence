@@ -92,3 +92,22 @@ Give an independent critic only the screenshots, not the design rationale, and a
 
 ### V9 Recovery
 Route macro composition failures to hierarchy/layout/aesthetic owners, systemic detail failures to token/component/fidelity owners, browser-residue failures to platform/fidelity, and thesis failures back to aesthetic divergence. Repair the smallest causal layer, recapture the same viewport/state, and keep the evidence pair so improvement is inspectable rather than asserted.
+
+## V10 Causal Render-Critique Experiment
+`H-RENDER-CRITIQUE-CAUSAL` tests whether a render-first critic changes outcomes beyond producing more critique prose. The target behaviors are **causal specificity** and **repair effectiveness**: a finding should identify a visible relation, connect it to a plausible perceptual/task consequence, change the smallest owning mechanism, and then be re-observed in a named rendered state.
+
+Each benchmarked finding should therefore carry a closed chain:
+
+`render_ref → region/state → observation → causal hypothesis → affected contract → bounded repair → after_render_ref → same-region re-observation → verdict`
+
+Do not allow “improve hierarchy,” “add breathing room,” “make it premium,” or “fix spacing” to count as causal findings unless the critic identifies the competing saliency, grouping, line-wrap, density, material boundary or optical relation that makes the change testable. Preserve a `preserve[]` set so the repair does not win one dimension by erasing useful density, state cues or signature character.
+
+The `critique-spec-only` mutation removes required rendered evidence and permits closure from source/design intent. The `render-critique` ablation removes this court. On matched critique tasks, full NUI should improve `critique-causal-specificity` and the blinded before/after judgment of targeted **repair effectiveness**. It should not merely issue more findings: false positives, redundant repairs and hard-constraint regressions are negative evidence.
+
+### V10 evidence independence
+The generator's rationale is not a judge input. Where runtime permits, the critic should receive the rendered artifact, task/accepted contracts and state identifiers without the generator's self-evaluation. A later diagnosis may inspect source code to locate the implementation cause, but source interpretation cannot replace the initial perceptual observation. If generator and critic share the same model/context lineage, record the correlation; do not call it independent merely because two prompts were used.
+
+### V10 falsification and recovery
+Attribution fails when spec-only critique catches the same hidden rendered defects and produces equivalent verified repair effects, or when full NUI's proposed changes fail to improve the dimension they claim to repair. A full condition that improves visual calm by hiding error/status truth is a hard regression, not a visual win. If no effect appears, inspect capture coverage, critic blindness, task defect salience and whether the owning fix was actually implemented before adding more critique vocabulary.
+
+A screenshot can prove what was rendered at a moment; it cannot by itself prove usability or NUI efficacy. Cross-model/holdout efficacy language remains blocked until the V10 empirical claim court has matching evidence.
