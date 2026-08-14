@@ -104,3 +104,24 @@ Render two structurally valid candidates, remove logos/brand names, and ask an i
 
 ### V9 Recovery
 Identify the smallest causal differences driving the weaker perception—type metrics, spacing rhythm, material boundary, density distribution, focal competition, signature excess, residue or domain mismatch—and revise those mechanisms. Re-render and compare again. Do not “premiumize” by stacking decoration, glass, gradients, blur or animation.
+
+## V10 Comparative Taste Identification
+`H-TASTE-COMPARATIVE` is a causal hypothesis about selection behavior, not a declaration that NUI possesses objective taste. The intended effect is that **pairwise blinded evidence** makes a model more likely to prefer the candidate whose visible hierarchy, typography, material restraint, rhythm, domain fit and subject-specific authorship are stronger, while rejecting polished genericness and hard-constraint regressions.
+
+The treatment must preserve at least two renderable candidates through the judgment stage. Generator labels, self-scores, reference names and preferred-direction rationale are stripped before pairwise judging. Each comparison records a named dimension, evidence references, observable cause and a `LEFT | RIGHT | TIE | UNJUDGABLE` verdict. `tie` is a valid result; forcing a winner creates false precision. A strong overall preference may emerge from several dimensions, but no scalar beauty score substitutes for the dimension ledger.
+
+The mutation `taste-scalar-self-score` allows the generator to select by an opaque self-assigned score. The `taste-court` ablation removes comparative discrimination. On visual-taste tasks, full NUI should improve blinded preference and causal specificity relative to those controls. It must not win by violating accessibility, product truth, platform behavior or task clarity; those remain non-compensatory blockers.
+
+### V10 reference control
+Reference exposure can itself bias judgment. Record whether a reference was used in generation, evaluation, or both. When feasible, the judge should receive product-local artifacts and rubric dimensions without knowing the source brand that inspired a mechanism. If a candidate wins mainly because it resembles a prestigious reference, run the logo/name/trade-dress blindness test and compare a product-native countercandidate.
+
+### V10 falsification topology
+The hypothesis is not identified when:
+- full NUI and `taste-court` ablation receive equivalent blinded preference;
+- a non-semantic placebo moves preference as much as the semantic mutation;
+- judges repeatedly prefer generic polish over subject-linked authorship while product truth is equal;
+- win direction depends entirely on one judge lineage;
+- full NUI raises visual preference but creates hard accessibility or functional regressions;
+- only development tasks tuned during skill writing show an effect.
+
+Artifact quality and efficacy are separate. A beautiful page demonstrates possibility, not causal contribution. Until real matched treatment runs survive ablation, holdout and judge-blindness gates, the repository may say the taste protocol exists and is testable, but its efficacy claim remains `STRUCTURAL_ONLY`.
