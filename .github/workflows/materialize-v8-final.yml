@@ -11,26 +11,86 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Materialize reviewed product delta
+      - name: Materialize audited v8 product allowlist
         shell: bash
         run: |
           set -euo pipefail
           git fetch origin \
-            main:refs/remotes/origin/main \
             build/v8-rc-tests:refs/remotes/origin/build/v8-rc-tests \
             build/v8-final-clean:refs/remotes/origin/build/v8-final-clean
           git checkout -B build/v8-final-clean origin/build/v8-final-clean
-          git diff --name-only origin/main...origin/build/v8-rc-tests \
-            | grep -v '^\.github/workflows/' \
-            | grep -v '^\.nui-v8-ci-trigger$' \
-            > /tmp/v8-product-files.txt
-          count=$(wc -l < /tmp/v8-product-files.txt)
-          test "$count" -ge 50
+          cat > /tmp/v8-product-files.txt <<'EOF'
+          .agents/skills/nolane-ui/SKILL.md
+          .claude/skills/nolane-ui/SKILL.md
+          AGENTS.md
+          README.md
+          artifacts/v8-completion-packet.example.json
+          docs/USAGE.md
+          docs/V8-AGENT-MEDIA-CLOSURE.md
+          docs/superpowers/specs/2026-08-13-agent-interoperability-visual-media-v8-design.md
+          evals/v8/agent-interop/cases.json
+          evals/v8/creative-toolchain/cases.json
+          evals/v8/external-skill-trust/cases.json
+          evals/v8/manifest.json
+          evals/v8/visual-media/cases.json
+          integrations/agent-harnesses/README.md
+          knowledge/agent-interop-v8.json
+          knowledge/creative-toolchain-v8-extension.json
+          knowledge/creative-toolchain-v8.json
+          knowledge/external-skill-trust-v8.json
+          knowledge/shape-substitution-v8.json
+          knowledge/tool-learning-sources-v8-extension.json
+          knowledge/tool-learning-sources-v8.json
+          knowledge/v8-depth-obligations.json
+          knowledge/v8-skill-manifest.json
+          knowledge/visual-media-sources-v8-extension.json
+          knowledge/visual-media-sources-v8.json
+          nui.config.json
+          pyproject.toml
+          schemas/agent-interop.schema.json
+          schemas/asset-provenance-ledger.schema.json
+          schemas/creative-toolchain.schema.json
+          schemas/external-skill-trust.schema.json
+          schemas/visual-asset-integration.schema.json
+          schemas/visual-media-plan.schema.json
+          scripts/nui-agent-export
+          scripts/nui-mcp-server
+          scripts/nui-release-packet
+          skills/authoring-domain-native-visual-assets/SKILL.md
+          skills/exporting-nui-to-agent-harnesses/SKILL.md
+          skills/governing-external-agent-skills/SKILL.md
+          skills/mapping-visual-media-opportunities/SKILL.md
+          skills/orchestrating-creative-toolchains/SKILL.md
+          skills/replacing-shape-substitution/SKILL.md
+          skills/skill-graph.json
+          skills/sourcing-rights-safe-visual-media/SKILL.md
+          skills/validating-visual-asset-integration/SKILL.md
+          src/nolane_ui/__init__.py
+          src/nolane_ui/interop.py
+          src/nolane_ui/mcp_server.py
+          src/nolane_ui/media.py
+          src/nolane_ui/v8_repository.py
+          src/nolane_ui/validators.py
+          src/nolane_ui/validators_v7.py
+          tests/test_release_v7.py
+          tests/test_v6_full_depth_saturation.py
+          tests/test_v7_repository_gate.py
+          tests/test_v7_skill_contracts.py
+          tests/test_v8_agent_routes.py
+          tests/test_v8_completion.py
+          tests/test_v8_media_kernel.py
+          tests/test_v8_repository.py
+          tests/test_v8_schemas.py
+          EOF
+          sed -i 's/^          //' /tmp/v8-product-files.txt
+          test "$(wc -l < /tmp/v8-product-files.txt)" -eq 61
           while IFS= read -r path; do
-            [ -n "$path" ] || continue
+            git cat-file -e "origin/build/v8-rc-tests:$path"
             git checkout origin/build/v8-rc-tests -- "$path"
           done < /tmp/v8-product-files.txt
           git add -A
+          changed=$(git diff --cached --name-only | wc -l)
+          test "$changed" -eq 61
           if git diff --cached --name-only | grep -E '^\.github/workflows/|^\.nui-v8-ci-trigger$'; then
             echo 'forbidden staging path detected' >&2
             exit 1
