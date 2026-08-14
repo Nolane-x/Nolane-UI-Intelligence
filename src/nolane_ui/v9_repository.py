@@ -47,6 +47,14 @@ def _load(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def _version_at_least(version: str, minimum: tuple[int, int, int]) -> bool:
+    """Accept later NUI releases while preserving the historical V9 gate."""
+    match = re.fullmatch(r"(\d+)\.(\d+)\.(\d+)", version)
+    if not match:
+        return False
+    return tuple(int(part) for part in match.groups()) >= minimum
+
+
 def extend(root: Path, base: dict[str, Any]) -> dict[str, Any]:
     root = Path(root)
     errors = list(base.get("errors", []))
@@ -60,8 +68,9 @@ def extend(root: Path, base: dict[str, Any]) -> dict[str, Any]:
     try:
         pyproject = (root / "pyproject.toml").read_text(encoding="utf-8")
         match = re.search(r'^version\s*=\s*"([^"]+)"', pyproject, flags=re.MULTILINE)
-        if not match or match.group(1) != "0.9.0":
-            errors.append("v9 package version must be 0.9.0")
+        version = match.group(1) if match else ""
+        if not _version_at_least(version, (0, 9, 0)):
+            errors.append("v9 compatibility requires package version >= 0.9.0")
         metrics["nui_major"] = 9
     except Exception as exc:
         errors.append(f"v9 package plane: {exc}")
