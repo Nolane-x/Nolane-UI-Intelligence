@@ -68,3 +68,23 @@ Hide the visual toolbar and reconstruct every meaningful edit capability from th
 
 ### V9 Recovery
 Return to capability and command ownership, classify instruments by global/document/selection/mode/context scope, restore missing resource/history/status paths, then decide direct versus progressive disclosure. Do not fix incompleteness by adding more floating buttons around the canvas.
+
+## V10 Instrument Adequacy Experiment
+`H-WORKSPACE-INSTRUMENTS` asks whether capability-driven instrument architecture actually improves a model's organization of professional tools. The observable is **context-appropriate command reachability with controlled simultaneous chrome**, not the number of panels, buttons, keyboard shortcuts, or resemblance to a famous editor.
+
+Build an experiment-visible **instrument topology** before the visual shell. For every material instrument record its semantic commands, owning scope (`global`, `document`, `selection`, `mode`, `resource`, `history`, `status`), direct-versus-progressive access, keyboard/pointer alternatives when relevant, and the context needed to act safely. The topology should predict which controls disappear, move or become contextual when selection/mode/posture changes.
+
+The mutation `workspace-all-tools-visible` destroys context sensitivity while retaining nominal feature availability. The `workspace-instruments` ablation removes this owner. On editor tasks, full NUI should preserve more capability while producing less simultaneous irrelevant chrome, fewer wrong-target ambiguities and clearer selection/tool relationships. A judge must not reward “looks like VS Code/Canva/CapCut” as a proxy; named products are mechanism references only.
+
+### V10 interaction with responsive reauthoring
+This hypothesis interacts with `H-RESPONSIVE-REAUTHORING`: narrow windows may legitimately collapse panels or move tools, but the semantic command and active object context must remain recoverable. When the two owners are jointly ablated, report a joint interaction effect rather than pretending each pixel of degradation belongs to one skill.
+
+### V10 falsifiers
+The hypothesis is weakened if:
+- full NUI exposes as many irrelevant persistent controls as `workspace-all-tools-visible`;
+- the ablation retains equivalent command/context performance;
+- a simple annotation tool becomes needlessly professionalized;
+- direct manipulation works but keyboard/structured alternatives lose semantic parity;
+- judges prefer the full condition only because of denser decoration, with no instrument or workflow evidence.
+
+A production-quality editor produced under NUI is still artifact evidence. Attributed efficacy requires matched real-model tasks, targeted degradation, and holdout evidence for transfer language.
