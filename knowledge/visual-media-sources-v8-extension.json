@@ -1,0 +1,12 @@
+{
+  "version": 8,
+  "extends": "visual-media-sources-v8.json",
+  "sources": [
+    {"id":"nasa-media","kind":"science-space","canonical":"https://www.nasa.gov/nasa-brand-center/images-and-media/","rights_model":"official-usage-guidelines","asset_level_verification":true,"strength":"spaceflight, astronomy, Earth observation and technical media","recheck":"logo, endorsement, people and third-party-credit conditions"},
+    {"id":"noaa-media","kind":"science-ocean-weather","canonical":"https://www.noaa.gov/","rights_model":"item-and-program-specific","asset_level_verification":true,"strength":"weather, ocean, climate and environmental imagery","recheck":"item credit and third-party notices"},
+    {"id":"usgs-media","kind":"geoscience-geospatial","canonical":"https://www.usgs.gov/","rights_model":"item-specific-government-source","asset_level_verification":true,"strength":"geology, hazards, maps, satellite and field imagery","recheck":"item source and third-party notices"},
+    {"id":"biodiversity-heritage-library","kind":"biology-archive","canonical":"https://www.biodiversitylibrary.org/","rights_model":"item-rights-metadata","asset_level_verification":true,"strength":"historic scientific illustration, botany and zoology","recheck":"item rights, creator and source institution"},
+    {"id":"rijksmuseum","kind":"museum-open-data","canonical":"https://www.rijksmuseum.nl/en/research/conduct-research/data","rights_model":"item-rights-metadata","asset_level_verification":true,"strength":"high-resolution art and material-culture references","recheck":"object/image rights marker"},
+    {"id":"europeana","kind":"cultural-heritage-index","canonical":"https://www.europeana.eu/","rights_model":"mixed-rights-index","asset_level_verification":true,"strength":"cross-institution cultural heritage discovery","recheck":"rights statement on the specific record and originating institution"}
+  ]
+}

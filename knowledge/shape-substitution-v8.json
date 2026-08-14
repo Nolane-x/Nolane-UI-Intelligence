@@ -1,0 +1,38 @@
+{
+  "version": 8,
+  "principle": "Geometry is valid when it carries product meaning or compositional structure. It is a failure when generic geometry replaces available subject-native evidence with higher information gain.",
+  "decision": {
+    "pass": "KEEP_OR_REFINE",
+    "fail": "RE_DIVERGE"
+  },
+  "required_fields": [
+    "slot",
+    "semantic_job",
+    "representation",
+    "native_media_alternative",
+    "information_gain_comparison",
+    "justification",
+    "removal_test"
+  ],
+  "risk_signals": [
+    "decorative_orb_as_subject",
+    "gradient_blob_as_domain_identity",
+    "generic_card_wall_as_information_model",
+    "illustrative_fake_chart_without_data",
+    "placeholder_3d_object_without_product_semantics",
+    "repeated_rounded_panels_where_media_or_direct_manipulation_is_more_informative"
+  ],
+  "protected_uses": [
+    "layout_structure",
+    "real_data_encoding",
+    "interaction_affordance",
+    "diagrammatic_relationship",
+    "brand_owned_geometry",
+    "deliberate_abstract_art_with_documented_experiential_intent"
+  ],
+  "gate": {
+    "native_media_available_and_higher_gain": "replace_or_justify_with_evidence",
+    "unresolved_material_substitution": "RE_DIVERGE",
+    "resolved_or_non_material": "PASS"
+  }
+}

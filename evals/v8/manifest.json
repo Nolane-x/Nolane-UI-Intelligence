@@ -1,0 +1,10 @@
+{
+  "version": 8,
+  "case_count": 32,
+  "assets": [
+    "evals/v8/agent-interop/cases.json",
+    "evals/v8/external-skill-trust/cases.json",
+    "evals/v8/visual-media/cases.json",
+    "evals/v8/creative-toolchain/cases.json"
+  ]
+}

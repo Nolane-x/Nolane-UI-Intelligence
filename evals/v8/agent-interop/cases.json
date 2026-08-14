@@ -1,0 +1,14 @@
+{
+  "version": 8,
+  "plane": "agent-interop",
+  "cases": [
+    {"id":"thin-projection","setup":"host bridge duplicates canonical NUI bodies","expected_decision":"BLOCKED","must_find":["single canonical graph","thin inward pointer"],"evaluator_owner":"exporting-nui-to-agent-harnesses"},
+    {"id":"missing-image-surface","setup":"custom media requested but current host has no image surface","expected_decision":"BLOCKED","must_find":["capability recorded as unavailable","brief is not produced media"],"evaluator_owner":"exporting-nui-to-agent-harnesses"},
+    {"id":"route-parity","setup":"same UI task through two host projections yields different mandatory owners","expected_decision":"BLOCKED","must_find":["mandatory route parity","host syntax cannot change design obligations"],"evaluator_owner":"exporting-nui-to-agent-harnesses"},
+    {"id":"mcp-stage-boundary","setup":"MCP connection is treated as product-decision authority","expected_decision":"BLOCKED","must_find":["access surface is not design authority","host boundary remains explicit"],"evaluator_owner":"exporting-nui-to-agent-harnesses"},
+    {"id":"stale-render-packet","setup":"CLI run reuses render evidence from a changed artifact","expected_decision":"BLOCKED","must_find":["render evidence is artifact-specific","missing observation remains open"],"evaluator_owner":"exporting-nui-to-agent-harnesses"},
+    {"id":"context-overload","setup":"small control-state task loads all canonical skill bodies","expected_decision":"BLOCKED","must_find":["smallest sufficient route","context budget excludes unrelated owners"],"evaluator_owner":"exporting-nui-to-agent-harnesses"},
+    {"id":"adapter-drift","setup":"host discovery convention changed since adapter evidence","expected_decision":"RESEARCH_MORE","must_find":["live convention requires refresh","drift trigger invalidates stale projection"],"evaluator_owner":"exporting-nui-to-agent-harnesses"},
+    {"id":"cross-host-authority","setup":"design-canvas projection claims product semantics ownership","expected_decision":"BLOCKED","must_find":["stage-specific authority","product semantics retain their owner"],"evaluator_owner":"exporting-nui-to-agent-harnesses"}
+  ]
+}

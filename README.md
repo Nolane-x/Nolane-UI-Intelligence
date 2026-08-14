@@ -4,7 +4,7 @@
 
 Nolane UI Intelligence (NUI) is a platform-agnostic Agent Skill graph for serious UI/UX work. It treats interface design as a system of independent decisions — product semantics, human factors, interaction, visual craft, platform behavior, input modalities, accessibility, AI agency, safety, resilience, design systems, and verification — rather than one vague instruction to “make it beautiful.”
 
-The current v7 graph declares **166 canonical skills** spanning the v2 industry cognition system, v3 product closure, v4 ecosystem intelligence, v5 affective/aesthetic enforcement, v6 deep research/design synthesis, and v7 Concrete Craft & Authority Intelligence. That number is descriptive, not a target. The router normally loads the **smallest sufficient graph** for the current task; high visual ambition is an explicit exception where required visual faculties become a hard route rather than optional context.
+The current v8 graph declares **174 canonical skills** spanning the v2 industry cognition system, v3 product closure, v4 ecosystem intelligence, v5 affective/aesthetic enforcement, v6 deep research/design synthesis, and v7 Concrete Craft & Authority Intelligence. That number is descriptive, not a target. The router normally loads the **smallest sufficient graph** for the current task; high visual ambition is an explicit exception where required visual faculties become a hard route rather than optional context.
 
 NUI does not promise objective beauty, automatic compliance, or permanent completeness. It constrains observable agent behavior so material assumptions become explicit, high-impact domains cannot be silently omitted, independent critics can falsify the design, machine-checkable invariants are enforced by code, and release claims remain bounded by actual evidence.
 
@@ -161,3 +161,12 @@ For transfer from external products and galleries, the rule is **mechanism, not 
 For flagship/exceptional/experiential work, v7 adds a rendered perception gate over the inherited v5 aesthetic gate. A screenshot is not evidence by itself: the record must observe attention hierarchy, resolved typography, subject-linked signature, material roles, responsive recomposition and—when material—temporal sequencing. Reference comparison and critique must identify a weakness, record a fix and verify the changed artifact. Optional pixel-diff evidence is renderer/environment scoped with calibrated tolerance so antialiasing noise is not mistaken for a meaningful visual regression.
 
 See `docs/V7-CONCRETE-KNOWLEDGE-CLOSURE.md` for the critique-to-mechanism closure map and `docs/research/UI-AUTHORITY-INTELLIGENCE-V7.md` for research/transfer boundaries.
+
+
+## Agent Interoperability & Visual Media Intelligence (v8)
+
+V8 projects one canonical NUI graph through thin Codex, Claude Code, Antigravity, MCP, CLI and editor-agent surfaces instead of copying the skill corpus per vendor. The current registry contains **9 agent adapters**, while host tool availability and permission settings remain explicit runtime facts rather than design authority.
+
+V8 also adds a visual-media decision plane. It does not ban cards or geometry; it detects **shape substitution**, where low-information abstract forms consume high-attention slots that could carry stronger subject-native imagery, real data, diagrams, maps, direct manipulation, domain-derived 3D or deliberate typography. The combined registries currently expose **14 tool-learning sources, 14 visual-media sources across 8+ source classes, and 14 creative tools**. Selected external media remains item-specific and is checked before material use.
+
+The eight new owners cover host projection, external skill review, media opportunity mapping, media sourcing, domain-native asset briefs, creative toolchains, representation substitution and rendered asset integration. They extend semantic depth coverage to **174/174 skills** and add **32 v8 adversarial cases**. Material media must survive responsive crop, overlay legibility, performance, accessible-equivalent and render→critique→correction→re-render evidence.

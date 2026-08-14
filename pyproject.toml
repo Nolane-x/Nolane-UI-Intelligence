@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "nolane-ui-intelligence"
-version = "0.7.0"
+version = "0.8.0"
 description = "Universal Design Cognition & Verification System for AI agents"
 requires-python = ">=3.10"
 license = {text = "MIT"}
@@ -13,3 +13,6 @@ dependencies = []
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[project.optional-dependencies]
+mcp = ["mcp>=2,<3"]
