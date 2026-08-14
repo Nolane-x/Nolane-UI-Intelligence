@@ -1,0 +1,156 @@
+{
+  "version": 8,
+  "id": "flagship-visual-synthesis-v8",
+  "purpose": "Bind inherited NUI craft owners and v8 media owners into one falsifiable high-ambition visual direction without creating duplicate skill ownership.",
+  "principle": "Exceptional visual quality is not a style preset or a scalar score. It is the convergence of product-specific intent, materially divergent exploration, controlled hierarchy, resolved craft systems, subject-native representation, responsive recomposition and observed correction in the rendered product.",
+  "planes": [
+    {
+      "id": "P1-thesis",
+      "name": "visual thesis",
+      "owns": "one sentence that states what the interface should feel like, what carries authority, and what must visually recede",
+      "rejects": "adjective piles such as premium, modern, clean, beautiful with no product mechanism",
+      "evidence": "visual_thesis"
+    },
+    {
+      "id": "P2-divergence",
+      "name": "material direction divergence",
+      "owns": "at least three candidates that differ in composition, type system, material model and signature mechanism before convergence",
+      "rejects": "three colorways of one layout or renamed variants of the same component stack",
+      "evidence": "direction_candidates + selection_rationale"
+    },
+    {
+      "id": "P3-attention",
+      "name": "attention architecture",
+      "owns": "a ranked visual path with one primary focal role and deliberately subordinate regions",
+      "rejects": "equal-weight card fields, democratic contrast and accidental focal competition",
+      "evidence": "attention_hierarchy"
+    },
+    {
+      "id": "P4-type",
+      "name": "typographic voice and optical hierarchy",
+      "owns": "functional type roles, readable measure, fallback behavior and deliberate contrast between narrative, reading, utility and numerical content",
+      "rejects": "one undifferentiated sans scale, fragile ultra-light display text and typography chosen only by fashion",
+      "evidence": "typography"
+    },
+    {
+      "id": "P5-composition",
+      "name": "composition rhythm",
+      "owns": "grid logic, density cadence, edge behavior, focal interruption and breakpoint-specific structural transformation",
+      "rejects": "container stacking where every region becomes the same rounded rectangle and mobile is desktop compressed",
+      "evidence": "composition + rendered_states"
+    },
+    {
+      "id": "P6-color-material",
+      "name": "color and material causality",
+      "owns": "semantic palette, chroma allocation, depth model, surface behavior and dark-mode remapping",
+      "rejects": "blanket glass, random gradients, identical elevation on every surface and simple color inversion",
+      "evidence": "color_material"
+    },
+    {
+      "id": "P7-motion",
+      "name": "temporal continuity",
+      "owns": "motion purpose, gesture relation, timing character and reduced-motion equivalent",
+      "rejects": "animation as decoration, long blocking transitions and motion that contradicts spatial causality",
+      "evidence": "motion"
+    },
+    {
+      "id": "P8-signature",
+      "name": "domain-native memory hook",
+      "owns": "a recognizable mechanism that is derived from subject truth, useful more than once, and constrained by a restraint rule",
+      "rejects": "logo placement, one hero gimmick, generic glow/orb/noise motifs and copied trade dress",
+      "evidence": "signature"
+    },
+    {
+      "id": "P9-reference",
+      "name": "reference frontier",
+      "owns": "mechanism-level learning from multiple relevant references while preserving explicit transfer boundaries",
+      "rejects": "single-gallery monoculture, screenshot imitation and reference prestige as design authority",
+      "evidence": "reference_frontier"
+    },
+    {
+      "id": "P10-specificity",
+      "name": "generic transfer resistance",
+      "owns": "proof that removing the domain and product truth breaks the visual solution rather than revealing a reusable generic shell",
+      "rejects": "SaaS-template specificity created only by swapping copy, logo and accent color",
+      "evidence": "generic_transfer_test"
+    },
+    {
+      "id": "P11-responsive",
+      "name": "responsive art direction",
+      "owns": "material structural changes across viewport classes, loading/theme/state conditions and media crops",
+      "rejects": "scale-down-only responsiveness and desktop screenshot certification",
+      "evidence": "rendered_states[].structural_changes"
+    },
+    {
+      "id": "P12-critique",
+      "name": "closed perceptual correction",
+      "owns": "observed defects, concrete changes and re-observation across at least two failure dimensions",
+      "rejects": "self-congratulation, screenshot presence without critique and findings with no verified correction",
+      "evidence": "critique_cycles"
+    }
+  ],
+  "anti_generic_attractors": [
+    {
+      "id": "A1-equal-card-field",
+      "symptom": "most regions share the same container, radius, border and contrast",
+      "question": "Which content actually needs containment, and which should become open field, rail, media, table, canvas, timeline or direct manipulation?"
+    },
+    {
+      "id": "A2-decorative-data",
+      "symptom": "fake graphs, pseudo-metrics or abstract charts decorate high-attention zones without truthful data",
+      "question": "Can the slot carry real evidence, a truthful diagram, subject media, typography or nothing instead?"
+    },
+    {
+      "id": "A3-gradient-orb",
+      "symptom": "generic luminous blob or glass sphere acts as the main identity device",
+      "question": "What domain form, material, process, artifact, motion or data relation could own the identity more truthfully?"
+    },
+    {
+      "id": "A4-radius-monoculture",
+      "symptom": "cards, buttons, chips, inputs, media and navigation all use the same pill/rounding language",
+      "question": "What geometry follows role, platform convention and subject logic instead of one global fashion?"
+    },
+    {
+      "id": "A5-uniform-chroma",
+      "symptom": "accent color and saturation are spread evenly so nothing earns attention",
+      "question": "Where should chroma be spent to clarify hierarchy, state or emotion, and where should it be withheld?"
+    },
+    {
+      "id": "A6-cosmetic-motion",
+      "symptom": "hover lift, stagger and spring are applied everywhere with no semantic distinction",
+      "question": "Which transitions preserve causality, feedback or spatial continuity, and which should be instantaneous?"
+    }
+  ],
+  "perceptual_tests": [
+    "thumbnail silhouette: reduce the surface until text is unreadable; hierarchy and major composition should remain intentional",
+    "blur test: defocus the render; primary and secondary attention regions should remain separable",
+    "grayscale test: hierarchy must not depend only on hue",
+    "content swap test: realistic long/short/error/loading content must preserve the direction",
+    "logo-blind test: remove name and logo; the product should retain domain-specific visual character",
+    "motion-off test: reduced motion must preserve state understanding and aesthetic coherence",
+    "mobile re-authoring test: narrow layouts must show deliberate recomposition rather than compressed desktop geometry"
+  ],
+  "source_mechanisms": [
+    {
+      "source": "Apple Human Interface Guidelines - Design principles / Typography / Materials / Motion",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/",
+      "verified": "2026-08-14",
+      "mechanisms": ["purpose before decoration", "craft at detail level", "hierarchy through typography", "material as contextual depth", "purposeful motion with reduced-motion respect"],
+      "authority_boundary": "platform guidance is authoritative for Apple-platform behavior; aesthetic mechanisms transfer only when context fits"
+    },
+    {
+      "source": "Google Design - Expressive Design research",
+      "url": "https://design.google/library/expressive-material-design-google-research",
+      "verified": "2026-08-14",
+      "mechanisms": ["emotion aligned to task", "attention steering with size/color/shape/containment", "iterative comparison", "functionality and familiarity remain constraints"],
+      "authority_boundary": "research informs mechanisms; it does not authorize copying Material trade dress into unrelated products"
+    },
+    {
+      "source": "WCAG 2.2",
+      "url": "https://www.w3.org/TR/WCAG22/",
+      "verified": "2026-08-14",
+      "mechanisms": ["text alternatives", "contrast", "resize resilience", "non-text contrast", "animation alternatives"],
+      "authority_boundary": "normative accessibility requirements outrank aesthetic preference"
+    }
+  ]
+}

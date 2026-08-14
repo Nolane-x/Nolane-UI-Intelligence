@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nolane.dev/schemas/flagship-visual-synthesis.schema.json",
+  "title": "NUI v8 Flagship Visual Synthesis",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "ambition",
+    "visual_thesis",
+    "direction_candidates",
+    "selected_direction_id",
+    "selection_rationale",
+    "attention_hierarchy",
+    "typography",
+    "composition",
+    "color_material",
+    "motion",
+    "signature",
+    "reference_frontier",
+    "generic_transfer_test",
+    "rendered_states",
+    "critique_cycles",
+    "anti_generic_audit",
+    "decision"
+  ],
+  "properties": {
+    "ambition": {
+      "enum": ["flagship", "exceptional", "experiential"]
+    },
+    "visual_thesis": {
+      "type": "string",
+      "minLength": 20
+    },
+    "direction_candidates": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["id", "composition", "type_system", "material_system", "signature_mechanism"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "composition": {"type": "string", "minLength": 8},
+          "type_system": {"type": "string", "minLength": 8},
+          "material_system": {"type": "string", "minLength": 8},
+          "signature_mechanism": {"type": "string", "minLength": 8}
+        }
+      }
+    },
+    "selected_direction_id": {"type": "string", "minLength": 1},
+    "selection_rationale": {"type": "string", "minLength": 20},
+    "attention_hierarchy": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["rank", "role", "visual_mechanism"],
+        "properties": {
+          "rank": {"type": "integer", "minimum": 1},
+          "role": {"type": "string", "minLength": 1},
+          "visual_mechanism": {"type": "string", "minLength": 4}
+        }
+      }
+    },
+    "typography": {
+      "type": "object",
+      "required": ["roles", "measure_strategy", "optical_hierarchy", "fallback_behavior"],
+      "properties": {
+        "roles": {"type": "array", "minItems": 3, "items": {"type": "string"}},
+        "measure_strategy": {"type": "string"},
+        "optical_hierarchy": {"type": "string"},
+        "fallback_behavior": {"type": "string"}
+      }
+    },
+    "composition": {
+      "type": "object",
+      "required": ["grid_logic", "density_rhythm", "edge_logic", "responsive_transform"]
+    },
+    "color_material": {
+      "type": "object",
+      "required": ["semantic_palette", "chroma_budget", "depth_model", "surface_rule", "dark_mode_behavior"]
+    },
+    "motion": {
+      "type": "object",
+      "required": ["purpose", "timing_model", "gesture_relation", "reduced_motion"]
+    },
+    "signature": {
+      "type": "object",
+      "required": ["mechanism", "subject_link", "memory_hook", "restraint_rule"]
+    },
+    "reference_frontier": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["id", "mechanism", "transfer_boundary"]
+      }
+    },
+    "generic_transfer_test": {
+      "type": "object",
+      "required": ["verdict", "reason"],
+      "properties": {
+        "verdict": {"const": "FAILS_TRANSFER"},
+        "reason": {"type": "string", "minLength": 12}
+      }
+    },
+    "rendered_states": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": ["id", "viewport", "structural_changes"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "viewport": {"type": "string", "minLength": 1},
+          "structural_changes": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+        }
+      }
+    },
+    "critique_cycles": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": ["category", "finding", "correction", "verified_in"],
+        "properties": {
+          "category": {"type": "string", "minLength": 1},
+          "finding": {"type": "string", "minLength": 1},
+          "correction": {"type": "string", "minLength": 1},
+          "verified_in": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "anti_generic_audit": {
+      "type": "object",
+      "required": ["rejected_attractors", "replacement_mechanisms", "silhouette_observation"],
+      "properties": {
+        "rejected_attractors": {"type": "array", "minItems": 3, "items": {"type": "string"}},
+        "replacement_mechanisms": {"type": "array", "minItems": 2, "items": {"type": "string"}},
+        "silhouette_observation": {"type": "string", "minLength": 12}
+      }
+    },
+    "decision": {"const": "PASS"}
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "ambition": {"enum": ["exceptional", "experiential"]}
+        },
+        "required": ["ambition"]
+      },
+      "then": {
+        "properties": {
+          "rendered_states": {"minItems": 3}
+        }
+      }
+    }
+  ]
+}

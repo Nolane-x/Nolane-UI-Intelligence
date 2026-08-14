@@ -31,5 +31,10 @@ class V8CompletionTests(unittest.TestCase):
         r=validate_v8_completion_evidence({'external_agent_skill':True})
         self.assertEqual(r['decision'],'BLOCKED')
 
+    def test_exceptional_visual_claim_needs_flagship_synthesis_evidence(self):
+        r=validate_v8_completion_evidence({'visual_ambition':'exceptional'})
+        self.assertEqual(r['decision'],'BLOCKED')
+        self.assertTrue(any('flagship visual synthesis' in e.lower() for e in r['errors']))
+
 
 if __name__=='__main__': unittest.main()

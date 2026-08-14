@@ -55,3 +55,7 @@ These rules are repository policy. Runtime adapters may change tool syntax, not 
 39. A media index is a discovery surface. Material external assets require an item-level source/reuse record.
 40. Creative tools own production stages, not product semantics. Preserve stage authority, handoff contracts, fallbacks and final runtime observation.
 41. Material media is incomplete until observed in responsive product states with crop, overlays, performance, accessible equivalent and a closed critique/correction loop.
+42. `flagship`, `exceptional`, and `experiential` completion requires a valid `flagship_visual_synthesis` packet. The packet is a cross-owner integration proof and MUST NOT be represented as a ninth V8 owner or duplicate the canonical graph.
+43. High-ambition divergence means at least three materially different composition/type/material/signature systems. Palette swaps, renamed variants, or one component skeleton with cosmetic changes do not satisfy divergence.
+44. A high-ambition identity layer must fail the generic-transfer test: after blinding logo/name, an unrelated product should not accept the same authored composition and signature without losing important meaning. Familiar controls may remain familiar.
+45. Do not certify high-end visual quality with a scalar beauty score or one screenshot. Require structural responsive evidence and at least two closed critique cycles where a concrete finding is corrected and re-observed in a named render.

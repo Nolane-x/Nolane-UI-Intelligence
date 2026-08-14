@@ -1,4 +1,4 @@
-"""Structural checks for the NUI v8 agent/media plane."""
+"""Structural checks for the NUI v8 agent/media and flagship synthesis plane."""
 from __future__ import annotations
 import json
 from pathlib import Path
@@ -11,12 +11,14 @@ REQUIRED = (
     "knowledge/tool-learning-sources-v8.json", "knowledge/tool-learning-sources-v8-extension.json",
     "knowledge/visual-media-sources-v8.json", "knowledge/visual-media-sources-v8-extension.json",
     "knowledge/creative-toolchain-v8.json", "knowledge/creative-toolchain-v8-extension.json",
-    "knowledge/shape-substitution-v8.json", "src/nolane_ui/interop.py", "src/nolane_ui/media.py",
+    "knowledge/shape-substitution-v8.json", "knowledge/flagship-visual-synthesis-v8.json",
+    "src/nolane_ui/interop.py", "src/nolane_ui/media.py", "src/nolane_ui/flagship.py",
     "src/nolane_ui/mcp_server.py", ".agents/skills/nolane-ui/SKILL.md", ".claude/skills/nolane-ui/SKILL.md",
     "scripts/nui-agent-export", "scripts/nui-mcp-server",
     "schemas/agent-interop.schema.json", "schemas/asset-provenance-ledger.schema.json",
     "schemas/external-skill-trust.schema.json", "schemas/visual-media-plan.schema.json",
     "schemas/creative-toolchain.schema.json", "schemas/visual-asset-integration.schema.json",
+    "schemas/flagship-visual-synthesis.schema.json", "docs/V8-FLAGSHIP-VISUAL-SYNTHESIS-CLOSURE.md",
     "evals/v8/manifest.json", "evals/v8/agent-interop/cases.json",
     "evals/v8/external-skill-trust/cases.json", "evals/v8/visual-media/cases.json",
     "evals/v8/creative-toolchain/cases.json", "artifacts/v8-completion-packet.example.json"
@@ -86,6 +88,23 @@ def extend(root: Path, base: dict[str, Any]) -> dict[str, Any]:
         if len(classes) < 8: errors.append("v8 media coverage requires at least eight source classes")
         metrics.update(v8_tool_learning_sources=len(tools), v8_visual_media_sources=len(media), v8_media_source_classes=len(classes), v8_creative_tools=len(creative))
     except Exception as exc: errors.append(f"v8 registry plane: {exc}")
+    try:
+        synthesis = load(root / "knowledge/flagship-visual-synthesis-v8.json")
+        planes = synthesis.get("planes", [])
+        attractors = synthesis.get("anti_generic_attractors", [])
+        tests = synthesis.get("perceptual_tests", [])
+        if synthesis.get("version") != 8: errors.append("flagship synthesis knowledge must declare version 8")
+        if len(planes) != 12: errors.append(f"flagship synthesis requires twelve distinct decision planes, found {len(planes)}")
+        plane_ids = [str(x.get("id", "")) for x in planes if isinstance(x, dict)]
+        if not plane_ids or len(plane_ids) != len(set(plane_ids)) or any(not x for x in plane_ids):
+            errors.append("flagship synthesis plane ids must be unique and non-empty")
+        for item in planes:
+            if not isinstance(item, dict) or not all(item.get(k) for k in ("name", "owns", "rejects", "evidence")):
+                errors.append(f"flagship synthesis plane is incomplete: {item.get('id') if isinstance(item, dict) else item}")
+        if len(attractors) < 6: errors.append("flagship synthesis requires at least six anti-generic diagnostic attractors")
+        if len(tests) < 7: errors.append("flagship synthesis requires at least seven perceptual falsification tests")
+        metrics.update(v8_flagship_synthesis_planes=len(planes), v8_anti_generic_attractors=len(attractors), v8_perceptual_tests=len(tests))
+    except Exception as exc: errors.append(f"v8 flagship synthesis plane: {exc}")
     try:
         m = load(root / "evals/v8/manifest.json"); assets = m.get("assets", []); total = 0; ids: set[str] = set()
         if m.get("version") != 8 or len(assets) != 4: errors.append("v8 eval manifest requires four planes")
