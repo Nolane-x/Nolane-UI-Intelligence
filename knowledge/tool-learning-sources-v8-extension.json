@@ -1,0 +1,10 @@
+{
+  "version": 8,
+  "extends": "tool-learning-sources-v8.json",
+  "sources": [
+    {"id":"google-antigravity-skills","class":"agent-harness","canonical":"https://codelabs.developers.google.com/antigravity-agent-skills","learns":["workspace-skills","skill-discovery"],"live_verify":true,"adoption":"reference-only"},
+    {"id":"mcp-specification","class":"interop-spec","canonical":"https://modelcontextprotocol.io/specification/","learns":["host-server-boundary","tools","resources","prompts"],"live_verify":true,"adoption":"mechanism-summary-only"},
+    {"id":"three-js-docs","class":"web-3d","canonical":"https://threejs.org/docs/","learns":["scene-graph","camera","materials","rendering"],"live_verify":true,"adoption":"reference-only"},
+    {"id":"storybook-playwright","class":"ui-verification","canonical":"https://storybook.js.org/docs","secondary":"https://playwright.dev/docs/intro","learns":["component-states","interaction-tests","browser-render-verification"],"live_verify":true,"adoption":"reference-only"}
+  ]
+}

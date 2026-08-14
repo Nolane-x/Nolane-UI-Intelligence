@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["assets", "rendered_states", "checks", "decision"],
+  "properties": {
+    "assets": {"type": "array", "minItems": 1},
+    "rendered_states": {"type": "array", "minItems": 2},
+    "checks": {"type": "object"},
+    "observed_failures": {"type": "array"},
+    "decision": {"type": "string"}
+  }
+}

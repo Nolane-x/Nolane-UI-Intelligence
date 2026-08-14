@@ -1,0 +1,38 @@
+{
+  "version": 8,
+  "principle": "Third-party agent skills remain advisory data until a local review produces a bounded adoption record.",
+  "required_evidence": [
+    "immutable_revision",
+    "content_sha256",
+    "exact_skill_path",
+    "license_evidence_at_snapshot",
+    "per_skill_or_per_file_license_scope",
+    "transitive_resource_inventory",
+    "capability_inventory",
+    "reviewed_capability_allowlist",
+    "instruction_data_boundary",
+    "named_reviewer"
+  ],
+  "authority": {
+    "external_default": "advisory_data",
+    "promotion_condition": "locally_reviewed_and_adopted",
+    "host_permissions_remain_authoritative": true,
+    "transport_authority_escalation": false
+  },
+  "adoption_modes": [
+    "mechanism-summary-only",
+    "reference-only",
+    "local-rewrite",
+    "vendored-reviewed"
+  ],
+  "default_adoption": "mechanism-summary-only",
+  "revalidation_triggers": [
+    "upstream_revision_change",
+    "skill_path_change",
+    "license_or_terms_change",
+    "resource_manifest_change",
+    "capability_requirement_change",
+    "host_permission_model_change"
+  ],
+  "default_decision_when_evidence_is_incomplete": "BLOCKED"
+}

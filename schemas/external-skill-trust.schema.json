@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NUI v8 External Skill Trust Record",
+  "type": "object",
+  "required": [
+    "source",
+    "revision",
+    "license",
+    "content_hash",
+    "requested_capabilities",
+    "reviewed_capabilities",
+    "instruction_data_boundary",
+    "adoption_mode",
+    "reviewer"
+  ]
+}

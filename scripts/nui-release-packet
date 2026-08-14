@@ -1,81 +1,39 @@
 #!/usr/bin/env python3
-"""Generate a fresh bounded NUI v7 structural release packet after tests succeed."""
-
-import argparse
-import json
+"""Generate a fresh bounded NUI v8 structural release packet after tests succeed."""
+import argparse, json
 from datetime import datetime, timezone
 from pathlib import Path
 
-
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Generate NUI v7 structural completion evidence")
-    parser.add_argument("--output", required=True)
-    parser.add_argument("--revision", required=True)
-    parser.add_argument("--source", required=True, help="Execution source, e.g. GitHub Actions run ID")
-    args = parser.parse_args()
-
-    observed_at = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
-    evidence = [
-        {
-            "evidence_id": "E-UNIT-SUITE",
-            "method": "test-run",
-            "source": args.source,
-            "scope": "repository unit and contract suite",
-            "claim": "all repository unit and contract tests completed successfully before packet generation",
-            "observed_at": observed_at,
-            "result": "PASS",
-        },
-        {
-            "evidence_id": "E-REPOSITORY-VALIDATOR",
-            "method": "automated-audit",
-            "source": "scripts/nui-validate executed in the same fail-fast verification job",
-            "scope": "repository graph, skills, authority mesh, concrete knowledge, schemas, research docs and eval corpora",
-            "claim": "repository deterministic invariants are required to pass for this packet to be accepted",
-            "observed_at": observed_at,
-            "result": "PASS",
-        },
+    p=argparse.ArgumentParser(description="Generate NUI v8 structural completion evidence")
+    p.add_argument('--output',required=True); p.add_argument('--revision',required=True); p.add_argument('--source',required=True)
+    a=p.parse_args(); observed=datetime.now(timezone.utc).isoformat().replace('+00:00','Z')
+    evidence=[
+      {"evidence_id":"E-UNIT-SUITE","method":"test-run","source":a.source,"scope":"repository unit and contract suite","claim":"all repository unit and contract tests completed successfully before packet generation","observed_at":observed,"result":"PASS"},
+      {"evidence_id":"E-REPOSITORY-VALIDATOR","method":"automated-audit","source":"scripts/nui-validate in the same fail-fast job","scope":"canonical graph, depth locks, source/authority/media/interop registries, schemas, docs and adversarial evals","claim":"all deterministic repository invariants are required to pass for packet acceptance","observed_at":observed,"result":"PASS"}
+    ]; refs=["E-UNIT-SUITE","E-REPOSITORY-VALIDATOR"]
+    obligations=[
+      "O-GRAPH-SKILLS","O-DETERMINISTIC-KERNEL","O-V5-AESTHETIC-ENFORCEMENT","O-V6-DEEP-SOURCE-INTELLIGENCE","O-V6-BEHAVIORAL-SKILL-DEPTH",
+      "O-V7-AUTHORITY-MESH","O-V7-CONCRETE-KNOWLEDGE","O-V7-RENDERED-PERCEPTION","O-V7-AGENT-READABLE-CONTEXT","O-V7-ADVERSARIAL-EVAL",
+      "O-V8-AGENT-INTEROP","O-V8-EXTERNAL-SKILL-TRUST","O-V8-VISUAL-MEDIA","O-V8-CREATIVE-TOOLCHAIN","O-V8-ADVERSARIAL-EVAL"
     ]
-    common = ["E-UNIT-SUITE", "E-REPOSITORY-VALIDATOR"]
-    packet = {
-        "packet_id": f"NUI-V7-STRUCTURAL-{args.revision}",
-        "artifact_revision": args.revision,
-        "phase": "VERIFIED",
-        "task_profile": "NUI v7 concrete craft and authority intelligence: prior cognition/aesthetic/deep-source gates plus decision-dimensional authority, source-bound concrete design knowledge, agent-readable context boundaries, fast execution compression and rendered perception evidence",
-        "obligations": [
-            {"id": "O-GRAPH-SKILLS", "status": "PASS", "evidence_refs": common},
-            {"id": "O-DETERMINISTIC-KERNEL", "status": "PASS", "evidence_refs": common},
-            {"id": "O-V5-AESTHETIC-ENFORCEMENT", "status": "PASS", "evidence_refs": common},
-            {"id": "O-V6-DEEP-SOURCE-INTELLIGENCE", "status": "PASS", "evidence_refs": common},
-            {"id": "O-V6-BEHAVIORAL-SKILL-DEPTH", "status": "PASS", "evidence_refs": common},
-            {"id": "O-V7-AUTHORITY-MESH", "status": "PASS", "evidence_refs": common},
-            {"id": "O-V7-CONCRETE-KNOWLEDGE", "status": "PASS", "evidence_refs": common},
-            {"id": "O-V7-RENDERED-PERCEPTION", "status": "PASS", "evidence_refs": common},
-            {"id": "O-V7-AGENT-READABLE-CONTEXT", "status": "PASS", "evidence_refs": common},
-            {"id": "O-V7-ADVERSARIAL-EVAL", "status": "PASS", "evidence_refs": common},
-        ],
-        "evidence": evidence,
-        "findings": [],
-        "checks": {"unit-tests": "PASS", "repository-validator": "PASS", "completion-gate": "PASS"},
-        "claim": "This exact revision satisfies NUI v7 structural and contract checks for concrete craft, decision-dimensional authority routing, bounded concrete design packets, agent-readable source adapters, rendered perception, inherited v5/v6 enforcement and the v7 adversarial corpus in the fail-fast verification job that generated this packet.",
-        "bounds": [
-            "Structural verification proves the v7 mechanisms and deterministic repository invariants exist and pass; it does not prove every future interface is objectively beautiful or superior to every production design system.",
-            "Authority is decision-dimensional. A source or MCP that is authoritative for one dimension does not become global product authority, and an access protocol is not authority.",
-            "Concrete cards preserve provenance, contraindications and transfer boundaries; they are mechanism knowledge, not trade dress or permission to clone an upstream product language.",
-            "Flagship, exceptional and experiential work still requires task-specific rendered perception evidence, reference comparison, critique/recovery and inherited aesthetic adequacy gates.",
-            "Institutional patterns and production primitives still require local-context, runtime, accessibility, licensing and current-version verification when those facts are material.",
-            "Repository adversarial cases are executable specifications, not live cross-model benchmark wins. Causal superiority requires controlled runtime evaluation.",
-        ],
-        "unknowns": [
-            "Cross-model preference scores, human preference results and product-specific usability outcomes remain outside repository-only CI unless an external runtime supplies that evidence.",
-            "Browser, screenshot, semantic-tree, MCP and independent-worker capabilities vary by host runtime.",
-        ],
-        "decision": "PASS",
+    packet={
+      "packet_id":f"NUI-V8-STRUCTURAL-{a.revision}","artifact_revision":a.revision,"phase":"VERIFIED",
+      "task_profile":"NUI v8 Agent Interoperability & Visual Media Intelligence: inherited cognition/aesthetic/deep-research/concrete-authority gates including v7 concrete craft and rendered perception plus portable agent bridges, third-party skill trust, rights-aware media decisions, shape-substitution prevention and creative-toolchain/render integration evidence.",
+      "obligations":[{"id":x,"status":"PASS","evidence_refs":refs} for x in obligations],"evidence":evidence,"findings":[],
+      "checks":{"unit-tests":"PASS","repository-validator":"PASS","completion-gate":"PASS"},
+      "claim":"This exact revision satisfies NUI v8 deterministic structural and contract checks for 174 canonical skill graph/depth coverage, agent interoperability, external-skill supply-chain trust, visual-media provenance, creative tool routing, inherited v5-v7 enforcement and the v8 adversarial corpus.",
+      "bounds":[
+        "Structural verification does not prove every future UI is beautiful, usable, accessible, lawful or superior; task-specific rendered evidence and human/product outcomes remain separate.",
+        "Agent bridges alter discovery/invocation only. Host sandbox, permissions, MCP approvals and tool availability remain authoritative.",
+        "External agent skills are untrusted instruction/code supply-chain inputs until immutable revision, content, license, capabilities and adoption boundary are reviewed.",
+        "Publicly accessible images are not automatically reusable. Material assets require asset-level rights/provenance verification and relevant privacy/publicity/trademark or cultural-sensitivity review.",
+        "Geometry is not banned. Shape substitution is blocked only when generic abstraction displaces higher-information subject-native media/data or pretends to encode evidence it does not possess.",
+        "Creative tools execute bounded stages; they do not decide product truth or grant themselves authority. Generated/sourced assets still require rendered integration, accessibility, performance and rights evidence.",
+        "Repository adversarial cases are executable specifications, not a universal cross-model or human-preference benchmark."
+      ],
+      "unknowns":["Live vendor agent paths, tool capabilities, service terms and external asset rights can drift and require current verification when material.","Cross-model visual preference and product-specific usability outcomes remain outside repository-only CI unless separately measured."],
+      "decision":"PASS"
     }
-    output = Path(args.output)
-    output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(json.dumps(packet, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    return 0
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())
+    out=Path(a.output); out.parent.mkdir(parents=True,exist_ok=True); out.write_text(json.dumps(packet,indent=2,ensure_ascii=False)+'\n'); return 0
+if __name__=='__main__': raise SystemExit(main())

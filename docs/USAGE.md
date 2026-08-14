@@ -267,3 +267,10 @@ For fast execution, compile a **concrete design packet**. It contains a task the
 For external visual or production knowledge, transfer **mechanism, not trade dress**. Record what the mechanism solves, why it fits, what would falsify it, which local layer owns it, and what still needs validation. Institutional maturity creates a stronger prior, not universal transfer permission.
 
 High visual ambition additionally routes `validating-rendered-perception` and `designing-domain-native-signatures`. Capture material viewports/states, inspect resolved type rather than intended CSS alone, test whether the signature is actually subject-linked, compare reference dimensions, and run a weakness → fix → verified-artifact loop. If motion matters, evaluate before/transition/settled states plus reduced-motion equivalence. Pixel deltas must be tied to renderer/environment and a justified tolerance; screenshot presence alone is screenshot theater.
+
+
+## V8 agent and visual-media workflow
+
+Use `python scripts/nui-agent-export --agent <adapter>` to inspect a thin host projection and `python scripts/nui-mcp-server` when the host uses MCP. Host adapters point back to the canonical bootstrap and graph; load only owners triggered by the task.
+
+When subject-native media is material, route through media opportunity mapping before selecting imagery or custom production. Compare geometry against truthful higher-information alternatives rather than applying a blanket no-card rule. For external assets, keep the selected item source record. For custom assets, build a stage-aware toolchain and verify the result inside at least two material rendered states before completion.

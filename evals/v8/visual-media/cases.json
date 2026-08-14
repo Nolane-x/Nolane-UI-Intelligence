@@ -1,0 +1,14 @@
+{
+  "version": 8,
+  "plane": "visual-media",
+  "cases": [
+    {"id":"shape-vs-subject","setup":"abstract hero replaces stronger native subject material","expected_decision":"RE_DIVERGE","must_find":["native alternative carries more meaning","high-attention shape is weakly grounded"],"evaluator_owner":"replacing-shape-substitution"},
+    {"id":"useful-data-form","setup":"real data form is mistaken for decoration","expected_decision":"PASS","must_find":["geometry carries information","task value protects the form"],"evaluator_owner":"replacing-shape-substitution"},
+    {"id":"subject-omission","setup":"subject-led surface contains no subject material","expected_decision":"BLOCKED","must_find":["omission cost is material","native media deserves a slot"],"evaluator_owner":"mapping-visual-media-opportunities"},
+    {"id":"filler-media","setup":"operational surface adds media with no semantic job","expected_decision":"BLOCKED","must_find":["media is optional","slot needs a product purpose"],"evaluator_owner":"mapping-visual-media-opportunities"},
+    {"id":"index-only-source","setup":"selected asset has only an index record","expected_decision":"BLOCKED","must_find":["index is discovery evidence","asset needs an origin record"],"evaluator_owner":"sourcing-rights-safe-visual-media"},
+    {"id":"derived-asset-record","setup":"selected asset is cropped for responsive use","expected_decision":"PASS","must_find":["source record remains attached","local transformation is recorded"],"evaluator_owner":"sourcing-rights-safe-visual-media"},
+    {"id":"asset-truth-mismatch","setup":"custom visual contains detail outside the approved subject constraints","expected_decision":"BLOCKED","must_find":["truth constraints govern acceptance","visual polish does not override subject evidence"],"evaluator_owner":"authoring-domain-native-visual-assets"},
+    {"id":"domain-swap-brief","setup":"custom visual brief survives a domain swap almost unchanged","expected_decision":"BLOCKED","must_find":["subject grammar is insufficient","brief must respond to domain material"],"evaluator_owner":"authoring-domain-native-visual-assets"}
+  ]
+}
