@@ -1,0 +1,78 @@
+{
+  "version": 9,
+  "purpose": "Bridge design intelligence to implementation so correct reasoning survives tokens, components, CSS, browser/platform chrome, responsive transformation, motion and runtime rendering.",
+  "token_dimensions": [
+    {"id": "type-size", "rule": "Use semantic type roles and optical hierarchy; avoid arbitrary per-screen pixel sizes."},
+    {"id": "line-height", "rule": "Tune line-height by role and measure; compact UI labels, body reading and editorial display need different rhythms."},
+    {"id": "font-weight", "rule": "Use weight for hierarchy without collapsing every emphasis into bold."},
+    {"id": "spacing", "rule": "Use a coherent spacing system while permitting optical corrections where geometry alone looks wrong."},
+    {"id": "radius", "rule": "Radius is a material/system decision, not a universal decoration applied equally to every container."},
+    {"id": "border-opacity", "rule": "Borders establish grouping and state with calibrated contrast; avoid one opaque outline around every object."},
+    {"id": "elevation-shadow", "rule": "Elevation must communicate layering/interaction and remain coherent across light/dark themes."},
+    {"id": "color-semantics", "rule": "Brand, neutral and semantic status colors keep distinct ownership."},
+    {"id": "density", "rule": "Density changes information throughput and target ergonomics; compactness must not erase operability."},
+    {"id": "motion", "rule": "Duration/easing/spring tokens encode motion families and purpose rather than one global animation recipe."}
+  ],
+  "component_constraints": [
+    {"id": "state-completeness", "rule": "Interactive components implement idle, hover where applicable, focus, pressed, selected, disabled, loading, error and success states when semantically relevant."},
+    {"id": "focus-quality", "rule": "Focus treatment must be visible, theme-compatible and distinct from hover/selection while preserving platform accessibility expectations."},
+    {"id": "content-extremes", "rule": "Components survive zero, long, localized, partial, delayed and overflow content."},
+    {"id": "nested-overlays", "rule": "Menus, popovers, dialogs and tooltips have explicit stacking, dismissal, focus restoration and collision behavior."},
+    {"id": "precision-targets", "rule": "Dense desktop controls may be compact visually while maintaining reliable pointer/keyboard targeting and accessibility."},
+    {"id": "semantic-actions", "rule": "Visual controls bind canonical product actions rather than ad-hoc local handlers with divergent semantics."},
+    {"id": "async-races", "rule": "Loading and optimistic states prevent duplicate action, stale response and unmount races."},
+    {"id": "theme-survival", "rule": "Every semantic state remains legible in light, dark, high-contrast/forced-color and supported custom themes."},
+    {"id": "responsive-preservation", "rule": "Required capability semantics survive layout transformation even when control presentation changes."},
+    {"id": "platform-expression", "rule": "Native controls may remain native when intentional; custom styling must pay its accessibility, behavior and maintenance cost."}
+  ],
+  "default_chrome_audit": [
+    {"kind": "scrollbar", "question": "Is native/styled/overlay/reveal behavior intentional, theme-compatible and still operable?"},
+    {"kind": "select", "question": "Does the platform/native select fit the product, or does an unstyled default break visual and interaction continuity?"},
+    {"kind": "file-input", "question": "Is native file picking integrated intentionally without leaving a stray browser-default button?"},
+    {"kind": "date-time-input", "question": "Are browser picker, locale, keyboard and theme behaviors understood rather than cosmetically ignored?"},
+    {"kind": "number-input", "question": "Are steppers, wheel behavior, precision and mobile keyboard behavior intentional?"},
+    {"kind": "range-input", "question": "Are track, thumb, value feedback, focus and touch/keyboard semantics coherent?"},
+    {"kind": "focus-ring", "question": "Is focus visible and intentional rather than accidentally default, accidentally removed, or visually confused with selection?"},
+    {"kind": "selection-highlight", "question": "Do text/object selection colors preserve legibility and brand/theme semantics?"},
+    {"kind": "caret", "question": "Is caret visible against editable surfaces and consistent with text/input states?"},
+    {"kind": "resize-handle", "question": "Are resizable panels/textareas intentionally expressed and discoverable?"},
+    {"kind": "drag-ghost", "question": "Does drag feedback represent the actual object/action rather than an awkward browser snapshot?"},
+    {"kind": "validation-ui", "question": "Are native validation bubbles compatible with the product's error model, or should validation be owned in-product?"},
+    {"kind": "context-menu", "question": "Are custom/native context actions intentional and do essential actions remain reachable elsewhere?"},
+    {"kind": "tooltip-popover", "question": "Do arrows, shadows, borders, focus, timing and collision behavior belong to the same material system?"},
+    {"kind": "cursor", "question": "Does cursor shape communicate affordance without becoming decoration?"},
+    {"kind": "overscroll", "question": "Are bounce/glow/edge behaviors appropriate to the platform and nested scrolling model?"}
+  ],
+  "responsive_rules": [
+    "Transform hierarchy rather than mechanically stacking every desktop region.",
+    "Retain critical actions through alternate surfaces when toolbars or sidebars collapse.",
+    "Re-evaluate density, text measure, overlays, sticky regions, tables, canvases and input modality at each meaningful layout regime.",
+    "Capture rendered evidence at the smallest supported viewport and at least one wide/high-density workspace condition.",
+    "Treat keyboard appearance, safe areas and dynamic viewport changes as state transitions, not fixed breakpoints."
+  ],
+  "motion_semantics": [
+    {"purpose": "structure", "rule": "Motion may teach where an object came from, where it went, or how hierarchy changed; reduced motion preserves that meaning without vestibular transforms."},
+    {"purpose": "causality", "rule": "Feedback should connect user action to result without delaying truth or accepting duplicate activation."},
+    {"purpose": "orientation", "rule": "Workspace/canvas navigation may preserve spatial continuity but must remain interruptible and recoverable."},
+    {"purpose": "emotional-cadence", "rule": "Celebration/ambience is subordinate to task frequency, product tone and consequence; repeated expert actions should not be theatrically slowed."},
+    {"purpose": "intentional-absence", "rule": "No animation is a valid high-quality choice when motion would add latency, distraction, ambiguity or fatigue."},
+    {"purpose": "reduced motion", "rule": "Reduced motion is an equivalent semantic branch, not merely duration zero; state hierarchy and acknowledgement remain perceivable."}
+  ],
+  "implementation_rules": [
+    "Prefer semantic design tokens consumed by components over per-screen magic values.",
+    "Prevent CSS transition: all on state-rich controls; name properties and interruption behavior.",
+    "Use layout primitives that can express min/max/intrinsic content rather than screenshot-specific fixed geometry.",
+    "Measure real font rendering, wrapping and density; design-tool dimensions are hypotheses until browser/runtime rendering confirms them.",
+    "Keep z-index and overlay ownership systematic so dialogs, menus, tooltips, command surfaces and canvases cannot arbitrarily out-rank one another.",
+    "Style browser chrome only when the behavior remains robust; aesthetic consistency never justifies removing focus, scrolling, selection or platform affordances without an equivalent path.",
+    "Performance degradation must remove decoration before it degrades task feedback, input latency or semantic state."
+  ],
+  "visual_regression_obligations": [
+    "Capture representative desktop and mobile/small viewport renders for material UI changes.",
+    "Compare typography wrap, spacing rhythm, overlay placement, sticky/fixed regions and default-browser chrome, not only pixel percentage.",
+    "Review expected deltas manually when anti-aliasing or dynamic content makes raw pixel thresholds noisy.",
+    "Include theme/state variants for components whose visual semantics change under dark/high-contrast/error/selected/focus conditions.",
+    "Store the accepted baseline revision and test revision so evidence is reproducible.",
+    "A passing screenshot diff cannot prove interaction semantics; bind visual evidence to runtime probes for actions, focus and state transitions."
+  ]
+}
