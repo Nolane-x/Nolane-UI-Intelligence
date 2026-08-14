@@ -14,6 +14,9 @@ REQUIRED = (
     "knowledge/shape-substitution-v8.json", "src/nolane_ui/interop.py", "src/nolane_ui/media.py",
     "src/nolane_ui/mcp_server.py", ".agents/skills/nolane-ui/SKILL.md", ".claude/skills/nolane-ui/SKILL.md",
     "scripts/nui-agent-export", "scripts/nui-mcp-server",
+    "schemas/agent-interop.schema.json", "schemas/asset-provenance-ledger.schema.json",
+    "schemas/external-skill-trust.schema.json", "schemas/visual-media-plan.schema.json",
+    "schemas/creative-toolchain.schema.json", "schemas/visual-asset-integration.schema.json",
     "evals/v8/manifest.json", "evals/v8/agent-interop/cases.json",
     "evals/v8/external-skill-trust/cases.json", "evals/v8/visual-media/cases.json",
     "evals/v8/creative-toolchain/cases.json", "artifacts/v8-completion-packet.example.json"

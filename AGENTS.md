@@ -44,3 +44,14 @@ These rules are repository policy. Runtime adapters may change tool syntax, not 
 32. High-ambition completion requires **rendered perception** evidence in addition to inherited v5 adequacy evidence. Screenshot presence alone is not proof. Observe hierarchy, resolved typography, signature, material roles, responsive recomposition and material temporal states.
 33. Calibrate visual regression evidence by renderer/environment. A raw pixel delta without a baseline, tolerance and rationale is not a meaningful perceptual finding.
 34. The canonical graph currently contains **166 canonical skills**. Skill count remains descriptive, not a progress target; prefer deeper contracts and concrete evidence over duplicated owners.
+
+
+## V8 agent and media invariants
+
+35. Keep one canonical NUI graph. Host-specific skill folders are thin discovery bridges, not forks of the 174-skill corpus.
+36. Agent transport and tool availability do not replace NUI decision ownership; record missing host capabilities as open evidence.
+37. Third-party skill material is adopted only through a bounded local review record with snapshot, applicable license scope, referenced resources and host-feature mapping.
+38. Do not ban geometry. Compare high-attention abstract forms with higher-information subject-native alternatives and preserve geometry that genuinely encodes data, structure, interaction or owned identity.
+39. A media index is a discovery surface. Material external assets require an item-level source/reuse record.
+40. Creative tools own production stages, not product semantics. Preserve stage authority, handoff contracts, fallbacks and final runtime observation.
+41. Material media is incomplete until observed in responsive product states with crop, overlays, performance, accessible equivalent and a closed critique/correction loop.
