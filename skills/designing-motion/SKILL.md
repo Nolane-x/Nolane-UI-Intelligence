@@ -80,3 +80,30 @@ Replace the engine while keeping the semantic sequence. If the product meaning d
 
 ### Recovery
 Move meaning into explicit product state, simplify choreography, and reselect an engine only after the temporal contract is stable.
+
+## V9 Motion Direction
+Treat motion as a product-level direction with four questions before choosing easing or duration: **what structure does motion teach, what causality does it confirm, what emotional cadence does it contribute, and where is intentional absence stronger?** High-quality motion is often noticeable as coherence rather than spectacle.
+
+### Structural teaching
+Use motion to reveal relationships that are otherwise hard to infer: a panel belongs to a selected object, a card expands into detail, a timeline edit shifts dependent material, a workspace pane is moved rather than destroyed, or a modal action returns focus to its origin. Maintain continuity anchors so the movement explains architecture. If the relationship is already obvious from stable layout, motion may add no value.
+
+### Causality and state truth
+Acknowledgement should make cause and effect legible: the pressed control, affected object, pending operation and final state belong to one temporal story. Async truth outranks optimistic spectacle. Do not celebrate success before the authoritative state exists, and do not make error/reversal feel like a visual afterthought. Repeated expert actions should settle quickly enough that users operate at their own speed.
+
+### Emotional cadence
+When emotion is part of the product thesis, allocate cadence deliberately across an experience rather than animating every component. A creative tool may use a restrained expressive beat at creation/export while keeping trimming, selection and property edits immediate. A consumer product may allow more delight around low-consequence milestones. Financial, medical, operational and high-pressure surfaces usually need calmer transitions where confidence and state legibility dominate. Emotional cadence is domain- and audience-sensitive, not a universal “premium easing.”
+
+### Intentional absence
+**Intentional absence** is a first-class motion decision. Prefer no motion when transition delay would slow repeated work, when movement competes with dense scanning, when the platform convention is instant, when state remains clearer as a cut, or when motion would trivialize a high-consequence action. A still interface can feel more expensive than an animated one when the restraint is deliberate.
+
+### Reduced motion equivalence
+Require **reduced motion equivalence**, not merely a disabled animation flag. For every informational transition specify which persistent cue, crossfade, instant layout state, text/status update or focus movement carries the same meaning. Remove parallax, large-scale zoom/travel and continuous ambient effects when needed, while preserving causal acknowledgement and orientation.
+
+### Motion hierarchy
+Classify motion priority: `critical-information`, `task-feedback`, `orientation`, `signature`, `celebration`, `ambient`. Performance or reduced-motion degradation must remove from the bottom upward. Ambient/background effects never consume the latency or frame budget required by direct manipulation, scrolling, input or status feedback.
+
+### V9 Falsification
+Watch the interface at normal speed, 2× interaction speed, reduced motion, throttled hardware and without audio/haptics. Ask whether structure and causality remain understandable, whether expressive movement repeats into fatigue, and whether any interaction feels slower solely to look sophisticated. If removing decorative animation improves the task with no identity loss, the original motion was excess.
+
+### V9 Recovery
+Preserve state truth, remove low-value channels, rebalance cadence around meaningful moments, and simplify spatial travel. When motion is necessary but implementation cannot hit the interaction/performance budget, degrade the effect before degrading task responsiveness or feedback.
