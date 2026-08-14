@@ -87,3 +87,20 @@ Rapidly interleave input events and async completions while switching focus/moda
 
 ### Recovery
 Centralize state/event authority, cancel/ignore stale work, preserve semantic identity, and simplify interaction before adding patches.
+
+## V9 Motion Implementation Fidelity
+Implement **semantic motion** from the `designing-motion` contract rather than translating adjectives such as “smooth,” “premium,” or “cinematic” directly into springs. Each timeline, transition or gesture binds a semantic purpose, canonical state transition, interruption model, reduced-motion branch and evidence probe. The animation engine owns interpolation mechanics; product state owns truth.
+
+Keep one authoritative temporal state model. CSS transitions, React state, animation-library presence/layout state, canvas/WebGL loops and async product state must not independently decide whether an operation is complete. Visual settling may continue after the semantic action has committed, but the user must not be blocked from valid next actions unless the product contract explicitly requires serialization.
+
+Translate the V9 motion hierarchy into **performance degradation** order. Under throttled CPU/GPU, low battery/data-saving modes, many simultaneous objects or background tabs, remove or simplify ambient/celebratory/signature effects before task feedback, progress, focus, drag tracking or state acknowledgement. Pause offscreen loops and release observers/timelines/resources when ownership ends.
+
+Implement reduced motion as an explicit state branch. Avoid merely setting every duration to zero when that creates focus jumps, destroys continuity or bypasses expected completion events. Choose instant state, crossfade, restrained opacity, persistent highlight/status or another equivalent representation and test the branch independently.
+
+For motion coupled to layout or pointer input, preserve current visual state during retargeting. Rapid resize, reordered data, reversed gesture, repeated activation and navigation can all invalidate a destination. Retarget/cancel from current state rather than restarting from stale coordinates and creating visible jumps.
+
+### V9 Falsification
+Run the same interaction at normal speed, rapid repeated input, reduced motion, background/foreground transition, throttled rendering and with the destination changing mid-flight. If state truth diverges, focus disappears, duplicate actions occur or decorative effects consume the task feedback budget, implementation fidelity fails even when the happy-path animation looks excellent.
+
+### V9 Recovery
+Centralize semantic state and event ownership, cancel stale async/animation work, simplify choreography, and restore task feedback before visual richness. If the engine makes correct interruption or reduced-motion semantics unreasonably fragile, replace or bound the engine instead of encoding product truth inside it.
