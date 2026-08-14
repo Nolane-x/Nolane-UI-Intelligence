@@ -1,0 +1,51 @@
+name: V8 Release Sync
+on:
+  push:
+    branches: ["build/v8-rc-tests"]
+permissions:
+  contents: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Update v8 release surfaces
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          readme=Path('README.md')
+          text=readme.read_text()
+          text=text.replace('The current v7 graph declares **166 canonical skills**','The current v8 graph declares **174 canonical skills**',1)
+          if '## Agent Interoperability & Visual Media Intelligence (v8)' not in text:
+              text += '''\n\n## Agent Interoperability & Visual Media Intelligence (v8)\n\nV8 projects one canonical NUI graph through thin Codex, Claude Code, Antigravity, MCP, CLI and editor-agent surfaces instead of copying the skill corpus per vendor. The current registry contains **9 agent adapters**, while host tool availability and permission settings remain explicit runtime facts rather than design authority.\n\nV8 also adds a visual-media decision plane. It does not ban cards or geometry; it detects **shape substitution**, where low-information abstract forms consume high-attention slots that could carry stronger subject-native imagery, real data, diagrams, maps, direct manipulation, domain-derived 3D or deliberate typography. The combined registries currently expose **14 tool-learning sources, 14 visual-media sources across 8+ source classes, and 14 creative tools**. Selected external media remains item-specific and is checked before material use.\n\nThe eight new owners cover host projection, external skill review, media opportunity mapping, media sourcing, domain-native asset briefs, creative toolchains, representation substitution and rendered asset integration. They extend semantic depth coverage to **174/174 skills** and add **32 v8 adversarial cases**. Material media must survive responsive crop, overlay legibility, performance, accessible-equivalent and render→critique→correction→re-render evidence.\n'''
+          readme.write_text(text)
+
+          agents=Path('AGENTS.md')
+          text=agents.read_text()
+          if '## V8 agent and media invariants' not in text:
+              text += '''\n\n## V8 agent and media invariants\n\n35. Keep one canonical NUI graph. Host-specific skill folders are thin discovery bridges, not forks of the 174-skill corpus.\n36. Agent transport and tool availability do not replace NUI decision ownership; record missing host capabilities as open evidence.\n37. Third-party skill material is adopted only through a bounded local review record with snapshot, applicable license scope, referenced resources and host-feature mapping.\n38. Do not ban geometry. Compare high-attention abstract forms with higher-information subject-native alternatives and preserve geometry that genuinely encodes data, structure, interaction or owned identity.\n39. A media index is a discovery surface. Material external assets require an item-level source/reuse record.\n40. Creative tools own production stages, not product semantics. Preserve stage authority, handoff contracts, fallbacks and final runtime observation.\n41. Material media is incomplete until observed in responsive product states with crop, overlays, performance, accessible equivalent and a closed critique/correction loop.\n'''
+          agents.write_text(text)
+
+          usage=Path('docs/USAGE.md')
+          text=usage.read_text()
+          if '## V8 agent and visual-media workflow' not in text:
+              text += '''\n\n## V8 agent and visual-media workflow\n\nUse `python scripts/nui-agent-export --agent <adapter>` to inspect a thin host projection and `python scripts/nui-mcp-server` when the host uses MCP. Host adapters point back to the canonical bootstrap and graph; load only owners triggered by the task.\n\nWhen subject-native media is material, route through media opportunity mapping before selecting imagery or custom production. Compare geometry against truthful higher-information alternatives rather than applying a blanket no-card rule. For external assets, keep the selected item source record. For custom assets, build a stage-aware toolchain and verify the result inside at least two material rendered states before completion.\n'''
+          usage.write_text(text)
+
+          repo=Path('src/nolane_ui/v8_repository.py')
+          text=repo.read_text()
+          needle='    "scripts/nui-agent-export", "scripts/nui-mcp-server",\n'
+          insert='    "scripts/nui-agent-export", "scripts/nui-mcp-server",\n    "schemas/agent-interop.schema.json", "schemas/asset-provenance-ledger.schema.json",\n    "schemas/external-skill-trust.schema.json", "schemas/visual-media-plan.schema.json",\n    "schemas/creative-toolchain.schema.json", "schemas/visual-asset-integration.schema.json",\n'
+          if '"schemas/creative-toolchain.schema.json"' not in text:
+              if needle not in text: raise SystemExit('v8 repository schema insertion point missing')
+              text=text.replace(needle,insert,1)
+          repo.write_text(text)
+          PY
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add README.md AGENTS.md docs/USAGE.md src/nolane_ui/v8_repository.py
+          git commit -m "docs(v8): publish agent-media execution contract"
+          git push origin HEAD:build/v8-rc-tests
