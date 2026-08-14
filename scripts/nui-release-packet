@@ -1,55 +1,123 @@
 #!/usr/bin/env python3
-"""Generate a fresh bounded NUI v9 structural release packet after tests succeed."""
-import argparse, json
+"""Generate a fresh bounded NUI V10 structural release packet after tests succeed."""
+from __future__ import annotations
+
+import argparse
+import json
 from datetime import datetime, timezone
 from pathlib import Path
 
-# Public completion authority is exposed by nolane_ui.validators as
-# validate_v9_completion_evidence; this script records repository structural
-# evidence and does not fabricate task-specific render/usability evidence.
-V9_COMPLETION_ENTRYPOINT = "validate_v9_completion_evidence"
+from nolane_ui.completion_v10 import validate_v10_completion_evidence
+
+V10_COMPLETION_ENTRYPOINT = "validate_v10_completion_evidence"
 
 
 def main() -> int:
-    p=argparse.ArgumentParser(description="Generate NUI v9 structural completion evidence")
-    p.add_argument('--output',required=True); p.add_argument('--revision',required=True); p.add_argument('--source',required=True)
-    a=p.parse_args(); observed=datetime.now(timezone.utc).isoformat().replace('+00:00','Z')
-    evidence=[
-      {"evidence_id":"E-UNIT-SUITE","method":"test-run","source":a.source,"scope":"repository unit and contract suite","claim":"all repository unit and contract tests completed successfully before packet generation","observed_at":observed,"result":"PASS"},
-      {"evidence_id":"E-REPOSITORY-VALIDATOR","method":"automated-audit","source":"scripts/nui-validate in the same fail-fast job","scope":"canonical graph, V9 product/taste/render kernel, depth locks, registries, knowledge planes, schemas, docs and adversarial evals","claim":"all deterministic repository invariants are required to pass for packet acceptance","observed_at":observed,"result":"PASS"}
-    ]; refs=["E-UNIT-SUITE","E-REPOSITORY-VALIDATOR"]
-    obligations=[
-      "O-GRAPH-SKILLS","O-DETERMINISTIC-KERNEL","O-V5-AESTHETIC-ENFORCEMENT","O-V6-DEEP-SOURCE-INTELLIGENCE","O-V6-BEHAVIORAL-SKILL-DEPTH",
-      "O-V7-AUTHORITY-MESH","O-V7-CONCRETE-KNOWLEDGE","O-V7-RENDERED-PERCEPTION","O-V7-AGENT-READABLE-CONTEXT","O-V7-ADVERSARIAL-EVAL",
-      "O-V8-AGENT-INTEROP","O-V8-EXTERNAL-SKILL-TRUST","O-V8-VISUAL-MEDIA","O-V8-CREATIVE-TOOLCHAIN","O-V8-ADVERSARIAL-EVAL",
-      "O-V9-PRODUCT-CAPABILITY-ENVELOPE","O-V9-SCOPE-ADEQUACY","O-V9-SETTINGS-ACCOUNT-LIFECYCLE","O-V9-PROFESSIONAL-WORKSPACE",
-      "O-V9-INTERFACE-RESIDUE","O-V9-TASTE-DISCRIMINATION","O-V9-RENDERED-CRITIQUE","O-V9-BENCHMARK-MEMORY","O-V9-DOMAIN-AUDIENCE",
-      "O-V9-DESIGN-TO-RENDER-FIDELITY","O-V9-MOTION-DIRECTION","O-V9-ADVERSARIAL-EVAL"
+    parser = argparse.ArgumentParser(description="Generate NUI V10 structural completion evidence")
+    parser.add_argument("--output", required=True)
+    parser.add_argument("--revision", required=True)
+    parser.add_argument("--source", required=True)
+    args = parser.parse_args()
+
+    observed = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+    evidence = [
+        {
+            "evidence_id": "E-UNIT-SUITE",
+            "method": "test-run",
+            "source": args.source,
+            "scope": "repository unit and contract suite",
+            "claim": "all repository unit and contract tests completed successfully before packet generation",
+            "observed_at": observed,
+            "result": "PASS",
+        },
+        {
+            "evidence_id": "E-REPOSITORY-VALIDATOR",
+            "method": "automated-audit",
+            "source": "scripts/nui-validate in the same fail-fast job",
+            "scope": "canonical graph plus inherited V5-V9 gates and V10 behavioral/empirical framework",
+            "claim": "all deterministic repository invariants are required to pass for packet acceptance",
+            "observed_at": observed,
+            "result": "PASS",
+        },
     ]
-    packet={
-      "packet_id":f"NUI-V9-STRUCTURAL-{a.revision}","artifact_revision":a.revision,"phase":"VERIFIED",
-      "task_profile":"NUI v9 Product Completeness & Taste Intelligence: inherited v5-v8 cognition, authority, media and agent gates plus broad-before-narrow capability envelope discovery, independent scope adequacy, settings/account lifecycle depth, professional workspace instrument architecture, browser/platform residue auditing, comparative taste discrimination, render-first design-director critique, curated mechanism-level benchmark memory, domain/audience sensitivity, design-to-render fidelity and semantic motion direction.",
-      "obligations":[{"id":x,"status":"PASS","evidence_refs":refs} for x in obligations],"evidence":evidence,"findings":[],
-      "checks":{"unit-tests":"PASS","repository-validator":"PASS","completion-gate":"PASS"},
-      "completion_entrypoint":V9_COMPLETION_ENTRYPOINT,
-      "claim":"This exact revision satisfies NUI v9 deterministic repository structural and contract checks while preserving the 174 canonical-skill ownership graph and extending high-ambition completion with product-scope, perceptual, runtime-fidelity and adversarial evidence requirements.",
-      "bounds":[
-        "Structural repository verification does not prove that every future UI is beautiful, usable, accessible, lawful, complete or superior. Task-specific product truth, rendered evidence and human/product outcomes remain separate evidence obligations.",
-        "The V9 capability envelope forces broad discovery and explicit disposition; it does not force every discovered capability into every product or screen.",
-        "Comparative taste can rank rendered candidates only within product, accessibility, platform, security and functional constraints. It is not a universal mathematical beauty score.",
-        "Benchmark references teach mechanisms rather than proprietary expression. Live product implementations drift and require current first-party inspection when a concrete detail matters.",
-        "Screenshot/render critique cannot be certified by repository CI alone; a real task must supply actual captures for the relevant states, themes and viewports.",
-        "Native browser or platform chrome is not inherently bad. V9 blocks accidental residue and unjustified incompatibility, not intentional platform-appropriate controls.",
-        "Visual-regression PASS does not prove interaction semantics, accessibility, focus, motion or product correctness; those require their own runtime evidence.",
-        "Domain signatures and audience profiles are priors that must yield to product-local evidence and must not become aesthetic stereotypes.",
-        "Motion is subordinate to state truth, reduced-motion equivalence, interaction latency and performance. Decorative richness is the first degradation tier.",
-        "Inherited V8 agent/media/rights boundaries remain in force."
-      ],
-      "unknowns":[
-        "Live benchmark products, browser/platform behavior, vendor agent paths, service terms and external asset rights can drift and require current verification when material.",
-        "Cross-model visual preference, product-specific usability and actual rendered quality remain outside repository-only CI unless separately measured."
-      ],
-      "decision":"PASS"
+    refs = ["E-UNIT-SUITE", "E-REPOSITORY-VALIDATOR"]
+    obligations = [
+        "O-GRAPH-SKILLS",
+        "O-DETERMINISTIC-KERNEL",
+        "O-V5-AESTHETIC-ENFORCEMENT",
+        "O-V6-DEEP-SOURCE-INTELLIGENCE",
+        "O-V6-BEHAVIORAL-SKILL-DEPTH",
+        "O-V7-AUTHORITY-MESH",
+        "O-V7-CONCRETE-KNOWLEDGE",
+        "O-V7-RENDERED-PERCEPTION",
+        "O-V8-AGENT-MEDIA-INTELLIGENCE",
+        "O-V8-FLAGSHIP-VISUAL-SYNTHESIS",
+        "O-V9-PRODUCT-COMPLETENESS",
+        "O-V9-TASTE-AND-RENDER-CRITIQUE",
+        "O-V9-DESIGN-TO-RENDER-FIDELITY",
+        "O-V10-FALSIFIABLE-HYPOTHESES",
+        "O-V10-BENCHMARK-CORPUS",
+        "O-V10-MUTATION-ABLATION-CONTROLS",
+        "O-V10-PROVENANCE-AND-BLIND-JUDGING",
+        "O-V10-CLAIM-PROMOTION-BOUNDARY",
+        "O-V10-ADVERSARIAL-EMPIRICAL-COURT",
+    ]
+
+    efficacy = {
+        "version": 10,
+        "claim_ceiling": "STRUCTURAL_ONLY",
+        "empirical_runs_executed": False,
+        "imported_empirical_bundle_digests": [],
+        "unresolved_empirical_claims": [
+            "Real-provider/model controlled runs have not been executed by repository-only CI.",
+            "EMPIRICAL_LOCAL and EMPIRICAL_TRANSFER remain unavailable until validated external run bundles satisfy V10 gates.",
+        ],
     }
-    out=Path(a.output); out.parent.mkdir(parents=True,exist_ok=True); out.write_text(json.dumps(packet,indent=2,ensure_ascii=False)+'\n'); return 0
-if __name__=='__main__': raise SystemExit(main())
+    efficacy_check = validate_v10_completion_evidence(efficacy)
+    if not efficacy_check.get("valid"):
+        raise SystemExit("invalid V10 structural efficacy boundary: " + "; ".join(efficacy_check.get("errors", [])))
+
+    packet = {
+        "packet_id": f"NUI-V10-STRUCTURAL-{args.revision}",
+        "artifact_revision": args.revision,
+        "phase": "VERIFIED",
+        "task_profile": (
+            "NUI V10 Design Cognition & Empirical Proof: inherited product, visual, authority, media, "
+            "product-completeness and rendered-perception gates plus falsifiable hypotheses, controlled "
+            "benchmark tasks, mutations/ablations/placebos, run provenance, blind judging and bounded claim promotion."
+        ),
+        "obligations": [{"id": item, "status": "PASS", "evidence_refs": refs} for item in obligations],
+        "evidence": evidence,
+        "findings": [],
+        "checks": {"unit-tests": "PASS", "repository-validator": "PASS", "completion-gate": "PASS"},
+        "completion_entrypoint": V10_COMPLETION_ENTRYPOINT,
+        "v10_efficacy_boundary": efficacy,
+        "claim_ceiling": "STRUCTURAL_ONLY",
+        "claim": (
+            "This exact revision satisfies NUI V10 deterministic repository structural and contract checks, "
+            "preserves the 174-skill canonical graph, and contains the V10 empirical evaluation framework. "
+            "Repository-only CI does not claim real-model efficacy."
+        ),
+        "bounds": [
+            "Structural repository verification does not prove every future UI is beautiful, usable, accessible, safe, lawful, complete or superior.",
+            "A strong artifact is not proof that NUI caused the improvement; efficacy requires controlled real-model evidence.",
+            "EMPIRICAL_LOCAL requires a validated real-run bundle, matched pairs, blinded judging and targeted ablation evidence.",
+            "EMPIRICAL_TRANSFER additionally requires genuine holdout evidence and positive direction across multiple model families.",
+            "Task-specific rendered perception, product truth and human outcomes remain separate evidence obligations.",
+            "External sources transfer bounded mechanisms, not recognizable trade dress or global authority.",
+        ],
+        "unknowns": [
+            "Cross-model efficacy remains unverified until real provider/model experiments are imported and validated.",
+            "Live platforms, external libraries, standards, service terms and asset rights can drift and require current verification when material.",
+        ],
+        "decision": "PASS",
+    }
+
+    output = Path(args.output)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(packet, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
