@@ -43,7 +43,7 @@ def extend(root: Path, base: dict[str, Any]) -> dict[str, Any]:
         graph = load(root / "skills/skill-graph.json").get("skills", {})
         manifest = load(root / "knowledge/v8-skill-manifest.json")
         items = manifest.get("skills", [])
-        if len(graph) != 174: errors.append(f"v8 graph requires 174 skills, found {len(graph)}")
+        if len(graph) < 174: errors.append(f"v8 graph must retain at least the 174-skill historical baseline, found {len(graph)}")
         if manifest.get("version") != 8 or len(items) != 8: errors.append("v8 manifest requires version 8 and eight owners")
         for item in items:
             name = item.get("name"); node = graph.get(name, {})
@@ -58,7 +58,9 @@ def extend(root: Path, base: dict[str, Any]) -> dict[str, Any]:
         new = load(root / "knowledge/v8-depth-obligations.json").get("skills", {})
         if set(old) & set(new): errors.append("v8 depth extension overlaps earlier owner keys")
         union = dict(old); union.update(new)
-        if set(union) != set(graph): errors.append("v8 combined depth focus must cover canonical skill graph")
+        if len(union) != 174: errors.append(f"v8 combined depth baseline must retain 174 historical skills, found {len(union)}")
+        missing_baseline = sorted(set(union) - set(graph))
+        if missing_baseline: errors.append(f"v8 combined depth baseline missing from canonical graph: {missing_baseline}")
         terms: list[str] = []
         for name, anchors in union.items():
             if not isinstance(anchors, list) or len(anchors) != 5: errors.append(f"depth owner requires five anchors: {name}"); continue
