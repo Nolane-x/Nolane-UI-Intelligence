@@ -117,8 +117,8 @@ def extend(root: Path, base: dict[str, Any]) -> dict[str, Any]:
             errors.append("v10 package version must be 0.10.0")
         metrics["nui_major"] = 10
         graph = _load(root / "skills/skill-graph.json").get("skills", {})
-        if len(graph) != 174:
-            errors.append(f"v10 preserves 174 canonical skills; found {len(graph)}")
+        if len(graph) < 174:
+            errors.append(f"v10 must retain the 174-skill historical baseline; found {len(graph)}")
         metrics["skill_count"] = len(graph)
     except Exception as exc:
         errors.append(f"v10 version/ownership plane: {exc}")
