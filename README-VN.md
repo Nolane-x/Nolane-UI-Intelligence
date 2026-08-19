@@ -8,7 +8,7 @@
 
 [English](README.md) · [Tiếng Việt](README-VN.md) · [简体中文](README-CN.md)
 
-`v0.10.0` · `274 skill chuẩn` · `9 agent projection` · `MCP + CLI` · `evidence-gated` · `MIT`
+`v0.10.0` · `374 skill chuẩn` · `9 agent projection` · `MCP + CLI` · `evidence-gated` · `MIT`
 
 </div>
 
@@ -155,15 +155,15 @@ product truth
 → bounded release claim
 ```
 
-Agent không tải toàn bộ 274 skill. Router chọn **graph owner nhỏ nhất nhưng đủ** cho nhiệm vụ hiện tại.
+Agent không tải toàn bộ 374 skill. Router chọn **graph owner nhỏ nhất nhưng đủ** cho nhiệm vụ hiện tại.
 
 ---
 
-## 274 design faculties chuẩn
+## 374 design faculties chuẩn
 
-NUI hiện giữ **274 canonical skills**. Con số hiện tại chỉ mang tính mô tả, không phải giấy phép để tạo các expert trùng nhau. Roadmap dài hạn hướng tới độ phủ toàn ngành UI ở mức khoảng 1.000 canonical faculties nhưng vẫn giữ decision ownership riêng biệt và routing tối thiểu.
+NUI hiện giữ **374 canonical skills**. Con số hiện tại chỉ mang tính mô tả, không phải giấy phép để tạo các expert trùng nhau. Roadmap dài hạn hướng tới độ phủ toàn ngành UI ở mức khoảng 1.000 canonical faculties nhưng vẫn giữ decision ownership riêng biệt và routing tối thiểu.
 
-Một skill chỉ nên tồn tại khi nó sở hữu một loại quyết định hoặc failure class riêng. Hệ thống cố tình chống lại việc tạo hàng chục “expert” gần giống nhau. Batch 001 bổ sung 100 specialist được viết độc lập về motion, rich controls, direct manipulation, spreadsheet/data, enterprise workflow, billing, scheduling, geospatial và historical state. Xem [`docs/research/UI-INDUSTRY-1000-BATCH-001.md`](docs/research/UI-INDUSTRY-1000-BATCH-001.md) để xem exact inventory, provenance và các ràng buộc chống sinh lặp.
+Một skill chỉ nên tồn tại khi nó sở hữu một loại quyết định hoặc failure class riêng. Hệ thống cố tình chống lại việc tạo hàng chục “expert” gần giống nhau. Batch 001 bổ sung 100 specialist được viết độc lập về motion, rich controls, direct manipulation, spreadsheet/data, enterprise workflow, billing, scheduling, geospatial và historical state. Batch 002 bổ sung thêm 100 specialist được viết độc lập về input có ma sát cao, navigation/findability, feedback/recovery, messaging/collaboration, onboarding, commerce lifecycle, content publishing, developer operations và trust/account lifecycle. Xem [`docs/research/UI-INDUSTRY-1000-BATCH-001.md`](docs/research/UI-INDUSTRY-1000-BATCH-001.md) và [`docs/research/UI-INDUSTRY-1000-BATCH-002.md`](docs/research/UI-INDUSTRY-1000-BATCH-002.md) để xem exact inventory, ownership, provenance và các ràng buộc chống sinh lặp.
 
 Các nhóm lớn bao gồm:
 
@@ -370,7 +370,7 @@ NUI là một nỗ lực xây **design cognition layer bao quanh AI agent**, sau
 ## Cấu trúc repo
 
 ```text
-skills/                         274 canonical faculties
+skills/                         374 canonical faculties
 skills/skill-graph.json        routing / ownership graph
 knowledge/                     authority, ontology, benchmark, evidence
 schemas/                       typed evidence contracts
