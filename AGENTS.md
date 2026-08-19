@@ -43,7 +43,7 @@ These rules are repository policy. Runtime adapters may change tool syntax, not 
 31. Separate implementation authorities by layer. Semantic/accessibility primitives, platform conventions, motion engines, visual inspiration and product-domain systems can coexist; none silently certifies the others.
 32. High-ambition completion requires **rendered perception** evidence in addition to inherited v5 adequacy evidence. Screenshot presence alone is not proof. Observe hierarchy, resolved typography, signature, material roles, responsive recomposition and material temporal states.
 33. Calibrate visual regression evidence by renderer/environment. A raw pixel delta without a baseline, tolerance and rationale is not a meaningful perceptual finding.
-34. The canonical graph currently contains **274 canonical skills**: the historical 174-skill baseline plus 100 independently owned UI-industry specialists. Skill count remains descriptive, not a progress target; further expansion is allowed only for genuinely distinct decision/failure ownership.
+34. The canonical graph currently contains **374 canonical skills**: the historical 174-skill baseline plus 200 independently owned UI-industry specialists across Batch 001 and Batch 002. Skill count remains descriptive, not a progress target; further expansion is allowed only for genuinely distinct decision/failure ownership.
 
 
 ## V8 agent and media invariants
