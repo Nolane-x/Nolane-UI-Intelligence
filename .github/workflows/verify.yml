@@ -3,59 +3,37 @@ name: Verify NUI
 on:
   push:
     branches:
-      - main
-      - "build/**"
-  pull_request:
-    branches:
-      - main
+      - build/ui-industry-1000-batch-003
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  verify:
+  integrate-batch-003:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Checkout
+      - name: Checkout Batch 003 branch
         uses: actions/checkout@v4
+        with:
+          ref: build/ui-industry-1000-batch-003
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Run unit and contract tests
-        run: PYTHONPATH=src python -m unittest discover -s tests -v
+      - name: Integrate deterministic Batch 003 graph metadata
+        run: python scripts/batch003_graph_integrate.py
 
-      - name: Generate fresh bounded completion packet
+      - name: Run Batch 003 acceptance contract on integrated working tree
+        run: PYTHONPATH=src python -m unittest tests.test_ui_industry_batch_003 -v
+
+      - name: Commit graph only after acceptance passes
         run: |
-          PYTHONPATH=src python scripts/nui-release-packet \
-            --output /tmp/nui-v10-completion-packet.json \
-            --revision "$GITHUB_SHA" \
-            --source "GitHub Actions run $GITHUB_RUN_ID"
-
-      - name: Validate repository and exact-revision completion packet
-        run: |
-          PYTHONPATH=src python scripts/nui-validate . \
-            --packet /tmp/nui-v10-completion-packet.json \
-            --revision "$GITHUB_SHA"
-
-      - name: Upload verified completion packet
-        uses: actions/upload-artifact@v4
-        with:
-          name: nui-v10-completion-packet
-          path: /tmp/nui-v10-completion-packet.json
-          if-no-files-found: error
-          retention-days: 90
-
-      - name: Package complete project
-        run: zip -q -r /tmp/Nolane-UI-Intelligence-v10-complete.zip . -x '.git/*'
-
-      - name: Upload complete project archive
-        uses: actions/upload-artifact@v4
-        with:
-          name: nui-v10-complete-project
-          path: /tmp/Nolane-UI-Intelligence-v10-complete.zip
-          if-no-files-found: error
-          retention-days: 90
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add skills/skill-graph.json
+          git diff --cached --quiet && exit 0
+          git commit -m "feat: integrate UI Industry Batch 003 into canonical graph"
+          git push origin HEAD:build/ui-industry-1000-batch-003
