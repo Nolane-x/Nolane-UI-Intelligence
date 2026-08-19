@@ -121,6 +121,7 @@ class UIIndustryBatch001Tests(unittest.TestCase):
     def test_batch_has_exactly_one_hundred_unique_slugs(self):
         self.assertEqual(100, len(BATCH_001))
         self.assertEqual(100, len(set(BATCH_001)))
+        self.assertGreaterEqual(len(self.graph_skills), 274)
 
     def test_each_skill_exists_and_frontmatter_name_matches_slug(self):
         for slug in BATCH_001:
