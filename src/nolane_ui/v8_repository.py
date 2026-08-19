@@ -58,7 +58,7 @@ def extend(root: Path, base: dict[str, Any]) -> dict[str, Any]:
         new = load(root / "knowledge/v8-depth-obligations.json").get("skills", {})
         if set(old) & set(new): errors.append("v8 depth extension overlaps earlier owner keys")
         union = dict(old); union.update(new)
-        if len(union) != 174: errors.append(f"v8 combined depth baseline must retain 174 historical skills, found {len(union)}")
+        if len(union) != 174: errors.append(f"v8 combined depth focus baseline must cover 174 historical skills, found {len(union)}")
         missing_baseline = sorted(set(union) - set(graph))
         if missing_baseline: errors.append(f"v8 combined depth baseline missing from canonical graph: {missing_baseline}")
         terms: list[str] = []
