@@ -1,3 +1,4 @@
+import json
 import unittest
 from pathlib import Path
 
@@ -18,9 +19,11 @@ class V10RepositoryTests(unittest.TestCase):
         self.assertGreaterEqual(metrics["v10_mutations"], 16)
         self.assertEqual(metrics["v10_claim_ceiling"], "STRUCTURAL_ONLY")
 
-    def test_v10_keeps_174_skill_graph(self):
+    def test_v10_reports_current_graph_without_erasing_historical_baseline(self):
         result = validate_repository(ROOT)
-        self.assertEqual(result["metrics"]["skill_count"], 174)
+        graph = json.loads((ROOT / "skills" / "skill-graph.json").read_text(encoding="utf-8"))["skills"]
+        self.assertGreaterEqual(len(graph), 174)
+        self.assertEqual(result["metrics"]["skill_count"], len(graph))
 
     def test_required_v10_protocol_files_exist(self):
         required = [

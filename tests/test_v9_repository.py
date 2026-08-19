@@ -11,7 +11,7 @@ class V9RepositoryTests(unittest.TestCase):
     def test_v9_extension_accepts_repository(self):
         result = extend(ROOT, {"valid": True, "errors": [], "warnings": [], "metrics": {}})
         self.assertTrue(result["valid"], result["errors"])
-        self.assertEqual(result["metrics"]["skill_count"], 174)
+        self.assertGreaterEqual(result["metrics"]["skill_count"], 174)
         self.assertGreaterEqual(result["metrics"]["v9_benchmark_references"], 12)
         self.assertGreaterEqual(result["metrics"]["v9_domain_signatures"], 8)
         self.assertGreaterEqual(result["metrics"]["v9_adversarial_cases"], 24)

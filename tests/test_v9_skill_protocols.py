@@ -55,9 +55,13 @@ class V9SkillProtocolTests(unittest.TestCase):
             "V9 Motion Implementation Fidelity", "semantic motion", "performance degradation"
         ])
 
-    def test_v9_does_not_inflate_canonical_skill_count_with_duplicate_owners(self):
-        graph = json.loads((ROOT / "skills" / "skill-graph.json").read_text(encoding="utf-8"))
-        self.assertEqual(len(graph["skills"]), 174)
+    def test_v9_historical_owners_survive_canonical_graph_expansion(self):
+        graph = json.loads((ROOT / "skills" / "skill-graph.json").read_text(encoding="utf-8"))["skills"]
+        baseline_v6 = json.loads((ROOT / "knowledge" / "v6-depth-focus-obligations.json").read_text(encoding="utf-8"))["skills"]
+        baseline_v8 = json.loads((ROOT / "knowledge" / "v8-depth-obligations.json").read_text(encoding="utf-8"))["skills"]
+        historical = set(baseline_v6) | set(baseline_v8)
+        self.assertEqual(len(historical), 174)
+        self.assertTrue(historical.issubset(graph))
 
 
 if __name__ == "__main__":

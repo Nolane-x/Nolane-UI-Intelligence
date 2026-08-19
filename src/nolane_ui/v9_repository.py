@@ -77,8 +77,8 @@ def extend(root: Path, base: dict[str, Any]) -> dict[str, Any]:
 
     try:
         graph = _load(root / "skills/skill-graph.json").get("skills", {})
-        if len(graph) != 174:
-            errors.append(f"v9 preserves 174 canonical skills; found {len(graph)}")
+        if len(graph) < 174:
+            errors.append(f"v9 must retain the 174-skill historical baseline; found {len(graph)}")
         metrics["skill_count"] = len(graph)
         for skill, anchors in SKILL_ANCHORS.items():
             if skill not in graph:
