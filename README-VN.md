@@ -8,7 +8,7 @@
 
 [English](README.md) · [Tiếng Việt](README-VN.md) · [简体中文](README-CN.md)
 
-`v0.10.0` · `174 skill chuẩn` · `9 agent projection` · `MCP + CLI` · `evidence-gated` · `MIT`
+`v0.10.0` · `274 skill chuẩn` · `9 agent projection` · `MCP + CLI` · `evidence-gated` · `MIT`
 
 </div>
 
@@ -83,7 +83,7 @@ generic-cli
 
 ## Gắn NUI vào một project khác
 
-Không cần chép 174 skill vào prompt. Có thể giữ NUI dưới dạng sidecar trong project:
+Không cần chép hàng trăm skill vào prompt. Có thể giữ NUI dưới dạng sidecar trong project:
 
 ```bash
 git clone --depth 1 https://github.com/Nolane-x/Nolane-UI-Intelligence.git .nui
@@ -155,15 +155,15 @@ product truth
 → bounded release claim
 ```
 
-Agent không tải toàn bộ 174 skill. Router chọn **graph owner nhỏ nhất nhưng đủ** cho nhiệm vụ hiện tại.
+Agent không tải toàn bộ 274 skill. Router chọn **graph owner nhỏ nhất nhưng đủ** cho nhiệm vụ hiện tại.
 
 ---
 
-## 174 design faculties chuẩn
+## 274 design faculties chuẩn
 
-NUI hiện giữ **174 canonical skills**. Con số này không phải KPI.
+NUI hiện giữ **274 canonical skills**. Con số hiện tại chỉ mang tính mô tả, không phải giấy phép để tạo các expert trùng nhau. Roadmap dài hạn hướng tới độ phủ toàn ngành UI ở mức khoảng 1.000 canonical faculties nhưng vẫn giữ decision ownership riêng biệt và routing tối thiểu.
 
-Một skill chỉ nên tồn tại khi nó sở hữu một loại quyết định hoặc failure class riêng. Hệ thống cố tình chống lại việc tạo hàng chục “expert” gần giống nhau.
+Một skill chỉ nên tồn tại khi nó sở hữu một loại quyết định hoặc failure class riêng. Hệ thống cố tình chống lại việc tạo hàng chục “expert” gần giống nhau. Batch 001 bổ sung 100 specialist được viết độc lập về motion, rich controls, direct manipulation, spreadsheet/data, enterprise workflow, billing, scheduling, geospatial và historical state. Xem [`docs/research/UI-INDUSTRY-1000-BATCH-001.md`](docs/research/UI-INDUSTRY-1000-BATCH-001.md) để xem exact inventory, provenance và các ràng buộc chống sinh lặp.
 
 Các nhóm lớn bao gồm:
 
@@ -370,7 +370,7 @@ NUI là một nỗ lực xây **design cognition layer bao quanh AI agent**, sau
 ## Cấu trúc repo
 
 ```text
-skills/                         174 canonical faculties
+skills/                         274 canonical faculties
 skills/skill-graph.json        routing / ownership graph
 knowledge/                     authority, ontology, benchmark, evidence
 schemas/                       typed evidence contracts
