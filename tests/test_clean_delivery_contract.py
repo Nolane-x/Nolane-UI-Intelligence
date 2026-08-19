@@ -22,6 +22,12 @@ class CleanDeliveryContractTests(unittest.TestCase):
         for path in forbidden:
             self.assertFalse(path.exists(), f"one-time integration tool leaked into product tree: {path.relative_to(ROOT)}")
 
+    def test_repository_policy_matches_the_374_node_batch_002_graph(self):
+        agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+        self.assertIn("**374 canonical skills**", agents)
+        self.assertIn("200 independently owned UI-industry specialists", agents)
+        self.assertNotIn("currently contains **274 canonical skills**", agents)
+
 
 if __name__ == "__main__":
     unittest.main()
