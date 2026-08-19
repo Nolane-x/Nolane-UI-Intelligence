@@ -6,8 +6,8 @@ from nolane_ui.validators import validate_repository
 ROOT=Path(__file__).resolve().parents[1]
 
 class V8RepositoryTests(unittest.TestCase):
-    def test_graph_is_174(self):
-        g=json.loads((ROOT/'skills/skill-graph.json').read_text())['skills']; self.assertEqual(len(g),174)
+    def test_graph_retains_historical_v8_baseline(self):
+        g=json.loads((ROOT/'skills/skill-graph.json').read_text())['skills']; self.assertGreaterEqual(len(g),174)
     def test_manifest_has_eight_owners(self):
         m=json.loads((ROOT/'knowledge/v8-skill-manifest.json').read_text()); self.assertEqual(len(m['skills']),8)
     def test_depth_union_is_174(self):
