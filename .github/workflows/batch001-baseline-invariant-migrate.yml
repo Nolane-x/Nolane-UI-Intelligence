@@ -1,0 +1,42 @@
+name: Batch 001 Baseline Invariant Migration
+
+on:
+  push:
+    branches:
+      - build/ui-industry-1000-batch-001
+    paths:
+      - scripts/batch001_baseline_invariant_migration.py
+      - .github/workflows/batch001-baseline-invariant-migrate.yml
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: build/ui-industry-1000-batch-001
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Replace exact-count historical gates with baseline-retention gates
+        run: python scripts/batch001_baseline_invariant_migration.py
+
+      - name: Run full repository tests before committing
+        run: PYTHONPATH=src python -m unittest discover -s tests -v
+
+      - name: Run repository validator before committing
+        run: python scripts/nui-validate .
+
+      - name: Commit invariant repair
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/nolane_ui/v8_repository.py src/nolane_ui/v9_repository.py src/nolane_ui/v10_repository.py tests/test_v8_repository.py tests/test_v9_skill_protocols.py tests/test_v10_repository.py tests/test_ui_industry_batch_001.py
+          git diff --cached --quiet && exit 0
+          git commit -m "fix: preserve historical baseline while allowing graph growth"
+          git push origin HEAD:build/ui-industry-1000-batch-001
