@@ -8,7 +8,7 @@
 
 [English](README.md) · [Tiếng Việt](README-VN.md) · [简体中文](README-CN.md)
 
-`v0.10.0` · `174 个 canonical skills` · `9 个 Agent projection` · `MCP + CLI` · `证据门控` · `MIT`
+`v0.10.0` · `274 个 canonical skills` · `9 个 Agent projection` · `MCP + CLI` · `证据门控` · `MIT`
 
 </div>
 
@@ -30,7 +30,7 @@ NUI **不是**组件库、风格预设、mega-prompt、截图复刻工具，也�
 
 NUI 现在可以通过同一套 canonical cognition graph 服务于 **Codex、Claude Code、Google Antigravity、Gemini CLI、OpenCode、Cursor、VS Code/Copilot-compatible Agent、任意 MCP Host，以及拥有 shell/CLI 的通用 Agent**。
 
-它的原则不是为每个厂商复制一份 174-skill prompt，而是：
+它的原则不是为每个厂商复制一份数百个 skill 的巨大 prompt，而是：
 
 ```text
 一套 canonical NUI cognition graph
@@ -83,7 +83,7 @@ generic-cli
 
 ## 把 NUI 放进你自己的项目
 
-不需要把 174 个 skill 复制进一个巨型 system prompt。可以把 NUI 作为 sidecar 放在项目里：
+不需要把数百个 skill 复制进一个巨型 system prompt。可以把 NUI 作为 sidecar 放在项目里：
 
 ```bash
 git clone --depth 1 https://github.com/Nolane-x/Nolane-UI-Intelligence.git .nui
@@ -157,15 +157,15 @@ product truth
 → bounded release claim
 ```
 
-Agent 不应该一次性加载 174 个 skill。Router 会根据当前任务选择**最小但足够的 owner graph**。
+Agent 不应该一次性加载 274 个 skill。Router 会根据当前任务选择**最小但足够的 owner graph**。
 
 ---
 
-## 174 个 canonical design faculties
+## 274 个 canonical design faculties
 
-NUI 当前保持 **174 个 canonical skills**。这个数字只是当前系统规模，不是 KPI。
+NUI 当前保持 **274 个 canonical skills**。这个数字只是当前系统规模，不是制造重复 expert 的 KPI。长期 UI-industry roadmap 会继续朝约 1,000 个 canonical faculties 扩展，但每个新增 skill 仍必须拥有独立的 decision ownership，并保持最小充分路由。
 
-只有当某个 skill 真正拥有独立的 decision class 或 failure class 时，它才应该存在。NUI 有意避免不断新增名称不同、职责重叠的“专家”。
+只有当某个 skill 真正拥有独立的 decision class 或 failure class 时，它才应该存在。NUI 有意避免不断新增名称不同、职责重叠的“专家”。Batch 001 增加了 100 个独立编写的 specialist，覆盖 motion、rich controls、direct manipulation、spreadsheet/data、enterprise workflow、billing、scheduling、geospatial 和 historical state。完整 inventory、provenance 与 anti-generation 约束见 [`docs/research/UI-INDUSTRY-1000-BATCH-001.md`](docs/research/UI-INDUSTRY-1000-BATCH-001.md)。
 
 覆盖范围包括：
 
@@ -370,7 +370,7 @@ NUI 是一次构建 **AI Agent Design Cognition Layer** 的尝试，并且让这
 ## Repository Map
 
 ```text
-skills/                         174 canonical faculties
+skills/                         274 canonical faculties
 skills/skill-graph.json        routing / ownership graph
 knowledge/                     authority, ontology, benchmark, evidence
 schemas/                       typed evidence contracts
