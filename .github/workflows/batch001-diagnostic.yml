@@ -1,0 +1,45 @@
+name: Batch 001 CI Diagnostic
+
+on:
+  push:
+    branches:
+      - build/ui-industry-1000-batch-001
+    paths:
+      - .github/workflows/batch001-diagnostic.yml
+
+permissions:
+  contents: write
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: build/ui-industry-1000-batch-001
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Capture full unit-test and validator output
+        shell: bash
+        run: |
+          mkdir -p artifacts
+          {
+            echo '=== UNIT TESTS ==='
+            PYTHONPATH=src python -m unittest discover -s tests -v
+            echo "UNIT_EXIT=$?"
+            echo '=== VALIDATOR ==='
+            python scripts/nui-validate .
+            echo "VALIDATOR_EXIT=$?"
+          } > artifacts/batch001-ci-diagnostic.txt 2>&1 || true
+
+      - name: Commit diagnostic log
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add artifacts/batch001-ci-diagnostic.txt
+          git diff --cached --quiet && exit 0
+          git commit -m "chore: capture Batch 001 CI diagnostic"
+          git push origin HEAD:build/ui-industry-1000-batch-001
