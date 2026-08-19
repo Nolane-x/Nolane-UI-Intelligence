@@ -43,12 +43,12 @@ These rules are repository policy. Runtime adapters may change tool syntax, not 
 31. Separate implementation authorities by layer. Semantic/accessibility primitives, platform conventions, motion engines, visual inspiration and product-domain systems can coexist; none silently certifies the others.
 32. High-ambition completion requires **rendered perception** evidence in addition to inherited v5 adequacy evidence. Screenshot presence alone is not proof. Observe hierarchy, resolved typography, signature, material roles, responsive recomposition and material temporal states.
 33. Calibrate visual regression evidence by renderer/environment. A raw pixel delta without a baseline, tolerance and rationale is not a meaningful perceptual finding.
-34. The canonical graph currently contains **174 canonical skills**. Skill count remains descriptive, not a progress target; prefer deeper contracts and concrete evidence over duplicated owners.
+34. The canonical graph currently contains **274 canonical skills**: the historical 174-skill baseline plus 100 independently owned UI-industry specialists. Skill count remains descriptive, not a progress target; further expansion is allowed only for genuinely distinct decision/failure ownership.
 
 
 ## V8 agent and media invariants
 
-35. Keep one canonical NUI graph. Host-specific skill folders are thin discovery bridges, not forks of the 174-skill corpus.
+35. Keep one canonical NUI graph. Host-specific skill folders are thin discovery bridges, not forks of the canonical corpus. Historical V6/V8 depth obligations continue to protect the original 174-skill baseline while later specialist batches extend the same graph.
 36. Agent transport and tool availability do not replace NUI decision ownership; record missing host capabilities as open evidence.
 37. Third-party skill material is adopted only through a bounded local review record with snapshot, applicable license scope, referenced resources and host-feature mapping.
 38. Do not ban geometry. Compare high-attention abstract forms with higher-information subject-native alternatives and preserve geometry that genuinely encodes data, structure, interaction or owned identity.
