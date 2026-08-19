@@ -5,6 +5,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class CleanDeliveryContractTests(unittest.TestCase):
+    # RED on the Batch 002 merge head: the old self-finalizer leaked into main.
     def test_registered_verifier_is_read_only_and_has_no_batch_mutation_step(self):
         workflow = (ROOT / ".github" / "workflows" / "verify.yml").read_text(encoding="utf-8")
         self.assertIn("permissions:\n  contents: read", workflow)
