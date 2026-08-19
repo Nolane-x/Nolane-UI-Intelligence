@@ -8,7 +8,7 @@
 
 [English](README.md) · [Tiếng Việt](README-VN.md) · [简体中文](README-CN.md)
 
-`v0.10.0` · `274 canonical skills` · `9 agent projections` · `MCP + CLI` · `evidence-gated` · `MIT`
+`v0.10.0` · `374 canonical skills` · `9 agent projections` · `MCP + CLI` · `evidence-gated` · `MIT`
 
 </div>
 
@@ -161,11 +161,11 @@ The agent does not preload every rule. It routes to the **smallest sufficient gr
 
 ---
 
-## 274 canonical design faculties
+## 374 canonical design faculties
 
-NUI currently preserves **274 canonical skills**. The number is descriptive, not a license to create overlapping experts. The long-term UI-industry roadmap targets broader coverage toward 1,000 canonical faculties while preserving distinct decision ownership and minimal routing.
+NUI currently preserves **374 canonical skills**. The number is descriptive, not a license to create overlapping experts. The long-term UI-industry roadmap targets broader coverage toward 1,000 canonical faculties while preserving distinct decision ownership and minimal routing.
 
-A skill is allowed to exist only when it owns a distinct decision or failure class. NUI deliberately avoids turning every new idea into another overlapping “expert.” Batch 001 adds 100 independently authored specialists across motion, rich controls, direct manipulation, spreadsheet/data interaction, enterprise workflows, billing, scheduling, geospatial interaction and historical state. See [`docs/research/UI-INDUSTRY-1000-BATCH-001.md`](docs/research/UI-INDUSTRY-1000-BATCH-001.md) for the exact inventory, provenance and non-generation constraints.
+A skill is allowed to exist only when it owns a distinct decision or failure class. NUI deliberately avoids turning every new idea into another overlapping “expert.” Batch 001 added 100 independently authored specialists across motion, rich controls, direct manipulation, spreadsheet/data interaction, enterprise workflows, billing, scheduling, geospatial interaction and historical state. Batch 002 adds 100 more independently authored specialists across high-friction input, navigation/findability, feedback/recovery, messaging/collaboration, onboarding, commerce lifecycle, content publishing, developer operations, and trust/account lifecycle. See [`docs/research/UI-INDUSTRY-1000-BATCH-001.md`](docs/research/UI-INDUSTRY-1000-BATCH-001.md) and [`docs/research/UI-INDUSTRY-1000-BATCH-002.md`](docs/research/UI-INDUSTRY-1000-BATCH-002.md) for exact inventories, ownership, provenance and non-generation constraints.
 
 The graph spans areas such as:
 
