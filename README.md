@@ -8,7 +8,7 @@
 
 [English](README.md) · [Tiếng Việt](README-VN.md) · [简体中文](README-CN.md)
 
-`v0.10.0` · `174 canonical skills` · `9 agent projections` · `MCP + CLI` · `evidence-gated` · `MIT`
+`v0.10.0` · `274 canonical skills` · `9 agent projections` · `MCP + CLI` · `evidence-gated` · `MIT`
 
 </div>
 
@@ -85,7 +85,7 @@ generic-cli
 
 ## Put NUI inside another project
 
-If NUI is not the repository itself, keep it as a sidecar instead of copying 174 skill files into a giant prompt:
+If NUI is not the repository itself, keep it as a sidecar instead of copying hundreds of skill files into a giant prompt:
 
 ```bash
 git clone --depth 1 https://github.com/Nolane-x/Nolane-UI-Intelligence.git .nui
@@ -161,11 +161,11 @@ The agent does not preload every rule. It routes to the **smallest sufficient gr
 
 ---
 
-## 174 canonical design faculties
+## 274 canonical design faculties
 
-NUI currently preserves **174 canonical skills**. The number is descriptive, not a growth target.
+NUI currently preserves **274 canonical skills**. The number is descriptive, not a license to create overlapping experts. The long-term UI-industry roadmap targets broader coverage toward 1,000 canonical faculties while preserving distinct decision ownership and minimal routing.
 
-A skill is allowed to exist only when it owns a distinct decision or failure class. NUI deliberately avoids turning every new idea into another overlapping “expert.”
+A skill is allowed to exist only when it owns a distinct decision or failure class. NUI deliberately avoids turning every new idea into another overlapping “expert.” Batch 001 adds 100 independently authored specialists across motion, rich controls, direct manipulation, spreadsheet/data interaction, enterprise workflows, billing, scheduling, geospatial interaction and historical state. See [`docs/research/UI-INDUSTRY-1000-BATCH-001.md`](docs/research/UI-INDUSTRY-1000-BATCH-001.md) for the exact inventory, provenance and non-generation constraints.
 
 The graph spans areas such as:
 
