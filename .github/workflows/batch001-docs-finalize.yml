@@ -1,0 +1,42 @@
+name: Batch 001 Documentation Finalizer
+
+on:
+  push:
+    branches:
+      - build/ui-industry-1000-batch-001
+    paths:
+      - scripts/batch001_docs_finalize.py
+      - .github/workflows/batch001-docs-finalize.yml
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: build/ui-industry-1000-batch-001
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Apply explicit documentation finalization
+        run: python scripts/batch001_docs_finalize.py
+
+      - name: Run full tests before committing documentation
+        run: PYTHONPATH=src python -m unittest discover -s tests -v
+
+      - name: Run repository validator before committing documentation
+        run: python scripts/nui-validate .
+
+      - name: Commit documentation finalization
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add AGENTS.md docs/research/SOURCES.md
+          git diff --cached --quiet && exit 0
+          git commit -m "docs: finalize Batch 001 count and source ledger"
+          git push origin HEAD:build/ui-industry-1000-batch-001
