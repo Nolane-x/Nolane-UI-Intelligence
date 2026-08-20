@@ -4,6 +4,8 @@ import json
 import runpy
 from pathlib import Path
 
+from batch004_metadata_contract_fix import main as normalize_batch004_metadata
+
 ROOT = Path(__file__).resolve().parents[1]
 GRAPH = ROOT / "skills" / "skill-graph.json"
 BATCH_TEST = ROOT / "tests" / "test_ui_industry_batch_004.py"
@@ -17,6 +19,7 @@ def replace_exact(path: Path, old: str, new: str) -> None:
     path.write_text(text.replace(old, new), encoding="utf-8")
 
 
+normalize_batch004_metadata()
 namespace = runpy.run_path(str(BATCH_TEST))
 records = namespace["BATCH_004"]
 if len(records) != 200:
