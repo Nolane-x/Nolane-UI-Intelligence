@@ -11,8 +11,11 @@ permissions:
 
 jobs:
   verify-batch-003-finalization:
-    runs-on: ubuntu-20.04
+    runs-on: windows-latest
     timeout-minutes: 10
+    defaults:
+      run:
+        shell: bash
     steps:
       - name: Checkout PR head
         uses: actions/checkout@v4
@@ -34,29 +37,30 @@ jobs:
       - name: Generate fresh bounded completion packet
         run: |
           PYTHONPATH=src python scripts/nui-release-packet \
-            --output /tmp/nui-v10-completion-packet.json \
+            --output "$RUNNER_TEMP/nui-v10-completion-packet.json" \
             --revision "$GITHUB_SHA" \
             --source "Batch 003 finalization artifact from GitHub Actions run $GITHUB_RUN_ID"
 
       - name: Validate finalized repository workspace
         run: |
           PYTHONPATH=src python scripts/nui-validate . \
-            --packet /tmp/nui-v10-completion-packet.json \
+            --packet "$RUNNER_TEMP/nui-v10-completion-packet.json" \
             --revision "$GITHUB_SHA"
 
       - name: Stage verified Batch 003 finalization payload
         run: |
-          mkdir -p /tmp/batch003-finalization/docs/research /tmp/batch003-finalization/skills /tmp/batch003-finalization/tests
-          cp skills/skill-graph.json /tmp/batch003-finalization/skills/skill-graph.json
-          cp README.md README-VN.md README-CN.md AGENTS.md /tmp/batch003-finalization/
-          cp tests/test_ui_industry_batch_002.py /tmp/batch003-finalization/tests/test_ui_industry_batch_002.py
-          cp docs/research/UI-INDUSTRY-1000-BATCH-003.md /tmp/batch003-finalization/docs/research/UI-INDUSTRY-1000-BATCH-003.md
-          cp /tmp/nui-v10-completion-packet.json /tmp/batch003-finalization/nui-v10-completion-packet.json
+          OUT="$RUNNER_TEMP/batch003-finalization"
+          mkdir -p "$OUT/docs/research" "$OUT/skills" "$OUT/tests"
+          cp skills/skill-graph.json "$OUT/skills/skill-graph.json"
+          cp README.md README-VN.md README-CN.md AGENTS.md "$OUT/"
+          cp tests/test_ui_industry_batch_002.py "$OUT/tests/test_ui_industry_batch_002.py"
+          cp docs/research/UI-INDUSTRY-1000-BATCH-003.md "$OUT/docs/research/UI-INDUSTRY-1000-BATCH-003.md"
+          cp "$RUNNER_TEMP/nui-v10-completion-packet.json" "$OUT/nui-v10-completion-packet.json"
 
       - name: Upload verified Batch 003 finalization payload
         uses: actions/upload-artifact@v4
         with:
           name: batch003-verified-finalization
-          path: /tmp/batch003-finalization
+          path: ${{ runner.temp }}/batch003-finalization
           if-no-files-found: error
           retention-days: 7
