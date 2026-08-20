@@ -34,7 +34,69 @@ jobs:
 
       - name: Materialize the clean final tree in workspace
         run: |
-          git show origin/main:.github/workflows/verify.yml > .github/workflows/verify.yml
+          cat > .github/workflows/verify.yml <<'EOF'
+          name: Verify NUI
+
+          on:
+            push:
+              branches:
+                - main
+                - "build/**"
+            pull_request:
+              branches:
+                - main
+
+          permissions:
+            contents: read
+
+          jobs:
+            verify:
+              runs-on: ubuntu-latest
+              timeout-minutes: 10
+              steps:
+                - name: Checkout
+                  uses: actions/checkout@v4
+
+                - name: Setup Python
+                  uses: actions/setup-python@v5
+                  with:
+                    python-version: "3.12"
+
+                - name: Run unit and contract tests
+                  run: PYTHONPATH=src python -m unittest discover -s tests -v
+
+                - name: Generate fresh bounded completion packet
+                  run: |
+                    PYTHONPATH=src python scripts/nui-release-packet \
+                      --output /tmp/nui-v10-completion-packet.json \
+                      --revision "$GITHUB_SHA" \
+                      --source "GitHub Actions run $GITHUB_RUN_ID"
+
+                - name: Validate repository and exact-revision completion packet
+                  run: |
+                    PYTHONPATH=src python scripts/nui-validate . \
+                      --packet /tmp/nui-v10-completion-packet.json \
+                      --revision "$GITHUB_SHA"
+
+                - name: Upload verified completion packet
+                  uses: actions/upload-artifact@v4
+                  with:
+                    name: nui-v10-completion-packet
+                    path: /tmp/nui-v10-completion-packet.json
+                    if-no-files-found: error
+                    retention-days: 90
+
+                - name: Package complete project
+                  run: zip -q -r /tmp/Nolane-UI-Intelligence-v10-complete.zip . -x '.git/*'
+
+                - name: Upload complete project archive
+                  uses: actions/upload-artifact@v4
+                  with:
+                    name: nui-v10-complete-project
+                    path: /tmp/Nolane-UI-Intelligence-v10-complete.zip
+                    if-no-files-found: error
+                    retention-days: 90
+          EOF
           rm -f .github/workflows/batch004-finalize.yml
           rm -f scripts/batch004_finalize.py
           rm -f artifacts/README-RECOVERY-NOTE.tmp*
@@ -67,7 +129,7 @@ jobs:
           GitHub Actions run: $GITHUB_RUN_ID
           Source revision entering read-only finalization: $GITHUB_SHA
 
-          Batch 004 contains 200 independently authored skill bodies across ten courts. Deterministic automation was restricted to graph/document bookkeeping. Before this record was written, the Batch 004 acceptance suite, complete repository unittest/contract suite, bounded completion-packet generation, and canonical validator succeeded on a workspace where temporary Batch 004 construction tooling had already been removed and the canonical verifier had already been restored from main.
+          Batch 004 contains 200 independently authored skill bodies across ten courts. Deterministic automation was restricted to graph/document bookkeeping. Before this record was written, the Batch 004 acceptance suite, complete repository unittest/contract suite, bounded completion-packet generation, and canonical validator succeeded on a workspace where temporary Batch 004 construction tooling had already been removed and a read-only canonical verifier had already been materialized.
 
           The complete suite and validator are executed again after this evidence file exists. The uploaded artifact is therefore a verified finalization payload, not a pre-test candidate.
           EOF
