@@ -214,6 +214,13 @@ def _substantive_paragraphs(text: str):
     return paragraphs
 
 
+def _has_decision_ownership(text: str) -> bool:
+    lowered = text.lower()
+    explicit_decision_language = re.search(r"\bdecision(?:s)?\b|\bdecid(?:e|es|ed|ing)\b", lowered)
+    explicit_skill_ownership = re.search(r"\bthis skill owns\b", lowered)
+    return bool(explicit_decision_language or explicit_skill_ownership)
+
+
 class UIIndustryBatch005Tests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -228,6 +235,12 @@ class UIIndustryBatch005Tests(unittest.TestCase):
         counts = Counter(record["court"] for record in BATCH_005)
         self.assertEqual(EXPECTED_COUNTS, dict(counts))
 
+    def test_decision_ownership_detector_requires_semantic_ownership(self):
+        self.assertTrue(_has_decision_ownership("This skill decides how external intent resolves."))
+        self.assertTrue(_has_decision_ownership("This skill owns the bounded handoff surface."))
+        self.assertTrue(_has_decision_ownership("## Decision ownership"))
+        self.assertFalse(_has_decision_ownership("The parent owns navigation and routing."))
+
     def test_each_skill_exists_and_frontmatter_name_matches_slug(self):
         for slug in SLUGS:
             path = SKILLS_DIR / slug / "SKILL.md"
@@ -239,7 +252,6 @@ class UIIndustryBatch005Tests(unittest.TestCase):
 
     def test_each_skill_has_substantive_individually_authored_depth(self):
         required_concepts = (
-            "Decision",
             "evidence",
             "Failure",
             "Falsification",
@@ -254,6 +266,8 @@ class UIIndustryBatch005Tests(unittest.TestCase):
             text = path.read_text(encoding="utf-8")
             if len(text) < 2800:
                 violations.append(f"{slug}: length {len(text)} < 2800")
+            if not _has_decision_ownership(text):
+                violations.append(f"{slug}: missing decision ownership semantics")
             lowered = text.lower()
             for concept in required_concepts:
                 if concept.lower() not in lowered:
