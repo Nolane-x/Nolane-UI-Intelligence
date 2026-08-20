@@ -9,6 +9,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: batch004-finalization-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   verify-batch-004-finalization:
     runs-on: ubuntu-latest
