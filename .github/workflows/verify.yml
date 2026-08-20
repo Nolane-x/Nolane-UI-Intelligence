@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 jobs:
-  verify-batch-003-graph:
+  verify-batch-003-finalization:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -25,13 +25,38 @@ jobs:
       - name: Integrate deterministic Batch 003 graph metadata in workspace only
         run: python scripts/batch003_graph_integrate.py
 
-      - name: Run Batch 003 acceptance contract on integrated workspace
-        run: PYTHONPATH=src python -m unittest tests.test_ui_industry_batch_003 -v
+      - name: Finalize deterministic Batch 003 documentation and historical test bookkeeping
+        run: python scripts/batch003_finalize_bookkeeping.py
 
-      - name: Upload verified canonical graph candidate
+      - name: Run full unit and contract test suite on finalized workspace
+        run: PYTHONPATH=src python -m unittest discover -s tests -v
+
+      - name: Generate fresh bounded completion packet
+        run: |
+          PYTHONPATH=src python scripts/nui-release-packet \
+            --output /tmp/nui-v10-completion-packet.json \
+            --revision "$GITHUB_SHA" \
+            --source "Batch 003 finalization artifact from GitHub Actions run $GITHUB_RUN_ID"
+
+      - name: Validate finalized repository workspace
+        run: |
+          PYTHONPATH=src python scripts/nui-validate . \
+            --packet /tmp/nui-v10-completion-packet.json \
+            --revision "$GITHUB_SHA"
+
+      - name: Stage verified Batch 003 finalization payload
+        run: |
+          mkdir -p /tmp/batch003-finalization/docs/research /tmp/batch003-finalization/skills /tmp/batch003-finalization/tests
+          cp skills/skill-graph.json /tmp/batch003-finalization/skills/skill-graph.json
+          cp README.md README-VN.md README-CN.md AGENTS.md /tmp/batch003-finalization/
+          cp tests/test_ui_industry_batch_002.py /tmp/batch003-finalization/tests/test_ui_industry_batch_002.py
+          cp docs/research/UI-INDUSTRY-1000-BATCH-003.md /tmp/batch003-finalization/docs/research/UI-INDUSTRY-1000-BATCH-003.md
+          cp /tmp/nui-v10-completion-packet.json /tmp/batch003-finalization/nui-v10-completion-packet.json
+
+      - name: Upload verified Batch 003 finalization payload
         uses: actions/upload-artifact@v4
         with:
-          name: batch003-verified-graph
-          path: skills/skill-graph.json
+          name: batch003-verified-finalization
+          path: /tmp/batch003-finalization
           if-no-files-found: error
           retention-days: 7
