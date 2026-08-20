@@ -1,0 +1,52 @@
+name: Batch 005 Deterministic Integration
+
+on:
+  push:
+    branches:
+      - build/ui-industry-1000-batch-005-research-first
+
+permissions:
+  contents: write
+
+jobs:
+  integrate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run deterministic graph/count integration
+        run: PYTHONPATH=src python scripts/nui-batch-005-integrate
+
+      - name: Sanity-check deterministic result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          graph = json.loads(Path('skills/skill-graph.json').read_text(encoding='utf-8'))
+          assert len(graph['skills']) == 774, len(graph['skills'])
+          print('graph_count=774')
+          PY
+          git diff --check
+
+      - name: Commit deterministic integration
+        run: |
+          if git diff --quiet; then
+            echo "No integration changes required"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add skills/skill-graph.json README.md README-VN.md README-CN.md AGENTS.md
+          git commit -m "chore: integrate Batch 005 canonical graph"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

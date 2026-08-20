@@ -1,0 +1,153 @@
+#!/usr/bin/env python3
+"""One-shot deterministic Batch 005 graph/count integrator.
+
+This script is bookkeeping only. It MUST NOT create, rewrite, or transform any
+canonical SKILL.md prose. The admitted metadata is imported from the TDD lock in
+tests/test_ui_industry_batch_005.py.
+"""
+
+from __future__ import annotations
+
+import importlib.util
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+GRAPH_PATH = ROOT / "skills" / "skill-graph.json"
+TEST_PATH = ROOT / "tests" / "test_ui_industry_batch_005.py"
+
+
+def load_batch():
+    spec = importlib.util.spec_from_file_location("nui_batch_005_lock", TEST_PATH)
+    if spec is None or spec.loader is None:
+        raise RuntimeError("cannot load Batch 005 acceptance lock")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    records = list(module.BATCH_005)
+    if len(records) != 100 or len({r["slug"] for r in records}) != 100:
+        raise RuntimeError("Batch 005 lock must contain exactly 100 unique records")
+    return records
+
+
+def replace_exact(path: Path, old: str, new: str, *, expected: int = 1):
+    text = path.read_text(encoding="utf-8")
+    count = text.count(old)
+    if count != expected:
+        raise RuntimeError(f"{path}: expected {expected} occurrence(s) of {old!r}, found {count}")
+    path.write_text(text.replace(old, new), encoding="utf-8")
+
+
+def integrate_graph(records):
+    graph = json.loads(GRAPH_PATH.read_text(encoding="utf-8"))
+    skills = graph["skills"]
+    baseline = len(skills)
+
+    if baseline == 674:
+        existing_outputs = {node.get("output") for node in skills.values() if isinstance(node, dict)}
+        new_outputs = [record["output"] for record in records]
+        if len(new_outputs) != len(set(new_outputs)):
+            raise RuntimeError("Batch 005 contains duplicate outputs")
+        collision = existing_outputs & set(new_outputs)
+        if collision:
+            raise RuntimeError(f"Batch 005 output collision(s): {sorted(collision)}")
+
+        pending = {record["slug"] for record in records}
+        for record in records:
+            slug = record["slug"]
+            if slug in skills:
+                raise RuntimeError(f"candidate already exists in baseline graph: {slug}")
+            parent = record["parent"]
+            if parent not in skills and parent not in pending:
+                raise RuntimeError(f"missing parent for {slug}: {parent}")
+            skills[slug] = {
+                "family": record["family"],
+                "parent": parent,
+                "output": record["output"],
+            }
+            pending.discard(slug)
+    elif baseline == 774:
+        # Idempotent verification path for reruns.
+        for record in records:
+            slug = record["slug"]
+            expected = {
+                "family": record["family"],
+                "parent": record["parent"],
+                "output": record["output"],
+            }
+            if skills.get(slug) != expected:
+                raise RuntimeError(f"existing Batch 005 graph metadata drift: {slug}")
+    else:
+        raise RuntimeError(f"unexpected graph baseline: {baseline}; expected 674 or 774")
+
+    if len(skills) != 774:
+        raise RuntimeError(f"graph integration ended at {len(skills)} nodes instead of 774")
+
+    # Every new chain must terminate at the canonical root without a cycle.
+    for record in records:
+        slug = record["slug"]
+        current = slug
+        seen = set()
+        while current is not None:
+            if current in seen:
+                raise RuntimeError(f"parent cycle detected from {slug}: {current}")
+            seen.add(current)
+            if current not in skills:
+                raise RuntimeError(f"parent chain missing node from {slug}: {current}")
+            current = skills[current].get("parent")
+        if "using-nolane-ui" not in seen:
+            raise RuntimeError(f"{slug} does not reach using-nolane-ui")
+
+    GRAPH_PATH.write_text(json.dumps(graph, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def integrate_current_counts():
+    # English current-state assertions only; historical batch counts are preserved.
+    readme = ROOT / "README.md"
+    replace_exact(readme, "`v0.10.0` · `674 canonical skills`", "`v0.10.0` · `774 canonical skills`")
+    replace_exact(readme, "## 674 canonical design faculties", "## 774 canonical design faculties")
+    replace_exact(readme, "NUI currently preserves **674 canonical skills**.", "NUI currently preserves **774 canonical skills**.")
+    replace_exact(
+        readme,
+        "Batch 004 adds 200 independently authored specialists across diagramming, project operations, incident response, software delivery, scientific instrumentation, 3D/CAD, nonlinear media editing, digital learning, financial operations and security operations. See the Batch 001–004 research records for exact inventory, ownership, provenance and non-generation constraints.",
+        "Batch 004 adds 200 independently authored specialists across diagramming, project operations, incident response, software delivery, scientific instrumentation, 3D/CAD, nonlinear media editing, digital learning, financial operations and security operations. Batch 005 adds 100 independently authored specialists across mobile-native application shells, visual application builders, business-intelligence workspaces, clinical care, public services, marketplace operations, realtime communications, spatial/XR, recommendation/personalization, and design-to-code handoff. See the Batch 001–005 research records for exact inventory, ownership, provenance and non-generation constraints.",
+    )
+
+    vn = ROOT / "README-VN.md"
+    replace_exact(vn, "`v0.10.0` · `674 skill chuẩn`", "`v0.10.0` · `774 skill chuẩn`")
+    replace_exact(vn, "Agent không tải toàn bộ 674 skill.", "Agent không tải toàn bộ 774 skill.")
+    replace_exact(vn, "## 674 design faculties chuẩn", "## 774 design faculties chuẩn")
+    replace_exact(vn, "NUI hiện giữ **674 canonical skills**.", "NUI hiện giữ **774 canonical skills**.")
+    replace_exact(
+        vn,
+        "Batch 004 thêm 200 specialist độc lập về diagramming, project operations, incident response, software delivery, scientific instrumentation, 3D/CAD, nonlinear media editing, digital learning, financial operations và security operations. Inventory, ownership, provenance và ràng buộc chống sinh lặp được lưu trong các research record Batch 001–004.",
+        "Batch 004 thêm 200 specialist độc lập về diagramming, project operations, incident response, software delivery, scientific instrumentation, 3D/CAD, nonlinear media editing, digital learning, financial operations và security operations. Batch 005 thêm 100 specialist được viết độc lập về mobile-native application shell, visual application builder, business intelligence, clinical care, public service, marketplace operations, realtime communications, spatial/XR, recommendation/personalization và design-to-code handoff. Inventory, ownership, provenance và ràng buộc chống sinh lặp được lưu trong các research record Batch 001–005.",
+    )
+
+    cn = ROOT / "README-CN.md"
+    replace_exact(cn, "`v0.10.0` · `674 个 canonical skills`", "`v0.10.0` · `774 个 canonical skills`")
+    replace_exact(cn, "Agent 不应该一次性加载 674 个 skill。", "Agent 不应该一次性加载 774 个 skill。")
+    replace_exact(cn, "## 674 个 canonical design faculties", "## 774 个 canonical design faculties")
+    replace_exact(cn, "NUI 当前保持 **674 个 canonical skills**。", "NUI 当前保持 **774 个 canonical skills**。")
+    replace_exact(
+        cn,
+        "Batch 004 再增加 200 个独立 specialist，覆盖 diagramming、project operations、incident response、software delivery、scientific instrumentation、3D/CAD、nonlinear media editing、digital learning、financial operations 与 security operations。Batch 001–004 research record 保存完整 inventory、ownership、provenance 与 anti-generation 约束。",
+        "Batch 004 再增加 200 个独立 specialist，覆盖 diagramming、project operations、incident response、software delivery、scientific instrumentation、3D/CAD、nonlinear media editing、digital learning、financial operations 与 security operations。Batch 005 再增加 100 个独立编写的 specialist，覆盖 mobile-native application shell、visual application builder、business intelligence、clinical care、public service、marketplace operations、realtime communications、spatial/XR、recommendation/personalization 与 design-to-code handoff。Batch 001–005 research record 保存完整 inventory、ownership、provenance 与 anti-generation 约束。",
+    )
+
+    agents = ROOT / "AGENTS.md"
+    replace_exact(
+        agents,
+        "34. The canonical graph currently contains **674 canonical skills**: the historical 174-skill baseline plus 500 independently owned UI-industry specialists across Batch 001, Batch 002, Batch 003 and Batch 004. Skill count remains descriptive, not a progress target; further expansion is allowed only for genuinely distinct decision/failure ownership.",
+        "34. The canonical graph currently contains **774 canonical skills**: the historical 174-skill baseline plus 600 independently owned UI-industry specialists across Batch 001, Batch 002, Batch 003, Batch 004 and Batch 005. Skill count remains descriptive, not a progress target; further expansion is allowed only for genuinely distinct decision/failure ownership.",
+    )
+
+
+def main():
+    records = load_batch()
+    integrate_graph(records)
+    integrate_current_counts()
+    print("Batch 005 deterministic integration complete: graph=774, metadata=100, prose_automation=0")
+
+
+if __name__ == "__main__":
+    main()
