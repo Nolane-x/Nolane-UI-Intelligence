@@ -13,13 +13,17 @@ class CleanDeliveryContractTests(unittest.TestCase):
         self.assertNotIn("git push origin HEAD:build/ui-industry-1000-batch-002", workflow)
 
     def test_one_time_batch_finalizers_are_absent_from_product_tree(self):
-        forbidden = [
-            ROOT / "scripts" / "batch002_docs_finalize.py",
-            ROOT / ".github" / "workflows" / "batch002-graph-integrate.yml",
-            ROOT / "scripts" / "batch002_graph_integrate.py",
-        ]
-        for path in forbidden:
-            self.assertFalse(path.exists(), f"one-time integration tool leaked into product tree: {path.relative_to(ROOT)}")
+        leaked = []
+        for pattern in ("batch*_finalize*.py", "batch*_graph_integrate.py"):
+            leaked.extend(ROOT.joinpath("scripts").glob(pattern))
+        for pattern in ("batch*-finalize.yml", "batch*-graph-integrate.yml"):
+            leaked.extend(ROOT.joinpath(".github", "workflows").glob(pattern))
+
+        self.assertEqual(
+            [],
+            sorted(path.relative_to(ROOT).as_posix() for path in leaked),
+            "one-time integration tooling leaked into the product tree",
+        )
 
     def test_repository_policy_matches_the_674_node_batch_004_graph(self):
         agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
