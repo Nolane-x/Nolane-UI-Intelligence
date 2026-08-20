@@ -247,14 +247,18 @@ class UIIndustryBatch005Tests(unittest.TestCase):
             "Output",
             "Handoff",
         )
+        violations = []
         for slug in SLUGS:
             path = SKILLS_DIR / slug / "SKILL.md"
             self.assertTrue(path.is_file(), slug)
             text = path.read_text(encoding="utf-8")
-            self.assertGreaterEqual(len(text), 2800, slug)
+            if len(text) < 2800:
+                violations.append(f"{slug}: length {len(text)} < 2800")
             lowered = text.lower()
             for concept in required_concepts:
-                self.assertIn(concept.lower(), lowered, f"{slug}: missing {concept}")
+                if concept.lower() not in lowered:
+                    violations.append(f"{slug}: missing {concept}")
+        self.assertEqual([], violations, "\n" + "\n".join(violations))
 
     def test_each_skill_is_registered_with_exact_locked_metadata(self):
         for slug, expected in EXPECTED.items():
