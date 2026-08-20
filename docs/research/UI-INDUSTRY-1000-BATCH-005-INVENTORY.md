@@ -108,8 +108,8 @@ This inventory is an admission lock, not a prose-generation template. Every `SKI
 These route under the existing `designing-spatial-xr-interfaces` owner; Batch 005 does not create a competing XR root.
 
 1. `designing-ray-pointer-interaction`
-2. `designing-gaze-targeting`
-3. `designing-hand-direct-manipulation`
+2. `designing-xr-near-far-interaction-transitions`
+3. `designing-xr-recenter-and-origin-recovery`
 4. `designing-world-space-panel-placement`
 5. `designing-spatial-ui-distance-scaling`
 6. `designing-occlusion-aware-interface-placement`
@@ -157,5 +157,7 @@ total               100
 
 - `designing-spatial-xr-interfaces` was rejected as a new candidate because it already exists in the 674-node graph; it is reused only as an authoritative parent.
 - `designing-mobile-haptic-feedback` was rejected because generic haptics/multisensory feedback already has a canonical owner; the batch does not create a mobile noun-variant of that decision.
+- `designing-gaze-targeting` was rejected because `designing-gaze-hand-spatial-input` already owns gaze acquisition, dwell, intent confirmation, angular target geometry, gaze-hand arbitration, tracking uncertainty and accidental activation.
+- `designing-hand-direct-manipulation` was rejected because `designing-gaze-hand-spatial-input` already owns hand gestures, pinch, reach envelopes, hand tracking feedback and mixed spatial input. Batch 005 instead admits `designing-xr-near-far-interaction-transitions`, whose boundary is representation/authority continuity when interaction changes between near/direct and far/indirect regimes, and `designing-xr-recenter-and-origin-recovery`, whose boundary is recovery from origin drift, recentering and coordinate-frame discontinuity.
 
 Further rejections discovered during prose authoring must be recorded in the Batch 005 provenance ledger.
