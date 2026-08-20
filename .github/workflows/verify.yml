@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - build/ui-industry-1000-batch-004-200
+  pull_request:
+    branches:
+      - main
+    types: [opened, synchronize, reopened, edited]
 
 permissions:
   contents: write
