@@ -1,8 +1,14 @@
 ---
 name: designing-project-templates
-description: Own reusable project/work structures, parameters, versioning, instantiation preview, inherited defaults, and safe evolution without pretending templates are live synchronized projects.
+description: Use when this specialist's decision ownership is materially in scope. Own reusable project/work structures, parameters, versioning, instantiation preview, inherited defaults, and safe evolution without pretending templates are live synchronized projects.
 ---
 # Designing Project Templates
+
+## Parent Contract
+
+**Required parent:** `designing-project-and-work-management`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

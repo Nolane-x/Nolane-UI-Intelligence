@@ -1,8 +1,14 @@
 ---
 name: designing-parameter-sweep-interfaces
-description: Own configuration and review of multi-run parameter sweeps across dimensions, ranges, sampling strategy, run count, resource bounds, validity, progress, and result indexing.
+description: Use when this specialist's decision ownership is materially in scope. Own configuration and review of multi-run parameter sweeps across dimensions, ranges, sampling strategy, run count, resource bounds, validity, progress, and result indexing.
 ---
 # Designing Parameter Sweep Interfaces
+
+## Parent Contract
+
+**Required parent:** `designing-scientific-and-engineering-instrumentation`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

@@ -1,8 +1,14 @@
 ---
 name: designing-subgraph-and-container-models
-description: Define nested graph containers, subgraphs, collapse behavior, reparenting, boundary-crossing edges, and the semantics of hidden structure.
+description: Use when this specialist's decision ownership is materially in scope. Define nested graph containers, subgraphs, collapse behavior, reparenting, boundary-crossing edges, and the semantics of hidden structure.
 ---
 # Designing Subgraph and Container Models
+
+## Parent Contract
+
+**Required parent:** `designing-diagramming-and-node-graph-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

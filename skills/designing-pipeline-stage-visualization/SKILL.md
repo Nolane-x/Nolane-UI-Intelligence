@@ -1,8 +1,14 @@
 ---
 name: designing-pipeline-stage-visualization
-description: Own visual representation of pipeline stages, dependencies, parallelism, fan-in/fan-out, skipped paths, gates, and current execution focus without reducing state to colored boxes.
+description: Use when this specialist's decision ownership is materially in scope. Own visual representation of pipeline stages, dependencies, parallelism, fan-in/fan-out, skipped paths, gates, and current execution focus without reducing state to colored boxes.
 ---
 # Designing Pipeline Stage Visualization
+
+## Parent Contract
+
+**Required parent:** `designing-software-delivery-pipelines`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

@@ -1,8 +1,14 @@
 ---
 name: designing-milestone-tracking
-description: Own discrete project checkpoints with target dates, acceptance evidence, dependency readiness, confidence, status, and completion criteria.
+description: Use when this specialist's decision ownership is materially in scope. Own discrete project checkpoints with target dates, acceptance evidence, dependency readiness, confidence, status, and completion criteria.
 ---
 # Designing Milestone Tracking
+
+## Parent Contract
+
+**Required parent:** `designing-project-and-work-management`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

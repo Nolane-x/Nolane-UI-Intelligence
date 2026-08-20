@@ -1,8 +1,14 @@
 ---
 name: designing-status-page-authoring
-description: Own public or customer-facing service-status incident updates, affected component scope, lifecycle, scheduled maintenance, message history, and preview before publication.
+description: Use when this specialist's decision ownership is materially in scope. Own public or customer-facing service-status incident updates, affected component scope, lifecycle, scheduled maintenance, message history, and preview before publication.
 ---
 # Designing Status Page Authoring
+
+## Parent Contract
+
+**Required parent:** `designing-incident-response-operations`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

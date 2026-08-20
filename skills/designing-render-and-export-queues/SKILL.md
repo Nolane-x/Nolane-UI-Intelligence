@@ -1,8 +1,14 @@
 ---
 name: designing-render-and-export-queues
-description: Own queued media renders/exports across sequence snapshot, preset, destination, dependencies, priority, progress, retries, partial outputs, resource use, and verification of produced artifacts.
+description: Use when this specialist's decision ownership is materially in scope. Own queued media renders/exports across sequence snapshot, preset, destination, dependencies, priority, progress, retries, partial outputs, resource use, and verification of produced artifacts.
 ---
 # Designing Render and Export Queues
+
+## Parent Contract
+
+**Required parent:** `designing-nonlinear-media-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

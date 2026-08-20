@@ -1,8 +1,14 @@
 ---
 name: designing-instrument-calibration-workflows
-description: Own calibration state, reference standards, procedure execution, validity, uncertainty, acceptance, expiry, and measurement consequences for instruments.
+description: Use when this specialist's decision ownership is materially in scope. Own calibration state, reference standards, procedure execution, validity, uncertainty, acceptance, expiry, and measurement consequences for instruments.
 ---
 # Designing Instrument Calibration Workflows
+
+## Parent Contract
+
+**Required parent:** `designing-scientific-and-engineering-instrumentation`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

@@ -1,8 +1,14 @@
 ---
 name: designing-model-fitting-controls
-description: Own interfaces for fitting analytical or statistical models to scientific data with explicit model form, parameters, bounds, weights, optimizer settings, residuals, uncertainty, convergence, and reproducibility.
+description: Use when this specialist's decision ownership is materially in scope. Own interfaces for fitting analytical or statistical models to scientific data with explicit model form, parameters, bounds, weights, optimizer settings, residuals, uncertainty, convergence, and reproducibility.
 ---
 # Designing Model Fitting Controls
+
+## Parent Contract
+
+**Required parent:** `designing-scientific-and-engineering-instrumentation`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

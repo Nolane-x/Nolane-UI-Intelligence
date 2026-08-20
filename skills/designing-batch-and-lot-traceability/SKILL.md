@@ -1,8 +1,14 @@
 ---
 name: designing-batch-and-lot-traceability
-description: Own traceability of material or production lots through inputs, transformations, outputs, tests, locations, and affected downstream uses with immutable lineage and recall-oriented exploration.
+description: Use when this specialist's decision ownership is materially in scope. Own traceability of material or production lots through inputs, transformations, outputs, tests, locations, and affected downstream uses with immutable lineage and recall-oriented exploration.
 ---
 # Designing Batch and Lot Traceability
+
+## Parent Contract
+
+**Required parent:** `designing-scientific-and-engineering-instrumentation`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

@@ -1,8 +1,14 @@
 ---
 name: designing-quiz-authoring
-description: Own construction of quizzes and question banks across item types, answer keys, scoring, randomization, pools, feedback, attempts, timing, release rules, and pre-publication validation.
+description: Use when this specialist's decision ownership is materially in scope. Own construction of quizzes and question banks across item types, answer keys, scoring, randomization, pools, feedback, attempts, timing, release rules, and pre-publication validation.
 ---
 # Designing Quiz Authoring
+
+## Parent Contract
+
+**Required parent:** `designing-digital-learning-experiences`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

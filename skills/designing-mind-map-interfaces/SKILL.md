@@ -1,8 +1,14 @@
 ---
 name: designing-mind-map-interfaces
-description: Own rapid hierarchical idea expansion, branch navigation, folding, reordering, and focus mechanics for mind-map style knowledge structures.
+description: Use when this specialist's decision ownership is materially in scope. Own rapid hierarchical idea expansion, branch navigation, folding, reordering, and focus mechanics for mind-map style knowledge structures.
 ---
 # Designing Mind-Map Interfaces
+
+## Parent Contract
+
+**Required parent:** `designing-diagramming-and-node-graph-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

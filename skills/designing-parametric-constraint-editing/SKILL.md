@@ -1,8 +1,14 @@
 ---
 name: designing-parametric-constraint-editing
-description: Own driving and geometric constraint editing, including dependencies, degrees of freedom, conflicts, over/under-constrained state, expression links, solve feedback, and safe rollback.
+description: Use when this specialist's decision ownership is materially in scope. Own driving and geometric constraint editing, including dependencies, degrees of freedom, conflicts, over/under-constrained state, expression links, solve feedback, and safe rollback.
 ---
 # Designing Parametric Constraint Editing
+
+## Parent Contract
+
+**Required parent:** `designing-3d-cad-authoring-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

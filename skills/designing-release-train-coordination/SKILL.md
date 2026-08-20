@@ -1,8 +1,14 @@
 ---
 name: designing-release-train-coordination
-description: Own coordination of multiple changes, services, artifacts, approvals, dependencies, cutoffs, and deployment waves into a shared scheduled release train.
+description: Use when this specialist's decision ownership is materially in scope. Own coordination of multiple changes, services, artifacts, approvals, dependencies, cutoffs, and deployment waves into a shared scheduled release train.
 ---
 # Designing Release Train Coordination
+
+## Parent Contract
+
+**Required parent:** `designing-software-delivery-pipelines`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

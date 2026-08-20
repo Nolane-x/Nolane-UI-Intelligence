@@ -1,8 +1,14 @@
 ---
 name: designing-order-book-interfaces
-description: Own operational visualization of bid/ask depth, price levels, quantities, aggregation, updates, market state, stale data, and interaction handoff without implying execution certainty or investment advice.
+description: Use when this specialist's decision ownership is materially in scope. Own operational visualization of bid/ask depth, price levels, quantities, aggregation, updates, market state, stale data, and interaction handoff without implying execution certainty or investment advice.
 ---
 # Designing Order Book Interfaces
+
+## Parent Contract
+
+**Required parent:** `designing-financial-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

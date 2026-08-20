@@ -1,8 +1,14 @@
 ---
 name: designing-color-grading-controls
-description: Own color grading interaction across exposure, balance, curves, wheels, qualifiers, masks, shot matching, LUTs, color-space context, bypass, versioning, and scope comparison.
+description: Use when this specialist's decision ownership is materially in scope. Own color grading interaction across exposure, balance, curves, wheels, qualifiers, masks, shot matching, LUTs, color-space context, bypass, versioning, and scope comparison.
 ---
 # Designing Color Grading Controls
+
+## Parent Contract
+
+**Required parent:** `designing-nonlinear-media-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

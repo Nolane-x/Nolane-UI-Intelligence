@@ -1,8 +1,14 @@
 ---
 name: designing-camera-view-management
-description: Own named 3D views and cameras, including save/restore, perspective parameters, clipping, target, lock, update, thumbnails, presentation, and distinction between editor camera and render camera.
+description: Use when this specialist's decision ownership is materially in scope. Own named 3D views and cameras, including save/restore, perspective parameters, clipping, target, lock, update, thumbnails, presentation, and distinction between editor camera and render camera.
 ---
 # Designing Camera View Management
+
+## Parent Contract
+
+**Required parent:** `designing-3d-cad-authoring-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

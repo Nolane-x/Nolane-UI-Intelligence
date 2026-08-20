@@ -1,8 +1,14 @@
 ---
 name: designing-stakeholder-incident-communications
-description: Own incident communication planning across internal leaders, support, customers, partners, and regulated audiences with audience scope, cadence, approval, facts, uncertainty, and next-update commitments.
+description: Use when this specialist's decision ownership is materially in scope. Own incident communication planning across internal leaders, support, customers, partners, and regulated audiences with audience scope, cadence, approval, facts, uncertainty, and next-update commitments.
 ---
 # Designing Stakeholder Incident Communications
+
+## Parent Contract
+
+**Required parent:** `designing-incident-response-operations`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

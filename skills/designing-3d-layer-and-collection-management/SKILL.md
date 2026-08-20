@@ -1,8 +1,14 @@
 ---
 name: designing-3d-layer-and-collection-management
-description: Own non-hierarchical organization of 3D content through layers, collections, tags, visibility sets, renderability, selectability, membership, and view-specific overrides.
+description: Use when this specialist's decision ownership is materially in scope. Own non-hierarchical organization of 3D content through layers, collections, tags, visibility sets, renderability, selectability, membership, and view-specific overrides.
 ---
 # Designing 3D Layer and Collection Management
+
+## Parent Contract
+
+**Required parent:** `designing-3d-cad-authoring-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

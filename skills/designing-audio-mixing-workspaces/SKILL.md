@@ -1,8 +1,14 @@
 ---
 name: designing-audio-mixing-workspaces
-description: Own audio mixing interfaces across channel/track/bus routing, gain, pan, mute/solo, meters, sends, inserts, automation mode, clipping, loudness, and mix-state provenance.
+description: Use when this specialist's decision ownership is materially in scope. Own audio mixing interfaces across channel/track/bus routing, gain, pan, mute/solo, meters, sends, inserts, automation mode, clipping, loudness, and mix-state provenance.
 ---
 # Designing Audio Mixing Workspaces
+
+## Parent Contract
+
+**Required parent:** `designing-nonlinear-media-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

@@ -1,8 +1,14 @@
 ---
 name: designing-war-room-collaboration
-description: Own high-tempo incident collaboration spaces where discussion, decisions, actions, evidence, roles, and side conversations must remain coordinated without turning chat into the source of truth.
+description: Use when this specialist's decision ownership is materially in scope. Own high-tempo incident collaboration spaces where discussion, decisions, actions, evidence, roles, and side conversations must remain coordinated without turning chat into the source of truth.
 ---
 # Designing War-Room Collaboration
+
+## Parent Contract
+
+**Required parent:** `designing-incident-response-operations`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

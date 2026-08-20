@@ -4,6 +4,12 @@ description: Use when analysts pivot around users, hosts, processes, domains, IP
 ---
 # Designing Security Entity Investigation
 
+## Parent Contract
+
+**Required parent:** `designing-security-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
+
 ## Decision ownership
 
 Own the investigative surface for one security entity and the pivots that radiate from it. Decide how identities from multiple telemetry sources are reconciled, how aliases and historical identities are shown, which behaviors form the entity baseline, and how related entities are ranked without overstating weak associations. This faculty is about entity truth and pivot safety; it does not own full attack-path visualization or generic asset inventory administration.

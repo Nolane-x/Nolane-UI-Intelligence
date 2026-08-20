@@ -1,8 +1,14 @@
 ---
 name: designing-deployment-target-selection
-description: Own selection and verification of deployment environments, regions, clusters, tenants, or scopes with identity, health, permissions, compatibility, and consequence preview.
+description: Use when this specialist's decision ownership is materially in scope. Own selection and verification of deployment environments, regions, clusters, tenants, or scopes with identity, health, permissions, compatibility, and consequence preview.
 ---
 # Designing Deployment Target Selection
+
+## Parent Contract
+
+**Required parent:** `designing-software-delivery-pipelines`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

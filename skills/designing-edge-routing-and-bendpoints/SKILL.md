@@ -1,8 +1,14 @@
 ---
 name: designing-edge-routing-and-bendpoints
-description: Decide how graph edges travel between endpoints, avoid obstacles, expose manual route control, and preserve readable topology after node movement or layout changes.
+description: Use when this specialist's decision ownership is materially in scope. Decide how graph edges travel between endpoints, avoid obstacles, expose manual route control, and preserve readable topology after node movement or layout changes.
 ---
 # Designing Edge Routing and Bendpoints
+
+## Parent Contract
+
+**Required parent:** `designing-diagramming-and-node-graph-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

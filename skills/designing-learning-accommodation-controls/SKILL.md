@@ -1,8 +1,14 @@
 ---
 name: designing-learning-accommodation-controls
-description: Own authorized learning and assessment accommodations such as extended time, alternate formats, attempts, deadlines, navigation rules, assistive access, and exemptions with privacy, scope, precedence, and provenance.
+description: Use when this specialist's decision ownership is materially in scope. Own authorized learning and assessment accommodations such as extended time, alternate formats, attempts, deadlines, navigation rules, assistive access, and exemptions with privacy, scope, precedence, and provenance.
 ---
 # Designing Learning Accommodation Controls
+
+## Parent Contract
+
+**Required parent:** `designing-digital-learning-experiences`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

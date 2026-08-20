@@ -1,8 +1,14 @@
 ---
 name: designing-deployment-locks
-description: Own temporary deployment locks on targets or release paths, including owner, reason, scope, expiry, override authority, visibility, and stale-lock recovery.
+description: Use when this specialist's decision ownership is materially in scope. Own temporary deployment locks on targets or release paths, including owner, reason, scope, expiry, override authority, visibility, and stale-lock recovery.
 ---
 # Designing Deployment Locks
+
+## Parent Contract
+
+**Required parent:** `designing-software-delivery-pipelines`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

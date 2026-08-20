@@ -1,8 +1,14 @@
 ---
 name: designing-3d-annotation-and-markup
-description: Own model-attached 3D notes, callouts, dimensions, issue pins, sketches, viewpoints, and review markup with stable references, visibility scope, authorship, and broken-reference handling.
+description: Use when this specialist's decision ownership is materially in scope. Own model-attached 3D notes, callouts, dimensions, issue pins, sketches, viewpoints, and review markup with stable references, visibility scope, authorship, and broken-reference handling.
 ---
 # Designing 3D Annotation and Markup
+
+## Parent Contract
+
+**Required parent:** `designing-3d-cad-authoring-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

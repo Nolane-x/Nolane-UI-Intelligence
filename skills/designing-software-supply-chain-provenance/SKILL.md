@@ -1,8 +1,14 @@
 ---
 name: designing-software-supply-chain-provenance
-description: Own human-readable provenance and attestation interfaces linking software artifacts to source, builder, dependencies, signatures, policies, and verification state without collapsing trust to one badge.
+description: Use when this specialist's decision ownership is materially in scope. Own human-readable provenance and attestation interfaces linking software artifacts to source, builder, dependencies, signatures, policies, and verification state without collapsing trust to one badge.
 ---
 # Designing Software Supply Chain Provenance
+
+## Parent Contract
+
+**Required parent:** `designing-software-delivery-pipelines`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

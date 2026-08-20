@@ -1,8 +1,14 @@
 ---
 name: designing-live-signal-monitoring
-description: Own high-frequency live signal views, including timebase, channel selection, buffering, triggering, freshness, dropped samples, freeze/inspect, and return-to-live behavior.
+description: Use when this specialist's decision ownership is materially in scope. Own high-frequency live signal views, including timebase, channel selection, buffering, triggering, freshness, dropped samples, freeze/inspect, and return-to-live behavior.
 ---
 # Designing Live Signal Monitoring
+
+## Parent Contract
+
+**Required parent:** `designing-scientific-and-engineering-instrumentation`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

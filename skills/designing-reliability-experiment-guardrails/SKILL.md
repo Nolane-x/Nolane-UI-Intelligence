@@ -1,8 +1,14 @@
 ---
 name: designing-reliability-experiment-guardrails
-description: Own the operator interface for controlled reliability or chaos experiments, emphasizing blast-radius bounds, prerequisites, abort conditions, observation, and evidence rather than experiment execution techniques.
+description: Use when this specialist's decision ownership is materially in scope. Own the operator interface for controlled reliability or chaos experiments, emphasizing blast-radius bounds, prerequisites, abort conditions, observation, and evidence rather than experiment execution techniques.
 ---
 # Designing Reliability Experiment Guardrails
+
+## Parent Contract
+
+**Required parent:** `designing-incident-response-operations`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

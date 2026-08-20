@@ -1,8 +1,14 @@
 ---
 name: designing-executable-graph-debug-overlays
-description: Own debug-state overlays for runnable graphs, exposing execution position, queued/running/failed states, data or token movement, breakpoints, stepping, and replay without corrupting authoring context.
+description: Use when this specialist's decision ownership is materially in scope. Own debug-state overlays for runnable graphs, exposing execution position, queued/running/failed states, data or token movement, breakpoints, stepping, and replay without corrupting authoring context.
 ---
 # Designing Executable Graph Debug Overlays
+
+## Parent Contract
+
+**Required parent:** `designing-diagramming-and-node-graph-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

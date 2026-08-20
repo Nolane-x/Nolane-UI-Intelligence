@@ -1,8 +1,14 @@
 ---
 name: designing-diagramming-and-node-graph-editors
-description: Own the interaction architecture for editable semantic node-and-edge canvases where structure, connectivity, scale, and authoring safety matter more than freeform drawing.
+description: Use when this specialist's decision ownership is materially in scope. Own the interaction architecture for editable semantic node-and-edge canvases where structure, connectivity, scale, and authoring safety matter more than freeform drawing.
 ---
 # Designing Diagramming and Node-Graph Editors
+
+## Parent Contract
+
+**Required parent:** `designing-editor-canvas-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

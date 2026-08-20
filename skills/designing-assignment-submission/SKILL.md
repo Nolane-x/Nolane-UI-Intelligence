@@ -1,8 +1,14 @@
 ---
 name: designing-assignment-submission
-description: Own learner assignment submission across draft files/text, requirements, deadline, versioning, upload state, final submit, late policy, receipt, resubmission, and instructor-visible artifact identity.
+description: Use when this specialist's decision ownership is materially in scope. Own learner assignment submission across draft files/text, requirements, deadline, versioning, upload state, final submit, late policy, receipt, resubmission, and instructor-visible artifact identity.
 ---
 # Designing Assignment Submission
+
+## Parent Contract
+
+**Required parent:** `designing-digital-learning-experiences`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

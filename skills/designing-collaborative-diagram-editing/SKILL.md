@@ -1,8 +1,14 @@
 ---
 name: designing-collaborative-diagram-editing
-description: Own concurrency semantics for shared graph editing, including conflicting structural edits, attribution, intent visibility, soft locks, and convergence after simultaneous node or edge changes.
+description: Use when this specialist's decision ownership is materially in scope. Own concurrency semantics for shared graph editing, including conflicting structural edits, attribution, intent visibility, soft locks, and convergence after simultaneous node or edge changes.
 ---
 # Designing Collaborative Diagram Editing
+
+## Parent Contract
+
+**Required parent:** `designing-diagramming-and-node-graph-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

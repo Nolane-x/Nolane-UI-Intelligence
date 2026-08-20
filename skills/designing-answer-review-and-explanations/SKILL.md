@@ -1,8 +1,14 @@
 ---
 name: designing-answer-review-and-explanations
-description: Own post-attempt review of learner responses, correctness, scoring, explanations, feedback, rubric evidence, answer release timing, and navigation without leaking protected assessment content prematurely.
+description: Use when this specialist's decision ownership is materially in scope. Own post-attempt review of learner responses, correctness, scoring, explanations, feedback, rubric evidence, answer release timing, and navigation without leaking protected assessment content prematurely.
 ---
 # Designing Answer Review and Explanations
+
+## Parent Contract
+
+**Required parent:** `designing-digital-learning-experiences`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

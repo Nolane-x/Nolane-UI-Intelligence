@@ -1,8 +1,14 @@
 ---
 name: designing-artifact-promotion
-description: Own promotion of immutable software artifacts through environments or release channels, preserving provenance, gate evidence, target eligibility, and distinction between promoting bytes and rebuilding them.
+description: Use when this specialist's decision ownership is materially in scope. Own promotion of immutable software artifacts through environments or release channels, preserving provenance, gate evidence, target eligibility, and distinction between promoting bytes and rebuilding them.
 ---
 # Designing Artifact Promotion
+
+## Parent Contract
+
+**Required parent:** `designing-software-delivery-pipelines`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

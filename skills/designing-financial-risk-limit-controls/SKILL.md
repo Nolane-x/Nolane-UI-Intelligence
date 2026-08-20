@@ -1,8 +1,14 @@
 ---
 name: designing-financial-risk-limit-controls
-description: Own governed financial exposure and transaction limits, including metric definition, scope, utilization, warning/breach states, effective dates, approval, override, reset, and evidence without recommending financial decisions.
+description: Use when this specialist's decision ownership is materially in scope. Own governed financial exposure and transaction limits, including metric definition, scope, utilization, warning/breach states, effective dates, approval, override, reset, and evidence without recommending financial decisions.
 ---
 # Designing Financial Risk Limit Controls
+
+## Parent Contract
+
+**Required parent:** `designing-financial-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

@@ -1,8 +1,14 @@
 ---
 name: designing-blocker-and-risk-registers
-description: Own project blocker and risk records, including probability/impact evidence, mitigation, ownership, linkage to work, aging, escalation, and conversion from risk to active issue.
+description: Use when this specialist's decision ownership is materially in scope. Own project blocker and risk records, including probability/impact evidence, mitigation, ownership, linkage to work, aging, escalation, and conversion from risk to active issue.
 ---
 # Designing Blocker and Risk Registers
+
+## Parent Contract
+
+**Required parent:** `designing-project-and-work-management`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

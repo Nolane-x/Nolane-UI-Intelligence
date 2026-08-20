@@ -1,8 +1,14 @@
 ---
 name: designing-clash-and-collision-inspection
-description: Own detection-review workflows for geometric clashes, clearances, interferences, contacts, and collision sets with scope, severity, evidence, deduplication, assignment, and resolution verification.
+description: Use when this specialist's decision ownership is materially in scope. Own detection-review workflows for geometric clashes, clearances, interferences, contacts, and collision sets with scope, severity, evidence, deduplication, assignment, and resolution verification.
 ---
 # Designing Clash and Collision Inspection
+
+## Parent Contract
+
+**Required parent:** `designing-3d-cad-authoring-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

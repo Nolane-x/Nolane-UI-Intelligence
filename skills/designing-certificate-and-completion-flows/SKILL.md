@@ -1,8 +1,14 @@
 ---
 name: designing-certificate-and-completion-flows
-description: Own course/program completion verification and credential issuance, including requirement proof, pending states, identity, name corrections, issuance, download/share, revocation, expiry, and verification links.
+description: Use when this specialist's decision ownership is materially in scope. Own course/program completion verification and credential issuance, including requirement proof, pending states, identity, name corrections, issuance, download/share, revocation, expiry, and verification links.
 ---
 # Designing Certificate and Completion Flows
+
+## Parent Contract
+
+**Required parent:** `designing-digital-learning-experiences`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

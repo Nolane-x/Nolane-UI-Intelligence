@@ -1,8 +1,14 @@
 ---
 name: designing-journal-entry-workflows
-description: Own creation, validation, approval, posting, reversal, and correction of journal entries with balanced lines, dimensions, period/entity controls, attachments, and immutable audit history.
+description: Use when this specialist's decision ownership is materially in scope. Own creation, validation, approval, posting, reversal, and correction of journal entries with balanced lines, dimensions, period/entity controls, attachments, and immutable audit history.
 ---
 # Designing Journal Entry Workflows
+
+## Parent Contract
+
+**Required parent:** `designing-financial-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

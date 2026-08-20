@@ -1,8 +1,14 @@
 ---
 name: designing-portfolio-position-monitoring
-description: Own monitoring of financial positions across account, instrument, quantity, cost basis, market value, P&L, exposure, stale prices, pending activity, and reconciliation without giving investment advice.
+description: Use when this specialist's decision ownership is materially in scope. Own monitoring of financial positions across account, instrument, quantity, cost basis, market value, P&L, exposure, stale prices, pending activity, and reconciliation without giving investment advice.
 ---
 # Designing Portfolio Position Monitoring
+
+## Parent Contract
+
+**Required parent:** `designing-financial-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

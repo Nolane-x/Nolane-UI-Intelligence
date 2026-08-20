@@ -1,8 +1,14 @@
 ---
 name: designing-portfolio-rollups
-description: Own cross-project portfolio aggregation across outcomes, investments, milestones, dependencies, risks, capacity, and health without double-counting nested work or hiding incomparable project models.
+description: Use when this specialist's decision ownership is materially in scope. Own cross-project portfolio aggregation across outcomes, investments, milestones, dependencies, risks, capacity, and health without double-counting nested work or hiding incomparable project models.
 ---
 # Designing Portfolio Rollups
+
+## Parent Contract
+
+**Required parent:** `designing-project-and-work-management`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

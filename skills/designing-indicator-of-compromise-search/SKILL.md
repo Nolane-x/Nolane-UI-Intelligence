@@ -4,6 +4,12 @@ description: Use when analysts search hashes, domains, IPs, URLs, certificates, 
 ---
 # Designing Indicator of Compromise Search
 
+## Parent Contract
+
+**Required parent:** `designing-security-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
+
 ## Decision ownership
 
 Own the query and result semantics for indicator hunting. Decide how an entered indicator is typed, normalized, transformed, scoped, and matched across sources; how exact, derived, historical, and fuzzy matches differ; and how the interface communicates incomplete telemetry. This faculty does not determine whether an indicator is malicious or author a detection rule. Its job is to prevent search mechanics from fabricating confidence.

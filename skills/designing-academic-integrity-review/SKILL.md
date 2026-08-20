@@ -1,8 +1,14 @@
 ---
 name: designing-academic-integrity-review
-description: Own evidence-sensitive review of potential academic integrity concerns, including detector limitations, source comparison, case state, learner response, reviewer decisions, privacy, and appeal provenance.
+description: Use when this specialist's decision ownership is materially in scope. Own evidence-sensitive review of potential academic integrity concerns, including detector limitations, source comparison, case state, learner response, reviewer decisions, privacy, and appeal provenance.
 ---
 # Designing Academic Integrity Review
+
+## Parent Contract
+
+**Required parent:** `designing-digital-learning-experiences`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

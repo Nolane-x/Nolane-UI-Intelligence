@@ -4,6 +4,12 @@ description: Use when analysts must prioritize and disposition high-volume secur
 ---
 # Designing Security Alert Triage
 
+## Parent Contract
+
+**Required parent:** `designing-security-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
+
 ## Decision ownership
 
 Own the decision surface that turns an incoming alert stream into ordered analyst work. This faculty decides which signals determine priority, how duplicate or correlated alerts are represented, what minimum evidence is visible before opening an investigation, and how analysts record dispositions such as benign, expected, suspicious, duplicate, escalated, or unresolved. It does not own the detection rule that emitted the alert or the full investigation that follows triage.

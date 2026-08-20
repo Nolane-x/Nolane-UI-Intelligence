@@ -1,8 +1,14 @@
 ---
 name: designing-curriculum-pathways
-description: Own multi-course learning paths, prerequisites, alternatives, electives, equivalencies, branching, transfer credit, progress, and next-step recommendations grounded in curriculum rules.
+description: Use when this specialist's decision ownership is materially in scope. Own multi-course learning paths, prerequisites, alternatives, electives, equivalencies, branching, transfer credit, progress, and next-step recommendations grounded in curriculum rules.
 ---
 # Designing Curriculum Pathways
+
+## Parent Contract
+
+**Required parent:** `designing-digital-learning-experiences`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

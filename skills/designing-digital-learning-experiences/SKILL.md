@@ -1,8 +1,14 @@
 ---
 name: designing-digital-learning-experiences
-description: Own the interaction architecture for digital learning systems where curriculum, learner state, practice, assessment, feedback, progress, credentials, instructor oversight, and accommodations must cohere.
+description: Use when this specialist's decision ownership is materially in scope. Own the interaction architecture for digital learning systems where curriculum, learner state, practice, assessment, feedback, progress, credentials, instructor oversight, and accommodations must cohere.
 ---
 # Designing Digital Learning Experiences
+
+## Parent Contract
+
+**Required parent:** `routing-ui-work`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

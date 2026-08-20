@@ -1,8 +1,14 @@
 ---
 name: designing-project-views-and-filters
-description: Own project view definitions across list, board, timeline, grouped, personal, and saved perspectives while preserving one canonical work-item truth.
+description: Use when this specialist's decision ownership is materially in scope. Own project view definitions across list, board, timeline, grouped, personal, and saved perspectives while preserving one canonical work-item truth.
 ---
 # Designing Project Views and Filters
+
+## Parent Contract
+
+**Required parent:** `designing-project-and-work-management`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

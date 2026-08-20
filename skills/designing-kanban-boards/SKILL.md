@@ -1,8 +1,14 @@
 ---
 name: designing-kanban-boards
-description: Own column-based work visualization where card movement, WIP limits, swimlanes, ordering, and state mapping must be explicit and operationally safe.
+description: Use when this specialist's decision ownership is materially in scope. Own column-based work visualization where card movement, WIP limits, swimlanes, ordering, and state mapping must be explicit and operationally safe.
 ---
 # Designing Kanban Boards
+
+## Parent Contract
+
+**Required parent:** `designing-project-and-work-management`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

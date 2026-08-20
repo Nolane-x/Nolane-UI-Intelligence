@@ -1,8 +1,14 @@
 ---
 name: designing-dependency-impact-analysis
-description: Own incident-time analysis of how failures may propagate across service dependencies, separating structural reachability, observed impact, hypothesis, and confidence.
+description: Use when this specialist's decision ownership is materially in scope. Own incident-time analysis of how failures may propagate across service dependencies, separating structural reachability, observed impact, hypothesis, and confidence.
 ---
 # Designing Dependency Impact Analysis
+
+## Parent Contract
+
+**Required parent:** `designing-incident-response-operations`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

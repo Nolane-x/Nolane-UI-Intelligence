@@ -1,8 +1,14 @@
 ---
 name: designing-roadmap-timelines
-description: Own multi-horizon roadmap views that communicate strategic sequencing, confidence, date precision, dependencies, and scope without presenting uncertain plans as fixed schedules.
+description: Use when this specialist's decision ownership is materially in scope. Own multi-horizon roadmap views that communicate strategic sequencing, confidence, date precision, dependencies, and scope without presenting uncertain plans as fixed schedules.
 ---
 # Designing Roadmap Timelines
+
+## Parent Contract
+
+**Required parent:** `designing-project-and-work-management`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

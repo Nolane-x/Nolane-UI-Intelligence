@@ -1,8 +1,14 @@
 ---
 name: designing-project-closure-and-archival
-description: Own end-of-project closure, incomplete-work disposition, final evidence, ownership transfer, archival discoverability, retention, and controlled reopening.
+description: Use when this specialist's decision ownership is materially in scope. Own end-of-project closure, incomplete-work disposition, final evidence, ownership transfer, archival discoverability, retention, and controlled reopening.
 ---
 # Designing Project Closure and Archival
+
+## Parent Contract
+
+**Required parent:** `designing-project-and-work-management`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

@@ -1,8 +1,14 @@
 ---
 name: designing-project-health-dashboards
-description: Own evidence-derived project health summaries that combine milestones, blockers, schedule, scope, capacity, risk, and change without collapsing status into a manual traffic light.
+description: Use when this specialist's decision ownership is materially in scope. Own evidence-derived project health summaries that combine milestones, blockers, schedule, scope, capacity, risk, and change without collapsing status into a manual traffic light.
 ---
 # Designing Project Health Dashboards
+
+## Parent Contract
+
+**Required parent:** `designing-project-and-work-management`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

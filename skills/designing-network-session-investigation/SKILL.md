@@ -4,6 +4,12 @@ description: Use when analysts investigate network conversations across flows, p
 ---
 # Designing Network Session Investigation
 
+## Parent Contract
+
+**Required parent:** `designing-security-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
+
 ## Decision ownership
 
 Own the investigation model for network communication sessions. Decide how source/destination identity, direction, protocol, connection lifetime, bytes, requests, DNS/TLS context, proxy/NAT transformations, and capture visibility are presented so analysts can reconstruct what actually communicated. This faculty does not operate packet capture infrastructure and does not decide threat maliciousness. It prevents network summaries from erasing transformations or visibility gaps that materially change interpretation.

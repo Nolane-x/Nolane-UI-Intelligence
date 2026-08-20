@@ -1,8 +1,14 @@
 ---
 name: designing-extrusion-and-inset-operations
-description: Own interactive extrusion and inset modeling operations with direction, distance, region/individual behavior, topology preview, numeric entry, cancel, and non-manifold safeguards.
+description: Use when this specialist's decision ownership is materially in scope. Own interactive extrusion and inset modeling operations with direction, distance, region/individual behavior, topology preview, numeric entry, cancel, and non-manifold safeguards.
 ---
 # Designing Extrusion and Inset Operations
+
+## Parent Contract
+
+**Required parent:** `designing-3d-cad-authoring-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

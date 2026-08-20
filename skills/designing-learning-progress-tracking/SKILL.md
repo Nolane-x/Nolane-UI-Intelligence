@@ -1,8 +1,14 @@
 ---
 name: designing-learning-progress-tracking
-description: Own derivation and display of learner progress from requirements, activities, attempts, mastery, exemptions, and time without collapsing educational evidence into one misleading percentage.
+description: Use when this specialist's decision ownership is materially in scope. Own derivation and display of learner progress from requirements, activities, attempts, mastery, exemptions, and time without collapsing educational evidence into one misleading percentage.
 ---
 # Designing Learning Progress Tracking
+
+## Parent Contract
+
+**Required parent:** `designing-digital-learning-experiences`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

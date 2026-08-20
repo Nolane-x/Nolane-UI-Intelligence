@@ -1,8 +1,14 @@
 ---
 name: designing-task-dependency-networks
-description: Own project-work dependency creation and inspection, including blocker direction, lag, critical chains, cycles, and scheduling consequences.
+description: Use when this specialist's decision ownership is materially in scope. Own project-work dependency creation and inspection, including blocker direction, lag, critical chains, cycles, and scheduling consequences.
 ---
 # Designing Task Dependency Networks
+
+## Parent Contract
+
+**Required parent:** `designing-project-and-work-management`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

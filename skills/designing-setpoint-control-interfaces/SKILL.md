@@ -1,8 +1,14 @@
 ---
 name: designing-setpoint-control-interfaces
-description: Own operator changes to instrument or process setpoints with present/target distinction, units, bounds, ramping, authority, preview, acknowledgement, and verification of actual effect.
+description: Use when this specialist's decision ownership is materially in scope. Own operator changes to instrument or process setpoints with present/target distinction, units, bounds, ramping, authority, preview, acknowledgement, and verification of actual effect.
 ---
 # Designing Setpoint Control Interfaces
+
+## Parent Contract
+
+**Required parent:** `designing-scientific-and-engineering-instrumentation`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

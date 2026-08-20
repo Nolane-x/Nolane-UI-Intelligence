@@ -1,8 +1,14 @@
 ---
 name: designing-lesson-navigation
-description: Own within-course navigation across lessons, sections, activities, checkpoints, prerequisites, position memory, next/previous logic, sidebars, and return-to-context after deep links.
+description: Use when this specialist's decision ownership is materially in scope. Own within-course navigation across lessons, sections, activities, checkpoints, prerequisites, position memory, next/previous logic, sidebars, and return-to-context after deep links.
 ---
 # Designing Lesson Navigation
+
+## Parent Contract
+
+**Required parent:** `designing-digital-learning-experiences`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

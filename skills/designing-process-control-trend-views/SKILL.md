@@ -1,8 +1,14 @@
 ---
 name: designing-process-control-trend-views
-description: Own process trend interfaces that relate measured variables, setpoints, control outputs, events, limits, batches, and operating modes over time without confusing correlation with control causality.
+description: Use when this specialist's decision ownership is materially in scope. Own process trend interfaces that relate measured variables, setpoints, control outputs, events, limits, batches, and operating modes over time without confusing correlation with control causality.
 ---
 # Designing Process Control Trend Views
+
+## Parent Contract
+
+**Required parent:** `designing-scientific-and-engineering-instrumentation`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

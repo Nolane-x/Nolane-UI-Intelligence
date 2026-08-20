@@ -1,8 +1,14 @@
 ---
 name: designing-instrument-telemetry-dashboards
-description: Own dense instrument telemetry overviews that preserve units, freshness, quality, alarm relevance, scale, and drill-down without turning measurements into decorative KPI cards.
+description: Use when this specialist's decision ownership is materially in scope. Own dense instrument telemetry overviews that preserve units, freshness, quality, alarm relevance, scale, and drill-down without turning measurements into decorative KPI cards.
 ---
 # Designing Instrument Telemetry Dashboards
+
+## Parent Contract
+
+**Required parent:** `designing-scientific-and-engineering-instrumentation`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

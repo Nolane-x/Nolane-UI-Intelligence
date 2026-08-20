@@ -1,8 +1,14 @@
 ---
 name: designing-alert-triage-workspaces
-description: Own high-noise operational alert review, deduplication, grouping, acknowledgement, suppression context, and promotion into an incident without hiding uncertainty.
+description: Use when this specialist's decision ownership is materially in scope. Own high-noise operational alert review, deduplication, grouping, acknowledgement, suppression context, and promotion into an incident without hiding uncertainty.
 ---
 # Designing Alert Triage Workspaces
+
+## Parent Contract
+
+**Required parent:** `designing-incident-response-operations`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

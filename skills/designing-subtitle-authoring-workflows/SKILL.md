@@ -1,8 +1,14 @@
 ---
 name: designing-subtitle-authoring-workflows
-description: Own subtitle/caption creation and editing across cues, timing, text, speaker/style metadata, reading speed, overlaps, track/language, import/export, and playback verification.
+description: Use when this specialist's decision ownership is materially in scope. Own subtitle/caption creation and editing across cues, timing, text, speaker/style metadata, reading speed, overlaps, track/language, import/export, and playback verification.
 ---
 # Designing Subtitle Authoring Workflows
+
+## Parent Contract
+
+**Required parent:** `designing-nonlinear-media-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

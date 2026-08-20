@@ -1,8 +1,14 @@
 ---
 name: designing-environment-diff-interfaces
-description: Own structured comparison between software environments across deployed versions, configuration, dependencies, flags, schema, and selected operational metadata without hiding incomparable or secret values.
+description: Use when this specialist's decision ownership is materially in scope. Own structured comparison between software environments across deployed versions, configuration, dependencies, flags, schema, and selected operational metadata without hiding incomparable or secret values.
 ---
 # Designing Environment Diff Interfaces
+
+## Parent Contract
+
+**Required parent:** `designing-software-delivery-pipelines`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

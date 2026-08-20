@@ -1,8 +1,14 @@
 ---
 name: designing-assessment-question-navigation
-description: Own navigation across assessment questions, sections, passages, flags, answered state, locked sequencing, review screens, and large-item maps while respecting timing and exam policy.
+description: Use when this specialist's decision ownership is materially in scope. Own navigation across assessment questions, sections, passages, flags, answered state, locked sequencing, review screens, and large-item maps while respecting timing and exam policy.
 ---
 # Designing Assessment Question Navigation
+
+## Parent Contract
+
+**Required parent:** `designing-digital-learning-experiences`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

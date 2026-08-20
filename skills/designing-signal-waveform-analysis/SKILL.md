@@ -1,8 +1,14 @@
 ---
 name: designing-signal-waveform-analysis
-description: Own analytical interaction with scientific waveforms, including cursors, regions, measurements, baselines, channel math, uncertainty, annotations, and reproducible analysis state.
+description: Use when this specialist's decision ownership is materially in scope. Own analytical interaction with scientific waveforms, including cursors, regions, measurements, baselines, channel math, uncertainty, annotations, and reproducible analysis state.
 ---
 # Designing Signal Waveform Analysis
+
+## Parent Contract
+
+**Required parent:** `designing-scientific-and-engineering-instrumentation`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

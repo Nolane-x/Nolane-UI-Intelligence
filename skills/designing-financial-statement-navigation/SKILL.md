@@ -1,8 +1,14 @@
 ---
 name: designing-financial-statement-navigation
-description: Own navigation of balance sheet, income statement, cash-flow and related financial reports from statement lines to account/transaction evidence with period, entity, currency, consolidation, and restatement context.
+description: Use when this specialist's decision ownership is materially in scope. Own navigation of balance sheet, income statement, cash-flow and related financial reports from statement lines to account/transaction evidence with period, entity, currency, consolidation, and restatement context.
 ---
 # Designing Financial Statement Navigation
+
+## Parent Contract
+
+**Required parent:** `designing-financial-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

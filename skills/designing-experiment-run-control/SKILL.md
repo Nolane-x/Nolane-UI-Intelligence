@@ -1,8 +1,14 @@
 ---
 name: designing-experiment-run-control
-description: Own start, pause, resume, stop, abort, phase progression, live run status, operator authority, and outcome distinction for active scientific or engineering experiments.
+description: Use when this specialist's decision ownership is materially in scope. Own start, pause, resume, stop, abort, phase progression, live run status, operator authority, and outcome distinction for active scientific or engineering experiments.
 ---
 # Designing Experiment Run Control
+
+## Parent Contract
+
+**Required parent:** `designing-scientific-and-engineering-instrumentation`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

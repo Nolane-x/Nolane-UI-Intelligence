@@ -1,8 +1,14 @@
 ---
 name: designing-edit-markers-and-review-notes
-description: Own editorial markers, ranges, review notes, approvals, status, authorship, color/type, attachment, timeline anchoring, and behavior as edits shift sequence time.
+description: Use when this specialist's decision ownership is materially in scope. Own editorial markers, ranges, review notes, approvals, status, authorship, color/type, attachment, timeline anchoring, and behavior as edits shift sequence time.
 ---
 # Designing Edit Markers and Review Notes
+
+## Parent Contract
+
+**Required parent:** `designing-nonlinear-media-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

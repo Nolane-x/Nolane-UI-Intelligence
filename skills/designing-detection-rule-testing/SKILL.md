@@ -4,6 +4,12 @@ description: Use when security teams must evaluate a detection against historica
 ---
 # Designing Detection Rule Testing
 
+## Parent Contract
+
+**Required parent:** `designing-security-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
+
 ## Decision ownership
 
 Own the evaluation surface for candidate detection logic. Decide how tests select datasets, label expected matches, compare versions, expose false positives and false negatives, measure data-source coverage, and communicate uncertainty before promotion. This faculty does not author the detection condition and does not decide incident response after a production alert. Its concern is whether the rule behaves as claimed under observable evidence.

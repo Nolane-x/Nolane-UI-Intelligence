@@ -1,8 +1,14 @@
 ---
 name: designing-graph-auto-layout-controls
-description: Own user control over automatic graph arrangement, including scope, preview, constraints, pinned objects, determinism, and recovery from disruptive layout changes.
+description: Use when this specialist's decision ownership is materially in scope. Own user control over automatic graph arrangement, including scope, preview, constraints, pinned objects, determinism, and recovery from disruptive layout changes.
 ---
 # Designing Graph Auto-Layout Controls
+
+## Parent Contract
+
+**Required parent:** `designing-diagramming-and-node-graph-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

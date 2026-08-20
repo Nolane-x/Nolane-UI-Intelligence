@@ -1,8 +1,14 @@
 ---
 name: designing-configuration-drift-review
-description: Own review of unexpected divergence from desired or peer configuration, including baseline authority, detection freshness, intentional exceptions, remediation, and reappearance.
+description: Use when this specialist's decision ownership is materially in scope. Own review of unexpected divergence from desired or peer configuration, including baseline authority, detection freshness, intentional exceptions, remediation, and reappearance.
 ---
 # Designing Configuration Drift Review
+
+## Parent Contract
+
+**Required parent:** `designing-software-delivery-pipelines`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

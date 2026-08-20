@@ -1,8 +1,14 @@
 ---
 name: designing-microscopy-measurement-workflows
-description: Own image-based scientific measurement workflows for microscopy where scale, channels, regions, annotations, segmentation provenance, and measurement tables must stay linked to source imagery.
+description: Use when this specialist's decision ownership is materially in scope. Own image-based scientific measurement workflows for microscopy where scale, channels, regions, annotations, segmentation provenance, and measurement tables must stay linked to source imagery.
 ---
 # Designing Microscopy Measurement Workflows
+
+## Parent Contract
+
+**Required parent:** `designing-scientific-and-engineering-instrumentation`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

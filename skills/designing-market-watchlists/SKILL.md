@@ -1,8 +1,14 @@
 ---
 name: designing-market-watchlists
-description: Own user-curated monitoring lists of financial instruments with identity, quote freshness, selected metrics, sorting, alerts, grouping, stale/closed-market state, and neutral non-advisory presentation.
+description: Use when this specialist's decision ownership is materially in scope. Own user-curated monitoring lists of financial instruments with identity, quote freshness, selected metrics, sorting, alerts, grouping, stale/closed-market state, and neutral non-advisory presentation.
 ---
 # Designing Market Watchlists
+
+## Parent Contract
+
+**Required parent:** `designing-financial-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

@@ -1,8 +1,14 @@
 ---
 name: designing-transition-authoring
-description: Own creation and editing of audio/video transitions across edit points, source handles, duration, alignment, parameters, overlap, defaults, and insufficient-media recovery.
+description: Use when this specialist's decision ownership is materially in scope. Own creation and editing of audio/video transitions across edit points, source handles, duration, alignment, parameters, overlap, defaults, and insufficient-media recovery.
 ---
 # Designing Transition Authoring
+
+## Parent Contract
+
+**Required parent:** `designing-nonlinear-media-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

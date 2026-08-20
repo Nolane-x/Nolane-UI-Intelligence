@@ -1,8 +1,14 @@
 ---
 name: designing-dimensional-measurement-tools
-description: Own precise 3D/CAD measurement of distance, angle, radius, diameter, area, volume, coordinates, clearances, and references with units, snap provenance, and persistent annotations.
+description: Use when this specialist's decision ownership is materially in scope. Own precise 3D/CAD measurement of distance, angle, radius, diameter, area, volume, coordinates, clearances, and references with units, snap provenance, and persistent annotations.
 ---
 # Designing Dimensional Measurement Tools
+
+## Parent Contract
+
+**Required parent:** `designing-3d-cad-authoring-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

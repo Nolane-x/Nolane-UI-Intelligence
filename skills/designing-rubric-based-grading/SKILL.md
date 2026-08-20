@@ -1,8 +1,14 @@
 ---
 name: designing-rubric-based-grading
-description: Own criterion-based grading across rubric versions, performance levels, points, comments, evidence selection, moderation, incomplete criteria, recalculation, and feedback release.
+description: Use when this specialist's decision ownership is materially in scope. Own criterion-based grading across rubric versions, performance levels, points, comments, evidence selection, moderation, incomplete criteria, recalculation, and feedback release.
 ---
 # Designing Rubric-Based Grading
+
+## Parent Contract
+
+**Required parent:** `designing-digital-learning-experiences`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

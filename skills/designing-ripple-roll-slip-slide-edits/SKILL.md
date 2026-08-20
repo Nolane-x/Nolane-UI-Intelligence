@@ -1,8 +1,14 @@
 ---
 name: designing-ripple-roll-slip-slide-edits
-description: Own advanced trim semantics where changing one edit point can move timeline position, adjacent clip boundaries, or source content, with precise mode, preview, collision, and sync consequences.
+description: Use when this specialist's decision ownership is materially in scope. Own advanced trim semantics where changing one edit point can move timeline position, adjacent clip boundaries, or source content, with precise mode, preview, collision, and sync consequences.
 ---
 # Designing Ripple Roll Slip Slide Edits
+
+## Parent Contract
+
+**Required parent:** `designing-nonlinear-media-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

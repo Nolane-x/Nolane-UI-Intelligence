@@ -1,8 +1,14 @@
 ---
 name: designing-bank-reconciliation
-description: Own matching bank-statement/feed items to ledger transactions, including one-to-many splits, timing differences, fees, duplicates, unmatched items, balance proof, and reconciliation closure.
+description: Use when this specialist's decision ownership is materially in scope. Own matching bank-statement/feed items to ledger transactions, including one-to-many splits, timing differences, fees, duplicates, unmatched items, balance proof, and reconciliation closure.
 ---
 # Designing Bank Reconciliation
+
+## Parent Contract
+
+**Required parent:** `designing-financial-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

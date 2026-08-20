@@ -1,8 +1,14 @@
 ---
 name: designing-flowchart-semantics
-description: Own the UI expression and validation of flowchart-specific start/end, process, decision, branch, merge, loop, and reachability semantics.
+description: Use when this specialist's decision ownership is materially in scope. Own the UI expression and validation of flowchart-specific start/end, process, decision, branch, merge, loop, and reachability semantics.
 ---
 # Designing Flowchart Semantics
+
+## Parent Contract
+
+**Required parent:** `designing-diagramming-and-node-graph-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

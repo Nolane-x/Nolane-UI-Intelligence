@@ -1,8 +1,14 @@
 ---
 name: designing-quiz-taking
-description: Own learner quiz attempts across start, answer state, save, navigation, submit, retries, connectivity, feedback release, and distinction between recorded versus unsaved responses.
+description: Use when this specialist's decision ownership is materially in scope. Own learner quiz attempts across start, answer state, save, navigation, submit, retries, connectivity, feedback release, and distinction between recorded versus unsaved responses.
 ---
 # Designing Quiz Taking
+
+## Parent Contract
+
+**Required parent:** `designing-digital-learning-experiences`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

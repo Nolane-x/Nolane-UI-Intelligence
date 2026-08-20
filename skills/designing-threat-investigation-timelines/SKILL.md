@@ -4,6 +4,12 @@ description: Use when analysts must reconstruct a security sequence from heterog
 ---
 # Designing Threat Investigation Timelines
 
+## Parent Contract
+
+**Required parent:** `designing-security-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
+
 ## Decision ownership
 
 Own temporal reconstruction for security investigations. Decide how events from endpoint, identity, network, cloud, email, and human notes are normalized into a timeline without pretending that timestamp order equals causality. This faculty owns time-window navigation, clock uncertainty, event grouping, causal annotations, gaps, and analyst-authored milestones. It does not own generic log viewing or the detection semantics that produced individual events.

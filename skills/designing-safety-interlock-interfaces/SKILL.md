@@ -1,8 +1,14 @@
 ---
 name: designing-safety-interlock-interfaces
-description: Own operator visibility and interaction with hardware or process safety interlocks, including cause, protected scope, latched state, reset prerequisites, bypass authority, and evidence that protection is active.
+description: Use when this specialist's decision ownership is materially in scope. Own operator visibility and interaction with hardware or process safety interlocks, including cause, protected scope, latched state, reset prerequisites, bypass authority, and evidence that protection is active.
 ---
 # Designing Safety Interlock Interfaces
+
+## Parent Contract
+
+**Required parent:** `designing-scientific-and-engineering-instrumentation`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

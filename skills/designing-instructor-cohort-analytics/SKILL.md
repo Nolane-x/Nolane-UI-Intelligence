@@ -1,8 +1,14 @@
 ---
 name: designing-instructor-cohort-analytics
-description: Own instructor-facing learning analytics across participation, progress, assessment distributions, item difficulty, disengagement signals, subgroup comparison, privacy, uncertainty, and actionable drill-down.
+description: Use when this specialist's decision ownership is materially in scope. Own instructor-facing learning analytics across participation, progress, assessment distributions, item difficulty, disengagement signals, subgroup comparison, privacy, uncertainty, and actionable drill-down.
 ---
 # Designing Instructor Cohort Analytics
+
+## Parent Contract
+
+**Required parent:** `designing-digital-learning-experiences`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

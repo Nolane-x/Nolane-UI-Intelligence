@@ -1,8 +1,14 @@
 ---
 name: designing-node-creation-and-placement
-description: Decide how users instantiate typed graph nodes, choose their insertion context, preview placement, and recover from invalid or accidental creation.
+description: Use when this specialist's decision ownership is materially in scope. Decide how users instantiate typed graph nodes, choose their insertion context, preview placement, and recover from invalid or accidental creation.
 ---
 # Designing Node Creation and Placement
+
+## Parent Contract
+
+**Required parent:** `designing-diagramming-and-node-graph-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

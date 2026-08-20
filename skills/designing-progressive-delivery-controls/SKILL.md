@@ -1,8 +1,14 @@
 ---
 name: designing-progressive-delivery-controls
-description: Own multi-step progressive delivery across cohorts, regions, percentages, or stages with explicit progression policy, evidence gates, holds, aborts, and mixed-version state.
+description: Use when this specialist's decision ownership is materially in scope. Own multi-step progressive delivery across cohorts, regions, percentages, or stages with explicit progression policy, evidence gates, holds, aborts, and mixed-version state.
 ---
 # Designing Progressive Delivery Controls
+
+## Parent Contract
+
+**Required parent:** `designing-software-delivery-pipelines`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

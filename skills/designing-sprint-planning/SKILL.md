@@ -1,8 +1,14 @@
 ---
 name: designing-sprint-planning
-description: Own timeboxed planning interfaces that balance candidate work, capacity, carryover, goals, dependencies, and commitment without equating a sprint with a filtered task list.
+description: Use when this specialist's decision ownership is materially in scope. Own timeboxed planning interfaces that balance candidate work, capacity, carryover, goals, dependencies, and commitment without equating a sprint with a filtered task list.
 ---
 # Designing Sprint Planning
+
+## Parent Contract
+
+**Required parent:** `designing-project-and-work-management`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

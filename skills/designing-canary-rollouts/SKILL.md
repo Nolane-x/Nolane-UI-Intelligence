@@ -1,8 +1,14 @@
 ---
 name: designing-canary-rollouts
-description: Own staged canary rollout interfaces where a small traffic or instance cohort receives a new version, is observed against criteria, then advances, pauses, or rolls back.
+description: Use when this specialist's decision ownership is materially in scope. Own staged canary rollout interfaces where a small traffic or instance cohort receives a new version, is observed against criteria, then advances, pauses, or rolls back.
 ---
 # Designing Canary Rollouts
+
+## Parent Contract
+
+**Required parent:** `designing-software-delivery-pipelines`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

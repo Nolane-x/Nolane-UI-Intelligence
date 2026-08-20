@@ -1,8 +1,14 @@
 ---
 name: designing-incident-timeline-capture
-description: Own chronological evidence capture for incidents, separating observed events, actions, decisions, communications, and inferred hypotheses while preserving time-source uncertainty.
+description: Use when this specialist's decision ownership is materially in scope. Own chronological evidence capture for incidents, separating observed events, actions, decisions, communications, and inferred hypotheses while preserving time-source uncertainty.
 ---
 # Designing Incident Timeline Capture
+
+## Parent Contract
+
+**Required parent:** `designing-incident-response-operations`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

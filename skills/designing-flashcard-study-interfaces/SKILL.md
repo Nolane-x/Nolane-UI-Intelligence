@@ -1,8 +1,14 @@
 ---
 name: designing-flashcard-study-interfaces
-description: Own flashcard study interactions across prompt/answer reveal, card variants, media, typed recall, self-grading, editing, bury/suspend, direction, and preservation of retrieval effort.
+description: Use when this specialist's decision ownership is materially in scope. Own flashcard study interactions across prompt/answer reveal, card variants, media, typed recall, self-grading, editing, bury/suspend, direction, and preservation of retrieval effort.
 ---
 # Designing Flashcard Study Interfaces
+
+## Parent Contract
+
+**Required parent:** `designing-digital-learning-experiences`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

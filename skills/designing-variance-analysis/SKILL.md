@@ -1,8 +1,14 @@
 ---
 name: designing-variance-analysis
-description: Own financial variance analysis across actual, budget, forecast, prior period, volume/rate/mix or other explainable drivers with sign conventions, materiality, drill-down, and commentary provenance.
+description: Use when this specialist's decision ownership is materially in scope. Own financial variance analysis across actual, budget, forecast, prior period, volume/rate/mix or other explainable drivers with sign conventions, materiality, drill-down, and commentary provenance.
 ---
 # Designing Variance Analysis
+
+## Parent Contract
+
+**Required parent:** `designing-financial-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

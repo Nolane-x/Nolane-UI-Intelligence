@@ -1,8 +1,14 @@
 ---
 name: designing-experiment-setup-workflows
-description: Own preparation of reproducible experiment runs across protocol, instruments, samples, parameters, prerequisites, resource reservations, and preflight validation.
+description: Use when this specialist's decision ownership is materially in scope. Own preparation of reproducible experiment runs across protocol, instruments, samples, parameters, prerequisites, resource reservations, and preflight validation.
 ---
 # Designing Experiment Setup Workflows
+
+## Parent Contract
+
+**Required parent:** `designing-scientific-and-engineering-instrumentation`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

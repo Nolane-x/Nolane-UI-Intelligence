@@ -1,8 +1,14 @@
 ---
 name: designing-work-item-status-transitions
-description: Own project work-item state machines, allowed transitions, transition evidence, automation, blocked states, and history across boards, lists, and detail views.
+description: Use when this specialist's decision ownership is materially in scope. Own project work-item state machines, allowed transitions, transition evidence, automation, blocked states, and history across boards, lists, and detail views.
 ---
 # Designing Work-Item Status Transitions
+
+## Parent Contract
+
+**Required parent:** `designing-project-and-work-management`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

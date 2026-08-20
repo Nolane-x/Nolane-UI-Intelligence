@@ -1,8 +1,14 @@
 ---
 name: designing-service-health-overviews
-description: Own operational service-health summaries that distinguish impact, telemetry confidence, dependency state, partial degradation, recovery, and unknown observation rather than collapsing everything into red/green.
+description: Use when this specialist's decision ownership is materially in scope. Own operational service-health summaries that distinguish impact, telemetry confidence, dependency state, partial degradation, recovery, and unknown observation rather than collapsing everything into red/green.
 ---
 # Designing Service Health Overviews
+
+## Parent Contract
+
+**Required parent:** `designing-incident-response-operations`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

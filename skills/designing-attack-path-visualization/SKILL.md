@@ -4,6 +4,12 @@ description: Use when analysts need to understand plausible privilege, trust, id
 ---
 # Designing Attack Path Visualization
 
+## Parent Contract
+
+**Required parent:** `designing-security-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
+
 ## Decision ownership
 
 Own the representation of security attack paths as typed, evidence-bearing graph relationships. Decide how observed steps, inferred reachability, configuration-derived possibilities, blocked edges, prerequisites, privilege transitions, and remediation effects are distinguished. This faculty does not compute graph reachability itself and does not own generic node placement. Its job is to stop a visually compelling path from overstating what is actually known.

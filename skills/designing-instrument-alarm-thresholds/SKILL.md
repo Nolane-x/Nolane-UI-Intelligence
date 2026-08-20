@@ -1,8 +1,14 @@
 ---
 name: designing-instrument-alarm-thresholds
-description: Own alarm threshold configuration and review for instruments, including units, high/low bands, hysteresis, delay, latching, acknowledgement, authority, and change provenance.
+description: Use when this specialist's decision ownership is materially in scope. Own alarm threshold configuration and review for instruments, including units, high/low bands, hysteresis, delay, latching, acknowledgement, authority, and change provenance.
 ---
 # Designing Instrument Alarm Thresholds
+
+## Parent Contract
+
+**Required parent:** `designing-scientific-and-engineering-instrumentation`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

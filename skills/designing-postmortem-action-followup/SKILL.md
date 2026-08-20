@@ -1,8 +1,14 @@
 ---
 name: designing-postmortem-action-followup
-description: Own corrective-action lifecycle after an incident, including risk linkage, ownership, due horizon, verification of risk reduction, deferral, supersession, and closure evidence.
+description: Use when this specialist's decision ownership is materially in scope. Own corrective-action lifecycle after an incident, including risk linkage, ownership, due horizon, verification of risk reduction, deferral, supersession, and closure evidence.
 ---
 # Designing Postmortem Action Followup
+
+## Parent Contract
+
+**Required parent:** `designing-incident-response-operations`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

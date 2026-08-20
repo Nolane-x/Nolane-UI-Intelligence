@@ -1,8 +1,14 @@
 ---
 name: designing-general-ledger-browsing
-description: Own browsing and investigation of posted ledger entries by account, entity, period, source, journal, dimension, debit/credit, and running balance with audit-safe drill-down.
+description: Use when this specialist's decision ownership is materially in scope. Own browsing and investigation of posted ledger entries by account, entity, period, source, journal, dimension, debit/credit, and running balance with audit-safe drill-down.
 ---
 # Designing General Ledger Browsing
+
+## Parent Contract
+
+**Required parent:** `designing-financial-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

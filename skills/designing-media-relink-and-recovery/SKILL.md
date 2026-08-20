@@ -1,8 +1,14 @@
 ---
 name: designing-media-relink-and-recovery
-description: Own recovery of missing or moved source media through identity matching, search, relink preview, batch mapping, mismatch detection, alternate takes, and preservation of edit provenance.
+description: Use when this specialist's decision ownership is materially in scope. Own recovery of missing or moved source media through identity matching, search, relink preview, batch mapping, mismatch detection, alternate takes, and preservation of edit provenance.
 ---
 # Designing Media Relink and Recovery
+
+## Parent Contract
+
+**Required parent:** `designing-nonlinear-media-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

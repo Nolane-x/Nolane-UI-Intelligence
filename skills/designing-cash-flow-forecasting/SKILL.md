@@ -1,8 +1,14 @@
 ---
 name: designing-cash-flow-forecasting
-description: Own cash forecast interfaces across opening balance, expected receipts/payments, timing assumptions, scenarios, confidence, bank/entity/currency aggregation, liquidity thresholds, and actual reconciliation.
+description: Use when this specialist's decision ownership is materially in scope. Own cash forecast interfaces across opening balance, expected receipts/payments, timing assumptions, scenarios, confidence, bank/entity/currency aggregation, liquidity thresholds, and actual reconciliation.
 ---
 # Designing Cash Flow Forecasting
+
+## Parent Contract
+
+**Required parent:** `designing-financial-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

@@ -1,8 +1,14 @@
 ---
 name: designing-trading-order-entry
-description: Own high-stakes financial order-entry interaction across instrument/account, side, quantity, order type, price, time-in-force, estimated consequence, validation, confirmation, submission, and status receipt without recommending trades.
+description: Use when this specialist's decision ownership is materially in scope. Own high-stakes financial order-entry interaction across instrument/account, side, quantity, order type, price, time-in-force, estimated consequence, validation, confirmation, submission, and status receipt without recommending trades.
 ---
 # Designing Trading Order Entry
+
+## Parent Contract
+
+**Required parent:** `designing-financial-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

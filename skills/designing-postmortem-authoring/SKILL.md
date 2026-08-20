@@ -1,8 +1,14 @@
 ---
 name: designing-postmortem-authoring
-description: Own evidence-linked incident postmortem creation from timeline, impact, contributing conditions, response decisions, learning, and corrective actions without turning the artifact into blame or a generic document template.
+description: Use when this specialist's decision ownership is materially in scope. Own evidence-linked incident postmortem creation from timeline, impact, contributing conditions, response decisions, learning, and corrective actions without turning the artifact into blame or a generic document template.
 ---
 # Designing Postmortem Authoring
+
+## Parent Contract
+
+**Required parent:** `designing-incident-response-operations`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

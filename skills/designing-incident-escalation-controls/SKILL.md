@@ -1,8 +1,14 @@
 ---
 name: designing-incident-escalation-controls
-description: Own incident escalation across responder tiers, leadership, vendors, specialist teams, and regulatory pathways with explicit triggers, acknowledgement, timeout, and fallback.
+description: Use when this specialist's decision ownership is materially in scope. Own incident escalation across responder tiers, leadership, vendors, specialist teams, and regulatory pathways with explicit triggers, acknowledgement, timeout, and fallback.
 ---
 # Designing Incident Escalation Controls
+
+## Parent Contract
+
+**Required parent:** `designing-incident-response-operations`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

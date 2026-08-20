@@ -1,8 +1,14 @@
 ---
 name: designing-3d-cad-authoring-workspaces
-description: Own the interaction architecture for 3D/CAD authoring where scene hierarchy, spatial selection, modeling state, constraints, assemblies, materials, inspection, and export must remain coherent.
+description: Use when this specialist's decision ownership is materially in scope. Own the interaction architecture for 3D/CAD authoring where scene hierarchy, spatial selection, modeling state, constraints, assemblies, materials, inspection, and export must remain coherent.
 ---
 # Designing 3D CAD Authoring Workspaces
+
+## Parent Contract
+
+**Required parent:** `designing-editor-canvas-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

@@ -1,8 +1,14 @@
 ---
 name: designing-multi-currency-exposure-views
-description: Own operational views of monetary balances and commitments by currency, entity, rate basis, maturity, hedge status, and translated reporting value without implying a trading recommendation.
+description: Use when this specialist's decision ownership is materially in scope. Own operational views of monetary balances and commitments by currency, entity, rate basis, maturity, hedge status, and translated reporting value without implying a trading recommendation.
 ---
 # Designing Multi-Currency Exposure Views
+
+## Parent Contract
+
+**Required parent:** `designing-financial-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

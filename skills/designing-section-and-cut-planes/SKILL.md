@@ -1,8 +1,14 @@
 ---
 name: designing-section-and-cut-planes
-description: Own non-destructive section/cut-plane inspection in 3D models, including plane definition, orientation, multiple sections, cap display, scope, clipping direction, persistence, and measurement context.
+description: Use when this specialist's decision ownership is materially in scope. Own non-destructive section/cut-plane inspection in 3D models, including plane definition, orientation, multiple sections, cap display, scope, clipping direction, persistence, and measurement context.
 ---
 # Designing Section and Cut Planes
+
+## Parent Contract
+
+**Required parent:** `designing-3d-cad-authoring-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

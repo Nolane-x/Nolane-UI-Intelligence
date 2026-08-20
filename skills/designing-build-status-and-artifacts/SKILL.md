@@ -1,8 +1,14 @@
 ---
 name: designing-build-status-and-artifacts
-description: Own build-result interpretation and artifact lineage, including reproducibility, checksums, variants, retention, provenance, and distinction between build success and deployability.
+description: Use when this specialist's decision ownership is materially in scope. Own build-result interpretation and artifact lineage, including reproducibility, checksums, variants, retention, provenance, and distinction between build success and deployability.
 ---
 # Designing Build Status and Artifacts
+
+## Parent Contract
+
+**Required parent:** `designing-software-delivery-pipelines`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

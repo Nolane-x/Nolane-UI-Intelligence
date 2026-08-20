@@ -1,8 +1,14 @@
 ---
 name: designing-split-and-razor-editing
-description: Own cutting media references at a time position across selected or targeted tracks, linked clips, grouped items, effects, markers, and protected tracks with clear scope and reversibility.
+description: Use when this specialist's decision ownership is materially in scope. Own cutting media references at a time position across selected or targeted tracks, linked clips, grouped items, effects, markers, and protected tracks with clear scope and reversibility.
 ---
 # Designing Split and Razor Editing
+
+## Parent Contract
+
+**Required parent:** `designing-nonlinear-media-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

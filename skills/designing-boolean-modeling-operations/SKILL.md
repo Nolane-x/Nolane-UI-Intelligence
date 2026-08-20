@@ -1,8 +1,14 @@
 ---
 name: designing-boolean-modeling-operations
-description: Own union, subtract, intersect, split, and related solid/mesh boolean workflows with operand identity, order, preview, validity, tolerance, source preservation, and failure diagnosis.
+description: Use when this specialist's decision ownership is materially in scope. Own union, subtract, intersect, split, and related solid/mesh boolean workflows with operand identity, order, preview, validity, tolerance, source preservation, and failure diagnosis.
 ---
 # Designing Boolean Modeling Operations
+
+## Parent Contract
+
+**Required parent:** `designing-3d-cad-authoring-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

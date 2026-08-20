@@ -1,8 +1,14 @@
 ---
 name: designing-practice-problem-workflows
-description: Own low-stakes practice interactions across problem selection, attempt state, hints, feedback, solution reveal, retries, mastery evidence, and deliberate practice sequencing.
+description: Use when this specialist's decision ownership is materially in scope. Own low-stakes practice interactions across problem selection, attempt state, hints, feedback, solution reveal, retries, mastery evidence, and deliberate practice sequencing.
 ---
 # Designing Practice Problem Workflows
+
+## Parent Contract
+
+**Required parent:** `designing-digital-learning-experiences`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

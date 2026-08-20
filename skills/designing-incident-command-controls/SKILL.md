@@ -1,8 +1,14 @@
 ---
 name: designing-incident-command-controls
-description: Own commander-level incident controls for objectives, operational phases, role authority, decision gates, pause points, delegation, and high-consequence action oversight.
+description: Use when this specialist's decision ownership is materially in scope. Own commander-level incident controls for objectives, operational phases, role authority, decision gates, pause points, delegation, and high-consequence action oversight.
 ---
 # Designing Incident Command Controls
+
+## Parent Contract
+
+**Required parent:** `designing-incident-response-operations`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

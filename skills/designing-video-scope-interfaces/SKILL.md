@@ -1,8 +1,14 @@
 ---
 name: designing-video-scope-interfaces
-description: Own waveform, parade, vectorscope, histogram, gamut, and related video measurement scopes with signal context, scale, target overlays, persistence, and correspondence to viewed output.
+description: Use when this specialist's decision ownership is materially in scope. Own waveform, parade, vectorscope, histogram, gamut, and related video measurement scopes with signal context, scale, target overlays, persistence, and correspondence to viewed output.
 ---
 # Designing Video Scope Interfaces
+
+## Parent Contract
+
+**Required parent:** `designing-nonlinear-media-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

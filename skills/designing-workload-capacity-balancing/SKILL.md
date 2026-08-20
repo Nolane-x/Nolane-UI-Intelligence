@@ -1,8 +1,14 @@
 ---
 name: designing-workload-capacity-balancing
-description: Own workload-versus-capacity views that help allocate work without presenting estimates, availability, or people as interchangeable precision units.
+description: Use when this specialist's decision ownership is materially in scope. Own workload-versus-capacity views that help allocate work without presenting estimates, availability, or people as interchangeable precision units.
 ---
 # Designing Workload Capacity Balancing
+
+## Parent Contract
+
+**Required parent:** `designing-project-and-work-management`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

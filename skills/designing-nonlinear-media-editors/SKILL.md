@@ -1,8 +1,14 @@
 ---
 name: designing-nonlinear-media-editors
-description: Own the interaction architecture for nonlinear audio/video editing where source media, timeline state, tracks, edits, effects, review, proxies, and export must remain coherent and reversible.
+description: Use when this specialist's decision ownership is materially in scope. Own the interaction architecture for nonlinear audio/video editing where source media, timeline state, tracks, edits, effects, review, proxies, and export must remain coherent and reversible.
 ---
 # Designing Nonlinear Media Editors
+
+## Parent Contract
+
+**Required parent:** `designing-editor-canvas-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

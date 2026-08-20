@@ -4,6 +4,12 @@ description: Use when analysts can isolate or reconnect endpoints and must under
 ---
 # Designing Endpoint Isolation Controls
 
+## Parent Contract
+
+**Required parent:** `designing-security-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
+
 ## Decision ownership
 
 Own the high-stakes interaction contract for endpoint network isolation and restoration. Decide how users verify target identity, understand what communication will be blocked or preserved, preview operational consequences, satisfy approval policy, execute the action, observe command progress, and recover from partial or failed containment. This faculty does not decide whether isolation is strategically correct for an incident; it ensures that when the action is chosen, the interface communicates scope and outcome truthfully.

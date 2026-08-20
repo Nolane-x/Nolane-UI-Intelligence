@@ -1,8 +1,14 @@
 ---
 name: designing-accounts-payable-queues
-description: Own accounts-payable operational queues across vendor invoices, coding, duplicate detection, three-way evidence, approvals, holds, due dates, payment readiness, exceptions, and audit status.
+description: Use when this specialist's decision ownership is materially in scope. Own accounts-payable operational queues across vendor invoices, coding, duplicate detection, three-way evidence, approvals, holds, due dates, payment readiness, exceptions, and audit status.
 ---
 # Designing Accounts Payable Queues
+
+## Parent Contract
+
+**Required parent:** `designing-financial-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

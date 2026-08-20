@@ -1,8 +1,14 @@
 ---
 name: designing-spectrum-analysis-interfaces
-description: Own frequency-domain analysis interfaces, including transform configuration, frequency/amplitude axes, windows, averaging, peaks, bandwidth, reference levels, and trace provenance.
+description: Use when this specialist's decision ownership is materially in scope. Own frequency-domain analysis interfaces, including transform configuration, frequency/amplitude axes, windows, averaging, peaks, bandwidth, reference levels, and trace provenance.
 ---
 # Designing Spectrum Analysis Interfaces
+
+## Parent Contract
+
+**Required parent:** `designing-scientific-and-engineering-instrumentation`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

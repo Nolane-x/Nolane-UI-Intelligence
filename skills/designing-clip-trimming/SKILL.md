@@ -1,8 +1,14 @@
 ---
 name: designing-clip-trimming
-description: Own simple clip in/out trimming with source-handle limits, frame/sample precision, linked media, preview, slip prevention, snapping, and source-preserving semantics.
+description: Use when this specialist's decision ownership is materially in scope. Own simple clip in/out trimming with source-handle limits, frame/sample precision, linked media, preview, slip prevention, snapping, and source-preserving semantics.
 ---
 # Designing Clip Trimming
+
+## Parent Contract
+
+**Required parent:** `designing-nonlinear-media-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

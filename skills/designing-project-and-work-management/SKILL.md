@@ -1,8 +1,14 @@
 ---
 name: designing-project-and-work-management
-description: Own the information and interaction architecture for coordinated project work across plans, work items, dependencies, time horizons, people, status, risk, and closure.
+description: Use when this specialist's decision ownership is materially in scope. Own the information and interaction architecture for coordinated project work across plans, work items, dependencies, time horizons, people, status, risk, and closure.
 ---
 # Designing Project and Work Management
+
+## Parent Contract
+
+**Required parent:** `designing-task-flows`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

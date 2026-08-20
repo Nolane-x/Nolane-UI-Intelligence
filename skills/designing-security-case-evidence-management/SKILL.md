@@ -4,6 +4,12 @@ description: Use when a security investigation becomes a durable case and analys
 ---
 # Designing Security Case Evidence Management
 
+## Parent Contract
+
+**Required parent:** `designing-security-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
+
 ## Decision ownership
 
 Own the durable evidence and reasoning model for security cases. Decide how raw observations, derived findings, analyst notes, hypotheses, decisions, response actions, attachments, external references, and case scope are stored and linked so another reviewer can reconstruct what was known at each point. This faculty does not own generic case assignment or incident command. It protects evidentiary continuity and prevents later edits from rewriting the investigation's historical basis.

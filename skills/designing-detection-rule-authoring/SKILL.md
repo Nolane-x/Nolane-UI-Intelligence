@@ -4,6 +4,12 @@ description: Use when security practitioners create or modify behavioral, query,
 ---
 # Designing Detection Rule Authoring
 
+## Parent Contract
+
+**Required parent:** `designing-security-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
+
 ## Decision ownership
 
 Own the authoring experience for detection logic as an operational artifact. Decide how users express conditions, choose data sources, bind fields, specify time windows, thresholds, exceptions, severity, metadata, and downstream actions while understanding what evidence the rule can and cannot see. This faculty does not choose the organization's threat model and does not validate production effectiveness; testing is delegated to the dedicated rule-testing owner.

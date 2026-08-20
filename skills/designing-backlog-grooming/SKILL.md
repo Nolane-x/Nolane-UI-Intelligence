@@ -1,8 +1,14 @@
 ---
 name: designing-backlog-grooming
-description: Own prioritization and refinement of unscheduled work, including ordering confidence, readiness, decomposition, stale items, and promotion into planned execution.
+description: Use when this specialist's decision ownership is materially in scope. Own prioritization and refinement of unscheduled work, including ordering confidence, readiness, decomposition, stale items, and promotion into planned execution.
 ---
 # Designing Backlog Grooming
+
+## Parent Contract
+
+**Required parent:** `designing-project-and-work-management`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

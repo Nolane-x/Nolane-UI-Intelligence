@@ -1,8 +1,14 @@
 ---
 name: designing-audio-automation-curves
-description: Own detailed audio parameter automation envelopes across volume, pan, sends, effects, modes, breakpoints, interpolation, thinning, write passes, and safe editing against the mixer.
+description: Use when this specialist's decision ownership is materially in scope. Own detailed audio parameter automation envelopes across volume, pan, sends, effects, modes, breakpoints, interpolation, thinning, write passes, and safe editing against the mixer.
 ---
 # Designing Audio Automation Curves
+
+## Parent Contract
+
+**Required parent:** `designing-nonlinear-media-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

@@ -1,8 +1,14 @@
 ---
 name: designing-media-ingest-and-bins
-description: Own media import, verification, metadata, duplicate handling, organization, checksum/copy state, clip identity, and source-location provenance before editing begins.
+description: Use when this specialist's decision ownership is materially in scope. Own media import, verification, metadata, duplicate handling, organization, checksum/copy state, clip identity, and source-location provenance before editing begins.
 ---
 # Designing Media Ingest and Bins
+
+## Parent Contract
+
+**Required parent:** `designing-nonlinear-media-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

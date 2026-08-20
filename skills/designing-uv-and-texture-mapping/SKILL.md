@@ -1,8 +1,14 @@
 ---
 name: designing-uv-and-texture-mapping
-description: Own texture-coordinate authoring across seams, unwrap, islands, packing, texel density, image linkage, transforms, overlap, UDIM/tiles, and model-to-texture correspondence.
+description: Use when this specialist's decision ownership is materially in scope. Own texture-coordinate authoring across seams, unwrap, islands, packing, texel density, image linkage, transforms, overlap, UDIM/tiles, and model-to-texture correspondence.
 ---
 # Designing UV and Texture Mapping
+
+## Parent Contract
+
+**Required parent:** `designing-3d-cad-authoring-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

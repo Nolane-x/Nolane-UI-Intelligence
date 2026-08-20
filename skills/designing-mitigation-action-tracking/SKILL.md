@@ -1,8 +1,14 @@
 ---
 name: designing-mitigation-action-tracking
-description: Own incident mitigation actions from proposal through authorization, execution, verification, rollback, and outcome attribution, including concurrent or conflicting actions.
+description: Use when this specialist's decision ownership is materially in scope. Own incident mitigation actions from proposal through authorization, execution, verification, rollback, and outcome attribution, including concurrent or conflicting actions.
 ---
 # Designing Mitigation Action Tracking
+
+## Parent Contract
+
+**Required parent:** `designing-incident-response-operations`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

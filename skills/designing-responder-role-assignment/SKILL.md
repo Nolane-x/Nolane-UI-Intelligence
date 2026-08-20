@@ -1,8 +1,14 @@
 ---
 name: designing-responder-role-assignment
-description: Own incident role assignment, acceptance, vacancy, transfer, backup, and authority visibility so responders know who is accountable for command, operations, communications, and specialist functions.
+description: Use when this specialist's decision ownership is materially in scope. Own incident role assignment, acceptance, vacancy, transfer, backup, and authority visibility so responders know who is accountable for command, operations, communications, and specialist functions.
 ---
 # Designing Responder Role Assignment
+
+## Parent Contract
+
+**Required parent:** `designing-incident-response-operations`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

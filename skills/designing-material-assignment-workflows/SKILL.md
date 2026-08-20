@@ -1,8 +1,14 @@
 ---
 name: designing-material-assignment-workflows
-description: Own assignment and inspection of visual or engineering materials across objects, faces, instances, variants, libraries, overrides, and physical-property consequences.
+description: Use when this specialist's decision ownership is materially in scope. Own assignment and inspection of visual or engineering materials across objects, faces, instances, variants, libraries, overrides, and physical-property consequences.
 ---
 # Designing Material Assignment Workflows
+
+## Parent Contract
+
+**Required parent:** `designing-3d-cad-authoring-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

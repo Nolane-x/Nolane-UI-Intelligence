@@ -1,8 +1,14 @@
 ---
 name: designing-experimental-provenance-capture
-description: Own traceability from scientific results back to protocol, instruments, samples, calibration, configuration, raw data, transformations, software, operators, and timestamps.
+description: Use when this specialist's decision ownership is materially in scope. Own traceability from scientific results back to protocol, instruments, samples, calibration, configuration, raw data, transformations, software, operators, and timestamps.
 ---
 # Designing Experimental Provenance Capture
+
+## Parent Contract
+
+**Required parent:** `designing-scientific-and-engineering-instrumentation`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

@@ -1,8 +1,14 @@
 ---
 name: designing-3d-viewport-navigation
-description: Own orbit, pan, dolly/zoom, frame, pivot, projection, navigation speed, clipping, and spatial orientation in 3D authoring without colliding with modeling gestures.
+description: Use when this specialist's decision ownership is materially in scope. Own orbit, pan, dolly/zoom, frame, pivot, projection, navigation speed, clipping, and spatial orientation in 3D authoring without colliding with modeling gestures.
 ---
 # Designing 3D Viewport Navigation
+
+## Parent Contract
+
+**Required parent:** `designing-3d-cad-authoring-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

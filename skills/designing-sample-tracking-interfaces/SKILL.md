@@ -1,8 +1,14 @@
 ---
 name: designing-sample-tracking-interfaces
-description: Own scientific sample identity, lineage, aliquots, location, status, custody, consumption, and linkage to experiments and measurements without relying on ambiguous human labels.
+description: Use when this specialist's decision ownership is materially in scope. Own scientific sample identity, lineage, aliquots, location, status, custody, consumption, and linkage to experiments and measurements without relying on ambiguous human labels.
 ---
 # Designing Sample Tracking Interfaces
+
+## Parent Contract
+
+**Required parent:** `designing-scientific-and-engineering-instrumentation`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

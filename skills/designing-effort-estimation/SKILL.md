@@ -1,8 +1,14 @@
 ---
 name: designing-effort-estimation
-description: Own capture, communication, aggregation, uncertainty, and revision of project effort estimates without converting weak guesses into false precision.
+description: Use when this specialist's decision ownership is materially in scope. Own capture, communication, aggregation, uncertainty, and revision of project effort estimates without converting weak guesses into false precision.
 ---
 # Designing Effort Estimation
+
+## Parent Contract
+
+**Required parent:** `designing-project-and-work-management`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

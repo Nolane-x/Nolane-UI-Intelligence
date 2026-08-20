@@ -1,8 +1,14 @@
 ---
 name: designing-topology-map-interfaces
-description: Own infrastructure and system topology maps where nodes, links, tiers, regions, and live health overlays must preserve structural truth under changing operational state.
+description: Use when this specialist's decision ownership is materially in scope. Own infrastructure and system topology maps where nodes, links, tiers, regions, and live health overlays must preserve structural truth under changing operational state.
 ---
 # Designing Topology Map Interfaces
+
+## Parent Contract
+
+**Required parent:** `designing-diagramming-and-node-graph-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

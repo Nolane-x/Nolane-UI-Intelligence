@@ -4,6 +4,12 @@ description: Use when analysts investigate suspicious messages and campaigns and
 ---
 # Designing Phishing Investigation
 
+## Parent Contract
+
+**Required parent:** `designing-security-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
+
 ## Decision ownership
 
 Own the investigative surface for phishing and malicious-message analysis. Decide how message headers, sender identity, authentication results, routing path, body content, links, attachments, delivery status, recipient scope, user interactions, and campaign relationships are assembled into one review. This faculty does not perform malware reverse engineering and does not own general email client design. It exists to help analysts distinguish spoofing, account compromise, malicious infrastructure, benign bulk mail, and user exposure while preserving the original artifact.

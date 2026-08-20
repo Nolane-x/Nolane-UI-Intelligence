@@ -1,8 +1,14 @@
 ---
 name: designing-expense-review-and-approval
-description: Own employee or card expense review across receipt evidence, merchant/date/amount, category, policy, allocation, duplicates, personal/non-reimbursable flags, approval, reimbursement readiness, and audit.
+description: Use when this specialist's decision ownership is materially in scope. Own employee or card expense review across receipt evidence, merchant/date/amount, category, policy, allocation, duplicates, personal/non-reimbursable flags, approval, reimbursement readiness, and audit.
 ---
 # Designing Expense Review and Approval
+
+## Parent Contract
+
+**Required parent:** `designing-financial-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

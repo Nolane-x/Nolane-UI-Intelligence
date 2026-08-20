@@ -1,8 +1,14 @@
 ---
 name: designing-software-delivery-pipelines
-description: Own the operator model for software delivery pipelines across source revision, build, test, artifact, approval, deployment, verification, and promotion stages.
+description: Use when this specialist's decision ownership is materially in scope. Own the operator model for software delivery pipelines across source revision, build, test, artifact, approval, deployment, verification, and promotion stages.
 ---
 # Designing Software Delivery Pipelines
+
+## Parent Contract
+
+**Required parent:** `designing-environment-management`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

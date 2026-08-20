@@ -1,8 +1,14 @@
 ---
 name: designing-gradebook-interfaces
-description: Own course gradebook state across learners, activities, weighting, missing/exempt/pending values, categories, overrides, calculated totals, release visibility, and audit-safe bulk operations.
+description: Use when this specialist's decision ownership is materially in scope. Own course gradebook state across learners, activities, weighting, missing/exempt/pending values, categories, overrides, calculated totals, release visibility, and audit-safe bulk operations.
 ---
 # Designing Gradebook Interfaces
+
+## Parent Contract
+
+**Required parent:** `designing-digital-learning-experiences`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

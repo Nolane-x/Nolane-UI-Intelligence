@@ -1,8 +1,14 @@
 ---
 name: designing-uml-and-modeling-diagrams
-description: Own typed modeling-diagram interactions such as structured node compartments, relationship end semantics, multiplicity, and synchronization with an underlying model.
+description: Use when this specialist's decision ownership is materially in scope. Own typed modeling-diagram interactions such as structured node compartments, relationship end semantics, multiplicity, and synchronization with an underlying model.
 ---
 # Designing UML and Modeling Diagrams
+
+## Parent Contract
+
+**Required parent:** `designing-diagramming-and-node-graph-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

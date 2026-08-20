@@ -1,8 +1,14 @@
 ---
 name: designing-microplate-layout-interfaces
-description: Own well-plate scientific layouts, sample assignment, controls, replicates, volumes, gradients, orientation, bulk fill, validation, and instrument-ready mapping.
+description: Use when this specialist's decision ownership is materially in scope. Own well-plate scientific layouts, sample assignment, controls, replicates, volumes, gradients, orientation, bulk fill, validation, and instrument-ready mapping.
 ---
 # Designing Microplate Layout Interfaces
+
+## Parent Contract
+
+**Required parent:** `designing-scientific-and-engineering-instrumentation`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

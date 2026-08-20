@@ -1,8 +1,14 @@
 ---
 name: designing-timeline-snapping
-description: Own temporal snapping among playhead, clip edges, markers, beats, keyframes, frames, samples, and guides with priority, tolerance, target feedback, and temporary override.
+description: Use when this specialist's decision ownership is materially in scope. Own temporal snapping among playhead, clip edges, markers, beats, keyframes, frames, samples, and guides with priority, tolerance, target feedback, and temporary override.
 ---
 # Designing Timeline Snapping
+
+## Parent Contract
+
+**Required parent:** `designing-nonlinear-media-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

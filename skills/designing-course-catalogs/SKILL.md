@@ -1,8 +1,14 @@
 ---
 name: designing-course-catalogs
-description: Own discovery and selection of learning offerings across subject, level, prerequisites, duration, modality, availability, enrollment status, credentials, and learner fit without conflating marketing with curriculum truth.
+description: Use when this specialist's decision ownership is materially in scope. Own discovery and selection of learning offerings across subject, level, prerequisites, duration, modality, availability, enrollment status, credentials, and learner fit without conflating marketing with curriculum truth.
 ---
 # Designing Course Catalogs
+
+## Parent Contract
+
+**Required parent:** `designing-digital-learning-experiences`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

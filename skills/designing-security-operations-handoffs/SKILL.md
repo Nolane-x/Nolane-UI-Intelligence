@@ -4,6 +4,12 @@ description: Use when security investigations, monitoring responsibility, or inc
 ---
 # Designing Security Operations Handoffs
 
+## Parent Contract
+
+**Required parent:** `designing-security-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
+
 ## Decision ownership
 
 Own the transition contract when security work moves from one analyst, team, shift, region, or function to another. Decide what must be summarized versus linked, how unresolved questions and pending actions are represented, which deadlines or watch conditions travel with the work, and how the receiver acknowledges ownership without implying that every statement is verified. This faculty is not generic assignment UX: it protects operational continuity when incomplete security reasoning crosses a human boundary.

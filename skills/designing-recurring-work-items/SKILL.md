@@ -1,8 +1,14 @@
 ---
 name: designing-recurring-work-items
-description: Own recurring project work definitions, instance generation, schedule changes, skipped occurrences, completion independence, and future-versus-current edit scope.
+description: Use when this specialist's decision ownership is materially in scope. Own recurring project work definitions, instance generation, schedule changes, skipped occurrences, completion independence, and future-versus-current edit scope.
 ---
 # Designing Recurring Work Items
+
+## Parent Contract
+
+**Required parent:** `designing-project-and-work-management`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

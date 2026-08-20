@@ -1,8 +1,14 @@
 ---
 name: designing-deployment-failure-diagnosis
-description: Own post-failure diagnostic synthesis for deployments across stage/job errors, target state, logs, health, version distribution, configuration drift, and recommended next inspection without pretending to automate root cause.
+description: Use when this specialist's decision ownership is materially in scope. Own post-failure diagnostic synthesis for deployments across stage/job errors, target state, logs, health, version distribution, configuration drift, and recommended next inspection without pretending to automate root cause.
 ---
 # Designing Deployment Failure Diagnosis
+
+## Parent Contract
+
+**Required parent:** `designing-software-delivery-pipelines`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

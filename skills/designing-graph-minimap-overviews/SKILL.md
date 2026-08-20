@@ -1,8 +1,14 @@
 ---
 name: designing-graph-minimap-overviews
-description: Own miniature graph overview surfaces that communicate viewport location, distant structure, marked regions, and fast navigation without becoming deceptive decoration.
+description: Use when this specialist's decision ownership is materially in scope. Own miniature graph overview surfaces that communicate viewport location, distant structure, marked regions, and fast navigation without becoming deceptive decoration.
 ---
 # Designing Graph Minimap Overviews
+
+## Parent Contract
+
+**Required parent:** `designing-diagramming-and-node-graph-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

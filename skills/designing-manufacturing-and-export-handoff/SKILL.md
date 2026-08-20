@@ -1,8 +1,14 @@
 ---
 name: designing-manufacturing-and-export-handoff
-description: Own preparation of 3D/CAD models for downstream manufacturing or interchange, including target process, units, coordinate system, body selection, tolerances, validation, tessellation, metadata, and export evidence.
+description: Use when this specialist's decision ownership is materially in scope. Own preparation of 3D/CAD models for downstream manufacturing or interchange, including target process, units, coordinate system, body selection, tolerances, validation, tessellation, metadata, and export evidence.
 ---
 # Designing Manufacturing and Export Handoff
+
+## Parent Contract
+
+**Required parent:** `designing-3d-cad-authoring-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

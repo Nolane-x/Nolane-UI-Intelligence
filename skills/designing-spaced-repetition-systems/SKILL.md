@@ -1,8 +1,14 @@
 ---
 name: designing-spaced-repetition-systems
-description: Own review scheduling for memory practice, including item state, due queue, recall grading, interval updates, lapses, new/review balance, algorithm transparency, overload, and schedule recovery.
+description: Use when this specialist's decision ownership is materially in scope. Own review scheduling for memory practice, including item state, due queue, recall grading, interval updates, lapses, new/review balance, algorithm transparency, overload, and schedule recovery.
 ---
 # Designing Spaced Repetition Systems
+
+## Parent Contract
+
+**Required parent:** `designing-digital-learning-experiences`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

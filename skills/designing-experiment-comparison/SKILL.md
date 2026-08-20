@@ -1,8 +1,14 @@
 ---
 name: designing-experiment-comparison
-description: Own scientifically honest comparison of multiple runs across setup differences, normalization, alignment, cohorts, metrics, uncertainty, and provenance before claiming changes are comparable.
+description: Use when this specialist's decision ownership is materially in scope. Own scientifically honest comparison of multiple runs across setup differences, normalization, alignment, cohorts, metrics, uncertainty, and provenance before claiming changes are comparable.
 ---
 # Designing Experiment Comparison
+
+## Parent Contract
+
+**Required parent:** `designing-scientific-and-engineering-instrumentation`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

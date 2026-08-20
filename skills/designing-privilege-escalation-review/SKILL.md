@@ -4,6 +4,12 @@ description: Use when analysts must review changes or uses of privilege across a
 ---
 # Designing Privilege Escalation Review
 
+## Parent Contract
+
+**Required parent:** `designing-security-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
+
 ## Decision ownership
 
 Own the review surface for privilege changes and privilege use. Decide how before/after authority, actor, target, grant mechanism, duration, approval, session context, inherited permissions, and resulting capabilities are made inspectable. This faculty distinguishes “permission changed,” “privilege exercised,” and “effective privilege increased” as different events. It does not design RBAC administration generally and does not decide whether an attack path is exploitable end to end.

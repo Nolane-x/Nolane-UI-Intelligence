@@ -4,6 +4,12 @@ description: Use when analysts review suspicious sign-ins or authentication beha
 ---
 # Designing Authentication Anomaly Review
 
+## Parent Contract
+
+**Required parent:** `designing-security-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
+
 ## Decision ownership
 
 Own the analyst-facing review of suspicious authentication activity. Decide how sign-in attempts, successful sessions, factors, device posture, IP/network context, application target, conditional-access decisions, impossible-travel signals, token use, and identity baseline are assembled into one inspectable narrative. This faculty does not define authentication UX for end users and does not calculate the anomaly model. Its job is to let analysts distinguish unusual from malicious and understand what controls actually allowed or blocked access.

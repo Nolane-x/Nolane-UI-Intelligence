@@ -1,8 +1,14 @@
 ---
 name: designing-incident-severity-declaration
-description: Own incident severity assessment, declaration, change provenance, uncertainty, impact criteria, and escalation consequences without reducing severity to a colored badge.
+description: Use when this specialist's decision ownership is materially in scope. Own incident severity assessment, declaration, change provenance, uncertainty, impact criteria, and escalation consequences without reducing severity to a colored badge.
 ---
 # Designing Incident Severity Declaration
+
+## Parent Contract
+
+**Required parent:** `designing-incident-response-operations`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

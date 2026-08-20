@@ -1,8 +1,14 @@
 ---
 name: designing-budget-planning
-description: Own financial budget authoring across versions, periods, accounts/dimensions, assumptions, top-down and bottom-up inputs, allocations, scenarios, approvals, locks, and actual-versus-budget lineage.
+description: Use when this specialist's decision ownership is materially in scope. Own financial budget authoring across versions, periods, accounts/dimensions, assumptions, top-down and bottom-up inputs, allocations, scenarios, approvals, locks, and actual-versus-budget lineage.
 ---
 # Designing Budget Planning
+
+## Parent Contract
+
+**Required parent:** `designing-financial-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

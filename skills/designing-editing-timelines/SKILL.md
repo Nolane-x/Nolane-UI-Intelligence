@@ -1,8 +1,14 @@
 ---
 name: designing-editing-timelines
-description: Own timeline navigation and sequence representation across playhead, time ruler, zoom, selections, edit points, clip boundaries, gaps, linked media, and long-project orientation.
+description: Use when this specialist's decision ownership is materially in scope. Own timeline navigation and sequence representation across playhead, time ruler, zoom, selections, edit points, clip boundaries, gaps, linked media, and long-project orientation.
 ---
 # Designing Editing Timelines
+
+## Parent Contract
+
+**Required parent:** `designing-nonlinear-media-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

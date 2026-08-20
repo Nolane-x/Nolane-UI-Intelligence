@@ -1,8 +1,14 @@
 ---
 name: designing-render-preview-workflows
-description: Own preview rendering inside 3D authoring, including camera, frame, quality, sampling, progressive convergence, region render, comparison, cancellation, stale-state detection, and final-render distinction.
+description: Use when this specialist's decision ownership is materially in scope. Own preview rendering inside 3D authoring, including camera, frame, quality, sampling, progressive convergence, region render, comparison, cancellation, stale-state detection, and final-render distinction.
 ---
 # Designing Render Preview Workflows
+
+## Parent Contract
+
+**Required parent:** `designing-3d-cad-authoring-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

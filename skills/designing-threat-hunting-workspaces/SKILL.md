@@ -4,6 +4,12 @@ description: Use when analysts conduct hypothesis-driven security hunts across t
 ---
 # Designing Threat Hunting Workspaces
 
+## Parent Contract
+
+**Required parent:** `designing-security-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
+
 ## Decision ownership
 
 Own the workspace for hypothesis-driven security exploration. Decide how a hunt records its question, scope, assumptions, data coverage, queries, pivots, intermediate observations, exclusions, saved evidence, and conclusions so exploratory work is reproducible rather than a trail of lost browser tabs. This faculty does not author production detection rules and does not replace the specific search, entity, timeline, or network owners used during a hunt. It owns the continuity between those tools.

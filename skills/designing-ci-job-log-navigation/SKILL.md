@@ -1,8 +1,14 @@
 ---
 name: designing-ci-job-log-navigation
-description: Own navigation and diagnosis inside long CI job logs, including step boundaries, timestamps, folding, search, annotations, failure focus, retries, and secret-safe output.
+description: Use when this specialist's decision ownership is materially in scope. Own navigation and diagnosis inside long CI job logs, including step boundaries, timestamps, folding, search, annotations, failure focus, retries, and secret-safe output.
 ---
 # Designing CI Job Log Navigation
+
+## Parent Contract
+
+**Required parent:** `designing-software-delivery-pipelines`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

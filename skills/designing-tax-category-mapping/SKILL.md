@@ -1,8 +1,14 @@
 ---
 name: designing-tax-category-mapping
-description: Own administrative mapping of products, expenses, accounts, jurisdictions, rates, exemptions, tax codes, and effective dates with provenance and change impact without providing tax advice.
+description: Use when this specialist's decision ownership is materially in scope. Own administrative mapping of products, expenses, accounts, jurisdictions, rates, exemptions, tax codes, and effective dates with provenance and change impact without providing tax advice.
 ---
 # Designing Tax Category Mapping
+
+## Parent Contract
+
+**Required parent:** `designing-financial-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

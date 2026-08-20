@@ -4,6 +4,12 @@ description: Use when teams must understand which systems remain exposed to a re
 ---
 # Designing Patch Exposure Review
 
+## Parent Contract
+
+**Required parent:** `designing-security-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
+
 ## Decision ownership
 
 Own the review surface that connects vulnerability risk to actual patch/configuration state across assets. Decide how applicable, installed, pending, failed, deferred, superseded, not-applicable, and unknown remediation states are represented; how maintenance windows and reboot requirements affect exposure; and how analysts distinguish a patch being available from a control actually being effective. This faculty does not schedule deployments or rank all vulnerabilities globally.

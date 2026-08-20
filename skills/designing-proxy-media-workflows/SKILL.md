@@ -1,8 +1,14 @@
 ---
 name: designing-proxy-media-workflows
-description: Own creation, attachment, selection, regeneration, quality indication, and export safeguards for lower-cost proxy media linked to high-resolution source.
+description: Use when this specialist's decision ownership is materially in scope. Own creation, attachment, selection, regeneration, quality indication, and export safeguards for lower-cost proxy media linked to high-resolution source.
 ---
 # Designing Proxy Media Workflows
+
+## Parent Contract
+
+**Required parent:** `designing-nonlinear-media-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

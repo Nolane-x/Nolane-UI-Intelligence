@@ -1,8 +1,14 @@
 ---
 name: designing-swimlane-diagrams
-description: Own lane-based process diagrams where rows or columns represent actors, systems, phases, or responsibilities and cross-lane movement carries meaning.
+description: Use when this specialist's decision ownership is materially in scope. Own lane-based process diagrams where rows or columns represent actors, systems, phases, or responsibilities and cross-lane movement carries meaning.
 ---
 # Designing Swimlane Diagrams
+
+## Parent Contract
+
+**Required parent:** `designing-diagramming-and-node-graph-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

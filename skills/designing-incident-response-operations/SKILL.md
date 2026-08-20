@@ -1,8 +1,14 @@
 ---
 name: designing-incident-response-operations
-description: Own the command-and-evidence architecture for time-critical operational incidents from declaration through mitigation, communication, recovery, and retrospective handoff.
+description: Use when this specialist's decision ownership is materially in scope. Own the command-and-evidence architecture for time-critical operational incidents from declaration through mitigation, communication, recovery, and retrospective handoff.
 ---
 # Designing Incident Response Operations
+
+## Parent Contract
+
+**Required parent:** `designing-high-stakes-decisions`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

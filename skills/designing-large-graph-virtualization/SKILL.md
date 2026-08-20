@@ -1,8 +1,14 @@
 ---
 name: designing-large-graph-virtualization
-description: Own interaction-preserving level-of-detail and virtualization policies for graphs too large to render every node, edge, label, and control simultaneously.
+description: Use when this specialist's decision ownership is materially in scope. Own interaction-preserving level-of-detail and virtualization policies for graphs too large to render every node, edge, label, and control simultaneously.
 ---
 # Designing Large Graph Virtualization
+
+## Parent Contract
+
+**Required parent:** `designing-diagramming-and-node-graph-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

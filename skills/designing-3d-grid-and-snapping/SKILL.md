@@ -1,8 +1,14 @@
 ---
 name: designing-3d-grid-and-snapping
-description: Own precision snapping in three dimensions across grid, vertex, edge, face, midpoint, center, tangent, axis, plane, and custom references with visible target and coordinate context.
+description: Use when this specialist's decision ownership is materially in scope. Own precision snapping in three dimensions across grid, vertex, edge, face, midpoint, center, tangent, axis, plane, and custom references with visible target and coordinate context.
 ---
 # Designing 3D Grid and Snapping
+
+## Parent Contract
+
+**Required parent:** `designing-3d-cad-authoring-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

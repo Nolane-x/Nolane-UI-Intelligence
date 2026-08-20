@@ -1,8 +1,14 @@
 ---
 name: designing-trade-blotters
-description: Own operational trade and execution records across order/execution identity, account, instrument, side, quantity, price, timestamps, status, partial fills, corrections, allocations, settlement, and audit drill-down.
+description: Use when this specialist's decision ownership is materially in scope. Own operational trade and execution records across order/execution identity, account, instrument, side, quantity, price, timestamps, status, partial fills, corrections, allocations, settlement, and audit drill-down.
 ---
 # Designing Trade Blotters
+
+## Parent Contract
+
+**Required parent:** `designing-financial-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

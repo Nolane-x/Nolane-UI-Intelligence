@@ -1,8 +1,14 @@
 ---
 name: designing-preview-environment-lifecycle
-description: Own ephemeral preview environment creation, readiness, identity, sharing, data policy, refresh, expiry, ownership, failure, and cleanup linked to a change or branch.
+description: Use when this specialist's decision ownership is materially in scope. Own ephemeral preview environment creation, readiness, identity, sharing, data policy, refresh, expiry, ownership, failure, and cleanup linked to a change or branch.
 ---
 # Designing Preview Environment Lifecycle
+
+## Parent Contract
+
+**Required parent:** `designing-software-delivery-pipelines`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

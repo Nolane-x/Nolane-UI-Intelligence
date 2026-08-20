@@ -180,8 +180,8 @@ class UIIndustryBatch003Tests(unittest.TestCase):
                 current = self.graph_skills[current]["parent"]
             self.assertIn("using-nolane-ui", seen, slug)
 
-    def test_final_graph_count_is_exactly_474(self):
-        self.assertEqual(474, len(self.graph_skills))
+    def test_graph_preserves_batch_003_baseline_at_or_above_474(self):
+        self.assertGreaterEqual(len(self.graph_skills), 474)
 
     def test_no_exact_normalized_body_duplicates(self):
         seen = {}

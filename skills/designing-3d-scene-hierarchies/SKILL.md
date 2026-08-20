@@ -1,8 +1,14 @@
 ---
 name: designing-3d-scene-hierarchies
-description: Own hierarchical organization of 3D entities, instances, parents, collections, visibility, selection, transforms, and outliner synchronization with the viewport.
+description: Use when this specialist's decision ownership is materially in scope. Own hierarchical organization of 3D entities, instances, parents, collections, visibility, selection, transforms, and outliner synchronization with the viewport.
 ---
 # Designing 3D Scene Hierarchies
+
+## Parent Contract
+
+**Required parent:** `designing-3d-cad-authoring-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

@@ -4,6 +4,12 @@ description: Use when analysts must detect, investigate, contain, and hand off s
 ---
 # Designing Security Operations Workspaces
 
+## Parent Contract
+
+**Required parent:** `designing-security-centers`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
+
 ## Decision ownership
 
 Own the top-level interaction architecture for a security operations center workspace. Decide how alerts, entities, timelines, evidence, cases, actions, automation, and analyst notes coexist without collapsing into one undifferentiated dashboard. This faculty owns operational context continuity: an analyst moving from an alert to a user, host, process, network session, or case must retain why the transition happened and what evidence justified it. It does not define detection logic, endpoint containment semantics, or vulnerability scoring; specialist children own those decisions.

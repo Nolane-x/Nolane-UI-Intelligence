@@ -4,6 +4,12 @@ description: Use when analysts need to understand why separate security events w
 ---
 # Designing Security Event Correlation
 
+## Parent Contract
+
+**Required parent:** `designing-security-operations-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
+
 ## Decision ownership
 
 Own the human-facing contract for correlated security evidence. Decide how the interface distinguishes deterministic linkage, rule-based grouping, temporal co-occurrence, shared-entity association, behavioral similarity, and analyst-authored relationships. This faculty makes correlation inspectable and challengeable. It does not design the correlation algorithm itself and does not convert weak association into incident truth.

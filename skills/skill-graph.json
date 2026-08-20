@@ -2422,6 +2422,1006 @@
       "family": "device-specialist",
       "parent": "designing-device-integration-interfaces",
       "output": "sensor-availability-contract"
+    },
+    "designing-diagramming-and-node-graph-editors": {
+      "family": "diagram",
+      "parent": "designing-editor-canvas-workspaces",
+      "output": "diagramming-and-node-graph-editors-contract"
+    },
+    "designing-node-creation-and-placement": {
+      "family": "diagram-specialist",
+      "parent": "designing-diagramming-and-node-graph-editors",
+      "output": "node-creation-and-placement-contract"
+    },
+    "designing-port-and-connector-authoring": {
+      "family": "diagram-specialist",
+      "parent": "designing-diagramming-and-node-graph-editors",
+      "output": "port-and-connector-authoring-contract"
+    },
+    "designing-edge-routing-and-bendpoints": {
+      "family": "diagram-specialist",
+      "parent": "designing-diagramming-and-node-graph-editors",
+      "output": "edge-routing-and-bendpoints-contract"
+    },
+    "designing-graph-auto-layout-controls": {
+      "family": "diagram-specialist",
+      "parent": "designing-diagramming-and-node-graph-editors",
+      "output": "graph-auto-layout-controls-contract"
+    },
+    "designing-subgraph-and-container-models": {
+      "family": "diagram-specialist",
+      "parent": "designing-diagramming-and-node-graph-editors",
+      "output": "subgraph-and-container-models-contract"
+    },
+    "designing-swimlane-diagrams": {
+      "family": "diagram-specialist",
+      "parent": "designing-diagramming-and-node-graph-editors",
+      "output": "swimlane-diagrams-contract"
+    },
+    "designing-mind-map-interfaces": {
+      "family": "diagram-specialist",
+      "parent": "designing-diagramming-and-node-graph-editors",
+      "output": "mind-map-interfaces-contract"
+    },
+    "designing-flowchart-semantics": {
+      "family": "diagram-specialist",
+      "parent": "designing-diagramming-and-node-graph-editors",
+      "output": "flowchart-semantics-contract"
+    },
+    "designing-uml-and-modeling-diagrams": {
+      "family": "diagram-specialist",
+      "parent": "designing-diagramming-and-node-graph-editors",
+      "output": "uml-and-modeling-diagrams-contract"
+    },
+    "designing-dependency-graph-exploration": {
+      "family": "diagram-specialist",
+      "parent": "designing-diagramming-and-node-graph-editors",
+      "output": "dependency-graph-exploration-contract"
+    },
+    "designing-topology-map-interfaces": {
+      "family": "diagram-specialist",
+      "parent": "designing-diagramming-and-node-graph-editors",
+      "output": "topology-map-interfaces-contract"
+    },
+    "designing-graph-search-and-navigation": {
+      "family": "diagram-specialist",
+      "parent": "designing-diagramming-and-node-graph-editors",
+      "output": "graph-search-and-navigation-contract"
+    },
+    "designing-graph-minimap-overviews": {
+      "family": "diagram-specialist",
+      "parent": "designing-diagramming-and-node-graph-editors",
+      "output": "graph-minimap-overviews-contract"
+    },
+    "designing-large-graph-virtualization": {
+      "family": "diagram-specialist",
+      "parent": "designing-diagramming-and-node-graph-editors",
+      "output": "large-graph-virtualization-contract"
+    },
+    "designing-graph-validation-and-errors": {
+      "family": "diagram-specialist",
+      "parent": "designing-diagramming-and-node-graph-editors",
+      "output": "graph-validation-and-errors-contract"
+    },
+    "designing-graph-diff-and-history": {
+      "family": "diagram-specialist",
+      "parent": "designing-diagramming-and-node-graph-editors",
+      "output": "graph-diff-and-history-contract"
+    },
+    "designing-collaborative-diagram-editing": {
+      "family": "diagram-specialist",
+      "parent": "designing-diagramming-and-node-graph-editors",
+      "output": "collaborative-diagram-editing-contract"
+    },
+    "designing-diagram-export-and-presentation": {
+      "family": "diagram-specialist",
+      "parent": "designing-diagramming-and-node-graph-editors",
+      "output": "diagram-export-and-presentation-contract"
+    },
+    "designing-executable-graph-debug-overlays": {
+      "family": "diagram-specialist",
+      "parent": "designing-diagramming-and-node-graph-editors",
+      "output": "executable-graph-debug-overlays-contract"
+    },
+    "designing-project-and-work-management": {
+      "family": "project",
+      "parent": "designing-task-flows",
+      "output": "project-and-work-management-contract"
+    },
+    "designing-kanban-boards": {
+      "family": "project-specialist",
+      "parent": "designing-project-and-work-management",
+      "output": "kanban-boards-contract"
+    },
+    "designing-backlog-grooming": {
+      "family": "project-specialist",
+      "parent": "designing-project-and-work-management",
+      "output": "backlog-grooming-contract"
+    },
+    "designing-sprint-planning": {
+      "family": "project-specialist",
+      "parent": "designing-project-and-work-management",
+      "output": "sprint-planning-contract"
+    },
+    "designing-roadmap-timelines": {
+      "family": "project-specialist",
+      "parent": "designing-project-and-work-management",
+      "output": "roadmap-timelines-contract"
+    },
+    "designing-milestone-tracking": {
+      "family": "project-specialist",
+      "parent": "designing-project-and-work-management",
+      "output": "milestone-tracking-contract"
+    },
+    "designing-task-dependency-networks": {
+      "family": "project-specialist",
+      "parent": "designing-project-and-work-management",
+      "output": "task-dependency-networks-contract"
+    },
+    "designing-task-hierarchy-and-subtasks": {
+      "family": "project-specialist",
+      "parent": "designing-project-and-work-management",
+      "output": "task-hierarchy-and-subtasks-contract"
+    },
+    "designing-workload-capacity-balancing": {
+      "family": "project-specialist",
+      "parent": "designing-project-and-work-management",
+      "output": "workload-capacity-balancing-contract"
+    },
+    "designing-work-item-status-transitions": {
+      "family": "project-specialist",
+      "parent": "designing-project-and-work-management",
+      "output": "work-item-status-transitions-contract"
+    },
+    "designing-recurring-work-items": {
+      "family": "project-specialist",
+      "parent": "designing-project-and-work-management",
+      "output": "recurring-work-items-contract"
+    },
+    "designing-project-templates": {
+      "family": "project-specialist",
+      "parent": "designing-project-and-work-management",
+      "output": "project-templates-contract"
+    },
+    "designing-bulk-work-item-editing": {
+      "family": "project-specialist",
+      "parent": "designing-project-and-work-management",
+      "output": "bulk-work-item-editing-contract"
+    },
+    "designing-project-views-and-filters": {
+      "family": "project-specialist",
+      "parent": "designing-project-and-work-management",
+      "output": "project-views-and-filters-contract"
+    },
+    "designing-project-health-dashboards": {
+      "family": "project-specialist",
+      "parent": "designing-project-and-work-management",
+      "output": "project-health-dashboards-contract"
+    },
+    "designing-time-tracking-workflows": {
+      "family": "project-specialist",
+      "parent": "designing-project-and-work-management",
+      "output": "time-tracking-workflows-contract"
+    },
+    "designing-effort-estimation": {
+      "family": "project-specialist",
+      "parent": "designing-project-and-work-management",
+      "output": "effort-estimation-contract"
+    },
+    "designing-blocker-and-risk-registers": {
+      "family": "project-specialist",
+      "parent": "designing-project-and-work-management",
+      "output": "blocker-and-risk-registers-contract"
+    },
+    "designing-portfolio-rollups": {
+      "family": "project-specialist",
+      "parent": "designing-project-and-work-management",
+      "output": "portfolio-rollups-contract"
+    },
+    "designing-project-closure-and-archival": {
+      "family": "project-specialist",
+      "parent": "designing-project-and-work-management",
+      "output": "project-closure-and-archival-contract"
+    },
+    "designing-incident-response-operations": {
+      "family": "incident",
+      "parent": "designing-high-stakes-decisions",
+      "output": "incident-response-operations-contract"
+    },
+    "designing-alert-triage-workspaces": {
+      "family": "incident-specialist",
+      "parent": "designing-incident-response-operations",
+      "output": "alert-triage-workspaces-contract"
+    },
+    "designing-incident-severity-declaration": {
+      "family": "incident-specialist",
+      "parent": "designing-incident-response-operations",
+      "output": "incident-severity-declaration-contract"
+    },
+    "designing-incident-timeline-capture": {
+      "family": "incident-specialist",
+      "parent": "designing-incident-response-operations",
+      "output": "incident-timeline-capture-contract"
+    },
+    "designing-responder-role-assignment": {
+      "family": "incident-specialist",
+      "parent": "designing-incident-response-operations",
+      "output": "responder-role-assignment-contract"
+    },
+    "designing-war-room-collaboration": {
+      "family": "incident-specialist",
+      "parent": "designing-incident-response-operations",
+      "output": "war-room-collaboration-contract"
+    },
+    "designing-runbook-execution": {
+      "family": "incident-specialist",
+      "parent": "designing-incident-response-operations",
+      "output": "runbook-execution-contract"
+    },
+    "designing-service-health-overviews": {
+      "family": "incident-specialist",
+      "parent": "designing-incident-response-operations",
+      "output": "service-health-overviews-contract"
+    },
+    "designing-dependency-impact-analysis": {
+      "family": "incident-specialist",
+      "parent": "designing-incident-response-operations",
+      "output": "dependency-impact-analysis-contract"
+    },
+    "designing-incident-escalation-controls": {
+      "family": "incident-specialist",
+      "parent": "designing-incident-response-operations",
+      "output": "incident-escalation-controls-contract"
+    },
+    "designing-stakeholder-incident-communications": {
+      "family": "incident-specialist",
+      "parent": "designing-incident-response-operations",
+      "output": "stakeholder-incident-communications-contract"
+    },
+    "designing-status-page-authoring": {
+      "family": "incident-specialist",
+      "parent": "designing-incident-response-operations",
+      "output": "status-page-authoring-contract"
+    },
+    "designing-on-call-handoffs": {
+      "family": "incident-specialist",
+      "parent": "designing-incident-response-operations",
+      "output": "on-call-handoffs-contract"
+    },
+    "designing-incident-command-controls": {
+      "family": "incident-specialist",
+      "parent": "designing-incident-response-operations",
+      "output": "incident-command-controls-contract"
+    },
+    "designing-mitigation-action-tracking": {
+      "family": "incident-specialist",
+      "parent": "designing-incident-response-operations",
+      "output": "mitigation-action-tracking-contract"
+    },
+    "designing-incident-hypothesis-evidence-logs": {
+      "family": "incident-specialist",
+      "parent": "designing-incident-response-operations",
+      "output": "incident-hypothesis-evidence-logs-contract"
+    },
+    "designing-postmortem-authoring": {
+      "family": "incident-specialist",
+      "parent": "designing-incident-response-operations",
+      "output": "postmortem-authoring-contract"
+    },
+    "designing-postmortem-action-followup": {
+      "family": "incident-specialist",
+      "parent": "designing-incident-response-operations",
+      "output": "postmortem-action-followup-contract"
+    },
+    "designing-maintenance-window-operations": {
+      "family": "incident-specialist",
+      "parent": "designing-incident-response-operations",
+      "output": "maintenance-window-operations-contract"
+    },
+    "designing-reliability-experiment-guardrails": {
+      "family": "incident-specialist",
+      "parent": "designing-incident-response-operations",
+      "output": "reliability-experiment-guardrails-contract"
+    },
+    "designing-software-delivery-pipelines": {
+      "family": "delivery",
+      "parent": "designing-environment-management",
+      "output": "software-delivery-pipelines-contract"
+    },
+    "designing-pipeline-stage-visualization": {
+      "family": "delivery-specialist",
+      "parent": "designing-software-delivery-pipelines",
+      "output": "pipeline-stage-visualization-contract"
+    },
+    "designing-build-status-and-artifacts": {
+      "family": "delivery-specialist",
+      "parent": "designing-software-delivery-pipelines",
+      "output": "build-status-and-artifacts-contract"
+    },
+    "designing-ci-job-log-navigation": {
+      "family": "delivery-specialist",
+      "parent": "designing-software-delivery-pipelines",
+      "output": "ci-job-log-navigation-contract"
+    },
+    "designing-release-approval-gates": {
+      "family": "delivery-specialist",
+      "parent": "designing-software-delivery-pipelines",
+      "output": "release-approval-gates-contract"
+    },
+    "designing-deployment-target-selection": {
+      "family": "delivery-specialist",
+      "parent": "designing-software-delivery-pipelines",
+      "output": "deployment-target-selection-contract"
+    },
+    "designing-canary-rollouts": {
+      "family": "delivery-specialist",
+      "parent": "designing-software-delivery-pipelines",
+      "output": "canary-rollouts-contract"
+    },
+    "designing-blue-green-rollouts": {
+      "family": "delivery-specialist",
+      "parent": "designing-software-delivery-pipelines",
+      "output": "blue-green-rollouts-contract"
+    },
+    "designing-progressive-delivery-controls": {
+      "family": "delivery-specialist",
+      "parent": "designing-software-delivery-pipelines",
+      "output": "progressive-delivery-controls-contract"
+    },
+    "designing-deployment-rollback": {
+      "family": "delivery-specialist",
+      "parent": "designing-software-delivery-pipelines",
+      "output": "deployment-rollback-contract"
+    },
+    "designing-artifact-promotion": {
+      "family": "delivery-specialist",
+      "parent": "designing-software-delivery-pipelines",
+      "output": "artifact-promotion-contract"
+    },
+    "designing-release-note-workflows": {
+      "family": "delivery-specialist",
+      "parent": "designing-software-delivery-pipelines",
+      "output": "release-note-workflows-contract"
+    },
+    "designing-environment-diff-interfaces": {
+      "family": "delivery-specialist",
+      "parent": "designing-software-delivery-pipelines",
+      "output": "environment-diff-interfaces-contract"
+    },
+    "designing-configuration-drift-review": {
+      "family": "delivery-specialist",
+      "parent": "designing-software-delivery-pipelines",
+      "output": "configuration-drift-review-contract"
+    },
+    "designing-deployment-locks": {
+      "family": "delivery-specialist",
+      "parent": "designing-software-delivery-pipelines",
+      "output": "deployment-locks-contract"
+    },
+    "designing-release-train-coordination": {
+      "family": "delivery-specialist",
+      "parent": "designing-software-delivery-pipelines",
+      "output": "release-train-coordination-contract"
+    },
+    "designing-change-freeze-controls": {
+      "family": "delivery-specialist",
+      "parent": "designing-software-delivery-pipelines",
+      "output": "change-freeze-controls-contract"
+    },
+    "designing-preview-environment-lifecycle": {
+      "family": "delivery-specialist",
+      "parent": "designing-software-delivery-pipelines",
+      "output": "preview-environment-lifecycle-contract"
+    },
+    "designing-software-supply-chain-provenance": {
+      "family": "delivery-specialist",
+      "parent": "designing-software-delivery-pipelines",
+      "output": "software-supply-chain-provenance-contract"
+    },
+    "designing-deployment-failure-diagnosis": {
+      "family": "delivery-specialist",
+      "parent": "designing-software-delivery-pipelines",
+      "output": "deployment-failure-diagnosis-contract"
+    },
+    "designing-scientific-and-engineering-instrumentation": {
+      "family": "instrumentation",
+      "parent": "designing-high-stakes-decisions",
+      "output": "scientific-and-engineering-instrumentation-contract"
+    },
+    "designing-instrument-telemetry-dashboards": {
+      "family": "instrumentation-specialist",
+      "parent": "designing-scientific-and-engineering-instrumentation",
+      "output": "instrument-telemetry-dashboards-contract"
+    },
+    "designing-experiment-setup-workflows": {
+      "family": "instrumentation-specialist",
+      "parent": "designing-scientific-and-engineering-instrumentation",
+      "output": "experiment-setup-workflows-contract"
+    },
+    "designing-experiment-run-control": {
+      "family": "instrumentation-specialist",
+      "parent": "designing-scientific-and-engineering-instrumentation",
+      "output": "experiment-run-control-contract"
+    },
+    "designing-instrument-calibration-workflows": {
+      "family": "instrumentation-specialist",
+      "parent": "designing-scientific-and-engineering-instrumentation",
+      "output": "instrument-calibration-workflows-contract"
+    },
+    "designing-live-signal-monitoring": {
+      "family": "instrumentation-specialist",
+      "parent": "designing-scientific-and-engineering-instrumentation",
+      "output": "live-signal-monitoring-contract"
+    },
+    "designing-signal-waveform-analysis": {
+      "family": "instrumentation-specialist",
+      "parent": "designing-scientific-and-engineering-instrumentation",
+      "output": "signal-waveform-analysis-contract"
+    },
+    "designing-spectrum-analysis-interfaces": {
+      "family": "instrumentation-specialist",
+      "parent": "designing-scientific-and-engineering-instrumentation",
+      "output": "spectrum-analysis-interfaces-contract"
+    },
+    "designing-microscopy-measurement-workflows": {
+      "family": "instrumentation-specialist",
+      "parent": "designing-scientific-and-engineering-instrumentation",
+      "output": "microscopy-measurement-workflows-contract"
+    },
+    "designing-sample-tracking-interfaces": {
+      "family": "instrumentation-specialist",
+      "parent": "designing-scientific-and-engineering-instrumentation",
+      "output": "sample-tracking-interfaces-contract"
+    },
+    "designing-microplate-layout-interfaces": {
+      "family": "instrumentation-specialist",
+      "parent": "designing-scientific-and-engineering-instrumentation",
+      "output": "microplate-layout-interfaces-contract"
+    },
+    "designing-batch-and-lot-traceability": {
+      "family": "instrumentation-specialist",
+      "parent": "designing-scientific-and-engineering-instrumentation",
+      "output": "batch-and-lot-traceability-contract"
+    },
+    "designing-process-control-trend-views": {
+      "family": "instrumentation-specialist",
+      "parent": "designing-scientific-and-engineering-instrumentation",
+      "output": "process-control-trend-views-contract"
+    },
+    "designing-instrument-alarm-thresholds": {
+      "family": "instrumentation-specialist",
+      "parent": "designing-scientific-and-engineering-instrumentation",
+      "output": "instrument-alarm-thresholds-contract"
+    },
+    "designing-setpoint-control-interfaces": {
+      "family": "instrumentation-specialist",
+      "parent": "designing-scientific-and-engineering-instrumentation",
+      "output": "setpoint-control-interfaces-contract"
+    },
+    "designing-experimental-provenance-capture": {
+      "family": "instrumentation-specialist",
+      "parent": "designing-scientific-and-engineering-instrumentation",
+      "output": "experimental-provenance-capture-contract"
+    },
+    "designing-experiment-comparison": {
+      "family": "instrumentation-specialist",
+      "parent": "designing-scientific-and-engineering-instrumentation",
+      "output": "experiment-comparison-contract"
+    },
+    "designing-parameter-sweep-interfaces": {
+      "family": "instrumentation-specialist",
+      "parent": "designing-scientific-and-engineering-instrumentation",
+      "output": "parameter-sweep-interfaces-contract"
+    },
+    "designing-model-fitting-controls": {
+      "family": "instrumentation-specialist",
+      "parent": "designing-scientific-and-engineering-instrumentation",
+      "output": "model-fitting-controls-contract"
+    },
+    "designing-safety-interlock-interfaces": {
+      "family": "instrumentation-specialist",
+      "parent": "designing-scientific-and-engineering-instrumentation",
+      "output": "safety-interlock-interfaces-contract"
+    },
+    "designing-3d-cad-authoring-workspaces": {
+      "family": "cad",
+      "parent": "designing-editor-canvas-workspaces",
+      "output": "3d-cad-authoring-workspaces-contract"
+    },
+    "designing-3d-scene-hierarchies": {
+      "family": "cad-specialist",
+      "parent": "designing-3d-cad-authoring-workspaces",
+      "output": "3d-scene-hierarchies-contract"
+    },
+    "designing-3d-viewport-navigation": {
+      "family": "cad-specialist",
+      "parent": "designing-3d-cad-authoring-workspaces",
+      "output": "3d-viewport-navigation-contract"
+    },
+    "designing-camera-view-management": {
+      "family": "cad-specialist",
+      "parent": "designing-3d-cad-authoring-workspaces",
+      "output": "camera-view-management-contract"
+    },
+    "designing-3d-grid-and-snapping": {
+      "family": "cad-specialist",
+      "parent": "designing-3d-cad-authoring-workspaces",
+      "output": "3d-grid-and-snapping-contract"
+    },
+    "designing-3d-layer-and-collection-management": {
+      "family": "cad-specialist",
+      "parent": "designing-3d-cad-authoring-workspaces",
+      "output": "3d-layer-and-collection-management-contract"
+    },
+    "designing-mesh-selection-modes": {
+      "family": "cad-specialist",
+      "parent": "designing-3d-cad-authoring-workspaces",
+      "output": "mesh-selection-modes-contract"
+    },
+    "designing-extrusion-and-inset-operations": {
+      "family": "cad-specialist",
+      "parent": "designing-3d-cad-authoring-workspaces",
+      "output": "extrusion-and-inset-operations-contract"
+    },
+    "designing-boolean-modeling-operations": {
+      "family": "cad-specialist",
+      "parent": "designing-3d-cad-authoring-workspaces",
+      "output": "boolean-modeling-operations-contract"
+    },
+    "designing-dimensional-measurement-tools": {
+      "family": "cad-specialist",
+      "parent": "designing-3d-cad-authoring-workspaces",
+      "output": "dimensional-measurement-tools-contract"
+    },
+    "designing-parametric-constraint-editing": {
+      "family": "cad-specialist",
+      "parent": "designing-3d-cad-authoring-workspaces",
+      "output": "parametric-constraint-editing-contract"
+    },
+    "designing-assembly-hierarchies": {
+      "family": "cad-specialist",
+      "parent": "designing-3d-cad-authoring-workspaces",
+      "output": "assembly-hierarchies-contract"
+    },
+    "designing-material-assignment-workflows": {
+      "family": "cad-specialist",
+      "parent": "designing-3d-cad-authoring-workspaces",
+      "output": "material-assignment-workflows-contract"
+    },
+    "designing-lighting-authoring-controls": {
+      "family": "cad-specialist",
+      "parent": "designing-3d-cad-authoring-workspaces",
+      "output": "lighting-authoring-controls-contract"
+    },
+    "designing-uv-and-texture-mapping": {
+      "family": "cad-specialist",
+      "parent": "designing-3d-cad-authoring-workspaces",
+      "output": "uv-and-texture-mapping-contract"
+    },
+    "designing-3d-annotation-and-markup": {
+      "family": "cad-specialist",
+      "parent": "designing-3d-cad-authoring-workspaces",
+      "output": "3d-annotation-and-markup-contract"
+    },
+    "designing-section-and-cut-planes": {
+      "family": "cad-specialist",
+      "parent": "designing-3d-cad-authoring-workspaces",
+      "output": "section-and-cut-planes-contract"
+    },
+    "designing-clash-and-collision-inspection": {
+      "family": "cad-specialist",
+      "parent": "designing-3d-cad-authoring-workspaces",
+      "output": "clash-and-collision-inspection-contract"
+    },
+    "designing-render-preview-workflows": {
+      "family": "cad-specialist",
+      "parent": "designing-3d-cad-authoring-workspaces",
+      "output": "render-preview-workflows-contract"
+    },
+    "designing-manufacturing-and-export-handoff": {
+      "family": "cad-specialist",
+      "parent": "designing-3d-cad-authoring-workspaces",
+      "output": "manufacturing-and-export-handoff-contract"
+    },
+    "designing-nonlinear-media-editors": {
+      "family": "media-editing",
+      "parent": "designing-editor-canvas-workspaces",
+      "output": "nonlinear-media-editors-contract"
+    },
+    "designing-media-ingest-and-bins": {
+      "family": "media-editing-specialist",
+      "parent": "designing-nonlinear-media-editors",
+      "output": "media-ingest-and-bins-contract"
+    },
+    "designing-editing-timelines": {
+      "family": "media-editing-specialist",
+      "parent": "designing-nonlinear-media-editors",
+      "output": "editing-timelines-contract"
+    },
+    "designing-track-and-layer-management": {
+      "family": "media-editing-specialist",
+      "parent": "designing-nonlinear-media-editors",
+      "output": "track-and-layer-management-contract"
+    },
+    "designing-clip-trimming": {
+      "family": "media-editing-specialist",
+      "parent": "designing-nonlinear-media-editors",
+      "output": "clip-trimming-contract"
+    },
+    "designing-split-and-razor-editing": {
+      "family": "media-editing-specialist",
+      "parent": "designing-nonlinear-media-editors",
+      "output": "split-and-razor-editing-contract"
+    },
+    "designing-ripple-roll-slip-slide-edits": {
+      "family": "media-editing-specialist",
+      "parent": "designing-nonlinear-media-editors",
+      "output": "ripple-roll-slip-slide-edits-contract"
+    },
+    "designing-timeline-snapping": {
+      "family": "media-editing-specialist",
+      "parent": "designing-nonlinear-media-editors",
+      "output": "timeline-snapping-contract"
+    },
+    "designing-transition-authoring": {
+      "family": "media-editing-specialist",
+      "parent": "designing-nonlinear-media-editors",
+      "output": "transition-authoring-contract"
+    },
+    "designing-keyframe-animation-editing": {
+      "family": "media-editing-specialist",
+      "parent": "designing-nonlinear-media-editors",
+      "output": "keyframe-animation-editing-contract"
+    },
+    "designing-multicamera-editing": {
+      "family": "media-editing-specialist",
+      "parent": "designing-nonlinear-media-editors",
+      "output": "multicamera-editing-contract"
+    },
+    "designing-audio-mixing-workspaces": {
+      "family": "media-editing-specialist",
+      "parent": "designing-nonlinear-media-editors",
+      "output": "audio-mixing-workspaces-contract"
+    },
+    "designing-audio-automation-curves": {
+      "family": "media-editing-specialist",
+      "parent": "designing-nonlinear-media-editors",
+      "output": "audio-automation-curves-contract"
+    },
+    "designing-color-grading-controls": {
+      "family": "media-editing-specialist",
+      "parent": "designing-nonlinear-media-editors",
+      "output": "color-grading-controls-contract"
+    },
+    "designing-video-scope-interfaces": {
+      "family": "media-editing-specialist",
+      "parent": "designing-nonlinear-media-editors",
+      "output": "video-scope-interfaces-contract"
+    },
+    "designing-subtitle-authoring-workflows": {
+      "family": "media-editing-specialist",
+      "parent": "designing-nonlinear-media-editors",
+      "output": "subtitle-authoring-workflows-contract"
+    },
+    "designing-media-relink-and-recovery": {
+      "family": "media-editing-specialist",
+      "parent": "designing-nonlinear-media-editors",
+      "output": "media-relink-and-recovery-contract"
+    },
+    "designing-proxy-media-workflows": {
+      "family": "media-editing-specialist",
+      "parent": "designing-nonlinear-media-editors",
+      "output": "proxy-media-workflows-contract"
+    },
+    "designing-edit-markers-and-review-notes": {
+      "family": "media-editing-specialist",
+      "parent": "designing-nonlinear-media-editors",
+      "output": "edit-markers-and-review-notes-contract"
+    },
+    "designing-render-and-export-queues": {
+      "family": "media-editing-specialist",
+      "parent": "designing-nonlinear-media-editors",
+      "output": "render-and-export-queues-contract"
+    },
+    "designing-digital-learning-experiences": {
+      "family": "learning",
+      "parent": "routing-ui-work",
+      "output": "digital-learning-experiences-contract"
+    },
+    "designing-course-catalogs": {
+      "family": "learning-specialist",
+      "parent": "designing-digital-learning-experiences",
+      "output": "course-catalogs-contract"
+    },
+    "designing-curriculum-pathways": {
+      "family": "learning-specialist",
+      "parent": "designing-digital-learning-experiences",
+      "output": "curriculum-pathways-contract"
+    },
+    "designing-lesson-navigation": {
+      "family": "learning-specialist",
+      "parent": "designing-digital-learning-experiences",
+      "output": "lesson-navigation-contract"
+    },
+    "designing-learning-progress-tracking": {
+      "family": "learning-specialist",
+      "parent": "designing-digital-learning-experiences",
+      "output": "learning-progress-tracking-contract"
+    },
+    "designing-practice-problem-workflows": {
+      "family": "learning-specialist",
+      "parent": "designing-digital-learning-experiences",
+      "output": "practice-problem-workflows-contract"
+    },
+    "designing-quiz-authoring": {
+      "family": "learning-specialist",
+      "parent": "designing-digital-learning-experiences",
+      "output": "quiz-authoring-contract"
+    },
+    "designing-quiz-taking": {
+      "family": "learning-specialist",
+      "parent": "designing-digital-learning-experiences",
+      "output": "quiz-taking-contract"
+    },
+    "designing-timed-assessment-interfaces": {
+      "family": "learning-specialist",
+      "parent": "designing-digital-learning-experiences",
+      "output": "timed-assessment-interfaces-contract"
+    },
+    "designing-assessment-question-navigation": {
+      "family": "learning-specialist",
+      "parent": "designing-digital-learning-experiences",
+      "output": "assessment-question-navigation-contract"
+    },
+    "designing-answer-review-and-explanations": {
+      "family": "learning-specialist",
+      "parent": "designing-digital-learning-experiences",
+      "output": "answer-review-and-explanations-contract"
+    },
+    "designing-rubric-based-grading": {
+      "family": "learning-specialist",
+      "parent": "designing-digital-learning-experiences",
+      "output": "rubric-based-grading-contract"
+    },
+    "designing-gradebook-interfaces": {
+      "family": "learning-specialist",
+      "parent": "designing-digital-learning-experiences",
+      "output": "gradebook-interfaces-contract"
+    },
+    "designing-assignment-submission": {
+      "family": "learning-specialist",
+      "parent": "designing-digital-learning-experiences",
+      "output": "assignment-submission-contract"
+    },
+    "designing-academic-integrity-review": {
+      "family": "learning-specialist",
+      "parent": "designing-digital-learning-experiences",
+      "output": "academic-integrity-review-contract"
+    },
+    "designing-spaced-repetition-systems": {
+      "family": "learning-specialist",
+      "parent": "designing-digital-learning-experiences",
+      "output": "spaced-repetition-systems-contract"
+    },
+    "designing-flashcard-study-interfaces": {
+      "family": "learning-specialist",
+      "parent": "designing-digital-learning-experiences",
+      "output": "flashcard-study-interfaces-contract"
+    },
+    "designing-certificate-and-completion-flows": {
+      "family": "learning-specialist",
+      "parent": "designing-digital-learning-experiences",
+      "output": "certificate-and-completion-flows-contract"
+    },
+    "designing-instructor-cohort-analytics": {
+      "family": "learning-specialist",
+      "parent": "designing-digital-learning-experiences",
+      "output": "instructor-cohort-analytics-contract"
+    },
+    "designing-learning-accommodation-controls": {
+      "family": "learning-specialist",
+      "parent": "designing-digital-learning-experiences",
+      "output": "learning-accommodation-controls-contract"
+    },
+    "designing-financial-operations-workspaces": {
+      "family": "financial-ops",
+      "parent": "designing-financial-transaction-ui",
+      "output": "financial-operations-workspaces-contract"
+    },
+    "designing-general-ledger-browsing": {
+      "family": "financial-ops-specialist",
+      "parent": "designing-financial-operations-workspaces",
+      "output": "general-ledger-browsing-contract"
+    },
+    "designing-journal-entry-workflows": {
+      "family": "financial-ops-specialist",
+      "parent": "designing-financial-operations-workspaces",
+      "output": "journal-entry-workflows-contract"
+    },
+    "designing-bank-reconciliation": {
+      "family": "financial-ops-specialist",
+      "parent": "designing-financial-operations-workspaces",
+      "output": "bank-reconciliation-contract"
+    },
+    "designing-accounts-payable-queues": {
+      "family": "financial-ops-specialist",
+      "parent": "designing-financial-operations-workspaces",
+      "output": "accounts-payable-queues-contract"
+    },
+    "designing-accounts-receivable-workflows": {
+      "family": "financial-ops-specialist",
+      "parent": "designing-financial-operations-workspaces",
+      "output": "accounts-receivable-workflows-contract"
+    },
+    "designing-expense-review-and-approval": {
+      "family": "financial-ops-specialist",
+      "parent": "designing-financial-operations-workspaces",
+      "output": "expense-review-and-approval-contract"
+    },
+    "designing-budget-planning": {
+      "family": "financial-ops-specialist",
+      "parent": "designing-financial-operations-workspaces",
+      "output": "budget-planning-contract"
+    },
+    "designing-cash-flow-forecasting": {
+      "family": "financial-ops-specialist",
+      "parent": "designing-financial-operations-workspaces",
+      "output": "cash-flow-forecasting-contract"
+    },
+    "designing-financial-statement-navigation": {
+      "family": "financial-ops-specialist",
+      "parent": "designing-financial-operations-workspaces",
+      "output": "financial-statement-navigation-contract"
+    },
+    "designing-variance-analysis": {
+      "family": "financial-ops-specialist",
+      "parent": "designing-financial-operations-workspaces",
+      "output": "variance-analysis-contract"
+    },
+    "designing-chart-of-accounts-management": {
+      "family": "financial-ops-specialist",
+      "parent": "designing-financial-operations-workspaces",
+      "output": "chart-of-accounts-management-contract"
+    },
+    "designing-tax-category-mapping": {
+      "family": "financial-ops-specialist",
+      "parent": "designing-financial-operations-workspaces",
+      "output": "tax-category-mapping-contract"
+    },
+    "designing-multi-currency-exposure-views": {
+      "family": "financial-ops-specialist",
+      "parent": "designing-financial-operations-workspaces",
+      "output": "multi-currency-exposure-views-contract"
+    },
+    "designing-portfolio-position-monitoring": {
+      "family": "financial-ops-specialist",
+      "parent": "designing-financial-operations-workspaces",
+      "output": "portfolio-position-monitoring-contract"
+    },
+    "designing-trading-order-entry": {
+      "family": "financial-ops-specialist",
+      "parent": "designing-financial-operations-workspaces",
+      "output": "trading-order-entry-contract"
+    },
+    "designing-market-watchlists": {
+      "family": "financial-ops-specialist",
+      "parent": "designing-financial-operations-workspaces",
+      "output": "market-watchlists-contract"
+    },
+    "designing-order-book-interfaces": {
+      "family": "financial-ops-specialist",
+      "parent": "designing-financial-operations-workspaces",
+      "output": "order-book-interfaces-contract"
+    },
+    "designing-trade-blotters": {
+      "family": "financial-ops-specialist",
+      "parent": "designing-financial-operations-workspaces",
+      "output": "trade-blotters-contract"
+    },
+    "designing-financial-risk-limit-controls": {
+      "family": "financial-ops-specialist",
+      "parent": "designing-financial-operations-workspaces",
+      "output": "financial-risk-limit-controls-contract"
+    },
+    "designing-security-operations-workspaces": {
+      "family": "security-ops",
+      "parent": "designing-security-centers",
+      "output": "security-operations-workspaces-contract"
+    },
+    "designing-security-alert-triage": {
+      "family": "security-ops-specialist",
+      "parent": "designing-security-operations-workspaces",
+      "output": "security-alert-triage-contract"
+    },
+    "designing-threat-investigation-timelines": {
+      "family": "security-ops-specialist",
+      "parent": "designing-security-operations-workspaces",
+      "output": "threat-investigation-timelines-contract"
+    },
+    "designing-security-entity-investigation": {
+      "family": "security-ops-specialist",
+      "parent": "designing-security-operations-workspaces",
+      "output": "security-entity-investigation-contract"
+    },
+    "designing-indicator-of-compromise-search": {
+      "family": "security-ops-specialist",
+      "parent": "designing-security-operations-workspaces",
+      "output": "indicator-of-compromise-search-contract"
+    },
+    "designing-security-event-correlation": {
+      "family": "security-ops-specialist",
+      "parent": "designing-security-operations-workspaces",
+      "output": "security-event-correlation-contract"
+    },
+    "designing-detection-rule-authoring": {
+      "family": "security-ops-specialist",
+      "parent": "designing-security-operations-workspaces",
+      "output": "detection-rule-authoring-contract"
+    },
+    "designing-detection-rule-testing": {
+      "family": "security-ops-specialist",
+      "parent": "designing-security-operations-workspaces",
+      "output": "detection-rule-testing-contract"
+    },
+    "designing-attack-path-visualization": {
+      "family": "security-ops-specialist",
+      "parent": "designing-security-operations-workspaces",
+      "output": "attack-path-visualization-contract"
+    },
+    "designing-vulnerability-prioritization": {
+      "family": "security-ops-specialist",
+      "parent": "designing-security-operations-workspaces",
+      "output": "vulnerability-prioritization-contract"
+    },
+    "designing-patch-exposure-review": {
+      "family": "security-ops-specialist",
+      "parent": "designing-security-operations-workspaces",
+      "output": "patch-exposure-review-contract"
+    },
+    "designing-endpoint-isolation-controls": {
+      "family": "security-ops-specialist",
+      "parent": "designing-security-operations-workspaces",
+      "output": "endpoint-isolation-controls-contract"
+    },
+    "designing-network-session-investigation": {
+      "family": "security-ops-specialist",
+      "parent": "designing-security-operations-workspaces",
+      "output": "network-session-investigation-contract"
+    },
+    "designing-authentication-anomaly-review": {
+      "family": "security-ops-specialist",
+      "parent": "designing-security-operations-workspaces",
+      "output": "authentication-anomaly-review-contract"
+    },
+    "designing-privilege-escalation-review": {
+      "family": "security-ops-specialist",
+      "parent": "designing-security-operations-workspaces",
+      "output": "privilege-escalation-review-contract"
+    },
+    "designing-phishing-investigation": {
+      "family": "security-ops-specialist",
+      "parent": "designing-security-operations-workspaces",
+      "output": "phishing-investigation-contract"
+    },
+    "designing-malware-analysis-result-views": {
+      "family": "security-ops-specialist",
+      "parent": "designing-security-operations-workspaces",
+      "output": "malware-analysis-result-views-contract"
+    },
+    "designing-security-case-evidence-management": {
+      "family": "security-ops-specialist",
+      "parent": "designing-security-operations-workspaces",
+      "output": "security-case-evidence-management-contract"
+    },
+    "designing-threat-hunting-workspaces": {
+      "family": "security-ops-specialist",
+      "parent": "designing-security-operations-workspaces",
+      "output": "threat-hunting-workspaces-contract"
+    },
+    "designing-security-operations-handoffs": {
+      "family": "security-ops-specialist",
+      "parent": "designing-security-operations-workspaces",
+      "output": "security-operations-handoffs-contract"
     }
   }
 }

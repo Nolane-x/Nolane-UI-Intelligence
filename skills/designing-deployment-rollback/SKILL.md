@@ -1,8 +1,14 @@
 ---
 name: designing-deployment-rollback
-description: Own software deployment rollback decisions and verification, including target scope, rollback candidate, compatibility, data/schema constraints, staged reversal, and confirmation of restored service.
+description: Use when this specialist's decision ownership is materially in scope. Own software deployment rollback decisions and verification, including target scope, rollback candidate, compatibility, data/schema constraints, staged reversal, and confirmation of restored service.
 ---
 # Designing Deployment Rollback
+
+## Parent Contract
+
+**Required parent:** `designing-software-delivery-pipelines`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

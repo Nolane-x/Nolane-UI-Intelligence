@@ -1,8 +1,14 @@
 ---
 name: designing-maintenance-window-operations
-description: Own planned operational maintenance windows, including scope, schedule, suppression, approvals, runbook state, customer communication, extension, abort, and return-to-service verification.
+description: Use when this specialist's decision ownership is materially in scope. Own planned operational maintenance windows, including scope, schedule, suppression, approvals, runbook state, customer communication, extension, abort, and return-to-service verification.
 ---
 # Designing Maintenance Window Operations
+
+## Parent Contract
+
+**Required parent:** `designing-incident-response-operations`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

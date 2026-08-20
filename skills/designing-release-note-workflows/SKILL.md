@@ -1,8 +1,14 @@
 ---
 name: designing-release-note-workflows
-description: Own release-note assembly, change attribution, audience filtering, breaking-change prominence, draft/review/publish state, and traceability to shipped artifacts.
+description: Use when this specialist's decision ownership is materially in scope. Own release-note assembly, change attribution, audience filtering, breaking-change prominence, draft/review/publish state, and traceability to shipped artifacts.
 ---
 # Designing Release Note Workflows
+
+## Parent Contract
+
+**Required parent:** `designing-software-delivery-pipelines`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

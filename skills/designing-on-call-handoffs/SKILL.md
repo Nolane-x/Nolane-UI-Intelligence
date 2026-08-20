@@ -1,8 +1,14 @@
 ---
 name: designing-on-call-handoffs
-description: Own continuity across responder shift changes, including active incidents, pending alerts, role transfer, unresolved hypotheses, mitigation state, and acknowledgement by the incoming responder.
+description: Use when this specialist's decision ownership is materially in scope. Own continuity across responder shift changes, including active incidents, pending alerts, role transfer, unresolved hypotheses, mitigation state, and acknowledgement by the incoming responder.
 ---
 # Designing On-Call Handoffs
+
+## Parent Contract
+
+**Required parent:** `designing-incident-response-operations`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

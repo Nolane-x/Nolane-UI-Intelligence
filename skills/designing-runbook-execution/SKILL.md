@@ -1,8 +1,14 @@
 ---
 name: designing-runbook-execution
-description: Own guided execution of operational runbooks, including prerequisites, step state, evidence, branching, automation boundaries, side-effect warnings, and deviation capture.
+description: Use when this specialist's decision ownership is materially in scope. Own guided execution of operational runbooks, including prerequisites, step state, evidence, branching, automation boundaries, side-effect warnings, and deviation capture.
 ---
 # Designing Runbook Execution
+
+## Parent Contract
+
+**Required parent:** `designing-incident-response-operations`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

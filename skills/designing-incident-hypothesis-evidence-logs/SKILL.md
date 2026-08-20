@@ -1,8 +1,14 @@
 ---
 name: designing-incident-hypothesis-evidence-logs
-description: Own explicit incident reasoning records that separate hypotheses from facts, attach supporting and contradicting evidence, track confidence, and preserve rejected explanations.
+description: Use when this specialist's decision ownership is materially in scope. Own explicit incident reasoning records that separate hypotheses from facts, attach supporting and contradicting evidence, track confidence, and preserve rejected explanations.
 ---
 # Designing Incident Hypothesis Evidence Logs
+
+## Parent Contract
+
+**Required parent:** `designing-incident-response-operations`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

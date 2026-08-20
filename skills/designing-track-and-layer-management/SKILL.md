@@ -1,8 +1,14 @@
 ---
 name: designing-track-and-layer-management
-description: Own video/audio/subtitle/data track organization, targeting, patching, mute/solo/lock, hierarchy, role, ordering, visibility, routing, and safe bulk track operations.
+description: Use when this specialist's decision ownership is materially in scope. Own video/audio/subtitle/data track organization, targeting, patching, mute/solo/lock, hierarchy, role, ordering, visibility, routing, and safe bulk track operations.
 ---
 # Designing Track and Layer Management
+
+## Parent Contract
+
+**Required parent:** `designing-nonlinear-media-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

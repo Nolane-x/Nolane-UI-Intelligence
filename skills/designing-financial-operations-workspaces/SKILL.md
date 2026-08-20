@@ -1,8 +1,14 @@
 ---
 name: designing-financial-operations-workspaces
-description: Own the interaction architecture for operational finance workspaces where ledger truth, approvals, reconciliation, reporting, cash, positions, and risk controls must remain traceable and internally consistent.
+description: Use when this specialist's decision ownership is materially in scope. Own the interaction architecture for operational finance workspaces where ledger truth, approvals, reconciliation, reporting, cash, positions, and risk controls must remain traceable and internally consistent.
 ---
 # Designing Financial Operations Workspaces
+
+## Parent Contract
+
+**Required parent:** `designing-financial-transaction-ui`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

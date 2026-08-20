@@ -1,8 +1,14 @@
 ---
 name: designing-keyframe-animation-editing
-description: Own time-varying parameter authoring through keyframes, interpolation, curves, tangents, temporal/value snapping, selection, copy/paste, retiming, and property-to-timeline linkage.
+description: Use when this specialist's decision ownership is materially in scope. Own time-varying parameter authoring through keyframes, interpolation, curves, tangents, temporal/value snapping, selection, copy/paste, retiming, and property-to-timeline linkage.
 ---
 # Designing Keyframe Animation Editing
+
+## Parent Contract
+
+**Required parent:** `designing-nonlinear-media-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

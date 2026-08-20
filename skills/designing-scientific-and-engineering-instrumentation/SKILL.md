@@ -1,8 +1,14 @@
 ---
 name: designing-scientific-and-engineering-instrumentation
-description: Own the interaction architecture for instrument-facing scientific and engineering workspaces where configuration, live measurement, provenance, safety, and reproducibility must remain synchronized.
+description: Use when this specialist's decision ownership is materially in scope. Own the interaction architecture for instrument-facing scientific and engineering workspaces where configuration, live measurement, provenance, safety, and reproducibility must remain synchronized.
 ---
 # Designing Scientific and Engineering Instrumentation
+
+## Parent Contract
+
+**Required parent:** `designing-high-stakes-decisions`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

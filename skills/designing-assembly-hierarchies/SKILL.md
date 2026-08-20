@@ -1,8 +1,14 @@
 ---
 name: designing-assembly-hierarchies
-description: Own product assembly structure across components, instances, subassemblies, mates/constraints, suppression, variants, reference context, BOM linkage, and edit-in-place boundaries.
+description: Use when this specialist's decision ownership is materially in scope. Own product assembly structure across components, instances, subassemblies, mates/constraints, suppression, variants, reference context, BOM linkage, and edit-in-place boundaries.
 ---
 # Designing Assembly Hierarchies
+
+## Parent Contract
+
+**Required parent:** `designing-3d-cad-authoring-workspaces`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

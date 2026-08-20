@@ -1,8 +1,14 @@
 ---
 name: designing-task-hierarchy-and-subtasks
-description: Own parent-child work decomposition, rollup semantics, depth limits, completion rules, moving subtrees, and visibility of hidden descendant work.
+description: Use when this specialist's decision ownership is materially in scope. Own parent-child work decomposition, rollup semantics, depth limits, completion rules, moving subtrees, and visibility of hidden descendant work.
 ---
 # Designing Task Hierarchy and Subtasks
+
+## Parent Contract
+
+**Required parent:** `designing-project-and-work-management`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

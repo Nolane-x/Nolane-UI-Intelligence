@@ -1,8 +1,14 @@
 ---
 name: designing-dependency-graph-exploration
-description: Own read-oriented exploration of upstream/downstream dependencies, impact radius, cycles, roots, leaves, and focused neighborhoods in complex graphs.
+description: Use when this specialist's decision ownership is materially in scope. Own read-oriented exploration of upstream/downstream dependencies, impact radius, cycles, roots, leaves, and focused neighborhoods in complex graphs.
 ---
 # Designing Dependency Graph Exploration
+
+## Parent Contract
+
+**Required parent:** `designing-diagramming-and-node-graph-editors`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 

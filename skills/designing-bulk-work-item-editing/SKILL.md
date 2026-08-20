@@ -1,8 +1,14 @@
 ---
 name: designing-bulk-work-item-editing
-description: Own safe multi-item project edits with heterogeneous current values, eligibility checks, partial failure reporting, preview, and recoverability.
+description: Use when this specialist's decision ownership is materially in scope. Own safe multi-item project edits with heterogeneous current values, eligibility checks, partial failure reporting, preview, and recoverability.
 ---
 # Designing Bulk Work-Item Editing
+
+## Parent Contract
+
+**Required parent:** `designing-project-and-work-management`.
+
+Inherit the broader routing and decision boundary from this canonical parent; this specialist remains accountable only for the narrower ownership, failure topology, falsification criteria, and output contract defined below.
 
 ## Decision ownership
 
