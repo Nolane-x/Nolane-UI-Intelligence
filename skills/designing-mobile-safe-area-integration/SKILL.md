@@ -11,6 +11,10 @@ description: Use when mobile content must coexist with notches, status/navigatio
 
 This skill owns inset geometry and edge-to-edge composition. It does not choose the overall responsive layout; it decides which region consumes which system inset, where visual material may extend behind system chrome, and where interactive or readable content must remain protected.
 
+## Decision ownership
+
+Own the decision boundary between decorative edge-to-edge rendering and protected interactive/content geometry. For every system inset, name the consuming layer and whether the inset affects background paint, readable content, hit targets, scroll content, scroll indicators, or persistent app chrome. Do not let both a shell and a nested surface independently “play safe” by applying the same inset; unresolved ownership is a geometry defect, not a reason to add more padding.
+
 ## Geometry model
 
 Treat safe areas as dynamic environment inputs rather than fixed top/bottom padding tokens. Insets can change with orientation, window mode, call/navigation overlays, keyboard, platform navigation mode, cutout geometry, device posture, and system-bar visibility. Define an owner for each edge. If the outer shell consumes a bottom inset, a nested tab bar must not consume the same inset again unless it is intentionally drawing its own protected background.
