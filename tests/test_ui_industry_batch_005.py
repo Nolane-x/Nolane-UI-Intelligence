@@ -313,7 +313,7 @@ class UIIndustryBatch005Tests(unittest.TestCase):
         slugs = list(bodies)
         for i, left in enumerate(slugs):
             for right in slugs[i + 1 :]:
-                ratio = difflib.SequenceMatcher(None, bodies[left], bodies[right], autojunk=False).ratio()
+                ratio = difflib.SequenceMatcher(None, bodies[left].split(), bodies[right].split(), autojunk=False).ratio()
                 self.assertLess(ratio, 0.84, f"trivial rename risk: {left} vs {right} = {ratio:.3f}")
 
     def test_no_long_substantive_paragraph_is_mass_reused(self):

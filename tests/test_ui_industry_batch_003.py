@@ -196,7 +196,7 @@ class UIIndustryBatch003Tests(unittest.TestCase):
         suspicious = []
         for index, left in enumerate(SLUGS):
             for right in SLUGS[index + 1:]:
-                ratio = difflib.SequenceMatcher(None, bodies[left], bodies[right]).ratio()
+                ratio = difflib.SequenceMatcher(None, bodies[left].split(), bodies[right].split(), autojunk=False).ratio()
                 if ratio >= 0.86:
                     suspicious.append((left, right, round(ratio, 3)))
         self.assertEqual([], suspicious)

@@ -353,8 +353,8 @@ class UIIndustryBatch004Tests(unittest.TestCase):
                 current = self.graph_skills[current]["parent"]
             self.assertIn("using-nolane-ui", seen, slug)
 
-    def test_final_graph_count_is_exactly_674(self):
-        self.assertEqual(674, len(self.graph_skills))
+    def test_graph_preserves_batch_004_baseline_at_or_above_674(self):
+        self.assertGreaterEqual(len(self.graph_skills), 674)
 
     def test_no_exact_normalized_body_duplicates(self):
         seen = {}
@@ -375,7 +375,7 @@ class UIIndustryBatch004Tests(unittest.TestCase):
         suspicious = []
         for index, left in enumerate(slugs):
             for right in slugs[index + 1 :]:
-                ratio = difflib.SequenceMatcher(None, bodies[left], bodies[right]).ratio()
+                ratio = difflib.SequenceMatcher(None, bodies[left].split(), bodies[right].split(), autojunk=False).ratio()
                 if ratio >= 0.82:
                     suspicious.append((left, right, round(ratio, 3)))
         self.assertEqual([], suspicious)

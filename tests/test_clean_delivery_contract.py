@@ -38,6 +38,7 @@ class CleanDeliveryContractTests(unittest.TestCase):
             ROOT / "docs" / "research" / "UI-INDUSTRY-1000-BATCH-002.md",
             ROOT / "docs" / "research" / "UI-INDUSTRY-1000-BATCH-003.md",
             ROOT / "docs" / "research" / "UI-INDUSTRY-1000-BATCH-004.md",
+            ROOT / "docs" / "research" / "UI-INDUSTRY-1000-BATCH-005.md",
         ]
         for path in records:
             self.assertTrue(path.is_file(), f"missing batch provenance record: {path.relative_to(ROOT)}")
@@ -47,10 +48,10 @@ class CleanDeliveryContractTests(unittest.TestCase):
         self.assertIn("| 100 | `designing-sensor-permission-and-availability`", batch003)
         self.assertIn("no loop, macro, template expander", batch003.lower())
 
-    def test_repository_policy_matches_the_674_node_batch_004_graph(self):
+    def test_repository_policy_matches_the_774_node_batch_005_graph(self):
         agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
-        self.assertIn("**674 canonical skills**", agents)
-        self.assertIn("500 independently owned UI-industry specialists", agents)
+        self.assertIn("**774 canonical skills**", agents)
+        self.assertIn("600 independently owned UI-industry specialists", agents)
         self.assertNotIn("currently contains **274 canonical skills**", agents)
         self.assertNotIn("currently contains **374 canonical skills**", agents)
 
