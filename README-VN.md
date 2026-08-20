@@ -8,7 +8,7 @@
 
 [English](README.md) · [Tiếng Việt](README-VN.md) · [简体中文](README-CN.md)
 
-`v0.10.0` · `674 skill chuẩn` · `9 agent projection` · `MCP + CLI` · `evidence-gated` · `MIT`
+`v0.10.0` · `774 skill chuẩn` · `9 agent projection` · `MCP + CLI` · `evidence-gated` · `MIT`
 
 </div>
 
@@ -155,15 +155,15 @@ product truth
 → bounded release claim
 ```
 
-Agent không tải toàn bộ 674 skill. Router chọn **graph owner nhỏ nhất nhưng đủ** cho nhiệm vụ hiện tại.
+Agent không tải toàn bộ 774 skill. Router chọn **graph owner nhỏ nhất nhưng đủ** cho nhiệm vụ hiện tại.
 
 ---
 
-## 674 design faculties chuẩn
+## 774 design faculties chuẩn
 
-NUI hiện giữ **674 canonical skills**. Con số hiện tại chỉ mang tính mô tả, không phải giấy phép để tạo các expert trùng nhau. Roadmap dài hạn hướng tới độ phủ toàn ngành UI ở mức khoảng 1.000 canonical faculties nhưng vẫn giữ decision ownership riêng biệt và routing tối thiểu.
+NUI hiện giữ **774 canonical skills**. Con số hiện tại chỉ mang tính mô tả, không phải giấy phép để tạo các expert trùng nhau. Roadmap dài hạn hướng tới độ phủ toàn ngành UI ở mức khoảng 1.000 canonical faculties nhưng vẫn giữ decision ownership riêng biệt và routing tối thiểu.
 
-Một skill chỉ nên tồn tại khi nó sở hữu một loại quyết định hoặc failure class riêng. Hệ thống cố tình chống lại việc tạo hàng chục “expert” gần giống nhau. Batch 001 bổ sung 100 specialist được viết độc lập về motion, rich controls, direct manipulation, spreadsheet/data, enterprise workflow, billing, scheduling, geospatial và historical state. Batch 002 bổ sung thêm 100 specialist được viết độc lập về input có ma sát cao, navigation/findability, feedback/recovery, messaging/collaboration, onboarding, commerce lifecycle, content publishing, developer operations và trust/account lifecycle. Batch 003 thêm 100 specialist độc lập về accessibility mechanics, globalization/locale, media playback, file/storage và tích hợp thiết bị/thế giới vật lý. Batch 004 thêm 200 specialist độc lập về diagramming, project operations, incident response, software delivery, scientific instrumentation, 3D/CAD, nonlinear media editing, digital learning, financial operations và security operations. Inventory, ownership, provenance và ràng buộc chống sinh lặp được lưu trong các research record Batch 001–004.
+Một skill chỉ nên tồn tại khi nó sở hữu một loại quyết định hoặc failure class riêng. Hệ thống cố tình chống lại việc tạo hàng chục “expert” gần giống nhau. Batch 001 bổ sung 100 specialist được viết độc lập về motion, rich controls, direct manipulation, spreadsheet/data, enterprise workflow, billing, scheduling, geospatial và historical state. Batch 002 bổ sung thêm 100 specialist được viết độc lập về input có ma sát cao, navigation/findability, feedback/recovery, messaging/collaboration, onboarding, commerce lifecycle, content publishing, developer operations và trust/account lifecycle. Batch 003 thêm 100 specialist độc lập về accessibility mechanics, globalization/locale, media playback, file/storage và tích hợp thiết bị/thế giới vật lý. Batch 004 thêm 200 specialist độc lập về diagramming, project operations, incident response, software delivery, scientific instrumentation, 3D/CAD, nonlinear media editing, digital learning, financial operations và security operations. Batch 005 thêm 100 specialist được viết độc lập về mobile-native application shell, visual application builder, business intelligence, clinical care, public service, marketplace operations, realtime communications, spatial/XR, recommendation/personalization và design-to-code handoff. Inventory, ownership, provenance và ràng buộc chống sinh lặp được lưu trong các research record Batch 001–005.
 
 Các nhóm lớn bao gồm:
 

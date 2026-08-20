@@ -8,7 +8,7 @@
 
 [English](README.md) · [Tiếng Việt](README-VN.md) · [简体中文](README-CN.md)
 
-`v0.10.0` · `674 个 canonical skills` · `9 个 Agent projection` · `MCP + CLI` · `证据门控` · `MIT`
+`v0.10.0` · `774 个 canonical skills` · `9 个 Agent projection` · `MCP + CLI` · `证据门控` · `MIT`
 
 </div>
 
@@ -157,15 +157,15 @@ product truth
 → bounded release claim
 ```
 
-Agent 不应该一次性加载 674 个 skill。Router 会根据当前任务选择**最小但足够的 owner graph**。
+Agent 不应该一次性加载 774 个 skill。Router 会根据当前任务选择**最小但足够的 owner graph**。
 
 ---
 
-## 674 个 canonical design faculties
+## 774 个 canonical design faculties
 
-NUI 当前保持 **674 个 canonical skills**。这个数字只是当前系统规模，不是制造重复 expert 的 KPI。长期 UI-industry roadmap 会继续朝约 1,000 个 canonical faculties 扩展，但每个新增 skill 仍必须拥有独立的 decision ownership，并保持最小充分路由。
+NUI 当前保持 **774 个 canonical skills**。这个数字只是当前系统规模，不是制造重复 expert 的 KPI。长期 UI-industry roadmap 会继续朝约 1,000 个 canonical faculties 扩展，但每个新增 skill 仍必须拥有独立的 decision ownership，并保持最小充分路由。
 
-只有当某个 skill 真正拥有独立的 decision class 或 failure class 时，它才应该存在。NUI 有意避免不断新增名称不同、职责重叠的“专家”。Batch 001 增加了 100 个独立编写的 specialist，覆盖 motion、rich controls、direct manipulation、spreadsheet/data、enterprise workflow、billing、scheduling、geospatial 和 historical state。Batch 002 再增加 100 个独立编写的 specialist，覆盖高摩擦输入、navigation/findability、feedback/recovery、messaging/collaboration、onboarding、commerce lifecycle、content publishing、developer operations 以及 trust/account lifecycle。Batch 003 再增加 100 个独立 specialist，覆盖 accessibility mechanics、globalization/locale、media playback、file/storage workflow 与 device/physical-world integration。Batch 004 再增加 200 个独立 specialist，覆盖 diagramming、project operations、incident response、software delivery、scientific instrumentation、3D/CAD、nonlinear media editing、digital learning、financial operations 与 security operations。Batch 001–004 research record 保存完整 inventory、ownership、provenance 与 anti-generation 约束。
+只有当某个 skill 真正拥有独立的 decision class 或 failure class 时，它才应该存在。NUI 有意避免不断新增名称不同、职责重叠的“专家”。Batch 001 增加了 100 个独立编写的 specialist，覆盖 motion、rich controls、direct manipulation、spreadsheet/data、enterprise workflow、billing、scheduling、geospatial 和 historical state。Batch 002 再增加 100 个独立编写的 specialist，覆盖高摩擦输入、navigation/findability、feedback/recovery、messaging/collaboration、onboarding、commerce lifecycle、content publishing、developer operations 以及 trust/account lifecycle。Batch 003 再增加 100 个独立 specialist，覆盖 accessibility mechanics、globalization/locale、media playback、file/storage workflow 与 device/physical-world integration。Batch 004 再增加 200 个独立 specialist，覆盖 diagramming、project operations、incident response、software delivery、scientific instrumentation、3D/CAD、nonlinear media editing、digital learning、financial operations 与 security operations。Batch 005 再增加 100 个独立编写的 specialist，覆盖 mobile-native application shell、visual application builder、business intelligence、clinical care、public service、marketplace operations、realtime communications、spatial/XR、recommendation/personalization 与 design-to-code handoff。Batch 001–005 research record 保存完整 inventory、ownership、provenance 与 anti-generation 约束。
 
 覆盖范围包括：
 

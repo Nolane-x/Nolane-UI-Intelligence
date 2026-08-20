@@ -3422,6 +3422,506 @@
       "family": "security-ops-specialist",
       "parent": "designing-security-operations-workspaces",
       "output": "security-operations-handoffs-contract"
+    },
+    "designing-mobile-native-application-shells": {
+      "family": "mobile-native",
+      "parent": "adapting-platform-conventions",
+      "output": "mobile-native-application-shells-contract"
+    },
+    "designing-native-navigation-stacks": {
+      "family": "mobile-native-specialist",
+      "parent": "designing-mobile-native-application-shells",
+      "output": "native-navigation-stacks-contract"
+    },
+    "designing-tab-bar-state-continuity": {
+      "family": "mobile-native-specialist",
+      "parent": "designing-mobile-native-application-shells",
+      "output": "tab-bar-state-continuity-contract"
+    },
+    "designing-mobile-safe-area-integration": {
+      "family": "mobile-native-specialist",
+      "parent": "designing-mobile-native-application-shells",
+      "output": "mobile-safe-area-integration-contract"
+    },
+    "designing-virtual-keyboard-avoidance": {
+      "family": "mobile-native-specialist",
+      "parent": "designing-mobile-native-application-shells",
+      "output": "virtual-keyboard-avoidance-contract"
+    },
+    "designing-mobile-deep-link-routing": {
+      "family": "mobile-native-specialist",
+      "parent": "designing-mobile-native-application-shells",
+      "output": "mobile-deep-link-routing-contract"
+    },
+    "designing-app-lifecycle-state-restoration": {
+      "family": "mobile-native-specialist",
+      "parent": "designing-mobile-native-application-shells",
+      "output": "app-lifecycle-state-restoration-contract"
+    },
+    "designing-native-share-sheet-intents": {
+      "family": "mobile-native-specialist",
+      "parent": "designing-mobile-native-application-shells",
+      "output": "native-share-sheet-intents-contract"
+    },
+    "designing-mobile-app-switcher-privacy": {
+      "family": "mobile-native-specialist",
+      "parent": "designing-mobile-native-application-shells",
+      "output": "mobile-app-switcher-privacy-contract"
+    },
+    "designing-mobile-gesture-navigation-conflicts": {
+      "family": "mobile-native-specialist",
+      "parent": "designing-mobile-native-application-shells",
+      "output": "mobile-gesture-navigation-conflicts-contract"
+    },
+    "designing-visual-application-builders": {
+      "family": "visual-builder",
+      "parent": "designing-editor-canvas-workspaces",
+      "output": "visual-application-builders-contract"
+    },
+    "designing-canvas-hierarchy-synchronization": {
+      "family": "visual-builder-specialist",
+      "parent": "designing-visual-application-builders",
+      "output": "canvas-hierarchy-synchronization-contract"
+    },
+    "designing-responsive-breakpoint-authoring": {
+      "family": "visual-builder-specialist",
+      "parent": "designing-visual-application-builders",
+      "output": "responsive-breakpoint-authoring-contract"
+    },
+    "designing-style-inheritance-inspection": {
+      "family": "visual-builder-specialist",
+      "parent": "designing-visual-application-builders",
+      "output": "style-inheritance-inspection-contract"
+    },
+    "designing-component-instance-overrides": {
+      "family": "visual-builder-specialist",
+      "parent": "designing-visual-application-builders",
+      "output": "component-instance-overrides-contract"
+    },
+    "designing-builder-component-authoring": {
+      "family": "visual-builder-specialist",
+      "parent": "designing-visual-application-builders",
+      "output": "builder-component-authoring-contract"
+    },
+    "designing-builder-slot-insertion": {
+      "family": "visual-builder-specialist",
+      "parent": "designing-visual-application-builders",
+      "output": "builder-slot-insertion-contract"
+    },
+    "designing-builder-data-binding": {
+      "family": "visual-builder-specialist",
+      "parent": "designing-visual-application-builders",
+      "output": "builder-data-binding-contract"
+    },
+    "designing-builder-conditional-visibility": {
+      "family": "visual-builder-specialist",
+      "parent": "designing-visual-application-builders",
+      "output": "builder-conditional-visibility-contract"
+    },
+    "designing-builder-interaction-wiring": {
+      "family": "visual-builder-specialist",
+      "parent": "designing-visual-application-builders",
+      "output": "builder-interaction-wiring-contract"
+    },
+    "designing-builder-preview-publish-modes": {
+      "family": "visual-builder-specialist",
+      "parent": "designing-visual-application-builders",
+      "output": "builder-preview-publish-modes-contract"
+    },
+    "designing-builder-layout-constraint-editing": {
+      "family": "visual-builder-specialist",
+      "parent": "designing-visual-application-builders",
+      "output": "builder-layout-constraint-editing-contract"
+    },
+    "designing-business-intelligence-workspaces": {
+      "family": "business-intelligence",
+      "parent": "designing-data-dense-interfaces",
+      "output": "business-intelligence-workspaces-contract"
+    },
+    "designing-semantic-metric-browsing": {
+      "family": "business-intelligence-specialist",
+      "parent": "designing-business-intelligence-workspaces",
+      "output": "semantic-metric-browsing-contract"
+    },
+    "designing-query-provenance-inspection": {
+      "family": "business-intelligence-specialist",
+      "parent": "designing-business-intelligence-workspaces",
+      "output": "query-provenance-inspection-contract"
+    },
+    "designing-dashboard-edit-view-modes": {
+      "family": "business-intelligence-specialist",
+      "parent": "designing-business-intelligence-workspaces",
+      "output": "dashboard-edit-view-modes-contract"
+    },
+    "designing-dashboard-filter-scope": {
+      "family": "business-intelligence-specialist",
+      "parent": "designing-business-intelligence-workspaces",
+      "output": "dashboard-filter-scope-contract"
+    },
+    "designing-drill-path-continuity": {
+      "family": "business-intelligence-specialist",
+      "parent": "designing-business-intelligence-workspaces",
+      "output": "drill-path-continuity-contract"
+    },
+    "designing-data-freshness-communication": {
+      "family": "business-intelligence-specialist",
+      "parent": "designing-business-intelligence-workspaces",
+      "output": "data-freshness-communication-contract"
+    },
+    "designing-metric-definition-comparison": {
+      "family": "business-intelligence-specialist",
+      "parent": "designing-business-intelligence-workspaces",
+      "output": "metric-definition-comparison-contract"
+    },
+    "designing-alert-to-analysis-handoffs": {
+      "family": "business-intelligence-specialist",
+      "parent": "designing-business-intelligence-workspaces",
+      "output": "alert-to-analysis-handoffs-contract"
+    },
+    "designing-saved-analysis-workspaces": {
+      "family": "business-intelligence-specialist",
+      "parent": "designing-business-intelligence-workspaces",
+      "output": "saved-analysis-workspaces-contract"
+    },
+    "designing-dashboard-permission-boundaries": {
+      "family": "business-intelligence-specialist",
+      "parent": "designing-business-intelligence-workspaces",
+      "output": "dashboard-permission-boundaries-contract"
+    },
+    "designing-data-lineage-exploration": {
+      "family": "business-intelligence-specialist",
+      "parent": "designing-business-intelligence-workspaces",
+      "output": "data-lineage-exploration-contract"
+    },
+    "designing-clinical-care-workflows": {
+      "family": "clinical",
+      "parent": "designing-high-stakes-decisions",
+      "output": "clinical-care-workflows-contract"
+    },
+    "designing-patient-identity-banners": {
+      "family": "clinical-specialist",
+      "parent": "designing-clinical-care-workflows",
+      "output": "patient-identity-banners-contract"
+    },
+    "designing-clinical-encounter-context": {
+      "family": "clinical-specialist",
+      "parent": "designing-clinical-care-workflows",
+      "output": "clinical-encounter-context-contract"
+    },
+    "designing-medication-order-entry": {
+      "family": "clinical-specialist",
+      "parent": "designing-clinical-care-workflows",
+      "output": "medication-order-entry-contract"
+    },
+    "designing-medication-reconciliation": {
+      "family": "clinical-specialist",
+      "parent": "designing-clinical-care-workflows",
+      "output": "medication-reconciliation-contract"
+    },
+    "designing-lab-result-review": {
+      "family": "clinical-specialist",
+      "parent": "designing-clinical-care-workflows",
+      "output": "lab-result-review-contract"
+    },
+    "designing-clinical-result-abnormality": {
+      "family": "clinical-specialist",
+      "parent": "designing-clinical-care-workflows",
+      "output": "clinical-result-abnormality-contract"
+    },
+    "designing-clinical-order-status": {
+      "family": "clinical-specialist",
+      "parent": "designing-clinical-care-workflows",
+      "output": "clinical-order-status-contract"
+    },
+    "designing-problem-list-management": {
+      "family": "clinical-specialist",
+      "parent": "designing-clinical-care-workflows",
+      "output": "problem-list-management-contract"
+    },
+    "designing-clinical-note-signing": {
+      "family": "clinical-specialist",
+      "parent": "designing-clinical-care-workflows",
+      "output": "clinical-note-signing-contract"
+    },
+    "designing-clinical-handoff-summaries": {
+      "family": "clinical-specialist",
+      "parent": "designing-clinical-care-workflows",
+      "output": "clinical-handoff-summaries-contract"
+    },
+    "designing-radiology-study-navigation": {
+      "family": "clinical-specialist",
+      "parent": "designing-clinical-care-workflows",
+      "output": "radiology-study-navigation-contract"
+    },
+    "designing-medical-image-measurements": {
+      "family": "clinical-specialist",
+      "parent": "designing-clinical-care-workflows",
+      "output": "medical-image-measurements-contract"
+    },
+    "designing-clinical-alert-fatigue-controls": {
+      "family": "clinical-specialist",
+      "parent": "designing-clinical-care-workflows",
+      "output": "clinical-alert-fatigue-controls-contract"
+    },
+    "designing-public-service-experiences": {
+      "family": "public-service",
+      "parent": "routing-ui-work",
+      "output": "public-service-experiences-contract"
+    },
+    "designing-service-eligibility-checkers": {
+      "family": "public-service-specialist",
+      "parent": "designing-public-service-experiences",
+      "output": "service-eligibility-checkers-contract"
+    },
+    "designing-government-application-journeys": {
+      "family": "public-service-specialist",
+      "parent": "designing-public-service-experiences",
+      "output": "government-application-journeys-contract"
+    },
+    "designing-service-evidence-upload": {
+      "family": "public-service-specialist",
+      "parent": "designing-public-service-experiences",
+      "output": "service-evidence-upload-contract"
+    },
+    "designing-save-and-return-service-flows": {
+      "family": "public-service-specialist",
+      "parent": "designing-public-service-experiences",
+      "output": "save-and-return-service-flows-contract"
+    },
+    "designing-assisted-digital-handoffs": {
+      "family": "public-service-specialist",
+      "parent": "designing-public-service-experiences",
+      "output": "assisted-digital-handoffs-contract"
+    },
+    "designing-public-service-status-tracking": {
+      "family": "public-service-specialist",
+      "parent": "designing-public-service-experiences",
+      "output": "public-service-status-tracking-contract"
+    },
+    "designing-identity-proofing-service-flows": {
+      "family": "public-service-specialist",
+      "parent": "designing-public-service-experiences",
+      "output": "identity-proofing-service-flows-contract"
+    },
+    "designing-benefit-entitlement-explanations": {
+      "family": "public-service-specialist",
+      "parent": "designing-public-service-experiences",
+      "output": "benefit-entitlement-explanations-contract"
+    },
+    "designing-public-service-change-reporting": {
+      "family": "public-service-specialist",
+      "parent": "designing-public-service-experiences",
+      "output": "public-service-change-reporting-contract"
+    },
+    "designing-marketplace-operations": {
+      "family": "marketplace",
+      "parent": "designing-commerce-checkout",
+      "output": "marketplace-operations-contract"
+    },
+    "designing-seller-onboarding": {
+      "family": "marketplace-specialist",
+      "parent": "designing-marketplace-operations",
+      "output": "seller-onboarding-contract"
+    },
+    "designing-listing-moderation-workflows": {
+      "family": "marketplace-specialist",
+      "parent": "designing-marketplace-operations",
+      "output": "listing-moderation-workflows-contract"
+    },
+    "designing-marketplace-inventory-availability": {
+      "family": "marketplace-specialist",
+      "parent": "designing-marketplace-operations",
+      "output": "marketplace-inventory-availability-contract"
+    },
+    "designing-order-exception-management": {
+      "family": "marketplace-specialist",
+      "parent": "designing-marketplace-operations",
+      "output": "order-exception-management-contract"
+    },
+    "designing-split-fulfillment-shipments": {
+      "family": "marketplace-specialist",
+      "parent": "designing-marketplace-operations",
+      "output": "split-fulfillment-shipments-contract"
+    },
+    "designing-marketplace-dispute-resolution": {
+      "family": "marketplace-specialist",
+      "parent": "designing-marketplace-operations",
+      "output": "marketplace-dispute-resolution-contract"
+    },
+    "designing-marketplace-payout-status": {
+      "family": "marketplace-specialist",
+      "parent": "designing-marketplace-operations",
+      "output": "marketplace-payout-status-contract"
+    },
+    "designing-buyer-seller-messaging-boundaries": {
+      "family": "marketplace-specialist",
+      "parent": "designing-marketplace-operations",
+      "output": "buyer-seller-messaging-boundaries-contract"
+    },
+    "designing-marketplace-trust-signals": {
+      "family": "marketplace-specialist",
+      "parent": "designing-marketplace-operations",
+      "output": "marketplace-trust-signals-contract"
+    },
+    "designing-realtime-communication-systems": {
+      "family": "realtime-communication",
+      "parent": "designing-collaboration-and-presence",
+      "output": "realtime-communication-systems-contract"
+    },
+    "designing-room-channel-membership": {
+      "family": "realtime-communication-specialist",
+      "parent": "designing-realtime-communication-systems",
+      "output": "room-channel-membership-contract"
+    },
+    "designing-message-sync-gap-recovery": {
+      "family": "realtime-communication-specialist",
+      "parent": "designing-realtime-communication-systems",
+      "output": "message-sync-gap-recovery-contract"
+    },
+    "designing-offline-message-reconciliation": {
+      "family": "realtime-communication-specialist",
+      "parent": "designing-realtime-communication-systems",
+      "output": "offline-message-reconciliation-contract"
+    },
+    "designing-end-to-end-encryption-state": {
+      "family": "realtime-communication-specialist",
+      "parent": "designing-realtime-communication-systems",
+      "output": "end-to-end-encryption-state-contract"
+    },
+    "designing-key-verification-flows": {
+      "family": "realtime-communication-specialist",
+      "parent": "designing-realtime-communication-systems",
+      "output": "key-verification-flows-contract"
+    },
+    "designing-call-join-device-checks": {
+      "family": "realtime-communication-specialist",
+      "parent": "designing-realtime-communication-systems",
+      "output": "call-join-device-checks-contract"
+    },
+    "designing-call-participant-layouts": {
+      "family": "realtime-communication-specialist",
+      "parent": "designing-realtime-communication-systems",
+      "output": "call-participant-layouts-contract"
+    },
+    "designing-screen-share-control": {
+      "family": "realtime-communication-specialist",
+      "parent": "designing-realtime-communication-systems",
+      "output": "screen-share-control-contract"
+    },
+    "designing-moderation-action-surfaces": {
+      "family": "realtime-communication-specialist",
+      "parent": "designing-realtime-communication-systems",
+      "output": "moderation-action-surfaces-contract"
+    },
+    "designing-ray-pointer-interaction": {
+      "family": "xr-specialist",
+      "parent": "designing-spatial-xr-interfaces",
+      "output": "ray-pointer-interaction-contract"
+    },
+    "designing-xr-near-far-interaction-transitions": {
+      "family": "xr-specialist",
+      "parent": "designing-spatial-xr-interfaces",
+      "output": "xr-near-far-interaction-transitions-contract"
+    },
+    "designing-xr-recenter-and-origin-recovery": {
+      "family": "xr-specialist",
+      "parent": "designing-spatial-xr-interfaces",
+      "output": "xr-recenter-and-origin-recovery-contract"
+    },
+    "designing-world-space-panel-placement": {
+      "family": "xr-specialist",
+      "parent": "designing-spatial-xr-interfaces",
+      "output": "world-space-panel-placement-contract"
+    },
+    "designing-spatial-ui-distance-scaling": {
+      "family": "xr-specialist",
+      "parent": "designing-spatial-xr-interfaces",
+      "output": "spatial-ui-distance-scaling-contract"
+    },
+    "designing-occlusion-aware-interface-placement": {
+      "family": "xr-specialist",
+      "parent": "designing-spatial-xr-interfaces",
+      "output": "occlusion-aware-interface-placement-contract"
+    },
+    "designing-spatial-anchor-persistence": {
+      "family": "xr-specialist",
+      "parent": "designing-spatial-xr-interfaces",
+      "output": "spatial-anchor-persistence-contract"
+    },
+    "designing-xr-locomotion-controls": {
+      "family": "xr-specialist",
+      "parent": "designing-spatial-xr-interfaces",
+      "output": "xr-locomotion-controls-contract"
+    },
+    "designing-xr-safety-boundaries": {
+      "family": "xr-specialist",
+      "parent": "designing-spatial-xr-interfaces",
+      "output": "xr-safety-boundaries-contract"
+    },
+    "designing-xr-dom-overlay-coordination": {
+      "family": "xr-specialist",
+      "parent": "designing-spatial-xr-interfaces",
+      "output": "xr-dom-overlay-coordination-contract"
+    },
+    "designing-recommendation-personalization-surfaces": {
+      "family": "personalization",
+      "parent": "routing-ui-work",
+      "output": "recommendation-personalization-surfaces-contract"
+    },
+    "designing-recommendation-explanations": {
+      "family": "personalization-specialist",
+      "parent": "designing-recommendation-personalization-surfaces",
+      "output": "recommendation-explanations-contract"
+    },
+    "designing-personalization-controls": {
+      "family": "personalization-specialist",
+      "parent": "designing-recommendation-personalization-surfaces",
+      "output": "personalization-controls-contract"
+    },
+    "designing-ranking-feedback-loops": {
+      "family": "personalization-specialist",
+      "parent": "designing-recommendation-personalization-surfaces",
+      "output": "ranking-feedback-loops-contract"
+    },
+    "designing-cold-start-preference-capture": {
+      "family": "personalization-specialist",
+      "parent": "designing-recommendation-personalization-surfaces",
+      "output": "cold-start-preference-capture-contract"
+    },
+    "designing-recommendation-diversity-controls": {
+      "family": "personalization-specialist",
+      "parent": "designing-recommendation-personalization-surfaces",
+      "output": "recommendation-diversity-controls-contract"
+    },
+    "designing-design-to-code-handoffs": {
+      "family": "design-to-code",
+      "parent": "routing-ui-work",
+      "output": "design-to-code-handoffs-contract"
+    },
+    "designing-component-mapping-to-code": {
+      "family": "design-to-code-specialist",
+      "parent": "designing-design-to-code-handoffs",
+      "output": "component-mapping-to-code-contract"
+    },
+    "designing-token-mapping-to-code": {
+      "family": "design-to-code-specialist",
+      "parent": "designing-design-to-code-handoffs",
+      "output": "token-mapping-to-code-contract"
+    },
+    "designing-responsive-intent-handoff": {
+      "family": "design-to-code-specialist",
+      "parent": "designing-design-to-code-handoffs",
+      "output": "responsive-intent-handoff-contract"
+    },
+    "designing-interaction-specification-handoff": {
+      "family": "design-to-code-specialist",
+      "parent": "designing-design-to-code-handoffs",
+      "output": "interaction-specification-handoff-contract"
+    },
+    "designing-design-code-drift-review": {
+      "family": "design-to-code-specialist",
+      "parent": "designing-design-to-code-handoffs",
+      "output": "design-code-drift-review-contract"
     }
   }
 }
