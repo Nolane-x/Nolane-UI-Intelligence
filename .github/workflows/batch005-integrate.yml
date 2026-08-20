@@ -1,0 +1,181 @@
+name: Integrate UI Industry Batch 005
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  integrate:
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.head_ref == 'build/ui-industry-1000-batch-005'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout Batch 005 head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Integrate locked graph metadata, provenance, and current-count docs
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import re
+          import runpy
+          from pathlib import Path
+
+          root = Path('.')
+          ns = runpy.run_path('tests/test_ui_industry_batch_005.py')
+          records = ns['BATCH_005']
+          if len(records) != 100 or len({r['slug'] for r in records}) != 100:
+              raise SystemExit('Batch 005 inventory is not exactly 100 unique skills')
+
+          graph_path = root / 'skills' / 'skill-graph.json'
+          graph = json.loads(graph_path.read_text(encoding='utf-8'))
+          skills = graph['skills']
+          if len(skills) not in (674, 774):
+              raise SystemExit(f'unexpected pre-integration graph count: {len(skills)}')
+
+          prior_outputs = {
+              node.get('output')
+              for slug, node in skills.items()
+              if slug not in {r['slug'] for r in records} and isinstance(node, dict)
+          }
+          batch_outputs = [r['output'] for r in records]
+          if len(batch_outputs) != len(set(batch_outputs)):
+              raise SystemExit('Batch 005 output collision inside locked inventory')
+          collisions = sorted(set(batch_outputs) & prior_outputs)
+          if collisions:
+              raise SystemExit(f'Batch 005 output collision with prior graph: {collisions}')
+
+          for record in records:
+              expected = {
+                  'family': record['family'],
+                  'parent': record['parent'],
+                  'output': record['output'],
+              }
+              existing = skills.get(record['slug'])
+              if existing is not None and existing != expected:
+                  raise SystemExit(f"metadata mismatch for {record['slug']}: {existing} != {expected}")
+              skills[record['slug']] = expected
+
+          if len(skills) != 774:
+              raise SystemExit(f'expected 774 graph nodes after integration, got {len(skills)}')
+          graph_path.write_text(json.dumps(graph, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+
+          # This ledger is mechanical bookkeeping only. It reads already-authored
+          # frontmatter and locked acceptance metadata; it never creates or edits skill prose.
+          grouped = {}
+          for record in records:
+              path = root / 'skills' / record['slug'] / 'SKILL.md'
+              text = path.read_text(encoding='utf-8')
+              match = re.search(r'^description:\s*(.+)$', text, flags=re.MULTILINE)
+              if not match:
+                  raise SystemExit(f'missing description: {record["slug"]}')
+              grouped.setdefault(record['court'], []).append((record, match.group(1).strip()))
+
+          court_titles = {
+              'design-system': 'Design-system governance',
+              'responsive': 'Responsive composition',
+              'typography': 'Typography',
+              'agent': 'AI / agent interaction',
+              'evidence': 'Research / critique / verification',
+          }
+          lines = [
+              '# UI Industry 1000 — Batch 005 provenance and ownership',
+              '',
+              'Date: 2026-08-20',
+              '',
+              'Batch 005 expands the canonical graph from **674 to 774** with exactly **100** new specialist faculties: 20 in each of five courts.',
+              '',
+              '## Authoring provenance',
+              '',
+              'Every canonical `SKILL.md` in this batch was authored individually. No loop, template, cartesian-product generator, numeric suffix expansion, keyword-swapping script, or bulk prose transformer created or modified canonical skill prose. Automation in this batch is restricted to deterministic graph bookkeeping, provenance extraction from already-authored frontmatter, count synchronization, and verification.',
+              '',
+              'The locked acceptance contract is `tests/test_ui_industry_batch_005.py`; the design and implementation records are under `docs/superpowers/`.',
+              '',
+          ]
+          for court, items in grouped.items():
+              lines += [f'## {court_titles[court]}', '', '| Skill | Parent | Family | Output | Owned boundary |', '|---|---|---|---|---|']
+              for record, description in items:
+                  safe_desc = description.replace('|', '\\|')
+                  lines.append(f"| `{record['slug']}` | `{record['parent']}` | `{record['family']}` | `{record['output']}` | {safe_desc} |")
+              lines.append('')
+          lines += [
+              '## Canonical acceptance boundary',
+              '',
+              'A Batch 005 node is canonical only through its distinct decision/failure ownership, exact graph contract, independent falsification guidance, and unique output. Shared headings are repository protocol, not evidence that two skills own the same intellectual content.',
+              '',
+              'Completion is gated by the dedicated Batch 005 acceptance suite, the full repository unit/contract suite, canonical validator, clean delivery tree, and a fresh Verify NUI run on the exact merge candidate.',
+              '',
+          ]
+          provenance = root / 'docs' / 'research' / 'UI-INDUSTRY-1000-BATCH-005.md'
+          provenance.write_text('\n'.join(lines), encoding='utf-8')
+
+          for path_name in ('README.md', 'README-VN.md', 'README-CN.md'):
+              path = root / path_name
+              text = path.read_text(encoding='utf-8')
+              if '674' not in text and '774' not in text:
+                  raise SystemExit(f'no current canonical count found in {path_name}')
+              path.write_text(text.replace('674', '774'), encoding='utf-8')
+
+          agents_path = root / 'AGENTS.md'
+          agents = agents_path.read_text(encoding='utf-8')
+          old = '**674 canonical skills**: the historical 174-skill baseline plus 500 independently owned UI-industry specialists across Batch 001, Batch 002, Batch 003 and Batch 004.'
+          new = '**774 canonical skills**: the historical 174-skill baseline plus 600 independently owned UI-industry specialists across Batch 001, Batch 002, Batch 003, Batch 004 and Batch 005.'
+          if old in agents:
+              agents = agents.replace(old, new)
+          elif new not in agents:
+              raise SystemExit('AGENTS current-count invariant was not found')
+          agents_path.write_text(agents, encoding='utf-8')
+          PY
+
+      - name: Remove one-time integration workflow before verification
+        run: git rm .github/workflows/batch005-integrate.yml
+
+      - name: Batch 005 acceptance gate
+        run: PYTHONPATH=src python -m unittest discover -s tests -p 'test_ui_industry_batch_005.py' -v
+
+      - name: Full repository regression gate
+        run: PYTHONPATH=src python -m unittest discover -s tests -v
+
+      - name: Canonical repository validator
+        run: PYTHONPATH=src python scripts/nui-validate .
+
+      - name: Clean-delivery assertions
+        shell: bash
+        run: |
+          test ! -e .github/workflows/batch005-integrate.yml
+          test -f docs/research/UI-INDUSTRY-1000-BATCH-005.md
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          graph = json.loads(Path('skills/skill-graph.json').read_text(encoding='utf-8'))
+          assert len(graph['skills']) == 774
+          for path in ('README.md', 'README-VN.md', 'README-CN.md', 'AGENTS.md'):
+              text = Path(path).read_text(encoding='utf-8')
+              assert '774' in text, path
+          leftovers = [p for p in Path('.').rglob('*batch005*') if p.is_file() and ('scripts' in p.parts or '.github' in p.parts)]
+          assert not leftovers, leftovers
+          PY
+          git diff --check
+
+      - name: Commit verified integrated tree
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add skills/skill-graph.json docs/research/UI-INDUSTRY-1000-BATCH-005.md README.md README-VN.md README-CN.md AGENTS.md
+          git status --short
+          git commit -m 'batch005: integrate 100 canonical specialists'
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
