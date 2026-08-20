@@ -36,6 +36,7 @@ jobs:
           git show origin/main:.github/workflows/verify.yml > .github/workflows/verify.yml
           rm -f .github/workflows/batch004-finalize.yml
           rm -f scripts/batch004_finalize.py
+          rm -f artifacts/README-RECOVERY-NOTE.tmp*
 
       - name: Run Batch 004 acceptance gate
         run: PYTHONPATH=src python -m unittest tests.test_ui_industry_batch_004 -v
@@ -65,7 +66,7 @@ jobs:
           GitHub Actions run: $GITHUB_RUN_ID
           Source revision entering finalization: $GITHUB_SHA
 
-          Batch 004 contains 200 independently authored skill bodies across ten courts. Deterministic automation was restricted to graph/document bookkeeping. Before this evidence file was created, the Batch 004 acceptance gate, full repository unittest/contract suite, completion-packet generation, and canonical validator all succeeded on a tree where the temporary Batch 004 workflow and finalizer script had already been removed and the canonical verifier had been restored from main.
+          Batch 004 contains 200 independently authored skill bodies across ten courts. Deterministic automation was restricted to graph/document bookkeeping. Before this evidence file was created, the Batch 004 acceptance gate, full repository unittest/contract suite, completion-packet generation, and canonical validator all succeeded on a tree where temporary Batch 004 tooling and README recovery markers had already been removed and the canonical verifier had been restored from main.
 
           The workflow executes the full suite and validator a second time after this evidence file exists, so the exact committed content receives the final gate.
           EOF
