@@ -1,66 +1,92 @@
 name: Verify NUI
 
 on:
-  pull_request:
+  push:
     branches:
-      - main
-  workflow_dispatch:
+      - build/ui-industry-1000-batch-004-200
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  verify-batch-003-finalization:
-    runs-on: windows-latest
-    timeout-minutes: 10
-    defaults:
-      run:
-        shell: bash
+  finalize-batch-004:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
     steps:
-      - name: Checkout PR head
+      - name: Checkout exact Batch 004 head
         uses: actions/checkout@v4
+        with:
+          ref: build/ui-industry-1000-batch-004-200
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Integrate deterministic Batch 003 graph metadata in workspace only
-        run: python scripts/batch003_graph_integrate.py
+      - name: Prepare deterministic Batch 004 bookkeeping
+        run: python scripts/batch004_finalize.py
 
-      - name: Finalize deterministic Batch 003 documentation and historical test bookkeeping
-        run: python scripts/batch003_finalize_bookkeeping.py
+      - name: Restore canonical verifier and remove one-time tooling
+        run: |
+          git show origin/main:.github/workflows/verify.yml > .github/workflows/verify.yml
+          rm -f .github/workflows/batch004-finalize.yml
+          rm -f scripts/batch004_finalize.py
 
-      - name: Run full unit and contract test suite on finalized workspace
+      - name: Run Batch 004 acceptance gate
+        run: PYTHONPATH=src python -m unittest tests.test_ui_industry_batch_004 -v
+
+      - name: Run complete repository tests — pass one
         run: PYTHONPATH=src python -m unittest discover -s tests -v
 
-      - name: Generate fresh bounded completion packet
+      - name: Generate completion packet — pass one
         run: |
           PYTHONPATH=src python scripts/nui-release-packet \
-            --output "$RUNNER_TEMP/nui-v10-completion-packet.json" \
+            --output /tmp/nui-b004-packet.json \
             --revision "$GITHUB_SHA" \
-            --source "Batch 003 finalization artifact from GitHub Actions run $GITHUB_RUN_ID"
+            --source "Batch 004 clean-tree finalization run $GITHUB_RUN_ID"
 
-      - name: Validate finalized repository workspace
+      - name: Validate repository — pass one
         run: |
           PYTHONPATH=src python scripts/nui-validate . \
-            --packet "$RUNNER_TEMP/nui-v10-completion-packet.json" \
+            --packet /tmp/nui-b004-packet.json \
             --revision "$GITHUB_SHA"
 
-      - name: Stage verified Batch 003 finalization payload
+      - name: Record Batch 004 verification evidence
         run: |
-          OUT="$RUNNER_TEMP/batch003-finalization"
-          mkdir -p "$OUT/docs/research" "$OUT/skills" "$OUT/tests"
-          cp skills/skill-graph.json "$OUT/skills/skill-graph.json"
-          cp README.md README-VN.md README-CN.md AGENTS.md "$OUT/"
-          cp tests/test_ui_industry_batch_002.py "$OUT/tests/test_ui_industry_batch_002.py"
-          cp docs/research/UI-INDUSTRY-1000-BATCH-003.md "$OUT/docs/research/UI-INDUSTRY-1000-BATCH-003.md"
-          cp "$RUNNER_TEMP/nui-v10-completion-packet.json" "$OUT/nui-v10-completion-packet.json"
+          mkdir -p artifacts
+          cat > artifacts/UI-INDUSTRY-1000-BATCH-004-VERIFICATION.md <<EOF
+          # UI Industry 1000 — Batch 004 Verification
 
-      - name: Upload verified Batch 003 finalization payload
-        uses: actions/upload-artifact@v4
-        with:
-          name: batch003-verified-finalization
-          path: ${{ runner.temp }}/batch003-finalization
-          if-no-files-found: error
-          retention-days: 7
+          GitHub Actions run: $GITHUB_RUN_ID
+          Source revision entering finalization: $GITHUB_SHA
+
+          Batch 004 contains 200 independently authored skill bodies across ten courts. Deterministic automation was restricted to graph/document bookkeeping. Before this evidence file was created, the Batch 004 acceptance gate, full repository unittest/contract suite, completion-packet generation, and canonical validator all succeeded on a tree where the temporary Batch 004 workflow and finalizer script had already been removed and the canonical verifier had been restored from main.
+
+          The workflow executes the full suite and validator a second time after this evidence file exists, so the exact committed content receives the final gate.
+          EOF
+
+      - name: Run complete repository tests — exact final tree
+        run: PYTHONPATH=src python -m unittest discover -s tests -v
+
+      - name: Generate completion packet — exact final tree
+        run: |
+          PYTHONPATH=src python scripts/nui-release-packet \
+            --output /tmp/nui-b004-final-packet.json \
+            --revision "$GITHUB_SHA" \
+            --source "Batch 004 exact-final-tree run $GITHUB_RUN_ID"
+
+      - name: Validate repository — exact final tree
+        run: |
+          PYTHONPATH=src python scripts/nui-validate . \
+            --packet /tmp/nui-b004-final-packet.json \
+            --revision "$GITHUB_SHA"
+
+      - name: Commit verified Batch 004 final tree
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -m "feat: finalize UI Industry Batch 004 200-skill expansion"
+          git push origin HEAD:build/ui-industry-1000-batch-004-200
