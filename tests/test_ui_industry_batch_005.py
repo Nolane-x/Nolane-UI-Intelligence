@@ -105,8 +105,8 @@ COURTS = {
     ],
     "xr": [
         "designing-ray-pointer-interaction",
-        "designing-gaze-targeting",
-        "designing-hand-direct-manipulation",
+        "designing-xr-near-far-interaction-transitions",
+        "designing-xr-recenter-and-origin-recovery",
         "designing-world-space-panel-placement",
         "designing-spatial-ui-distance-scaling",
         "designing-occlusion-aware-interface-placement",
