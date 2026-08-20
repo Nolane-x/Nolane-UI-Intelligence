@@ -1,39 +1,37 @@
 name: Verify NUI
 
 on:
-  push:
+  pull_request:
     branches:
-      - build/ui-industry-1000-batch-003
+      - main
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  integrate-batch-003:
+  verify-batch-003-graph:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Checkout Batch 003 branch
+      - name: Checkout PR head
         uses: actions/checkout@v4
-        with:
-          ref: build/ui-industry-1000-batch-003
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Integrate deterministic Batch 003 graph metadata
+      - name: Integrate deterministic Batch 003 graph metadata in workspace only
         run: python scripts/batch003_graph_integrate.py
 
-      - name: Run Batch 003 acceptance contract on integrated working tree
+      - name: Run Batch 003 acceptance contract on integrated workspace
         run: PYTHONPATH=src python -m unittest tests.test_ui_industry_batch_003 -v
 
-      - name: Commit graph only after acceptance passes
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add skills/skill-graph.json
-          git diff --cached --quiet && exit 0
-          git commit -m "feat: integrate UI Industry Batch 003 into canonical graph"
-          git push origin HEAD:build/ui-industry-1000-batch-003
+      - name: Upload verified canonical graph candidate
+        uses: actions/upload-artifact@v4
+        with:
+          name: batch003-verified-graph
+          path: skills/skill-graph.json
+          if-no-files-found: error
+          retention-days: 7
