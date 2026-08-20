@@ -1922,6 +1922,506 @@
       "family": "trust-specialist",
       "parent": "designing-authentication-and-passkeys",
       "output": "account-recovery-flow-contract"
+    },
+    "designing-accessibility-navigation-landmarks": {
+      "family": "accessibility-specialist",
+      "parent": "designing-accessible-interfaces",
+      "output": "accessibility-landmark-contract"
+    },
+    "designing-skip-navigation-mechanisms": {
+      "family": "accessibility-specialist",
+      "parent": "designing-accessible-interfaces",
+      "output": "skip-navigation-contract"
+    },
+    "designing-live-region-announcement-strategy": {
+      "family": "accessibility-specialist",
+      "parent": "designing-screen-reader-experiences",
+      "output": "live-region-announcement-contract"
+    },
+    "designing-accessible-names-and-descriptions": {
+      "family": "accessibility-specialist",
+      "parent": "designing-screen-reader-experiences",
+      "output": "accessible-name-description-contract"
+    },
+    "designing-focus-order-and-restoration": {
+      "family": "accessibility-specialist",
+      "parent": "designing-accessible-interfaces",
+      "output": "focus-order-restoration-contract"
+    },
+    "designing-roving-focus-composites": {
+      "family": "accessibility-specialist",
+      "parent": "designing-keyboard-power-user-ux",
+      "output": "roving-focus-contract"
+    },
+    "designing-zoom-reflow-resilience": {
+      "family": "accessibility-specialist",
+      "parent": "designing-low-vision-and-high-contrast",
+      "output": "zoom-reflow-contract"
+    },
+    "designing-text-spacing-resilience": {
+      "family": "accessibility-specialist",
+      "parent": "designing-low-vision-and-high-contrast",
+      "output": "text-spacing-resilience-contract"
+    },
+    "designing-forced-colors-adaptation": {
+      "family": "accessibility-specialist",
+      "parent": "designing-low-vision-and-high-contrast",
+      "output": "forced-colors-contract"
+    },
+    "designing-color-independent-status-encoding": {
+      "family": "accessibility-specialist",
+      "parent": "designing-accessible-interfaces",
+      "output": "color-independent-status-contract"
+    },
+    "designing-target-size-and-spacing": {
+      "family": "accessibility-specialist",
+      "parent": "designing-pointer-touch-pen-input",
+      "output": "target-size-spacing-contract"
+    },
+    "designing-voice-control-targetability": {
+      "family": "accessibility-specialist",
+      "parent": "designing-voice-conversational-ui",
+      "output": "voice-targetability-contract"
+    },
+    "designing-time-limit-accessibility": {
+      "family": "accessibility-specialist",
+      "parent": "designing-accessible-interfaces",
+      "output": "time-limit-accessibility-contract"
+    },
+    "designing-pointer-cancellation-accessibility": {
+      "family": "accessibility-specialist",
+      "parent": "designing-pointer-touch-pen-input",
+      "output": "pointer-cancellation-contract"
+    },
+    "designing-caption-presentation": {
+      "family": "accessibility-media-specialist",
+      "parent": "designing-accessible-interfaces",
+      "output": "caption-presentation-contract"
+    },
+    "designing-audio-description-access": {
+      "family": "accessibility-media-specialist",
+      "parent": "designing-accessible-interfaces",
+      "output": "audio-description-access-contract"
+    },
+    "designing-transcript-navigation": {
+      "family": "accessibility-media-specialist",
+      "parent": "designing-accessible-interfaces",
+      "output": "transcript-navigation-contract"
+    },
+    "designing-accessible-data-table-navigation": {
+      "family": "accessibility-data-specialist",
+      "parent": "designing-accessible-interfaces",
+      "output": "accessible-data-table-contract"
+    },
+    "designing-nonvisual-chart-equivalents": {
+      "family": "accessibility-data-specialist",
+      "parent": "designing-data-visualization",
+      "output": "nonvisual-chart-equivalent-contract"
+    },
+    "designing-accessible-verification-challenges": {
+      "family": "accessibility-trust-specialist",
+      "parent": "designing-authentication-and-passkeys",
+      "output": "accessible-verification-contract"
+    },
+    "designing-locale-selection": {
+      "family": "locale-specialist",
+      "parent": "designing-localized-interfaces",
+      "output": "locale-selection-contract"
+    },
+    "designing-language-negotiation-and-fallback": {
+      "family": "locale-specialist",
+      "parent": "designing-localized-interfaces",
+      "output": "language-negotiation-fallback-contract"
+    },
+    "designing-bidirectional-layouts": {
+      "family": "locale-specialist",
+      "parent": "designing-localized-interfaces",
+      "output": "bidirectional-layout-contract"
+    },
+    "designing-rtl-component-mirroring": {
+      "family": "locale-specialist",
+      "parent": "designing-localized-interfaces",
+      "output": "rtl-mirroring-contract"
+    },
+    "designing-mixed-direction-text": {
+      "family": "locale-specialist",
+      "parent": "designing-localized-interfaces",
+      "output": "mixed-direction-text-contract"
+    },
+    "designing-script-sensitive-typography": {
+      "family": "locale-specialist",
+      "parent": "designing-localized-interfaces",
+      "output": "script-sensitive-typography-contract"
+    },
+    "designing-global-font-fallback": {
+      "family": "locale-specialist",
+      "parent": "designing-localized-interfaces",
+      "output": "global-font-fallback-contract"
+    },
+    "designing-translation-expansion-resilience": {
+      "family": "locale-specialist",
+      "parent": "designing-localized-interfaces",
+      "output": "translation-expansion-contract"
+    },
+    "designing-plural-sensitive-copy": {
+      "family": "locale-specialist",
+      "parent": "designing-localized-interfaces",
+      "output": "plural-sensitive-copy-contract"
+    },
+    "designing-grammatical-gender-variants": {
+      "family": "locale-specialist",
+      "parent": "designing-localized-interfaces",
+      "output": "grammatical-gender-contract"
+    },
+    "designing-locale-number-formatting": {
+      "family": "locale-specialist",
+      "parent": "designing-localized-interfaces",
+      "output": "locale-number-format-contract"
+    },
+    "designing-locale-date-time-formatting": {
+      "family": "locale-specialist",
+      "parent": "designing-localized-interfaces",
+      "output": "locale-date-time-format-contract"
+    },
+    "designing-time-zone-selection": {
+      "family": "locale-specialist",
+      "parent": "designing-localized-interfaces",
+      "output": "time-zone-selection-contract"
+    },
+    "designing-non-gregorian-calendar-support": {
+      "family": "locale-specialist",
+      "parent": "designing-localized-interfaces",
+      "output": "calendar-system-contract"
+    },
+    "designing-person-name-localization": {
+      "family": "locale-specialist",
+      "parent": "designing-localized-interfaces",
+      "output": "person-name-localization-contract"
+    },
+    "designing-locale-aware-sorting": {
+      "family": "locale-specialist",
+      "parent": "designing-localized-interfaces",
+      "output": "locale-sorting-contract"
+    },
+    "designing-locale-aware-search": {
+      "family": "locale-specialist",
+      "parent": "designing-search",
+      "output": "locale-search-contract"
+    },
+    "designing-transliteration-workflows": {
+      "family": "locale-specialist",
+      "parent": "designing-localized-interfaces",
+      "output": "transliteration-contract"
+    },
+    "designing-multilingual-content-language-labeling": {
+      "family": "locale-specialist",
+      "parent": "designing-localized-interfaces",
+      "output": "content-language-label-contract"
+    },
+    "designing-pseudolocalization-stress-testing": {
+      "family": "locale-specialist",
+      "parent": "designing-localized-interfaces",
+      "output": "pseudolocalization-stress-contract"
+    },
+    "designing-media-playback-experiences": {
+      "family": "media",
+      "parent": "routing-ui-work",
+      "output": "media-playback-contract"
+    },
+    "designing-audio-player-controls": {
+      "family": "media-specialist",
+      "parent": "designing-media-playback-experiences",
+      "output": "audio-player-control-contract"
+    },
+    "designing-video-player-controls": {
+      "family": "media-specialist",
+      "parent": "designing-media-playback-experiences",
+      "output": "video-player-control-contract"
+    },
+    "designing-media-timeline-scrubbing": {
+      "family": "media-specialist",
+      "parent": "designing-media-playback-experiences",
+      "output": "media-scrubbing-contract"
+    },
+    "designing-playback-speed-control": {
+      "family": "media-specialist",
+      "parent": "designing-media-playback-experiences",
+      "output": "playback-speed-contract"
+    },
+    "designing-subtitle-track-selection": {
+      "family": "media-specialist",
+      "parent": "designing-media-playback-experiences",
+      "output": "subtitle-track-contract"
+    },
+    "designing-audio-track-selection": {
+      "family": "media-specialist",
+      "parent": "designing-media-playback-experiences",
+      "output": "audio-track-contract"
+    },
+    "designing-media-chapter-navigation": {
+      "family": "media-specialist",
+      "parent": "designing-media-playback-experiences",
+      "output": "media-chapter-contract"
+    },
+    "designing-synchronized-transcript-playback": {
+      "family": "media-specialist",
+      "parent": "designing-media-playback-experiences",
+      "output": "synchronized-transcript-contract"
+    },
+    "designing-picture-in-picture-playback": {
+      "family": "media-specialist",
+      "parent": "designing-media-playback-experiences",
+      "output": "picture-in-picture-contract"
+    },
+    "designing-fullscreen-media-modes": {
+      "family": "media-specialist",
+      "parent": "designing-media-playback-experiences",
+      "output": "fullscreen-media-contract"
+    },
+    "designing-live-stream-player-states": {
+      "family": "media-specialist",
+      "parent": "designing-media-playback-experiences",
+      "output": "live-stream-state-contract"
+    },
+    "designing-live-stream-latency-control": {
+      "family": "media-specialist",
+      "parent": "designing-media-playback-experiences",
+      "output": "live-stream-latency-contract"
+    },
+    "designing-media-buffering-recovery": {
+      "family": "media-specialist",
+      "parent": "designing-media-playback-experiences",
+      "output": "media-buffering-recovery-contract"
+    },
+    "designing-adaptive-media-quality-control": {
+      "family": "media-specialist",
+      "parent": "designing-media-playback-experiences",
+      "output": "adaptive-media-quality-contract"
+    },
+    "designing-casting-and-external-playback": {
+      "family": "media-specialist",
+      "parent": "designing-media-playback-experiences",
+      "output": "external-playback-contract"
+    },
+    "designing-offline-media-downloads": {
+      "family": "media-specialist",
+      "parent": "designing-media-playback-experiences",
+      "output": "offline-media-contract"
+    },
+    "designing-media-queue-and-up-next": {
+      "family": "media-specialist",
+      "parent": "designing-media-playback-experiences",
+      "output": "media-queue-contract"
+    },
+    "designing-media-clip-selection": {
+      "family": "media-specialist",
+      "parent": "designing-media-playback-experiences",
+      "output": "media-clip-selection-contract"
+    },
+    "designing-waveform-navigation": {
+      "family": "media-specialist",
+      "parent": "designing-media-playback-experiences",
+      "output": "waveform-navigation-contract"
+    },
+    "designing-file-transfer-and-storage": {
+      "family": "file",
+      "parent": "routing-ui-work",
+      "output": "file-transfer-storage-contract"
+    },
+    "designing-resumable-file-uploads": {
+      "family": "file-specialist",
+      "parent": "designing-file-transfer-and-storage",
+      "output": "resumable-upload-contract"
+    },
+    "designing-multi-file-upload-queues": {
+      "family": "file-specialist",
+      "parent": "designing-file-transfer-and-storage",
+      "output": "multi-file-upload-queue-contract"
+    },
+    "designing-upload-conflict-resolution": {
+      "family": "file-specialist",
+      "parent": "designing-file-transfer-and-storage",
+      "output": "upload-conflict-contract"
+    },
+    "designing-download-progress-and-retry": {
+      "family": "file-specialist",
+      "parent": "designing-file-transfer-and-storage",
+      "output": "download-progress-retry-contract"
+    },
+    "designing-file-browser-interfaces": {
+      "family": "file-specialist",
+      "parent": "designing-file-transfer-and-storage",
+      "output": "file-browser-contract"
+    },
+    "designing-folder-tree-navigation": {
+      "family": "file-specialist",
+      "parent": "designing-file-transfer-and-storage",
+      "output": "folder-tree-contract"
+    },
+    "designing-file-preview-surfaces": {
+      "family": "file-specialist",
+      "parent": "designing-file-transfer-and-storage",
+      "output": "file-preview-contract"
+    },
+    "designing-file-conversion-workflows": {
+      "family": "file-specialist",
+      "parent": "designing-file-transfer-and-storage",
+      "output": "file-conversion-contract"
+    },
+    "designing-structured-import-mapping": {
+      "family": "file-specialist",
+      "parent": "designing-file-transfer-and-storage",
+      "output": "structured-import-mapping-contract"
+    },
+    "designing-export-configuration": {
+      "family": "file-specialist",
+      "parent": "designing-file-transfer-and-storage",
+      "output": "export-configuration-contract"
+    },
+    "designing-cloud-sync-status": {
+      "family": "file-specialist",
+      "parent": "designing-file-transfer-and-storage",
+      "output": "cloud-sync-status-contract"
+    },
+    "designing-storage-quota-management": {
+      "family": "file-specialist",
+      "parent": "designing-file-transfer-and-storage",
+      "output": "storage-quota-contract"
+    },
+    "designing-trash-and-restore": {
+      "family": "file-specialist",
+      "parent": "designing-file-transfer-and-storage",
+      "output": "trash-restore-contract"
+    },
+    "designing-file-locking-and-checkout": {
+      "family": "file-specialist",
+      "parent": "designing-file-transfer-and-storage",
+      "output": "file-lock-checkout-contract"
+    },
+    "designing-document-signing-workflows": {
+      "family": "file-specialist",
+      "parent": "designing-file-transfer-and-storage",
+      "output": "document-signing-contract"
+    },
+    "designing-file-rename-move-conflicts": {
+      "family": "file-specialist",
+      "parent": "designing-file-transfer-and-storage",
+      "output": "file-move-conflict-contract"
+    },
+    "designing-file-sharing-expiration": {
+      "family": "file-specialist",
+      "parent": "designing-file-transfer-and-storage",
+      "output": "file-share-expiration-contract"
+    },
+    "designing-sensitive-file-handling": {
+      "family": "file-specialist",
+      "parent": "designing-file-transfer-and-storage",
+      "output": "sensitive-file-handling-contract"
+    },
+    "designing-large-file-transfer-estimation": {
+      "family": "file-specialist",
+      "parent": "designing-file-transfer-and-storage",
+      "output": "large-transfer-estimation-contract"
+    },
+    "designing-device-integration-interfaces": {
+      "family": "device",
+      "parent": "adapting-platform-conventions",
+      "output": "device-integration-contract"
+    },
+    "designing-camera-capture-flows": {
+      "family": "device-specialist",
+      "parent": "designing-device-integration-interfaces",
+      "output": "camera-capture-contract"
+    },
+    "designing-document-scanning-capture": {
+      "family": "device-specialist",
+      "parent": "designing-device-integration-interfaces",
+      "output": "document-scanning-contract"
+    },
+    "designing-barcode-scanning": {
+      "family": "device-specialist",
+      "parent": "designing-device-integration-interfaces",
+      "output": "barcode-scanning-contract"
+    },
+    "designing-qr-code-scanning": {
+      "family": "device-specialist",
+      "parent": "designing-device-integration-interfaces",
+      "output": "qr-scanning-contract"
+    },
+    "designing-bluetooth-device-pairing": {
+      "family": "device-specialist",
+      "parent": "designing-device-integration-interfaces",
+      "output": "bluetooth-pairing-contract"
+    },
+    "designing-nearby-device-discovery": {
+      "family": "device-specialist",
+      "parent": "designing-device-integration-interfaces",
+      "output": "nearby-device-discovery-contract"
+    },
+    "designing-nfc-interactions": {
+      "family": "device-specialist",
+      "parent": "designing-device-integration-interfaces",
+      "output": "nfc-interaction-contract"
+    },
+    "designing-location-permission-recovery": {
+      "family": "device-specialist",
+      "parent": "designing-device-integration-interfaces",
+      "output": "location-permission-recovery-contract"
+    },
+    "designing-background-location-awareness": {
+      "family": "device-specialist",
+      "parent": "designing-device-integration-interfaces",
+      "output": "background-location-contract"
+    },
+    "designing-printer-selection-and-status": {
+      "family": "device-specialist",
+      "parent": "designing-device-integration-interfaces",
+      "output": "printer-selection-status-contract"
+    },
+    "designing-print-preview": {
+      "family": "device-specialist",
+      "parent": "designing-device-integration-interfaces",
+      "output": "print-preview-contract"
+    },
+    "designing-label-printing": {
+      "family": "device-specialist",
+      "parent": "designing-device-integration-interfaces",
+      "output": "label-printing-contract"
+    },
+    "designing-scanner-device-selection": {
+      "family": "device-specialist",
+      "parent": "designing-device-integration-interfaces",
+      "output": "scanner-selection-contract"
+    },
+    "designing-external-display-handoffs": {
+      "family": "device-specialist",
+      "parent": "designing-device-integration-interfaces",
+      "output": "external-display-handoff-contract"
+    },
+    "designing-device-orientation-transitions": {
+      "family": "device-specialist",
+      "parent": "designing-device-integration-interfaces",
+      "output": "device-orientation-contract"
+    },
+    "designing-shared-device-session-boundaries": {
+      "family": "device-specialist",
+      "parent": "designing-device-integration-interfaces",
+      "output": "shared-device-session-contract"
+    },
+    "designing-device-battery-and-connectivity-state": {
+      "family": "device-specialist",
+      "parent": "designing-device-integration-interfaces",
+      "output": "device-health-state-contract"
+    },
+    "designing-hardware-interruption-recovery": {
+      "family": "device-specialist",
+      "parent": "designing-device-integration-interfaces",
+      "output": "hardware-interruption-recovery-contract"
+    },
+    "designing-sensor-permission-and-availability": {
+      "family": "device-specialist",
+      "parent": "designing-device-integration-interfaces",
+      "output": "sensor-availability-contract"
     }
   }
 }
