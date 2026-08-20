@@ -11,6 +11,10 @@ description: Use when a visual builder binds interface properties or repeated st
 
 This specialist owns how authored UI connects to data. It does not design database/query systems themselves. The builder must make data scope and runtime uncertainty concrete enough that authors can reason about what value appears, why it appears, and what happens when the source is absent, delayed, malformed or mutable.
 
+## Decision ownership
+
+This skill owns the decision boundary between a passive read binding, a derived transformation, and a side-effecting write-back. It must resolve which source and lexical/runtime scope a target reads from, which type conversion is legitimate, which missing or asynchronous states are represented, and when a binding becomes a mutation that requires validation and rollback semantics. Query meaning and storage authority remain with their domain owners; this skill prevents the builder from disguising those external semantics behind an apparently simple property picker.
+
 ## Binding model
 
 Represent each binding as a typed path from a named source/context to an interface target, optionally through explicit transformations. Show the current context chain: page inputs, route params, authenticated user, query/result, repeated-item variable, component property, local state, derived expression. Avoid magic names that resolve differently depending on where a component is moved.
