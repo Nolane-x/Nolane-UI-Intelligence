@@ -5,7 +5,6 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class CleanDeliveryContractTests(unittest.TestCase):
-    # RED on the Batch 002 merge head: the old self-finalizer leaked into main.
     def test_registered_verifier_is_read_only_and_has_no_batch_mutation_step(self):
         workflow = (ROOT / ".github" / "workflows" / "verify.yml").read_text(encoding="utf-8")
         self.assertIn("permissions:\n  contents: read", workflow)
@@ -22,11 +21,12 @@ class CleanDeliveryContractTests(unittest.TestCase):
         for path in forbidden:
             self.assertFalse(path.exists(), f"one-time integration tool leaked into product tree: {path.relative_to(ROOT)}")
 
-    def test_repository_policy_matches_the_374_node_batch_002_graph(self):
+    def test_repository_policy_matches_the_674_node_batch_004_graph(self):
         agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
-        self.assertIn("**374 canonical skills**", agents)
-        self.assertIn("200 independently owned UI-industry specialists", agents)
+        self.assertIn("**674 canonical skills**", agents)
+        self.assertIn("500 independently owned UI-industry specialists", agents)
         self.assertNotIn("currently contains **274 canonical skills**", agents)
+        self.assertNotIn("currently contains **374 canonical skills**", agents)
 
 
 if __name__ == "__main__":
