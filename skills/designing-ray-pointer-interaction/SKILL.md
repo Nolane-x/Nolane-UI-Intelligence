@@ -12,6 +12,10 @@ A ray pointer converts orientation into distant targeting. Its failure modes are
 
 The parent owns spatial XR composition. Existing `designing-gaze-hand-spatial-input` owns gaze/hand intent arbitration broadly. This skill narrows to projected-ray targeting mechanics for distant UI, especially hit testing, visual feedback, and commit stability.
 
+## Decision ownership
+
+This skill owns the decision boundary from ray-source confidence to a committed distant target: which intersections are eligible, how depth and interaction layers establish priority, how much stabilization or angular tolerance is allowed, when press captures a target, and when tracking or occlusion must cancel rather than guess. General gaze/hand intent arbitration remains with its broader owner; this skill is accountable for making projected-ray acquisition and commit deterministic enough that the same scene geometry cannot silently select a different object as tracking noise changes.
+
 ## Ray State Model
 Separate source tracking, ray availability, candidate intersection, hover/aim state, press/commit state, drag/capture state, and cancelled/lost tracking. A visible line is not evidence that a valid target exists. Hide or downgrade the ray when tracking is too uncertain to support precise interaction.
 
