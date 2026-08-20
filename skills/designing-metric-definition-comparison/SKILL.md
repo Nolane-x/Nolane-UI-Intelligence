@@ -12,6 +12,10 @@ Metric comparison should answer “why are these numbers different?” by compar
 
 This skill narrows the parent workspace to definition-level comparison among governed or exploratory metrics.
 
+## Decision ownership
+
+This skill owns the decision about which differences between metric definitions are semantically consequential and which are implementation noise. It must compare population, aggregation, time semantics, units, null policy, lineage, lifecycle and ownership on a common frame, then preserve UNKNOWN where evidence cannot establish equivalence. Creating or governing the metric itself belongs elsewhere; this skill is accountable for whether a reviewer can justify why two definitions should or should not be treated as the same business meaning.
+
 ## Comparison Dimensions
 Normalize definitions into comparable fields: entity/population, numerator and denominator when relevant, aggregation, deduplication, inclusion/exclusion predicates, attribution window, time grain, currency/unit treatment, null policy, dimensional availability, source lineage, owner, and lifecycle status. Preserve raw formula or SQL as supporting evidence, not as the sole comparison representation.
 
