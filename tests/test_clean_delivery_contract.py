@@ -25,6 +25,13 @@ class CleanDeliveryContractTests(unittest.TestCase):
             "one-time integration tooling leaked into the product tree",
         )
 
+    def test_completed_batches_do_not_ship_pending_checkpoint_artifacts(self):
+        checkpoints = sorted(
+            path.relative_to(ROOT).as_posix()
+            for path in ROOT.joinpath("artifacts").glob("UI-INDUSTRY-1000-BATCH-*-CHECKPOINT.md")
+        )
+        self.assertEqual([], checkpoints, "completed UI-industry batches must not ship stale pending checkpoints")
+
     def test_materialized_ui_industry_batches_keep_provenance_records(self):
         records = [
             ROOT / "docs" / "research" / "UI-INDUSTRY-1000-BATCH-001.md",
