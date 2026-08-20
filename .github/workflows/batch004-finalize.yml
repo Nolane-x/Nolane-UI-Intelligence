@@ -28,6 +28,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Normalize Batch 004 metadata contracts
+        run: python scripts/batch004_metadata_contract_fix.py
+
       - name: Prepare deterministic graph and documentation bookkeeping
         run: python scripts/batch004_finalize.py
 
@@ -97,6 +100,7 @@ jobs:
                     retention-days: 90
           EOF
           rm -f scripts/batch004_finalize.py
+          rm -f scripts/batch004_metadata_contract_fix.py
           rm -f .github/workflows/batch004-finalize.yml
           rm -f artifacts/README-RECOVERY-NOTE.tmp*
 
