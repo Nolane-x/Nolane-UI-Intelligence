@@ -1,19 +1,16 @@
 name: Verify NUI
 
 on:
-  push:
-    branches:
-      - build/ui-industry-1000-batch-004-200
   pull_request:
     branches:
       - main
     types: [opened, synchronize, reopened, edited]
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  finalize-batch-004:
+  verify-batch-004-finalization:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
@@ -28,10 +25,10 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Prepare deterministic Batch 004 bookkeeping
+      - name: Prepare deterministic Batch 004 bookkeeping in workspace only
         run: python scripts/batch004_finalize.py
 
-      - name: Restore canonical verifier and remove one-time tooling
+      - name: Materialize the clean final tree in workspace
         run: |
           git show origin/main:.github/workflows/verify.yml > .github/workflows/verify.yml
           rm -f .github/workflows/batch004-finalize.yml
@@ -49,7 +46,7 @@ jobs:
           PYTHONPATH=src python scripts/nui-release-packet \
             --output /tmp/nui-b004-packet.json \
             --revision "$GITHUB_SHA" \
-            --source "Batch 004 clean-tree finalization run $GITHUB_RUN_ID"
+            --source "Batch 004 read-only finalization run $GITHUB_RUN_ID"
 
       - name: Validate repository — pass one
         run: |
@@ -57,41 +54,59 @@ jobs:
             --packet /tmp/nui-b004-packet.json \
             --revision "$GITHUB_SHA"
 
-      - name: Record Batch 004 verification evidence
+      - name: Record verification evidence in final workspace
         run: |
           mkdir -p artifacts
           cat > artifacts/UI-INDUSTRY-1000-BATCH-004-VERIFICATION.md <<EOF
           # UI Industry 1000 — Batch 004 Verification
 
           GitHub Actions run: $GITHUB_RUN_ID
-          Source revision entering finalization: $GITHUB_SHA
+          Source revision entering read-only finalization: $GITHUB_SHA
 
-          Batch 004 contains 200 independently authored skill bodies across ten courts. Deterministic automation was restricted to graph/document bookkeeping. Before this evidence file was created, the Batch 004 acceptance gate, full repository unittest/contract suite, completion-packet generation, and canonical validator all succeeded on a tree where temporary Batch 004 tooling and README recovery markers had already been removed and the canonical verifier had been restored from main.
+          Batch 004 contains 200 independently authored skill bodies across ten courts. Deterministic automation was restricted to graph/document bookkeeping. Before this record was written, the Batch 004 acceptance suite, complete repository unittest/contract suite, bounded completion-packet generation, and canonical validator succeeded on a workspace where temporary Batch 004 construction tooling had already been removed and the canonical verifier had already been restored from main.
 
-          The workflow executes the full suite and validator a second time after this evidence file exists, so the exact committed content receives the final gate.
+          The complete suite and validator are executed again after this evidence file exists. The uploaded artifact is therefore a verified finalization payload, not a pre-test candidate.
           EOF
 
-      - name: Run complete repository tests — exact final tree
+      - name: Run complete repository tests — exact final workspace
         run: PYTHONPATH=src python -m unittest discover -s tests -v
 
-      - name: Generate completion packet — exact final tree
+      - name: Generate completion packet — exact final workspace
         run: |
           PYTHONPATH=src python scripts/nui-release-packet \
             --output /tmp/nui-b004-final-packet.json \
             --revision "$GITHUB_SHA" \
-            --source "Batch 004 exact-final-tree run $GITHUB_RUN_ID"
+            --source "Batch 004 exact-final-workspace run $GITHUB_RUN_ID"
 
-      - name: Validate repository — exact final tree
+      - name: Validate repository — exact final workspace
         run: |
           PYTHONPATH=src python scripts/nui-validate . \
             --packet /tmp/nui-b004-final-packet.json \
             --revision "$GITHUB_SHA"
 
-      - name: Commit verified Batch 004 final tree
+      - name: Stage verified finalization payload
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git diff --cached --quiet && exit 0
-          git commit -m "feat: finalize UI Industry Batch 004 200-skill expansion"
-          git push origin HEAD:build/ui-industry-1000-batch-004-200
+          mkdir -p /tmp/batch004-finalization/.github/workflows
+          mkdir -p /tmp/batch004-finalization/docs/research
+          mkdir -p /tmp/batch004-finalization/skills
+          mkdir -p /tmp/batch004-finalization/tests
+          mkdir -p /tmp/batch004-finalization/artifacts
+          cp .github/workflows/verify.yml /tmp/batch004-finalization/.github/workflows/verify.yml
+          cp skills/skill-graph.json /tmp/batch004-finalization/skills/skill-graph.json
+          cp README.md README-VN.md README-CN.md AGENTS.md /tmp/batch004-finalization/
+          cp tests/test_ui_industry_batch_003.py /tmp/batch004-finalization/tests/test_ui_industry_batch_003.py
+          cp docs/research/UI-INDUSTRY-1000-BATCH-004.md /tmp/batch004-finalization/docs/research/UI-INDUSTRY-1000-BATCH-004.md
+          cp artifacts/UI-INDUSTRY-1000-BATCH-004-VERIFICATION.md /tmp/batch004-finalization/artifacts/UI-INDUSTRY-1000-BATCH-004-VERIFICATION.md
+          cp /tmp/nui-b004-final-packet.json /tmp/batch004-finalization/nui-v10-completion-packet.json
+          cat > /tmp/batch004-finalization/DELETE-TEMPORARY-FILES.txt <<EOF
+          scripts/batch004_finalize.py
+          .github/workflows/batch004-finalize.yml
+          EOF
+
+      - name: Upload verified Batch 004 finalization payload
+        uses: actions/upload-artifact@v4
+        with:
+          name: batch004-verified-finalization
+          path: /tmp/batch004-finalization
+          if-no-files-found: error
+          retention-days: 7
