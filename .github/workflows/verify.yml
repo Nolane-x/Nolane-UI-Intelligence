@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   verify-batch-004-finalization:
-    runs-on: ubuntu-latest
+    runs-on: macos-14
     timeout-minutes: 25
     steps:
       - name: Checkout exact Batch 004 head
