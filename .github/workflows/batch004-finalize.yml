@@ -8,6 +8,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: batch004-write-finalization
+  cancel-in-progress: true
+
 jobs:
   finalize:
     runs-on: ubuntu-latest
@@ -27,10 +31,74 @@ jobs:
       - name: Prepare deterministic graph and documentation bookkeeping
         run: python scripts/batch004_finalize.py
 
-      - name: Remove one-time construction tooling before verification
+      - name: Materialize canonical read-only verifier and remove one-time tooling
         run: |
+          cat > .github/workflows/verify.yml <<'EOF'
+          name: Verify NUI
+
+          on:
+            push:
+              branches:
+                - main
+                - "build/**"
+            pull_request:
+              branches:
+                - main
+
+          permissions:
+            contents: read
+
+          jobs:
+            verify:
+              runs-on: ubuntu-latest
+              timeout-minutes: 10
+              steps:
+                - name: Checkout
+                  uses: actions/checkout@v4
+
+                - name: Setup Python
+                  uses: actions/setup-python@v5
+                  with:
+                    python-version: "3.12"
+
+                - name: Run unit and contract tests
+                  run: PYTHONPATH=src python -m unittest discover -s tests -v
+
+                - name: Generate fresh bounded completion packet
+                  run: |
+                    PYTHONPATH=src python scripts/nui-release-packet \
+                      --output /tmp/nui-v10-completion-packet.json \
+                      --revision "$GITHUB_SHA" \
+                      --source "GitHub Actions run $GITHUB_RUN_ID"
+
+                - name: Validate repository and exact-revision completion packet
+                  run: |
+                    PYTHONPATH=src python scripts/nui-validate . \
+                      --packet /tmp/nui-v10-completion-packet.json \
+                      --revision "$GITHUB_SHA"
+
+                - name: Upload verified completion packet
+                  uses: actions/upload-artifact@v4
+                  with:
+                    name: nui-v10-completion-packet
+                    path: /tmp/nui-v10-completion-packet.json
+                    if-no-files-found: error
+                    retention-days: 90
+
+                - name: Package complete project
+                  run: zip -q -r /tmp/Nolane-UI-Intelligence-v10-complete.zip . -x '.git/*'
+
+                - name: Upload complete project archive
+                  uses: actions/upload-artifact@v4
+                  with:
+                    name: nui-v10-complete-project
+                    path: /tmp/Nolane-UI-Intelligence-v10-complete.zip
+                    if-no-files-found: error
+                    retention-days: 90
+          EOF
           rm -f scripts/batch004_finalize.py
           rm -f .github/workflows/batch004-finalize.yml
+          rm -f artifacts/README-RECOVERY-NOTE.tmp*
 
       - name: Run Batch 004 acceptance gate
         run: PYTHONPATH=src python -m unittest tests.test_ui_industry_batch_004 -v
@@ -60,7 +128,7 @@ jobs:
           GitHub Actions run: $GITHUB_RUN_ID
           Source head before finalization commit: $GITHUB_SHA
 
-          The final working tree used for this evidence contains 200 Batch 004 skill bodies, a 674-node canonical graph, synchronized README/AGENTS counts, migrated historical count invariants, and no Batch 004 construction workflow or finalizer script.
+          The final working tree used for this evidence contains 200 Batch 004 skill bodies, a 674-node canonical graph, synchronized README/AGENTS counts, migrated historical count invariants, a read-only canonical verifier, and no Batch 004 construction workflow or finalizer script.
 
           Pass-one gates completed successfully before this record was written:
 
