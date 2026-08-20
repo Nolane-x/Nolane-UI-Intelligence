@@ -11,6 +11,10 @@ description: Use when builder-authored elements or branches appear based on data
 
 This owner governs runtime presence rules inside a visual authoring system. It is not merely toggling `display:none`; a condition can alter whether an object exists, occupies layout, participates in focus/reading order, loads data, executes interactions, or has an alternate branch.
 
+## Decision ownership
+
+This skill owns the decision about what a condition *means* for presence: hidden-but-mounted, structurally removed, layout-collapsed, replaced by an alternate branch, disabled/read-only, or deferred while authority/data is unknown. It also owns how the editor exposes false and indeterminate branches without pretending client visibility is authorization. Backend permission truth, experiment assignment, and feature-policy authority remain external; this skill binds those signals to explicit render, accessibility, focus, layout, and authoring consequences.
+
 ## Conditional model
 
 Classify conditions by authority: user/permission, data value, feature/config flag, experiment assignment, local interaction state, environment, responsive range or product lifecycle. Do not mix materially different authorities into one opaque expression without showing provenance. A permission condition must not be presented as a cosmetic visibility preference if backend authorization still matters.
