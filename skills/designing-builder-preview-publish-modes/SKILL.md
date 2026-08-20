@@ -11,6 +11,10 @@ description: Use when a visual builder separates edit, preview, staged/test, and
 
 This owner establishes evidence boundaries between authoring and executable delivery. Preview is for observing behavior without editor interference; publish is a release operation that binds a concrete revision and environment. Neither may be treated as a cosmetic toolbar toggle.
 
+## Decision ownership
+
+This skill owns the decision boundary between editable authoring state, executable preview, staged/test delivery, and published runtime truth. For each mode it must resolve which revision is included, which data/auth/environment is active, whether side effects are real or isolated, and whether generated artifacts are ephemeral or release-bound. Deployment mechanics remain with delivery owners; this skill prevents the builder from presenting materially different execution authorities as interchangeable “modes.”
+
 ## Mode contract
 
 Define named modes with exact capabilities: edit, interactive preview, device/responsive preview, test/stage environment, published production, and optionally historical published revision. For each, state whether editor overlays exist, whether side effects are mocked/real, which data and auth identity are used, what asset/code generation has run, and whether unsaved editor changes are included.
