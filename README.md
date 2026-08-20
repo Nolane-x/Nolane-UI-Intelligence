@@ -166,3 +166,275 @@ The agent does not preload every rule. It routes to the **smallest sufficient gr
 NUI currently preserves **374 canonical skills**. The number is descriptive, not a license to create overlapping experts. The long-term UI-industry roadmap targets broader coverage toward 1,000 canonical faculties while preserving distinct decision ownership and minimal routing.
 
 A skill is allowed to exist only when it owns a distinct decision or failure class. NUI deliberately avoids turning every new idea into another overlapping “expert.” Batch 001 added 100 independently authored specialists across motion, rich controls, direct manipulation, spreadsheet/data interaction, enterprise workflows, billing, scheduling, geospatial interaction and historical state. Batch 002 adds 100 more independently authored specialists across high-friction input, navigation/findability, feedback/recovery, messaging/collaboration, onboarding, commerce lifecycle, content publishing, developer operations, and trust/account lifecycle. See [`docs/research/UI-INDUSTRY-1000-BATCH-001.md`](docs/research/UI-INDUSTRY-1000-BATCH-001.md) and [`docs/research/UI-INDUSTRY-1000-BATCH-002.md`](docs/research/UI-INDUSTRY-1000-BATCH-002.md) for exact inventories, ownership, provenance and non-generation constraints.
+
+The graph spans areas such as:
+
+- product intent, jobs, users and capability modeling;
+- information architecture and settings systems;
+- interaction states, rich components and direct manipulation;
+- typography, color, spacing, surfaces, icons and visual hierarchy;
+- motion semantics and reduced-motion equivalence;
+- responsive, mobile, desktop, TV, XR, automotive, wearables and specialist surfaces;
+- keyboard, touch, pen, remote, voice, gaze and other modalities;
+- accessibility, cognitive accessibility, low vision, screen readers, AAC and accessible media;
+- authentication, trust, privacy, financial, medical and other high-impact domains;
+- AI/agent uncertainty, streaming, provenance, correction and autonomous action;
+- editor/canvas workspaces, professional desktop workspaces and complex instrument architecture;
+- external UI-source research, authority selection and safe adaptation;
+- visual media opportunity mapping, sourcing, authoring and integration;
+- product closure, route/action reachability and responsive capability preservation;
+- rendered criticism, adequacy criticism and release verification;
+- behavioral evaluation, mutation, ablation and empirical claim discipline.
+
+The canonical bootstrap is:
+
+```text
+skills/using-nolane-ui/SKILL.md
+```
+
+The canonical graph is:
+
+```text
+skills/skill-graph.json
+```
+
+---
+
+## Product completeness: broad before narrow
+
+A major NUI rule is simple:
+
+> **Think broadly before deciding what to omit.**
+
+When a product is underspecified, NUI first discovers a plausible capability envelope and then dispositions capabilities as:
+
+```text
+REQUIRED
+EXPECTED
+OPTIONAL
+EXCLUDED
+UNKNOWN
+```
+
+This prevents the common AI failure where the first four obvious screens become the whole product.
+
+A “full sales management platform,” for example, may need the agent to consider—not automatically implement—areas such as account/workspace lifecycle, roles and permissions, catalog/SKU, inventory, orders, fulfillment, returns/refunds, customers, payments, reporting, search, notifications, import/export, integrations, settings, audit/history and recovery.
+
+The goal is **intentional scope**, not enterprise bloat.
+
+---
+
+## Professional tools should behave like professional tools
+
+For editor-, IDE-, design-, media- and operations-class products, NUI reasons in terms of **instrument architecture**, not “more buttons.”
+
+Depending on the product, that can include:
+
+```text
+workspace shell
+→ mode/tool system
+→ selection model
+→ primary work surface
+→ context inspector
+→ hierarchy/layers
+→ asset/resource system
+→ command/search surface
+→ history / undo / redo
+→ import/export
+→ collaboration
+→ status/progress
+→ persistence
+```
+
+Completeness does not mean showing everything simultaneously. Progressive disclosure, keyboard power paths, contextual controls and density strategy remain design decisions.
+
+---
+
+## Flagship visual intelligence
+
+For `flagship`, `exceptional` and `experiential` work, NUI does not accept “premium, clean, modern” as proof of art direction.
+
+High-ambition work must establish a visual thesis and explore **materially different candidates** across composition, type system, material system and signature mechanism. It then resolves:
+
+- attention architecture;
+- typographic voice and optical hierarchy;
+- composition rhythm and density;
+- color/material causality;
+- motion purpose;
+- domain-native signature;
+- bounded reference frontier;
+- generic-transfer resistance;
+- responsive re-authoring;
+- closed render/critique/correction cycles.
+
+The point is not to mathematically prove beauty. The point is to make unsupported high-end visual claims **falsifiable**.
+
+---
+
+## Render first. Critique the thing users actually see.
+
+NUI distinguishes a design specification from its rendered result.
+
+A high-ambition workflow can require:
+
+```text
+render
+→ screenshot / runtime observation
+→ focal hierarchy critique
+→ typography / spacing / density critique
+→ platform-residue audit
+→ responsive critique
+→ correction
+→ re-render
+→ A/B comparison
+```
+
+This catches failures that source inspection alone misses: wrong wrapping, accidental scrollbars, browser defaults, optical misalignment, weak hierarchy, poor crops, cramped mobile states, inconsistent materials and motion that feels disconnected from the actual interaction.
+
+---
+
+## Modern interface residue audit
+
+A polished product can still feel cheap when one low-level control falls back to accidental platform chrome.
+
+NUI explicitly examines classes such as:
+
+```text
+scrollbars
+selects
+file inputs
+date/time controls
+number/range controls
+focus / selection / caret
+resize handles
+drag ghosts
+native validation UI
+context menus
+tooltips / popovers
+cursors
+overscroll behavior
+```
+
+The rule is **not** “customize everything.” Native controls can be correct. The failure is accidental residue, inconsistent styling, or customization that destroys usability/accessibility.
+
+---
+
+## References without cloning
+
+NUI uses external design systems, products, research and UI libraries as **mechanism sources**, not trade-dress targets.
+
+A reference may teach:
+
+- density zoning;
+- editorial scale contrast;
+- command architecture;
+- motion continuity;
+- material layering;
+- data treatment;
+- platform behavior;
+- accessibility semantics.
+
+It does not become permission to reproduce a recognizable product aesthetic.
+
+The source flow is:
+
+```text
+need
+→ inspect current source
+→ identify authority role
+→ extract mechanism
+→ define transfer boundary
+→ adapt to local product truth
+→ verify local runtime
+```
+
+---
+
+## V10: Behavioral Design Intelligence & Empirical Proof
+
+NUI v10 adds a second question after “is the repository structurally deep?”
+
+> **Does using NUI actually change agent behavior in the intended direction?**
+
+The V10 evaluation plane includes:
+
+- **13 falsifiable behavioral hypotheses**;
+- **48 benchmark tasks across 12 task families**;
+- public-generation vs evaluator-hidden boundaries;
+- semantic mutations, targeted ablations and placebo controls;
+- model/runtime/prompt/tool-budget provenance;
+- treatment-blind pairwise judging;
+- matched comparison units;
+- exact statistical gates;
+- bounded promotion from structural evidence to empirical claims.
+
+NUI does not collapse this into one “NUI score.” Product completeness can improve while another dimension does not. Those trade-offs should remain visible.
+
+Repository-only CI currently supports a **structural evidence ceiling**. It does not pretend synthetic fixtures are proof that NUI is universally superior across real models.
+
+---
+
+## What NUI is not
+
+NUI is not:
+
+- a React component library;
+- a Tailwind preset;
+- a Figma kit;
+- a single system prompt;
+- a collection of trendy screenshots;
+- an automatic accessibility certification service;
+- a universal numerical beauty function;
+- permission to copy Apple, Linear, Stripe, Canva, CapCut, VS Code or any other product;
+- proof that every AI output becomes excellent just because NUI is present.
+
+It is an attempt to build a **design cognition layer around an AI agent** and make that layer inspectable, routable and testable.
+
+---
+
+## Repository map
+
+```text
+skills/                         canonical design faculties
+skills/skill-graph.json        routing / ownership graph
+knowledge/                     authority, ontology, benchmark and evidence knowledge
+schemas/                       typed evidence contracts
+src/nolane_ui/                 deterministic routing / validation kernels
+evals/                         adversarial and behavioral fixtures
+benchmarks/v10/                V10 behavioral benchmark corpus
+.adapters / bridges            thin agent-specific discovery surfaces
+.agents/skills/nolane-ui/      Codex / Agent Skills bridge
+.claude/skills/nolane-ui/      Claude Code bridge
+scripts/nui-agent-export       agent projection CLI
+scripts/nui-mcp-server         local MCP entry point
+docs/AGENT-INTEGRATION.md      complete AI-agent setup guide
+docs/research/                 research provenance and bounded synthesis
+```
+
+---
+
+## Verify NUI
+
+```bash
+python -m unittest discover -s tests -v
+python scripts/nui-validate .
+```
+
+Repository validation proves structural and evidence-contract invariants for the checked revision. It does not, by itself, prove that a future interface is beautiful, usable, accessible, safe, lawful or empirically superior.
+
+---
+
+## License
+
+MIT. See [`LICENSE`](LICENSE).
+
+---
+
+<div align="center">
+
+### AI already knows how to generate UI.
+### Nolane UI Intelligence is an attempt to make it learn how to **design, inspect and justify** one.
+
+**Start:** [`skills/using-nolane-ui/SKILL.md`](skills/using-nolane-ui/SKILL.md) · **Agent setup:** [`docs/AGENT-INTEGRATION.md`](docs/AGENT-INTEGRATION.md)
+
+</div>
