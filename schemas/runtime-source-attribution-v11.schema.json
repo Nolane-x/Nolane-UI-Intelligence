@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nolane.dev/schemas/runtime-source-attribution-v11.schema.json",
+  "title": "NUI V11 Runtime Source Attribution",
+  "type": "object",
+  "required": [
+    "version",
+    "status",
+    "rendered_identity",
+    "candidates",
+    "failures",
+    "mutation_authorized",
+    "selected_candidate_id",
+    "selection_authority",
+    "claim_boundary"
+  ],
+  "properties": {
+    "version": {"const": 11},
+    "status": {"enum": ["EXACT", "CANDIDATE", "AMBIGUOUS", "UNKNOWN"]},
+    "rendered_identity": {
+      "type": "object",
+      "required": ["locator"],
+      "properties": {
+        "locator": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": true
+    },
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "candidate_id",
+          "source_path",
+          "source_digest",
+          "range",
+          "attribution_mechanisms",
+          "evidence_refs",
+          "confidence"
+        ],
+        "properties": {
+          "candidate_id": {"type": "string", "minLength": 1},
+          "source_path": {"type": "string", "minLength": 1},
+          "source_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+          "range": {
+            "oneOf": [
+              {"type": "null"},
+              {
+                "type": "object",
+                "required": ["start", "end"],
+                "properties": {
+                  "start": {"type": "integer", "minimum": 0},
+                  "end": {"type": "integer", "minimum": 0}
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "attribution_mechanisms": {
+            "type": "array",
+            "minItems": 1,
+            "items": {"type": "string", "minLength": 1}
+          },
+          "evidence_refs": {
+            "type": "array",
+            "minItems": 1,
+            "items": {"type": "string", "minLength": 1}
+          },
+          "confidence": {"enum": ["LOW", "MEDIUM", "HIGH"]},
+          "provider_metadata": {"type": "object"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "failures": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "mutation_authorized": {"type": "boolean"},
+    "selected_candidate_id": {
+      "oneOf": [
+        {"type": "null"},
+        {"type": "string", "minLength": 1}
+      ]
+    },
+    "selection_authority": {
+      "oneOf": [
+        {"type": "null"},
+        {"enum": ["evidence-exact", "explicit-candidate-selection"]}
+      ]
+    },
+    "claim_boundary": {"const": "source-attribution-only"}
+  },
+  "additionalProperties": false
+}
