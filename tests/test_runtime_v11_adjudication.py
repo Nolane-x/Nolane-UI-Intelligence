@@ -13,7 +13,11 @@ CONTEXTUAL_RULE = {
     "description": "Focus visibility is suppressed.",
     "falsifier": "A visible replacement focus indicator exists.",
     "owner_hints": ["designing-accessible-interfaces"],
-    "source_provenance": {"kind": "independent-nui-rule", "mechanism_sources": [], "implementation": "independently-authored"},
+    "source_provenance": {
+        "kind": "independent-nui-rule",
+        "research_inspiration": ["test fixture"],
+        "implementation": "independently-authored",
+    },
 }
 
 MECHANICAL_RULE = {
