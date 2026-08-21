@@ -149,7 +149,7 @@ def inject_playwright_preview(
 """
     applied = bool(page.evaluate(expression, payload))
     return {
-        "status": "INJECTED" if applied else "TARGET_NOT_REFIND",
+        "status": "INJECTED" if applied else "TARGET_NOT_REFOUND",
         "candidate_id": candidate_id.strip(),
         "selector": selector.strip(),
         "claim_boundary": "preview-transport-only",
