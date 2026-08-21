@@ -35,7 +35,7 @@ def prepare_blinded_candidates(candidates: list[dict[str, Any]]) -> dict[str, An
     return {
         "version": 11,
         "candidates": blinded,
-        "excluded_fields": sorted(_FORBIDDEN_JUDGE_KEYS),
+        "redaction_applied": True,
         "claim_boundary": "blinded-comparison-input-only",
     }
 
