@@ -11,17 +11,29 @@ from typing import Any
 from .evidence import assess_evidence_staleness, validate_evidence_binding
 from .registry import load_rule_registry
 
-_REQUIRED_ARTIFACTS = (
+# Canonical installation inventory for the mergeable V11 Phase 2 runtime
+# foundation. Keep this explicit and public so tests, packaging checks and
+# future project installers can share one definition rather than maintaining
+# quiet, incomplete copies of what "runtime installed" means.
+REQUIRED_RUNTIME_ARTIFACTS = (
     "scripts/nui-detect",
+    "scripts/nui-runtime-doctor",
     "knowledge/runtime-detector-rules-v11.json",
     "schemas/runtime-browser-observation-v11.schema.json",
     "schemas/runtime-evidence-binding-v11.schema.json",
+    "schemas/runtime-live-session-v11.schema.json",
+    "src/nolane_ui/runtime_v11/__init__.py",
     "src/nolane_ui/runtime_v11/contracts.py",
     "src/nolane_ui/runtime_v11/registry.py",
     "src/nolane_ui/runtime_v11/detector.py",
     "src/nolane_ui/runtime_v11/adjudication.py",
+    "src/nolane_ui/runtime_v11/cli.py",
     "src/nolane_ui/runtime_v11/browser.py",
     "src/nolane_ui/runtime_v11/hooks.py",
+    "src/nolane_ui/runtime_v11/evidence.py",
+    "src/nolane_ui/runtime_v11/doctor.py",
+    "src/nolane_ui/runtime_v11/doctor_cli.py",
+    "src/nolane_ui/runtime_v11/live.py",
 )
 
 
@@ -55,7 +67,7 @@ def diagnose_runtime_state(
     root_path = Path(root)
     findings: list[dict[str, Any]] = []
 
-    missing_artifacts = [path for path in _REQUIRED_ARTIFACTS if not (root_path / path).exists()]
+    missing_artifacts = [path for path in REQUIRED_RUNTIME_ARTIFACTS if not (root_path / path).exists()]
     if missing_artifacts:
         findings.append(_finding(
             "runtime-installation.missing-artifact",
@@ -74,7 +86,7 @@ def diagnose_runtime_state(
                 "info",
                 "mention",
                 "V11 runtime detector registry is structurally valid.",
-                {"rule_count": len(registry["rules"])},
+                {"rule_count": len(registry["rules"]), "required_artifact_count": len(REQUIRED_RUNTIME_ARTIFACTS)},
             ))
         except ValueError as exc:
             findings.append(_finding(
@@ -145,4 +157,4 @@ def diagnose_runtime_state(
     }
 
 
-__all__ = ["diagnose_runtime_state"]
+__all__ = ["REQUIRED_RUNTIME_ARTIFACTS", "diagnose_runtime_state"]
