@@ -12,6 +12,17 @@ from nolane_ui.runtime_v11.live import (
 )
 
 
+def closure_payload(decision="CLEAN", resolved=1, persisted=0, unknown=0, regression=0):
+    return {
+        "evidence_ref": "render:b",
+        "runtime_closure_decision": decision,
+        "resolved_count": resolved,
+        "persisted_count": persisted,
+        "unknown_count": unknown,
+        "regression_count": regression,
+    }
+
+
 class RuntimeV11LiveTests(unittest.TestCase):
     def make_preview_session(self):
         session = create_live_session(
@@ -23,16 +34,53 @@ class RuntimeV11LiveTests(unittest.TestCase):
         session = append_live_event(session, "variants_ready", {"variant_ids": ["a", "b", "c"]})
         return append_live_event(session, "preview_started", {"variant_ids": ["a", "b", "c"]})
 
-    def test_legal_transition_chain_reaches_closed(self):
+    def make_applied_session(self):
         session = self.make_preview_session()
         session = append_live_event(session, "accept", {"variant_id": "b"})
-        session = append_live_event(session, "apply", {"new_source_digest": sha256_text("<Hero variant='b' />")})
-        session = append_live_event(session, "reobserve", {"evidence_ref": "render:b"})
+        return append_live_event(session, "apply", {"new_source_digest": sha256_text("<Hero variant='b' />")})
+
+    def test_legal_transition_chain_reaches_closed(self):
+        session = self.make_applied_session()
+        session = append_live_event(session, "reobserve", closure_payload())
         session = append_live_event(session, "close", {})
         result = validate_live_session(session)
         self.assertTrue(result["valid"], result["errors"])
         self.assertEqual(session["state"], "CLOSED")
         self.assertEqual([event["seq"] for event in session["events"]], list(range(1, len(session["events"]) + 1)))
+
+    def test_reobserve_requires_bounded_runtime_closure_summary(self):
+        session = self.make_applied_session()
+        for payload in (
+            {"evidence_ref": "render:b"},
+            {**closure_payload(), "runtime_closure_decision": "VERIFIED"},
+            {**closure_payload(), "resolved_count": -1},
+        ):
+            with self.subTest(payload=payload):
+                with self.assertRaises(ValueError):
+                    append_live_event(session, "reobserve", payload)
+
+    def test_clean_reobserve_rejects_persisted_unknown_or_regression_counts(self):
+        session = self.make_applied_session()
+        for field in ("persisted_count", "unknown_count", "regression_count"):
+            with self.subTest(field=field):
+                payload = closure_payload()
+                payload[field] = 1
+                with self.assertRaises(ValueError):
+                    append_live_event(session, "reobserve", payload)
+
+    def test_open_reobservation_can_close_live_session_without_release_claim(self):
+        session = self.make_applied_session()
+        session = append_live_event(
+            session,
+            "reobserve",
+            closure_payload(decision="OPEN", resolved=1, persisted=1, regression=1),
+        )
+        self.assertEqual(session["state"], "REOBSERVED")
+        session = append_live_event(session, "close", {})
+        self.assertEqual(session["state"], "CLOSED")
+        self.assertTrue(validate_live_session(session)["valid"])
+        reobserve_event = next(event for event in session["events"] if event["type"] == "reobserve")
+        self.assertEqual(reobserve_event["payload"]["runtime_closure_decision"], "OPEN")
 
     def test_illegal_skip_is_rejected(self):
         session = create_live_session(
@@ -52,9 +100,7 @@ class RuntimeV11LiveTests(unittest.TestCase):
         self.assertTrue(validate_live_session(session)["valid"])
 
     def test_interrupt_after_source_apply_is_rejected(self):
-        session = self.make_preview_session()
-        session = append_live_event(session, "accept", {"variant_id": "b"})
-        session = append_live_event(session, "apply", {"new_source_digest": sha256_text("applied")})
+        session = self.make_applied_session()
         with self.assertRaises(ValueError):
             append_live_event(session, "interrupt", {"reason": "browser disconnected after apply"})
 
