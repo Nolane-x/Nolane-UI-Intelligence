@@ -11,17 +11,22 @@ from typing import Any
 from .evidence import assess_evidence_staleness, validate_evidence_binding
 from .registry import load_rule_registry
 
-# Canonical installation inventory for the mergeable V11 Phase 2 runtime
-# foundation. Keep this explicit and public so tests, packaging checks and
-# future project installers can share one definition rather than maintaining
-# quiet, incomplete copies of what "runtime installed" means.
+# Canonical installation inventory for the mergeable V11 runtime foundation.
+# Keep this explicit and public so tests, packaging checks and future project
+# installers share one definition rather than quiet, incomplete copies of what
+# "runtime installed" means.
 REQUIRED_RUNTIME_ARTIFACTS = (
     "scripts/nui-detect",
     "scripts/nui-runtime-doctor",
     "knowledge/runtime-detector-rules-v11.json",
+    "knowledge/aesthetic-trend-tells-v11.json",
     "schemas/runtime-browser-observation-v11.schema.json",
     "schemas/runtime-evidence-binding-v11.schema.json",
     "schemas/runtime-live-session-v11.schema.json",
+    "schemas/aesthetic-generation-intent-v11.schema.json",
+    "schemas/aesthetic-trend-tells-v11.schema.json",
+    "schemas/aesthetic-taste-court-v11.schema.json",
+    "schemas/aesthetic-design-memory-v11.schema.json",
     "src/nolane_ui/runtime_v11/__init__.py",
     "src/nolane_ui/runtime_v11/contracts.py",
     "src/nolane_ui/runtime_v11/registry.py",
@@ -34,6 +39,12 @@ REQUIRED_RUNTIME_ARTIFACTS = (
     "src/nolane_ui/runtime_v11/doctor.py",
     "src/nolane_ui/runtime_v11/doctor_cli.py",
     "src/nolane_ui/runtime_v11/live.py",
+    "src/nolane_ui/runtime_v11/aesthetic_intent.py",
+    "src/nolane_ui/runtime_v11/aesthetic_governor.py",
+    "src/nolane_ui/runtime_v11/genericity.py",
+    "src/nolane_ui/runtime_v11/design_memory.py",
+    "src/nolane_ui/runtime_v11/taste_court.py",
+    "src/nolane_ui/runtime_v11/quality_residue.py",
 )
 
 
