@@ -2,7 +2,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from nolane_ui.runtime_v11.doctor import diagnose_runtime_state
+from nolane_ui.runtime_v11.doctor import REQUIRED_RUNTIME_ARTIFACTS, diagnose_runtime_state
 from nolane_ui.runtime_v11.evidence import build_evidence_binding, sha256_text
 
 
@@ -14,6 +14,30 @@ class RuntimeV11DoctorTests(unittest.TestCase):
         report = diagnose_runtime_state(ROOT)
         self.assertTrue(report["valid"], report["findings"])
         self.assertEqual(report["blocking_count"], 0)
+
+    def test_required_artifact_inventory_covers_phase2_foundation(self):
+        required = set(REQUIRED_RUNTIME_ARTIFACTS)
+        expected = {
+            "scripts/nui-detect",
+            "scripts/nui-runtime-doctor",
+            "knowledge/runtime-detector-rules-v11.json",
+            "schemas/runtime-browser-observation-v11.schema.json",
+            "schemas/runtime-evidence-binding-v11.schema.json",
+            "schemas/runtime-live-session-v11.schema.json",
+            "src/nolane_ui/runtime_v11/__init__.py",
+            "src/nolane_ui/runtime_v11/contracts.py",
+            "src/nolane_ui/runtime_v11/registry.py",
+            "src/nolane_ui/runtime_v11/detector.py",
+            "src/nolane_ui/runtime_v11/adjudication.py",
+            "src/nolane_ui/runtime_v11/cli.py",
+            "src/nolane_ui/runtime_v11/browser.py",
+            "src/nolane_ui/runtime_v11/hooks.py",
+            "src/nolane_ui/runtime_v11/evidence.py",
+            "src/nolane_ui/runtime_v11/doctor.py",
+            "src/nolane_ui/runtime_v11/doctor_cli.py",
+            "src/nolane_ui/runtime_v11/live.py",
+        }
+        self.assertTrue(expected.issubset(required), expected - required)
 
     def test_missing_canonical_detector_artifact_is_reported(self):
         with tempfile.TemporaryDirectory() as tmp:
