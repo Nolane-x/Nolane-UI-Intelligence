@@ -40,6 +40,14 @@ from .experiment_v10 import validate_experiment_manifest, validate_run_record, p
 from .judging_v10 import blind_run_for_judge, pair_orientation, detect_leakage, validate_judgment
 from .stats_v10 import paired_delta, bootstrap_ci, summarize_paired, evaluate_ablation_recovery, aggregate_dimension
 from .claims_v10 import promote_claim, validate_claim
+from .runtime_v11 import (
+    build_hook_capability as build_runtime_hook_capability,
+    load_rule_registry as load_runtime_rule_registry,
+    scan_path as scan_runtime_path,
+    scan_text as scan_runtime_text,
+    validate_browser_observation as validate_runtime_browser_observation,
+    validate_rule_registry as validate_runtime_rule_registry,
+)
 
 __all__ = [
     "validate_completion_packet", "validate_repository", "validate_skill_graph",
@@ -57,6 +65,8 @@ __all__ = [
     "promote_claim", "validate_claim",
     "query_ui_ecosystem", "validate_ui_ecosystem_registry", "validate_reference_ledger",
     "validate_source_selection", "validate_rich_interaction_contract", "validate_ui_integration_audit",
+    "build_runtime_hook_capability", "load_runtime_rule_registry", "scan_runtime_path", "scan_runtime_text",
+    "validate_runtime_browser_observation", "validate_runtime_rule_registry",
 ]
 
 from .ecosystem import (
