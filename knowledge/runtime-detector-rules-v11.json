@@ -121,6 +121,42 @@
       "falsifier": "The committed visual direction explicitly makes gradient material a semantic/signature mechanism and rendered critique confirms hierarchy and legibility remain strong.",
       "owner_hints": ["exploring-aesthetic-directions", "designing-color-systems"],
       "source_provenance": {"kind": "independent-nui-rule", "mechanism_sources": ["pbakaus/impeccable:gradient-text-antipattern", "nui-comparative-taste"], "implementation": "independently-authored"}
+    },
+    {
+      "rule_id": "runtime.browser.script-error",
+      "domain": "runtime-integrity",
+      "class": "mechanical",
+      "tier": "release",
+      "severity": "critical",
+      "engines": ["browser"],
+      "description": "The observed surface emitted an uncaught runtime or console error during the inspected state.",
+      "falsifier": "A repeat observation on the same revision/state proves the message came from unrelated tooling or a non-product source and the product runtime is clean.",
+      "owner_hints": ["designing-resilient-ui-states"],
+      "source_provenance": {"kind": "independent-nui-rule", "mechanism_sources": ["browser-runtime-observation", "pbakaus/impeccable:runtime-error-detection"], "implementation": "independently-authored"}
+    },
+    {
+      "rule_id": "runtime.browser.document-horizontal-overflow",
+      "domain": "layout-integrity",
+      "class": "contextual",
+      "tier": "release",
+      "severity": "major",
+      "engines": ["browser"],
+      "description": "The rendered document is wider than its client viewport, producing page-level horizontal overflow that requires an explicit interaction/layout justification.",
+      "falsifier": "The surface is an intentionally pannable fixed canvas/instrument or a re-observation proves horizontal overflow is confined to an explicit operable sub-surface rather than the document.",
+      "owner_hints": ["designing-responsive-adaptive-layouts", "critiquing-input-modality"],
+      "source_provenance": {"kind": "independent-nui-rule", "mechanism_sources": ["rendered-layout-geometry"], "implementation": "independently-authored"}
+    },
+    {
+      "rule_id": "runtime.browser.text-occlusion",
+      "domain": "layout-integrity",
+      "class": "mechanical",
+      "tier": "release",
+      "severity": "major",
+      "engines": ["browser"],
+      "description": "Driver hit-testing reports essential visible text as covered by another rendered element in the inspected state.",
+      "falsifier": "The covered text is intentionally non-essential/duplicate or re-observation shows the hit-test/occlusion report was incorrect for the same revision and state.",
+      "owner_hints": ["designing-responsive-adaptive-layouts", "designing-visual-hierarchy"],
+      "source_provenance": {"kind": "independent-nui-rule", "mechanism_sources": ["browser-hit-testing", "pbakaus/impeccable:text-occlusion-mechanism"], "implementation": "independently-authored"}
     }
   ]
 }
