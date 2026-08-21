@@ -8,7 +8,7 @@
 
 [English](README.md) · [Tiếng Việt](README-VN.md) · [简体中文](README-CN.md)
 
-`v0.10.0` · `774 个 canonical skills` · `9 个 Agent projection` · `MCP + CLI` · `证据门控` · `MIT`
+`v0.10.0` · `874 个 canonical skills` · `9 个 Agent projection` · `MCP + CLI` · `证据门控` · `MIT`
 
 </div>
 
