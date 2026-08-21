@@ -10,6 +10,8 @@ from nolane_ui import (
     create_runtime_live_session,
     diagnose_runtime_state,
     load_runtime_rule_registry,
+    route_runtime_finding,
+    route_runtime_findings,
     scan_runtime_text,
     validate_runtime_browser_observation,
     validate_runtime_rule_registry,
@@ -33,6 +35,8 @@ class RuntimeV11IntegrationTests(unittest.TestCase):
         self.assertTrue(callable(diagnose_runtime_state))
         self.assertTrue(callable(create_runtime_live_session))
         self.assertTrue(callable(append_runtime_live_event))
+        self.assertTrue(callable(route_runtime_finding))
+        self.assertTrue(callable(route_runtime_findings))
         self.assertEqual(build_runtime_hook_capability("generic-cli")["authority"], "evidence-only")
 
     def test_runtime_evidence_api_detects_overlapping_staleness(self):
