@@ -41,11 +41,24 @@ from .judging_v10 import blind_run_for_judge, pair_orientation, detect_leakage, 
 from .stats_v10 import paired_delta, bootstrap_ci, summarize_paired, evaluate_ablation_recovery, aggregate_dimension
 from .claims_v10 import promote_claim, validate_claim
 from .runtime_v11 import (
+    adjudicate_findings as adjudicate_runtime_findings,
+    append_live_event as append_runtime_live_event,
+    assess_evidence_staleness as assess_runtime_evidence_staleness,
+    browser_observation_findings as browser_runtime_findings,
+    build_evidence_binding as build_runtime_evidence_binding,
     build_hook_capability as build_runtime_hook_capability,
+    create_live_session as create_runtime_live_session,
+    diagnose_runtime_state,
     load_rule_registry as load_runtime_rule_registry,
+    normalize_browser_observation as normalize_runtime_browser_observation,
     scan_path as scan_runtime_path,
     scan_text as scan_runtime_text,
+    sha256_file as sha256_runtime_file,
+    sha256_text as sha256_runtime_text,
+    transactional_replace as transactional_runtime_replace,
     validate_browser_observation as validate_runtime_browser_observation,
+    validate_evidence_binding as validate_runtime_evidence_binding,
+    validate_live_session as validate_runtime_live_session,
     validate_rule_registry as validate_runtime_rule_registry,
 )
 
@@ -65,8 +78,13 @@ __all__ = [
     "promote_claim", "validate_claim",
     "query_ui_ecosystem", "validate_ui_ecosystem_registry", "validate_reference_ledger",
     "validate_source_selection", "validate_rich_interaction_contract", "validate_ui_integration_audit",
-    "build_runtime_hook_capability", "load_runtime_rule_registry", "scan_runtime_path", "scan_runtime_text",
-    "validate_runtime_browser_observation", "validate_runtime_rule_registry",
+    "adjudicate_runtime_findings", "append_runtime_live_event", "assess_runtime_evidence_staleness",
+    "browser_runtime_findings", "build_runtime_evidence_binding", "build_runtime_hook_capability",
+    "create_runtime_live_session", "diagnose_runtime_state", "load_runtime_rule_registry",
+    "normalize_runtime_browser_observation", "scan_runtime_path", "scan_runtime_text",
+    "sha256_runtime_file", "sha256_runtime_text", "transactional_runtime_replace",
+    "validate_runtime_browser_observation", "validate_runtime_evidence_binding",
+    "validate_runtime_live_session", "validate_runtime_rule_registry",
 ]
 
 from .ecosystem import (
