@@ -41,11 +41,9 @@
 - [x] Remove one-shot graph integration tooling before final validation.
 - [x] Validate the product implementation through the full GitHub Actions release path.
 
-## Product-head release evidence
+## Product-state evidence
 
-Product implementation head: `fae7ef01d2747f445c6a8c80bd128c01db0daa99`.
-
-GitHub Actions `Verify NUI` run `32467927055` / run #1063:
+The product state first reached full green at `fae7ef01d2747f445c6a8c80bd128c01db0daa99` in GitHub Actions `Verify NUI` run `32467927055` / run #1063:
 - 433 tests: PASS
 - repository validation: `valid: true`, `errors: []`, `warnings: []`
 - canonical `skill_count`: 874
@@ -56,4 +54,4 @@ GitHub Actions `Verify NUI` run `32467927055` / run #1063:
 - complete-project artifact SHA-256: `8241b9c6820b3d0faa2bf888d9c82ef8a7f688443ac3a88600c88604f9795441`
 - empirical claim ceiling remains `STRUCTURAL_ONLY`.
 
-This historical evidence demonstrates the completed product state. It never substitutes for the final exact-head PR check: merge tooling must supply the final head SHA as an expected-head guard after that check succeeds.
+This evidence records the first full-green product state. Final merge authorization is deliberately not recorded as a self-referential checkbox inside the repository; it is an external GitHub Actions result on the final head, enforced by the merge call's expected-head SHA.
