@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task.
 
-**Status:** IMPLEMENTATION COMPLETE on branch `design/ui-industry-1000-batch-006`. The canonical graph is 874 nodes, all 100 Batch 006 skills are materialized, provenance and admission records exist, and temporary integration tooling is absent. The product implementation head passed the full verifier before this documentation closeout; the final closeout head must pass the same exact-head gate again before merge.
+**Status:** IMPLEMENTATION COMPLETE on branch `design/ui-industry-1000-batch-006`. The canonical graph is 874 nodes, all 100 Batch 006 skills are materialized, provenance and admission records exist, and temporary integration tooling is absent. Merge authorization is intentionally external to this document: the exact final PR head must pass the full GitHub Actions release gate immediately before merge.
 
 **Goal:** Expand the canonical NUI graph from 774 to exactly 874 individually authored UI faculties while preserving smallest-sufficient routing, explicit semantic ownership, falsifiability, provenance, and the no-template/no-Cartesian rules in the approved Batch 006 design.
 
@@ -39,8 +39,7 @@
 - [x] Materialize `docs/research/UI-INDUSTRY-1000-BATCH-006.md` for all 100 owners.
 - [x] Materialize `docs/research/UI-INDUSTRY-1000-BATCH-006-ADMISSION-COURT.md` for rejected/overlap shapes and sibling-boundary review.
 - [x] Remove one-shot graph integration tooling before final validation.
-- [x] Validate the product implementation head through the full GitHub Actions release path.
-- [ ] Verify the documentation-closeout head through the same exact-head release path immediately before merge.
+- [x] Validate the product implementation through the full GitHub Actions release path.
 
 ## Product-head release evidence
 
@@ -57,4 +56,4 @@ GitHub Actions `Verify NUI` run `32467927055` / run #1063:
 - complete-project artifact SHA-256: `8241b9c6820b3d0faa2bf888d9c82ef8a7f688443ac3a88600c88604f9795441`
 - empirical claim ceiling remains `STRUCTURAL_ONLY`.
 
-The final branch head is not merge-authorized by this historical evidence alone. PR CI on the final head is the merge guard.
+This historical evidence demonstrates the completed product state. It never substitutes for the final exact-head PR check: merge tooling must supply the final head SHA as an expected-head guard after that check succeeds.
