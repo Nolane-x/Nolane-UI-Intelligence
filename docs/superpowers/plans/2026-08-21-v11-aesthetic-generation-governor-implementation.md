@@ -25,6 +25,8 @@
 
 ### Task 1: Integrate V11 with Batch 006 / 874-skill main
 
+**Status:** in progress — merge commit `440fc4a1bf4079aa31a861537851d71e953096e3` created with parents V11 + Batch 006 main; CI checkpoint pending.
+
 **Files:**
 - Merge current `main` into `build/v11-runtime-design-intelligence`.
 - Preserve all Phase 1–3 V11 files.
@@ -34,11 +36,11 @@
 - Consumes: current `main` at Batch 006 merge and V11 branch head.
 - Produces: one conflict-resolved branch containing V11 + 874 canonical skills.
 
-- [ ] Verify pre-merge graph count is 874 on main and no Phase 4 implementation exists.
-- [ ] Merge main into the V11 branch without modifying canonical Batch 006 prose.
+- [x] Verify pre-merge graph count is 874 on main and no Phase 4 implementation exists.
+- [x] Merge main into the V11 branch without modifying canonical Batch 006 prose.
 - [ ] Run the full existing suite. Expected: PASS with 874 declared/validated skills.
 - [ ] Audit `owner_hints` against the merged graph and record unresolved hints rather than synthesizing owners.
-- [ ] Commit integration checkpoint.
+- [x] Commit integration checkpoint.
 
 ### Task 2: Design Intent Compiler
 
