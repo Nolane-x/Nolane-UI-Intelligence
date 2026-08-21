@@ -11,7 +11,7 @@
       "engines": ["markup", "text"],
       "description": "An image element has a missing, empty, or explicit placeholder source that cannot represent a shippable asset by itself.",
       "falsifier": "Framework evidence proves the source is injected before the element can render and the runtime observation resolves a real asset.",
-      "owner_hints": ["integrating-visual-media"],
+      "owner_hints": ["validating-visual-asset-integration"],
       "source_provenance": {
         "kind": "independent-nui-rule",
         "research_inspiration": ["deterministic UI observation patterns", "web asset integrity checks"],
