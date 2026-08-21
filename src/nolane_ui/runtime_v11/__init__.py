@@ -1,8 +1,4 @@
-"""NUI V11 runtime design intelligence.
-
-The runtime layer observes source/rendered UI and emits evidence. It does not
-become a design owner and a clean detector result is never release authority.
-"""
+"""NUI V11 runtime design intelligence primitives."""
 
 from .adjudication import adjudicate_findings, adjudicate_match
 from .browser import (
@@ -11,7 +7,7 @@ from .browser import (
     validate_browser_observation,
 )
 from .detector import scan_path, scan_text
-from .doctor import diagnose_runtime_state
+from .doctor import REQUIRED_RUNTIME_ARTIFACTS, diagnose_runtime_state
 from .evidence import (
     assess_evidence_staleness,
     build_evidence_binding,
@@ -26,10 +22,11 @@ from .live import (
     transactional_replace,
     validate_live_session,
 )
-from .registry import REGISTRY_RELATIVE_PATH, load_rule_registry, validate_rule_registry
+from .registry import load_rule_registry, validate_rule_registry
+from .routing import route_runtime_finding, route_runtime_findings
 
 __all__ = [
-    "REGISTRY_RELATIVE_PATH",
+    "REQUIRED_RUNTIME_ARTIFACTS",
     "adjudicate_findings",
     "adjudicate_match",
     "append_live_event",
@@ -41,6 +38,8 @@ __all__ = [
     "diagnose_runtime_state",
     "load_rule_registry",
     "normalize_browser_observation",
+    "route_runtime_finding",
+    "route_runtime_findings",
     "scan_path",
     "scan_text",
     "sha256_file",
