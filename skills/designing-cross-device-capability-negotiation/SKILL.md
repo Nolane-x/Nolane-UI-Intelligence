@@ -42,7 +42,7 @@ Falsification removes or mutates one capability at a time: disconnect the camera
 ## Recovery and renegotiation
 Recovery recomputes from authoritative capabilities and preserves task state while changing only the execution plan. Explain the missing requirement in task language, then offer viable adaptations or delegation targets. If a required capability returns, allow resumption without forcing the user to restart unrelated completed work. If no safe path exists, preserve a bounded checkpoint and state exactly what capability is needed next.
 
-## Deliverable and Handoff
+## Output and Handoff
 Output: `cross-device-capability-negotiation-contract`, containing task requirements, capability taxonomy, verdict rules, adaptation/delegation policies, renegotiation triggers, evidence fixtures, and blocked-state obligations. Handoff platform detection to platform specialists, permission acquisition to permission owners, and task-specific business rules to their domain owners.
 
 ## Sibling exclusions
