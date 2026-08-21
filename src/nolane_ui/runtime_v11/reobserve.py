@@ -58,22 +58,40 @@ def _scope_record(scope: tuple[str, str, str, str]) -> dict[str, Any]:
     return record
 
 
+def _normalize_capabilities_by_rule(value: dict[str, bool] | None) -> dict[str, bool]:
+    if value is None:
+        return {}
+    if not isinstance(value, dict):
+        raise ValueError("capabilities_by_rule must be an object when supplied")
+    normalized: dict[str, bool] = {}
+    for rule_id, complete in value.items():
+        if not isinstance(rule_id, str) or not rule_id.strip():
+            raise ValueError("capabilities_by_rule keys must be non-empty rule IDs")
+        if not isinstance(complete, bool):
+            raise ValueError("capabilities_by_rule values must be boolean")
+        normalized[rule_id.strip()] = complete
+    return dict(sorted(normalized.items()))
+
+
 def compare_runtime_observations(
     before_findings: list[dict[str, Any]],
     after_findings: list[dict[str, Any]],
     *,
     capabilities_complete: bool = True,
+    capabilities_by_rule: dict[str, bool] | None = None,
 ) -> dict[str, Any]:
     """Compare two bounded runtime observations without self-certifying release.
 
     Findings are matched as a multiset by rule + source + line + locator. An
-    unmatched prior finding may be called RESOLVED only when the caller states
-    that the re-observation capability for the bounded scope is complete.
+    unmatched prior finding may be called RESOLVED only when observation is
+    complete for that rule. ``capabilities_by_rule`` refines the legacy global
+    boolean while preserving the previous behavior for callers that omit it.
     """
     if not isinstance(before_findings, list) or not isinstance(after_findings, list):
         raise ValueError("before_findings and after_findings must be lists")
     if not isinstance(capabilities_complete, bool):
         raise ValueError("capabilities_complete must be boolean")
+    scoped_capabilities = _normalize_capabilities_by_rule(capabilities_by_rule)
 
     before = sorted(before_findings, key=lambda item: (_finding_id(item), _runtime_scope(item)))
     after = sorted(after_findings, key=lambda item: (_finding_id(item), _runtime_scope(item)))
@@ -86,6 +104,7 @@ def compare_runtime_observations(
     for prior in before:
         scope = _runtime_scope(prior)
         prior_id = _finding_id(prior)
+        rule_id = scope[0]
         bucket = after_buckets.get(scope)
         if bucket:
             matched = bucket.popleft()
@@ -98,10 +117,11 @@ def compare_runtime_observations(
                 }
             )
         else:
+            capability_complete = scoped_capabilities.get(rule_id, capabilities_complete)
             closures.append(
                 {
                     "finding_id": prior_id,
-                    "status": "RESOLVED" if capabilities_complete else "UNKNOWN",
+                    "status": "RESOLVED" if capability_complete else "UNKNOWN",
                     "scope": _scope_record(scope),
                     "matched_finding_id": None,
                 }
@@ -139,6 +159,7 @@ def compare_runtime_observations(
         "counts": counts,
         "decision": decision,
         "capabilities_complete": capabilities_complete,
+        "capabilities_by_rule": scoped_capabilities,
         "claim_boundary": "runtime-closure-only",
     }
 
