@@ -5,22 +5,21 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from nolane_ui.runtime_v11.browser_transport import build_browser_transport_capability
 from nolane_ui.runtime_v11.evidence import sha256_file
 from nolane_ui.runtime_v11.preview import build_preview_candidate
 from nolane_ui.runtime_v11.reobserve import compare_runtime_observations
+from nolane_ui.runtime_v11.live_visual import (
+    accept_live_visual_preview,
+    assess_visual_observation_capabilities,
+    prepare_live_visual_selection,
+)
 
 try:
-    from nolane_ui.runtime_v11.live_visual import (
-        accept_live_visual_preview,
-        assess_visual_observation_capabilities,
-        prepare_live_visual_selection,
-    )
-except ModuleNotFoundError:
-    def _missing(*args, **kwargs):
-        raise AssertionError("Phase 5 live visual coordinator API is missing")
-    accept_live_visual_preview = _missing
-    assess_visual_observation_capabilities = _missing
-    prepare_live_visual_selection = _missing
+    from nolane_ui.runtime_v11.live_visual import prepare_live_visual_preview
+except ImportError:
+    def prepare_live_visual_preview(*args, **kwargs):
+        raise AssertionError("Phase 5 live visual preview orchestration API is missing")
 
 
 def _candidate(path: str, digest: str, *, candidate_id: str, confidence: str = "HIGH", start: int = 0, end: int = 4):
@@ -44,6 +43,25 @@ def _finding(finding_id: str, rule_id: str):
             "locator": "#target",
         },
     }
+
+
+def _transport(*, preview: bool = True, hot_reload: bool = False, reload: bool = True):
+    return build_browser_transport_capability(
+        "fake",
+        {
+            "navigation": True,
+            "geometry": True,
+            "computed_style": True,
+            "runtime_errors": True,
+            "capture": True,
+            "document_metrics": True,
+            "occlusion": False,
+            "rendered_metadata": True,
+            "preview_injection": preview,
+            "hot_reload": hot_reload,
+            "reload": reload,
+        },
+    )
 
 
 class RuntimeV11LiveVisualTests(unittest.TestCase):
@@ -86,6 +104,51 @@ class RuntimeV11LiveVisualTests(unittest.TestCase):
         self.assertEqual(result["assertions"]["overflow"], "READY")
         self.assertEqual(result["assertions"]["occlusion"], "UNKNOWN")
         self.assertEqual(result["missing_by_assertion"]["occlusion"], ["occlusion"])
+
+    def test_prepare_preview_is_non_destructive_and_reaches_injected_protocol_state(self) -> None:
+        digest = sha256_file(self.a)
+        selection = prepare_live_visual_selection(
+            {"locator": "#target"},
+            [_candidate("src/A.tsx", digest, candidate_id="a")],
+            repository_root=self.root,
+        )
+        before = self.a.read_text(encoding="utf-8")
+
+        result = prepare_live_visual_preview(
+            selection,
+            preview_id="preview-a",
+            session_id="session-a",
+            replacement="ZZZZ",
+            transport_capability=_transport(),
+            repository_root=self.root,
+        )
+
+        self.assertEqual(result["status"], "READY")
+        self.assertEqual(result["preview"]["state"], "INJECTED")
+        self.assertEqual(result["provider"], "fake")
+        self.assertEqual(self.a.read_text(encoding="utf-8"), before)
+        self.assertEqual(result["claim_boundary"], "live-visual-closure-only")
+
+    def test_prepare_preview_keeps_missing_refresh_capability_unknown(self) -> None:
+        digest = sha256_file(self.a)
+        selection = prepare_live_visual_selection(
+            {"locator": "#target"},
+            [_candidate("src/A.tsx", digest, candidate_id="a")],
+            repository_root=self.root,
+        )
+
+        result = prepare_live_visual_preview(
+            selection,
+            preview_id="preview-a",
+            session_id="session-a",
+            replacement="ZZZZ",
+            transport_capability=_transport(hot_reload=False, reload=False),
+            repository_root=self.root,
+        )
+
+        self.assertEqual(result["status"], "UNKNOWN")
+        self.assertEqual(result["missing_capabilities"], ["refresh"])
+        self.assertEqual(result["preview"]["state"], "PREPARED")
 
     def test_source_edit_during_observed_preview_returns_apply_conflict(self) -> None:
         digest = sha256_file(self.a)
