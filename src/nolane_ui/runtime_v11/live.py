@@ -37,7 +37,10 @@ def _text(value: Any) -> bool:
 
 def _next_state(state: str, event_type: str) -> str:
     if event_type == "interrupt":
-        if state in _TERMINAL or state in {"DISCARDED", "REOBSERVED"}:
+        # Recovery is a preview-transport concern. Once a variant has been
+        # accepted/applied, rewinding into PREVIEWING would make the journal
+        # claim a state that no longer matches the mutated source tree.
+        if state != "PREVIEWING":
             raise ValueError(f"live event interrupt is invalid from {state}")
         return "RECOVERY"
     if event_type == "fail":
@@ -148,6 +151,23 @@ def validate_live_session(record: dict[str, Any]) -> dict[str, Any]:
     return {"valid": not errors, "errors": errors, "event_count": len(events), "replayed_state": replay}
 
 
+def _conflict_result(
+    target: Path,
+    expected_digest: str,
+    *,
+    current_digest: str | None,
+    phase: str,
+) -> dict[str, Any]:
+    return {
+        "applied": False,
+        "status": "CONFLICT",
+        "phase": phase,
+        "path": target.as_posix(),
+        "expected_digest": expected_digest,
+        "current_digest": current_digest,
+    }
+
+
 def transactional_replace(
     path: Path | str,
     expected_digest: str,
@@ -155,7 +175,14 @@ def transactional_replace(
     end: int,
     replacement: str,
 ) -> dict[str, Any]:
-    """Atomically replace a character range only if source still matches selection digest."""
+    """Replace a character range with optimistic pre-commit source guards.
+
+    The operation performs an initial digest check, prepares the replacement in
+    a sibling temporary file, then rechecks source existence and digest
+    immediately before the atomic filesystem replace. This deliberately
+    refuses known concurrent edits/deletes. It is not a lock-free compare-and-
+    swap against an uncooperative writer that races after the final guard.
+    """
     target = Path(path)
     if not target.exists() or not target.is_file():
         raise ValueError(f"live transactional target is not a file: {target}")
@@ -168,13 +195,12 @@ def transactional_replace(
 
     current_digest = sha256_file(target)
     if current_digest != expected_digest:
-        return {
-            "applied": False,
-            "status": "CONFLICT",
-            "path": target.as_posix(),
-            "expected_digest": expected_digest,
-            "current_digest": current_digest,
-        }
+        return _conflict_result(
+            target,
+            expected_digest,
+            current_digest=current_digest,
+            phase="initial",
+        )
 
     text = target.read_text(encoding="utf-8")
     if end > len(text):
@@ -194,6 +220,27 @@ def transactional_replace(
             handle.write(updated)
             handle.flush()
             os.fsync(handle.fileno())
+
+        # The initial digest protects against stale selections. This second
+        # guard protects the preparation window itself: if another participant
+        # edited or deleted the source while the variant was being staged, do
+        # not overwrite/resurrect that state.
+        if not target.exists() or not target.is_file():
+            return _conflict_result(
+                target,
+                expected_digest,
+                current_digest=None,
+                phase="pre-commit",
+            )
+        precommit_digest = sha256_file(target)
+        if precommit_digest != expected_digest:
+            return _conflict_result(
+                target,
+                expected_digest,
+                current_digest=precommit_digest,
+                phase="pre-commit",
+            )
+
         os.replace(temp_path, target)
         temp_path = None
     finally:
