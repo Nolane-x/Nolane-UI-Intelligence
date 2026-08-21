@@ -3922,6 +3922,506 @@
       "family": "design-to-code-specialist",
       "parent": "designing-design-to-code-handoffs",
       "output": "design-code-drift-review-contract"
+    },
+    "governing-token-resolution-contexts": {
+      "family": "design-token-governance-specialist",
+      "parent": "architecting-design-tokens",
+      "output": "token-resolution-contexts-contract"
+    },
+    "governing-token-reference-integrity": {
+      "family": "design-token-governance-specialist",
+      "parent": "architecting-design-tokens",
+      "output": "token-reference-integrity-contract"
+    },
+    "governing-token-type-conformance": {
+      "family": "design-token-governance-specialist",
+      "parent": "architecting-design-tokens",
+      "output": "token-type-conformance-contract"
+    },
+    "governing-token-extension-boundaries": {
+      "family": "design-token-governance-specialist",
+      "parent": "architecting-design-tokens",
+      "output": "token-extension-boundaries-contract"
+    },
+    "governing-token-mode-inheritance": {
+      "family": "design-token-governance-specialist",
+      "parent": "architecting-design-tokens",
+      "output": "token-mode-inheritance-contract"
+    },
+    "governing-semantic-token-layering": {
+      "family": "design-token-governance-specialist",
+      "parent": "architecting-design-tokens",
+      "output": "semantic-token-layering-contract"
+    },
+    "auditing-token-migration-impact": {
+      "family": "design-token-governance-specialist",
+      "parent": "architecting-design-tokens",
+      "output": "token-migration-impact-contract"
+    },
+    "governing-token-deprecation-lifecycles": {
+      "family": "design-token-governance-specialist",
+      "parent": "architecting-design-tokens",
+      "output": "token-deprecation-lifecycles-contract"
+    },
+    "governing-design-system-version-compatibility": {
+      "family": "design-system-governance-specialist",
+      "parent": "architecting-component-systems",
+      "output": "design-system-version-compatibility-contract"
+    },
+    "governing-component-anatomy-contracts": {
+      "family": "component-contract-governance-specialist",
+      "parent": "architecting-component-systems",
+      "output": "component-anatomy-contracts-contract"
+    },
+    "governing-component-slot-contracts": {
+      "family": "component-contract-governance-specialist",
+      "parent": "architecting-component-systems",
+      "output": "component-slot-contracts-contract"
+    },
+    "governing-component-state-contracts": {
+      "family": "component-contract-governance-specialist",
+      "parent": "architecting-component-systems",
+      "output": "component-state-contracts-contract"
+    },
+    "governing-component-variant-taxonomies": {
+      "family": "component-contract-governance-specialist",
+      "parent": "architecting-component-systems",
+      "output": "component-variant-taxonomies-contract"
+    },
+    "governing-design-system-exceptions": {
+      "family": "design-system-governance-specialist",
+      "parent": "architecting-component-systems",
+      "output": "design-system-exceptions-contract"
+    },
+    "governing-design-system-contribution-workflows": {
+      "family": "design-system-governance-specialist",
+      "parent": "architecting-component-systems",
+      "output": "design-system-contribution-workflows-contract"
+    },
+    "governing-cross-platform-component-parity": {
+      "family": "design-system-governance-specialist",
+      "parent": "architecting-component-systems",
+      "output": "cross-platform-component-parity-contract"
+    },
+    "governing-design-system-adoption-migrations": {
+      "family": "design-system-governance-specialist",
+      "parent": "architecting-component-systems",
+      "output": "design-system-adoption-migrations-contract"
+    },
+    "governing-design-system-breaking-change-rollouts": {
+      "family": "design-system-governance-specialist",
+      "parent": "architecting-component-systems",
+      "output": "design-system-breaking-change-rollouts-contract"
+    },
+    "designing-container-query-composition": {
+      "family": "adaptive-composition-specialist",
+      "parent": "adapting-responsive-layouts",
+      "output": "container-query-composition-contract"
+    },
+    "designing-content-pressure-breakpoints": {
+      "family": "adaptive-composition-specialist",
+      "parent": "adapting-responsive-layouts",
+      "output": "content-pressure-breakpoints-contract"
+    },
+    "designing-region-priority-collapse": {
+      "family": "adaptive-composition-specialist",
+      "parent": "adapting-responsive-layouts",
+      "output": "region-priority-collapse-contract"
+    },
+    "designing-responsive-region-reordering": {
+      "family": "adaptive-composition-specialist",
+      "parent": "adapting-responsive-layouts",
+      "output": "responsive-region-reordering-contract"
+    },
+    "designing-adaptive-navigation-mode-transitions": {
+      "family": "adaptive-composition-specialist",
+      "parent": "adapting-responsive-layouts",
+      "output": "adaptive-navigation-mode-transitions-contract"
+    },
+    "designing-responsive-toolbar-overflow": {
+      "family": "adaptive-composition-specialist",
+      "parent": "adapting-responsive-layouts",
+      "output": "responsive-toolbar-overflow-contract"
+    },
+    "designing-responsive-table-mode-transitions": {
+      "family": "adaptive-composition-specialist",
+      "parent": "adapting-responsive-layouts",
+      "output": "responsive-table-mode-transitions-contract"
+    },
+    "designing-responsive-form-reflow": {
+      "family": "adaptive-composition-specialist",
+      "parent": "adapting-responsive-layouts",
+      "output": "responsive-form-reflow-contract"
+    },
+    "designing-pointer-to-touch-density-transitions": {
+      "family": "adaptive-composition-specialist",
+      "parent": "adapting-responsive-layouts",
+      "output": "pointer-to-touch-density-transitions-contract"
+    },
+    "designing-hover-to-nonhover-affordance-transitions": {
+      "family": "adaptive-composition-specialist",
+      "parent": "adapting-responsive-layouts",
+      "output": "hover-to-nonhover-affordance-transitions-contract"
+    },
+    "designing-foldable-hinge-aware-layouts": {
+      "family": "adaptive-composition-specialist",
+      "parent": "adapting-responsive-layouts",
+      "output": "foldable-hinge-aware-layouts-contract"
+    },
+    "preserving-responsive-state-continuity": {
+      "family": "adaptive-composition-specialist",
+      "parent": "adapting-responsive-layouts",
+      "output": "responsive-state-continuity-contract"
+    },
+    "engineering-webfont-loading-transitions": {
+      "family": "typography-engineering-specialist",
+      "parent": "crafting-typography",
+      "output": "webfont-loading-transitions-contract"
+    },
+    "engineering-font-fallback-metric-compatibility": {
+      "family": "typography-engineering-specialist",
+      "parent": "crafting-typography",
+      "output": "font-fallback-metric-compatibility-contract"
+    },
+    "designing-variable-font-axis-behavior": {
+      "family": "typography-engineering-specialist",
+      "parent": "crafting-typography",
+      "output": "variable-font-axis-behavior-contract"
+    },
+    "engineering-font-subsetting-and-glyph-coverage": {
+      "family": "typography-engineering-specialist",
+      "parent": "crafting-typography",
+      "output": "font-subsetting-and-glyph-coverage-contract"
+    },
+    "designing-readable-line-measure": {
+      "family": "typography-engineering-specialist",
+      "parent": "crafting-typography",
+      "output": "readable-line-measure-contract"
+    },
+    "designing-line-breaking-and-hyphenation": {
+      "family": "typography-engineering-specialist",
+      "parent": "crafting-typography",
+      "output": "line-breaking-and-hyphenation-contract"
+    },
+    "designing-truncation-and-overflow-truth": {
+      "family": "typography-engineering-specialist",
+      "parent": "crafting-typography",
+      "output": "truncation-and-overflow-truth-contract"
+    },
+    "designing-numeric-tabular-alignment": {
+      "family": "typography-engineering-specialist",
+      "parent": "crafting-typography",
+      "output": "numeric-tabular-alignment-contract"
+    },
+    "designing-decimal-and-financial-type-alignment": {
+      "family": "typography-engineering-specialist",
+      "parent": "crafting-typography",
+      "output": "decimal-and-financial-type-alignment-contract"
+    },
+    "designing-code-and-monospace-typography": {
+      "family": "typography-engineering-specialist",
+      "parent": "crafting-typography",
+      "output": "code-and-monospace-typography-contract"
+    },
+    "designing-mixed-font-baseline-alignment": {
+      "family": "typography-engineering-specialist",
+      "parent": "crafting-typography",
+      "output": "mixed-font-baseline-alignment-contract"
+    },
+    "diagnosing-runtime-text-rendering-drift": {
+      "family": "typography-engineering-specialist",
+      "parent": "crafting-typography",
+      "output": "runtime-text-rendering-drift-contract"
+    },
+    "designing-agent-shared-state-reconciliation": {
+      "family": "human-ai-execution-specialist",
+      "parent": "designing-human-ai-interaction",
+      "output": "agent-shared-state-reconciliation-contract"
+    },
+    "designing-agent-tool-call-lifecycles": {
+      "family": "human-ai-execution-specialist",
+      "parent": "designing-human-ai-interaction",
+      "output": "agent-tool-call-lifecycles-contract"
+    },
+    "designing-tool-result-presentation-lifecycles": {
+      "family": "generative-ui-execution-specialist",
+      "parent": "designing-generative-ui",
+      "output": "tool-result-presentation-lifecycles-contract"
+    },
+    "designing-agent-plan-preview-surfaces": {
+      "family": "agent-autonomy-execution-specialist",
+      "parent": "designing-agent-autonomy-and-control",
+      "output": "agent-plan-preview-surfaces-contract"
+    },
+    "designing-agent-approval-scope-boundaries": {
+      "family": "agent-autonomy-execution-specialist",
+      "parent": "designing-agent-autonomy-and-control",
+      "output": "agent-approval-scope-boundaries-contract"
+    },
+    "detecting-agent-approval-scope-drift": {
+      "family": "agent-autonomy-execution-specialist",
+      "parent": "designing-agent-autonomy-and-control",
+      "output": "agent-approval-scope-drift-contract"
+    },
+    "designing-agent-interruption-and-resume": {
+      "family": "agent-autonomy-execution-specialist",
+      "parent": "designing-agent-autonomy-and-control",
+      "output": "agent-interruption-and-resume-contract"
+    },
+    "designing-agent-partial-completion-recovery": {
+      "family": "agent-autonomy-execution-specialist",
+      "parent": "designing-agent-autonomy-and-control",
+      "output": "agent-partial-completion-recovery-contract"
+    },
+    "designing-agent-retry-and-replay-controls": {
+      "family": "agent-autonomy-execution-specialist",
+      "parent": "designing-agent-autonomy-and-control",
+      "output": "agent-retry-and-replay-controls-contract"
+    },
+    "designing-agent-run-branching": {
+      "family": "agent-autonomy-execution-specialist",
+      "parent": "designing-agent-autonomy-and-control",
+      "output": "agent-run-branching-contract"
+    },
+    "designing-agent-side-effect-ledgers": {
+      "family": "agent-autonomy-execution-specialist",
+      "parent": "designing-agent-autonomy-and-control",
+      "output": "agent-side-effect-ledgers-contract"
+    },
+    "designing-agent-reversible-action-surfaces": {
+      "family": "agent-autonomy-execution-specialist",
+      "parent": "designing-agent-autonomy-and-control",
+      "output": "agent-reversible-action-surfaces-contract"
+    },
+    "designing-agent-background-run-surfaces": {
+      "family": "agent-autonomy-execution-specialist",
+      "parent": "designing-agent-autonomy-and-control",
+      "output": "agent-background-run-surfaces-contract"
+    },
+    "designing-agent-tool-permission-escalation": {
+      "family": "agent-autonomy-execution-specialist",
+      "parent": "designing-agent-autonomy-and-control",
+      "output": "agent-tool-permission-escalation-contract"
+    },
+    "designing-agent-generated-component-authority": {
+      "family": "generative-ui-execution-specialist",
+      "parent": "designing-generative-ui",
+      "output": "agent-generated-component-authority-contract"
+    },
+    "designing-generative-ui-schema-fallbacks": {
+      "family": "generative-ui-execution-specialist",
+      "parent": "designing-generative-ui",
+      "output": "generative-ui-schema-fallbacks-contract"
+    },
+    "designing-human-correction-of-agent-state": {
+      "family": "human-ai-execution-specialist",
+      "parent": "designing-human-ai-interaction",
+      "output": "human-correction-of-agent-state-contract"
+    },
+    "designing-multi-agent-handoff-visibility": {
+      "family": "multi-agent-handoff-specialist",
+      "parent": "designing-multi-agent-surfaces",
+      "output": "multi-agent-handoff-visibility-contract"
+    },
+    "designing-component-state-evidence-matrices": {
+      "family": "ui-evidence-specialist",
+      "parent": "binding-ui-evidence",
+      "output": "component-state-evidence-matrices-contract"
+    },
+    "designing-interaction-regression-evidence": {
+      "family": "ui-evidence-specialist",
+      "parent": "binding-ui-evidence",
+      "output": "interaction-regression-evidence-contract"
+    },
+    "designing-visual-regression-baselines": {
+      "family": "ui-evidence-specialist",
+      "parent": "binding-ui-evidence",
+      "output": "visual-regression-baselines-contract"
+    },
+    "designing-responsive-regression-matrices": {
+      "family": "ui-evidence-specialist",
+      "parent": "binding-ui-evidence",
+      "output": "responsive-regression-matrices-contract"
+    },
+    "designing-browser-and-device-evidence-matrices": {
+      "family": "ui-evidence-specialist",
+      "parent": "binding-ui-evidence",
+      "output": "browser-and-device-evidence-matrices-contract"
+    },
+    "designing-accessibility-evidence-packets": {
+      "family": "ui-evidence-specialist",
+      "parent": "binding-ui-evidence",
+      "output": "accessibility-evidence-packets-contract"
+    },
+    "designing-manual-review-evidence-contracts": {
+      "family": "ui-evidence-specialist",
+      "parent": "binding-ui-evidence",
+      "output": "manual-review-evidence-contracts-contract"
+    },
+    "detecting-rendered-environment-drift": {
+      "family": "ui-evidence-specialist",
+      "parent": "binding-ui-evidence",
+      "output": "rendered-environment-drift-contract"
+    },
+    "designing-design-system-consumer-regression-tests": {
+      "family": "ui-evidence-specialist",
+      "parent": "binding-ui-evidence",
+      "output": "design-system-consumer-regression-tests-contract"
+    },
+    "designing-story-state-fixture-coverage": {
+      "family": "ui-evidence-specialist",
+      "parent": "binding-ui-evidence",
+      "output": "story-state-fixture-coverage-contract"
+    },
+    "triaging-visual-diff-noise": {
+      "family": "ui-evidence-specialist",
+      "parent": "binding-ui-evidence",
+      "output": "visual-diff-noise-contract"
+    },
+    "governing-regression-baseline-updates": {
+      "family": "ui-evidence-specialist",
+      "parent": "binding-ui-evidence",
+      "output": "regression-baseline-updates-contract"
+    },
+    "designing-directional-focus-graphs": {
+      "family": "game-interface-specialist",
+      "parent": "routing-ui-work",
+      "output": "directional-focus-graphs-contract"
+    },
+    "designing-remote-control-navigation": {
+      "family": "game-interface-specialist",
+      "parent": "routing-ui-work",
+      "output": "remote-control-navigation-contract"
+    },
+    "designing-controller-disconnect-recovery": {
+      "family": "game-interface-specialist",
+      "parent": "routing-ui-work",
+      "output": "controller-disconnect-recovery-contract"
+    },
+    "designing-input-device-prompt-switching": {
+      "family": "game-interface-specialist",
+      "parent": "routing-ui-work",
+      "output": "input-device-prompt-switching-contract"
+    },
+    "designing-controller-remapping-surfaces": {
+      "family": "game-interface-specialist",
+      "parent": "routing-ui-work",
+      "output": "controller-remapping-surfaces-contract"
+    },
+    "designing-multiplayer-ui-focus-ownership": {
+      "family": "game-interface-specialist",
+      "parent": "routing-ui-work",
+      "output": "multiplayer-ui-focus-ownership-contract"
+    },
+    "designing-ten-foot-readable-density": {
+      "family": "game-interface-specialist",
+      "parent": "routing-ui-work",
+      "output": "ten-foot-readable-density-contract"
+    },
+    "designing-game-hud-information-priority": {
+      "family": "game-interface-specialist",
+      "parent": "routing-ui-work",
+      "output": "game-hud-information-priority-contract"
+    },
+    "designing-pause-and-game-state-overlays": {
+      "family": "game-interface-specialist",
+      "parent": "routing-ui-work",
+      "output": "pause-and-game-state-overlays-contract"
+    },
+    "designing-split-screen-safe-interface-regions": {
+      "family": "game-interface-specialist",
+      "parent": "routing-ui-work",
+      "output": "split-screen-safe-interface-regions-contract"
+    },
+    "designing-game-menu-stack-recovery": {
+      "family": "game-interface-specialist",
+      "parent": "routing-ui-work",
+      "output": "game-menu-stack-recovery-contract"
+    },
+    "designing-gameplay-to-menu-input-handoffs": {
+      "family": "game-interface-specialist",
+      "parent": "routing-ui-work",
+      "output": "gameplay-to-menu-input-handoffs-contract"
+    },
+    "designing-driving-state-interaction-lockouts": {
+      "family": "automotive-hmi-specialist",
+      "parent": "designing-high-stakes-decisions",
+      "output": "driving-state-interaction-lockouts-contract"
+    },
+    "designing-vehicle-warning-priority-surfaces": {
+      "family": "automotive-hmi-specialist",
+      "parent": "designing-high-stakes-decisions",
+      "output": "vehicle-warning-priority-surfaces-contract"
+    },
+    "designing-driver-distraction-aware-information-density": {
+      "family": "automotive-hmi-specialist",
+      "parent": "designing-high-stakes-decisions",
+      "output": "driver-distraction-aware-information-density-contract"
+    },
+    "designing-rotary-controller-focus-navigation": {
+      "family": "automotive-hmi-specialist",
+      "parent": "designing-high-stakes-decisions",
+      "output": "rotary-controller-focus-navigation-contract"
+    },
+    "designing-instrument-cluster-information-priority": {
+      "family": "automotive-hmi-specialist",
+      "parent": "designing-high-stakes-decisions",
+      "output": "instrument-cluster-information-priority-contract"
+    },
+    "designing-driver-passenger-authority-splits": {
+      "family": "automotive-hmi-specialist",
+      "parent": "designing-high-stakes-decisions",
+      "output": "driver-passenger-authority-splits-contract"
+    },
+    "designing-vehicle-state-dependent-controls": {
+      "family": "automotive-hmi-specialist",
+      "parent": "designing-high-stakes-decisions",
+      "output": "vehicle-state-dependent-controls-contract"
+    },
+    "designing-automotive-modality-fallbacks": {
+      "family": "automotive-hmi-specialist",
+      "parent": "designing-high-stakes-decisions",
+      "output": "automotive-modality-fallbacks-contract"
+    },
+    "designing-cross-device-session-handoffs": {
+      "family": "multi-surface-continuity-specialist",
+      "parent": "routing-ui-work",
+      "output": "cross-device-session-handoffs-contract"
+    },
+    "designing-companion-surface-authority": {
+      "family": "multi-surface-continuity-specialist",
+      "parent": "routing-ui-work",
+      "output": "companion-surface-authority-contract"
+    },
+    "designing-second-screen-control-continuity": {
+      "family": "multi-surface-continuity-specialist",
+      "parent": "routing-ui-work",
+      "output": "second-screen-control-continuity-contract"
+    },
+    "designing-notification-to-app-continuation": {
+      "family": "multi-surface-continuity-specialist",
+      "parent": "routing-ui-work",
+      "output": "notification-to-app-continuation-contract"
+    },
+    "designing-cross-device-capability-negotiation": {
+      "family": "multi-surface-continuity-specialist",
+      "parent": "routing-ui-work",
+      "output": "cross-device-capability-negotiation-contract"
+    },
+    "preserving-task-state-across-device-switches": {
+      "family": "multi-surface-continuity-specialist",
+      "parent": "routing-ui-work",
+      "output": "task-state-across-device-switches-contract"
+    },
+    "resolving-cross-device-state-conflicts": {
+      "family": "multi-surface-continuity-specialist",
+      "parent": "routing-ui-work",
+      "output": "cross-device-state-conflicts-contract"
+    },
+    "designing-device-proximity-handoff-cues": {
+      "family": "multi-surface-continuity-specialist",
+      "parent": "routing-ui-work",
+      "output": "device-proximity-handoff-cues-contract"
     }
   }
 }
