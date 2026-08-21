@@ -8,7 +8,7 @@
 
 [English](README.md) · [Tiếng Việt](README-VN.md) · [简体中文](README-CN.md)
 
-`v0.10.0` · `774 canonical skills` · `9 agent projections` · `MCP + CLI` · `evidence-gated` · `MIT`
+`v0.10.0` · `874 canonical skills` · `9 agent projections` · `MCP + CLI` · `evidence-gated` · `MIT`
 
 </div>
 

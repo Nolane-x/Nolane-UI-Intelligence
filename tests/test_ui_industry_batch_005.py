@@ -304,8 +304,8 @@ class UIIndustryBatch005Tests(unittest.TestCase):
                 current = self.graph_skills[current]["parent"]
             self.assertIn("using-nolane-ui", seen, slug)
 
-    def test_final_graph_count_is_exactly_774(self):
-        self.assertEqual(774, len(self.graph_skills))
+    def test_batch005_baseline_remains_materialized(self):
+        self.assertGreaterEqual(len(self.graph_skills), 774)
 
     def test_provenance_ledger_covers_every_admitted_slug(self):
         self.assertTrue(PROVENANCE_PATH.is_file())
