@@ -23,6 +23,8 @@ Each rule declares a stable `rule_id`, domain, class, tier, severity, supported 
 
 Genericness and advisory rules are prohibited from becoming edit-time blockers. This prevents the runtime layer from turning aesthetic heuristics into hidden design authority.
 
+Runtime provenance is deliberately narrow. Every rule is marked `implementation: independently-authored`; optional `research_inspiration` records conceptual areas that informed investigation. The legacy name `mechanism_sources` is rejected because it can incorrectly imply that implementation or source artifacts were transferred into NUI.
+
 ## Execution tiers
 
 V11 uses three execution tiers so fast feedback and deep evidence do not compete with each other.
@@ -149,11 +151,13 @@ Preview approval is therefore not blanket permission to clobber newer source sta
 
 The next layer built on this protocol can add element selection, source mapping, variant preview transport, and browser overlays while preserving the same conflict-safe core.
 
-## Relationship to Impeccable
+## External architectural research
 
-V11 was informed by useful mechanisms observed in `pbakaus/impeccable`, especially deterministic design detection, edit/session feedback, browser-aware iteration, and project maintenance concepts. Impeccable is Apache-2.0; NUI keeps the mechanism transfer explicit in `docs/research/impeccable-runtime-mechanism-transfer-v11.md`.
+V11 studied `pbakaus/impeccable` as one external reference for workflow ideas such as deterministic UI checks, edit/session feedback, browser-aware iteration, maintenance passes, and live visual workflows. That study is **research inspiration only**.
 
-V11 source code, rule wording, schemas, thresholds, state machines, tests, and evidence contracts are independently authored. No Impeccable skill bodies or detector implementation are copied into the NUI skill graph. Runtime mechanisms remain evidence infrastructure under NUI cognition rather than a competing design authority.
+NUI V11 does not incorporate Impeccable source code, detector rule text, skill bodies, schemas, thresholds, state machines, configuration formats, or implementation artifacts. V11 code, rule wording, schemas, tests, thresholds, evidence semantics, Doctor behavior, and Live Lab protocol are independently designed and authored for NUI.
+
+The research record is kept at `docs/research/impeccable-runtime-mechanism-transfer-v11.md`; its historical filename remains for link stability, while the document itself explicitly states that no implementation transfer occurred.
 
 ## Non-goals
 
@@ -166,6 +170,7 @@ V11 does not:
 - fabricate observations when a browser/host lacks capability;
 - make a clean scan sufficient evidence of completion;
 - overwrite known concurrent edits during live application;
-- claim lock-free cross-process atomic compare-and-swap where the filesystem/runtime does not provide it.
+- claim lock-free cross-process atomic compare-and-swap where the filesystem/runtime does not provide it;
+- describe external research inspiration as copied or transferred implementation.
 
 These boundaries are deliberate. Runtime Intelligence should make the existing NUI graph more observable and harder to fool, not make the graph larger for its own sake.
