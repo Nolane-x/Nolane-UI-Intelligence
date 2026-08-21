@@ -42,16 +42,27 @@ from .stats_v10 import paired_delta, bootstrap_ci, summarize_paired, evaluate_ab
 from .claims_v10 import promote_claim, validate_claim
 from .runtime_v11 import (
     adjudicate_findings as adjudicate_runtime_findings,
+    aggregate_taste_court as aggregate_runtime_taste_court,
     append_live_event as append_runtime_live_event,
+    assess_design_memory_staleness as assess_runtime_design_memory_staleness,
     assess_evidence_staleness as assess_runtime_evidence_staleness,
+    assess_genericity as assess_runtime_genericity,
+    assess_quality_residue_closure as assess_runtime_quality_residue_closure,
     browser_observation_findings as browser_runtime_findings,
+    build_design_memory as build_runtime_design_memory,
     build_evidence_binding as build_runtime_evidence_binding,
     build_hook_capability as build_runtime_hook_capability,
+    commit_direction as commit_runtime_direction,
     compare_runtime_observations,
+    compile_aesthetic_intent as compile_runtime_aesthetic_intent,
     create_live_session as create_runtime_live_session,
     diagnose_runtime_state,
+    evaluate_direction_candidates as evaluate_runtime_direction_candidates,
     load_rule_registry as load_runtime_rule_registry,
     normalize_browser_observation as normalize_runtime_browser_observation,
+    plan_quality_residue_pass as plan_runtime_quality_residue_pass,
+    prepare_blinded_candidates as prepare_runtime_blinded_candidates,
+    product_substitution_assessment as runtime_product_substitution_assessment,
     route_runtime_finding,
     route_runtime_findings,
     scan_path as scan_runtime_path,
@@ -59,10 +70,14 @@ from .runtime_v11 import (
     sha256_file as sha256_runtime_file,
     sha256_text as sha256_runtime_text,
     transactional_replace as transactional_runtime_replace,
+    validate_aesthetic_intent as validate_runtime_aesthetic_intent,
     validate_browser_observation as validate_runtime_browser_observation,
+    validate_design_memory as validate_runtime_design_memory,
     validate_evidence_binding as validate_runtime_evidence_binding,
     validate_live_session as validate_runtime_live_session,
     validate_rule_registry as validate_runtime_rule_registry,
+    validate_taste_judgment as validate_runtime_taste_judgment,
+    validate_trend_registry as validate_runtime_trend_registry,
 )
 
 __all__ = [
@@ -88,6 +103,14 @@ __all__ = [
     "route_runtime_findings", "scan_runtime_path", "scan_runtime_text", "sha256_runtime_file",
     "sha256_runtime_text", "transactional_runtime_replace", "validate_runtime_browser_observation",
     "validate_runtime_evidence_binding", "validate_runtime_live_session", "validate_runtime_rule_registry",
+    "compile_runtime_aesthetic_intent", "validate_runtime_aesthetic_intent",
+    "evaluate_runtime_direction_candidates", "commit_runtime_direction",
+    "assess_runtime_genericity", "validate_runtime_trend_registry",
+    "runtime_product_substitution_assessment", "build_runtime_design_memory",
+    "validate_runtime_design_memory", "assess_runtime_design_memory_staleness",
+    "prepare_runtime_blinded_candidates", "validate_runtime_taste_judgment",
+    "aggregate_runtime_taste_court", "plan_runtime_quality_residue_pass",
+    "assess_runtime_quality_residue_closure",
 ]
 
 from .ecosystem import (
