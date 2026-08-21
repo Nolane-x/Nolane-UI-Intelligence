@@ -62,7 +62,7 @@ class RuntimeV11IntegrationTests(unittest.TestCase):
         self.assertEqual(runtime["claim_boundary"], "evidence-only")
         self.assertTrue((ROOT / "scripts" / "nui-detect").exists())
 
-    def test_runtime_schemas_and_mechanism_provenance_exist(self):
+    def test_runtime_schemas_and_research_provenance_exist(self):
         for name in (
             "runtime-browser-observation-v11.schema.json",
             "runtime-evidence-binding-v11.schema.json",
@@ -74,7 +74,9 @@ class RuntimeV11IntegrationTests(unittest.TestCase):
         self.assertTrue(provenance_path.exists())
         provenance = provenance_path.read_text(encoding="utf-8").lower()
         self.assertIn("apache-2.0", provenance)
-        self.assertIn("independently authored", provenance)
+        self.assertIn("research inspiration", provenance)
+        self.assertIn("independently designed and authored", provenance)
+        self.assertIn("does not incorporate impeccable source code", provenance)
         self.assertIn("no canonical skills", provenance)
         self.assertTrue((ROOT / "docs" / "RUNTIME-DESIGN-INTELLIGENCE.md").exists())
 
