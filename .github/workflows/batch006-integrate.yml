@@ -1,0 +1,38 @@
+name: Batch 006 one-shot integration
+
+on:
+  push:
+    branches:
+      - design/ui-industry-1000-batch-006
+
+permissions:
+  contents: write
+
+jobs:
+  integrate:
+    if: ${{ !contains(github.event.head_commit.message, 'Integrate Batch 006 graph and provenance') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Integrate graph, provenance and current counts
+        run: python scripts/batch006_graph_integrate.py
+      - name: Remove one-shot integration tooling before validation
+        run: |
+          rm scripts/batch006_graph_integrate.py
+          rm .github/workflows/batch006-integrate.yml
+      - name: Run Batch 005/006 and clean-delivery gates
+        run: |
+          python -m unittest tests.test_ui_industry_batch_005 tests.test_ui_industry_batch_006 tests.test_clean_delivery_contract
+      - name: Commit integrated Batch 006
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -m "Integrate Batch 006 graph and provenance"
+          git push origin HEAD:design/ui-industry-1000-batch-006
