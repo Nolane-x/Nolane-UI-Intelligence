@@ -108,9 +108,18 @@ def validate_rule_registry(record: dict[str, Any]) -> dict[str, Any]:
                 errors.append(
                     f"runtime rule {rule_id or index} provenance must mark implementation independently-authored"
                 )
-            sources = provenance.get("mechanism_sources", [])
-            if not isinstance(sources, list):
-                errors.append(f"runtime rule {rule_id or index} provenance mechanism_sources must be a list")
+            if "mechanism_sources" in provenance:
+                errors.append(
+                    f"runtime rule {rule_id or index} provenance mechanism_sources is legacy; use research_inspiration"
+                )
+            inspiration = provenance.get("research_inspiration")
+            if inspiration is not None and (
+                not isinstance(inspiration, list)
+                or any(not _text(item) for item in inspiration)
+            ):
+                errors.append(
+                    f"runtime rule {rule_id or index} provenance research_inspiration must be a list of non-empty strings"
+                )
 
         owner_hints = rule.get("owner_hints", [])
         if not isinstance(owner_hints, list) or any(not _text(owner) for owner in owner_hints):
