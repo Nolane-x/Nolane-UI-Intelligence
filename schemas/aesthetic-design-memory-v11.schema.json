@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "nui://schemas/aesthetic-design-memory-v11",
+  "title": "NUI V11 Project-local Design Memory",
+  "type": "object",
+  "required": ["memory_version", "project_identity", "accepted_mechanisms", "rejected_mechanisms", "identity_invariants", "source_digests", "last_verified_revision", "claim_boundary"],
+  "properties": {
+    "memory_version": {"const": 11},
+    "project_identity": {"type": "string", "minLength": 1},
+    "accepted_mechanisms": {"type": "array"},
+    "rejected_mechanisms": {"type": "array"},
+    "identity_invariants": {"type": "array"},
+    "source_digests": {"type": "object", "minProperties": 1, "additionalProperties": {"type": "string", "minLength": 1}},
+    "last_verified_revision": {"type": "string", "minLength": 1},
+    "claim_boundary": {"const": "project-design-memory-only"}
+  },
+  "not": {"anyOf": [{"required": ["global_style"]}, {"required": ["house_style"]}]},
+  "additionalProperties": true
+}

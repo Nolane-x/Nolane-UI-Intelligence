@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "nui://schemas/aesthetic-generation-intent-v11",
+  "title": "NUI V11 Aesthetic Generation Intent",
+  "type": "object",
+  "required": ["version", "kind", "intent_id", "revision", "scope", "ambition", "mode", "product_thesis", "user_job", "subject_anchors", "identity_invariants", "frozen_axes", "flexible_axes", "novelty_budget", "signature_mechanism", "quiet_system", "composition_principles", "typography_character", "palette_behavior", "surface_material_logic", "media_role", "motion_posture", "anti_references", "preserve", "rejection_conditions", "required_owner_outputs", "source_evidence_refs", "claim_boundary"],
+  "properties": {
+    "version": {"const": 11},
+    "kind": {"const": "aesthetic-generation-intent"},
+    "intent_id": {"type": "string", "minLength": 1},
+    "revision": {"type": "string", "minLength": 1},
+    "scope": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1},
+    "ambition": {"enum": ["UTILITY", "STANDARD", "HIGH", "FLAGSHIP"]},
+    "mode": {"enum": ["IDENTITY_LOCKED", "BOUNDED_DEPARTURE", "NEW_DIRECTION", "IMPLEMENTATION_ONLY"]},
+    "claim_boundary": {"const": "generation-intent-only"},
+    "established_identity": {"type": "boolean"},
+    "departure_authorized": {"type": "boolean"}
+  },
+  "additionalProperties": true
+}

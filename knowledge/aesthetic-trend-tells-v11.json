@@ -1,0 +1,45 @@
+{
+  "version": 11,
+  "purpose": "Time-bounded model-convergence observations. A tell is weak evidence and never a universal style prohibition.",
+  "tells": [
+    {
+      "tell_id": "trend.2026.decorative-gradient-headline-convergence",
+      "observed_pattern": "Decorative clipped-gradient headline treatment repeatedly appears as a default identity substitute without subject or brand causality.",
+      "first_observed": "2026-08-21",
+      "last_reviewed": "2026-08-21",
+      "review_after": "2026-11-21",
+      "source_provenance": ["research:anthropic-frontend-aesthetics", "research:impeccable-craft-floor", "nui:genericity-falsification"],
+      "applicable_contexts": ["high-visual-freedom", "marketing", "new-direction"],
+      "non_applicable_contexts": ["brand-authorized-gradient-material", "semantic-data-encoding"],
+      "falsifier": "The committed product or brand direction proves the gradient material is a subject-specific signature and rendered critique confirms it strengthens hierarchy rather than replacing it.",
+      "status": "WATCH",
+      "implementation": "independently-authored"
+    },
+    {
+      "tell_id": "trend.2026.uniform-rounded-card-wall-convergence",
+      "observed_pattern": "Many unrelated regions are repeatedly enclosed in visually equivalent rounded cards, making containment stand in for hierarchy or product structure.",
+      "first_observed": "2026-08-21",
+      "last_reviewed": "2026-08-21",
+      "review_after": "2026-11-21",
+      "source_provenance": ["research:impeccable-craft-floor", "research:linear-quality-accumulation", "nui:preventing-generic-ui"],
+      "applicable_contexts": ["application-shell", "dashboard", "marketing"],
+      "non_applicable_contexts": ["independent-object-model", "explicit-contained-interaction"],
+      "falsifier": "Each repeated boundary maps to an independently meaningful object, state, interaction or containment contract and alternative grouping would reduce product truth or operability.",
+      "status": "ACTIVE",
+      "implementation": "independently-authored"
+    },
+    {
+      "tell_id": "trend.2026.decorative-pill-badge-saturation",
+      "observed_pattern": "Pills and badges accumulate as decorative emphasis across headings, feature lists and metadata even when they communicate no state, category or actionable meaning.",
+      "first_observed": "2026-08-21",
+      "last_reviewed": "2026-08-21",
+      "review_after": "2026-11-21",
+      "source_provenance": ["research:anthropic-frontend-aesthetics", "research:vercel-interface-craft", "nui:preventing-generic-ui"],
+      "applicable_contexts": ["marketing", "application-shell"],
+      "non_applicable_contexts": ["semantic-status", "filter-token", "category-metadata"],
+      "falsifier": "The pill or badge consistently represents an explicit state, filter, category or interaction contract whose shape improves scanning or control semantics.",
+      "status": "WATCH",
+      "implementation": "independently-authored"
+    }
+  ]
+}
