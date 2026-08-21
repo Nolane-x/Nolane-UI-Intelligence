@@ -106,6 +106,8 @@ Unrelated source changes do not invalidate scoped evidence. Conversely, an overl
 - evidence freshness problems,
 - required observation-capability gaps.
 
+The canonical installation inventory is exported as `REQUIRED_RUNTIME_ARTIFACTS`; it covers the detector, doctor, schemas, evidence layer, browser protocol, hook contracts, and Live Lab protocol rather than treating only the Phase 1 detector as a complete runtime installation.
+
 Doctor does not redesign the product, rewrite context, or infer truth drift from a large number of commits. A commit count can be a maintenance clue, but it is not evidence that product or design truth is wrong. When evidence is stale, doctor preserves and reports it; it does not delete inconvenient evidence.
 
 Example:
@@ -133,14 +135,17 @@ SELECTED
   -> CLOSED
 ```
 
-A preview can enter `RECOVERY` after interruption and resume without losing the prior event history. Illegal transition skips are rejected rather than silently repaired.
+Only an active `PREVIEWING` state may enter `RECOVERY` after an interruption. Once source has been accepted/applied, the journal cannot rewind into preview, because that would make session state disagree with the already-mutated source tree. Illegal transition skips are rejected rather than silently repaired.
 
-Live source application uses optimistic concurrency. Selection records the source digest that the user/agent actually inspected. Before applying a replacement, `transactional_replace()` recomputes the current digest:
+Live source application uses optimistic concurrency. Selection records the source digest that the user/agent actually inspected. `transactional_replace()` checks that digest once before staging the replacement, writes the candidate to a sibling temporary file, then performs a second existence/digest check immediately before commit:
 
-- matching digest -> write through an atomic filesystem replace and return the new digest;
-- changed digest -> return `CONFLICT` and leave the source untouched.
+- source still exists and both guards match -> commit through an atomic filesystem replace and return the new digest;
+- source changed during either guard window -> return `CONFLICT` and preserve the newer source;
+- source was deleted while staging -> return `CONFLICT`, delete the temporary candidate, and do not recreate the source.
 
-This prevents a live variant from overwriting edits made by another agent, another branch operation, or a human after the selection was created. Preview approval is therefore not blanket permission to clobber newer source state.
+The second guard closes the preparation-window race that a single up-front digest check would miss. This is intentionally described as optimistic concurrency with a final pre-commit guard, not as a mathematical lock-free compare-and-swap: an uncooperative writer can still race after the final check. A future cooperative lock/transaction coordinator can strengthen that boundary without changing the session protocol.
+
+Preview approval is therefore not blanket permission to clobber newer source state. After a successful apply, the normal next step is re-observation so old overlapping evidence cannot silently certify the new implementation.
 
 The next layer built on this protocol can add element selection, source mapping, variant preview transport, and browser overlays while preserving the same conflict-safe core.
 
@@ -160,6 +165,7 @@ V11 does not:
 - allow genericness heuristics to override explicit product/design authority;
 - fabricate observations when a browser/host lacks capability;
 - make a clean scan sufficient evidence of completion;
-- overwrite concurrent edits during live application.
+- overwrite known concurrent edits during live application;
+- claim lock-free cross-process atomic compare-and-swap where the filesystem/runtime does not provide it.
 
 These boundaries are deliberate. Runtime Intelligence should make the existing NUI graph more observable and harder to fool, not make the graph larger for its own sake.
