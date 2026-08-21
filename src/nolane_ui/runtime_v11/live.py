@@ -17,6 +17,13 @@ _STATES = frozenset({
     "FAILED", "CLOSED",
 })
 _TERMINAL = frozenset({"FAILED", "CLOSED"})
+_RUNTIME_CLOSURE_DECISIONS = frozenset({"CLEAN", "OPEN", "UNKNOWN"})
+_RUNTIME_CLOSURE_COUNT_FIELDS = (
+    "resolved_count",
+    "persisted_count",
+    "unknown_count",
+    "regression_count",
+)
 _TRANSITIONS: dict[tuple[str, str], str] = {
     ("SELECTED", "bind_context"): "CONTEXT_BOUND",
     ("CONTEXT_BOUND", "variants_ready"): "VARIANTS_READY",
@@ -33,6 +40,30 @@ _TRANSITIONS: dict[tuple[str, str], str] = {
 
 def _text(value: Any) -> bool:
     return isinstance(value, str) and bool(value.strip())
+
+
+def _validate_reobserve_payload(payload: dict[str, Any]) -> None:
+    decision = payload.get("runtime_closure_decision")
+    if decision not in _RUNTIME_CLOSURE_DECISIONS:
+        raise ValueError(
+            "live reobserve payload runtime_closure_decision must be CLEAN, OPEN, or UNKNOWN"
+        )
+
+    counts: dict[str, int] = {}
+    for field in _RUNTIME_CLOSURE_COUNT_FIELDS:
+        value = payload.get(field)
+        if isinstance(value, bool) or not isinstance(value, int) or value < 0:
+            raise ValueError(f"live reobserve payload {field} must be a non-negative integer")
+        counts[field] = value
+
+    if decision == "CLEAN" and (
+        counts["persisted_count"]
+        or counts["unknown_count"]
+        or counts["regression_count"]
+    ):
+        raise ValueError(
+            "live reobserve CLEAN requires zero persisted, unknown, and regression findings"
+        )
 
 
 def _next_state(state: str, event_type: str) -> str:
@@ -88,6 +119,10 @@ def append_live_event(
     if payload is not None and not isinstance(payload, dict):
         raise ValueError("live event payload must be an object")
 
+    event_payload = dict(payload or {})
+    if event_type == "reobserve":
+        _validate_reobserve_payload(event_payload)
+
     current_state = str(session["state"])
     target_state = _next_state(current_state, event_type)
     updated = copy.deepcopy(session)
@@ -97,7 +132,7 @@ def append_live_event(
         "type": event_type,
         "from_state": current_state,
         "to_state": target_state,
-        "payload": dict(payload or {}),
+        "payload": event_payload,
     })
     updated["state"] = target_state
     return updated
@@ -145,6 +180,11 @@ def validate_live_session(record: dict[str, Any]) -> dict[str, Any]:
         payload = event.get("payload")
         if not isinstance(payload, dict):
             errors.append(f"live event[{index}] payload must be an object")
+        elif event_type == "reobserve":
+            try:
+                _validate_reobserve_payload(payload)
+            except ValueError as exc:
+                errors.append(f"live event[{index}] {exc}")
         replay = expected
     if state in _STATES and replay != state:
         errors.append(f"live session state {state} does not match replay state {replay}")
