@@ -29,6 +29,14 @@ _LINEAR_GRADIENT = re.compile(r"linear-gradient\s*\(", re.IGNORECASE)
 _CLIP_BLOCK = re.compile(r"\{([^{}]{0,500})\}", re.DOTALL)
 _HEIGHT_DECL = re.compile(r"\b(?:height|max-height|maxHeight)\s*[:=]\s*['\"]?[^;,}\n]+", re.IGNORECASE)
 _OVERFLOW_HIDDEN = re.compile(r"\boverflow(?:-[xy])?\s*:\s*hidden\b", re.IGNORECASE)
+_OPENING_TAG = re.compile(r"<[a-z][\w:-]*\b[^>]*>", re.IGNORECASE | re.DOTALL)
+_SIMPLE_TEXT_ELEMENT = re.compile(
+    r"<(?:span|div|p|label)\b(?P<attrs>[^>]*)>(?P<body>[^<]{1,160})</(?:span|div|p|label)>",
+    re.IGNORECASE | re.DOTALL,
+)
+_CLASS_ATTR = re.compile(r"\b(?:class|className)\s*=\s*([\"'])(?P<value>.*?)\1", re.IGNORECASE | re.DOTALL)
+_SEMANTIC_ATTR = re.compile(r"\bdata-semantic\s*=\s*([\"'])(?P<value>.*?)\1", re.IGNORECASE | re.DOTALL)
+_BOUNDARY_ATTR = re.compile(r"\bdata-nui-boundary\s*=\s*([\"'])(?P<value>.*?)\1", re.IGNORECASE | re.DOTALL)
 
 _DOMAIN_IMPACT = {
     "runtime-integrity": "The shipped interface can expose broken, misleading, or unreachable behavior to users.",
@@ -67,6 +75,27 @@ def _token_color_owned(context: dict[str, Any] | None) -> bool:
         return False
     axes = design_system.get("token_owned_axes", [])
     return isinstance(axes, list) and "color" in {str(axis).strip().lower() for axis in axes}
+
+
+def _class_tokens(tag_or_attrs: str) -> set[str]:
+    match = _CLASS_ATTR.search(tag_or_attrs)
+    if not match:
+        return set()
+    return {token.strip().lower() for token in re.split(r"\s+", match.group("value")) if token.strip()}
+
+
+def _attribute_value(pattern: re.Pattern[str], tag_or_attrs: str) -> str:
+    match = pattern.search(tag_or_attrs)
+    return match.group("value").strip().lower() if match else ""
+
+
+def _has_named_shape(tokens: set[str], names: set[str]) -> bool:
+    for token in tokens:
+        if token in names:
+            return True
+        if any(token.endswith(f"-{name}") for name in names):
+            return True
+    return False
 
 
 def _img_matches(text: str) -> Iterable[tuple[str, int, str]]:
@@ -119,6 +148,58 @@ def _gradient_text_matches(text: str) -> Iterable[tuple[str, int, str]]:
             yield "runtime.genericness.decorative-gradient-text", clip.start(), "css"
 
 
+def _pill_accumulation_matches(text: str) -> Iterable[tuple[str, int, str]]:
+    decorative = []
+    semantic_exemptions = {"status", "category", "filter", "metadata", "state", "token"}
+    for match in _OPENING_TAG.finditer(text):
+        tag = match.group(0)
+        if not _has_named_shape(_class_tokens(tag), {"pill", "badge", "chip"}):
+            continue
+        if _attribute_value(_SEMANTIC_ATTR, tag) in semantic_exemptions:
+            continue
+        decorative.append(match)
+    if len(decorative) >= 5:
+        yield "runtime.genericness.decorative-pill-saturation", decorative[4].start(), "markup"
+
+
+def _micro_label_accumulation_matches(text: str) -> Iterable[tuple[str, int, str]]:
+    decorative = []
+    semantic_exemptions = {"metadata", "status", "category", "state", "identifier"}
+    for match in _SIMPLE_TEXT_ELEMENT.finditer(text):
+        attrs = match.group("attrs")
+        tokens = _class_tokens(attrs)
+        if not _has_named_shape(tokens, {"micro-label", "eyebrow"}):
+            continue
+        if _attribute_value(_SEMANTIC_ATTR, attrs) in semantic_exemptions:
+            continue
+        normalized = " ".join(match.group("body").split())
+        letters = "".join(char for char in normalized if char.isalpha())
+        if len(letters) < 2 or letters != letters.upper():
+            continue
+        decorative.append(match)
+    if len(decorative) >= 5:
+        yield "runtime.genericness.all-caps-micro-label-accumulation", decorative[4].start(), "markup"
+
+
+def _uniform_boundary_accumulation_matches(text: str) -> Iterable[tuple[str, int, str]]:
+    generic_boundaries = []
+    for match in _OPENING_TAG.finditer(text):
+        tag = match.group(0)
+        if not _has_named_shape(_class_tokens(tag), {"card", "panel", "surface"}):
+            continue
+        if _attribute_value(_BOUNDARY_ATTR, tag) == "independent-object":
+            continue
+        generic_boundaries.append(match)
+    if len(generic_boundaries) >= 6:
+        yield "runtime.genericness.uniform-boundary-accumulation", generic_boundaries[5].start(), "markup"
+
+
+def _craft_accumulation_matches(text: str) -> Iterable[tuple[str, int, str]]:
+    yield from _pill_accumulation_matches(text)
+    yield from _micro_label_accumulation_matches(text)
+    yield from _uniform_boundary_accumulation_matches(text)
+
+
 def _raw_matches(text: str, context: dict[str, Any] | None) -> list[tuple[str, int, str]]:
     matches: list[tuple[str, int, str]] = []
     matches.extend(_img_matches(text))
@@ -126,6 +207,7 @@ def _raw_matches(text: str, context: dict[str, Any] | None) -> list[tuple[str, i
     matches.extend(_clipping_matches(text))
     matches.extend(_nested_card_matches(text))
     matches.extend(_gradient_text_matches(text))
+    matches.extend(_craft_accumulation_matches(text))
     return matches
 
 
@@ -158,8 +240,6 @@ def _make_finding(rule: dict[str, Any], path: str, text: str, offset: int, engin
             "observation_digest": f"sha256:{digest}",
         },
     }
-    # Keep this assertion close to construction so future finding-schema changes
-    # fail in the runtime package rather than leaking malformed evidence.
     missing = [field for field in NUI_FINDING_REQUIRED_FIELDS if field not in finding]
     if missing:
         raise AssertionError(f"runtime finding construction omitted fields: {missing}")
