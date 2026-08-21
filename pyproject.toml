@@ -16,3 +16,4 @@ where = ["src"]
 
 [project.optional-dependencies]
 mcp = ["mcp>=2,<3"]
+live = ["playwright>=1.62,<2"]
