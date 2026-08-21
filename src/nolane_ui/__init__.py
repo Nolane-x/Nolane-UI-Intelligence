@@ -47,6 +47,7 @@ from .runtime_v11 import (
     browser_observation_findings as browser_runtime_findings,
     build_evidence_binding as build_runtime_evidence_binding,
     build_hook_capability as build_runtime_hook_capability,
+    compare_runtime_observations,
     create_live_session as create_runtime_live_session,
     diagnose_runtime_state,
     load_rule_registry as load_runtime_rule_registry,
@@ -82,10 +83,10 @@ __all__ = [
     "validate_source_selection", "validate_rich_interaction_contract", "validate_ui_integration_audit",
     "adjudicate_runtime_findings", "append_runtime_live_event", "assess_runtime_evidence_staleness",
     "browser_runtime_findings", "build_runtime_evidence_binding", "build_runtime_hook_capability",
-    "create_runtime_live_session", "diagnose_runtime_state", "load_runtime_rule_registry",
-    "normalize_runtime_browser_observation", "route_runtime_finding", "route_runtime_findings",
-    "scan_runtime_path", "scan_runtime_text", "sha256_runtime_file", "sha256_runtime_text",
-    "transactional_runtime_replace", "validate_runtime_browser_observation",
+    "compare_runtime_observations", "create_runtime_live_session", "diagnose_runtime_state",
+    "load_runtime_rule_registry", "normalize_runtime_browser_observation", "route_runtime_finding",
+    "route_runtime_findings", "scan_runtime_path", "scan_runtime_text", "sha256_runtime_file",
+    "sha256_runtime_text", "transactional_runtime_replace", "validate_runtime_browser_observation",
     "validate_runtime_evidence_binding", "validate_runtime_live_session", "validate_runtime_rule_registry",
 ]
 
