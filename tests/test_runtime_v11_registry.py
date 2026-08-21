@@ -18,7 +18,7 @@ VALID_RULE = {
     "owner_hints": ["designing-visual-media"],
     "source_provenance": {
         "kind": "independent-nui-rule",
-        "mechanism_sources": ["pbakaus/impeccable:deterministic-detector-pattern"],
+        "research_inspiration": ["deterministic UI observation"],
         "implementation": "independently-authored",
     },
 }
@@ -63,6 +63,39 @@ class RuntimeV11RegistryTests(unittest.TestCase):
                 result = validate_rule_registry({"version": 11, "rules": [rule]})
                 self.assertFalse(result["valid"])
                 self.assertTrue(any("edit" in error.lower() for error in result["errors"]))
+
+    def test_legacy_mechanism_sources_are_rejected(self):
+        rule = dict(VALID_RULE)
+        rule["source_provenance"] = {
+            "kind": "independent-nui-rule",
+            "mechanism_sources": ["external-repository:pattern"],
+            "implementation": "independently-authored",
+        }
+        result = validate_rule_registry({"version": 11, "rules": [rule]})
+        self.assertFalse(result["valid"])
+        self.assertTrue(any("mechanism_sources" in error for error in result["errors"]))
+
+    def test_research_inspiration_must_be_nonempty_strings_when_present(self):
+        for inspiration in ("external-reference", ["valid", ""], [1]):
+            with self.subTest(inspiration=inspiration):
+                rule = dict(VALID_RULE)
+                rule["source_provenance"] = {
+                    "kind": "independent-nui-rule",
+                    "research_inspiration": inspiration,
+                    "implementation": "independently-authored",
+                }
+                result = validate_rule_registry({"version": 11, "rules": [rule]})
+                self.assertFalse(result["valid"])
+                self.assertTrue(any("research_inspiration" in error for error in result["errors"]))
+
+    def test_external_inspiration_is_optional_for_independent_rule(self):
+        rule = dict(VALID_RULE)
+        rule["source_provenance"] = {
+            "kind": "independent-nui-rule",
+            "implementation": "independently-authored",
+        }
+        result = validate_rule_registry({"version": 11, "rules": [rule]})
+        self.assertTrue(result["valid"], result["errors"])
 
     def test_load_registry_reads_and_validates_file(self):
         with tempfile.TemporaryDirectory() as tmp:
