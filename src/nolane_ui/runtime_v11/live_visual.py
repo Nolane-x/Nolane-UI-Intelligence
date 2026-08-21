@@ -1,8 +1,9 @@
 """Provider-neutral orchestration primitives for NUI V11 Phase 5 Live Visual Runtime.
 
-This coordinator composes source attribution, preview freshness, and the existing
-conflict-safe source mutation boundary. It deliberately does not own browser
-transport internals, taste decisions, or release authority.
+This coordinator composes source attribution, immutable preview preparation,
+preview freshness, and the existing conflict-safe source mutation boundary. It
+deliberately does not own browser transport internals, taste decisions, or
+release authority.
 """
 from __future__ import annotations
 
@@ -10,7 +11,12 @@ from pathlib import Path
 from typing import Any
 
 from .live import transactional_replace
-from .preview import assess_preview_freshness, validate_preview_candidate
+from .preview import (
+    assess_preview_freshness,
+    build_preview_candidate,
+    prepare_preview_application,
+    validate_preview_candidate,
+)
 from .source_attribution import resolve_source_attribution, select_source_candidate
 
 
@@ -126,6 +132,71 @@ def prepare_live_visual_selection(
     }
 
 
+def prepare_live_visual_preview(
+    selection: dict[str, Any],
+    *,
+    preview_id: str,
+    session_id: str,
+    replacement: str,
+    transport_capability: dict[str, Any],
+    repository_root: str | Path,
+    preserve_constraints: list[str] | None = None,
+    direction_id: str | None = None,
+    provenance: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Prepare a non-destructive preview and negotiate transport capability.
+
+    The function never invokes a provider or mutates canonical source. READY
+    means the immutable preview record may be handed to a compatible adapter;
+    actual browser injection and refresh evidence are separate operations.
+    """
+    if not isinstance(selection, dict) or selection.get("status") != "READY":
+        raise ValueError("live visual preview preparation requires a READY source selection")
+    source_candidate = selection.get("source_candidate")
+    if not isinstance(source_candidate, dict):
+        raise ValueError("live visual preview preparation requires source_candidate")
+
+    preview = build_preview_candidate(
+        preview_id=preview_id,
+        session_id=session_id,
+        source_candidate=source_candidate,
+        replacement=replacement,
+        preserve_constraints=preserve_constraints,
+        direction_id=direction_id,
+        provenance=provenance,
+    )
+    freshness = assess_preview_freshness(preview, repository_root)
+    if freshness["status"] != "CURRENT":
+        return {
+            "status": "UNKNOWN" if freshness["status"] == "STALE" else "BLOCKED",
+            "failure": freshness.get("failure"),
+            "preview": preview,
+            "freshness": freshness,
+            "claim_boundary": "live-visual-closure-only",
+        }
+
+    application = prepare_preview_application(preview, transport_capability)
+    if application["status"] != "READY":
+        return {
+            "status": "UNKNOWN",
+            "failure": "TRANSPORT_CAPABILITY_INCOMPLETE",
+            "missing_capabilities": list(application.get("missing_capabilities", [])),
+            "preview": application["preview"],
+            "freshness": freshness,
+            "claim_boundary": "live-visual-closure-only",
+        }
+
+    return {
+        "status": "READY",
+        "failure": None,
+        "missing_capabilities": [],
+        "preview": application["preview"],
+        "provider": application["provider"],
+        "freshness": freshness,
+        "claim_boundary": "live-visual-closure-only",
+    }
+
+
 def accept_live_visual_preview(
     preview: dict[str, Any],
     *,
@@ -190,5 +261,6 @@ def accept_live_visual_preview(
 __all__ = [
     "accept_live_visual_preview",
     "assess_visual_observation_capabilities",
+    "prepare_live_visual_preview",
     "prepare_live_visual_selection",
 ]
