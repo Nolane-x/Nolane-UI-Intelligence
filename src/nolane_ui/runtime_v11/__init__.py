@@ -23,6 +23,7 @@ from .live import (
     validate_live_session,
 )
 from .registry import load_rule_registry, validate_rule_registry
+from .reobserve import compare_runtime_observations
 from .routing import route_runtime_finding, route_runtime_findings
 
 __all__ = [
@@ -34,6 +35,7 @@ __all__ = [
     "browser_observation_findings",
     "build_evidence_binding",
     "build_hook_capability",
+    "compare_runtime_observations",
     "create_live_session",
     "diagnose_runtime_state",
     "load_rule_registry",
