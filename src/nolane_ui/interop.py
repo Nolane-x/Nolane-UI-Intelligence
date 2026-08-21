@@ -1,7 +1,7 @@
 """Portable NUI agent interoperability and external-skill trust invariants.
 
 NUI keeps one canonical cognition graph and projects it through thin host
-surfaces.  Host adapters change discovery and invocation only; they never gain
+surfaces. Host adapters change discovery and invocation only; they never gain
 design authority and never expand the host's permissions.
 """
 from __future__ import annotations
@@ -181,6 +181,15 @@ def build_agent_install_plan(agent_id: str, root: Path | str) -> dict[str, Any]:
     if missing_files:
         raise ValueError(f"agent adapter {agent_id} references missing repository files: {missing_files}")
 
+    runtime_files = ["scripts/nui-detect", "knowledge/runtime-detector-rules-v11.json"]
+    missing_runtime_files = [path for path in runtime_files if not (root / path).exists()]
+    if missing_runtime_files:
+        raise ValueError(f"agent adapter {agent_id} references missing runtime detection files: {missing_runtime_files}")
+
+    # Local import keeps V8 interoperability validation independent from the
+    # V11 runtime package while allowing install plans to expose the new layer.
+    from .runtime_v11.hooks import build_hook_capability
+
     return {
         "agent_id": agent_id,
         "surface": projection["surface"],
@@ -200,6 +209,14 @@ def build_agent_install_plan(agent_id: str, root: Path | str) -> dict[str, Any]:
             "supported": True,
             "command": f"python scripts/nui-agent-export --agent {agent_id}",
             "validate": "python scripts/nui-validate .",
+        },
+        "runtime_detection": {
+            "supported": True,
+            "command": "python scripts/nui-detect",
+            "project_files": runtime_files,
+            "hook_capabilities": build_hook_capability(agent_id),
+            "claim_boundary": "evidence-only",
+            "configuration_boundary": "Runtime detection uses host-approved file/browser capabilities only; a clean scan never expands NUI completion authority.",
         },
         "permission_boundary": "host permissions remain authoritative; the adapter never expands shell, network, filesystem, browser, MCP or image capabilities",
         "copy_policy": "bridge files point to canonical NUI contracts; do not duplicate the canonical skill body",
