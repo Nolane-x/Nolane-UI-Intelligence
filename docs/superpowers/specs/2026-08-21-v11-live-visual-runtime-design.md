@@ -207,6 +207,8 @@ The adapter must emit canonical V11 packets and pass them through existing valid
 
 Provider-specific metadata is isolated under adapter metadata fields and does not leak into canonical authority semantics.
 
+**Concrete-adapter completion rule:** optional importability must not become an excuse for a paper adapter. Final Phase 5 verification requires at least one exact-head browser smoke flow using real Playwright and a real browser engine. Mock/fake adapter tests remain useful for deterministic unit coverage but cannot satisfy this completion criterion, and a skipped Playwright smoke test cannot be reported as adapter verification. If the default repository workflow cannot provision Playwright/browser binaries, Phase 5 must add a dedicated exact-head browser integration job or equivalent recorded exact-head verification environment.
+
 ### 4. Immutable Preview Runtime
 
 Purpose: create visual alternatives without mutating canonical source.
@@ -484,7 +486,8 @@ Implementation is TDD-first.
 - unsupported capability remains UNKNOWN;
 - HMR fallback to bounded reload;
 - failed HMR + failed reload does not claim observation;
-- re-identification required after refresh.
+- re-identification required after refresh;
+- a dedicated real-browser smoke test executes against installed Playwright/browser and is not skipped on the Phase 5 completion head.
 
 ### Overlay RED tests
 
@@ -528,7 +531,7 @@ Representative failures:
 - `HOT_RELOAD_UNAVAILABLE`
 - `HOT_RELOAD_FAILED`
 - `RELOAD_FAILED`
-- `TARGET_NOT_REFOUND`
+- `TARGET_NOT_REFIND`
 - `OBSERVATION_INCOMPLETE`
 - `CAPTURE_STALE`
 - `APPLY_CONFLICT`
@@ -572,26 +575,27 @@ Phase 5 is complete only when all of the following are true:
 
 1. provider-neutral source-attribution, transport, preview, overlay, and coordinator contracts exist;
 2. a concrete Playwright reference adapter exists and cannot bypass canonical packet validation;
-3. source attribution has explicit exact/candidate/ambiguous/unknown semantics;
-4. unsafe paths and stale digests fail closed;
-5. preview never mutates canonical source;
-6. source mutation still flows through the existing conflict-safe V11 write primitive;
-7. HMR is capability-negotiated with bounded reload fallback;
-8. successful preview observation requires proven refresh/reload plus fresh browser observation;
-9. captures are revision/source bound;
-10. overlay remains evidence-only and cannot declare taste/release winners;
-11. Doctor covers Phase 5 artifacts and capability gaps;
-12. public APIs are explicit;
-13. no canonical skills are added or modified by Phase 5;
-14. changed-path audit contains no `skills/` paths;
-15. the canonical graph remains exactly 874 declared/validated skills unless a separately authorized skill batch changes main first;
-16. all new tests pass plus the complete pre-existing suite;
-17. fresh completion packet and exact-revision repository validation pass on final head;
-18. PR #22 body is updated with final Phase 5 capability and limitation boundaries;
-19. PR #22 remains unmerged unless the user explicitly authorizes merge.
+3. at least one exact-head Playwright smoke flow uses a real browser engine and passes without being skipped or replaced by a mock;
+4. source attribution has explicit exact/candidate/ambiguous/unknown semantics;
+5. unsafe paths and stale digests fail closed;
+6. preview never mutates canonical source;
+7. source mutation still flows through the existing conflict-safe V11 write primitive;
+8. HMR is capability-negotiated with bounded reload fallback;
+9. successful preview observation requires proven refresh/reload plus fresh browser observation;
+10. captures are revision/source bound;
+11. overlay remains evidence-only and cannot declare taste/release winners;
+12. Doctor covers Phase 5 artifacts and capability gaps;
+13. public APIs are explicit;
+14. no canonical skills are added or modified by Phase 5;
+15. changed-path audit contains no `skills/` paths;
+16. the canonical graph remains exactly 874 declared/validated skills unless a separately authorized skill batch changes main first;
+17. all new tests pass plus the complete pre-existing suite;
+18. fresh completion packet and exact-revision repository validation pass on final head;
+19. PR #22 body is updated with final Phase 5 capability and limitation boundaries;
+20. PR #22 remains unmerged unless the user explicitly authorizes merge.
 
 ## Claim ceiling
 
-Phase 5 can prove that NUI has a structurally validated, provider-neutral, conflict-safe live visual iteration protocol with a concrete reference browser adapter when the implementation and tests exist.
+Phase 5 can prove that NUI has a structurally validated, provider-neutral, conflict-safe live visual iteration protocol with a concrete reference browser adapter when the implementation and tests exist and the real-browser smoke gate passes.
 
-It cannot, from structural/unit tests alone, prove that the browser workflow improves real-model UI quality, designer preference, task success, or production velocity. Those remain empirical claims and stay under the existing V10 evidence/claim system.
+It cannot, from structural/unit/browser smoke tests alone, prove that the browser workflow improves real-model UI quality, designer preference, task success, or production velocity. Those remain empirical claims and stay under the existing V10 evidence/claim system.
