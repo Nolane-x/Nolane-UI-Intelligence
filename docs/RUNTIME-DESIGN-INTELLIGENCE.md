@@ -1,11 +1,11 @@
 # NUI V11 Runtime Design Intelligence
 
-NUI V11 adds a deterministic runtime-observation layer beneath the canonical cognition graph. It does **not** add canonical skills, replace routed design owners, or turn a clean scan into release authority. Its job is narrower and more useful: observe implementation and rendered behavior, emit bounded evidence, detect when prior evidence has become stale, and feed those facts back into the existing NUI finding/critique/completion machinery.
+NUI V11 adds a deterministic runtime-observation layer beneath the canonical cognition graph. It does **not** add canonical skills, replace routed design owners, or turn a clean scan into release authority. Its job is narrower and more useful: observe implementation and rendered behavior, emit bounded evidence, detect when prior evidence has become stale, route findings to existing owners, and prove whether scoped runtime findings actually close after repair.
 
 The architecture deliberately separates three responsibilities:
 
 1. **Cognition owns design decisions.** Product truth, task modeling, authority, aesthetic direction, interaction semantics, accessibility intent, and repair strategy remain owned by the existing NUI graph.
-2. **Runtime intelligence owns observation.** Source scans, browser packets, hook execution, evidence fingerprints, and live-edit conflict checks produce facts about the implementation.
+2. **Runtime intelligence owns observation.** Source scans, browser packets, hook execution, evidence fingerprints, finding-to-owner routing, re-observation comparison, and live-edit conflict checks produce facts about the implementation.
 3. **Evidence gates own claims.** Runtime evidence can support or block a claim, but runtime tools do not self-certify product quality or release readiness.
 
 This separation is the primary difference between V11 and a conventional lint pack. A detector rule is a machine observation contract, not a new design faculty.
@@ -65,6 +65,20 @@ Observation and adjudication are separate by design. A contextual rule may match
 
 Exceptions are intentionally narrow. A runtime exception needs explicit scope and rationale; project-wide suppression is not something the detector grants itself. The goal is reviewable evidence, not a convenient path around failing feedback.
 
+## Finding-to-owner routing
+
+`src/nolane_ui/runtime_v11/routing.py` converts runtime findings into **evidence-only repair routes**. A runtime rule may declare `owner_hints`, but those hints do not create authority. Routing intersects them with the supplied canonical `skills/skill-graph.json` and can resolve only skills that already exist there.
+
+Three outcomes are explicit:
+
+- `ROUTED`: at least one hinted owner exists in the canonical graph;
+- `UNRESOLVED`: the rule exists but none of its owner hints currently resolve;
+- `UNKNOWN_RULE`: the finding references a rule absent from the supplied runtime registry.
+
+Unknown hints remain visible in `unresolved_owner_hints`; V11 does not invent a replacement skill to make the route look complete. This is important for concurrent graph evolution: if a later skill batch introduces a legitimate owner, the same runtime rule can resolve differently against the new graph without changing runtime implementation or duplicating ownership.
+
+The routing result always declares `evidence_only: true`. The selected skill still owns interpretation, repair strategy, and any design decision.
+
 ## Agent hook boundary
 
 `src/nolane_ui/runtime_v11/hooks.py` describes runtime-detection capabilities for supported host projections. `build_agent_install_plan()` exposes those capabilities without escalating host permissions or design authority.
@@ -99,6 +113,26 @@ Freshness has three meaningful outcomes:
 
 Unrelated source changes do not invalidate scoped evidence. Conversely, an overlapping change cannot leave old evidence silently current. This gives NUI a causal evidence boundary: screenshots and runtime observations remain valid only for the implementation they actually observed.
 
+## Deterministic repair closure
+
+`src/nolane_ui/runtime_v11/reobserve.py` compares bounded pre-repair and post-repair runtime findings. It exists so an agent cannot treat “I edited the code” as evidence that a defect disappeared.
+
+A prior finding is matched conservatively by rule and observed scope: `rule_id`, source path or URL, line when available, and locator when available. Matching is multiset-based, so duplicate findings at the same scope are not silently collapsed.
+
+Each prior finding becomes:
+
+- `PERSISTED` when the same scoped finding is observed again;
+- `RESOLVED` when it is absent **and** the re-observation capability for that bounded scope is complete;
+- `UNKNOWN` when it is absent but the required observation capability is incomplete.
+
+An after-only finding is recorded as a regression instead of being hidden by improvements elsewhere. Aggregate runtime closure is:
+
+- `CLEAN`: all prior scoped findings resolved and no regression appeared;
+- `OPEN`: at least one finding persisted or a regression appeared;
+- `UNKNOWN`: at least one prior finding cannot be judged because observation capability is incomplete.
+
+The comparator always returns `claim_boundary: runtime-closure-only`. `CLEAN` is therefore evidence that a bounded runtime defect set closed under the supplied observation capabilities; it is not evidence that the complete surface is correct, accessible, high-quality, `VERIFIED`, or `RELEASED`.
+
 ## Runtime doctor
 
 `scripts/nui-runtime-doctor` is a read-only maintenance pass. It reports problems in four families:
@@ -120,9 +154,9 @@ python scripts/nui-runtime-doctor --root .
 
 A required capability that cannot be observed is reported as an unresolved capability gap, never transformed into a passing result.
 
-## Live Lab transaction contract
+## Live Lab transaction and closure contract
 
-`src/nolane_ui/runtime_v11/live.py` provides the protocol foundation for interactive visual iteration. The current layer intentionally prioritizes source safety and recoverability before browser-overlay ergonomics.
+`src/nolane_ui/runtime_v11/live.py` provides the protocol foundation for interactive visual iteration. The current layer intentionally prioritizes source safety, recoverability, and evidence closure before browser-overlay ergonomics.
 
 A live session is an append-only state machine. The normal path is:
 
@@ -149,13 +183,17 @@ The second guard closes the preparation-window race that a single up-front diges
 
 Preview approval is therefore not blanket permission to clobber newer source state. After a successful apply, the normal next step is re-observation so old overlapping evidence cannot silently certify the new implementation.
 
-The next layer built on this protocol can add element selection, source mapping, variant preview transport, and browser overlays while preserving the same conflict-safe core.
+A `reobserve` journal event must persist a bounded closure summary with `runtime_closure_decision` plus `resolved_count`, `persisted_count`, `unknown_count`, and `regression_count`. Counters are non-negative. A `CLEAN` event is invalid if any persisted, unknown, or regression count is non-zero.
+
+Crucially, `REOBSERVED/CLEAN` means only that the scoped runtime findings represented by that re-observation are closed under the supplied capabilities. `REOBSERVED/OPEN` or `REOBSERVED/UNKNOWN` may still transition to `CLOSED`: closing a Live Lab session records that the interactive session ended, **not** that the product passed verification or release gates. Product-level verification remains owned by NUI's existing evidence/completion system.
+
+A later layer can add element selection, source mapping, variant preview transport, and browser overlays while preserving these conflict-safe and evidence-bounded semantics.
 
 ## External architectural research
 
 V11 studied `pbakaus/impeccable` as one external reference for workflow ideas such as deterministic UI checks, edit/session feedback, browser-aware iteration, maintenance passes, and live visual workflows. That study is **research inspiration only**.
 
-NUI V11 does not incorporate Impeccable source code, detector rule text, skill bodies, schemas, thresholds, state machines, configuration formats, or implementation artifacts. V11 code, rule wording, schemas, tests, thresholds, evidence semantics, Doctor behavior, and Live Lab protocol are independently designed and authored for NUI.
+NUI V11 does not incorporate Impeccable source code, detector rule text, skill bodies, schemas, thresholds, state machines, configuration formats, or implementation artifacts. V11 code, rule wording, schemas, tests, thresholds, evidence semantics, Doctor behavior, routing, re-observation logic, and Live Lab protocol are independently designed and authored for NUI.
 
 The research record is kept at `docs/research/impeccable-runtime-mechanism-transfer-v11.md`; its historical filename remains for link stability, while the document itself explicitly states that no implementation transfer occurred.
 
@@ -165,12 +203,14 @@ V11 does not:
 
 - add runtime rules as canonical skills;
 - replace product, accessibility, visual, or interaction owners;
+- invent a skill when an owner hint cannot resolve;
 - use one scalar detector score as a release verdict;
 - allow genericness heuristics to override explicit product/design authority;
 - fabricate observations when a browser/host lacks capability;
-- make a clean scan sufficient evidence of completion;
+- treat absence under incomplete observation as resolved;
+- make a clean scan or clean scoped re-observation sufficient evidence of product completion;
 - overwrite known concurrent edits during live application;
 - claim lock-free cross-process atomic compare-and-swap where the filesystem/runtime does not provide it;
 - describe external research inspiration as copied or transferred implementation.
 
-These boundaries are deliberate. Runtime Intelligence should make the existing NUI graph more observable and harder to fool, not make the graph larger for its own sake.
+These boundaries are deliberate. Runtime Intelligence should make the existing NUI graph more observable, repairable, and harder to fool, not make the graph larger for its own sake.
