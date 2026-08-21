@@ -24,6 +24,50 @@
           "to_state": {"type": "string", "minLength": 1},
           "payload": {"type": "object"}
         },
+        "allOf": [
+          {
+            "if": {
+              "properties": {"type": {"const": "reobserve"}},
+              "required": ["type"]
+            },
+            "then": {
+              "properties": {
+                "payload": {
+                  "type": "object",
+                  "required": [
+                    "runtime_closure_decision",
+                    "resolved_count",
+                    "persisted_count",
+                    "unknown_count",
+                    "regression_count"
+                  ],
+                  "properties": {
+                    "runtime_closure_decision": {"enum": ["CLEAN", "OPEN", "UNKNOWN"]},
+                    "resolved_count": {"type": "integer", "minimum": 0},
+                    "persisted_count": {"type": "integer", "minimum": 0},
+                    "unknown_count": {"type": "integer", "minimum": 0},
+                    "regression_count": {"type": "integer", "minimum": 0}
+                  },
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {"runtime_closure_decision": {"const": "CLEAN"}},
+                        "required": ["runtime_closure_decision"]
+                      },
+                      "then": {
+                        "properties": {
+                          "persisted_count": {"const": 0},
+                          "unknown_count": {"const": 0},
+                          "regression_count": {"const": 0}
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ],
         "additionalProperties": false
       }
     }
