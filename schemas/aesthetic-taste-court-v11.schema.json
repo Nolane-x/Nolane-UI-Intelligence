@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "nui://schemas/aesthetic-taste-court-v11",
+  "title": "NUI V11 Blinded Taste Court Judgment",
+  "type": "object",
+  "required": ["dimension", "verdict", "evidence_refs", "observable_cause"],
+  "properties": {
+    "dimension": {"type": "string", "minLength": 1},
+    "verdict": {"enum": ["LEFT", "RIGHT", "TIE", "UNJUDGABLE"]},
+    "evidence_refs": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "observable_cause": {"type": "string", "minLength": 1},
+    "preserve": {"type": "array", "items": {"type": "string"}}
+  },
+  "allOf": [
+    {"not": {"required": ["beauty_score"]}},
+    {"not": {"required": ["self_score"]}},
+    {"not": {"required": ["generator_preference"]}},
+    {"not": {"required": ["reference_brand"]}}
+  ],
+  "additionalProperties": true
+}

@@ -1,0 +1,262 @@
+{
+  "version": 11,
+  "purpose": "Dependency-free runtime observation rules. These independently authored rules produce evidence; they do not replace NUI design owners or release gates.",
+  "rules": [
+    {
+      "rule_id": "runtime.integrity.broken-image-src",
+      "domain": "runtime-integrity",
+      "class": "mechanical",
+      "tier": "edit",
+      "severity": "major",
+      "engines": ["markup", "text"],
+      "description": "An image element has a missing, empty, or explicit placeholder source that cannot represent a shippable asset by itself.",
+      "falsifier": "Framework evidence proves the source is injected before the element can render and the runtime observation resolves a real asset.",
+      "owner_hints": ["validating-visual-asset-integration"],
+      "source_provenance": {
+        "kind": "independent-nui-rule",
+        "research_inspiration": ["deterministic UI observation patterns", "web asset integrity checks"],
+        "implementation": "independently-authored"
+      }
+    },
+    {
+      "rule_id": "runtime.integrity.empty-navigation-target",
+      "domain": "runtime-integrity",
+      "class": "mechanical",
+      "tier": "edit",
+      "severity": "moderate",
+      "engines": ["markup", "text"],
+      "description": "A link-like element declares an empty navigation target, creating a control that communicates navigation without a destination.",
+      "falsifier": "The element is intentionally intercepted as an application command and exposes the correct semantic role and keyboard behavior.",
+      "owner_hints": ["designing-navigation"],
+      "source_provenance": {
+        "kind": "independent-nui-rule",
+        "research_inspiration": ["general web navigation integrity"],
+        "implementation": "independently-authored"
+      }
+    },
+    {
+      "rule_id": "runtime.integrity.hidden-content-default",
+      "domain": "runtime-integrity",
+      "class": "contextual",
+      "tier": "session",
+      "severity": "major",
+      "engines": ["css", "text", "browser"],
+      "description": "Material content appears authored to start fully invisible, making successful reading depend on a reveal path that must be proven at runtime.",
+      "falsifier": "Runtime evidence shows a reliable reveal path and content remains available when scripting, motion, or intersection observers are unavailable.",
+      "owner_hints": ["designing-motion", "designing-empty-loading-error-states"],
+      "source_provenance": {
+        "kind": "independent-nui-rule",
+        "research_inspiration": ["failed reveal failure analysis", "progressive enhancement principles"],
+        "implementation": "independently-authored"
+      }
+    },
+    {
+      "rule_id": "runtime.accessibility.image-alt-omission",
+      "domain": "accessibility-mechanics",
+      "class": "mechanical",
+      "tier": "session",
+      "severity": "major",
+      "engines": ["markup", "text"],
+      "description": "An image element omits the alt attribute entirely, leaving its accessibility intent unspecified.",
+      "falsifier": "The rendered primitive supplies an equivalent accessible name through a framework abstraction and the source match is not the final semantic element.",
+      "owner_hints": ["designing-accessible-interfaces", "designing-accessible-media-alternatives"],
+      "source_provenance": {
+        "kind": "independent-nui-rule",
+        "research_inspiration": ["WCAG image text-alternative requirements"],
+        "implementation": "independently-authored"
+      }
+    },
+    {
+      "rule_id": "runtime.accessibility.focus-visibility-suppressed",
+      "domain": "accessibility-mechanics",
+      "class": "contextual",
+      "tier": "session",
+      "severity": "major",
+      "engines": ["css", "text", "browser"],
+      "description": "Focus outline styling is suppressed and requires evidence that an equally visible focus treatment replaces it.",
+      "falsifier": "The same interactive state has a clearly visible replacement focus indicator meeting the product accessibility contract.",
+      "owner_hints": ["designing-accessible-interfaces", "designing-keyboard-power-user-ux"],
+      "source_provenance": {
+        "kind": "independent-nui-rule",
+        "research_inspiration": ["WCAG focus appearance requirements"],
+        "implementation": "independently-authored"
+      }
+    },
+    {
+      "rule_id": "runtime.layout.viewport-minimum-width",
+      "domain": "layout-integrity",
+      "class": "contextual",
+      "tier": "session",
+      "severity": "moderate",
+      "engines": ["css", "text", "browser"],
+      "description": "A page-level surface declares a large fixed minimum width that can force horizontal scrolling on smaller supported viewports.",
+      "falsifier": "The task is intentionally a fixed-size canvas/instrument or responsive runtime evidence shows the declaration is scoped away from smaller supported viewports.",
+      "owner_hints": ["adapting-responsive-layouts"],
+      "source_provenance": {
+        "kind": "independent-nui-rule",
+        "research_inspiration": ["responsive layout failure analysis"],
+        "implementation": "independently-authored"
+      }
+    },
+    {
+      "rule_id": "runtime.layout.content-clipping-risk",
+      "domain": "layout-integrity",
+      "class": "contextual",
+      "tier": "session",
+      "severity": "moderate",
+      "engines": ["css", "text", "browser"],
+      "description": "A content-bearing container combines clipping overflow with constrained dimensions, requiring proof that text and focusable descendants are not cut off.",
+      "falsifier": "Rendered geometry shows all required content and focus indicators remain reachable across the supported content and viewport matrix.",
+      "owner_hints": ["adapting-responsive-layouts", "designing-truncation-and-overflow-truth"],
+      "source_provenance": {
+        "kind": "independent-nui-rule",
+        "research_inspiration": ["runtime layout observation"],
+        "implementation": "independently-authored"
+      }
+    },
+    {
+      "rule_id": "runtime.design-system.hard-coded-color",
+      "domain": "design-system-integrity",
+      "class": "contextual",
+      "tier": "session",
+      "severity": "minor",
+      "engines": ["css", "text"],
+      "description": "A literal presentation color appears on an axis that a supplied design-system contract may declare token-owned.",
+      "falsifier": "The literal is part of the token definition itself, an approved data/brand value, or the active design contract does not own this axis.",
+      "owner_hints": ["architecting-design-tokens", "governing-semantic-token-layering"],
+      "source_provenance": {
+        "kind": "independent-nui-rule",
+        "research_inspiration": ["design-token drift analysis"],
+        "implementation": "independently-authored"
+      }
+    },
+    {
+      "rule_id": "runtime.genericness.repeated-nested-card-shell",
+      "domain": "genericness",
+      "class": "genericness",
+      "tier": "session",
+      "severity": "observation",
+      "engines": ["markup", "text", "browser"],
+      "description": "Repeated card-like containers are nested inside card-like parents, a structural convergence signal that may substitute containers for hierarchy.",
+      "falsifier": "The nested boundary expresses a real independent object, state, interaction or containment contract that spacing/dividers cannot represent truthfully.",
+      "owner_hints": ["exploring-aesthetic-directions", "directing-visual-hierarchy", "preventing-generic-ui"],
+      "source_provenance": {
+        "kind": "independent-nui-rule",
+        "research_inspiration": ["nested-container anti-pattern research", "NUI generic-transfer resistance"],
+        "implementation": "independently-authored"
+      }
+    },
+    {
+      "rule_id": "runtime.genericness.decorative-gradient-text",
+      "domain": "genericness",
+      "class": "advisory",
+      "tier": "session",
+      "severity": "observation",
+      "engines": ["css", "text", "browser"],
+      "description": "Text uses a clipped decorative gradient treatment, a convergence signal that should be justified by the selected visual thesis rather than applied reflexively.",
+      "falsifier": "The committed visual direction explicitly makes gradient material a semantic/signature mechanism and rendered critique confirms hierarchy and legibility remain strong.",
+      "owner_hints": ["exploring-aesthetic-directions", "crafting-color", "preventing-generic-ui"],
+      "source_provenance": {
+        "kind": "independent-nui-rule",
+        "research_inspiration": ["decorative convergence research", "NUI comparative taste"],
+        "implementation": "independently-authored"
+      }
+    },
+    {
+      "rule_id": "runtime.genericness.decorative-pill-saturation",
+      "domain": "genericness",
+      "class": "genericness",
+      "tier": "session",
+      "severity": "observation",
+      "engines": ["markup", "text", "browser"],
+      "description": "Repeated pill, badge, or chip-shaped treatments accumulate without explicit state, category, filter, metadata, or interaction semantics, a convergence signal that may substitute decoration for hierarchy.",
+      "falsifier": "Each repeated treatment consistently represents an explicit state, category, filter, metadata, or interaction contract and rendered critique shows the shape improves scanning or operability rather than decorating equivalently weighted content.",
+      "owner_hints": ["preventing-generic-ui", "modeling-component-semantics"],
+      "source_provenance": {
+        "kind": "independent-nui-rule",
+        "research_inspiration": ["NUI genericity accumulation analysis", "semantic badging patterns", "contemporary model-convergence research"],
+        "implementation": "independently-authored"
+      }
+    },
+    {
+      "rule_id": "runtime.genericness.all-caps-micro-label-accumulation",
+      "domain": "genericness",
+      "class": "genericness",
+      "tier": "session",
+      "severity": "observation",
+      "engines": ["markup", "text", "browser"],
+      "description": "Repeated small all-caps presentation labels accumulate as simulated sophistication without clear metadata, identifier, state, or hierarchy necessity.",
+      "falsifier": "The labels are genuine identifiers, metadata, states, or a typography contract explicitly requires the treatment and rendered evidence proves role separation and legibility remain strong.",
+      "owner_hints": ["preventing-generic-ui", "crafting-typography"],
+      "source_provenance": {
+        "kind": "independent-nui-rule",
+        "research_inspiration": ["NUI genericity fingerprinting", "typographic role-separation research", "contemporary model-convergence research"],
+        "implementation": "independently-authored"
+      }
+    },
+    {
+      "rule_id": "runtime.genericness.uniform-boundary-accumulation",
+      "domain": "genericness",
+      "class": "genericness",
+      "tier": "session",
+      "severity": "observation",
+      "engines": ["markup", "text", "browser"],
+      "description": "Many sibling card, panel, or surface boundaries use equivalent containment, a structural convergence signal that may replace authored hierarchy and grouping with repeated shells.",
+      "falsifier": "Each repeated boundary maps to an independent object, state, interaction, or containment contract and alternative grouping would reduce product truth, comprehension, or operability.",
+      "owner_hints": ["preventing-generic-ui", "composing-layouts", "directing-visual-hierarchy"],
+      "source_provenance": {
+        "kind": "independent-nui-rule",
+        "research_inspiration": ["NUI genericity accumulation analysis", "cross-region visual-boundary research", "product craft coherence research"],
+        "implementation": "independently-authored"
+      }
+    },
+    {
+      "rule_id": "runtime.browser.script-error",
+      "domain": "runtime-integrity",
+      "class": "mechanical",
+      "tier": "release",
+      "severity": "critical",
+      "engines": ["browser"],
+      "description": "The observed surface emitted an uncaught runtime or console error during the inspected state.",
+      "falsifier": "A repeat observation on the same revision/state proves the message came from unrelated tooling or a non-product source and the product runtime is clean.",
+      "owner_hints": ["designing-empty-loading-error-states"],
+      "source_provenance": {
+        "kind": "independent-nui-rule",
+        "research_inspiration": ["browser runtime observation patterns"],
+        "implementation": "independently-authored"
+      }
+    },
+    {
+      "rule_id": "runtime.browser.document-horizontal-overflow",
+      "domain": "layout-integrity",
+      "class": "contextual",
+      "tier": "release",
+      "severity": "major",
+      "engines": ["browser"],
+      "description": "The rendered document is wider than its client viewport, producing page-level horizontal overflow that requires an explicit interaction/layout justification.",
+      "falsifier": "The surface is an intentionally pannable fixed canvas/instrument or a re-observation proves horizontal overflow is confined to an explicit operable sub-surface rather than the document.",
+      "owner_hints": ["adapting-responsive-layouts", "designing-truncation-and-overflow-truth"],
+      "source_provenance": {
+        "kind": "independent-nui-rule",
+        "research_inspiration": ["rendered layout geometry"],
+        "implementation": "independently-authored"
+      }
+    },
+    {
+      "rule_id": "runtime.browser.text-occlusion",
+      "domain": "layout-integrity",
+      "class": "mechanical",
+      "tier": "release",
+      "severity": "major",
+      "engines": ["browser"],
+      "description": "Driver hit-testing reports essential visible text as covered by another rendered element in the inspected state.",
+      "falsifier": "The covered text is intentionally non-essential/duplicate or re-observation shows the hit-test/occlusion report was incorrect for the same revision and state.",
+      "owner_hints": ["adapting-responsive-layouts", "directing-visual-hierarchy", "designing-truncation-and-overflow-truth"],
+      "source_provenance": {
+        "kind": "independent-nui-rule",
+        "research_inspiration": ["browser hit-testing patterns", "rendered text occlusion analysis"],
+        "implementation": "independently-authored"
+      }
+    }
+  ]
+}

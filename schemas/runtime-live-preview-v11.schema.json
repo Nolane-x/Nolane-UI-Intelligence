@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nolane.dev/schemas/runtime-live-preview-v11.schema.json",
+  "title": "NUI V11 Live Preview Candidate",
+  "type": "object",
+  "required": ["version", "preview_id", "session_id", "source_candidate", "base_source_digest", "replacement", "preserve_constraints", "direction_id", "provenance", "transport_requirements", "state", "capture_refs", "observation", "claim_boundary"],
+  "properties": {
+    "version": {"const": 11},
+    "preview_id": {"type": "string", "minLength": 1},
+    "session_id": {"type": "string", "minLength": 1},
+    "source_candidate": {"type": "object"},
+    "base_source_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "replacement": {"type": "string"},
+    "preserve_constraints": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "direction_id": {"oneOf": [{"type": "null"}, {"type": "string", "minLength": 1}]},
+    "provenance": {"type": "object"},
+    "transport_requirements": {"const": ["preview_injection", "refresh"]},
+    "state": {"enum": ["PREPARED", "INJECTED", "OBSERVED", "STALE", "CONFLICT", "REJECTED", "ACCEPTED"]},
+    "capture_refs": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "observation": {"oneOf": [{"type": "null"}, {"type": "object"}]},
+    "claim_boundary": {"const": "preview-transport-only"}
+  },
+  "additionalProperties": false
+}

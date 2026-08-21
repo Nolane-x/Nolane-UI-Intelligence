@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nolane.dev/schemas/runtime-browser-transport-v11.schema.json",
+  "title": "NUI V11 Runtime Browser Transport Capability",
+  "type": "object",
+  "required": ["version", "provider", "capabilities", "claim_boundary"],
+  "properties": {
+    "version": {"const": 11},
+    "provider": {"type": "string", "minLength": 1},
+    "capabilities": {
+      "type": "object",
+      "required": [
+        "navigation",
+        "geometry",
+        "computed_style",
+        "runtime_errors",
+        "capture",
+        "document_metrics",
+        "occlusion",
+        "rendered_metadata",
+        "preview_injection",
+        "hot_reload",
+        "reload"
+      ],
+      "properties": {
+        "navigation": {"type": "boolean"},
+        "geometry": {"type": "boolean"},
+        "computed_style": {"type": "boolean"},
+        "runtime_errors": {"type": "boolean"},
+        "capture": {"type": "boolean"},
+        "document_metrics": {"type": "boolean"},
+        "occlusion": {"type": "boolean"},
+        "rendered_metadata": {"type": "boolean"},
+        "preview_injection": {"type": "boolean"},
+        "hot_reload": {"type": "boolean"},
+        "reload": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "claim_boundary": {"const": "browser-transport-only"}
+  },
+  "additionalProperties": false
+}

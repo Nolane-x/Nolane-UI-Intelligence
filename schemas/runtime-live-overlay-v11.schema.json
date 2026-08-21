@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nolane.dev/schemas/runtime-live-overlay-v11.schema.json",
+  "title": "NUI V11 Live Overlay Evidence",
+  "type": "object",
+  "required": ["version", "rendered_identity", "source_attribution_status", "selected_source", "preview_id", "preview_state", "capture_refs", "runtime_finding_ids", "capability_gaps", "reobservation", "claim_boundary"],
+  "properties": {
+    "version": {"const": 11},
+    "rendered_identity": {"type": "object", "required": ["locator"], "properties": {"locator": {"type": "string", "minLength": 1}}, "additionalProperties": true},
+    "source_attribution_status": {"enum": ["EXACT", "CANDIDATE", "AMBIGUOUS", "UNKNOWN"]},
+    "selected_source": {"oneOf": [{"type": "null"}, {"type": "object"}]},
+    "preview_id": {"oneOf": [{"type": "null"}, {"type": "string", "minLength": 1}]},
+    "preview_state": {"oneOf": [{"type": "null"}, {"enum": ["PREPARED", "INJECTED", "OBSERVED", "STALE", "CONFLICT", "REJECTED", "ACCEPTED"]}]},
+    "capture_refs": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "runtime_finding_ids": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "capability_gaps": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "reobservation": {"oneOf": [{"type": "null"}, {"type": "object"}]},
+    "claim_boundary": {"const": "overlay-evidence-only"}
+  },
+  "additionalProperties": false
+}

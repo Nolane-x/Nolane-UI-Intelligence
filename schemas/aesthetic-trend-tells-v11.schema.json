@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "nui://schemas/aesthetic-trend-tells-v11",
+  "title": "NUI V11 Expiring Aesthetic Trend Tells",
+  "type": "object",
+  "required": ["version", "tells"],
+  "properties": {
+    "version": {"const": 11},
+    "tells": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["tell_id", "observed_pattern", "first_observed", "last_reviewed", "review_after", "source_provenance", "applicable_contexts", "non_applicable_contexts", "falsifier", "status", "implementation"],
+        "properties": {
+          "tell_id": {"type": "string", "minLength": 1},
+          "observed_pattern": {"type": "string", "minLength": 1},
+          "first_observed": {"type": "string", "format": "date"},
+          "last_reviewed": {"type": "string", "format": "date"},
+          "review_after": {"type": "string", "format": "date"},
+          "source_provenance": {"type": "array", "items": {"type": "string", "minLength": 1}},
+          "applicable_contexts": {"type": "array", "items": {"type": "string", "minLength": 1}},
+          "non_applicable_contexts": {"type": "array", "items": {"type": "string", "minLength": 1}},
+          "falsifier": {"type": "string", "minLength": 1},
+          "status": {"enum": ["ACTIVE", "WATCH", "RETIRED"]},
+          "implementation": {"const": "independently-authored"}
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}
