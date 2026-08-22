@@ -5,8 +5,9 @@ style cookbook. Cards preserve provenance, contraindications, and validation
 obligations so fast recommendations do not become untraceable defaults.
 
 V12.1 additionally binds material UI fast-path generation to an evaluated
-external reference-execution contract. Historical non-material callers remain
-backward compatible.
+external reference-execution contract and carries a prompt-ready directive so
+host/coding agents cannot silently drop the active reference capsule.
+Historical non-material callers remain backward compatible.
 """
 from __future__ import annotations
 
@@ -80,12 +81,7 @@ def _score(card: dict[str, Any], profile: dict[str, Any], tokens: set[str]) -> i
 
 
 def _reference_generation_blockers(profile: dict[str, Any], contract: dict[str, Any] | None) -> list[str]:
-    """Check the V12.1 facts available locally without re-running routing.
-
-    Full pack inference remains owned by external_ui_execution. The concrete
-    packet verifies that the supplied contract is task-bound and usable, so a
-    generator cannot silently omit it after bootstrap.
-    """
+    """Check V12.1 facts locally without re-running the routing algorithm."""
     if profile.get("material_ui") is not True:
         return []
     if not isinstance(contract, dict):
@@ -120,6 +116,13 @@ def _reference_generation_blockers(profile: dict[str, Any], contract: dict[str, 
     return errors
 
 
+def _reference_generation_directive(profile: dict[str, Any], contract: dict[str, Any] | None) -> str:
+    if profile.get("material_ui") is not True or not isinstance(contract, dict):
+        return ""
+    from .external_ui_execution import build_reference_generation_directive
+    return build_reference_generation_directive(contract)
+
+
 def compile_concrete_design_packet(
     profile: dict[str, Any],
     authority_result: dict[str, Any],
@@ -128,9 +131,22 @@ def compile_concrete_design_packet(
     reference_execution_contract: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Compile a bounded fast-path packet from source-bound concrete cards."""
+    reference_directive = _reference_generation_directive(profile, reference_execution_contract)
     kb_validation = validate_pattern_kb(pattern_kb)
     if not kb_validation["valid"]:
-        return {"status": "BLOCKED", "errors": kb_validation["errors"], "task_thesis": "", "authority_stack": [], "decisions": [], "implementation_shortcuts": [], "validation_obligations": [], "unresolved_blockers": ["invalid pattern knowledge"], "material_ui": profile.get("material_ui") is True, "reference_execution": reference_execution_contract}
+        return {
+            "status": "BLOCKED",
+            "errors": kb_validation["errors"],
+            "task_thesis": "",
+            "authority_stack": [],
+            "decisions": [],
+            "implementation_shortcuts": [],
+            "validation_obligations": [],
+            "unresolved_blockers": ["invalid pattern knowledge"],
+            "material_ui": profile.get("material_ui") is True,
+            "reference_execution": reference_execution_contract,
+            "reference_generation_directive": reference_directive,
+        }
     tokens = _tokens(profile)
     ranked = []
     for card in pattern_kb["patterns"]:
@@ -140,7 +156,6 @@ def compile_concrete_design_packet(
     min_decisions = int(grammar.get("decision_budget", {}).get("min", 5))
     max_decisions = int(grammar.get("decision_budget", {}).get("max", 9))
     selected = [r[2] for r in ranked[:max_decisions]]
-    # Ensure a useful fast packet even for narrow domains by filling with generic cards.
     if len(selected) < min_decisions:
         used = {c["id"] for c in selected}
         for _, _, card in ranked:
@@ -187,7 +202,7 @@ def compile_concrete_design_packet(
         shortcuts.append("Prefer an existing behaviorally-correct primitive or local component path before inventing a new interaction contract; keep visual adaptation separate from semantics.")
 
     thesis = str(profile.get("task", "")).strip() or f"Design a {profile.get('domain','product')} interface that preserves task, domain, platform and evidence constraints."
-    packet = {
+    return {
         "status": "READY" if not unresolved and len(decisions) >= min_decisions else "NEEDS_RESEARCH",
         "task_thesis": thesis,
         "authority_stack": authority_stack,
@@ -195,11 +210,11 @@ def compile_concrete_design_packet(
         "implementation_shortcuts": shortcuts[:5],
         "validation_obligations": validations[:16],
         "unresolved_blockers": unresolved,
-        "compression_rule": "fast path may compress explanation, never hard obligations, provenance, contraindications, unresolved authority, or the V12.1 reference execution contract",
+        "compression_rule": "fast path may compress explanation, never hard obligations, provenance, contraindications, unresolved authority, the V12.1 reference execution contract, or its prompt-ready generation directive",
         "material_ui": profile.get("material_ui") is True,
         "reference_execution": reference_execution_contract,
+        "reference_generation_directive": reference_directive,
     }
-    return packet
 
 
 def validate_concrete_design_packet(packet: dict[str, Any]) -> dict[str, Any]:
@@ -219,6 +234,12 @@ def validate_concrete_design_packet(packet: dict[str, Any]) -> dict[str, Any]:
         refs = packet.get("reference_execution")
         if not isinstance(refs, dict) or refs.get("posture") not in {"ACTIVE", "EVALUATED_NO_MATCH"}:
             errors.append("material concrete packet requires V12.1 reference execution")
+        directive = packet.get("reference_generation_directive")
+        if not isinstance(directive, str) or not directive.strip():
+            errors.append("material concrete packet requires prompt-ready V12.1 reference generation directive")
+        else:
+            if "REFERENCE EXECUTION:" not in directive or "DO NOT DROP" not in directive:
+                errors.append("material concrete packet reference directive is incomplete")
     if packet.get("status") == "READY" and packet.get("unresolved_blockers"):
         errors.append("READY packet cannot contain unresolved blockers")
     return {"valid": not errors, "errors": errors}
