@@ -69,3 +69,39 @@ Do not let those classes inherit each other's claims. `ARTIFACT_WORK` may produc
 
 ### V10 contamination recovery
 If hidden evaluator material enters generation context, mark the affected run `protocol-violation`; do not rewrite the output and keep it as valid evidence. Rebuild the treatment context from public sources, rerun the affected cells, and retain the contaminated run in the audit trail. A benchmark that needs answer-key hints to make NUI look strong is evidence against the experiment, not evidence for NUI.
+
+## V12 External UI Reference Persistence Gate
+
+External UI implementation intelligence is a first-class bootstrap obligation. When the task intersects motion, microinteraction, icon state, accessible primitives, drag/drop, design systems, agent UI, editors, canvas/diagram, data visualization, spatial/3D, native UI, design tokens, styling or verification, resolve one or more task-specific packs from `knowledge/external-ui-reference-packs-v12.json` through `src/nolane_ui/external_ui_intelligence.py`. Do not wait until implementation to remember external references.
+
+Use `knowledge/external-ui-intelligence-network-v12.json` as the manifest for the sharded source network. It extends rather than replaces `knowledge/ui-ecosystem-registry.json` and `knowledge/ui-source-intelligence-v6.json`; material influence still requires the existing role-specific archaeology, pinned snapshot where required, mechanism evidence, adaptation boundary and local runtime proof.
+
+### Permissive-first selection
+
+For candidates that are materially capable, prefer verified permissive code (`MIT`, `Apache-2.0`, `BSD-2-Clause`, `BSD-3-Clause`, `ISC`, `0BSD`, `CC0-1.0`) over copyleft, source-available, Commons-Clause-like, commercial, mixed, custom or unclear alternatives. A restrictive source may outrank GREEN only when it satisfies a materially unique requirement that available GREEN candidates do not. Popularity, stars, demo polish, familiarity, aesthetics or convenience never justify the override.
+
+Before material reuse, re-check the exact canonical upstream terms and the exact artifact scope. Repository, package, component, example/template, asset, icon, font and trademark terms may differ. Never inherit a license claim from an awesome list, marketplace, registry or aggregator.
+
+If the best necessary source is `consent`, `restricted` or `mixed`, explain the relevant restriction and the strongest GREEN fallback, then obtain explicit user consent before direct adoption. If the user declines, automatically select the strongest sufficiently capable GREEN fallback; if none exists, independently synthesize the mechanism and record the unmet requirement. `unverified` sources may guide research but cannot authorize direct adoption until reverified. `discovery-only` and `reference-only` sources never authorize direct code or asset reuse.
+
+### Persistence contract
+
+An active reference packet MUST survive these stages without silently disappearing:
+
+1. `intent` — state why the pack is relevant;
+2. `design` — name the mechanisms being considered, not merely repository names;
+3. `implementation-selection` — resolve exact candidate/source/component and local adaptation boundary;
+4. `license-gate` — verify exact current scope and prefer GREEN fallbacks;
+5. `critique` — compare the implementation against the intended mechanisms without cloning trade dress;
+6. `runtime-verification` — observe actual interaction, responsive, accessibility, reduced-motion and performance behavior as task-relevant;
+7. `provenance` — record what influenced the result, what was directly adopted, what was independently synthesized, and what remains unverified.
+
+Starting implementation does not discharge this obligation. Context pressure may reduce the packet to 3–12 most relevant sources, but it may not erase active source IDs, license state, learned mechanisms, fallbacks or unresolved verification obligations.
+
+### Discovery radar
+
+Awesome lists are discovery-only radars. They may nominate a repository; they cannot authorize influence or adoption. Resolve canonical upstream identity, current health, exact license scope, implementation evidence and source role before promotion into a material reference packet.
+
+### V12 recovery
+
+If a restrictive source was selected while a sufficiently capable GREEN alternative existed, if a license was inherited from an aggregator, or if active references vanished between design and verification, mark the source decision invalid. Re-run pack resolution from the earliest affected stage, preserve already-valid local work, and replace or independently re-synthesize the affected implementation before claiming completion.
