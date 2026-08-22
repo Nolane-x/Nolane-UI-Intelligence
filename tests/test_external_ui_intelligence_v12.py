@@ -9,6 +9,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from nolane_ui.external_ui_intelligence import (
     PERMISSIVE_LICENSES,
     RECONSULT_STAGES,
+    load_external_ui_network,
     rank_reference_candidates,
     resolve_reference_pack,
     validate_external_ui_network,
@@ -18,7 +19,7 @@ from nolane_ui.external_ui_intelligence import (
 class ExternalUIIntelligenceV12Tests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.network = json.loads((ROOT / "knowledge" / "external-ui-intelligence-network-v12.json").read_text(encoding="utf-8"))
+        cls.network = load_external_ui_network(ROOT)
         cls.packs = json.loads((ROOT / "knowledge" / "external-ui-reference-packs-v12.json").read_text(encoding="utf-8"))
         cls.license_policy = json.loads((ROOT / "knowledge" / "external-ui-license-policy-v12.json").read_text(encoding="utf-8"))
         cls.sources = {item["id"]: item for item in cls.network["sources"]}
@@ -49,38 +50,15 @@ class ExternalUIIntelligenceV12Tests(unittest.TestCase):
 
     def test_permissive_alternative_outranks_restricted_equivalent(self):
         candidates = [
-            {
-                "id": "heavy",
-                "capability_fit": 1.0,
-                "license": {"status": "consent", "id": "Custom"},
-                "health": "active",
-            },
-            {
-                "id": "green",
-                "capability_fit": 0.96,
-                "license": {"status": "green", "id": "MIT"},
-                "health": "active",
-            },
+            {"id": "heavy", "capability_fit": 1.0, "license": {"status": "consent", "id": "Custom"}, "health": "active"},
+            {"id": "green", "capability_fit": 0.96, "license": {"status": "green", "id": "MIT"}, "health": "active"},
         ]
-        ranked = rank_reference_candidates(candidates)
-        self.assertEqual(ranked[0]["id"], "green")
+        self.assertEqual(rank_reference_candidates(candidates)[0]["id"], "green")
 
     def test_restricted_source_can_win_only_when_materially_better(self):
         candidates = [
-            {
-                "id": "heavy",
-                "capability_fit": 1.0,
-                "unique_requirement_fit": 1.0,
-                "license": {"status": "consent", "id": "Custom"},
-                "health": "active",
-            },
-            {
-                "id": "green",
-                "capability_fit": 0.35,
-                "unique_requirement_fit": 0.0,
-                "license": {"status": "green", "id": "MIT"},
-                "health": "active",
-            },
+            {"id": "heavy", "capability_fit": 1.0, "unique_requirement_fit": 1.0, "license": {"status": "consent", "id": "Custom"}, "health": "active"},
+            {"id": "green", "capability_fit": 0.35, "unique_requirement_fit": 0.0, "license": {"status": "green", "id": "MIT"}, "health": "active"},
         ]
         ranked = rank_reference_candidates(candidates)
         self.assertEqual(ranked[0]["id"], "heavy")
@@ -97,13 +75,7 @@ class ExternalUIIntelligenceV12Tests(unittest.TestCase):
             self.assertEqual(pack["reconsult_at"], list(RECONSULT_STAGES), pack["id"])
 
     def test_resolver_returns_small_persistent_reference_packet(self):
-        result = resolve_reference_pack(
-            "button-feedback",
-            self.network,
-            self.packs,
-            stack="react",
-            max_sources=8,
-        )
+        result = resolve_reference_pack("button-feedback", self.network, self.packs, stack="react", max_sources=8)
         self.assertGreaterEqual(len(result["sources"]), 3)
         self.assertLessEqual(len(result["sources"]), 8)
         self.assertEqual(result["reconsult_at"], list(RECONSULT_STAGES))
