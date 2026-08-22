@@ -94,6 +94,9 @@ class ConcreteV7Tests(unittest.TestCase):
   self.assertEqual(p['reference_execution']['posture'],'ACTIVE')
   self.assertIn('ai-chat',p['reference_execution']['required_pack_ids'])
   self.assertTrue(p['reference_execution']['must_preserve_source_ids'])
+  self.assertIn('REFERENCE EXECUTION: ACTIVE',p['reference_generation_directive'])
+  self.assertIn('DO NOT DROP',p['reference_generation_directive'])
+  self.assertIn(p['reference_execution']['must_preserve_source_ids'][0],p['reference_generation_directive'])
 
  def test_material_ui_fast_packet_accepts_explicit_evaluated_no_match(self):
   routing={'version':12,'policy':{'max_active_packs':2,'max_sources_per_pack':2,'max_active_source_ids':4,'material_ui_baseline_packs':[],'stack_baselines':{}},'rules':[]}
@@ -101,6 +104,15 @@ class ConcreteV7Tests(unittest.TestCase):
   p=self.packet_with_refs(profile,routing=routing)
   self.assertEqual(p['reference_execution']['posture'],'EVALUATED_NO_MATCH')
   self.assertTrue(p['reference_execution']['no_match_reason'])
+  self.assertIn('REFERENCE EXECUTION: EVALUATED_NO_MATCH',p['reference_generation_directive'])
   self.assertNotIn('missing V12', ' '.join(p['unresolved_blockers']))
+
+ def test_material_packet_validator_rejects_missing_prompt_directive(self):
+  profile={'material_ui':True,'domain':'ai-collaboration','task':'build an AI chat interface','stack':'react','platform':'web','ai_experience':True,'visual_ambition':'polished'}
+  p=self.packet_with_refs(profile)
+  p.pop('reference_generation_directive',None)
+  r=self.validate_packet(p)
+  self.assertFalse(r['valid'])
+  self.assertTrue(any('directive' in e.lower() for e in r['errors']))
 
 if __name__=='__main__': unittest.main()
