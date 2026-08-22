@@ -105,3 +105,36 @@ Awesome lists are discovery-only radars. They may nominate a repository; they ca
 ### V12 recovery
 
 If a restrictive source was selected while a sufficiently capable GREEN alternative existed, if a license was inherited from an aggregator, or if active references vanished between design and verification, mark the source decision invalid. Re-run pack resolution from the earliest affected stage, preserve already-valid local work, and replace or independently re-synthesize the affected implementation before claiming completion.
+
+## V12.1 Generation-Time Hard Gate
+
+For every **material UI task**, do not merely remember that V12 references exist. After the task-profile checksum and routing-relevant dimensions are stable, compile an executable reference contract with `src/nolane_ui/external_ui_execution.py` and `knowledge/external-ui-generation-routing-v12.json`. The bootstrap must emit a `reference_execution_ref` and a compact execution capsule containing `task_fingerprint`, `posture`, `required_pack_ids`, `must_preserve_source_ids`, adoption candidate(s), GREEN fallback(s), license state and open verification obligations.
+
+The posture is exactly:
+- `ACTIVE` when one or more task-shaped reference packs apply;
+- `EVALUATED_NO_MATCH` only after deterministic routing was actually evaluated and produced no material match, with a recorded reason.
+
+A material task with no reference execution contract is `BLOCKED` before material design generation. Do not let “I already know how to design this”, context pressure, a familiar framework, or a user request for speed bypass this gate.
+
+### Generation context capsule
+
+Before generating a material direction, component system, interaction specification or implementation, carry the execution capsule into the generation context. At minimum preserve the exact pack IDs and `must_preserve_source_ids`; for each adoption candidate retain the mechanism being borrowed, the local adaptation boundary and the license state. The agent may summarize prose, but it may not replace these identities with a vague note such as “use good UI libraries”.
+
+Record an `intent` checkpoint before material ideation. Record `design` when the selected mechanisms have influenced the design packet. Before implementation, the same contract must survive into the concrete/design implementation packet. If the task fingerprint changes because the product, platform, stack, risk, requirements or material design target changed, invalidate the old contract and reroute rather than pretending it still applies.
+
+### Consent is about adoption, not awareness
+
+A **research fallback does not trigger consent** merely because it appears in a pack. Only a restrictive/mixed/custom source selected as the direct **adoption candidate** can trigger consent, and only after sufficiently capable permissive alternatives were evaluated. A reference-only or unverified source may inform mechanism research while remaining non-adoptable.
+
+### Bootstrap output extension
+
+For material work, `bootstrap-directive` therefore also carries:
+- `reference_execution_ref`;
+- `reference_posture`;
+- `task_fingerprint`;
+- `required_pack_ids[]`;
+- `must_preserve_source_ids[]`;
+- `license_gate`;
+- `open_reference_verification[]`.
+
+If any of these fields disappear later, treat that as reference-context dropout and enter recovery from the earliest affected lifecycle phase. A successful render cannot repair a missing generation-time contract.
