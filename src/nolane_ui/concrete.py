@@ -3,6 +3,10 @@
 This module intentionally stores narrow decision cards rather than a giant
 style cookbook. Cards preserve provenance, contraindications, and validation
 obligations so fast recommendations do not become untraceable defaults.
+
+V12.1 additionally binds material UI fast-path generation to an evaluated
+external reference-execution contract. Historical non-material callers remain
+backward compatible.
 """
 from __future__ import annotations
 
@@ -75,16 +79,58 @@ def _score(card: dict[str, Any], profile: dict[str, Any], tokens: set[str]) -> i
     return score
 
 
+def _reference_generation_blockers(profile: dict[str, Any], contract: dict[str, Any] | None) -> list[str]:
+    """Check the V12.1 facts available locally without re-running routing.
+
+    Full pack inference remains owned by external_ui_execution. The concrete
+    packet verifies that the supplied contract is task-bound and usable, so a
+    generator cannot silently omit it after bootstrap.
+    """
+    if profile.get("material_ui") is not True:
+        return []
+    if not isinstance(contract, dict):
+        return ["missing V12.1 reference execution contract for material UI generation"]
+
+    from .external_ui_execution import task_profile_fingerprint
+
+    errors: list[str] = []
+    if contract.get("routing_evaluated") is not True:
+        errors.append("V12.1 reference routing was not explicitly evaluated")
+    if contract.get("task_fingerprint") != task_profile_fingerprint(profile):
+        errors.append("V12.1 reference execution fingerprint does not match the current material UI task")
+    posture = contract.get("posture")
+    if posture not in {"ACTIVE", "EVALUATED_NO_MATCH"}:
+        errors.append("V12.1 material UI reference posture must be ACTIVE or EVALUATED_NO_MATCH")
+    required = [str(item) for item in contract.get("required_pack_ids", [])]
+    resolved = contract.get("resolved_packs", [])
+    resolved_ids = {
+        str(item.get("pack_id")) for item in resolved
+        if isinstance(item, dict) and item.get("pack_id")
+    } if isinstance(resolved, list) else set()
+    missing = [pack_id for pack_id in required if pack_id not in resolved_ids]
+    if missing:
+        errors.append(f"V12.1 reference execution dropped required packs before generation: {missing}")
+    if posture == "ACTIVE":
+        if not required:
+            errors.append("V12.1 ACTIVE reference execution requires at least one task-shaped pack")
+        if not contract.get("must_preserve_source_ids"):
+            errors.append("V12.1 ACTIVE reference execution requires persistent source ids")
+    if posture == "EVALUATED_NO_MATCH" and not str(contract.get("no_match_reason", "")).strip():
+        errors.append("V12.1 EVALUATED_NO_MATCH requires an explicit reason")
+    return errors
+
+
 def compile_concrete_design_packet(
     profile: dict[str, Any],
     authority_result: dict[str, Any],
     pattern_kb: dict[str, Any],
     grammar: dict[str, Any],
+    reference_execution_contract: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Compile a bounded fast-path packet from source-bound concrete cards."""
     kb_validation = validate_pattern_kb(pattern_kb)
     if not kb_validation["valid"]:
-        return {"status": "BLOCKED", "errors": kb_validation["errors"], "task_thesis": "", "authority_stack": [], "decisions": [], "implementation_shortcuts": [], "validation_obligations": [], "unresolved_blockers": ["invalid pattern knowledge"]}
+        return {"status": "BLOCKED", "errors": kb_validation["errors"], "task_thesis": "", "authority_stack": [], "decisions": [], "implementation_shortcuts": [], "validation_obligations": [], "unresolved_blockers": ["invalid pattern knowledge"], "material_ui": profile.get("material_ui") is True, "reference_execution": reference_execution_contract}
     tokens = _tokens(profile)
     ranked = []
     for card in pattern_kb["patterns"]:
@@ -125,6 +171,7 @@ def compile_concrete_design_packet(
         for dim, data in primary.items()
     ]
     unresolved = [f"unresolved authority dimension: {x}" for x in authority_result.get("unresolved_dimensions", [])] if isinstance(authority_result, dict) else ["authority resolution unavailable"]
+    unresolved.extend(_reference_generation_blockers(profile, reference_execution_contract))
     shortcuts: list[str] = []
     for rule in grammar.get("implementation_shortcuts", []):
         if not isinstance(rule, dict): continue
@@ -148,7 +195,9 @@ def compile_concrete_design_packet(
         "implementation_shortcuts": shortcuts[:5],
         "validation_obligations": validations[:16],
         "unresolved_blockers": unresolved,
-        "compression_rule": "fast path may compress explanation, never hard obligations, provenance, contraindications, or unresolved authority",
+        "compression_rule": "fast path may compress explanation, never hard obligations, provenance, contraindications, unresolved authority, or the V12.1 reference execution contract",
+        "material_ui": profile.get("material_ui") is True,
+        "reference_execution": reference_execution_contract,
     }
     return packet
 
@@ -166,6 +215,10 @@ def validate_concrete_design_packet(packet: dict[str, Any]) -> dict[str, Any]:
         if not isinstance(d, dict): errors.append(f"decision {i} must be object"); continue
         for field in ("pattern_id", "decision", "rationale", "provenance", "contraindications", "transfer_boundary"):
             if not d.get(field): errors.append(f"decision {i} requires {field}")
+    if packet.get("material_ui") is True:
+        refs = packet.get("reference_execution")
+        if not isinstance(refs, dict) or refs.get("posture") not in {"ACTIVE", "EVALUATED_NO_MATCH"}:
+            errors.append("material concrete packet requires V12.1 reference execution")
     if packet.get("status") == "READY" and packet.get("unresolved_blockers"):
         errors.append("READY packet cannot contain unresolved blockers")
     return {"valid": not errors, "errors": errors}
