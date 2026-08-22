@@ -1,16 +1,18 @@
 """NUI v12.1 generation-time external UI reference enforcement.
 
-This module binds V12 reference intelligence to a concrete material UI task.
-It does not grant authority or copy upstream work. It ensures reference routing
-is explicitly evaluated before generation and remains present through the NUI
-lifecycle until verification and provenance are closed.
+This layer binds V12 external UI implementation intelligence to a concrete
+material UI task. It does not grant authority, vendor upstream work, or replace
+V6 source archaeology. Its job is narrower and harder: reference routing must be
+explicitly evaluated before material generation, the resulting capsule must be
+carried into the generator, and the same identities must survive lifecycle
+checkpoints through verification and provenance.
 """
 from __future__ import annotations
 
 from copy import deepcopy
 import hashlib
 import json
-from typing import Any
+from typing import Any, Iterable
 
 from .external_ui_intelligence import RECONSULT_STAGES, resolve_reference_pack
 
@@ -44,10 +46,17 @@ PHASE_STAGE_REQUIREMENTS: dict[str, tuple[str, ...]] = {
     "RENDERED": ("intent", "design", "implementation-selection", "license-gate"),
     "CRITIQUED": ("intent", "design", "implementation-selection", "license-gate", "critique"),
     "VERIFIED": (
-        "intent", "design", "implementation-selection", "license-gate", "critique", "runtime-verification"
+        "intent",
+        "design",
+        "implementation-selection",
+        "license-gate",
+        "critique",
+        "runtime-verification",
     ),
     "RELEASED": RECONSULT_STAGES,
 }
+
+_STAGE_INDEX = {stage: index for index, stage in enumerate(RECONSULT_STAGES)}
 
 
 def _canonical(value: Any) -> Any:
@@ -63,6 +72,7 @@ def _canonical(value: Any) -> Any:
 
 
 def task_profile_fingerprint(profile: dict[str, Any]) -> str:
+    """Bind reference execution to the task fields that can change UI routing."""
     payload = {field: profile.get(field) for field in FINGERPRINT_FIELDS if field in profile}
     encoded = json.dumps(_canonical(payload), ensure_ascii=False, sort_keys=True, separators=(",", ":"))
     return hashlib.sha256(encoded.encode("utf-8")).hexdigest()
@@ -85,7 +95,7 @@ def _profile_text(profile: dict[str, Any]) -> str:
     return " ".join(parts).replace("_", " ").replace("-", " ")
 
 
-def _append_unique(target: list[str], values: list[Any]) -> None:
+def _append_unique(target: list[str], values: Iterable[Any]) -> None:
     for value in values:
         item = str(value)
         if item and item not in target:
@@ -93,7 +103,7 @@ def _append_unique(target: list[str], values: list[Any]) -> None:
 
 
 def infer_reference_pack_ids(profile: dict[str, Any], routing: dict[str, Any]) -> list[str]:
-    """Infer a bounded set of V12 reference packs from observable task signals."""
+    """Infer a bounded set of task-shaped packs before material UI generation."""
     if not isinstance(profile, dict) or not isinstance(routing, dict):
         return []
     if profile.get("material_ui") is not True:
@@ -102,14 +112,14 @@ def infer_reference_pack_ids(profile: dict[str, Any], routing: dict[str, Any]) -
     policy = routing.get("policy", {}) if isinstance(routing.get("policy"), dict) else {}
     maximum = max(1, int(policy.get("max_active_packs", 8)))
     selected: list[str] = []
-    _append_unique(selected, list(policy.get("material_ui_baseline_packs", [])))
+    _append_unique(selected, policy.get("material_ui_baseline_packs", []))
 
     stack_baselines = policy.get("stack_baselines", {})
     stack_baselines = stack_baselines if isinstance(stack_baselines, dict) else {}
     for key in ("stack", "platform"):
         value = str(profile.get(key, "")).strip().lower().replace("_", "-")
         if value:
-            _append_unique(selected, list(stack_baselines.get(value, [])))
+            _append_unique(selected, stack_baselines.get(value, []))
 
     text = _profile_text(profile)
     rules = routing.get("rules", []) if isinstance(routing.get("rules"), list) else []
@@ -120,25 +130,27 @@ def infer_reference_pack_ids(profile: dict[str, Any], routing: dict[str, Any]) -
     for rule in ranked_rules:
         phrases = [str(item).lower().replace("-", " ") for item in rule.get("match_any", [])]
         if phrases and any(phrase in text for phrase in phrases):
-            _append_unique(selected, list(rule.get("packs", [])))
+            _append_unique(selected, rule.get("packs", []))
         if len(selected) >= maximum:
             break
     return selected[:maximum]
 
 
 def _compact_pack(packet: dict[str, Any]) -> dict[str, Any]:
-    sources = []
+    sources: list[dict[str, Any]] = []
     for source in packet.get("sources", []):
         if not isinstance(source, dict):
             continue
         license_data = source.get("license", {}) if isinstance(source.get("license"), dict) else {}
-        sources.append({
-            "id": source.get("id"),
-            "mechanisms": list(source.get("mechanisms", [])),
-            "license": {"status": license_data.get("status"), "id": license_data.get("id")},
-            "recommendation_mode": source.get("recommendation_mode"),
-            "fallbacks": list(source.get("fallbacks", [])),
-        })
+        sources.append(
+            {
+                "id": source.get("id"),
+                "mechanisms": list(source.get("mechanisms", [])),
+                "license": {"status": license_data.get("status"), "id": license_data.get("id")},
+                "recommendation_mode": source.get("recommendation_mode"),
+                "fallbacks": list(source.get("fallbacks", [])),
+            }
+        )
     gate = packet.get("license_gate", {}) if isinstance(packet.get("license_gate"), dict) else {}
     return {
         "pack_id": packet.get("pack_id"),
@@ -163,7 +175,7 @@ def compile_reference_execution_contract(
     *,
     stack: str | None = None,
 ) -> dict[str, Any]:
-    """Compile the compact reference context that must survive UI generation."""
+    """Compile the compact reference state that must survive UI generation."""
     material = profile.get("material_ui") is True
     pack_ids = infer_reference_pack_ids(profile, routing) if material else []
     policy = routing.get("policy", {}) if isinstance(routing.get("policy"), dict) else {}
@@ -182,13 +194,14 @@ def compile_reference_execution_contract(
         resolved.append(_compact_pack(packet))
 
     preserve: list[str] = []
-    # First preserve every actual adoption candidate so implementation selection
-    # cannot silently forget the chosen route.
+    # Adoption candidates are implementation-critical and therefore have first
+    # claim on the bounded persistence budget.
     for packet in resolved:
         candidate = packet.get("license_gate", {}).get("adoption_candidate")
         if candidate:
             _append_unique(preserve, [candidate])
-    # Then preserve the strongest compact research alternatives up to the bound.
+    # Preserve strongest alternatives/research references until the cap. A cap
+    # reduces prompt cost, but never removes an actual selected candidate.
     for packet in resolved:
         for source in packet.get("sources", []):
             if len(preserve) >= max_sources:
@@ -203,8 +216,8 @@ def compile_reference_execution_contract(
     for packet in resolved:
         gate = packet.get("license_gate", {})
         if gate.get("requires_user_consent") is True:
-            _append_unique(consent_ids, list(gate.get("consent_sources", [])))
-        _append_unique(research_verification_ids, list(gate.get("live_verification_required", [])))
+            _append_unique(consent_ids, gate.get("consent_sources", []))
+        _append_unique(research_verification_ids, gate.get("live_verification_required", []))
 
     posture = "ACTIVE" if pack_ids else ("EVALUATED_NO_MATCH" if material else "NOT_REQUIRED")
     return {
@@ -224,8 +237,81 @@ def compile_reference_execution_contract(
             "research_verification_source_ids": research_verification_ids,
         },
         "stage_checkpoints": {},
-        "no_match_reason": "no task-shaped V12 pack materially matched after deterministic routing" if material and not pack_ids else "",
+        "checkpoint_history": [],
+        "no_match_reason": (
+            "no task-shaped V12 pack materially matched after deterministic routing"
+            if material and not pack_ids
+            else ""
+        ),
     }
+
+
+def build_reference_generation_directive(contract: dict[str, Any]) -> str:
+    """Render a bounded, prompt-ready capsule that a UI generator must obey.
+
+    This is intentionally not a prose recommendation. Host adapters can insert
+    this directive directly into a generator/coding-agent context so active
+    source identities, mechanisms and license posture are difficult to lose
+    during long-running implementation work.
+    """
+    if not isinstance(contract, dict):
+        raise TypeError("reference execution contract must be an object")
+
+    posture = str(contract.get("posture", "NOT_EVALUATED"))
+    packs = [str(item) for item in contract.get("required_pack_ids", [])]
+    preserve = [str(item) for item in contract.get("must_preserve_source_ids", [])]
+    gate = contract.get("license_gate", {}) if isinstance(contract.get("license_gate"), dict) else {}
+
+    lines = [
+        f"REFERENCE EXECUTION: {posture}",
+        f"TASK_FINGERPRINT: {contract.get('task_fingerprint', '')}",
+        f"REQUIRED_PACKS: {', '.join(packs) if packs else 'none'}",
+        f"MUST_PRESERVE_SOURCES: {', '.join(preserve) if preserve else 'none'}",
+        "LICENSE_POLICY: PERMISSIVE-FIRST",
+        "DO NOT DROP active pack/source IDs, mechanism intent, license state, GREEN fallbacks, or open verification obligations while generating UI.",
+    ]
+
+    if posture == "EVALUATED_NO_MATCH":
+        lines.append(f"NO_MATCH_REASON: {contract.get('no_match_reason', '')}")
+
+    preserve_set = set(preserve)
+    for packet in contract.get("resolved_packs", []):
+        if not isinstance(packet, dict):
+            continue
+        pack_id = str(packet.get("pack_id", ""))
+        pack_gate = packet.get("license_gate", {}) if isinstance(packet.get("license_gate"), dict) else {}
+        adoption = pack_gate.get("adoption_candidate") or "none"
+        green_fallback = pack_gate.get("green_fallback") or "none"
+        lines.append(f"PACK {pack_id}: adoption={adoption}; green_fallback={green_fallback}")
+        for source in packet.get("sources", []):
+            if not isinstance(source, dict) or not source.get("id"):
+                continue
+            source_id = str(source["id"])
+            # The directive can show non-persistent source metadata when it is
+            # the selected candidate, but otherwise prioritizes the bounded set.
+            if preserve_set and source_id not in preserve_set and source_id != str(adoption):
+                continue
+            license_data = source.get("license", {}) if isinstance(source.get("license"), dict) else {}
+            mechanisms = [str(item) for item in source.get("mechanisms", []) if str(item).strip()]
+            lines.append(
+                "- "
+                + source_id
+                + f" | mode={source.get('recommendation_mode') or 'reference'}"
+                + f" | license={license_data.get('id') or 'unknown'}/{license_data.get('status') or 'unverified'}"
+                + f" | mechanisms={'; '.join(mechanisms[:3]) if mechanisms else 'unspecified'}"
+            )
+
+    consent_ids = [str(item) for item in gate.get("consent_source_ids", [])]
+    if consent_ids:
+        lines.append("CONSENT_REQUIRED_FOR_ADOPTION: " + ", ".join(consent_ids))
+    else:
+        lines.append("CONSENT_REQUIRED_FOR_ADOPTION: none")
+
+    verification_ids = [str(item) for item in gate.get("research_verification_source_ids", [])]
+    lines.append(
+        "OPEN_REFERENCE_VERIFICATION: " + (", ".join(verification_ids) if verification_ids else "none")
+    )
+    return "\n".join(lines)
 
 
 def validate_reference_execution_contract(
@@ -251,7 +337,11 @@ def validate_reference_execution_contract(
     if not isinstance(resolved, list):
         resolved = []
         errors.append("reference execution contract requires resolved_packs list")
-    resolved_ids = [str(item.get("pack_id")) for item in resolved if isinstance(item, dict) and item.get("pack_id")]
+    resolved_ids = [
+        str(item.get("pack_id"))
+        for item in resolved
+        if isinstance(item, dict) and item.get("pack_id")
+    ]
     for pack_id in declared:
         if pack_id not in resolved_ids:
             errors.append(f"reference execution contract required pack {pack_id} is not resolved")
@@ -278,8 +368,10 @@ def validate_reference_execution_contract(
         errors.append("must_preserve_source_ids contains duplicates")
     all_source_ids = {
         str(source.get("id"))
-        for packet in resolved if isinstance(packet, dict)
-        for source in packet.get("sources", []) if isinstance(source, dict) and source.get("id")
+        for packet in resolved
+        if isinstance(packet, dict)
+        for source in packet.get("sources", [])
+        if isinstance(source, dict) and source.get("id")
     }
     if posture == "ACTIVE" and not preserve:
         errors.append("ACTIVE reference execution contract requires persistent source ids")
@@ -294,7 +386,9 @@ def validate_reference_execution_contract(
         errors.append("license_gate consent_source_ids must be a list")
         consent_ids = []
     if gate.get("requires_user_consent") is not bool(consent_ids):
-        errors.append("license_gate requires_user_consent must reflect selected restrictive adoption candidates only")
+        errors.append(
+            "license_gate requires_user_consent must reflect selected restrictive adoption candidates only"
+        )
 
     return {"valid": not errors, "errors": errors, "expected_pack_ids": expected}
 
@@ -310,12 +404,22 @@ def record_reference_checkpoint(
     provenance: dict[str, Any] | None = None,
     mutate: bool = False,
 ) -> dict[str, Any]:
-    """Record one lifecycle re-consult without allowing context dropout."""
+    """Record one re-consult and preserve its actual temporal order."""
+    history = contract.get("checkpoint_history", [])
+    history = history if isinstance(history, list) else []
+    sequence = len(history) + 1
     checkpoint = {
         "stage": stage,
+        "sequence": sequence,
         "task_fingerprint": contract.get("task_fingerprint"),
-        "active_pack_ids": list(active_pack_ids if active_pack_ids is not None else contract.get("required_pack_ids", [])),
-        "active_source_ids": list(active_source_ids if active_source_ids is not None else contract.get("must_preserve_source_ids", [])),
+        "active_pack_ids": list(
+            active_pack_ids if active_pack_ids is not None else contract.get("required_pack_ids", [])
+        ),
+        "active_source_ids": list(
+            active_source_ids
+            if active_source_ids is not None
+            else contract.get("must_preserve_source_ids", [])
+        ),
         "evidence_ref": evidence_ref,
         "consent_evidence": deepcopy(consent_evidence or {}),
         "provenance": deepcopy(provenance or {}),
@@ -324,6 +428,16 @@ def record_reference_checkpoint(
         checkpoints = contract.setdefault("stage_checkpoints", {})
         if isinstance(checkpoints, dict):
             checkpoints[stage] = checkpoint
+        stored_history = contract.setdefault("checkpoint_history", [])
+        if isinstance(stored_history, list):
+            stored_history.append(
+                {
+                    "stage": stage,
+                    "sequence": sequence,
+                    "evidence_ref": evidence_ref,
+                    "task_fingerprint": contract.get("task_fingerprint"),
+                }
+            )
     return checkpoint
 
 
@@ -334,6 +448,9 @@ def validate_reference_stage_checkpoint(contract: dict[str, Any], checkpoint: di
     stage = str(checkpoint.get("stage", ""))
     if stage not in RECONSULT_STAGES:
         errors.append(f"invalid reference checkpoint stage {stage}")
+    sequence = checkpoint.get("sequence")
+    if not isinstance(sequence, int) or sequence < 1:
+        errors.append("reference checkpoint requires positive sequence")
     if checkpoint.get("task_fingerprint") != contract.get("task_fingerprint"):
         errors.append("reference checkpoint task fingerprint drifted from generation contract")
     required_packs = set(map(str, contract.get("required_pack_ids", [])))
@@ -361,18 +478,59 @@ def validate_reference_stage_checkpoint(contract: dict[str, Any], checkpoint: di
     if stage == "provenance" and persistent_sources:
         provenance = checkpoint.get("provenance", {})
         provenance = provenance if isinstance(provenance, dict) else {}
-        missing = sorted(source_id for source_id in persistent_sources if not str(provenance.get(source_id, "")).strip())
+        missing = sorted(
+            source_id
+            for source_id in persistent_sources
+            if not str(provenance.get(source_id, "")).strip()
+        )
         if missing:
             errors.append(f"provenance checkpoint does not account for persistent source ids {missing}")
     return {"valid": not errors, "errors": errors}
 
 
+def _validate_checkpoint_order(
+    checkpoints: dict[str, Any], required_stages: list[str]
+) -> list[str]:
+    """Detect checkpoints fabricated retroactively after later stages existed."""
+    errors: list[str] = []
+    present = [stage for stage in required_stages if stage in checkpoints]
+    with_sequence: list[tuple[int, str]] = []
+    for stage in present:
+        checkpoint = checkpoints.get(stage)
+        if not isinstance(checkpoint, dict):
+            continue
+        sequence = checkpoint.get("sequence")
+        if isinstance(sequence, int):
+            with_sequence.append((sequence, stage))
+    if len(with_sequence) != len(present):
+        return errors  # individual checkpoint validation reports missing sequence
+    observed = [stage for _, stage in sorted(with_sequence, key=lambda row: row[0])]
+    expected = present
+    if observed != expected:
+        errors.append(
+            f"reference checkpoint order invalid: expected {expected}, observed {observed}"
+        )
+
+    # Also reject a stage whose latest recorded sequence is not monotonically
+    # later than the previous required stage.
+    previous = 0
+    for stage in expected:
+        sequence = int(checkpoints[stage]["sequence"])
+        if sequence <= previous:
+            errors.append(f"reference checkpoint order is non-monotonic at {stage}")
+            break
+        previous = sequence
+    return errors
+
+
 def validate_reference_completion(contract: dict[str, Any], phase: str) -> dict[str, Any]:
-    """Block NUI phase advancement when mandatory reference re-consults are absent."""
+    """Block phase advancement when mandatory reference re-consults are absent."""
     errors: list[str] = []
     phase = str(phase).upper()
     if phase not in PHASE_STAGE_REQUIREMENTS:
         return {"valid": False, "errors": [f"unknown NUI phase {phase}"], "missing_stages": []}
+    if not isinstance(contract, dict):
+        return {"valid": False, "errors": ["reference execution contract must be an object"], "missing_stages": []}
     if contract.get("material_ui") is not True:
         return {"valid": True, "errors": [], "missing_stages": []}
     if contract.get("routing_evaluated") is not True:
@@ -393,7 +551,13 @@ def validate_reference_completion(contract: dict[str, Any], phase: str) -> dict[
         result = validate_reference_stage_checkpoint(contract, checkpoint)
         errors.extend(f"{stage}: {error}" for error in result["errors"])
 
-    return {"valid": not errors, "errors": errors, "missing_stages": missing, "required_stages": required}
+    errors.extend(_validate_checkpoint_order(checkpoints, required))
+    return {
+        "valid": not errors,
+        "errors": errors,
+        "missing_stages": missing,
+        "required_stages": required,
+    }
 
 
 __all__ = [
@@ -402,6 +566,7 @@ __all__ = [
     "task_profile_fingerprint",
     "infer_reference_pack_ids",
     "compile_reference_execution_contract",
+    "build_reference_generation_directive",
     "record_reference_checkpoint",
     "validate_reference_execution_contract",
     "validate_reference_stage_checkpoint",
