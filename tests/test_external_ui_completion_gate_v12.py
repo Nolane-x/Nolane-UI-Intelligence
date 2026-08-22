@@ -44,6 +44,17 @@ class ExternalUICompletionGateV12Tests(unittest.TestCase):
             nolane_ui.record_reference_checkpoint(
                 contract, stage, f"evidence:{stage}", mutate=True
             )
+        provenance = {
+            source_id: "influenced"
+            for source_id in contract["must_preserve_source_ids"]
+        }
+        nolane_ui.record_reference_checkpoint(
+            contract,
+            "provenance",
+            "evidence:provenance",
+            provenance=provenance,
+            mutate=True,
+        )
         return contract
 
     def packet(self):
@@ -99,6 +110,13 @@ class ExternalUICompletionGateV12Tests(unittest.TestCase):
         result = nolane_ui.validate_completion_packet(packet, ROOT)
         self.assertEqual("BLOCKED", result["decision"])
         self.assertTrue(any("fingerprint" in error.lower() for error in result["errors"]))
+
+    def test_package_completion_validator_blocks_missing_provenance(self):
+        packet = self.packet()
+        packet["reference_execution"]["stage_checkpoints"].pop("provenance")
+        result = nolane_ui.validate_completion_packet(packet, ROOT)
+        self.assertEqual("BLOCKED", result["decision"])
+        self.assertTrue(any("provenance" in error.lower() for error in result["errors"]))
 
     def test_non_material_completion_keeps_historical_semantics(self):
         packet = self.packet()
