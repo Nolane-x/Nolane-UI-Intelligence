@@ -13,10 +13,10 @@ Extend the existing ecosystem/source-intelligence architecture. Do not fork it.
 3. Add a broad source network covering motion, icon morphing, headless/accessibility, design systems, drag/drop, shadcn, agent UI, editors, canvas/diagram, data visualization, spatial/3D, native/mobile, tokens/styling and verification, plus discovery-only awesome radars.
 4. Add task-shaped reference packs with permissive-first preferred sources and restrictive fallbacks.
 5. Add license policy with GREEN / CONSENT / REFERENCE_ONLY / UNVERIFIED states, exact-scope revalidation and automatic permissive fallback.
-6. Wire the persistence invariant into `AGENTS.md` and the canonical `using-nolane-ui` skill so host adapters cannot omit it.
-7. Extend research documentation with the new network and no-copy/provenance relationship.
-8. Verify JSON validity, deterministic ranking behavior, source/pack referential integrity and the full Python test suite when executable CI is available.
-9. Review diff for accidental third-party source/prose inclusion and overclaiming.
+6. Wire the persistence invariant into the canonical `using-nolane-ui` bootstrap. `AGENTS.md` already mandates that bootstrap for material UI/UX work, so the V12 gate inherits the root policy without duplicating it in two places.
+7. Document the architecture, no-copy/provenance relationship and the fact that V12 extends rather than replaces the existing v4/v6 source planes.
+8. Verify JSON validity, deterministic ranking behavior, source/pack referential integrity and the full Python test suite in repository CI.
+9. Review the PR diff for accidental third-party source/prose inclusion, contradictory policy and overclaiming.
 
 ## Acceptance criteria
 
