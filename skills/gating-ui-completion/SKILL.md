@@ -99,3 +99,14 @@ Remove the rendered evidence while leaving code/test status green, or replace a 
 
 ### Recovery
 Reopen only the failed authority, concrete, implementation or perceptual evidence plane, preserve independently valid gates, and rerun completion after fresh evidence.
+
+## V12.1 External Reference Completion Gate
+
+Every material UI completion packet requires `reference_execution` bound to the same generation `task_fingerprint`. Call `validate_reference_completion` from `src/nolane_ui/external_ui_execution.py` before accepting the release claim. Missing or invalid reference execution is `BLOCKED` even when the build and browser checks are green.
+
+At `VERIFIED`, valid checkpoints must cover `intent`, `design`, `implementation-selection`, `license-gate`, `critique`, and `runtime-verification`. `RELEASED` additionally requires `provenance`. Each checkpoint must preserve all active pack IDs and `must_preserve_source_ids`; reference dropout is a completion failure.
+
+The completion packet must retain `reference_execution`, `reference_execution_ref`, `reference_checkpoint_refs`, `reference_posture`, and release provenance. A **research fallback does not trigger consent** merely because it stayed visible. Consent is relevant only when a restrictive source is the selected direct **adoption candidate**.
+
+### V12.1 falsification and recovery
+Remove `reference_execution`, one required checkpoint, one persistent source ID, or release provenance. The decision must become `BLOCKED`. Restore the last valid reference checkpoint, reroute if the task fingerprint changed, and rerun only the affected downstream checks; do not infer missing reference evidence from a good final render.

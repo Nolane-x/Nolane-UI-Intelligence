@@ -40,6 +40,25 @@ from .experiment_v10 import validate_experiment_manifest, validate_run_record, p
 from .judging_v10 import blind_run_for_judge, pair_orientation, detect_leakage, validate_judgment
 from .stats_v10 import paired_delta, bootstrap_ci, summarize_paired, evaluate_ablation_recovery, aggregate_dimension
 from .claims_v10 import promote_claim, validate_claim
+from .external_ui_execution import (
+    PHASE_STAGE_REQUIREMENTS,
+    build_reference_generation_directive,
+    compile_reference_execution_contract,
+    infer_reference_pack_ids,
+    record_reference_checkpoint,
+    task_profile_fingerprint,
+    validate_reference_completion,
+    validate_reference_execution_contract,
+    validate_reference_stage_checkpoint,
+)
+from .external_ui_intelligence import (
+    PERMISSIVE_LICENSES,
+    RECONSULT_STAGES,
+    load_external_ui_network,
+    rank_reference_candidates,
+    resolve_reference_pack,
+    validate_external_ui_network,
+)
 from .runtime_v11 import (
     accept_live_visual_preview as accept_runtime_live_visual_preview,
     adjudicate_findings as adjudicate_runtime_findings,
@@ -116,6 +135,11 @@ __all__ = [
     "blind_run_for_judge", "pair_orientation", "detect_leakage", "validate_judgment",
     "paired_delta", "bootstrap_ci", "summarize_paired", "evaluate_ablation_recovery", "aggregate_dimension",
     "promote_claim", "validate_claim",
+    "PERMISSIVE_LICENSES", "RECONSULT_STAGES", "PHASE_STAGE_REQUIREMENTS",
+    "load_external_ui_network", "rank_reference_candidates", "resolve_reference_pack", "validate_external_ui_network",
+    "task_profile_fingerprint", "infer_reference_pack_ids", "compile_reference_execution_contract",
+    "build_reference_generation_directive", "record_reference_checkpoint", "validate_reference_execution_contract",
+    "validate_reference_stage_checkpoint", "validate_reference_completion",
     "query_ui_ecosystem", "validate_ui_ecosystem_registry", "validate_reference_ledger",
     "validate_source_selection", "validate_rich_interaction_contract", "validate_ui_integration_audit",
     "adjudicate_runtime_findings", "append_runtime_live_event", "assess_runtime_evidence_staleness",

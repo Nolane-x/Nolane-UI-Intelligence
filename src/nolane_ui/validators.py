@@ -6,6 +6,7 @@ the frozen v7 API so older kernel tests and direct file loaders remain compatibl
 from __future__ import annotations
 
 import importlib.util
+import json
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -37,6 +38,7 @@ else:
     from . import product_v9 as _product9
     from . import scope_v9 as _scope9
     from . import routing_v9 as _routing9
+    from . import external_ui_execution as _external_ref_v12
 
     def mandatory_routes_for_profile(profile: dict[str, Any]) -> set[str]:
         return (
@@ -49,6 +51,49 @@ else:
         required = mandatory_routes_for_profile(profile)
         missing = sorted(required - set(selected_skills))
         return {"valid": not missing, "required_routes": sorted(required), "missing_routes": missing}
+
+    def validate_completion_packet(
+        packet: dict[str, Any], root: Path | str, expected_revision: str | None = None
+    ) -> dict[str, Any]:
+        """Apply historical completion semantics plus V12 material-reference lineage.
+
+        Standalone/direct-file consumers keep the frozen V7 facade above. Package
+        consumers get the current overlay: material UI completion cannot PASS when
+        its task-bound external reference execution contract is missing, stale, or
+        has dropped required packs/sources/checkpoints. Because this validator is
+        the release court, V12.1 requires the full RELEASED lineage, including
+        provenance, rather than stopping at the VERIFIED observation stage.
+        """
+        base = dict(_v7.validate_completion_packet(packet, root, expected_revision))
+        profile = packet.get("task_profile") if isinstance(packet, dict) else None
+        if not isinstance(profile, dict) or profile.get("material_ui") is not True:
+            return base
+
+        errors = list(base.get("errors", []))
+        contract = packet.get("reference_execution")
+        if not isinstance(contract, dict):
+            errors.append("material UI completion requires V12.1 reference execution contract")
+        else:
+            routing_path = Path(root) / "knowledge" / "external-ui-generation-routing-v12.json"
+            try:
+                routing = json.loads(routing_path.read_text(encoding="utf-8"))
+            except Exception as exc:
+                errors.append(f"V12.1 reference execution routing unavailable: {exc}")
+            else:
+                contract_result = _external_ref_v12.validate_reference_execution_contract(
+                    contract, profile, routing
+                )
+                errors.extend(
+                    f"reference execution: {error}" for error in contract_result.get("errors", [])
+                )
+                lineage_result = _external_ref_v12.validate_reference_completion(contract, "RELEASED")
+                errors.extend(
+                    f"reference execution: {error}" for error in lineage_result.get("errors", [])
+                )
+
+        if errors:
+            return {**base, "decision": "BLOCKED", "errors": errors}
+        return base
 
     def _pass(value: Any) -> bool:
         return isinstance(value, dict) and value.get("status") in {"PASS", "READY", "SUPPORTED"}

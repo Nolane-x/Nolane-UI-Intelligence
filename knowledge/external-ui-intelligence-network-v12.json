@@ -1,0 +1,17 @@
+{
+  "version": 12,
+  "as_of": "2026-08-22",
+  "policy": {
+    "purpose": "Persistent capability-routed external UI implementation intelligence. Links are discovery evidence, never blanket transfer authority.",
+    "extends": ["knowledge/ui-ecosystem-registry.json", "knowledge/ui-source-intelligence-v6.json"],
+    "selection_default": "permissive-first",
+    "source_count_is_not_quality_target": true,
+    "awesome_lists_are": "discovery-only"
+  },
+  "shards": [
+    "knowledge/external-ui-sources-v12-motion-foundations.json",
+    "knowledge/external-ui-sources-v12-systems-agent.json",
+    "knowledge/external-ui-sources-v12-editors-data.json",
+    "knowledge/external-ui-sources-v12-spatial-native-quality.json"
+  ]
+}

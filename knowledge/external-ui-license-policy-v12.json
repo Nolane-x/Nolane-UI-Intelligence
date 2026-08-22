@@ -1,0 +1,27 @@
+{
+  "version": 12,
+  "as_of": "2026-08-22",
+  "policy": {
+    "selection_default": "permissive-first",
+    "permissive_ids": ["MIT", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "ISC", "0BSD", "CC0-1.0"],
+    "awesome_lists_are": "discovery-only",
+    "reverify_at_point_of_use": true,
+    "license_scope_dimensions": ["repository", "package", "component", "example-template", "asset", "icon", "font", "brand-trademark"],
+    "green_rule": "Prefer a verified permissive implementation whenever it satisfies the material capability, platform, accessibility, performance and product requirements.",
+    "consent_rule": "For copyleft, source-available, Commons-Clause-like, commercial, mixed or custom terms, do not materially adopt source until the exact current scope is verified and the user explicitly accepts the relevant obligation or restriction.",
+    "unverified_rule": "UNVERIFIED can inform discovery and research but cannot authorize direct adoption. Resolve canonical upstream license and exact artifact scope first.",
+    "reference_only_rule": "REFERENCE_ONLY may transfer independently synthesized mechanisms with provenance; do not copy source, assets, prose or trade dress.",
+    "fallback_rule": "If the user declines a restrictive source, automatically choose the strongest sufficiently capable GREEN alternative. If none exists, synthesize the mechanism independently and preserve the unmet requirement as an explicit limitation.",
+    "restricted_override_rule": "A restrictive source may outrank GREEN only for a materially unique requirement that GREEN candidates cannot satisfy. Cosmetic preference, popularity, stars, demo polish or convenience are insufficient reasons.",
+    "aggregator_rule": "Never inherit license claims from an awesome list, marketplace, registry or aggregator. Resolve the canonical upstream artifact and current terms.",
+    "drift_rule": "Re-check high/very-high drift sources and all material adoption candidates against primary upstream evidence immediately before use."
+  },
+  "states": {
+    "green": {"direct_adoption": "allowed-after-live-scope-check", "user_consent": false},
+    "consent": {"direct_adoption": "blocked-until-explicit-user-consent", "user_consent": true},
+    "mixed": {"direct_adoption": "blocked-until-exact-scope-and-user-consent", "user_consent": true},
+    "restricted": {"direct_adoption": "blocked-until-explicit-user-consent", "user_consent": true},
+    "reference-only": {"direct_adoption": "forbidden", "user_consent": false},
+    "unverified": {"direct_adoption": "forbidden-until-reverified", "user_consent": false}
+  }
+}
