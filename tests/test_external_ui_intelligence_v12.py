@@ -64,6 +64,43 @@ class ExternalUIIntelligenceV12Tests(unittest.TestCase):
         self.assertEqual(ranked[0]["id"], "heavy")
         self.assertTrue(ranked[0]["requires_user_consent"])
 
+    def test_restrictive_fallback_does_not_trigger_consent_when_green_route_exists(self):
+        result = resolve_reference_pack("button-feedback", self.network, self.packs, stack="react", max_sources=8)
+        selected_ids = [source["id"] for source in result["sources"]]
+        self.assertIn("react-bits", selected_ids)
+        self.assertEqual(result["license_gate"]["adoption_candidate"], "interior")
+        self.assertFalse(result["license_gate"]["requires_user_consent"])
+        self.assertEqual(result["license_gate"]["consent_sources"], [])
+        react_bits = next(source for source in result["sources"] if source["id"] == "react-bits")
+        self.assertEqual(react_bits["recommendation_mode"], "reference-fallback")
+
+    def test_materially_unique_restricted_candidate_triggers_consent(self):
+        synthetic_network = {
+            "sources": [
+                {
+                    "id": "green", "name": "Green", "url": "https://example.test/green", "family": "x", "role": "x",
+                    "mechanisms": ["generic"], "adoption_mode": "direct-preferred", "license": {"status": "green", "id": "MIT"},
+                    "health": "active", "drift": "low", "fallbacks": [], "stacks": ["react"], "reconsult_at": list(RECONSULT_STAGES),
+                },
+                {
+                    "id": "heavy", "name": "Heavy", "url": "https://example.test/heavy", "family": "x", "role": "x",
+                    "mechanisms": ["unique"], "adoption_mode": "consent-required", "license": {"status": "consent", "id": "Custom"},
+                    "health": "active", "drift": "low", "fallbacks": ["green"], "stacks": ["react"], "reconsult_at": list(RECONSULT_STAGES),
+                },
+            ]
+        }
+        synthetic_packs = {
+            "packs": [{
+                "id": "unique", "preferred_sources": ["heavy"], "fallback_sources": ["green"],
+                "unique_requirement_sources": {"heavy": 1.0}, "restricted_only_reason": "synthetic unique mechanism test",
+                "reconsult_at": list(RECONSULT_STAGES),
+            }]
+        }
+        result = resolve_reference_pack("unique", synthetic_network, synthetic_packs, stack="react", max_sources=2)
+        self.assertEqual(result["license_gate"]["adoption_candidate"], "heavy")
+        self.assertTrue(result["license_gate"]["requires_user_consent"])
+        self.assertEqual(result["license_gate"]["consent_sources"], ["heavy"])
+
     def test_every_pack_keeps_permissive_route_or_declares_exception(self):
         for pack in self.packs["packs"]:
             preferred = [self.sources[source_id] for source_id in pack["preferred_sources"]]
