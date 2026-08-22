@@ -60,7 +60,9 @@ else:
         Standalone/direct-file consumers keep the frozen V7 facade above. Package
         consumers get the current overlay: material UI completion cannot PASS when
         its task-bound external reference execution contract is missing, stale, or
-        has dropped required packs/sources/checkpoints.
+        has dropped required packs/sources/checkpoints. Because this validator is
+        the release court, V12.1 requires the full RELEASED lineage, including
+        provenance, rather than stopping at the VERIFIED observation stage.
         """
         base = dict(_v7.validate_completion_packet(packet, root, expected_revision))
         profile = packet.get("task_profile") if isinstance(packet, dict) else None
@@ -84,7 +86,7 @@ else:
                 errors.extend(
                     f"reference execution: {error}" for error in contract_result.get("errors", [])
                 )
-                lineage_result = _external_ref_v12.validate_reference_completion(contract, "VERIFIED")
+                lineage_result = _external_ref_v12.validate_reference_completion(contract, "RELEASED")
                 errors.extend(
                     f"reference execution: {error}" for error in lineage_result.get("errors", [])
                 )
