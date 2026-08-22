@@ -104,3 +104,31 @@ A completion packet may report that the V10 empirical framework is installed, st
 
 ### V10 recovery
 If a run is contaminated by hidden evaluator material, treatment mismatch, missing provenance, asymmetric exclusion or judge leakage, preserve the raw result, mark the affected efficacy-session non-promotable, repair the protocol, and rerun only invalid cells. If full NUI loses to a targeted ablation, do not massage aggregate weights; keep the negative result and reopen the owning hypothesis or benchmark sensitivity.
+
+## V12.1 Reference Execution Lifecycle Lock
+
+For a material UI session, `ui-session` additionally carries `reference_execution_ref`, `reference_posture`, `reference_checkpoint_refs`, and the bound `task_fingerprint`. The reference execution contract is not a disposable bootstrap hint; it is lifecycle state. Every phase transition below must be checked with `validate_reference_completion` from `src/nolane_ui/external_ui_execution.py` before the controller advances.
+
+Required reference checkpoints are monotonic:
+- `ROUTED` and `DISCOVERED` require `intent`;
+- `ARCHITECTED`, `DIVERGED`, `DESIGN_SELECTED`, `SYSTEMIZED`, and `SPECIFIED` require `intent` + `design`;
+- `IMPLEMENTABLE` and `RENDERED` additionally require `implementation-selection` + `license-gate`;
+- `CRITIQUED` additionally requires `critique`;
+- `VERIFIED` additionally requires `runtime-verification`;
+- `RELEASED` additionally requires `provenance` and therefore all seven V12 re-consult stages.
+
+The contract’s `must_preserve_source_ids` and active pack IDs must survive every checkpoint. If a source or pack disappears because the model changed context, summarized aggressively, moved to another conversation, switched agent/runtime, or started coding from memory, the transition is invalid even when the generated UI looks good. Enter `RECOVERY`, reload the bound execution contract, and rerun only the affected downstream stages.
+
+`IMPLEMENTABLE` is therefore stronger under V12.1: the design may not be called implementable until the agent has explicitly selected the implementation mechanism, checked the license/adoption route, and retained a permissive fallback where applicable. A restrictive research fallback does not trigger consent; only the selected restrictive adoption candidate does.
+
+### Generation handoff contract
+
+Every handoff into a generator or coding agent must include the compact reference capsule: `reference_execution_ref`, `task_fingerprint`, active pack IDs, `must_preserve_source_ids`, mechanisms, adoption candidates, license states, GREEN fallbacks, and unresolved live checks. A handoff that omits this capsule is a lifecycle defect, not an optimization.
+
+### Falsification
+
+Delete the reference contract before `IMPLEMENTABLE`, remove one `must_preserve_source_ids` entry at `CRITIQUED`, or omit `provenance` at release. The corresponding phase must become invalid/BLOCKED. If the UI still reaches `RELEASED`, V12.1 enforcement is not wired deeply enough.
+
+### Recovery
+
+Restore the contract from the last valid checkpoint, compare its fingerprint with the current task profile, reroute if the fingerprint changed, then re-consult the missing reference stages. Preserve unrelated valid evidence; do not restart the entire UI lifecycle merely because reference context was dropped.
