@@ -27,6 +27,8 @@ _COMPACT_FIELDS = (
     "id", "name", "repo", "family", "role", "mechanism", "license_status",
     "license_id", "adoption_mode", "health", "drift", "stacks", "fallbacks",
 )
+_RESTRICTIVE_STATUSES = frozenset({"consent", "restricted", "mixed"})
+_UNIQUE_OVERRIDE_THRESHOLD = 0.75
 
 
 def _license_status(candidate: dict[str, Any]) -> str:
@@ -37,7 +39,7 @@ def _license_status(candidate: dict[str, Any]) -> str:
 def _normalize_candidate(candidate: dict[str, Any]) -> dict[str, Any]:
     result = dict(candidate)
     status = _license_status(result)
-    result["requires_user_consent"] = status in {"consent", "restricted", "mixed"}
+    result["requires_user_consent"] = status in _RESTRICTIVE_STATUSES
     result["direct_adoption_allowed"] = status == "green" and result.get("adoption_mode") not in {
         "reference-only", "discovery-only"
     }
@@ -111,6 +113,58 @@ def _source_map(network: dict[str, Any]) -> dict[str, dict[str, Any]]:
     return {str(s["id"]): s for s in network.get("sources", []) if isinstance(s, dict) and s.get("id")}
 
 
+def _choose_adoption_candidate(ranked: list[dict[str, Any]]) -> dict[str, Any] | None:
+    """Choose the source NUI would materially adopt, not merely keep as reference.
+
+    Restrictive sources are not consent-gated merely because they remain useful
+    research fallbacks in the packet. They become adoption candidates only when
+    no verified permissive implementation is available, or when an explicitly
+    declared unique requirement makes them materially better than the best
+    GREEN route. Unverified/reference-only sources never become direct adoption
+    candidates here; they remain research obligations until resolved upstream.
+    """
+    if not ranked:
+        return None
+
+    green = next(
+        (
+            item for item in ranked
+            if _license_status(item) == "green" and item.get("direct_adoption_allowed") is True
+        ),
+        None,
+    )
+    best = ranked[0]
+    best_status = _license_status(best)
+
+    if best_status == "green" and best.get("direct_adoption_allowed") is True:
+        return best
+
+    if best_status in _RESTRICTIVE_STATUSES:
+        if green is None:
+            return best
+        unique_fit = float(best.get("unique_requirement_fit", 0.0))
+        if unique_fit >= _UNIQUE_OVERRIDE_THRESHOLD and float(best.get("selection_score", 0.0)) > float(
+            green.get("selection_score", 0.0)
+        ):
+            return best
+        return green
+
+    # An unresolved or reference-only source can remain top research evidence,
+    # but it cannot displace an already verified permissive adoption route.
+    return green
+
+
+def _recommendation_mode(item: dict[str, Any], adoption_candidate_id: str | None) -> str:
+    if str(item.get("id")) == adoption_candidate_id:
+        return "adoption-candidate"
+    status = _license_status(item)
+    if status in _RESTRICTIVE_STATUSES:
+        return "reference-fallback"
+    if status in {"unverified", "reference-only"} or item.get("adoption_mode") in {"reference-only", "discovery-only"}:
+        return "research-only"
+    return "permissive-alternative"
+
+
 def resolve_reference_pack(
     pack_id: str,
     network: dict[str, Any],
@@ -134,24 +188,42 @@ def resolve_reference_pack(
             continue
         candidate = dict(source)
         candidate["capability_fit"] = max(0.55, 1.0 - index * 0.035)
-        # Explicitly allow a pack to record a unique reason a non-GREEN source matters.
+        # A pack must explicitly say why a non-GREEN source owns a unique need.
         unique = pack.get("unique_requirement_sources", {})
         candidate["unique_requirement_fit"] = float(unique.get(source_id, 0.0)) if isinstance(unique, dict) else 0.0
         stacks = candidate.get("stacks", [])
         candidate["stack_fit"] = 1.0 if stack and (stack in stacks or "framework-agnostic" in stacks) else 0.0
         candidate["preferred_by_pack"] = index < preferred_count
         candidates.append(candidate)
-    selected = rank_reference_candidates(candidates)[:max_sources]
-    consent_sources = [item["id"] for item in selected if item.get("requires_user_consent")]
+
+    ranked = rank_reference_candidates(candidates)
+    selected = ranked[:max_sources]
+    adoption_candidate = _choose_adoption_candidate(ranked)
+    adoption_candidate_id = str(adoption_candidate["id"]) if adoption_candidate else None
+    for item in selected:
+        item["recommendation_mode"] = _recommendation_mode(item, adoption_candidate_id)
+
+    requires_consent = bool(adoption_candidate and _license_status(adoption_candidate) in _RESTRICTIVE_STATUSES)
+    consent_sources = [adoption_candidate_id] if requires_consent and adoption_candidate_id else []
     unresolved_sources = [item["id"] for item in selected if _license_status(item) == "unverified"]
+    green_fallback = next(
+        (
+            item["id"] for item in ranked
+            if _license_status(item) == "green" and item.get("direct_adoption_allowed") is True
+            and item.get("id") != adoption_candidate_id
+        ),
+        None,
+    )
     return {
         "pack_id": pack_id,
         "sources": selected,
         "reconsult_at": list(RECONSULT_STAGES),
         "license_gate": {
             "policy": "permissive-first",
-            "requires_user_consent": bool(consent_sources),
+            "adoption_candidate": adoption_candidate_id,
+            "requires_user_consent": requires_consent,
             "consent_sources": consent_sources,
+            "green_fallback": green_fallback,
             "live_verification_required": unresolved_sources,
             "decline_behavior": "select strongest GREEN fallback or synthesize the mechanism independently",
         },
@@ -191,7 +263,7 @@ def validate_external_ui_network(
         if source.get("reconsult_at") != list(RECONSULT_STAGES):
             errors.append(f"source {source_id} must persist through all reconsult stages")
         status = _license_status(source)
-        if status in {"consent", "restricted", "mixed"} and source.get("requires_user_consent") is not True:
+        if status in _RESTRICTIVE_STATUSES and source.get("requires_user_consent") is not True:
             errors.append(f"source {source_id} restrictive scope must require user consent")
         if source.get("adoption_mode") in {"reference-only", "discovery-only"} and source.get("direct_adoption_allowed") is True:
             errors.append(f"source {source_id} cannot direct-adopt from {source.get('adoption_mode')}")
