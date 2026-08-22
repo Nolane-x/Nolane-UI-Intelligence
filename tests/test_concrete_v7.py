@@ -7,15 +7,28 @@ class ConcreteV7Tests(unittest.TestCase):
  @classmethod
  def setUpClass(cls):
   from nolane_ui.concrete import compile_concrete_design_packet, validate_pattern_kb, validate_concrete_design_packet
+  from nolane_ui.external_ui_execution import compile_reference_execution_contract
+  from nolane_ui.external_ui_intelligence import load_external_ui_network
   cls.compile=staticmethod(compile_concrete_design_packet); cls.validate_kb=staticmethod(validate_pattern_kb); cls.validate_packet=staticmethod(validate_concrete_design_packet)
+  cls.compile_refs=staticmethod(compile_reference_execution_contract)
   cls.mesh=json.loads((ROOT/'knowledge/ui-authority-mesh-v7.json').read_text())
   cls.kb=json.loads((ROOT/'knowledge/concrete-design-patterns-v7.json').read_text())
   cls.grammar=json.loads((ROOT/'knowledge/immediate-synthesis-grammar-v7.json').read_text())
+  cls.network=load_external_ui_network(ROOT)
+  cls.packs=json.loads((ROOT/'knowledge/external-ui-reference-packs-v12.json').read_text())
+  cls.routing=json.loads((ROOT/'knowledge/external-ui-generation-routing-v12.json').read_text())
 
  def packet(self, profile):
   dims=profile.setdefault('decision_dimensions', self.grammar['dimension_defaults'].get(profile.get('domain','generic'), self.grammar['dimension_defaults']['generic']))
   auth=resolve_authorities(profile,self.mesh)
   return self.compile(profile,auth,self.kb,self.grammar)
+
+ def packet_with_refs(self, profile, routing=None):
+  dims=profile.setdefault('decision_dimensions', self.grammar['dimension_defaults'].get(profile.get('domain','generic'), self.grammar['dimension_defaults']['generic']))
+  auth=resolve_authorities(profile,self.mesh)
+  route=routing or self.routing
+  refs=self.compile_refs(profile,self.network,self.packs,route,stack=profile.get('stack'))
+  return self.compile(profile,auth,self.kb,self.grammar,reference_execution_contract=refs)
 
  def test_pattern_kb_is_concrete_and_source_bound(self):
   r=self.validate_kb(self.kb); self.assertTrue(r['valid'],r)
@@ -67,5 +80,27 @@ class ConcreteV7Tests(unittest.TestCase):
      'implementation_shortcuts':['x'],'validation_obligations':['x'],'unresolved_blockers':[]}
   r=self.validate_packet(p); self.assertFalse(r['valid'])
   self.assertTrue(any('provenance' in e.lower() or 'contraind' in e.lower() for e in r['errors']))
+
+ def test_material_ui_fast_packet_blocks_without_reference_execution_contract(self):
+  profile={'material_ui':True,'domain':'ai-collaboration','task':'build an AI chat interface','stack':'react','platform':'web','ai_experience':True,'visual_ambition':'polished'}
+  p=self.packet(profile)
+  self.assertNotEqual(p['status'],'READY')
+  self.assertTrue(any('reference' in blocker.lower() for blocker in p['unresolved_blockers']))
+
+ def test_material_ui_fast_packet_accepts_valid_active_reference_execution(self):
+  profile={'material_ui':True,'domain':'ai-collaboration','task':'build an AI chat interface with tool calls','stack':'react','platform':'web','ai_experience':True,'visual_ambition':'polished'}
+  p=self.packet_with_refs(profile)
+  self.assertEqual(p['status'],'READY',p['unresolved_blockers'])
+  self.assertEqual(p['reference_execution']['posture'],'ACTIVE')
+  self.assertIn('ai-chat',p['reference_execution']['required_pack_ids'])
+  self.assertTrue(p['reference_execution']['must_preserve_source_ids'])
+
+ def test_material_ui_fast_packet_accepts_explicit_evaluated_no_match(self):
+  routing={'version':12,'policy':{'max_active_packs':2,'max_sources_per_pack':2,'max_active_source_ids':4,'material_ui_baseline_packs':[],'stack_baselines':{}},'rules':[]}
+  profile={'material_ui':True,'domain':'unknown-exotic','task':'novel but bounded interface','decision_dimensions':['visual-craft']}
+  p=self.packet_with_refs(profile,routing=routing)
+  self.assertEqual(p['reference_execution']['posture'],'EVALUATED_NO_MATCH')
+  self.assertTrue(p['reference_execution']['no_match_reason'])
+  self.assertNotIn('missing V12', ' '.join(p['unresolved_blockers']))
 
 if __name__=='__main__': unittest.main()
