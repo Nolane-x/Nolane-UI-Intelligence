@@ -24,6 +24,7 @@ class ExternalUIExecutionV12Tests(unittest.TestCase):
         for name in (
             "infer_reference_pack_ids",
             "compile_reference_execution_contract",
+            "build_reference_generation_directive",
             "record_reference_checkpoint",
             "validate_reference_execution_contract",
             "validate_reference_stage_checkpoint",
@@ -70,6 +71,17 @@ class ExternalUIExecutionV12Tests(unittest.TestCase):
         self.assertTrue(contract["routing_evaluated"])
         self.assertFalse(contract["license_gate"]["requires_user_consent"])
 
+    def test_generation_directive_preserves_actionable_reference_capsule(self):
+        execution = self.execution(); routing = self.routing(); profile = self.profile()
+        contract = execution.compile_reference_execution_contract(profile, self.network, self.packs, routing, stack="react")
+        directive = execution.build_reference_generation_directive(contract)
+        self.assertIn("REFERENCE EXECUTION: ACTIVE", directive)
+        self.assertIn("ai-chat", directive)
+        self.assertIn(contract["must_preserve_source_ids"][0], directive)
+        self.assertIn("PERMISSIVE-FIRST", directive)
+        self.assertIn("DO NOT DROP", directive)
+        self.assertTrue(any(mechanism in directive for pack in contract["resolved_packs"] for source in pack["sources"] for mechanism in source["mechanisms"]))
+
     def test_missing_required_pack_invalidates_generation_contract(self):
         execution = self.execution(); routing = self.routing(); profile = self.profile()
         contract = execution.compile_reference_execution_contract(profile, self.network, self.packs, routing, stack="react")
@@ -95,6 +107,15 @@ class ExternalUIExecutionV12Tests(unittest.TestCase):
         result = execution.validate_reference_stage_checkpoint(contract, checkpoint)
         self.assertFalse(result["valid"])
         self.assertTrue(any("source" in error.lower() and "drop" in error.lower() for error in result["errors"]))
+
+    def test_checkpoint_order_cannot_be_retroactively_filled(self):
+        execution = self.execution(); routing = self.routing(); profile = self.profile()
+        contract = execution.compile_reference_execution_contract(profile, self.network, self.packs, routing, stack="react")
+        execution.record_reference_checkpoint(contract, "design", "evidence:design-too-early", mutate=True)
+        execution.record_reference_checkpoint(contract, "intent", "evidence:intent-too-late", mutate=True)
+        result = execution.validate_reference_completion(contract, "DESIGN_SELECTED")
+        self.assertFalse(result["valid"])
+        self.assertTrue(any("order" in error.lower() for error in result["errors"]))
 
     def test_implementable_phase_requires_design_selection_and_license_checkpoints(self):
         execution = self.execution(); routing = self.routing(); profile = self.profile()
@@ -142,6 +163,16 @@ class ExternalUIExecutionV12Tests(unittest.TestCase):
         self.assertIn("button-feedback", contract["required_pack_ids"])
         self.assertFalse(contract["license_gate"]["requires_user_consent"])
         self.assertEqual(contract["license_gate"]["consent_source_ids"], [])
+
+    def test_execution_apis_are_exported_from_top_level_package(self):
+        import nolane_ui
+        for name in (
+            "compile_reference_execution_contract",
+            "build_reference_generation_directive",
+            "record_reference_checkpoint",
+            "validate_reference_completion",
+        ):
+            self.assertTrue(callable(getattr(nolane_ui, name, None)), name)
 
 
 if __name__ == "__main__":
