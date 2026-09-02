@@ -55,6 +55,24 @@ class RealityRuleCatalogV12Tests(unittest.TestCase):
                 result = validate_reality_rule_catalog({"version": 12, "rules": [rule]})
                 self.assertFalse(result["valid"])
 
+    def test_placeholder_strength_operational_fields_fail(self):
+        replacements = {
+            "title": "Looks good",
+            "statement": "Make it nice",
+            "applies_when": "When needed",
+            "failure_mode": "Looks bad",
+            "observables": ["Seems wrong"],
+            "repair": ["Fix it"],
+            "verification": ["Check it"],
+        }
+        for field, value in replacements.items():
+            with self.subTest(field=field):
+                rule = sample_rule()
+                rule[field] = value
+                result = validate_reality_rule_catalog({"version": 12, "rules": [rule]})
+                self.assertFalse(result["valid"])
+                self.assertTrue(any(field in error for error in result["errors"]), result["errors"])
+
     def test_duplicate_ids_fail(self):
         rule = sample_rule()
         result = validate_reality_rule_catalog({"version": 12, "rules": [rule, copy.deepcopy(rule)]})
