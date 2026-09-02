@@ -11,12 +11,14 @@ repair it, what exceptions exist, and how the repair is verified.
 """
 from __future__ import annotations
 
-import json
+import copy
 from collections import Counter
 from pathlib import Path
 from typing import Any
 
-CATALOG_RELATIVE_PATH = Path("knowledge/reality-rules-v12.json")
+from .reality_catalog_v12 import REALITY_RULE_CATALOG_V12
+
+CATALOG_RELATIVE_PATH = Path("src/nolane_ui/reality_catalog_v12.py")
 RULE_CLASSES = frozenset({"mechanical", "behavioral", "contextual", "advisory", "aesthetic"})
 RULE_SEVERITIES = frozenset({"critical", "major", "moderate", "minor", "observation"})
 RULE_ENFORCEMENTS = frozenset({"block", "warn", "review"})
@@ -141,17 +143,15 @@ def validate_reality_rule_catalog(record: dict[str, Any]) -> dict[str, Any]:
 
 
 def load_reality_rule_catalog(root: Path | str) -> dict[str, Any]:
-    """Load and validate the repository V12 reality-rule catalog."""
-    path = Path(root) / CATALOG_RELATIVE_PATH
-    try:
-        record = json.loads(path.read_text(encoding="utf-8"))
-    except FileNotFoundError as exc:
-        raise ValueError(f"reality rule catalog not found: {path}") from exc
-    except json.JSONDecodeError as exc:
-        raise ValueError(f"reality rule catalog is invalid JSON: {path}: {exc}") from exc
+    """Return a validated defensive copy of the built-in V12 reality catalog."""
+    # Keep root in the API so callers can use the same repository-root calling
+    # convention as other NUI loaders. The V12 catalog is Python data rather
+    # than an enormous JSON blob so it stays reviewable and typed beside code.
+    Path(root)
+    record = copy.deepcopy(REALITY_RULE_CATALOG_V12)
     result = validate_reality_rule_catalog(record)
     if not result["valid"]:
-        raise ValueError("invalid reality rule catalog: " + "; ".join(result["errors"]))
+        raise ValueError("invalid built-in reality rule catalog: " + "; ".join(result["errors"]))
     return record
 
 
