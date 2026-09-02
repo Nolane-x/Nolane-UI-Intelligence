@@ -38,17 +38,28 @@ _REQUIRED_FIELDS = (
     "exceptions",
     "verification",
 )
+_MIN_TEXT_LENGTH = {
+    "title": 18,
+    "statement": 24,
+    "applies_when": 24,
+    "failure_mode": 24,
+}
+_MIN_OPERATIONAL_ITEM_LENGTH = 18
 
 
 def _text(value: Any) -> bool:
     return isinstance(value, str) and bool(value.strip())
 
 
-def _string_list(value: Any, *, allow_empty: bool = False) -> bool:
+def _strong_text(value: Any, minimum: int) -> bool:
+    return _text(value) and len(" ".join(str(value).split())) >= minimum
+
+
+def _string_list(value: Any, *, allow_empty: bool = False, minimum: int = 1) -> bool:
     return (
         isinstance(value, list)
         and (allow_empty or bool(value))
-        and all(_text(item) for item in value)
+        and all(_strong_text(item, minimum) for item in value)
     )
 
 
@@ -111,14 +122,20 @@ def validate_reality_rule_catalog(record: dict[str, Any]) -> dict[str, Any]:
         if enforcement == "block" and severity in {"minor", "observation"}:
             errors.append(f"reality rule {label} cannot block at severity {severity}")
 
-        for field in ("title", "statement", "applies_when", "failure_mode"):
-            if not _text(rule.get(field)):
-                errors.append(f"reality rule {label} requires non-empty {field}")
+        for field, minimum in _MIN_TEXT_LENGTH.items():
+            value = rule.get(field)
+            if not _strong_text(value, minimum):
+                errors.append(
+                    f"reality rule {label} {field} must be operational text of at least {minimum} characters"
+                )
         for field in ("observables", "repair", "verification"):
-            if not _string_list(rule.get(field)):
-                errors.append(f"reality rule {label} requires non-empty {field}[]")
-        if not _string_list(rule.get("exceptions"), allow_empty=True):
-            errors.append(f"reality rule {label} exceptions must be a string list")
+            if not _string_list(rule.get(field), minimum=_MIN_OPERATIONAL_ITEM_LENGTH):
+                errors.append(
+                    f"reality rule {label} requires non-empty {field}[] with operational entries of at least "
+                    f"{_MIN_OPERATIONAL_ITEM_LENGTH} characters"
+                )
+        if not _string_list(rule.get("exceptions"), allow_empty=True, minimum=8):
+            errors.append(f"reality rule {label} exceptions must be a string list with meaningful entries")
 
         provenance = rule.get("source_provenance")
         if provenance is not None:
