@@ -1,0 +1,140 @@
+name: Materialize V13 Wave 7
+
+on:
+  push:
+    branches:
+      - transport/v13-wave7
+
+permissions:
+  contents: write
+
+concurrency:
+  group: v13-wave7-transport
+  cancel-in-progress: false
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout transport payload
+        uses: actions/checkout@v4
+        with:
+          ref: transport/v13-wave7
+          fetch-depth: 0
+
+      - name: Reassemble and verify archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .nui-transport/chunk-00 .nui-transport/chunk-01 .nui-transport/chunk-02 .nui-transport/chunk-03 .nui-transport/chunk-04 .nui-transport/chunk-05 .nui-transport/chunk-06 .nui-transport/chunk-07 | base64 --decode > /tmp/wave7.tar.gz
+          echo '2ac82bd217feabec8944e8678c7b404cdfe4df138332ecc16d2d5804085f2c18  /tmp/wave7.tar.gz' | sha256sum --check --strict
+          test "$(stat -c '%s' /tmp/wave7.tar.gz)" = '91055'
+
+          cat > /tmp/expected-paths.txt <<'EOF'
+knowledge/rule-provenance-v13-wave7-owners.json
+tests/test_rules_v13_seventh_wave_quality.py
+src/nolane_ui/rules_v13/catalog.py
+src/nolane_ui/rules_v13/shards/__init__.py
+src/nolane_ui/rules_v13/shards/audit_log.py
+src/nolane_ui/rules_v13/shards/approval_workflows.py
+src/nolane_ui/rules_v13/shards/sharing_access.py
+src/nolane_ui/rules_v13/shards/version_history.py
+src/nolane_ui/rules_v13/shards/diff_review.py
+src/nolane_ui/rules_v13/shards/operational_inbox.py
+src/nolane_ui/rules_v13/shards/tree_navigation.py
+src/nolane_ui/rules_v13/shards/list_navigation.py
+src/nolane_ui/rules_v13/shards/feedback_states.py
+src/nolane_ui/rules_v13/shards/overlay_systems.py
+src/nolane_ui/rules_v13/shards/chart_timeseries.py
+src/nolane_ui/rules_v13/shards/calendar_datetime.py
+src/nolane_ui/rules_v13/shards/contact_entry.py
+src/nolane_ui/rules_v13/shards/verification_codes.py
+src/nolane_ui/rules_v13/shards/scanning_capture.py
+src/nolane_ui/rules_v13/shards/document_signing.py
+src/nolane_ui/rules_v13/shards/link_routing.py
+src/nolane_ui/rules_v13/shards/file_browser.py
+src/nolane_ui/rules_v13/shards/incident_response.py
+src/nolane_ui/rules_v13/shards/preview_publish.py
+EOF
+          tar -tzf /tmp/wave7.tar.gz | sort > /tmp/actual-paths.txt
+          sort /tmp/expected-paths.txt -o /tmp/expected-paths.txt
+          diff -u /tmp/expected-paths.txt /tmp/actual-paths.txt
+
+          mkdir -p /tmp/wave7
+          tar -xzf /tmp/wave7.tar.gz -C /tmp/wave7
+          cat > /tmp/SHA256SUMS <<'EOF'
+30bff2bb6f01bc927205b2346af3c40fd1880f433b91c16c20eab8cde00692b4  knowledge/rule-provenance-v13-wave7-owners.json
+6403754040c8a25da776f9b6a3db662a0bd8ec4e0667359e07052b1dc41e298b  tests/test_rules_v13_seventh_wave_quality.py
+d2fff5b1a4a7e8b7acbc46cb02572f63a08898bc1ef764e400f9ebe945e065e4  src/nolane_ui/rules_v13/catalog.py
+3855d29a365f5a8a2b3a0c407e3625c7b8b11086d2d1179e09e756e2d11bb41a  src/nolane_ui/rules_v13/shards/__init__.py
+b5672398d05275c09085c5d17c3e25be809079c1f8d77d732e7f17da012c73fb  src/nolane_ui/rules_v13/shards/audit_log.py
+762d3aa8be78d8232ab5f6c1515b23c544c0729123206e214b20223bb1e9d3b6  src/nolane_ui/rules_v13/shards/approval_workflows.py
+ac4ea208fa1c0ef266aac7bb5e628f73942ac1c30b771da1aa67ec4f6ef9f9b2  src/nolane_ui/rules_v13/shards/sharing_access.py
+99dbe96ea552e8884cd6a84e016f52d202c376ffc4097eb7a93b680b9e8f4888  src/nolane_ui/rules_v13/shards/version_history.py
+77e00dd7581c5e341fc393d3fae107cd20c8aa5bececb9dc0f6c87354dfc97d5  src/nolane_ui/rules_v13/shards/diff_review.py
+bb4a7a512bfe0abae524e8aee65789f3b8d80910156c462e62ea88832332531c  src/nolane_ui/rules_v13/shards/operational_inbox.py
+546e3912f0a3957b4b80545612ffb9bdfd70dbe8b28e85b3379971639d2c955a  src/nolane_ui/rules_v13/shards/tree_navigation.py
+fc5153ca358deca68e02a57eb41991658b314b899ea01010dd7d8d0101e512c5  src/nolane_ui/rules_v13/shards/list_navigation.py
+1059a1b7bb4ee1a05a0fb8558bc7dd626d2f3163f1172e714254a5f8742f4549  src/nolane_ui/rules_v13/shards/feedback_states.py
+8ebf89cf12b8afc32fb18100346bbad677605a32f212b18666f16d72a0aabad8  src/nolane_ui/rules_v13/shards/overlay_systems.py
+be61041fdfce5f5ddd5f22d4f4ca35224d33fb5e15a6bcb94b6558a79fb7fb93  src/nolane_ui/rules_v13/shards/chart_timeseries.py
+742a7c9438455993a9641df2bce55beca2305adc2fe1c0562928794f501090bf  src/nolane_ui/rules_v13/shards/calendar_datetime.py
+deb7e00553b19fd206770470d0fca96cdfe4d6d46fff3c8a6cd255bf9d0258c3  src/nolane_ui/rules_v13/shards/contact_entry.py
+e0d591e8035ffcfd119d8ff681451edc10f24b0274f4e69e1fadf364688423f0  src/nolane_ui/rules_v13/shards/verification_codes.py
+b9c1e5a1abcc991009eac0c0abbd40a567a2c206e3fb524fcd6563cb55af3a60  src/nolane_ui/rules_v13/shards/scanning_capture.py
+404e142e6deaa9c9393b11d2ca69b721780bac1d5ce8f6a7b7db21af1611880a  src/nolane_ui/rules_v13/shards/document_signing.py
+d8dd5689652ec0ce42496629c16225393c0097af436e141f71adb98eb3bc1e3f  src/nolane_ui/rules_v13/shards/link_routing.py
+34ec8d37e6e56614b849f9256fd45ca2f052551fc44f91de8306addd4df4a8f7  src/nolane_ui/rules_v13/shards/file_browser.py
+1ebfe1351f337834b3bc68c23715c56a3fcb0890dfbc8642110564f9018c4c3c  src/nolane_ui/rules_v13/shards/incident_response.py
+fbfcfa56e685e2e43e79fe5ee347e8350818e27c2cf1e9ca0cc67b62e052dc59  src/nolane_ui/rules_v13/shards/preview_publish.py
+EOF
+          (cd /tmp/wave7 && sha256sum --check --strict /tmp/SHA256SUMS)
+
+      - name: Materialize exact bytes on target branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main v13-seventh-authored-wave
+          test "$(git rev-parse origin/main)" = '5365ddeb92fef96529d36355587632452e137264'
+          test "$(git rev-parse origin/v13-seventh-authored-wave)" = '5365ddeb92fef96529d36355587632452e137264'
+          git checkout -B v13-seventh-authored-wave origin/v13-seventh-authored-wave
+          while IFS= read -r path; do
+            mkdir -p "$(dirname "$path")"
+            cp "/tmp/wave7/$path" "$path"
+          done < /tmp/expected-paths.txt
+          git diff --check
+
+      - name: Install package
+        run: python -m pip install -e .
+
+      - name: Verify V13 regression and current-head validator
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s tests -p 'test_rules_v13*.py'
+          python - <<'PY'
+          from pathlib import Path
+          from nolane_ui.validators import validate_repository
+          from nolane_ui.rules_v13 import rule_catalog_status_v13
+          root = Path('.')
+          result = validate_repository(root)
+          assert result['valid'], result
+          status = rule_catalog_status_v13(root)
+          assert status['valid'], status
+          assert status['rule_count'] == 621, status
+          assert status['provenance_record_count'] == 63, status
+          assert status['duplicate_pair_count'] == 0, status
+          assert status['boilerplate_cluster_count'] == 0, status
+          print('wave7-validator', status)
+          PY
+
+      - name: Commit exact verified wave
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'Nolane V13 Transport'
+          git config user.email 'actions@users.noreply.github.com'
+          git add --pathspec-from-file=/tmp/expected-paths.txt
+          test -n "$(git status --porcelain)"
+          git commit -m 'feat(v13): add seventh authored 160-rule wave'
+          git push origin HEAD:v13-seventh-authored-wave
