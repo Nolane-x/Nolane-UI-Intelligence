@@ -2,7 +2,7 @@ import copy
 import unittest
 
 from nolane_ui.rules_v13.similarity import audit_catalog_similarity, compare_rule_similarity
-from tests.test_rules_v13_contracts import sample_rule
+from test_rules_v13_contracts import sample_rule
 
 
 def variant(rule_id, title, failure, repair, verify):
