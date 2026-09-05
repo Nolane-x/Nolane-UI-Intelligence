@@ -1,0 +1,111 @@
+{
+  "version": 13,
+  "reviewed_at": "2026-09-05",
+  "records": [
+    {
+      "provenance_id": "nui-agentic-interaction-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-agent-* + designing-human-ai-interaction",
+      "source_role": "canonical agentic interaction owner graph",
+      "reporter": "NUI canonical agentic interaction skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The existing agent-approval, autonomy, interruption, plan-preview, tool-call, tool-result, provenance, and reversible-action skills define distinct execution-authority and user-control failure boundaries that can be promoted into falsifiable UI rules without importing external wording.",
+      "contraindications": [
+        "These internal owners do not justify universal autonomy policy or external safety claims; each rule must stay scoped to visible authority, tool state, user control, and execution truth represented by the product."
+      ],
+      "transfer_boundary": "V13 derives operational UI invariants from canonical NUI owner responsibilities while preserving UNKNOWN for tool/runtime behavior that has not been observed and avoiding claims about model intent or intrinsic trustworthiness."
+    },
+    {
+      "provenance_id": "nui-anti-convergence-corpus-2026-09-01",
+      "evidence_class": "corroborated",
+      "source_id": "anti-ai-ui-slop-design-convergence-research-corpus-2026-09-01.md",
+      "source_role": "multi-source research synthesis",
+      "reporter": "NUI research corpus indexing 110 independently identified URLs across official guidance, research, primary tools, practitioner analysis, and community reports",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The corpus supports treating AI-design convergence as dense co-occurrence and decision-collapse risk rather than authorship proof, and it documents recurring hypotheses around macrostructure, cardification, typography, motion, generic copy, product fit, and cross-generation sameness.",
+      "contraindications": [
+        "A single familiar font, gradient, centered hero, card grid, icon treatment, or other stylistic tell is not evidence that AI authored a design and is not sufficient justification for a hard defect.",
+        "Community and secondary reports are hypothesis inputs; aesthetic frequency cannot become normative authority merely through repetition."
+      ],
+      "transfer_boundary": "V13 uses the corpus to identify mechanisms worth testing and to retain provenance. Canonical NUI rule wording, enforcement, falsifiers, exceptions, capabilities, and verification contracts are independently authored and must survive product-specific counterexamples."
+    },
+    {
+      "provenance_id": "nui-commerce-transaction-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-commerce-checkout + financial/payment/subscription specialists",
+      "source_role": "canonical commerce and financial transaction owner graph",
+      "reporter": "NUI canonical checkout, payment, transaction, subscription, and recovery skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The NUI commerce graph separates payable total, currency, reservation, payment lifecycle, multiplicative scope, renewal terms, cancellation effects, and refund lifecycle as distinct user-decision and financial-truth boundaries.",
+      "contraindications": [
+        "Legal disclosure obligations and jurisdiction-specific commerce rules require separate current authority; these UI rules capture truthful product-state representation and do not claim jurisdictional legal sufficiency."
+      ],
+      "transfer_boundary": "V13 binds commerce language to the product's authoritative order/payment/subscription state and preserves uncertainty when provider or ledger state is not final."
+    },
+    {
+      "provenance_id": "nui-data-viz-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-data-* + table/visualization specialists",
+      "source_role": "canonical data and analytical UI owner graph",
+      "reporter": "NUI canonical data-dense, table, visualization, uncertainty, and nonvisual-equivalent skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The canonical analytical skill graph distinguishes record identity, filtering, sorting, aggregation, uncertainty, time basis, visual encoding, virtualization, and nonvisual equivalence as separate decision and failure classes.",
+      "contraindications": [
+        "A rule about analytical truth must follow the product data model and cannot invent precision, completeness, uncertainty, or population semantics that the underlying dataset does not supply."
+      ],
+      "transfer_boundary": "V13 turns those owner boundaries into falsifiable UI contracts while leaving domain-specific statistical validity and source-data correctness outside the UI rule unless separately evidenced."
+    },
+    {
+      "provenance_id": "nui-editor-workspace-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-editor-* + collaboration/undo/selection specialists",
+      "source_role": "canonical editor and professional-workspace owner graph",
+      "reporter": "NUI canonical editor, collaboration, selection, history, and workspace skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Existing NUI editor specialists treat selection identity, history context, coordinate transforms, command routing, persistence, collaboration conflict, semantic paste, and multi-selection transactions as independently owned interaction mechanisms.",
+      "contraindications": [
+        "Different editor products may intentionally choose last-writer-wins, position-based models, or ephemeral buffers; rules preserve explicit exceptions rather than assuming one professional-editor architecture."
+      ],
+      "transfer_boundary": "V13 requires the rendered and persisted behavior to match the product's declared editor model; it does not prescribe a particular CRDT, OT, canvas engine, or storage implementation."
+    },
+    {
+      "provenance_id": "nui-form-auth-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-forms + authentication/recovery/form specialists",
+      "source_role": "canonical form and identity workflow owner graph",
+      "reporter": "NUI canonical forms, authentication, validation, and recovery skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Existing NUI form, authentication, password, validation, retry, and account-recovery owners expose concrete failure boundaries around asynchronous validation, credential tooling, branching drafts, session recovery, and consequential submission.",
+      "contraindications": [
+        "Security-sensitive flows can legitimately clear or suppress data when an explicit policy requires it; convenience-preservation rules must not override a real credential, privacy, or authorization boundary."
+      ],
+      "transfer_boundary": "Rules are independently worded from canonical owner responsibilities and require observable interaction or runtime evidence before PASS; no unspecified security standard or numeric threshold is inferred."
+    },
+    {
+      "provenance_id": "nui-internal-product-truth-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "NUI lifecycle and product-completeness invariants",
+      "source_role": "canonical internal invariant",
+      "reporter": "NUI lifecycle, routing, product-completeness, runtime-evidence, and design-system governance architecture",
+      "reviewed_at": "2026-09-05",
+      "support_role": "NUI already requires explicit lifecycle claims, state-aware product completeness, evidence-bounded verification, and design-system authority. V13 derives additional falsifiable rule contracts where those internal invariants expose specific UI failure modes.",
+      "contraindications": [
+        "Internal derivation cannot be used to invent external normative thresholds, claim empirical superiority, or upgrade aesthetic preference into release-blocking authority."
+      ],
+      "transfer_boundary": "Internal-derived rules must remain operationally falsifiable and bounded by the same UNKNOWN and evidence-capability rules as externally supported rules; repository architecture is not evidence that a particular rendered product passed verification."
+    },
+    {
+      "provenance_id": "nui-v12-reality-catalog",
+      "evidence_class": "internal-derived",
+      "source_id": "src/nolane_ui/reality_catalog_v12.py",
+      "source_role": "canonical-predecessor",
+      "reporter": "NUI independently authored V12 reality-rule system",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The V12 catalog and its contract tests establish operational failure, repair, exception, severity, enforcement, and verification semantics that V13 must not silently weaken during compatibility migration.",
+      "contraindications": [
+        "Compatibility migration must not pretend that every V12 rule has a deterministic detector or that a passing source scan closes browser, interaction, accessibility-tree, semantic, or human-review evidence requirements."
+      ],
+      "transfer_boundary": "V13 may enrich V12 rules with provenance, falsifiers, ownership, and capability metadata, but must preserve the predecessor rule id and authority unless an explicit reviewed supersession changes the canonical contract."
+    }
+  ]
+}

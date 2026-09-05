@@ -1,0 +1,73 @@
+"""Authored V13 purchase-scope, subscription, cancellation, and refund rules."""
+from __future__ import annotations
+
+from ._capabilities import interaction_caps
+
+COMMERCE_LIFECYCLE_RULES_V13 = [
+    {
+        "rule_id": "ui.commerce.quantity-scope-before-purchase", "domain": "commerce", "class": "mechanical", "severity": "critical", "enforcement": "block",
+        "title": "The final purchase action must restate quantity and multiplicative scope when mistakes scale cost",
+        "statement": "When quantity, seats, rooms, nights, licenses, attendees, units, or another multiplicative scope can materially increase cost, the final commit surface must make that scope visible with the resulting amount before purchase.",
+        "intent": "Catch high-cost scope mistakes at the last decision boundary rather than assuming earlier selectors remain mentally available during final confirmation.",
+        "applies_when": ["A transaction total depends on a quantity or scope that can be greater than one and users can change or inherit that scope before reaching the final purchase action."],
+        "does_not_apply_when": ["The transaction is intrinsically single-unit and no hidden multiplicative scope can change cost or fulfillment."],
+        "failure_modes": ["The user can commit a multi-unit or multi-period purchase from a final surface that emphasizes only a total or item name without making the multiplicative quantity/scope readily apparent."],
+        "user_impacts": ["A small selection or carry-over mistake can multiply financial cost or reserved capacity without a clear final opportunity to notice the affected quantity."],
+        "observables": ["Set non-default quantities or multi-period scopes and inspect whether the final commit context visibly restates both scope and corresponding total rather than requiring back-navigation to discover it."],
+        "falsifiers": ["The commit boundary displays the relevant quantity/scope alongside the item or total, and changes to that scope immediately update the amount and fulfillment summary."],
+        "repairs": ["Include multiplicative scope in the order summary nearest the commit action, keep it editable or clearly reviewable, and recompute totals synchronously with any scope change."],
+        "exceptions": ["High-frequency professional bulk tools may use compact summaries when the selected scope is persistently visible in the same viewport and cannot be confused with a single-unit action."],
+        "verification": ["Create orders with edge-case quantities and periods, then review the final commit state without relying on memory from earlier steps and confirm cost-driving scope is explicit."],
+        "owner_hints": ["designing-product-variant-selection"], "verifier_hints": ["critiquing-human-factors-and-safety"], "capabilities": interaction_caps(**{"visual-render": "REQUIRED"}), "provenance_ids": ["nui-commerce-transaction-owners-v13"], "status": "active",
+    },
+    {
+        "rule_id": "ui.commerce.subscription-renewal-basis-visible", "domain": "commerce", "class": "contextual", "severity": "critical", "enforcement": "block",
+        "title": "Subscription commitment must expose renewal amount, interval, and material post-introductory change",
+        "statement": "A subscription purchase or plan change must make the recurring interval, renewal amount or basis, and any material transition from trial or introductory pricing visible before the user commits.",
+        "intent": "Keep the immediate promotional price from obscuring the longer-lived financial obligation that defines the actual subscription relationship.",
+        "applies_when": ["A plan renews automatically, changes price after a trial or introductory period, bills at a different interval than displayed promotional units, or has a recurring commitment beyond the first charge."],
+        "does_not_apply_when": ["The purchase is a non-renewing one-time entitlement with no continuing charge or future billing obligation."],
+        "failure_modes": ["The commit surface highlights free/discounted initial access while the normal renewal interval or material future charge is absent, distant, ambiguous, or presented as though it were still the introductory amount."],
+        "user_impacts": ["Users can enter an ongoing billing relationship without understanding when regular charges begin or what recurring basis applies after the promotion."],
+        "observables": ["Compare the final subscription UI with the billing schedule and identify whether trial end, renewal interval, and materially different future amount are visible before authorization."],
+        "falsifiers": ["The user can determine the initial charge, recurring interval, material post-trial or post-introductory amount/basis, and cancellation timing from the commit context itself."],
+        "repairs": ["Present introductory and recurring phases as separate billing states near the purchase action, use explicit interval language, and update the schedule when plan or billing cadence changes."],
+        "exceptions": ["Variable usage-based subscriptions may describe the formula or rate basis instead of a fixed renewal total when a fixed amount is not knowable before usage."],
+        "verification": ["Exercise trials, annual/monthly toggles, discounts, prorated plan changes, and usage-based variants, then reconcile the commit copy with the actual billing schedule."],
+        "owner_hints": ["designing-subscription-management"], "verifier_hints": ["critiquing-user-experience"], "capabilities": interaction_caps(**{"semantic-product": "REQUIRED"}), "provenance_ids": ["nui-commerce-transaction-owners-v13"], "status": "active",
+    },
+    {
+        "rule_id": "ui.commerce.cancellation-scope-explicit", "domain": "commerce", "class": "behavioral", "severity": "major", "enforcement": "block",
+        "title": "Cancellation must state what stops, what remains active, and when the change takes effect",
+        "statement": "A cancellation flow must distinguish immediate termination, end-of-period non-renewal, partial item cancellation, reservation release, and any retained access or obligation so users know the actual scope and effective time before confirming.",
+        "intent": "Prevent the single word cancel from hiding materially different contractual and product outcomes.",
+        "applies_when": ["Users can cancel subscriptions, orders, bookings, reservations, services, add-ons, line items, or recurring commitments with different possible effective times or retained benefits."],
+        "does_not_apply_when": ["Cancellation has one fixed immediate effect with no remaining access, refund, charge, or dependent item whose scope could be misunderstood."],
+        "failure_modes": ["The UI offers a generic cancel action without clearly stating whether service ends now or later, which items are affected, and what remaining charges, access, or dependencies persist."],
+        "user_impacts": ["Users may unintentionally lose immediate access, expect a refund that is not created, or believe renewal stopped when only one dependent item was canceled."],
+        "observables": ["Compare cancellation confirmation copy with the resulting contract/order state, access period, dependent items, refund behavior, and next billing event."],
+        "falsifiers": ["Before confirmation, the interface states the affected scope and effective time, and the resulting account/order state matches that description exactly."],
+        "repairs": ["Name the object and effective cancellation boundary explicitly, summarize retained access and financial consequences, and separate partial cancellation from whole-contract termination."],
+        "exceptions": ["Emergency security revocation may terminate immediately with minimal ceremony when speed is the primary safety requirement, but the resulting scope should still be reported afterward."],
+        "verification": ["Cancel at different lifecycle stages and scopes, then compare promised effective time, access, billing, dependent items, and resulting authoritative state for each path."],
+        "owner_hints": ["designing-subscription-management"], "verifier_hints": ["critiquing-functional-completeness"], "capabilities": interaction_caps(**{"browser-runtime": "REQUIRED"}), "provenance_ids": ["nui-commerce-transaction-owners-v13"], "status": "active",
+    },
+    {
+        "rule_id": "ui.commerce.refund-state-not-instantly-final", "domain": "commerce", "class": "behavioral", "severity": "major", "enforcement": "block",
+        "title": "Refund initiation must remain distinct from refund settlement or returned funds",
+        "statement": "A refund flow must not tell users money has been returned merely because a refund request was created or accepted when provider processing, partial outcomes, payment-rail delay, or failure can still change the final result.",
+        "intent": "Represent financial recovery at the same truth boundary as the payment system instead of collapsing request, approval, processing, and settlement into one optimistic success state.",
+        "applies_when": ["Refunds, reversals, credits, charge adjustments, or payout returns can pass through asynchronous provider states after the product initiates them."],
+        "does_not_apply_when": ["The authoritative ledger instantly credits the user's usable balance and that immediate credit is the exact user-visible outcome being described."],
+        "failure_modes": ["The UI says refunded, money returned, or equivalent final language while the provider or ledger only records requested, accepted, processing, partially refunded, or otherwise non-final state."],
+        "user_impacts": ["Users may expect funds that have not arrived, stop monitoring recovery, or dispute a transaction based on a product status that overstates the actual financial outcome."],
+        "observables": ["Initiate refunds under delayed, partial, rejected, and successful provider responses and compare terminal user messaging with the authoritative refund/ledger lifecycle."],
+        "falsifiers": ["The interface distinguishes requested, processing, partial, failed, and settled states and reserves final returned-funds language for the product's defined authoritative boundary."],
+        "repairs": ["Model refund lifecycle separately from request acceptance, surface partial scope and expected processing context, and update status from authoritative provider or ledger events."],
+        "exceptions": ["Store credit issued immediately may be described as available when the UI clearly distinguishes that internal credit from an external payment-method refund still in progress."],
+        "verification": ["Force each supported refund lifecycle outcome and reconcile displayed status, amount, destination, and timestamps against the authoritative payment or ledger record."],
+        "owner_hints": ["designing-payment-failure-recovery"], "verifier_hints": ["critiquing-functional-completeness"], "capabilities": interaction_caps(**{"browser-runtime": "REQUIRED"}), "provenance_ids": ["nui-commerce-transaction-owners-v13"], "status": "active",
+    },
+]
+
+__all__ = ["COMMERCE_LIFECYCLE_RULES_V13"]

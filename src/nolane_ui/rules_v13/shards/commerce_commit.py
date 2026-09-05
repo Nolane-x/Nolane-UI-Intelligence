@@ -1,0 +1,73 @@
+"""Authored V13 pricing, currency, inventory, and payment-commit rules."""
+from __future__ import annotations
+
+from ._capabilities import interaction_caps
+
+COMMERCE_COMMIT_RULES_V13 = [
+    {
+        "rule_id": "ui.commerce.total-price-components-visible", "domain": "commerce", "class": "contextual", "severity": "critical", "enforcement": "block",
+        "title": "The committed total must expose material price components before purchase",
+        "statement": "Before a user commits a purchase, booking, subscription, or paid order, the interface must present the decision-relevant total together with material taxes, fees, shipping, discounts, recurring portions, or other components that change what the user will pay.",
+        "intent": "Keep the financial commitment boundary aligned with the actual charge rather than letting a prominent subtotal or promotional figure stand in for the payable amount.",
+        "applies_when": ["A commerce flow can add taxes, service charges, platform fees, shipping, discounts, deposits, recurring charges, or other monetary components between item selection and final commitment."],
+        "does_not_apply_when": ["The displayed price is contractually the complete payable amount and no additional material monetary component can be introduced at or after commit."],
+        "failure_modes": ["The final confirmation emphasizes a partial or promotional price while a material component of the actual charge is hidden, deferred, or only discoverable outside the commit context."],
+        "user_impacts": ["Users can authorize a materially different charge than the amount they reasonably inferred from the primary purchase presentation."],
+        "observables": ["Compare the final displayed total and component breakdown with the authoritative charge request and identify any material component that was absent or visually subordinate beyond reasonable discovery."],
+        "falsifiers": ["The commit surface exposes the complete payable amount and clearly associates all material included or recurring components before the user authorizes payment."],
+        "repairs": ["Calculate and render the authoritative total at the commitment boundary, list material components and recurring basis, and update both whenever quantity, destination, discount, or tax state changes."],
+        "exceptions": ["Legally or operationally unknowable later charges may be estimated only when the uncertainty and basis are explicit before commitment rather than presented as a fixed complete total."],
+        "verification": ["Exercise combinations of fees, taxes, discounts, shipping, deposits, and recurring charges, then reconcile the final UI amount line by line with the submitted payment/order payload."],
+        "owner_hints": ["designing-commerce-checkout"], "verifier_hints": ["critiquing-user-experience"], "capabilities": interaction_caps(**{"browser-runtime": "REQUIRED"}), "provenance_ids": ["nui-commerce-transaction-owners-v13"], "status": "active",
+    },
+    {
+        "rule_id": "ui.commerce.currency-before-commit", "domain": "commerce", "class": "mechanical", "severity": "critical", "enforcement": "block",
+        "title": "A monetary commitment must make the charge currency unambiguous before authorization",
+        "statement": "Every decision-relevant price at the purchase boundary must expose its operative currency when users could plausibly encounter another currency, conversion, billing region, or payment-account basis in the same product context.",
+        "intent": "Prevent numerically identical amounts from being mistaken as financially equivalent when their currencies differ.",
+        "applies_when": ["The product supports more than one currency, international users, currency conversion, localized pricing, cross-border payment, travel booking, marketplaces, or account balances in multiple currencies."],
+        "does_not_apply_when": ["The product operates in exactly one fixed currency that is explicit at account or product level and cannot vary within the user's workflow."],
+        "failure_modes": ["The final amount is displayed as a bare number or ambiguous symbol while the actual payment payload uses a currency the user cannot reliably infer from the commit surface."],
+        "user_impacts": ["Users can authorize charges with a different real-world value than expected or compare amounts that look equivalent but are denominated differently."],
+        "observables": ["Inspect the commit UI under accounts or destinations that change currency and compare visible price labels with the currency code in the authoritative order or payment request."],
+        "falsifiers": ["The operative currency is visible or unmistakably bound to the amount at commitment, and conversion or settlement differences that affect cost are separately disclosed."],
+        "repairs": ["Render currency codes or unambiguous localized currency context alongside decision-relevant amounts and keep the same currency basis through summary, payment, receipt, and refund states."],
+        "exceptions": ["A familiar symbol may be sufficient in a strictly single-currency local product when no supported workflow introduces ambiguity with another denomination."],
+        "verification": ["Switch supported billing regions and currencies, then reconcile every final amount label with the order/payment currency and any conversion disclosure before authorizing the transaction."],
+        "owner_hints": ["designing-financial-transaction-ui"], "verifier_hints": ["critiquing-localization"], "capabilities": interaction_caps(**{"browser-runtime": "REQUIRED"}), "provenance_ids": ["nui-commerce-transaction-owners-v13"], "status": "active",
+    },
+    {
+        "rule_id": "ui.commerce.inventory-reservation-truth", "domain": "commerce", "class": "behavioral", "severity": "major", "enforcement": "block",
+        "title": "Cart and checkout status must distinguish interest from actual inventory reservation",
+        "statement": "A commerce interface must not imply that scarce inventory, seats, appointments, tickets, or limited units are reserved merely because they appear in a cart or checkout unless the backend has actually established a reservation with a truthful expiry policy.",
+        "intent": "Keep availability language aligned with the inventory authority so users understand whether continuing to checkout protects the item from competing demand.",
+        "applies_when": ["Users select scarce or limited inventory that can be purchased or reserved by other users while the current checkout is still incomplete."],
+        "does_not_apply_when": ["Inventory is effectively unlimited or the authoritative system guarantees availability independently of cart or checkout state."],
+        "failure_modes": ["The UI uses held, secured, reserved, yours, or equivalent certainty without an authoritative reservation, or hides reservation expiry while continuing to imply guaranteed availability."],
+        "user_impacts": ["Users may stop comparing alternatives, delay action, or abandon other plans because the product falsely signals that scarce inventory is protected."],
+        "observables": ["Compare cart/checkout language with inventory service state and reservation expiry, including what happens when another actor acquires the same scarce unit."],
+        "falsifiers": ["Reservation language appears only when a backend reservation exists, its material expiry/renewal semantics are represented, and non-reserved selections are described as availability subject to change."],
+        "repairs": ["Bind reservation copy and countdowns to authoritative reservation state, remove certainty from ordinary cart placement, and surface expiry or loss of reservation immediately when it changes."],
+        "exceptions": ["Products with guaranteed made-to-order fulfillment may use strong availability language when stock competition cannot invalidate the selected item."],
+        "verification": ["Test competing checkout sessions, reservation expiry, inventory loss, and restoration while comparing rendered status with the authoritative reservation record at each step."],
+        "owner_hints": ["designing-commerce-checkout"], "verifier_hints": ["critiquing-functional-completeness"], "capabilities": interaction_caps(**{"browser-runtime": "REQUIRED"}), "provenance_ids": ["nui-commerce-transaction-owners-v13"], "status": "active",
+    },
+    {
+        "rule_id": "ui.commerce.payment-pending-not-success", "domain": "commerce", "class": "mechanical", "severity": "critical", "enforcement": "block",
+        "title": "Payment initiation and payment settlement must remain distinct user-visible states",
+        "statement": "A checkout must not report an order as paid, confirmed, or complete solely because payment was initiated or accepted for processing when authorization, capture, settlement, or downstream order creation can still fail.",
+        "intent": "Prevent optimistic payment language from creating a false financial and fulfillment state during asynchronous or multi-stage payment processing.",
+        "applies_when": ["A payment method or provider can return pending, processing, requires-action, authorized-not-captured, asynchronous confirmation, or another intermediate status before the transaction is truly committed."],
+        "does_not_apply_when": ["The payment contract is synchronous and the returned success boundary is already the authoritative final state represented by the UI."],
+        "failure_modes": ["The product displays success, receipt, paid status, or fulfillment confirmation while the authoritative payment/order remains pending, incomplete, or capable of ordinary downstream failure."],
+        "user_impacts": ["Users can believe they have paid or secured an order, stop monitoring the transaction, or create duplicate attempts when the backend later fails or remains unresolved."],
+        "observables": ["Force intermediate provider states and compare UI success messaging, order status, receipt availability, and fulfillment state with the authoritative payment lifecycle."],
+        "falsifiers": ["Pending and intermediate payment states remain explicit, only the defined committed boundary produces final success, and later asynchronous failure has a truthful recovery path."],
+        "repairs": ["Model payment lifecycle states explicitly, bind success copy to the real commit boundary, and expose pending/requires-action/failure transitions without inventing settlement certainty."],
+        "exceptions": ["A merchant may consider authorization itself the contractual success boundary only when fulfillment and user messaging consistently use that weaker definition and downstream capture risk is disclosed appropriately."],
+        "verification": ["Simulate pending, requires-action, authorized, captured, failed, and delayed webhook outcomes and verify each maps to the correct order/payment state without premature final success."],
+        "owner_hints": ["designing-payment-failure-recovery"], "verifier_hints": ["critiquing-functional-completeness"], "capabilities": interaction_caps(**{"browser-runtime": "REQUIRED"}), "provenance_ids": ["nui-commerce-transaction-owners-v13"], "status": "active",
+    },
+]
+
+__all__ = ["COMMERCE_COMMIT_RULES_V13"]

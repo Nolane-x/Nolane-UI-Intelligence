@@ -113,8 +113,13 @@ def extend(root: Path, base: dict[str, Any]) -> dict[str, Any]:
     try:
         pyproject = (root / "pyproject.toml").read_text(encoding="utf-8")
         match = re.search(r'^version\s*=\s*"([^"]+)"', pyproject, flags=re.MULTILINE)
-        if not match or match.group(1) != "0.10.0":
-            errors.append("v10 package version must be 0.10.0")
+        version = match.group(1) if match else ""
+        try:
+            parts = tuple(int(part) for part in version.split("."))
+        except ValueError:
+            parts = ()
+        if len(parts) != 3 or parts < (0, 10, 0):
+            errors.append("v10 repository contract requires package version >= 0.10.0")
         metrics["nui_major"] = 10
         graph = _load(root / "skills/skill-graph.json").get("skills", {})
         if len(graph) < 174:

@@ -1,0 +1,73 @@
+"""Authored V13 editor persistence, paste, history, and save rules."""
+from __future__ import annotations
+
+from ._capabilities import interaction_caps
+
+EDITOR_PERSISTENCE_RULES_V13 = [
+    {
+        "rule_id": "ui.editor.unsaved-document-close-recovery", "domain": "editor", "class": "behavioral", "severity": "major", "enforcement": "block",
+        "title": "Closing a document with recoverable unsaved work must preserve a deliberate recovery boundary",
+        "statement": "An editor must not silently discard unsaved changes when a document, tab, window, workspace, or application closes unless the product has already durably saved or recoverably journaled the exact user work.",
+        "intent": "Tie close behavior to actual persistence truth so users neither lose work nor suffer unnecessary confirmation when reliable recovery already exists.",
+        "applies_when": ["Users can edit persistent content and a close, navigation, reload, window quit, workspace switch, or crash-like transition can occur before authoritative save completion."],
+        "does_not_apply_when": ["The product provides continuous durable save or recovery whose guarantee has already covered the latest local edit and the UI accurately communicates that model."],
+        "failure_modes": ["A close path discards newer local edits without warning or recovery, or conversely claims all work is saved when the latest edit is still only in volatile client memory."],
+        "user_impacts": ["Users can lose meaningful work or develop false confidence in autosave and close semantics after a single routine navigation action."],
+        "observables": ["Create unsaved edits, exercise every close/navigation path under delayed or failed save, restart or reopen, and compare recovered content with the exact latest local edit."],
+        "falsifiers": ["The latest edit is durably recoverable before close completes, or the user receives a clear save/discard/cancel decision with truthful pending-save state and no hidden data loss."],
+        "repairs": ["Track dirty state against the durable revision, gate destructive close when recovery is not guaranteed, and implement journaling or autosave only with a truthful confirmation boundary."],
+        "exceptions": ["Disposable scratch buffers may intentionally discard content when their ephemeral nature is explicit before users invest persistent-work expectations."],
+        "verification": ["Delay and fail persistence while closing through tabs, browser navigation, workspace switching, and application quit, then verify the latest recoverable revision or explicit discard choice in each case."],
+        "owner_hints": ["designing-editor-canvas-workspaces"], "verifier_hints": ["critiquing-functional-completeness"], "capabilities": interaction_caps(**{"browser-runtime": "REQUIRED"}), "provenance_ids": ["nui-editor-workspace-owners-v13"], "status": "active",
+    },
+    {
+        "rule_id": "ui.editor.multi-selection-transform-is-atomic", "domain": "editor", "class": "behavioral", "severity": "major", "enforcement": "block",
+        "title": "A multi-selection transform should commit as one coherent operation or expose partial failure",
+        "statement": "When one gesture or command transforms multiple selected objects, the editor must either apply the intended operation coherently to the declared selection or explicitly represent which members could not be transformed.",
+        "intent": "Keep a single visible manipulation from leaving the selection in a silent mixed state that users cannot reconstruct or reliably undo.",
+        "applies_when": ["Users move, resize, align, format, rotate, delete, tag, connect, or otherwise transform several selected entities through one command or gesture."],
+        "does_not_apply_when": ["The command is explicitly a best-effort per-item batch whose result view already reports independent outcomes for each item."],
+        "failure_modes": ["Some selected items fail or are skipped while the interface presents the transform as uniformly complete and history does not preserve the mixed outcome as one understandable operation."],
+        "user_impacts": ["Users can believe a multi-object edit succeeded everywhere, overlook unchanged objects, or need multiple unpredictable undo operations to restore pre-command state."],
+        "observables": ["Include locked, invalid, remote-conflicted, or otherwise non-transformable objects in a multi-selection and observe whether the result truthfully represents mixed applicability and history."],
+        "falsifiers": ["The operation applies to the complete valid scope atomically or reports excluded/failed members before or after commit with an undo/history model matching the visible operation."],
+        "repairs": ["Resolve transform eligibility before commit when possible, group the operation into one history transaction, and surface any intentionally skipped or failed members as part of the command outcome."],
+        "exceptions": ["Large bulk workflows may process asynchronously per item when the UI explicitly adopts a batch-job model with progress, partial failure, and per-item recovery."],
+        "verification": ["Transform selections containing both valid and intentionally failing members, then inspect final geometry/state, status reporting, and a single undo/redo cycle for coherence."],
+        "owner_hints": ["designing-multi-selection-models"], "verifier_hints": ["critiquing-functional-completeness"], "capabilities": interaction_caps(), "provenance_ids": ["nui-editor-workspace-owners-v13"], "status": "active",
+    },
+    {
+        "rule_id": "ui.editor.paste-preserves-semantic-structure", "domain": "editor", "class": "contextual", "severity": "major", "enforcement": "warn",
+        "title": "Pasting rich content should preserve supported semantics without importing unsafe presentation noise",
+        "statement": "A rich editor should map pasted headings, lists, links, tables, code, emphasis, and other supported structure into its own semantic model instead of flattening useful meaning or blindly importing foreign visual styling and behavior.",
+        "intent": "Treat paste as a semantic import boundary so users retain document meaning while the product remains governed by its own design system, content model, and security constraints.",
+        "applies_when": ["Users paste formatted content from browsers, office tools, other editors, code sources, or the same product into a rich-text, document, CMS, note, or structured authoring surface."],
+        "does_not_apply_when": ["The target is intentionally plain-text only and clearly communicates that formatting and structure beyond text will be discarded."],
+        "failure_modes": ["Pasting either destroys supported semantic structure such as lists/headings/links or imports foreign fonts, arbitrary colors, scripts, unsupported layout, and inline styles that violate the editor model."],
+        "user_impacts": ["Users must manually reconstruct structure or end up with inconsistent, inaccessible, unsafe, or visually corrupted documents after ordinary copy/paste workflows."],
+        "observables": ["Paste representative rich content from external sources and compare resulting document semantics, sanitization, supported structure, and style tokens with the target editor's canonical model."],
+        "falsifiers": ["Supported semantics survive in canonical editor structures while unsupported or unsafe presentation is sanitized or deliberately converted with a predictable user-visible result."],
+        "repairs": ["Parse paste input into an allowlisted semantic intermediate form, map supported structures to canonical nodes/tokens, and discard or explicitly handle unsupported foreign styling and executable content."],
+        "exceptions": ["A fidelity-preserving import mode may retain additional source styling when users deliberately choose that mode and the resulting content remains safe and compatible with downstream rendering."],
+        "verification": ["Paste headings, nested lists, tables, links, code, inline styles, and unsafe markup from several sources, then inspect semantic document structure and rendered consistency."],
+        "owner_hints": ["designing-rich-text-editors"], "verifier_hints": ["critiquing-design-system"], "capabilities": interaction_caps(**{"static": "PARTIAL", "human-review": "REQUIRED"}), "provenance_ids": ["nui-editor-workspace-owners-v13"], "status": "active",
+    },
+    {
+        "rule_id": "ui.editor.background-save-does-not-steal-version", "domain": "editor", "class": "mechanical", "severity": "major", "enforcement": "block",
+        "title": "A delayed background save must not overwrite a newer document revision",
+        "statement": "Autosave and background persistence must bind each write to the revision it represents so an older delayed save cannot become authoritative after a newer local or remote revision has already committed.",
+        "intent": "Prevent persistence races from making the visible editor appear correct while the durable document silently rolls backward to older content.",
+        "applies_when": ["An editor performs overlapping autosave, manual save, remote synchronization, or background persistence requests for mutable document state."],
+        "does_not_apply_when": ["Writes are serialized by a single authoritative transaction queue that proves older revisions cannot commit after newer ones."],
+        "failure_modes": ["A slow save for revision N completes after revision N+1 and replaces the durable document or success indicator without conflict/version checks."],
+        "user_impacts": ["Users can lose newer edits after refresh or collaboration sync even though the interface previously showed them and reported successful saving."],
+        "observables": ["Delay an older save response, commit a newer revision first, then let the older write resolve and compare durable version identity plus reopened document content."],
+        "falsifiers": ["Persistence rejects stale version writes, serializes revision order, or merges them under an explicit version protocol so durable state can never regress silently."],
+        "repairs": ["Attach revision/version preconditions to writes, ignore stale acknowledgements, and surface conflicts rather than allowing network completion order to define document authority."],
+        "exceptions": ["Append-only event models may accept out-of-order transport when the event log preserves causal ordering and materialized state cannot regress from late delivery."],
+        "verification": ["Create overlapping saves with intentionally reversed completion order, reopen from authoritative storage, and confirm the newest valid revision remains durable with truthful save status."],
+        "owner_hints": ["designing-collaborative-diagram-editing"], "verifier_hints": ["critiquing-performance-and-resilience"], "capabilities": interaction_caps(**{"browser-runtime": "REQUIRED"}), "provenance_ids": ["nui-editor-workspace-owners-v13"], "status": "active",
+    },
+]
+
+__all__ = ["EDITOR_PERSISTENCE_RULES_V13"]

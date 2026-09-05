@@ -95,7 +95,7 @@ def main() -> int:
         "claim_ceiling": "STRUCTURAL_ONLY",
         "claim": (
             "This exact revision satisfies NUI V10 deterministic repository structural and contract checks, "
-            "preserves the 174-skill canonical graph, and contains the V10 empirical evaluation framework. "
+            "preserves the canonical graph above the historical V10 baseline, and contains the V10 empirical evaluation framework. "
             "Repository-only CI does not claim real-model efficacy."
         ),
         "bounds": [

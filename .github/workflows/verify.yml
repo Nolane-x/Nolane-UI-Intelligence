@@ -13,7 +13,31 @@ permissions:
   contents: read
 
 jobs:
-  verify:
+  core-python:
+    name: Core Python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install core package
+        run: python -m pip install -e .
+
+      - name: Run unit and contract tests
+        run: PYTHONPATH=src python -m unittest discover -s tests -v
+
+  live-browser:
+    name: Real Chromium runtime
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -25,33 +49,47 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install Phase 5 live browser dependencies
+      - name: Install live browser dependencies
         run: |
           python -m pip install -e '.[live]'
           python -m playwright install --with-deps chromium
 
-      - name: Run Phase 5 real Chromium smoke gate
+      - name: Run real Chromium smoke gate
         env:
           NUI_REQUIRE_REAL_PLAYWRIGHT: "1"
         run: PYTHONPATH=src python -m unittest tests.test_runtime_v11_playwright_adapter.RuntimeV11PlaywrightRealSmokeTests -v
 
-      - name: Run unit and contract tests
-        run: PYTHONPATH=src python -m unittest discover -s tests -v
+  release-gate:
+    name: Current-head release gate
+    needs: [core-python, live-browser]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Generate fresh bounded completion packet
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install core package
+        run: python -m pip install -e .
+
+      - name: Generate fresh bounded V10 completion packet
         run: |
           PYTHONPATH=src python scripts/nui-release-packet \
             --output /tmp/nui-v10-completion-packet.json \
             --revision "$GITHUB_SHA" \
             --source "GitHub Actions run $GITHUB_RUN_ID"
 
-      - name: Validate repository and exact-revision completion packet
+      - name: Validate current repository and exact-revision completion packet
         run: |
           PYTHONPATH=src python scripts/nui-validate . \
             --packet /tmp/nui-v10-completion-packet.json \
             --revision "$GITHUB_SHA"
 
-      - name: Upload verified completion packet
+      - name: Upload verified V10 completion packet
         uses: actions/upload-artifact@v4
         with:
           name: nui-v10-completion-packet
@@ -59,10 +97,20 @@ jobs:
           if-no-files-found: error
           retention-days: 90
 
-      - name: Package complete project
-        run: zip -q -r /tmp/Nolane-UI-Intelligence-v10-complete.zip . -x '.git/*'
+      - name: Package complete current project
+        run: |
+          zip -q -r /tmp/Nolane-UI-Intelligence-v13-complete.zip . -x '.git/*'
+          cp /tmp/Nolane-UI-Intelligence-v13-complete.zip /tmp/Nolane-UI-Intelligence-v10-complete.zip
 
-      - name: Upload complete project archive
+      - name: Upload current V13 complete project archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: nui-v13-complete-project
+          path: /tmp/Nolane-UI-Intelligence-v13-complete.zip
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Upload V10 compatibility complete project archive
         uses: actions/upload-artifact@v4
         with:
           name: nui-v10-complete-project
