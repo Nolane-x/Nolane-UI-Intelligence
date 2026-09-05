@@ -39,6 +39,12 @@ else:
     from . import scope_v9 as _scope9
     from . import routing_v9 as _routing9
     from . import external_ui_execution as _external_ref_v12
+    from . import external_ui_intelligence as _external_ui_v12
+    from . import reality_rules as _reality_v12
+    from .runtime_v11.doctor import REQUIRED_RUNTIME_ARTIFACTS as _RUNTIME_V11_ARTIFACTS
+    from .runtime_v11.doctor import diagnose_runtime_state as _diagnose_runtime_v11
+    from .rules_v13.catalog import load_rule_catalog_v13 as _load_rules_v13
+    from .rules_v13.similarity import audit_catalog_similarity as _audit_rules_v13
 
     def mandatory_routes_for_profile(profile: dict[str, Any]) -> set[str]:
         return (
@@ -195,6 +201,36 @@ else:
 
         return {"decision": "BLOCKED" if errors else "PASS", "errors": errors}
 
+    def _read_current_package_version(root: Path) -> str | None:
+        try:
+            pyproject = (root / "pyproject.toml").read_text(encoding="utf-8")
+        except OSError:
+            return None
+        import re
+        match = re.search(r'^version\s*=\s*"([^"]+)"', pyproject, flags=re.MULTILINE)
+        return match.group(1) if match else None
+
+    def _current_version_coherence(root: Path) -> dict[str, Any]:
+        package_version = _read_current_package_version(root)
+        try:
+            config = json.loads((root / "nui.config.json").read_text(encoding="utf-8"))
+            config_version = str(config.get("version", "")).strip() or None
+        except Exception:
+            config_version = None
+        errors: list[str] = []
+        expected = "0.13.0"
+        if package_version != expected or config_version != expected:
+            errors.append(
+                f"version coherence: current package/config version must both be {expected}; "
+                f"package={package_version!r}, config={config_version!r}"
+            )
+        return {
+            "valid": not errors,
+            "errors": errors,
+            "package_version": package_version,
+            "config_version": config_version,
+        }
+
     def validate_repository(root: Path | str) -> dict[str, Any]:
         root = Path(root)
         base = dict(_v7.validate_repository(root))
@@ -203,4 +239,50 @@ else:
         base["valid"] = not base["errors"]
         v8 = _repo8.extend(root, base)
         v9 = _repo9.extend(root, v8)
-        return _repo10.extend(root, v9)
+        result = dict(_repo10.extend(root, v9))
+        errors = list(result.get("errors", []))
+        warnings = list(result.get("warnings", []))
+        metrics = dict(result.get("metrics", {}))
+
+        version = _current_version_coherence(root)
+        errors.extend(version["errors"])
+        metrics["package_version"] = version["package_version"]
+        metrics["config_version"] = version["config_version"]
+
+        runtime = _diagnose_runtime_v11(root)
+        metrics["v11_runtime_artifact_count"] = len(_RUNTIME_V11_ARTIFACTS)
+        metrics["v11_runtime_blocking_count"] = int(runtime.get("blocking_count", 0))
+        for finding in runtime.get("findings", []):
+            if finding.get("severity") == "blocking":
+                errors.append(f"v11 runtime: {finding.get('summary', finding.get('id', 'blocking finding'))}")
+
+        try:
+            reality = _reality_v12.load_reality_rule_catalog(root)
+            reality_result = _reality_v12.validate_reality_rule_catalog(reality)
+            metrics["v12_reality_rule_count"] = int(reality_result.get("rule_count", 0))
+            errors.extend(f"v12 reality: {error}" for error in reality_result.get("errors", []))
+        except Exception as exc:
+            errors.append(f"v12 reality: {exc}")
+
+        try:
+            network = _external_ui_v12.load_external_ui_network(root)
+            packs = json.loads((root / "knowledge" / "external-ui-reference-packs-v12.json").read_text(encoding="utf-8"))
+            license_policy = json.loads((root / "knowledge" / "external-ui-license-policy-v12.json").read_text(encoding="utf-8"))
+            external_result = _external_ui_v12.validate_external_ui_network(network, packs, license_policy)
+            metrics["v12_external_ui_source_count"] = len(network.get("sources", []))
+            metrics["v12_external_ui_pack_count"] = len(packs.get("packs", []))
+            errors.extend(f"v12 external UI: {error}" for error in external_result.get("errors", []))
+        except Exception as exc:
+            errors.append(f"v12 external UI: {exc}")
+
+        try:
+            catalog = _load_rules_v13(root)
+            similarity = _audit_rules_v13(catalog["rules"])
+            metrics["v13_rule_count"] = len(catalog["rules"])
+            metrics["v13_provenance_record_count"] = len(catalog["provenance"]["records"])
+            metrics["v13_duplicate_pair_count"] = int(similarity.get("duplicate_pair_count", 0))
+            metrics["v13_boilerplate_cluster_count"] = int(similarity.get("boilerplate_cluster_count", 0))
+        except Exception as exc:
+            errors.append(f"v13 provenance/catalog: {exc}")
+
+        return {**result, "valid": not errors, "errors": errors, "warnings": warnings, "metrics": metrics}

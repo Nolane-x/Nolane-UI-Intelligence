@@ -1,0 +1,7 @@
+"""Composition surface for independently authored V13 convergence signals."""
+from .foundation_convergence_structure import FOUNDATION_CONVERGENCE_STRUCTURE_RULES_V13
+from .foundation_convergence_behavior import FOUNDATION_CONVERGENCE_BEHAVIOR_RULES_V13
+
+FOUNDATION_CONVERGENCE_RULES_V13 = FOUNDATION_CONVERGENCE_STRUCTURE_RULES_V13 + FOUNDATION_CONVERGENCE_BEHAVIOR_RULES_V13
+
+__all__ = ["FOUNDATION_CONVERGENCE_RULES_V13"]

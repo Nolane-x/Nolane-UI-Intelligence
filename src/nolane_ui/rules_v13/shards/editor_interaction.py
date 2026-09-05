@@ -1,0 +1,73 @@
+"""Authored V13 editor selection, collaboration, geometry, and command rules."""
+from __future__ import annotations
+
+from ._capabilities import interaction_caps
+
+EDITOR_INTERACTION_RULES_V13 = [
+    {
+        "rule_id": "ui.editor.undo-restores-logical-selection", "domain": "editor", "class": "behavioral", "severity": "major", "enforcement": "block",
+        "title": "Undo and redo should restore the logical selection needed to understand the reverted edit",
+        "statement": "When undo or redo changes document structure, the editor must reconcile selection, caret, and viewport to a surviving logical target instead of leaving focus on a deleted node, unrelated position, or hidden stale range.",
+        "intent": "Make history navigation understandable and operable by restoring the user's editing context together with the state transition that history actually performed.",
+        "applies_when": ["An editor supports undo or redo for text, objects, nodes, layout, timeline clips, diagram elements, or other content where edits can create, remove, move, or replace the current selection target."],
+        "does_not_apply_when": ["The history operation cannot affect selection identity or viewport context and the existing focus target remains semantically valid after every supported edit."],
+        "failure_modes": ["Undo or redo restores content but leaves selection on a nonexistent, unrelated, or off-context target so the next edit applies somewhere the user did not reasonably expect."],
+        "user_impacts": ["Users lose editing context, accidentally modify the wrong object, or cannot tell what the history operation changed because content state and selection state diverge."],
+        "observables": ["Perform an edit that changes the selected object, undo and redo it, then inspect selection identity, caret/range validity, viewport position, and the target of the next ordinary edit command."],
+        "falsifiers": ["History transitions restore or deliberately reconcile selection to the corresponding surviving logical target and place the viewport so the reverted change can be understood without hunting."],
+        "repairs": ["Record selection/context with history entries where appropriate, map it through structural transforms, and fall back to the nearest meaningful surviving target instead of stale identifiers or indices."],
+        "exceptions": ["Some global commands intentionally leave selection unchanged, but the resulting selection must still be valid and must not point to deleted or semantically replaced content."],
+        "verification": ["Exercise create, delete, move, group, split, merge, and text edits with active selection, then undo/redo and confirm selection plus the next edit target remain logically coherent."],
+        "owner_hints": ["designing-undo-redo-history"], "verifier_hints": ["critiquing-functional-completeness"], "capabilities": interaction_caps(), "provenance_ids": ["nui-editor-workspace-owners-v13"], "status": "active",
+    },
+    {
+        "rule_id": "ui.editor.remote-change-conflict-visible", "domain": "editor", "class": "behavioral", "severity": "major", "enforcement": "block",
+        "title": "Collaborative remote changes must not silently overwrite incompatible local intent",
+        "statement": "When concurrent local and remote edits cannot be safely merged under the product's collaboration model, the editor must expose the conflict or reconciliation outcome instead of silently replacing one participant's unsaved or newly committed intent.",
+        "intent": "Keep collaborative editing truthful about concurrency when automatic merging reaches a semantic boundary the system cannot safely resolve on the user's behalf.",
+        "applies_when": ["Multiple actors can edit the same document, object, field, node, timeline region, or configuration concurrently and changes can overlap semantically or structurally."],
+        "does_not_apply_when": ["The collaboration engine proves the operations commute or has an established deterministic merge whose result preserves both intents without ambiguity."],
+        "failure_modes": ["A remote update replaces or invalidates conflicting local work without showing that a conflict occurred, what state won, or whether the local change can still be recovered."],
+        "user_impacts": ["Collaborators can lose work or trust an apparently current document that silently dropped another person's recent intent."],
+        "observables": ["Create incompatible concurrent edits from two sessions and inspect whether one disappears or is transformed without a visible conflict, recovery, attribution, or merge explanation when the result is not intent-preserving."],
+        "falsifiers": ["The collaboration model either merges the operations without losing intent or surfaces a conflict state with enough local/remote context to resolve or recover the displaced change."],
+        "repairs": ["Detect non-commutative conflicts at the semantic boundary, preserve both candidate states or recovery history, and present an explicit resolution path rather than last-writer-wins invisibility."],
+        "exceptions": ["Fields explicitly documented as last-writer-wins may use that policy when users can inspect change history and the consequence is proportionate to silent replacement."],
+        "verification": ["Edit the same semantic target concurrently with incompatible changes, deliver updates in both orders, and confirm the resulting UI never loses intent without a documented merge or visible conflict path."],
+        "owner_hints": ["designing-collaboration-and-presence"], "verifier_hints": ["critiquing-user-experience"], "capabilities": interaction_caps(**{"browser-runtime": "REQUIRED"}), "provenance_ids": ["nui-editor-workspace-owners-v13"], "status": "active",
+    },
+    {
+        "rule_id": "ui.editor.zoom-preserves-manipulation-target", "domain": "editor", "class": "mechanical", "severity": "major", "enforcement": "block",
+        "title": "Zooming a spatial editor must preserve the intended manipulation anchor and target identity",
+        "statement": "When users zoom a canvas or spatial workspace during inspection or manipulation, the transform must preserve a predictable anchor and must not remap selection or hit targets to a different logical object because screen and world coordinates drift.",
+        "intent": "Keep spatial navigation and direct manipulation stable across coordinate transforms rather than treating zoom as a purely visual scale effect.",
+        "applies_when": ["A canvas, diagram, map, CAD, whiteboard, timeline, or node editor supports zoom while users select, drag, connect, resize, place, or inspect objects in world coordinates."],
+        "does_not_apply_when": ["Zoom is a document-level magnification with no authored world-coordinate manipulation or target acquisition semantics."],
+        "failure_modes": ["Zoom changes the object under the pointer/focus unexpectedly, shifts the intended anchor, or causes subsequent drag/connect actions to target a different logical object than the one selected before zoom."],
+        "user_impacts": ["Users lose spatial context and can modify the wrong object after zoom because rendered position and interaction coordinates no longer agree."],
+        "observables": ["Select or point at a known object, zoom around multiple anchors, then compare world-coordinate target identity, hit testing, handles, and the object affected by the next manipulation."],
+        "falsifiers": ["The defined zoom anchor remains stable, selection identity survives the transform, and hit testing plus manipulation operate on the same world-space target before and after zoom."],
+        "repairs": ["Use one coherent screen-to-world transform for rendering and interaction, preserve explicit zoom anchor semantics, and rederive handles/hit regions from authoritative world geometry after scale changes."],
+        "exceptions": ["Fit-to-selection or fit-to-document commands may intentionally change the viewport anchor, but the command semantics must be explicit and selection identity must remain correct."],
+        "verification": ["Exercise wheel, gesture, keyboard, fit, and programmatic zoom around edge and center anchors, then manipulate the preselected object and confirm coordinate and target consistency."],
+        "owner_hints": ["designing-editor-canvas-workspaces"], "verifier_hints": ["critiquing-input-modality"], "capabilities": interaction_caps(**{"interaction": "REQUIRED", "visual-render": "REQUIRED"}), "provenance_ids": ["nui-editor-workspace-owners-v13"], "status": "active",
+    },
+    {
+        "rule_id": "ui.editor.command-context-matches-focus", "domain": "editor", "class": "mechanical", "severity": "major", "enforcement": "block",
+        "title": "Keyboard and command-palette actions must resolve against the visible active editing context",
+        "statement": "A global-looking command must execute against the document, pane, selection, mode, or text field that the interface presents as active, and context changes must update command availability before activation.",
+        "intent": "Prevent professional shortcuts and command palettes from acting on a hidden or previously active context when focus and visual activity have moved elsewhere.",
+        "applies_when": ["An application has multiple documents, panes, editors, selections, modes, or nested text controls and exposes keyboard shortcuts, menus, or a command palette that depend on active context."],
+        "does_not_apply_when": ["The command is deliberately global and its target is independent of focus or active document, with that global scope clear in its label and consequence."],
+        "failure_modes": ["The UI indicates one pane or selection is active while a shortcut or command resolves using stale context from another pane, document, mode, or object."],
+        "user_impacts": ["Expert users can delete, format, move, or invoke actions on the wrong content because command routing disagrees with the visible focus and activity model."],
+        "observables": ["Move focus and selection across editor contexts, invoke context-sensitive commands immediately, and compare the affected object with active-pane styling, focus, and command enablement."],
+        "falsifiers": ["Command resolution uses the same authoritative active-context model represented in the UI, and context-sensitive commands update availability and labels synchronously with focus/selection changes."],
+        "repairs": ["Centralize command routing on explicit active-context state, reconcile portals and nested inputs, and prevent stale command handlers from retaining authority after focus or document changes."],
+        "exceptions": ["Modal tools may temporarily capture commands when the mode is visibly active and there is a clear exit path that restores ordinary context routing."],
+        "verification": ["Cycle through all supported panes, documents, modal tools, and nested inputs while invoking destructive and editing shortcuts to verify each action reaches only the visibly active context."],
+        "owner_hints": ["designing-desktop-windowed-workspaces"], "verifier_hints": ["critiquing-input-modality"], "capabilities": interaction_caps(**{"interaction": "REQUIRED"}), "provenance_ids": ["nui-editor-workspace-owners-v13"], "status": "active",
+    },
+]
+
+__all__ = ["EDITOR_INTERACTION_RULES_V13"]
