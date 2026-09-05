@@ -1,0 +1,266 @@
+{
+  "version": 13,
+  "reviewed_at": "2026-09-05",
+  "records": [
+    {
+      "provenance_id": "nui-audit-log-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-audit-log-interfaces + designing-log-viewers",
+      "source_role": "canonical audit-history owner graph",
+      "reporter": "NUI audit and log-viewer skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Audit owners separate immutable event identity, actor and target attribution, temporal ordering, change payloads, pagination, redaction, export scope, and correlation into reviewable evidence responsibilities.",
+      "contraindications": [
+        "These internal owners do not establish statutory retention periods, evidentiary admissibility, or jurisdiction-specific audit obligations."
+      ],
+      "transfer_boundary": "V13 derives product-state and evidence-preservation rules from canonical audit responsibilities while keeping external compliance and legal sufficiency outside the rule unless separately sourced."
+    },
+    {
+      "provenance_id": "nui-approval-workflow-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-approval-workflows + designing-multi-stage-approval + designing-review-feedback-workflows",
+      "source_role": "canonical approval and review owner graph",
+      "reporter": "NUI approval, review, and bulk-administration skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Approval owners distinguish request revision, current decision authority, delegation, rejection feedback, stage sequencing, concurrency, withdrawal, and bulk outcomes as separate workflow mechanisms.",
+      "contraindications": [
+        "Internal ownership cannot define legal signature authority, regulated segregation-of-duties requirements, or organization-specific approval policy."
+      ],
+      "transfer_boundary": "V13 uses the owner graph for observable approval-state truth and requires product policy or external authority for domain-specific decision requirements."
+    },
+    {
+      "provenance_id": "nui-sharing-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-link-sharing + designing-sharing-dialogs + designing-file-sharing-expiration + designing-native-share-sheet-intents",
+      "source_role": "canonical sharing and external-handoff owner graph",
+      "reporter": "NUI sharing, file-access, and native-handoff skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Sharing owners distinguish audience scope, expiry, revocation, group expansion, public boundaries, download capability, reshare provenance, and native handoff evidence.",
+      "contraindications": [
+        "These owners do not establish legal disclosure duties or guarantee recipient delivery in external applications."
+      ],
+      "transfer_boundary": "V13 converts sharing authority and capability boundaries into falsifiable UI rules while leaving jurisdictional privacy duties and third-party delivery claims to separate authority."
+    },
+    {
+      "provenance_id": "nui-version-history-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-version-history + designing-trash-and-restore + designing-file-locking-and-checkout + designing-file-rename-move-conflicts",
+      "source_role": "canonical version, restore, lock, and lineage owner graph",
+      "reporter": "NUI version-history and file-lifecycle skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Version owners distinguish immutable revision identity, restoration, later-history preservation, concurrent edits, move lineage, locks, trash retention, comparisons, and draft/published boundaries.",
+      "contraindications": [
+        "The owner graph does not prescribe a storage engine, retention duration, merge algorithm, or legal recordkeeping requirement."
+      ],
+      "transfer_boundary": "V13 derives user-visible version truth from these responsibilities without assuming a particular database, VCS, or regulatory retention policy."
+    },
+    {
+      "provenance_id": "nui-diff-review-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-diff-interfaces + designing-design-code-drift-review + designing-patch-exposure-review",
+      "source_role": "canonical diff, review, and patch owner graph",
+      "reporter": "NUI diff and review skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Diff owners separate immutable endpoints, move detection, normalization, hidden-change accounting, unsupported artifacts, hunk anchoring, stale review evidence, and applied-result reconciliation.",
+      "contraindications": [
+        "Internal diff guidance cannot prove semantic equivalence, code correctness, or that a visual review is sufficient for every changed artifact."
+      ],
+      "transfer_boundary": "V13 uses these owners for review-surface truth while preserving separate verification responsibilities for semantic correctness and executable behavior."
+    },
+    {
+      "provenance_id": "nui-operational-inbox-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-operational-inboxes + designing-bulk-action-toolbars",
+      "source_role": "canonical operational inbox and bulk-work owner graph",
+      "reporter": "NUI operational-inbox and bulk-action skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Inbox owners distinguish unread authority, assignment, snooze scheduling, filter counts, batch outcomes, identity deduplication, priority ordering, and resolution retention.",
+      "contraindications": [
+        "The owner graph does not define service-level objectives, staffing policy, or domain-specific case handling obligations."
+      ],
+      "transfer_boundary": "V13 applies these owners to shared queue state and action scope while leaving workload policy and regulated handling requirements to product or external authority."
+    },
+    {
+      "provenance_id": "nui-tree-navigation-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-tree-views + designing-tree-grids + designing-folder-tree-navigation + designing-roving-focus-composites",
+      "source_role": "canonical hierarchical navigation and accessibility owner graph",
+      "reporter": "NUI tree, folder-navigation, and composite-focus skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Tree owners separate expansion, selection, keyboard hierarchy, lazy loading, node identity across moves, structural constraints, path consistency, virtualization semantics, and hierarchical selection scope.",
+      "contraindications": [
+        "These owners do not require one tree data structure or prescribe domain-specific hierarchy constraints beyond the product model."
+      ],
+      "transfer_boundary": "V13 derives interaction and accessibility contracts from logical hierarchy while allowing product-specific parent-child rules to remain explicit."
+    },
+    {
+      "provenance_id": "nui-list-navigation-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-pagination + designing-table-sorting + designing-table-filtering + designing-bulk-action-toolbars + designing-empty-loading-error-states",
+      "source_role": "canonical list, pagination, filtering, and selection owner graph",
+      "reporter": "NUI collection-navigation and bulk-action skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Collection owners distinguish mutable pagination, density context, sort state, filter reset, incremental loading, cross-page selection, empty-query causes, and routable list context.",
+      "contraindications": [
+        "Internal owners do not dictate backend pagination technology or require every collection to expose the same query controls."
+      ],
+      "transfer_boundary": "V13 derives collection-state truth from stable identity and canonical query semantics while permitting different product navigation models."
+    },
+    {
+      "provenance_id": "nui-feedback-state-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-empty-loading-error-states + designing-skeleton-loading + designing-latency-and-progressive-feedback + designing-inline-status-feedback + designing-toast-feedback",
+      "source_role": "canonical asynchronous feedback and status owner graph",
+      "reporter": "NUI loading, progress, optimistic-state, and feedback skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Feedback owners distinguish stale-known data, placeholder semantics, measured progress, retry identity, operation-bound errors, optimistic pending state, background reconciliation, and transient versus durable outcomes.",
+      "contraindications": [
+        "The owner graph cannot establish universal timeout values or guarantee that a particular latency treatment is appropriate for every task."
+      ],
+      "transfer_boundary": "V13 turns asynchronous state boundaries into falsifiable feedback rules while leaving performance targets and domain-specific urgency to separate evidence."
+    },
+    {
+      "provenance_id": "nui-overlay-system-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-popover-systems + designing-dialog-systems + designing-tooltip-systems + designing-context-menus + designing-cascading-menus + designing-focus-order-and-restoration",
+      "source_role": "canonical overlay, focus, and menu owner graph",
+      "reporter": "NUI overlay, menu, tooltip, dialog, and focus-restoration skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Overlay owners separate anchor identity, focus restoration, dismissal stack, layer ownership, viewport collision, keyboard tooltip access, context-menu target, and cascading-menu pointer intent.",
+      "contraindications": [
+        "These owners do not require every interface to use overlays, nor do they make one placement or animation style universally correct."
+      ],
+      "transfer_boundary": "V13 derives interaction and accessibility obligations only when temporary layers are used and preserves legitimate product-specific overlay composition."
+    },
+    {
+      "provenance_id": "nui-chart-timeseries-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-data-visualization + designing-time-series-exploration + designing-cross-filtering + designing-nonvisual-chart-equivalents",
+      "source_role": "canonical visualization and time-series owner graph",
+      "reporter": "NUI data-visualization and analytical interaction skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Visualization owners distinguish scale, series identity, missingness, aggregation, cross-filter scope, temporal tooltip semantics, zoom domain, and nonvisual equivalence.",
+      "contraindications": [
+        "Internal owners cannot certify statistical validity, data-source quality, or domain-specific analytic correctness."
+      ],
+      "transfer_boundary": "V13 uses these owners for truthful encoding and interaction state while keeping statistical and source-data validity as separate evidence responsibilities."
+    },
+    {
+      "provenance_id": "nui-calendar-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-calendar-interfaces + designing-date-time-pickers + designing-recurring-events + designing-time-slot-selection + designing-time-zone-selection + designing-non-gregorian-calendar-support",
+      "source_role": "canonical calendar, recurrence, and temporal-input owner graph",
+      "reporter": "NUI calendar and scheduling skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Calendar owners distinguish all-day values, calendar systems, disabled-date causes, range boundaries, recurrence scope, availability freshness, locale week conventions, and zone-bound editing.",
+      "contraindications": [
+        "These owners do not replace calendaring standards or product-specific scheduling policy and do not establish universal business-hours rules."
+      ],
+      "transfer_boundary": "V13 derives user-facing calendar semantics from the owner graph while retaining RFC, Unicode, and product policy as separate authorities where applicable."
+    },
+    {
+      "provenance_id": "nui-contact-entry-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-address-entry + designing-phone-number-entry + designing-person-name-localization",
+      "source_role": "canonical international contact-entry owner graph",
+      "reporter": "NUI address, phone-number, and person-name skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Contact-entry owners distinguish country-specific address structure, postal optionality, calling-code semantics, extensions, name ordering, mononyms, autofill review, and lossless normalization.",
+      "contraindications": [
+        "Internal owners cannot validate every national postal standard or telephony numbering plan without current external data."
+      ],
+      "transfer_boundary": "V13 uses these owners to prevent hardcoded cultural assumptions while preserving external country and numbering data as separate validation authorities."
+    },
+    {
+      "provenance_id": "nui-verification-code-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-one-time-code-entry + designing-recovery-code-management",
+      "source_role": "canonical one-time and recovery-code owner graph",
+      "reporter": "NUI authentication challenge and recovery-code skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Verification owners separate challenge expiry, resend lifecycle, input mechanics, throttling feedback, one-time recovery consumption, secret export, device handoff, and concurrent challenge purpose.",
+      "contraindications": [
+        "Internal owners do not define cryptographic strength, rate-limit thresholds, or assurance levels; those require security policy or normative identity guidance."
+      ],
+      "transfer_boundary": "V13 derives UI state and challenge-binding rules from these owners while leaving authenticator security requirements to current security authority."
+    },
+    {
+      "provenance_id": "nui-scanning-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-qr-code-scanning + designing-barcode-scanning + designing-document-scanning-capture + designing-camera-capture-flows + designing-sensitive-file-handling",
+      "source_role": "canonical camera scanning and document-capture owner graph",
+      "reporter": "NUI QR, barcode, camera, document-capture, and sensitive-file skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Scanning owners distinguish capability recovery, format support, duplicate detections, result review, crop transforms, page order, recapture lifecycle, and sensitive-capture retention.",
+      "contraindications": [
+        "The owner graph does not establish legal document-retention requirements or guarantee decoder correctness for every physical code format."
+      ],
+      "transfer_boundary": "V13 applies these owners to observable capture workflow boundaries while requiring separate device, decoder, and privacy authority where stronger claims are needed."
+    },
+    {
+      "provenance_id": "nui-signing-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-document-signing-workflows",
+      "source_role": "canonical document-signing workflow owner graph",
+      "reporter": "NUI document-signing workflow skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Signing owners distinguish signer and revision identity, required fields, participant order, decline outcomes, invitation expiry, signature invalidation, final artifact identity, and participant roles.",
+      "contraindications": [
+        "Internal UI ownership does not establish legal enforceability, qualified-signature standards, or jurisdiction-specific witnessing requirements."
+      ],
+      "transfer_boundary": "V13 derives workflow truth from signing responsibilities while explicitly leaving legal sufficiency and cryptographic signature standards outside these rules unless separately sourced."
+    },
+    {
+      "provenance_id": "nui-link-routing-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-mobile-deep-link-routing + designing-link-sharing + designing-focus-order-and-restoration",
+      "source_role": "canonical deep-link, share-link, and fragment-navigation owner graph",
+      "reporter": "NUI routing, linking, and focus-navigation skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Link owners distinguish scoped targets, lifecycle fallbacks, external transitions, one-time consumption, signed expiry, canonical share URLs, native/web fallback, and fragment focus.",
+      "contraindications": [
+        "These owners cannot guarantee third-party destination safety or require external-link warnings for every ordinary web navigation."
+      ],
+      "transfer_boundary": "V13 derives routing truth from stable target identity and context preservation while keeping external trust and platform-specific routing policy separately bounded."
+    },
+    {
+      "provenance_id": "nui-file-browser-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-file-browser-interfaces + designing-file-preview-surfaces + designing-file-rename-move-conflicts + designing-bulk-action-toolbars",
+      "source_role": "canonical file-browser navigation and operation owner graph",
+      "reporter": "NUI file browser, preview, move-conflict, and bulk-action skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "File-browser owners distinguish directory identity, stable selection, rename drafts, move conflicts, preview revision, hidden-file mode, access denial, and multi-selection scope.",
+      "contraindications": [
+        "The owner graph does not prescribe a filesystem implementation or universal hidden-file conventions."
+      ],
+      "transfer_boundary": "V13 derives file-operation clarity from stable resource identities while allowing platform and storage-provider semantics to remain product-specific."
+    },
+    {
+      "provenance_id": "nui-incident-response-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-incident-response-operations + designing-incident-severity-declaration + designing-responder-role-assignment + designing-incident-timeline-capture + designing-incident-hypothesis-evidence-logs + designing-runbook-execution + designing-postmortem-authoring",
+      "source_role": "canonical incident command, evidence, and retrospective owner graph",
+      "reporter": "NUI incident-response and reliability-operations skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Incident owners distinguish severity state, responder handoff, timeline evidence, hypotheses, alert acknowledgement, runbook execution, incident merge identity, and postmortem provenance.",
+      "contraindications": [
+        "Internal owners do not define regulatory incident-notification deadlines or organization-specific incident command policy."
+      ],
+      "transfer_boundary": "V13 uses the owner graph for observable incident-state truth while leaving compliance deadlines, staffing models, and root-cause validity to separate authority."
+    },
+    {
+      "provenance_id": "nui-preview-publish-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-render-preview-workflows + designing-builder-preview-publish-modes + designing-preview-environment-lifecycle + designing-publishing-controls + designing-deployment-rollback",
+      "source_role": "canonical preview, publication, and release-transition owner graph",
+      "reporter": "NUI preview, publishing, environment, and rollback skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Preview owners distinguish rendered source revision, draft/live boundary, environment lifetime, data isolation, publish delta, stale preview state, failed publish recovery, and rollback target identity.",
+      "contraindications": [
+        "Internal ownership cannot prove a preview is production-equivalent or establish deployment safety without runtime and environment evidence."
+      ],
+      "transfer_boundary": "V13 derives publication-state truth from these owners while preserving independent runtime verification and production-release authority."
+    }
+  ]
+}
