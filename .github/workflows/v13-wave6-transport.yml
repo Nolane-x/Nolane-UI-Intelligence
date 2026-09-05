@@ -1,0 +1,133 @@
+name: Materialize V13 Wave 6
+
+on:
+  push:
+    branches:
+      - transport/v13-wave6
+
+permissions:
+  contents: write
+
+concurrency:
+  group: v13-wave6-transport
+  cancel-in-progress: false
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout transport payload
+        uses: actions/checkout@v4
+        with:
+          ref: transport/v13-wave6
+          fetch-depth: 0
+
+      - name: Reassemble and verify archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .nui-transport/chunk-00 .nui-transport/chunk-01 .nui-transport/chunk-02 .nui-transport/chunk-03 .nui-transport/chunk-04 .nui-transport/chunk-05 | base64 --decode > /tmp/wave6.tar.gz
+          echo 'fdbe514c7a7241132f4ff643de5132af7f14a29afdb0de153deb0ec988bd25fe  /tmp/wave6.tar.gz' | sha256sum --check --strict
+          test "$(stat -c '%s' /tmp/wave6.tar.gz)" = '80223'
+
+          cat > /tmp/expected-paths.txt <<'EOF'
+          knowledge/rule-provenance-v13-wave6-owners.json
+          tests/test_rules_v13_sixth_wave_quality.py
+          src/nolane_ui/rules_v13/catalog.py
+          src/nolane_ui/rules_v13/shards/__init__.py
+          src/nolane_ui/rules_v13/shards/roles_permissions.py
+          src/nolane_ui/rules_v13/shards/settings_preferences.py
+          src/nolane_ui/rules_v13/shards/command_keyboard.py
+          src/nolane_ui/rules_v13/shards/dashboard_monitoring.py
+          src/nolane_ui/rules_v13/shards/download_export.py
+          src/nolane_ui/rules_v13/shards/upload_import.py
+          src/nolane_ui/rules_v13/shards/voice_audio_input.py
+          src/nolane_ui/rules_v13/shards/tv_remote.py
+          src/nolane_ui/rules_v13/shards/spatial_xr.py
+          src/nolane_ui/rules_v13/shards/wearable_glance.py
+          src/nolane_ui/rules_v13/shards/print_output.py
+          src/nolane_ui/rules_v13/shards/workflow_multistep.py
+          src/nolane_ui/rules_v13/shards/queue_jobs.py
+          src/nolane_ui/rules_v13/shards/realtime_feed.py
+          src/nolane_ui/rules_v13/shards/design_system_runtime.py
+          src/nolane_ui/rules_v13/shards/localization_content.py
+          EOF
+          tar -tzf /tmp/wave6.tar.gz | sort > /tmp/actual-paths.txt
+          sort /tmp/expected-paths.txt -o /tmp/expected-paths.txt
+          diff -u /tmp/expected-paths.txt /tmp/actual-paths.txt
+
+          mkdir -p /tmp/wave6
+          tar -xzf /tmp/wave6.tar.gz -C /tmp/wave6
+          cat > /tmp/SHA256SUMS <<'EOF'
+          263d68014e3ed6eb68ab62baaa2f0d8f37837d6a3661b6100380df09a2dfbb18  knowledge/rule-provenance-v13-wave6-owners.json
+          5be574a6924e09330d11a5ccac1d837c01ae2e7f2371efc0e917ac7ba202636f  tests/test_rules_v13_sixth_wave_quality.py
+          d1d1a20d53db4c60b81406ff6dcbd395965ed32b56105116bc8413c4105677ae  src/nolane_ui/rules_v13/catalog.py
+          34d9e3b7085b691e59ed72450252ff8c2272fecefebff66dd63e14fde451baab  src/nolane_ui/rules_v13/shards/__init__.py
+          0e3aff706c73fe72e55a08a2f5c5834ee758e43cd23f3aff9bab80b010a86ca4  src/nolane_ui/rules_v13/shards/roles_permissions.py
+          c5636425ba4fe87cac66922416b2469cd9e48092582fab1cd335caa88f029c9c  src/nolane_ui/rules_v13/shards/settings_preferences.py
+          78427473aa523c81bfeb1462ecc8b6c39142a2c28e81d32734e210898e7482bb  src/nolane_ui/rules_v13/shards/command_keyboard.py
+          19af9a1bbfe952360e75beb3ce49de56da29dec6ac10ef4450b5a40c425d706e  src/nolane_ui/rules_v13/shards/dashboard_monitoring.py
+          26cdfd9a5168e8bb48a3fab11fd890d8c01d6845efe6757106b281141b34c2e4  src/nolane_ui/rules_v13/shards/download_export.py
+          9dd59d5388c43efc15a7f36b664d62fbe461b716ac88ec7aa9d9f5cc4fbfecee  src/nolane_ui/rules_v13/shards/upload_import.py
+          f548569e2d27bb105bbcb202a0bb2ac21b24d42a4fd740d770b9e167630c3914  src/nolane_ui/rules_v13/shards/voice_audio_input.py
+          4606ed9bf48503a9f6f537f523386bf2c67621b836e6af370edf0e24f5062a28  src/nolane_ui/rules_v13/shards/tv_remote.py
+          d52a14b76f2fe040cfe88ba650a7e4f8cc7f292c9d05d4a8354bf9f8e3079378  src/nolane_ui/rules_v13/shards/spatial_xr.py
+          d065c3e453c3e05ad2544cc79774805ac430840ba9a83881cd7763f60ec55fbb  src/nolane_ui/rules_v13/shards/wearable_glance.py
+          9a0db1d6d68c14ca29aafbad6402e55363ec7929ae80607e2560e757caa0280a  src/nolane_ui/rules_v13/shards/print_output.py
+          4b88e59e76485b495893e205a36fcebb184b0e8f51d9d251bcd813c69b2c2bb0  src/nolane_ui/rules_v13/shards/workflow_multistep.py
+          2dfb415f097edddc8f150efe3985e8a9c0ba68a7f0051b1f36abeb62ca5410b5  src/nolane_ui/rules_v13/shards/queue_jobs.py
+          f2be7d5a71d9c4a34a1c80bfe24b0f6cd0ad7b0fb2a619e5beeb7774305803b2  src/nolane_ui/rules_v13/shards/realtime_feed.py
+          b638b0dd8e16f2f971ddfea43dd82a60393c9c1a3b87cc0d229d9ad9477397ed  src/nolane_ui/rules_v13/shards/design_system_runtime.py
+          49a32ca3fe61fc682064a9fa3d9dde5cea221f210329d47582e0c3b04605a509  src/nolane_ui/rules_v13/shards/localization_content.py
+          EOF
+          (cd /tmp/wave6 && sha256sum --check --strict /tmp/SHA256SUMS)
+
+      - name: Materialize exact bytes on target branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main v13-sixth-authored-wave
+          test "$(git rev-parse origin/main)" = '728d975292592ae6540ca196d6279f7d2bac75ee'
+          test "$(git rev-parse origin/v13-sixth-authored-wave)" = '728d975292592ae6540ca196d6279f7d2bac75ee'
+          git checkout -B v13-sixth-authored-wave origin/v13-sixth-authored-wave
+          while IFS= read -r path; do
+            mkdir -p "$(dirname "$path")"
+            cp "/tmp/wave6/$path" "$path"
+          done < /tmp/expected-paths.txt
+          git diff --check
+
+      - name: Install package
+        run: python -m pip install -e .
+
+      - name: Verify V13 regression and current-head validator
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s tests -p 'test_rules_v13*.py'
+          python - <<'PY'
+          from pathlib import Path
+          from nolane_ui.validators import validate_repository
+          from nolane_ui.rules_v13 import rule_catalog_status_v13
+
+          root = Path('.')
+          result = validate_repository(root)
+          assert result['valid'], result
+          status = rule_catalog_status_v13(root)
+          assert status['valid'], status
+          assert status['rule_count'] == 461, status
+          assert status['provenance_record_count'] == 43, status
+          assert status['duplicate_pair_count'] == 0, status
+          assert status['boilerplate_cluster_count'] == 0, status
+          print('wave6-validator', status)
+          PY
+
+      - name: Commit exact verified wave
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'Nolane V13 Transport'
+          git config user.email 'actions@users.noreply.github.com'
+          git add --pathspec-from-file=/tmp/expected-paths.txt
+          test -n "$(git status --porcelain)"
+          git commit -m 'feat(v13): add sixth authored 128-rule wave'
+          git push origin HEAD:v13-sixth-authored-wave
