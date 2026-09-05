@@ -1,11 +1,17 @@
 """Independently reviewable V13 rule shards."""
 
+from .accessibility_input import ACCESSIBILITY_INPUT_RULES_V13
 from .ai_agent import AI_AGENT_RULES_V13
 from .commerce import COMMERCE_RULES_V13
 from .data_viz import DATA_VIZ_RULES_V13
 from .editor_workspace import EDITOR_WORKSPACE_RULES_V13
 from .forms_auth import FORMS_AUTH_RULES_V13
 from .foundation import FOUNDATION_RULES_V13
+from .localization_search import LOCALIZATION_SEARCH_RULES_V13
+from .mobile_responsive import MOBILE_RESPONSIVE_RULES_V13
+from .navigation_resilience import NAVIGATION_RESILIENCE_RULES_V13
+from .performance_media import PERFORMANCE_MEDIA_RULES_V13
+from .privacy_security import PRIVACY_SECURITY_RULES_V13
 
 FIRST_WAVE_RULES_V13 = (
     AI_AGENT_RULES_V13
@@ -16,7 +22,18 @@ FIRST_WAVE_RULES_V13 = (
 )
 FIRST_WAVE_RULE_IDS = tuple(rule["rule_id"] for rule in FIRST_WAVE_RULES_V13)
 
+SECOND_WAVE_RULES_V13 = (
+    ACCESSIBILITY_INPUT_RULES_V13
+    + NAVIGATION_RESILIENCE_RULES_V13
+    + PRIVACY_SECURITY_RULES_V13
+    + MOBILE_RESPONSIVE_RULES_V13
+    + PERFORMANCE_MEDIA_RULES_V13
+    + LOCALIZATION_SEARCH_RULES_V13
+)
+SECOND_WAVE_RULE_IDS = tuple(rule["rule_id"] for rule in SECOND_WAVE_RULES_V13)
+
 __all__ = [
+    "ACCESSIBILITY_INPUT_RULES_V13",
     "AI_AGENT_RULES_V13",
     "COMMERCE_RULES_V13",
     "DATA_VIZ_RULES_V13",
@@ -25,4 +42,11 @@ __all__ = [
     "FIRST_WAVE_RULES_V13",
     "FORMS_AUTH_RULES_V13",
     "FOUNDATION_RULES_V13",
+    "LOCALIZATION_SEARCH_RULES_V13",
+    "MOBILE_RESPONSIVE_RULES_V13",
+    "NAVIGATION_RESILIENCE_RULES_V13",
+    "PERFORMANCE_MEDIA_RULES_V13",
+    "PRIVACY_SECURITY_RULES_V13",
+    "SECOND_WAVE_RULE_IDS",
+    "SECOND_WAVE_RULES_V13",
 ]
