@@ -30,3 +30,4 @@ jobs:
             payload-sha256.txt
           if-no-files-found: error
           compression-level: 0
+          include-hidden-files: true
