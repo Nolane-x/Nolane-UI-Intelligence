@@ -1,0 +1,1 @@
+V13 TDD RED checkpoint: tests/test_rules_v13_contracts.py intentionally imports production modules that do not exist yet. This file exists only to trigger the build/** push workflow and will be removed after RED is observed.
