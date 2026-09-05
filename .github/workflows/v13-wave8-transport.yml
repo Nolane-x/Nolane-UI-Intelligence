@@ -1,0 +1,82 @@
+name: Materialize V13 Wave 8
+
+on:
+  push:
+    branches:
+      - transport/v13-wave8
+
+permissions:
+  contents: write
+
+concurrency:
+  group: v13-wave8-transport
+  cancel-in-progress: false
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout transport payload
+        uses: actions/checkout@v4
+        with:
+          ref: transport/v13-wave8
+          fetch-depth: 0
+
+      - name: Reassemble and verify archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .nui-transport/chunk-00 .nui-transport/chunk-01 .nui-transport/chunk-02 .nui-transport/chunk-03 .nui-transport/chunk-04 .nui-transport/chunk-05 .nui-transport/chunk-06 .nui-transport/chunk-07 .nui-transport/chunk-08 .nui-transport/chunk-09 .nui-transport/chunk-10 .nui-transport/chunk-11 .nui-transport/chunk-12 | base64 --decode > /tmp/wave8.tar.gz
+          echo '8a81476d702f4f2a69931eb632891a791eb7e593e8b2dc75937d6474ead08740  /tmp/wave8.tar.gz' | sha256sum --check --strict
+          test "$(stat -c '%s' /tmp/wave8.tar.gz)" = '101958'
+          cp .nui-transport/files.txt /tmp/expected-paths.txt
+          tar -tzf /tmp/wave8.tar.gz | sort > /tmp/actual-paths.txt
+          sort /tmp/expected-paths.txt -o /tmp/expected-paths.txt
+          diff -u /tmp/expected-paths.txt /tmp/actual-paths.txt
+          mkdir -p /tmp/wave8
+          tar -xzf /tmp/wave8.tar.gz -C /tmp/wave8
+          cp .nui-transport/SHA256SUMS /tmp/SHA256SUMS
+          (cd /tmp/wave8 && sha256sum --check --strict /tmp/SHA256SUMS)
+
+      - name: Materialize exact bytes on target branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main v13-eighth-authored-wave
+          git checkout -B v13-eighth-authored-wave 91b5aa0e084af697d1ee43da839b5586d870d1a9
+          while IFS= read -r path; do
+            mkdir -p "$(dirname "$path")"
+            cp "/tmp/wave8/$path" "$path"
+          done < /tmp/expected-paths.txt
+
+      - name: Install package
+        run: python -m pip install -e .
+
+      - name: Verify V13 regression and current-head validator
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s tests -p 'test_rules_v13*.py'
+          python - <<'PY'
+          from pathlib import Path
+          from nolane_ui.validators import validate_repository
+          r = validate_repository(Path('.'))
+          assert r['valid'] is True, r
+          m = r['metrics']
+          assert m['v13_rule_count'] == 813, m
+          assert m['v13_provenance_record_count'] == 87, m
+          assert m['v13_duplicate_pair_count'] == 0, m
+          assert m['v13_boilerplate_cluster_count'] == 0, m
+          assert m['v10_claim_ceiling'] == 'STRUCTURAL_ONLY', m
+          print('wave8-validator-green', {k: m[k] for k in ('v13_rule_count','v13_provenance_record_count','v13_duplicate_pair_count','v13_boilerplate_cluster_count','v10_claim_ceiling')})
+          PY
+
+      - name: Commit exact verified wave
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'Nolane V13 Transport'
+          git config user.email 'actions@users.noreply.github.com'
+          git add --pathspec-from-file=/tmp/expected-paths.txt
+          git commit -m 'feat(v13): add eighth authored 192-rule wave'
+          git push --force origin HEAD:v13-eighth-authored-wave
