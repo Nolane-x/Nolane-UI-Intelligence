@@ -1,0 +1,123 @@
+{
+  "version": 13,
+  "reviewed_at": "2026-09-05",
+  "records": [
+    {
+      "provenance_id": "w3c-wcag22-v13",
+      "evidence_class": "normative",
+      "source_id": "https://www.w3.org/TR/WCAG22/",
+      "source_role": "W3C Recommendation defining testable web accessibility success criteria",
+      "reporter": "W3C Web Accessibility Initiative Accessibility Guidelines Working Group",
+      "reviewed_at": "2026-09-05",
+      "support_role": "WCAG 2.2 provides normative success criteria for keyboard accessibility, focus, reflow, text spacing, dragging alternatives, target sizing, time-based media alternatives, and other accessibility outcomes that can support UI rules when the rule stays within the criterion scope.",
+      "contraindications": [
+        "WCAG conformance is scoped to web content and does not by itself prove product usability, native-platform conformance, semantic correctness outside the cited success criterion, or that an automated detector can close the requirement."
+      ],
+      "transfer_boundary": "NUI may use WCAG 2.2 to support accessibility rule authority only where the operational contract maps to an applicable success criterion; product-specific behavior, non-web platforms, and evidence sufficiency remain separately adjudicated."
+    },
+    {
+      "provenance_id": "w3c-wai-aria12-v13",
+      "evidence_class": "normative",
+      "source_id": "https://www.w3.org/TR/wai-aria-1.2/",
+      "source_role": "W3C Recommendation defining accessibility semantics and composite-widget requirements",
+      "reporter": "W3C Accessible Rich Internet Applications Working Group",
+      "reviewed_at": "2026-09-05",
+      "support_role": "WAI-ARIA 1.2 defines roles, states, properties, ownership relationships, accessible semantics, and focus-management responsibilities for composite widgets including grids and treegrids, giving NUI a primary specification source for semantic table and grid rules.",
+      "contraindications": [
+        "ARIA semantics do not prescribe a product data model, visual layout, persistence architecture, or business workflow; native HTML semantics should be preferred where appropriate and APG interaction examples are guidance rather than automatic conformance proof."
+      ],
+      "transfer_boundary": "NUI uses WAI-ARIA only for semantic and focus contracts within ARIA scope. It must not infer that adding an ARIA role repairs an interaction, or that a valid accessibility tree proves the underlying product-state behavior is correct."
+    },
+    {
+      "provenance_id": "nist-sp800-63b4-v13",
+      "evidence_class": "normative",
+      "source_id": "https://csrc.nist.gov/pubs/sp/800/63/b/4/final",
+      "source_role": "NIST final digital identity authentication and authenticator management guideline",
+      "reporter": "NIST authors David Temoshok, Yee-Yin Choong, Andrew Regenscheid, Ryan Galluzzo, James Fenton, Justin Richer, and Naomi Lefkovitz",
+      "reviewed_at": "2026-09-05",
+      "support_role": "NIST SP 800-63B-4 defines current technical requirements and recommendations for authentication, authenticator management, assurance, reauthentication, and related digital-identity lifecycle concerns, providing a primary source for identity UI rules when their scope matches the guideline.",
+      "contraindications": [
+        "SP 800-63B-4 is written for digital identity systems, especially government use cases, and does not make every consumer-product authentication preference universal; NUI must preserve assurance-level, threat-model, and jurisdiction context."
+      ],
+      "transfer_boundary": "NUI uses the guideline to support authentication and session-management failure boundaries, not to claim blanket legal compliance or to impose a federal assurance requirement on products whose declared risk model does not call for it."
+    },
+    {
+      "provenance_id": "ietf-rfc5545-v13",
+      "evidence_class": "normative",
+      "source_id": "https://www.rfc-editor.org/rfc/rfc5545.html",
+      "source_role": "IETF standards-track iCalendar data and scheduling semantics specification",
+      "reporter": "IETF RFC 5545 editor Bernard Desruisseaux and the calendaring standards community",
+      "reviewed_at": "2026-09-05",
+      "support_role": "RFC 5545 defines calendar DATE and DATE-TIME values, UTC and local-time forms, time-zone identifiers, recurrence representation, and event scheduling structures, giving NUI a primary source for rules about preserving calendar time semantics across storage, editing, and exchange.",
+      "contraindications": [
+        "RFC 5545 defines an interchange format rather than a complete calendar product UX, so it does not dictate every scheduling interaction, visual representation, or conflict-resolution choice."
+      ],
+      "transfer_boundary": "NUI may use RFC 5545 for calendaring semantics that map to the specification but must keep product-level scheduling policy and human-readable presentation as separate operational judgments."
+    },
+    {
+      "provenance_id": "unicode-uts35-v48-v13",
+      "evidence_class": "normative",
+      "source_id": "https://unicode.org/reports/tr35/",
+      "source_role": "Unicode Technical Standard for locale, number, date, time, and time-zone data",
+      "reporter": "Unicode Consortium CLDR Technical Committee and UTS #35 editors",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Unicode UTS #35 and CLDR define stable locale identifiers and data conventions for language, number, currency, date, time, time-zone, collation, and related internationalization behavior that can ground locale-sensitive presentation and parsing rules.",
+      "contraindications": [
+        "CLDR supplies locale data and conventions but does not decide a product's business time zone, accounting policy, scheduling authority, or whether a particular localized label is appropriate for the product domain."
+      ],
+      "transfer_boundary": "NUI uses UTS #35 for locale-data and formatting semantics while keeping product policy, source-data truth, and end-user interpretation as distinct verification responsibilities."
+    },
+    {
+      "provenance_id": "w3c-geolocation-2026-v13",
+      "evidence_class": "normative",
+      "source_id": "https://www.w3.org/TR/geolocation/",
+      "source_role": "W3C Recommendation for geolocation API behavior, privacy, and permission-gated location access",
+      "reporter": "W3C Devices and Sensors Working Group Geolocation specification editors",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The W3C Geolocation Recommendation specifies permission-gated access to geographic position and explicitly treats location as privacy-sensitive, supporting UI contracts around permission state, position freshness, accuracy, and truthful handling of unavailable or denied location.",
+      "contraindications": [
+        "The API does not define map visualization, routing quality, geocoding correctness, background-location policy on every native platform, or the precision that a product should promise to users."
+      ],
+      "transfer_boundary": "NUI uses the specification for browser geolocation capability and permission truth while keeping map UX, route semantics, native background execution, and domain-specific location accuracy outside the normative claim unless separately evidenced."
+    },
+    {
+      "provenance_id": "w3c-permissions-2025-v13",
+      "evidence_class": "corroborated",
+      "source_id": "https://www.w3.org/TR/permissions/",
+      "source_role": "W3C Working Draft defining common permission-state infrastructure for powerful web features",
+      "reporter": "W3C Permissions specification editors Marcos Caceres and Mike Taylor with the responsible working group",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The Permissions specification documents granted, denied, and prompt-style permission state infrastructure and change observation for powerful features, corroborating UI rules that distinguish requested capability, current permission state, revocation, and feature availability.",
+      "contraindications": [
+        "The document is a Working Draft rather than a final Recommendation, browser implementations differ, and permission state alone does not guarantee the underlying capability will succeed at runtime."
+      ],
+      "transfer_boundary": "NUI treats this source as corroboration rather than universal normative authority and requires runtime evidence for actual capability success, failure, revocation, or platform-specific permission behavior."
+    },
+    {
+      "provenance_id": "w3c-mediacapture-2025-v13",
+      "evidence_class": "corroborated",
+      "source_id": "https://www.w3.org/TR/mediacapture-streams/",
+      "source_role": "W3C Candidate Recommendation Draft for camera, microphone, media stream, and device-permission behavior",
+      "reporter": "W3C WebRTC Working Group Media Capture and Streams editors from Cisco, Mozilla, Google, and Apple",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Media Capture and Streams defines getUserMedia device access, permission integration, device availability, failure cases, track lifecycle, and privacy-sensitive exposure of media hardware, supporting capture and device-state rules when scoped to observable browser behavior.",
+      "contraindications": [
+        "The specification targets web user agents and does not define every native-camera workflow, document-scanning UX, media-editor lifecycle, or product-specific consent model; it is also a Candidate Recommendation Draft rather than a final Recommendation."
+      ],
+      "transfer_boundary": "NUI uses this source as corroborated platform evidence for camera and microphone capability boundaries and still requires product-level verification for capture review, upload authority, native devices, and business workflow semantics."
+    },
+    {
+      "provenance_id": "w3c-media-accessibility-reqs-v13",
+      "evidence_class": "corroborated",
+      "source_id": "https://www.w3.org/TR/media-accessibility-reqs/",
+      "source_role": "W3C media accessibility user requirements for controls, captions, descriptions, and alternative access",
+      "reporter": "W3C Web Accessibility Initiative media accessibility task-force contributors",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The Media Accessibility User Requirements document identifies accessibility needs for keyboard-operable media controls, captions, descriptions, track selection, playback control, and alternative access, providing strong user-needs evidence for media UI rules beyond a single implementation pattern.",
+      "contraindications": [
+        "This is a user-requirements document rather than a general-purpose product conformance standard, and specific synchronization tolerances or media service policies require separate authority where claimed."
+      ],
+      "transfer_boundary": "NUI uses the document as corroborated accessibility evidence and pairs it with WCAG or product-specific runtime evidence instead of treating every listed feature as universally mandatory for every media surface."
+    }
+  ]
+}
