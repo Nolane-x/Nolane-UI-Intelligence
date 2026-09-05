@@ -1,0 +1,214 @@
+{
+  "version": 13,
+  "reviewed_at": "2026-09-05",
+  "records": [
+    {
+      "provenance_id": "nui-role-permission-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-role-management + designing-collaboration-permissions + designing-permissions-and-consent",
+      "source_role": "canonical role, membership, and permission owner graph",
+      "reporter": "NUI canonical authorization interaction skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The canonical role and permission owners separate direct grants, inherited authority, scoped membership, temporary elevation, approval context, and revocation boundaries into independently reviewable product-state responsibilities.",
+      "contraindications": [
+        "These internal owners do not establish jurisdictional access-control law or a universal authorization model; every rule must remain bounded to the product’s declared scope and authority semantics."
+      ],
+      "transfer_boundary": "V13 derives falsifiable UI authority contracts from the owner graph while requiring current backend authorization evidence before any protected action is considered valid."
+    },
+    {
+      "provenance_id": "nui-settings-preference-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-configuration-drift-review + designing-accessibility-settings-and-profiles + designing-cold-start-preference-capture",
+      "source_role": "canonical configuration, preference, and effective-state owner graph",
+      "reporter": "NUI canonical settings and configuration skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The configuration owners distinguish stored values, effective runtime values, scope inheritance, cross-device synchronization, reset boundaries, activation requirements, and recoverable persistence failures as separate interaction contracts.",
+      "contraindications": [
+        "Internal configuration ownership does not make every preference cloud-synced, global, or user-editable; rules must preserve device-local, policy-owned, and runtime-specific exceptions."
+      ],
+      "transfer_boundary": "V13 uses the owner graph to require truthful configuration state without prescribing a storage architecture or claiming that saved state is effective without runtime evidence."
+    },
+    {
+      "provenance_id": "nui-command-keyboard-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-command-palettes + designing-keyboard-power-user-ux",
+      "source_role": "canonical keyboard command routing and power-user interaction owner graph",
+      "reporter": "NUI canonical command and keyboard interaction skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The command owners separate contextual dispatch, availability, target scope, chord state, remapping collisions, destructive-action routing, and assistive-technology key ownership into distinct keyboard interaction responsibilities.",
+      "contraindications": [
+        "The owner graph does not define every operating-system reserved shortcut or assistive-technology keymap; platform and AT-specific claims still require current compatibility evidence."
+      ],
+      "transfer_boundary": "V13 derives command-routing contracts while leaving platform-specific reserved-key details and shortcut conventions to environment-specific verification."
+    },
+    {
+      "provenance_id": "nui-dashboard-monitoring-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-dashboard-filter-scope + designing-dashboard-drilldown + designing-live-signal-monitoring + designing-dashboard-permission-boundaries",
+      "source_role": "canonical dashboard, telemetry, and monitoring owner graph",
+      "reporter": "NUI canonical dashboard and monitoring skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The dashboard owners distinguish time scope, freshness, alert policy, drilldown context, partial data, query failure, permission redaction, and live-versus-paused state as separate monitoring interpretation boundaries.",
+      "contraindications": [
+        "These owners do not certify the correctness of upstream telemetry, statistical methodology, or alert thresholds themselves; they govern truthful UI representation of the product’s data and monitoring state."
+      ],
+      "transfer_boundary": "V13 requires monitoring UI to expose the evidence and scope it actually has while preserving UNKNOWN when source freshness or completeness cannot be established."
+    },
+    {
+      "provenance_id": "nui-download-export-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-download-progress-and-retry + designing-data-export-portability + designing-export-configuration + designing-render-and-export-queues",
+      "source_role": "canonical export generation and download lifecycle owner graph",
+      "reporter": "NUI canonical export and download skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The export owners separate snapshot time, artifact identity, expiry, partial coverage, format loss, retry lineage, destination collisions, and regeneration as distinct data-portability and download lifecycle responsibilities.",
+      "contraindications": [
+        "Internal export owners do not establish statutory data-portability requirements, archival retention law, or format conformance beyond the product’s declared export contract."
+      ],
+      "transfer_boundary": "V13 uses the owner graph for truthful export scope and artifact lifecycle while treating legal portability duties and external format specifications as separate authorities."
+    },
+    {
+      "provenance_id": "nui-upload-import-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-file-uploaders + designing-resumable-file-uploads + designing-multi-file-upload-queues + designing-structured-import-mapping + designing-upload-conflict-resolution",
+      "source_role": "canonical upload, structured import, and conflict owner graph",
+      "reporter": "NUI canonical upload and import skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The upload owners distinguish logical file identity, transport attempts, batch outcomes, target collision, structured mapping, staged preview, asynchronous processing, cancellation, and final attachment scope as separate failure boundaries.",
+      "contraindications": [
+        "These internal owners do not define malware policy, data-retention obligations, or import schema correctness outside the destination model actually declared by the product."
+      ],
+      "transfer_boundary": "V13 derives observable upload and import state contracts while leaving security scanning policy, backend schema validity, and retention law to their own authorities."
+    },
+    {
+      "provenance_id": "nui-voice-audio-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-voice-conversational-ui + designing-voice-control-targetability",
+      "source_role": "canonical voice capture, recognition, and command owner graph",
+      "reporter": "NUI canonical voice interaction skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The voice owners distinguish active listening, interim recognition, capture versus processing, device routing, wake scope, echo attribution, recognition language, and consequential command confirmation as separate interaction responsibilities.",
+      "contraindications": [
+        "Internal voice owners do not establish biometric, recording-consent, or accessibility law and do not imply speech recognition accuracy beyond observed runtime evidence."
+      ],
+      "transfer_boundary": "V13 uses the owner graph to bind visible voice state to actual capture and recognition lifecycle while preserving uncertainty about model interpretation and jurisdiction-specific recording requirements."
+    },
+    {
+      "provenance_id": "nui-tv-remote-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-tv-ten-foot-interfaces + designing-directional-focus-graphs + designing-remote-control-navigation + designing-gamepad-remote-focus",
+      "source_role": "canonical ten-foot, remote, and directional-focus owner graph",
+      "reporter": "NUI canonical TV and remote-navigation skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The TV owners distinguish distant focus visibility, directional graph connectivity, Back hierarchy, press-duration arbitration, controller recovery, safe-area layout, auto-hide focus ownership, and modal focus restoration as distinct large-screen interaction contracts.",
+      "contraindications": [
+        "The owner graph does not prescribe one vendor remote layout, exact overscan percentage, or platform Back convention without target-platform evidence."
+      ],
+      "transfer_boundary": "V13 derives remote-navigation invariants while requiring device and platform validation for hardware-specific key maps, safe areas, and system conventions."
+    },
+    {
+      "provenance_id": "nui-spatial-xr-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-xr-recenter-and-origin-recovery + designing-xr-safety-boundaries + designing-spatial-anchor-persistence + designing-xr-near-far-interaction-transitions + designing-xr-dom-overlay-coordination + designing-xr-locomotion-controls + designing-gaze-hand-spatial-input + designing-spatial-ui-distance-scaling",
+      "source_role": "canonical spatial and XR interaction owner graph",
+      "reporter": "NUI canonical immersive interaction skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The XR owner graph separates origin recovery, safety boundaries, anchor confidence, near/far target capture, overlay input ownership, locomotion mode, multimodal ambiguity, and distance-dependent legibility into distinct spatial mechanisms.",
+      "contraindications": [
+        "Internal spatial owners do not certify hardware tracking accuracy, medical comfort thresholds, room-scale safety, or platform guardian behavior beyond observed target-device evidence."
+      ],
+      "transfer_boundary": "V13 turns spatial ownership boundaries into UI contracts while requiring runtime device evidence for tracking, safety, and input capabilities before closure."
+    },
+    {
+      "provenance_id": "nui-wearable-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-wearable-glanceable-interfaces",
+      "source_role": "canonical wearable and glanceable interaction owner graph",
+      "reporter": "NUI canonical wearable UI skill owner",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The wearable owner distinguishes glance privacy, freshness, rotary focus, quick-action consequence, companion handoff, compact text semantics, live-session lifecycle, and offline capability as independently reviewable small-surface responsibilities.",
+      "contraindications": [
+        "This owner does not establish medical-device, biometric, or platform-specific wearable obligations and does not assume every wearable has a crown, always-on display, or phone companion."
+      ],
+      "transfer_boundary": "V13 applies these contracts only to wearable capabilities the product actually exposes and leaves device-specific health, safety, and regulatory claims outside the internal evidence class."
+    },
+    {
+      "provenance_id": "nui-print-output-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-print-preview + designing-printer-selection-and-status + designing-label-printing",
+      "source_role": "canonical physical-output and printer lifecycle owner graph",
+      "reporter": "NUI canonical print and physical-output skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The print owners distinguish preview scope, destination identity, submission versus acceptance, partial output recovery, page-layout constraints, effective color mode, confidential destination risk, and cancelled job history as separate physical-output states.",
+      "contraindications": [
+        "Internal print ownership does not define printer-protocol guarantees, secure-print certification, exact imageable areas, or archival requirements without platform and device evidence."
+      ],
+      "transfer_boundary": "V13 requires truthful print intent and lifecycle representation while keeping hardware completion guarantees and platform-specific spooler behavior evidence-bounded."
+    },
+    {
+      "provenance_id": "nui-workflow-multistep-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-multi-step-forms",
+      "source_role": "canonical multi-step workflow and draft-state owner graph",
+      "reporter": "NUI canonical multi-step workflow skill owner",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The multi-step owner separates branching invalidation, draft persistence, final review, resume context, side-effect replay, skipped-step semantics, asynchronous validation dependencies, and final submission identity into distinct workflow mechanisms.",
+      "contraindications": [
+        "The owner does not imply that every workflow should be a wizard or that every step must be resumable; applicability depends on the product’s declared task and persistence model."
+      ],
+      "transfer_boundary": "V13 derives workflow-state contracts only where corresponding multi-step behavior exists, without prescribing step count, visual stepper style, or backend orchestration architecture."
+    },
+    {
+      "provenance_id": "nui-queue-job-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-background-task-progress + designing-work-queues",
+      "source_role": "canonical asynchronous job and queue owner graph",
+      "reporter": "NUI canonical background-work skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The queue owners distinguish admission, execution, cancellation acknowledgement, attempt lineage, effective priority, dependency blockers, partial output, retry parameters, and scheduling uncertainty as separate background-work truth boundaries.",
+      "contraindications": [
+        "Internal queue owners do not establish scheduler fairness, service-level guarantees, exact completion estimates, or infrastructure capacity beyond what the product can actually observe."
+      ],
+      "transfer_boundary": "V13 uses these owners to require honest job state and lineage while treating scheduling precision and infrastructure behavior as UNKNOWN unless supported by runtime evidence."
+    },
+    {
+      "provenance_id": "nui-realtime-feed-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-realtime-communication-systems",
+      "source_role": "canonical realtime subscription and event-reconciliation owner graph",
+      "reporter": "NUI canonical realtime communication skill owner",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The realtime owner separates reconnect continuity, event ordering, duplicate delivery, paused viewport state, backfill semantics, optimistic rejection, live authorization, and client-clock skew into distinct stream-reconciliation responsibilities.",
+      "contraindications": [
+        "The owner graph does not define transport-level exactly-once guarantees, distributed consensus, or server causality beyond the protocol the product actually implements."
+      ],
+      "transfer_boundary": "V13 derives observable realtime UI contracts while requiring authoritative sequence, revision, permission, or cursor evidence before claiming continuity or order."
+    },
+    {
+      "provenance_id": "nui-design-system-runtime-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/governing-token-reference-integrity + governing-token-mode-inheritance + governing-token-deprecation-lifecycles + governing-component-state-contracts + governing-design-system-exceptions + governing-design-system-version-compatibility + governing-token-type-conformance + governing-design-system-breaking-change-rollouts",
+      "source_role": "canonical design-system runtime and governance owner graph",
+      "reporter": "NUI canonical token and design-system governance skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The governance owners distinguish token resolution, mode inheritance, deprecation, supported component states, exception scope, package compatibility, token typing, and breaking-change rollout as separate design-system runtime contracts.",
+      "contraindications": [
+        "Internal design-system governance does not make one token architecture universal and does not convert aesthetic consistency into release-blocking authority without a declared system contract."
+      ],
+      "transfer_boundary": "V13 applies these rules only where a product has an explicit design-system or token contract and keeps aesthetic preference separate from machine-verifiable integration failures."
+    },
+    {
+      "provenance_id": "nui-localization-content-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-language-negotiation-and-fallback + designing-multilingual-content-language-labeling + designing-localized-interfaces + designing-pseudolocalization-stress-testing + designing-content-localization-workflows + designing-translation-expansion-resilience",
+      "source_role": "canonical localization, language, and translated-content owner graph",
+      "reporter": "NUI canonical localization and multilingual content skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The localization owners distinguish fallback language, segment language identity, plural handling, bidirectional isolation, locale-switch continuity, unresolved translation resources, source-revision staleness, and expansion-safe truncation as separate content-truth responsibilities.",
+      "contraindications": [
+        "Internal localization owners do not replace current Unicode, CLDR, language, legal, or cultural authorities and do not assume every locale shares the same grammar or writing-direction behavior."
+      ],
+      "transfer_boundary": "V13 derives product-state and content-pipeline contracts from canonical owners while locale-specific grammar, Unicode semantics, and cultural correctness still require appropriate external evidence."
+    }
+  ]
+}
