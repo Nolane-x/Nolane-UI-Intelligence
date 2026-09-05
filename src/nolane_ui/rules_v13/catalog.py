@@ -9,10 +9,14 @@ from ..reality_catalog_v12 import REALITY_RULES_V12
 from .compat_v12 import normalize_v12_rule
 from .contracts import validate_catalog_v13
 from .provenance import validate_provenance_ledger_v13
-from .shards import FIRST_WAVE_RULES_V13, FOUNDATION_RULES_V13, SECOND_WAVE_RULES_V13, THIRD_WAVE_RULES_V13, FOURTH_WAVE_RULES_V13
+from .shards import FIRST_WAVE_RULES_V13, FOUNDATION_RULES_V13, SECOND_WAVE_RULES_V13, THIRD_WAVE_RULES_V13, FOURTH_WAVE_RULES_V13, FIFTH_WAVE_RULES_V13
 from .similarity import audit_catalog_similarity
 
-_PROVENANCE_PATH = Path("knowledge/rule-provenance-v13.json")
+_PROVENANCE_PATHS = (
+    Path("knowledge/rule-provenance-v13.json"),
+    Path("knowledge/rule-provenance-v13-normative.json"),
+    Path("knowledge/rule-provenance-v13-owners.json"),
+)
 
 
 def _resolve_root(root: str | Path | None) -> Path:
@@ -23,10 +27,18 @@ def _resolve_root(root: str | Path | None) -> Path:
 
 def load_rule_catalog_v13(root: str | Path | None = None) -> dict[str, Any]:
     repository_root = _resolve_root(root)
-    provenance_path = repository_root / _PROVENANCE_PATH
-    if not provenance_path.is_file():
-        raise FileNotFoundError(f"V13 provenance ledger missing: {provenance_path}")
-    provenance = json.loads(provenance_path.read_text(encoding="utf-8"))
+    provenance_records: list[dict[str, Any]] = []
+    reviewed_at = ""
+    for relative_path in _PROVENANCE_PATHS:
+        provenance_path = repository_root / relative_path
+        if not provenance_path.is_file():
+            raise FileNotFoundError(f"V13 provenance ledger shard missing: {provenance_path}")
+        shard = json.loads(provenance_path.read_text(encoding="utf-8"))
+        if shard.get("version") != 13 or not isinstance(shard.get("records"), list):
+            raise ValueError(f"invalid V13 provenance ledger shard: {provenance_path}")
+        reviewed_at = max(reviewed_at, str(shard.get("reviewed_at", "")))
+        provenance_records.extend(shard["records"])
+    provenance = {"version": 13, "reviewed_at": reviewed_at, "records": provenance_records}
     provenance_result = validate_provenance_ledger_v13(provenance)
     if not provenance_result["valid"]:
         raise ValueError(f"invalid V13 provenance ledger: {provenance_result['errors']}")
@@ -37,6 +49,7 @@ def load_rule_catalog_v13(root: str | Path | None = None) -> dict[str, Any]:
     rules.extend(dict(rule) for rule in SECOND_WAVE_RULES_V13)
     rules.extend(dict(rule) for rule in THIRD_WAVE_RULES_V13)
     rules.extend(dict(rule) for rule in FOURTH_WAVE_RULES_V13)
+    rules.extend(dict(rule) for rule in FIFTH_WAVE_RULES_V13)
     rules.sort(key=lambda rule: rule["rule_id"])
     catalog = {
         "version": 13,
@@ -49,6 +62,7 @@ def load_rule_catalog_v13(root: str | Path | None = None) -> dict[str, Any]:
             "v13_second_wave_rule_count": len(SECOND_WAVE_RULES_V13),
             "v13_third_wave_rule_count": len(THIRD_WAVE_RULES_V13),
             "v13_fourth_wave_rule_count": len(FOURTH_WAVE_RULES_V13),
+            "v13_fifth_wave_rule_count": len(FIFTH_WAVE_RULES_V13),
             "rule_count_is_quality_target": False,
         },
     }

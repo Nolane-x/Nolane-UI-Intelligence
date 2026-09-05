@@ -1,0 +1,136 @@
+{
+  "version": 13,
+  "reviewed_at": "2026-09-05",
+  "records": [
+    {
+      "provenance_id": "nui-comments-moderation-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-comment-systems + designing-threaded-conversations + designing-mentions-and-references + designing-moderation-action-surfaces",
+      "source_role": "canonical comment, thread, mention, and moderation owner graph",
+      "reporter": "NUI canonical collaboration and moderation skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The NUI comment and moderation owners separate authorship, thread structure, mention identity, visibility state, moderation scope, appeal or reversal, and unread/read consequences into distinct interaction responsibilities that can be operationalized without inventing a universal social policy.",
+      "contraindications": [
+        "Moderation law, community policy, retention requirements, and abuse-response obligations vary by service and jurisdiction; internal owners cannot establish those external duties."
+      ],
+      "transfer_boundary": "V13 may derive falsifiable product-state rules for comments and moderation while leaving policy legality, content judgment, and platform-governance choices to separately sourced authorities."
+    },
+    {
+      "provenance_id": "nui-search-recommendation-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-search* + designing-faceted-search + designing-recommendation-*",
+      "source_role": "canonical search, saved-view, ranking, and recommendation owner graph",
+      "reporter": "NUI canonical search and recommendation skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "NUI search and recommendation specialists distinguish query state, filter state, result identity, ranking basis, personalization state, feedback loops, saved-search persistence, recommendation explanations, and diversity controls as separate product mechanisms.",
+      "contraindications": [
+        "Internal ownership does not prove ranking fairness, relevance quality, legal advertising disclosure, or statistical validity; those require domain data and external authority where claimed."
+      ],
+      "transfer_boundary": "V13 derives UI state-truth and control rules from these owners but does not certify the quality or fairness of an underlying ranking or recommendation model."
+    },
+    {
+      "provenance_id": "nui-offline-connectivity-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-offline-degraded-experiences + designing-connectivity-recovery + designing-offline-message-reconciliation",
+      "source_role": "canonical offline, degraded-connectivity, queueing, and reconciliation owner graph",
+      "reporter": "NUI canonical offline and connectivity-recovery skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The NUI offline owners separate local queue identity, stale cached state, capability degradation, authentication expiry, reconnect reconciliation, background completion, and user-visible synchronization boundaries into independent operational responsibilities.",
+      "contraindications": [
+        "The owner graph does not prescribe a specific service-worker, local database, sync protocol, retry interval, or conflict algorithm; those are implementation and product-policy decisions."
+      ],
+      "transfer_boundary": "V13 requires truthful offline and reconnect behavior without assuming a specific storage or transport architecture, and it preserves UNKNOWN when actual sync or server authority has not been observed."
+    },
+    {
+      "provenance_id": "nui-commerce-lifecycle-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-commerce-checkout + designing-shopping-carts + designing-payment-failure-recovery + designing-order-tracking + designing-return-and-refund-flows + designing-subscription-management",
+      "source_role": "canonical checkout, order, payment, return, and subscription lifecycle owner graph",
+      "reporter": "NUI canonical commerce lifecycle skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The commerce lifecycle owners distinguish estimate from final price, cart mutation, order identity, payment attempt, fulfillment, return eligibility, store-credit allocation, refund, dispute, and subscription effective dates as separate authority transitions visible to users.",
+      "contraindications": [
+        "Tax law, consumer-protection disclosure, card-network obligations, refund deadlines, and jurisdiction-specific commerce requirements require separate current legal or provider authority."
+      ],
+      "transfer_boundary": "V13 uses these owners for truthful product-state and commitment boundaries only and does not claim legal sufficiency or payment-network compliance without external evidence."
+    },
+    {
+      "provenance_id": "nui-agent-runtime-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-agent-tool-call-lifecycles + designing-agent-retry-and-replay-controls + designing-agent-run-branching + designing-agent-side-effect-ledgers + designing-multi-agent-handoff-visibility + designing-human-correction-of-agent-state",
+      "source_role": "canonical agent execution, replay, branching, side-effect, handoff, and correction owner graph",
+      "reporter": "NUI canonical agent runtime interaction skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The agent runtime owners separate tool-call lifecycle, retry inputs, committed side effects, run branching, partial completion, permission escalation, human correction, and multi-agent handoff into independent authority and recovery mechanisms suitable for explicit UI contracts.",
+      "contraindications": [
+        "These internal rules cannot establish model safety, correctness, sentience, intent, or universal agent policy and must not turn UI visibility into proof that an underlying tool call or side effect actually occurred."
+      ],
+      "transfer_boundary": "V13 binds agent UI claims to observable execution artifacts and declared authority, keeping unobserved tool state UNKNOWN and avoiding claims about intrinsic model reliability."
+    },
+    {
+      "provenance_id": "nui-notification-interruption-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-notification-centers + designing-notifications-and-interruptions + designing-notification-to-app-continuation",
+      "source_role": "canonical notification center, interruption, and continuation owner graph",
+      "reporter": "NUI canonical notification and interruption skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "NUI notification owners distinguish event identity, delivery channel, badge scope, read state, dismissal, mute or snooze state, action failure, timestamp meaning, and continuation into the originating workflow as separate user-facing state transitions.",
+      "contraindications": [
+        "Internal rules do not determine which events are legally required, medically critical, or appropriate for emergency escalation; such semantics require domain-specific authority."
+      ],
+      "transfer_boundary": "V13 can require notification state truth and recoverable actions while leaving event criticality, delivery guarantees, and regulated alerting obligations to the product's declared domain authority."
+    },
+    {
+      "provenance_id": "nui-native-device-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-bluetooth-device-pairing + designing-cross-device-session-handoffs + designing-native-navigation-stacks + designing-native-share-sheet-intents + designing-input-device-prompt-switching + designing-external-display-handoffs",
+      "source_role": "canonical native device, handoff, navigation, share, input, and external-display owner graph",
+      "reporter": "NUI canonical native and cross-device skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The native-device owners distinguish device identity, pairing, target handoff, platform share cancellation, navigation restoration, input-mode prompts, capability negotiation, and external-display control continuity as separate operational UX mechanisms.",
+      "contraindications": [
+        "Platform APIs and lifecycle guarantees differ across iOS, Android, desktop, TV, embedded, and browser environments; internal ownership cannot substitute for platform-specific conformance evidence."
+      ],
+      "transfer_boundary": "V13 derives platform-neutral state-truth rules and requires the applicable platform adapter or runtime evidence to establish concrete behavior instead of assuming one native lifecycle across devices."
+    },
+    {
+      "provenance_id": "nui-map-geospatial-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-geospatial-interfaces + designing-map-list-coordination + designing-map-marker-clustering + designing-route-comparison",
+      "source_role": "canonical geospatial, map coordination, clustering, and route owner graph",
+      "reporter": "NUI canonical geospatial interaction skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The NUI geospatial owners separate device position evidence, map/list entity identity, marker clustering, route selection, destination authority, and spatial result-state handling into independently owned mechanisms that can be expressed as falsifiable UI contracts.",
+      "contraindications": [
+        "Internal map owners do not establish geocoding accuracy, routing optimality, legal navigation requirements, or sensor precision; those claims require product data and external authority where applicable."
+      ],
+      "transfer_boundary": "V13 derives map interaction and identity rules from canonical owners while keeping geolocation capability, route-provider correctness, and physical-world accuracy as separate evidence domains."
+    },
+    {
+      "provenance_id": "nui-media-playback-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-media-playback-experiences + designing-media-timeline-scrubbing + designing-casting-and-external-playback + designing-picture-in-picture-playback",
+      "source_role": "canonical media playback, timeline, remote playback, and presentation-mode owner graph",
+      "reporter": "NUI canonical media playback skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The NUI media owners distinguish preview versus committed seek, live-edge state, local versus remote playback authority, picture-in-picture continuity, track state, and playback failure classification as separate media-session responsibilities.",
+      "contraindications": [
+        "Internal owners do not establish codec support, DRM entitlement law, provider availability, or exact accessibility synchronization tolerances unless a separate source supplies those requirements."
+      ],
+      "transfer_boundary": "V13 uses these owners for session-state and control truth while leaving provider, codec, rights, and platform-specific playback guarantees to external or runtime evidence."
+    },
+    {
+      "provenance_id": "nui-onboarding-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-onboarding + designing-first-run-onboarding + designing-onboarding-checklists + designing-permission-onboarding",
+      "source_role": "canonical onboarding, checklist, deferral, and permission-education owner graph",
+      "reporter": "NUI canonical onboarding and first-run skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "The NUI onboarding owners separate optional versus required setup, skip and reentry paths, checklist completion predicates, interruption resume, permission education, and later settings recovery into distinct product-state mechanisms.",
+      "contraindications": [
+        "Internal onboarding ownership does not determine which data collection is legally optional, which permissions are legally required, or what consent language is sufficient in a jurisdiction."
+      ],
+      "transfer_boundary": "V13 derives product-state and progression rules from onboarding owners while leaving legal consent, regulated disclosure, and platform permission semantics to separately sourced authorities."
+    }
+  ]
+}
