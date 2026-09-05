@@ -9,7 +9,7 @@ from ..reality_catalog_v12 import REALITY_RULES_V12
 from .compat_v12 import normalize_v12_rule
 from .contracts import validate_catalog_v13
 from .provenance import validate_provenance_ledger_v13
-from .shards import FIRST_WAVE_RULES_V13, FOUNDATION_RULES_V13, SECOND_WAVE_RULES_V13
+from .shards import FIRST_WAVE_RULES_V13, FOUNDATION_RULES_V13, SECOND_WAVE_RULES_V13, THIRD_WAVE_RULES_V13
 from .similarity import audit_catalog_similarity
 
 _PROVENANCE_PATH = Path("knowledge/rule-provenance-v13.json")
@@ -35,6 +35,7 @@ def load_rule_catalog_v13(root: str | Path | None = None) -> dict[str, Any]:
     rules.extend(dict(rule) for rule in FOUNDATION_RULES_V13)
     rules.extend(dict(rule) for rule in FIRST_WAVE_RULES_V13)
     rules.extend(dict(rule) for rule in SECOND_WAVE_RULES_V13)
+    rules.extend(dict(rule) for rule in THIRD_WAVE_RULES_V13)
     rules.sort(key=lambda rule: rule["rule_id"])
     catalog = {
         "version": 13,
@@ -45,6 +46,7 @@ def load_rule_catalog_v13(root: str | Path | None = None) -> dict[str, Any]:
             "v13_foundation_rule_count": len(FOUNDATION_RULES_V13),
             "v13_first_wave_rule_count": len(FIRST_WAVE_RULES_V13),
             "v13_second_wave_rule_count": len(SECOND_WAVE_RULES_V13),
+            "v13_third_wave_rule_count": len(THIRD_WAVE_RULES_V13),
             "rule_count_is_quality_target": False,
         },
     }
