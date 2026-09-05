@@ -1,0 +1,32 @@
+name: Publish V13 Wave 8 Payload
+
+on:
+  push:
+    branches:
+      - transport/v13-wave8
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: transport/v13-wave8
+      - name: Inspect payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          wc -c .nui-transport/chunk-*
+          sha256sum .nui-transport/chunk-* .nui-transport/files.txt .nui-transport/SHA256SUMS > payload-sha256.txt
+      - name: Upload exact transport payload
+        uses: actions/upload-artifact@v4
+        with:
+          name: v13-wave8-transport-payload
+          path: |
+            .nui-transport
+            payload-sha256.txt
+          if-no-files-found: error
+          compression-level: 0
