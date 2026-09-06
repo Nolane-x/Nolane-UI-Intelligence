@@ -6,56 +6,59 @@ Approved architectural direction: layered end-to-end UX intelligence.
 
 ## Goal
 
-Make NUI capable not only of describing UX reasoning, but of executing that reasoning as canonical agent skills, binding it to explicit evidence/provenance, evaluating critical user journeys against real browser observations, and returning UX findings whose authority boundaries are unambiguous.
+Make NUI capable not only of describing UX reasoning, but of binding fine-grained UX cognition to canonical agent execution skills, explicit provenance, structured user journeys, provider-neutral runtime observations, and evidence-bounded UX findings.
 
 The v2 pipeline is:
 
-`canonical UX skills -> provenance/evidence boundary -> journey semantics -> V11 runtime observations -> verified UX findings`
+`UX cognition -> canonical skill bridge -> provenance/evidence boundary -> journey semantics -> V11-compatible runtime observations -> verified UX findings`
 
-V2 does **not** turn all UX registry entries into canonical skills, does **not** create rule quotas, and does **not** merge UX findings into V13 canonical rule authority.
+V2 does **not** create UX rule/skill quotas, duplicate the browser runtime, or merge UX findings into V13 canonical-rule authority.
 
 ## Design principles
 
-1. **Semantic novelty over count.** New skills, rules, mechanisms, or provenance records exist only when they add a distinct reasoning or verification capability.
-2. **Selective canonicalization.** The 32 v1 UX registry entries remain a reasoning registry. Only entries that are sufficiently distinct, reusable, and operational become canonical `skills/<slug>/SKILL.md` nodes.
-3. **Evidence before authority.** A UX finding must expose what was observed, what expectation it was compared with, what rule/mechanism explains the failure, and what verification mode supports the conclusion.
-4. **Runtime reuse, not duplication.** Browser collection remains owned by V11 runtime. UX v2 consumes provider-neutral runtime observations rather than implementing another browser stack.
-5. **Journey semantics are explicit.** V2 models user goals, journey steps, expected transitions, state preservation, recovery expectations, and success criteria as structured data rather than prose-only heuristics.
-6. **UX and V13 remain different authority domains.** UX findings can reference V13 evidence and product state, but UX MCP/Python surfaces remain namespaced and cannot masquerade as V13 canonical rules.
-7. **No folklore enforcement.** V2 does not encode fixed click counts, arbitrary memory limits, or unconditional friction minimization.
-8. **Deterministic quality court first.** Structural and exact semantic-contract checks can block invalid catalog content. Fuzzy similarity remains advisory only.
+1. **Semantic novelty over count.** New skills, rules, mechanisms, evaluators, or provenance records exist only when they add a distinct capability.
+2. **Bridge before duplication.** The 32 v1 `UX_SKILLS` entries remain fine-grained reasoning operations. When an existing canonical NUI skill can execute that operation without distortion, v2 binds to that node instead of minting a duplicate `SKILL.md`.
+3. **New canonical nodes require a semantic gap.** A new skill-graph node is justified only when no existing canonical skill can own the reasoning procedure, required output, and evidence discipline.
+4. **Evidence before authority.** A finding exposes what was observed, what was expected, the UX rule/mechanism that explains the proven failure, and the verification/provenance basis.
+5. **Runtime reuse, not duplication.** Browser collection remains owned by V11. UX v2 consumes provider-neutral mappings and never imports Playwright-specific objects into the verifier boundary.
+6. **Missing evidence is not failure.** An activated check lacking required evidence yields `insufficient-evidence`.
+7. **UX and V13 remain separate authority domains.** UX findings inherit UX-rule authority only and cannot masquerade as V13 canonical-rule findings.
+8. **No folklore enforcement.** V2 does not encode fixed click counts, arbitrary memory limits, or unconditional friction minimization.
+9. **Deterministic quality court first.** Structural and exact semantic-contract checks may block invalid catalog content. Fuzzy similarity is non-blocking.
 
 ## Scope
 
-V2 contains four deliverables that form one testable end-to-end subsystem:
+V2 contains four coupled deliverables:
 
-1. selective canonical UX skill bridge;
+1. selective UX-cognition -> canonical-skill bridge;
 2. UX provenance/evidence ledger;
-3. journey semantics and verification engine;
-4. public Python/MCP surfaces for journey verification and evidence inspection.
+3. structured journey semantics plus deterministic rule evaluators/verifier;
+4. namespaced Python/MCP read-and-verify surfaces.
 
-## 1. Selective canonical UX skill bridge
+## 1. Selective canonical skill bridge
 
 ### Purpose
 
-The v1 `UX_SKILLS` registry describes 32 cognitive capabilities but does not make them canonical agent skill nodes. V2 introduces an explicit bridge from selected registry entries to canonical `skills/<slug>/SKILL.md` nodes.
+The v1 `UX_SKILLS` registry describes 32 cognitive operations, while `skills/skill-graph.json` already contains broad canonical execution skills. V2 makes the relationship explicit without duplicating the graph.
 
-### Initial canonical skill set
+### Initial bridge
 
-The initial bridge should remain deliberately small and cover the end-to-end reasoning loop:
+The initial bridge is deliberately small and end-to-end. The selected count is descriptive, not a target:
 
-- `identifying-user-goals`
-- `mapping-critical-user-journeys`
-- `conducting-cognitive-walkthroughs`
-- `testing-mental-model-alignment`
-- `assessing-recovery-completeness`
-- `evaluating-task-success`
+| UX cognition | Existing canonical skill |
+| --- | --- |
+| `identifying-user-goals` | `modeling-users-and-tasks` |
+| `mapping-critical-user-journeys` | `designing-task-flows` |
+| `conducting-cognitive-walkthroughs` | `critiquing-user-experience` |
+| `testing-mental-model-alignment` | `critiquing-user-experience` |
+| `assessing-recovery-completeness` | `critiquing-user-experience` |
+| `evaluating-task-success` | `evaluating-usability-evidence` |
 
-These six form a coherent chain from intent -> journey -> walkthrough -> conceptual fit -> failure recovery -> outcome evaluation. They are descriptive seed choices, not a target count or quota.
+These bindings form intent -> journey -> walkthrough/model check -> recovery -> outcome evidence without adding synonymous canonical nodes.
 
-### Canonical bridge contract
+### Bridge record
 
-Add a package-level mapping that records, for each promoted entry:
+Each explicit bridge record contains:
 
 - `skill_id`
 - `canonical_slug`
@@ -65,26 +68,21 @@ Add a package-level mapping that records, for each promoted entry:
 - `supported_mechanisms`
 - `verification_dependencies`
 
-Validation must ensure:
+Package validation requires the UX `skill_id` to resolve, record IDs to be unique/sorted, operational fields to be non-empty, and `supported_mechanisms` to be a subset of the source UX registry entry's `related_mechanisms`.
 
-- every `skill_id` exists in `UX_SKILLS`;
-- every canonical path exists;
-- each skill document declares the same identity and purpose as the registry entry;
-- required outputs are non-empty and operational;
-- supported mechanisms are a subset of the registry entry's `related_mechanisms`;
-- no registry entry is silently promoted without an explicit bridge record.
+A checkout-level integration test additionally proves that every `canonical_slug` exists in `skills/skill-graph.json`, every `canonical_path` exists, and the target `SKILL.md` declares the same canonical name. Package import remains independent of repository-root filesystem layout.
 
-The bridge is read-only metadata. It does not rewrite the canonical skill graph at runtime.
+The bridge is read-only metadata. It never rewrites the canonical graph at runtime.
 
 ## 2. UX provenance and evidence boundary
 
 ### Problem
 
-V1 rules identify mechanisms and owners but do not have a UX-specific evidence ledger describing why a reasoning pattern or verification expectation is trusted, what its transfer boundary is, or what contraindications apply.
+V1 rules identify mechanisms and cognitive owners but do not describe the bounded basis for journey expectations or runtime verification.
 
 ### Provenance record
 
-Introduce immutable UX provenance records with fields:
+V2 adds immutable records with:
 
 - `provenance_id`
 - `title`
@@ -97,21 +95,19 @@ Introduce immutable UX provenance records with fields:
 - `verification_modes`
 - `status`
 
-`source_kind` is constrained to evidence categories such as `internal-empirical`, `runtime-observation`, `standards`, `research`, `product-contract`, and `expert-review`.
+Allowed source kinds include `internal-empirical`, `runtime-observation`, `standards`, `research`, `product-contract`, and `expert-review`.
 
-A provenance record never proves a rule universally. It documents the bounded basis for a mechanism, journey expectation, or verification method.
+The initial ledger contains only evidence needed by the v2 verifier:
 
-### Binding
+- declared product journey contract;
+- UX-rule authority inheritance;
+- V11 provider-neutral runtime observation boundary.
 
-Rules and journey expectations may reference `provenance_ids`. Validation requires references to resolve, but v2 does not require every v1 rule to gain provenance immediately. New journey verifier contracts introduced by v2 must have provenance or a declared `product-contract` basis.
+A provenance record documents a bounded basis; it does not prove a universal UX law.
 
 ## 3. Journey semantics
 
-### Journey model
-
-Introduce a structured `UXJourneySpec` represented as immutable mappings/tuples to match the existing package style.
-
-Required fields:
+A `UXJourneySpec` is a structured mapping with:
 
 - `journey_id`
 - `title`
@@ -123,7 +119,7 @@ Required fields:
 - `provenance_ids`
 - `status`
 
-Each step includes:
+Each step contains:
 
 - `step_id`
 - `intent`
@@ -135,76 +131,13 @@ Each step includes:
 - `recovery_expectation`
 - `evidence_requirements`
 
-### Runtime observation adapter
+Validation is independent of browser execution. Normalization may canonicalize containers and make defensive copies but cannot invent transitions, evidence, or recovery semantics.
 
-The verifier consumes V11 provider-neutral observation packets. V2 must not depend on Playwright-specific types.
+The verifier accepts provider-neutral observation mappings containing step-scoped route/state/context/interaction/recovery/completion evidence. If a required field is unavailable, the result is an evidence gap rather than a fabricated finding.
 
-The adapter normalizes only the UX-relevant observation plane:
+## 4. Deterministic evaluator registry
 
-- current location/route;
-- visible text and actionable labels;
-- DOM/runtime state that V11 already exposes;
-- interaction outcome;
-- object identity/context markers;
-- error/recovery affordances;
-- completion/success evidence.
-
-If an evidence requirement cannot be observed with the supplied packet, the verifier emits `insufficient-evidence`, not a failure finding.
-
-## 4. Journey verification engine
-
-### Input
-
-`verify_ux_journey(journey, observations, *, rule_catalog=UX_RULES, provenance_catalog=UX_PROVENANCE)`
-
-### Output
-
-Return a deterministic report with:
-
-- `journey_id`
-- `status`
-- `step_results`
-- `findings`
-- `evidence_gaps`
-- `success_criteria_results`
-- `provenance_ids`
-
-Step result states:
-
-- `pass`
-- `fail`
-- `insufficient-evidence`
-- `not-executed`
-
-Journey status is derived, never manually supplied:
-
-- `failed` if any critical required step fails;
-- `insufficient-evidence` if no failure is proven but required evidence is missing;
-- `passed` only when all required critical checks and success criteria pass.
-
-### Finding contract
-
-A UX finding contains:
-
-- `finding_id`
-- `journey_id`
-- `step_id`
-- `rule_id`
-- `mechanism_id`
-- `summary`
-- `observed`
-- `expected`
-- `evidence_refs`
-- `provenance_ids`
-- `severity`
-- `enforcement`
-- `verification_mode`
-
-A finding can only reference an existing UX rule and must inherit its mechanism/severity/enforcement rather than redefining authority ad hoc.
-
-### Rule matching
-
-V2 should begin with explicit deterministic evaluators for high-value journey failures rather than a generic NLP matcher. Initial evaluators should cover:
+V2 begins with explicit evaluators for ten high-value v1 rules:
 
 - hidden dependency before commit;
 - premature commitment;
@@ -219,33 +152,82 @@ V2 should begin with explicit deterministic evaluators for high-value journey fa
 
 Each evaluator declares:
 
-- which rule it implements;
-- required evidence fields;
-- pass/fail/insufficient-evidence logic;
-- the expected transition semantics it consumes.
+- `evaluator_id`
+- existing `rule_id`
+- activation evidence;
+- required evidence;
+- verification mode;
+- provenance IDs.
 
-This keeps the runtime proof surface auditable and testable.
+An evaluator returns `not-executed` if its activation evidence is absent, `insufficient-evidence` when activated but incomplete, and only returns `fail` when a deterministic predicate proves the rule-specific failure.
 
-## 5. Quality court
+There is no fuzzy/NLP rule matcher in the blocking path.
 
-V2 catalog validation adds deterministic checks for:
+## 5. Journey verifier
 
-- canonical skill bridge resolution and identity consistency;
-- provenance ID uniqueness and reference resolution;
-- journey ID/step ID uniqueness;
-- required critical state and success criteria;
-- rule evaluator -> UX rule resolution;
-- evaluator required evidence declarations;
-- finding rule/mechanism inheritance;
-- no blocking authority from contextual/convergence classes;
-- no quota fields;
-- canonical sorting where catalogs are exposed publicly.
+### Input
 
-Exact operational-signature duplicate detection from v1 remains in force. Fuzzy similarity may generate review diagnostics later, but cannot automatically reject content in v2.
+`verify_ux_journey(journey, observations, *, rule_catalog=UX_RULES, provenance_catalog=UX_PROVENANCE)`
 
-## 6. Public Python API
+### Output
 
-Add namespaced exports without removing v1 APIs:
+- `journey_id`
+- derived `status`
+- `step_results`
+- `findings`
+- `evidence_gaps`
+- `success_criteria_results`
+- `provenance_ids`
+
+Step states are `pass`, `fail`, `insufficient-evidence`, or `not-executed`.
+
+Journey status is derived:
+
+- `failed` if a step or required success criterion is proven to fail;
+- `insufficient-evidence` if no failure is proven but required execution/evidence is missing;
+- `passed` only when all required checks and success criteria are evidenced as passing.
+
+Expected-transition mismatch may fail the product-local journey contract without synthesizing a UX rule finding. A UX finding is emitted only when an existing UX rule is proven.
+
+### Finding contract
+
+A UX finding contains:
+
+- `finding_id`
+- `journey_id`
+- `step_id`
+- `rule_id`
+- inherited `mechanism_id`
+- `summary`
+- `observed`
+- `expected`
+- `evidence_refs`
+- `provenance_ids`
+- inherited `severity`
+- inherited `enforcement`
+- `verification_mode`
+
+Mechanism, severity, and enforcement come from the referenced UX rule. Evaluators cannot redefine authority.
+
+## 6. Quality court
+
+V2 deterministic validation covers:
+
+- bridge ID uniqueness, sorting, UX-skill resolution, and mechanism compatibility;
+- checkout-level canonical graph/path resolution;
+- provenance ID uniqueness, allowed source/status values, transfer boundaries and contraindications;
+- journey/step shape, duplicate step IDs, success criteria, critical state, and provenance resolution;
+- evaluator -> existing UX rule resolution;
+- evaluator activation/required evidence contracts and provenance resolution;
+- contextual/convergence rules cannot gain blocking authority;
+- no count-quota fields in v2 catalogs;
+- v1 exact operational-signature duplicate detection remains untouched.
+
+Fuzzy similarity may support later review diagnostics but cannot automatically reject content in v2.
+
+## 7. Public Python API
+
+V2 adds, without removing v1 APIs:
 
 - `UX_CANONICAL_SKILL_BRIDGE`
 - `UX_PROVENANCE`
@@ -258,11 +240,11 @@ Add namespaced exports without removing v1 APIs:
 - `verify_ux_journey`
 - `ux_v2_status`
 
-All getters/queries return defensive copies. Query limits remain bounded to 1..100.
+Read/query surfaces use defensive copies; bounded queries accept integer limits 1..100 and reject `bool`.
 
-## 7. MCP namespace
+## 8. MCP namespace
 
-Add read/verify tools under the existing UX namespace:
+Read/verify tools remain in the UX namespace:
 
 - `nui_ux_v2_status`
 - `nui_get_ux_provenance`
@@ -271,35 +253,28 @@ Add read/verify tools under the existing UX namespace:
 - `nui_query_ux_canonical_skill_bridge`
 - `nui_verify_ux_journey`
 
-`nui_verify_ux_journey` accepts a structured journey specification plus provider-neutral observation packet and returns the deterministic verification report.
+No v2 MCP surface mutates the canonical skill graph, V13 rules, or product evidence state.
 
-No UX tool mutates V13 rule state or product evidence state.
-
-## 8. Files and boundaries
+## 9. Files and boundaries
 
 New package files:
 
-- `src/nolane_ui/ux_intelligence/provenance.py`
 - `src/nolane_ui/ux_intelligence/canonical_bridge.py`
+- `src/nolane_ui/ux_intelligence/provenance.py`
 - `src/nolane_ui/ux_intelligence/journeys.py`
 - `src/nolane_ui/ux_intelligence/evaluators.py`
 - `src/nolane_ui/ux_intelligence/verifier.py`
+- `src/nolane_ui/ux_intelligence/v2_catalog.py`
 
-Modified files:
+Modified integration files:
 
-- `src/nolane_ui/ux_intelligence/catalog.py`
 - `src/nolane_ui/ux_intelligence/__init__.py`
 - `src/nolane_ui/__init__.py`
 - `src/nolane_ui/mcp_server.py`
 
-Canonical skill nodes added under:
+V1 `mechanisms.py`, `skills.py`, `rules.py`, and `catalog.py` remain unchanged in v2 unless a verified regression requires a compatibility fix.
 
-- `skills/identifying-user-goals/SKILL.md`
-- `skills/mapping-critical-user-journeys/SKILL.md`
-- `skills/conducting-cognitive-walkthroughs/SKILL.md`
-- `skills/testing-mental-model-alignment/SKILL.md`
-- `skills/assessing-recovery-completeness/SKILL.md`
-- `skills/evaluating-task-success/SKILL.md`
+No new canonical `SKILL.md` node is part of v2 because the selected cognition operations resolve to existing graph nodes.
 
 Tests:
 
@@ -308,48 +283,48 @@ Tests:
 - `tests/test_ux_intelligence_v2_journeys.py`
 - `tests/test_ux_intelligence_v2_verifier.py`
 - `tests/test_ux_intelligence_v2_api_mcp.py`
+- `tests/test_ux_intelligence_v2_quality_court.py`
+- `tests/test_ux_intelligence_v2_status.py`
 
-## 9. Testing strategy
+## 10. Testing strategy
 
-Use standard-library `unittest`, matching repository CI.
+Use standard-library `unittest` to match repository CI.
 
 TDD sequence:
 
-1. bridge tests RED before canonical bridge/skill nodes exist;
-2. provenance tests RED before ledger exists;
-3. journey-spec validation tests RED before model/validator exists;
-4. evaluator/verifier tests RED before runtime verification exists;
-5. public API/MCP tests RED before exports/tools exist;
-6. focused v1+v2 regression suite GREEN;
-7. full repository suite GREEN in official GitHub Actions, including the dedicated real Chromium job and current-head release gate.
+1. contract tests were committed before production v2 modules and captured by pull-request run #1248;
+2. bridge/provenance/journey/evaluator/verifier/public integration are implemented on the same draft PR;
+3. focused v1+v2 regression suite must be green;
+4. full official GitHub Actions must be green on the final feature head, including Python 3.10/3.11/3.12, dedicated Real Chromium runtime, and current-head release gate.
 
-Tests must include negative cases for unresolved skill/provenance/rule IDs, incompatible mechanism ownership, duplicate journey steps, missing evidence, false completion, lost context, dead-end recovery, and a complete passing journey.
+Negative coverage includes unresolved bridge/provenance/rule references, unsupported mechanisms, duplicate journey steps, missing evidence, false completion, and authority-boundary violations.
 
-## 10. Non-goals
+## 11. Non-goals
 
 V2 explicitly does not:
 
 - create a second browser/runtime stack;
-- promote all 32 registry entries into canonical skill nodes;
-- create UX rule count targets;
+- duplicate existing canonical skills merely to mirror UX registry names;
+- promote all 32 registry entries;
+- create rule/skill count targets;
 - automatically block fuzzy near-duplicates;
 - claim universal empirical superiority;
 - rewrite or merge V13 canonical-rule authority;
-- infer failures from missing evidence;
+- infer failure from missing evidence;
 - treat lower friction as universally better;
 - encode arbitrary click-count or memory-count folklore.
 
-## 11. Success criteria
+## 12. Success criteria
 
-V2 is complete only when all of the following are true:
+V2 is complete only when:
 
-1. selected UX reasoning capabilities exist as validated canonical `SKILL.md` nodes;
-2. every bridge record resolves and agrees with its registry source;
+1. selected UX cognition records resolve to validated existing canonical skill nodes and paths;
+2. bridge records agree with source registry mechanism coverage and expose operational outputs/dependencies;
 3. UX provenance is queryable and transfer-bounded;
-4. a structured journey can be validated independently of browser execution;
-5. V11-compatible observations can be verified against journey expectations;
-6. missing evidence produces `insufficient-evidence`, never fabricated failure;
-7. verified findings inherit existing UX rule authority exactly;
+4. a structured journey validates independently of browser execution;
+5. V11-compatible observations can be checked without Playwright-specific coupling;
+6. missing evidence produces `insufficient-evidence`, never a fabricated failure;
+7. emitted findings inherit existing UX rule authority exactly;
 8. Python and MCP surfaces expose the complete v2 read/verify API;
 9. v1 behavior remains backward compatible;
 10. final-head GitHub Actions core, real-browser, and release-gate jobs are green.
