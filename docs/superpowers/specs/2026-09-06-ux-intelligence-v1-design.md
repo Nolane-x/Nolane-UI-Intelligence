@@ -2,7 +2,7 @@
 
 ## Goal
 
-Add a first-class UX reasoning subsystem to Nolane UI Intelligence without turning contextual UX guidance into brittle checklist rules. The subsystem must strengthen anti-AI UI generation at the product/experience level, preserve the V13 evidence boundary, and scale toward roughly 1000 canonical skills and no more than roughly 1000 high-value operational rules without treating either count as a quality quota.
+Add a first-class UX reasoning subsystem to Nolane UI Intelligence without turning contextual UX guidance into brittle checklist rules. The subsystem must strengthen anti-AI UI generation at the product/experience level, preserve the V13 evidence boundary, and scale by semantic novelty rather than by a fixed skill or rule count.
 
 ## Problem
 
@@ -19,7 +19,9 @@ Introduce `src/nolane_ui/ux_intelligence/` as a backward-compatible subsystem wi
 3. `rules.py` — a deliberately small first wave of falsifiable UX operational rules. Every UX rule binds to exactly one mechanism and declares observable/falsifiable/repair/verification planes.
 4. `catalog.py` — deterministic read-only APIs, status, mechanism coverage and rule/skill queries.
 
-The subsystem is independent from the V13 canonical catalog in v1 so no existing V13 rule is forced to migrate. A future bridge may add optional `mechanism_id` metadata to V13 after empirical review. v1 therefore proves the ontology and API before mutating the mature V13 contract.
+The subsystem is independent from the V13 canonical catalog in v1 so no existing V13 rule is forced to migrate. A future bridge may add optional mechanism-family metadata to V13 after empirical review. v1 therefore proves the ontology and integration boundary before mutating the mature V13 contract.
+
+The public boundary is intentionally explicit: `nolane_ui` re-exports the UX read API for normal Python consumers, while MCP exposes a distinct UX namespace. UX tooling must never silently masquerade as V13 canonical-rule authority.
 
 ## UX ontology
 
@@ -55,7 +57,7 @@ Each UX skill record contains:
 - `anti_patterns`
 - `related_mechanisms`
 
-The first wave contains 32 skills across the eight domains. Count is descriptive; future skills are accepted only when they add a distinct reasoning operation.
+The first wave contains 32 registry entries across the eight domains. This count is descriptive. A future skill belongs only when it adds a distinct reasoning operation; registry size itself is never quality evidence. v1 registry entries are not automatically canonical `skills/<slug>/SKILL.md` owners.
 
 ## Mechanism model
 
@@ -68,7 +70,7 @@ Each mechanism contains:
 - `signals`
 - `non_examples`
 
-Mechanisms are reusable semantic coordinates. Multiple leaf rules may map to one mechanism when their operational context is genuinely distinct.
+Mechanisms are reusable semantic coordinates. Multiple leaf rules may map to one mechanism when their operational context is genuinely distinct. Mechanism membership alone never produces a finding and never grants blocking authority.
 
 ## Rule model
 
@@ -108,11 +110,13 @@ The subsystem must:
 - reject count-quota fields;
 - keep contextual/convergence findings non-blocking;
 - expose bounded query limits of 1..100;
-- report mechanism coverage and orphan mechanisms deterministically.
+- report mechanism coverage and orphan mechanisms deterministically;
+- remain read-only through its public/MCP query surfaces;
+- preserve a distinct authority namespace from the V13 rule catalog.
 
-## Public API
+## Public Python API
 
-The module exports:
+The package and top-level `nolane_ui` surface expose the three registries plus:
 
 - `get_ux_mechanism`
 - `query_ux_mechanisms`
@@ -122,10 +126,26 @@ The module exports:
 - `query_ux_rules`
 - `ux_intelligence_status`
 
+## MCP API
+
+MCP exposes read-only bounded tools under a separate UX namespace:
+
+- `nui_ux_status`
+- `nui_get_ux_mechanism`
+- `nui_query_ux_mechanisms`
+- `nui_get_ux_skill`
+- `nui_query_ux_skills`
+- `nui_get_ux_rule`
+- `nui_query_ux_rules`
+
+These tools do not mutate rules, write product state, escalate permissions, or upgrade UX reasoning into V13 authority.
+
 ## Testing strategy
 
-TDD is mandatory. Tests first assert missing imports/API, schema integrity, ontology references, non-quota behavior, non-blocking convergence/contextual rules, deterministic bounded queries, and exact first-wave inventory. After RED is observed, production modules are added until the focused suite is green. Existing V13 tests must remain untouched and CI must pass before merge.
+TDD is mandatory. Tests first assert missing imports/API, schema integrity, ontology references, non-quota behavior, non-blocking convergence/contextual rules, deterministic bounded queries, exact first-wave inventory, top-level exposure and MCP separation. The repository's actual test runner is `PYTHONPATH=src python -m unittest discover -s tests -v`, exercised in GitHub Actions across Python 3.10/3.11/3.12 plus the independent real Chromium smoke gate.
+
+RED evidence must fail for the intended missing behavior before production integration is added. GREEN evidence must come from the latest feature head; an earlier successful run cannot certify later changes. Existing V13 tests remain untouched.
 
 ## Non-goals
 
-v1 does not modify V13 rule contracts, does not claim empirical usability superiority, does not impose hard UX heuristics, does not auto-generate hundreds of rules, and does not make UX mechanism membership itself an enforcement signal.
+v1 does not modify V13 rule contracts, does not claim empirical usability superiority, does not impose hard UX folklore, does not auto-generate hundreds of rules, does not make mechanism membership itself an enforcement signal, and does not silently convert the 32 cognitive registry entries into canonical skill-graph nodes.
