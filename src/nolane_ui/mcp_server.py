@@ -19,6 +19,15 @@ from .rules_v13.catalog import (
     rule_catalog_status_v13,
 )
 from .runtime_v11.doctor import diagnose_runtime_state
+from .ux_intelligence import (
+    get_ux_mechanism,
+    get_ux_rule,
+    get_ux_skill,
+    query_ux_mechanisms,
+    query_ux_rules,
+    query_ux_skills,
+    ux_intelligence_status,
+)
 from .validators import validate_repository
 
 
@@ -101,6 +110,86 @@ def get_rule_status(root: Path | str) -> dict[str, Any]:
     return rule_catalog_status_v13(Path(root).resolve())
 
 
+def get_ux_mechanism_record(root: Path | str, mechanism_id: str) -> dict[str, Any]:
+    _ = Path(root).resolve()
+    record = get_ux_mechanism(mechanism_id)
+    if record is None:
+        raise ValueError(f"unknown UX mechanism: {mechanism_id}")
+    return record
+
+
+def query_ux_mechanism_records(
+    root: Path | str,
+    *,
+    text: str | None = None,
+    limit: int = 25,
+) -> dict[str, Any]:
+    _ = Path(root).resolve()
+    mechanisms = query_ux_mechanisms(text=text, limit=limit)
+    return {"count": len(mechanisms), "mechanisms": mechanisms, "limit": limit}
+
+
+def get_ux_skill_record(root: Path | str, skill_id: str) -> dict[str, Any]:
+    _ = Path(root).resolve()
+    record = get_ux_skill(skill_id)
+    if record is None:
+        raise ValueError(f"unknown UX cognitive skill: {skill_id}")
+    return record
+
+
+def query_ux_skill_records(
+    root: Path | str,
+    *,
+    domain: str | None = None,
+    mechanism_id: str | None = None,
+    text: str | None = None,
+    limit: int = 25,
+) -> dict[str, Any]:
+    _ = Path(root).resolve()
+    skills = query_ux_skills(
+        domain=domain,
+        mechanism_id=mechanism_id,
+        text=text,
+        limit=limit,
+    )
+    return {"count": len(skills), "skills": skills, "limit": limit}
+
+
+def get_ux_rule_record(root: Path | str, rule_id: str) -> dict[str, Any]:
+    _ = Path(root).resolve()
+    record = get_ux_rule(rule_id)
+    if record is None:
+        raise ValueError(f"unknown UX rule: {rule_id}")
+    return record
+
+
+def query_ux_rule_records(
+    root: Path | str,
+    *,
+    domain: str | None = None,
+    mechanism_id: str | None = None,
+    rule_class: str | None = None,
+    status: str | None = None,
+    text: str | None = None,
+    limit: int = 25,
+) -> dict[str, Any]:
+    _ = Path(root).resolve()
+    rules = query_ux_rules(
+        domain=domain,
+        mechanism_id=mechanism_id,
+        rule_class=rule_class,
+        status=status,
+        text=text,
+        limit=limit,
+    )
+    return {"count": len(rules), "rules": rules, "limit": limit}
+
+
+def get_ux_status(root: Path | str) -> dict[str, Any]:
+    _ = Path(root).resolve()
+    return ux_intelligence_status()
+
+
 def get_runtime_doctor(root: Path | str) -> dict[str, Any]:
     return diagnose_runtime_state(Path(root).resolve())
 
@@ -117,6 +206,13 @@ def tool_catalog(root: Path | str) -> list[dict[str, str]]:
         {"name": "nui_get_rule", "description": "Read one canonical V13 rule by exact rule id."},
         {"name": "nui_query_rules", "description": "Query at most 100 V13 rules by bounded domain, class, status, or text filters."},
         {"name": "nui_rule_provenance", "description": "Read one exact V13 provenance record and its evidence boundary."},
+        {"name": "nui_ux_status", "description": "Return read-only UX Intelligence v1 mechanism, cognitive-skill, rule, and coverage status."},
+        {"name": "nui_get_ux_mechanism", "description": "Read one UX semantic failure mechanism by exact id."},
+        {"name": "nui_query_ux_mechanisms", "description": "Query at most 100 UX semantic mechanisms by bounded text filter."},
+        {"name": "nui_get_ux_skill", "description": "Read one UX cognitive skill registry entry by exact id."},
+        {"name": "nui_query_ux_skills", "description": "Query at most 100 UX cognitive skills by bounded domain, mechanism, or text filters."},
+        {"name": "nui_get_ux_rule", "description": "Read one UX operational rule by exact id without changing V13 rule authority."},
+        {"name": "nui_query_ux_rules", "description": "Query at most 100 UX operational rules by bounded domain, mechanism, class, status, or text filters."},
         {"name": "nui_runtime_doctor", "description": "Run the read-only V11 runtime installation and evidence doctor."},
     ]
 
@@ -177,6 +273,63 @@ def run_server(root: Path | str | None = None) -> None:
     @mcp.tool()
     def nui_rule_provenance(provenance_id: str) -> dict[str, Any]:
         return get_rule_provenance(root_path, provenance_id)
+
+    @mcp.tool()
+    def nui_ux_status() -> dict[str, Any]:
+        return get_ux_status(root_path)
+
+    @mcp.tool()
+    def nui_get_ux_mechanism(mechanism_id: str) -> dict[str, Any]:
+        return get_ux_mechanism_record(root_path, mechanism_id)
+
+    @mcp.tool()
+    def nui_query_ux_mechanisms(
+        text: str | None = None,
+        limit: int = 25,
+    ) -> dict[str, Any]:
+        return query_ux_mechanism_records(root_path, text=text, limit=limit)
+
+    @mcp.tool()
+    def nui_get_ux_skill(skill_id: str) -> dict[str, Any]:
+        return get_ux_skill_record(root_path, skill_id)
+
+    @mcp.tool()
+    def nui_query_ux_skills(
+        domain: str | None = None,
+        mechanism_id: str | None = None,
+        text: str | None = None,
+        limit: int = 25,
+    ) -> dict[str, Any]:
+        return query_ux_skill_records(
+            root_path,
+            domain=domain,
+            mechanism_id=mechanism_id,
+            text=text,
+            limit=limit,
+        )
+
+    @mcp.tool()
+    def nui_get_ux_rule(rule_id: str) -> dict[str, Any]:
+        return get_ux_rule_record(root_path, rule_id)
+
+    @mcp.tool()
+    def nui_query_ux_rules(
+        domain: str | None = None,
+        mechanism_id: str | None = None,
+        rule_class: str | None = None,
+        status: str | None = None,
+        text: str | None = None,
+        limit: int = 25,
+    ) -> dict[str, Any]:
+        return query_ux_rule_records(
+            root_path,
+            domain=domain,
+            mechanism_id=mechanism_id,
+            rule_class=rule_class,
+            status=status,
+            text=text,
+            limit=limit,
+        )
 
     @mcp.tool()
     def nui_runtime_doctor() -> dict[str, Any]:
