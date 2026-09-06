@@ -1,0 +1,1 @@
+UX Intelligence v2 RED contract tests were introduced before production implementation.
