@@ -16,6 +16,16 @@ UX_DISCOVERY_SCORE_WEIGHTS = {
 CANDIDATE_STATUSES = {"hypothesis", "promotable", "promoted", "rejected"}
 
 
+UX_RULE_REGRESSION_CLASSES = {
+    "ux.recovery.dead-end-has-recovery-path": "recovery-path-lost",
+    "ux.recovery.recovery-path-is-reachable": "recovery-path-lost",
+    "ux.task.same-goal-navigation-preserves-context": "preserved-context-regressed",
+    "ux.task.no-premature-commitment": "new-premature-commitment",
+    "ux.task.hidden-dependency-before-commit": "new-hidden-dependency",
+    "ux.comprehension.no-false-completion": "new-false-completion",
+}
+
+
 def validate_discovery_score_weights(weights=UX_DISCOVERY_SCORE_WEIGHTS):
     required = {
         "goal_confidence",
@@ -43,6 +53,7 @@ validate_discovery_score_weights()
 __all__ = [
     "CANDIDATE_STATUSES",
     "UX_DISCOVERY_SCORE_WEIGHTS",
+    "UX_RULE_REGRESSION_CLASSES",
     "VERSION",
     "validate_discovery_score_weights",
 ]
