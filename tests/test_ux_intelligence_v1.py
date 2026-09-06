@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+from copy import deepcopy
 import unittest
+from unittest.mock import patch
 
 from nolane_ui.ux_intelligence import (
     UX_MECHANISMS,
@@ -14,6 +16,7 @@ from nolane_ui.ux_intelligence import (
     query_ux_skills,
     ux_intelligence_status,
 )
+from nolane_ui.ux_intelligence import catalog as ux_catalog
 
 
 EXPECTED_MECHANISMS = {
@@ -104,6 +107,7 @@ class UXIntelligenceV1Tests(unittest.TestCase):
     def test_ids_are_unique_and_references_resolve(self):
         mechanism_ids = set(_ids(UX_MECHANISMS, "mechanism_id"))
         skill_ids = set(_ids(UX_SKILLS, "skill_id"))
+        skill_index = {skill["skill_id"]: skill for skill in UX_SKILLS}
         self.assertEqual(len(mechanism_ids), len(UX_MECHANISMS))
         self.assertEqual(len(skill_ids), len(UX_SKILLS))
         self.assertEqual(len(set(_ids(UX_RULES, "rule_id"))), len(UX_RULES))
@@ -115,6 +119,44 @@ class UXIntelligenceV1Tests(unittest.TestCase):
             self.assertIn(rule["mechanism_id"], mechanism_ids)
             self.assertTrue(rule["owner_skill_ids"])
             self.assertLessEqual(set(rule["owner_skill_ids"]), skill_ids)
+            self.assertTrue(
+                any(
+                    rule["mechanism_id"] in skill_index[skill_id]["related_mechanisms"]
+                    for skill_id in rule["owner_skill_ids"]
+                ),
+                msg=f"{rule['rule_id']} has no owner skill covering {rule['mechanism_id']}",
+            )
+
+    def test_rule_owner_skill_must_semantically_cover_mechanism(self):
+        rules = deepcopy(UX_RULES)
+        target = deepcopy(rules[0])
+        unrelated_skill = next(
+            skill["skill_id"]
+            for skill in UX_SKILLS
+            if target["mechanism_id"] not in skill["related_mechanisms"]
+        )
+        target["owner_skill_ids"] = (unrelated_skill,)
+        mutated = tuple(
+            sorted(
+                (target if rule["rule_id"] == target["rule_id"] else deepcopy(rule) for rule in rules),
+                key=lambda rule: rule["rule_id"],
+            )
+        )
+        mechanism_ids = set(_ids(UX_MECHANISMS, "mechanism_id"))
+        skill_ids = set(_ids(UX_SKILLS, "skill_id"))
+        with patch.object(ux_catalog, "UX_RULES", mutated):
+            with self.assertRaisesRegex(ValueError, "mechanism-compatible owner skill"):
+                ux_catalog._validate_rules(mechanism_ids, skill_ids)
+
+    def test_duplicate_operational_signature_is_rejected(self):
+        duplicate = deepcopy(UX_RULES[0])
+        duplicate["rule_id"] = "ux.zzz.synthetic-duplicate-signature"
+        mutated = tuple(sorted((*deepcopy(UX_RULES), duplicate), key=lambda rule: rule["rule_id"]))
+        mechanism_ids = set(_ids(UX_MECHANISMS, "mechanism_id"))
+        skill_ids = set(_ids(UX_SKILLS, "skill_id"))
+        with patch.object(ux_catalog, "UX_RULES", mutated):
+            with self.assertRaisesRegex(ValueError, "duplicate operational signature"):
+                ux_catalog._validate_rules(mechanism_ids, skill_ids)
 
     def test_rules_have_operational_planes_and_no_quota_fields(self):
         required = {
