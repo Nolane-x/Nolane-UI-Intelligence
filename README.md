@@ -2,35 +2,302 @@
 
 # Nolane UI Intelligence
 
-### Design cognition, product completeness, visual craft and evidence-gated verification for AI agents
+### UI/UX design cognition, runtime evidence, rule intelligence and autonomous journey verification for AI agents
 
-**AI can generate an interface in seconds. NUI is built to make it think like a serious product/design team before it ships one.**
+**AI can generate an interface in seconds. NUI is built to make it reason about the product, verify what users actually experience, and justify what it claims before shipping.**
 
 [English](README.md) · [Tiếng Việt](README-VN.md) · [简体中文](README-CN.md)
 
-`v0.10.0` · `874 canonical skills` · `9 agent projections` · `MCP + CLI` · `evidence-gated` · `MIT`
+`v0.13.0` · `874 canonical skills` · `813 V13 rules` · `87 provenance records` · `9 agent projections` · `MCP + CLI` · `evidence-gated` · `MIT`
 
 </div>
 
 ---
 
-## Description
+## What is Nolane UI Intelligence?
 
-**Nolane UI Intelligence (NUI)** is an open design-cognition and verification system for AI coding agents. It gives an agent a routed graph of specialized UI/UX faculties for product modeling, information architecture, interaction, visual direction, typography, motion, accessibility, platform behavior, professional workspaces, authentication, settings, product completeness, rendered critique, design-to-code fidelity and empirical evaluation.
+**Nolane UI Intelligence (NUI)** is an open UI/UX cognition and verification system for AI coding agents.
 
-NUI is **not** a component library, style preset, mega-prompt, screenshot copier or universal beauty score. It is a system that tries to make design decisions explicit, routed, falsifiable and evidence-bound.
+It combines a large routed graph of specialized design faculties with deterministic validators, rule intelligence, real-browser evidence, UX journey verification, temporal regression analysis and bounded release claims.
 
-### Topics / tags
+NUI is designed to help an agent reason across questions such as:
 
-`ai-agents` · `agent-skills` · `ui-ux` · `design-intelligence` · `design-system` · `frontend` · `codex` · `claude-code` · `gemini-cli` · `opencode` · `cursor` · `vscode` · `mcp` · `accessibility` · `human-computer-interaction` · `ai-coding`
+- What product is actually being built?
+- Which user goals and tasks matter most?
+- Which capabilities are required, expected, optional or intentionally excluded?
+- What information architecture and interaction model fit those goals?
+- Does the rendered product match the intended behavior?
+- Which UX failures are supported by evidence rather than intuition?
+- Which important user journeys should be tested next?
+- Did a later revision introduce a semantic UX regression?
+- Which verified problems deserve attention first?
+
+NUI is **not** a component library, style preset, screenshot copier, universal beauty score or mega-prompt. It is a design-cognition and verification layer that tries to make UI/UX decisions **explicit, routed, falsifiable, evidence-bound and reviewable**.
+
+### Core principle
+
+> **Discovery decides what is worth testing. Evidence decides what happened. Existing rule authority decides what may be called a UX failure.**
+
+An inferred goal, journey, product relationship or discovery score may guide exploration. It does not silently become blocking UX authority.
+
+---
+
+# Current architecture
+
+NUI now spans five complementary planes:
+
+```text
+Canonical Design Cognition
+        ↓
+Product / Goal / UX Intelligence
+        ↓
+V13 Rule Intelligence
+        ↓
+V11 Runtime + Browser Evidence
+        ↓
+Verification / Regression / Release Claims
+```
+
+The system deliberately keeps those responsibilities separate.
+
+- **Skills** describe how an agent should reason.
+- **Rules** describe operational failure classes and how they can be verified.
+- **Runtime evidence** describes what was actually observed.
+- **UX discovery** proposes what is worth testing.
+- **UX verification** decides whether a supported failure exists.
+- **Regression analysis** compares verified semantics across revisions.
+- **Impact ranking** prioritizes verified problems without changing their authority.
+
+---
+
+# UX Intelligence
+
+UX Intelligence extends NUI beyond interface composition into explicit user-goal, journey and recovery reasoning.
+
+## UX Intelligence v1 — cognition and failure ontology
+
+V1 introduces first-class UX mechanisms, cognitive skills and operational UX rules across eight domains:
+
+```text
+Goal & Task
+→ Mental Model
+→ Information Architecture
+→ Journey & Flow
+→ Cognitive / Friction Cost
+→ Comprehension
+→ Recovery
+→ Evaluation
+```
+
+It models failures such as context loss, false completion, premature commitment, hidden dependency, navigation disorientation, unrecoverable progress loss and mental-model mismatch.
+
+The system intentionally rejects folklore such as fixed click-count targets, “less friction is always better,” or arbitrary cognitive limits as universal rules.
+
+## UX Intelligence v2 — journey verification
+
+V2 adds an evidence-gated journey contract and verification layer:
+
+```text
+UXJourneySpec
+→ explicit evidence / V11 bindings
+→ rule-specific evaluators
+→ verified UX findings
+```
+
+Important boundaries:
+
+- V11 remains the browser/runtime collector.
+- V2 remains the authority that emits UX findings.
+- Missing evidence produces `insufficient-evidence`, not an invented failure.
+- Fuzzy or NLP similarity does not automatically create blocking findings.
+- Finding severity and enforcement come from the bound UX rule.
+
+## UX Intelligence v3 — Autonomous UX Scientist
+
+V3 adds the missing layer above journey verification: **what should be tested, what changed, and what matters most?**
+
+The merged pipeline is:
+
+```text
+product evidence
+→ Product Model
+→ Goal Graph
+→ journey hypotheses
+→ candidate ranking
+→ observation planning
+→ V11 evidence
+→ v2 verification
+→ temporal evidence snapshot
+→ semantic UX regression
+→ impact ranking
+```
+
+### Product Model
+
+Represents products as meaningful surfaces, objects, actions, states and relationships instead of a flat list of pages.
+
+### Goal Graph
+
+Represents intent as:
+
+```text
+goal → task → object/action → state transition → outcome
+```
+
+`goal` and `task` nodes remain explicitly `declared` or `inferred`; browser traversal alone cannot turn inferred intent into observed truth.
+
+### Autonomous Journey Discovery
+
+Deterministically explores product/goal graphs to find journey candidates, with:
+
+- cycle bounds;
+- semantic fingerprints;
+- duplicate semantic-path collapse;
+- explicit/versioned scoring;
+- evidence lineage;
+- no authority escalation from ranking score.
+
+### Fail-closed promotion
+
+A discovered candidate becomes a V2 journey contract only when the required semantics are actually supported.
+
+NUI does **not** silently invent:
+
+- success criteria;
+- recovery expectations;
+- context-preservation guarantees;
+- ambiguous transitions;
+- user intent.
+
+Missing support remains a promotion gap.
+
+### Temporal UX evidence and semantic regression
+
+NUI can snapshot verified journey outcomes across revisions and compare semantic UX changes such as:
+
+- new verified failure;
+- reintroduced failure;
+- lost recovery path;
+- lost context preservation;
+- pass → insufficient evidence;
+- success evidence disappearing;
+- verified journey behavior changing even when pixels barely change.
+
+Evidence loss is kept distinct from a proven UX regression.
+
+### Impact ranking
+
+Verified findings and regressions can be ranked by evidence-bounded impact signals. Priority is operational triage metadata only: a `P0` ranking does not upgrade a warning into a blocking rule.
+
+---
+
+# V11 — runtime and real-browser evidence
+
+NUI distinguishes source intent from what users actually receive at runtime.
+
+V11 provides bounded runtime/browser evidence infrastructure for:
+
+- normalized browser observations;
+- Playwright-backed real Chromium collection;
+- live visual preview and freshness checks;
+- evidence bindings;
+- runtime finding routing;
+- design-memory freshness;
+- visual observation capability checks;
+- quality-residue closure;
+- source attribution and runtime diagnostics.
+
+For UX Intelligence, V11 remains the **single browser/runtime owner**. V3 may plan what evidence is needed, but it does not create a second Playwright layer or claim an observation happened before V11 actually collects it.
+
+---
+
+# V13 — Rule Intelligence
+
+V13 turns large-scale design knowledge into a deterministic operational rule catalog rather than an unbounded pile of advice.
+
+Current verified repository state includes:
+
+- **813 V13 rules**;
+- **87 provenance records**;
+- explicit capability requirements;
+- applicability and non-applicability conditions;
+- failure modes and user impacts;
+- observables and falsifiers;
+- repairs and exceptions;
+- verification modes;
+- anti-duplication and boilerplate audits.
+
+Canonical rule records carry fields such as:
+
+```text
+rule_id
+ domain
+ class
+ severity
+ enforcement
+ statement
+ intent
+ applies_when
+ does_not_apply_when
+ failure_modes
+ user_impacts
+ observables
+ falsifiers
+ repairs
+ exceptions
+ verification
+ capabilities
+ provenance_ids
+ status
+```
+
+Contextual, aesthetic and convergence guidance cannot silently become hard blocking authority. Capability requirements also prevent a rule from pretending that static source inspection proves runtime, accessibility-tree or visual-render behavior.
+
+---
+
+# Canonical design cognition graph
+
+NUI currently preserves **874 canonical skills**.
+
+That number is descriptive, not a quota. A new skill is justified only when it owns a distinct decision or failure class. NUI explicitly prefers **semantic novelty over count** and avoids noun-substitution experts or overlapping skill inflation.
+
+The graph spans areas such as:
+
+- product intent, jobs, users and capability modeling;
+- information architecture and settings systems;
+- interaction states, rich controls and direct manipulation;
+- typography, color, spacing, surfaces, icons and visual hierarchy;
+- motion semantics and reduced-motion equivalence;
+- responsive, mobile, desktop, TV, XR, automotive, wearable and specialist surfaces;
+- keyboard, touch, pen, remote, voice, gaze and other modalities;
+- accessibility and cognitive accessibility;
+- authentication, trust, privacy, financial and medical domains;
+- AI/agent uncertainty, provenance, correction and autonomous action;
+- professional workspaces, editors, IDEs, media and complex instruments;
+- external UI-source research and safe adaptation;
+- visual media sourcing and integration;
+- product closure and responsive capability preservation;
+- rendered criticism and release verification;
+- behavioral evaluation, mutation, ablation and empirical claim discipline;
+- UX goals, journeys, mental models, recovery and evaluation.
+
+Canonical bootstrap:
+
+```text
+skills/using-nolane-ui/SKILL.md
+```
+
+Canonical graph:
+
+```text
+skills/skill-graph.json
+```
 
 ---
 
 # Use NUI with your AI agent
 
-NUI is designed to work with **Codex, Claude Code, Google Antigravity, Gemini CLI, OpenCode, Cursor, VS Code/Copilot-compatible agents, any MCP host, and generic shell/CLI agents** without maintaining nine copies of the skill graph.
-
-The architecture is:
+NUI is designed to work with **Codex, Claude Code, Google Antigravity, Gemini CLI, OpenCode, Cursor, VS Code/Copilot-compatible agents, any MCP host and generic shell/CLI agents** without maintaining separate copies of the cognition graph.
 
 ```text
 one canonical NUI cognition graph
@@ -42,20 +309,13 @@ Codex / Claude / Gemini / OpenCode / Cursor / VS Code / MCP / CLI
 
 ## Quick start
 
-Clone NUI:
-
 ```bash
 git clone https://github.com/Nolane-x/Nolane-UI-Intelligence.git
 cd Nolane-UI-Intelligence
-```
-
-Ask NUI for the integration plan for your agent:
-
-```bash
 python scripts/nui-agent-export --agent openai-codex
 ```
 
-Replace `openai-codex` with any supported adapter ID:
+Supported adapter IDs:
 
 ```text
 openai-codex
@@ -85,25 +345,18 @@ generic-cli
 
 ## Put NUI inside another project
 
-If NUI is not the repository itself, keep it as a sidecar instead of copying hundreds of skill files into a giant prompt:
-
 ```bash
 git clone --depth 1 https://github.com/Nolane-x/Nolane-UI-Intelligence.git .nui
-```
-
-Then inspect an agent projection:
-
-```bash
 python .nui/scripts/nui-agent-export --agent claude-code --root .nui
 ```
 
-or expose NUI through a local MCP server:
+Or expose NUI through MCP:
 
 ```bash
 python .nui/scripts/nui-mcp-server --root .nui
 ```
 
-Use the **current MCP/project configuration syntax of your host** to register that command. NUI intentionally keeps vendor configuration outside the canonical graph because host syntax changes faster than design cognition.
+Use the current MCP/project configuration syntax of your host to register that command.
 
 > **Permission rule:** the host remains authoritative. NUI never expands shell, filesystem, network, browser, image or MCP permissions by itself.
 
@@ -111,98 +364,59 @@ For complete agent-by-agent setup, see **[`docs/AGENT-INTEGRATION.md`](docs/AGEN
 
 ---
 
-## Why NUI exists
+# Python surfaces
 
-The difficult problem is no longer “can AI write JSX or CSS?”
+The Python package exposes deterministic APIs for the current architecture, including:
 
-The difficult problem is that an AI can produce something technically valid while still thinking too narrowly:
+```python
+from nolane_ui import (
+    validate_repository,
+    get_rule_v13,
+    query_rules_v13,
+    rule_catalog_status_v13,
+    verify_ux_journey,
+    build_ux_product_model,
+    build_ux_goal_graph,
+    discover_ux_journeys,
+    promote_ux_journey_candidate,
+    plan_ux_discovery,
+    create_ux_evidence_snapshot,
+    compare_ux_snapshots,
+    rank_ux_impacts,
+    ux_v3_status,
+)
+```
 
-- a sales platform becomes only Dashboard + Products + Orders;
-- a professional editor has a canvas but no command model, inspector, history, asset workflow or workspace persistence;
-- authentication exists but recovery, session/device management or account lifecycle is missing;
-- settings are a handful of toggles instead of a scoped preference architecture;
-- desktop looks attractive while mobile is merely the same layout squeezed smaller;
-- every region becomes a rounded card because that is the easiest visual primitive to synthesize;
-- native browser chrome suddenly appears inside an otherwise polished interface;
-- motion exists because “premium apps animate,” not because it teaches state or causality;
-- a screenshot looks good, so the generating agent certifies its own work.
-
-NUI treats those as **reasoning failures**, not just styling mistakes.
+These APIs intentionally separate discovery, evidence, verification and authority.
 
 ---
 
-## The core idea
+# MCP surfaces
 
-Instead of telling an agent:
+The optional MCP server exposes bounded local read/analysis tools for:
 
-```text
-Make a beautiful modern UI.
-```
+- repository status and validation;
+- canonical skills;
+- V13 rules, provenance and catalog status;
+- UX mechanisms, skills and rules;
+- UX v2 journey verification;
+- UX v3 Product Model and Goal Graph construction;
+- journey discovery and candidate querying;
+- fail-closed journey promotion;
+- evidence-request planning;
+- temporal snapshots;
+- semantic regression comparison;
+- impact ranking.
 
-NUI drives a lifecycle closer to:
+The MCP module deliberately contains **no arbitrary shell executor, remote URL fetcher or third-party installer**. Those permissions remain with the host agent.
 
-```text
-product truth
-→ task / user / risk contract
-→ capability discovery
-→ specialist routing
-→ information & interaction architecture
-→ divergent visual directions
-→ design-system decisions
-→ implementation
-→ real render
-→ independent critique
-→ repair / re-render
-→ verification
-→ bounded release claim
-```
-
-The agent does not preload every rule. It routes to the **smallest sufficient graph of owners** for the product and task.
+Install optional MCP support with the project extra defined in `pyproject.toml`.
 
 ---
 
-## 774 canonical design faculties
+# Product completeness: broad before narrow
 
-NUI currently preserves **774 canonical skills**. The number is descriptive, not a license to create overlapping experts. The long-term UI-industry roadmap targets broader coverage toward 1,000 canonical faculties while preserving distinct decision ownership and minimal routing.
-
-A skill is allowed to exist only when it owns a distinct decision or failure class. NUI deliberately avoids turning every new idea into another overlapping “expert.” Batch 001 added 100 independently authored specialists across motion, rich controls, direct manipulation, spreadsheet/data interaction, enterprise workflows, billing, scheduling, geospatial interaction and historical state. Batch 002 adds 100 more independently authored specialists across high-friction input, navigation/findability, feedback/recovery, messaging/collaboration, onboarding, commerce lifecycle, content publishing, developer operations, and trust/account lifecycle. Batch 003 contributes another 100 independently authored specialists across accessibility mechanics, globalization/locale behavior, media playback, file/storage workflows and device/physical-world integration. Batch 004 adds 200 independently authored specialists across diagramming, project operations, incident response, software delivery, scientific instrumentation, 3D/CAD, nonlinear media editing, digital learning, financial operations and security operations. Batch 005 adds 100 independently authored specialists across mobile-native application shells, visual application builders, business-intelligence workspaces, clinical care, public services, marketplace operations, realtime communications, spatial/XR, recommendation/personalization, and design-to-code handoff. See the Batch 001–005 research records for exact inventory, ownership, provenance and non-generation constraints.
-
-The graph spans areas such as:
-
-- product intent, jobs, users and capability modeling;
-- information architecture and settings systems;
-- interaction states, rich components and direct manipulation;
-- typography, color, spacing, surfaces, icons and visual hierarchy;
-- motion semantics and reduced-motion equivalence;
-- responsive, mobile, desktop, TV, XR, automotive, wearables and specialist surfaces;
-- keyboard, touch, pen, remote, voice, gaze and other modalities;
-- accessibility, cognitive accessibility, low vision, screen readers, AAC and accessible media;
-- authentication, trust, privacy, financial, medical and other high-impact domains;
-- AI/agent uncertainty, streaming, provenance, correction and autonomous action;
-- editor/canvas workspaces, professional desktop workspaces and complex instrument architecture;
-- external UI-source research, authority selection and safe adaptation;
-- visual media opportunity mapping, sourcing, authoring and integration;
-- product closure, route/action reachability and responsive capability preservation;
-- rendered criticism, adequacy criticism and release verification;
-- behavioral evaluation, mutation, ablation and empirical claim discipline.
-
-The canonical bootstrap is:
-
-```text
-skills/using-nolane-ui/SKILL.md
-```
-
-The canonical graph is:
-
-```text
-skills/skill-graph.json
-```
-
----
-
-## Product completeness: broad before narrow
-
-A major NUI rule is simple:
+A major NUI rule remains:
 
 > **Think broadly before deciding what to omit.**
 
@@ -216,17 +430,15 @@ EXCLUDED
 UNKNOWN
 ```
 
-This prevents the common AI failure where the first four obvious screens become the whole product.
-
-A “full sales management platform,” for example, may need the agent to consider—not automatically implement—areas such as account/workspace lifecycle, roles and permissions, catalog/SKU, inventory, orders, fulfillment, returns/refunds, customers, payments, reporting, search, notifications, import/export, integrations, settings, audit/history and recovery.
+This prevents the common AI failure where the first few obvious screens become the whole product.
 
 The goal is **intentional scope**, not enterprise bloat.
 
 ---
 
-## Professional tools should behave like professional tools
+# Professional tools should behave like professional tools
 
-For editor-, IDE-, design-, media- and operations-class products, NUI reasons in terms of **instrument architecture**, not “more buttons.”
+For editor-, IDE-, design-, media- and operations-class products, NUI reasons in terms of instrument architecture rather than “more buttons.”
 
 Depending on the product, that can include:
 
@@ -250,28 +462,7 @@ Completeness does not mean showing everything simultaneously. Progressive disclo
 
 ---
 
-## Flagship visual intelligence
-
-For `flagship`, `exceptional` and `experiential` work, NUI does not accept “premium, clean, modern” as proof of art direction.
-
-High-ambition work must establish a visual thesis and explore **materially different candidates** across composition, type system, material system and signature mechanism. It then resolves:
-
-- attention architecture;
-- typographic voice and optical hierarchy;
-- composition rhythm and density;
-- color/material causality;
-- motion purpose;
-- domain-native signature;
-- bounded reference frontier;
-- generic-transfer resistance;
-- responsive re-authoring;
-- closed render/critique/correction cycles.
-
-The point is not to mathematically prove beauty. The point is to make unsupported high-end visual claims **falsifiable**.
-
----
-
-## Render first. Critique the thing users actually see.
+# Render first. Critique what users actually see.
 
 NUI distinguishes a design specification from its rendered result.
 
@@ -279,64 +470,24 @@ A high-ambition workflow can require:
 
 ```text
 render
-→ screenshot / runtime observation
-→ focal hierarchy critique
+→ runtime observation
+→ visual / hierarchy critique
 → typography / spacing / density critique
 → platform-residue audit
 → responsive critique
 → correction
 → re-render
-→ A/B comparison
+→ comparison
+→ verification
 ```
 
-This catches failures that source inspection alone misses: wrong wrapping, accidental scrollbars, browser defaults, optical misalignment, weak hierarchy, poor crops, cramped mobile states, inconsistent materials and motion that feels disconnected from the actual interaction.
+This catches failures that source inspection alone misses: wrapping errors, accidental scrollbars, browser defaults, optical misalignment, weak hierarchy, bad crops, cramped responsive states and interaction behavior that diverges from intent.
 
 ---
 
-## Modern interface residue audit
-
-A polished product can still feel cheap when one low-level control falls back to accidental platform chrome.
-
-NUI explicitly examines classes such as:
-
-```text
-scrollbars
-selects
-file inputs
-date/time controls
-number/range controls
-focus / selection / caret
-resize handles
-drag ghosts
-native validation UI
-context menus
-tooltips / popovers
-cursors
-overscroll behavior
-```
-
-The rule is **not** “customize everything.” Native controls can be correct. The failure is accidental residue, inconsistent styling, or customization that destroys usability/accessibility.
-
----
-
-## References without cloning
+# References without cloning
 
 NUI uses external design systems, products, research and UI libraries as **mechanism sources**, not trade-dress targets.
-
-A reference may teach:
-
-- density zoning;
-- editorial scale contrast;
-- command architecture;
-- motion continuity;
-- material layering;
-- data treatment;
-- platform behavior;
-- accessibility semantics.
-
-It does not become permission to reproduce a recognizable product aesthetic.
-
-The source flow is:
 
 ```text
 need
@@ -348,33 +499,112 @@ need
 → verify local runtime
 ```
 
+A reference may teach density, command architecture, typography, motion continuity, material layering, data treatment or accessibility semantics. It does not become permission to reproduce a recognizable product aesthetic.
+
 ---
 
-## V10: Behavioral Design Intelligence & Empirical Proof
+# V10 — behavioral evaluation and empirical proof
 
-NUI v10 adds a second question after “is the repository structurally deep?”
+NUI also asks:
 
 > **Does using NUI actually change agent behavior in the intended direction?**
 
-The V10 evaluation plane includes:
+The V10 evaluation plane includes falsifiable hypotheses, benchmark tasks, mutation and ablation controls, provenance, treatment-blind judging, matched comparison units and bounded statistical claim promotion.
 
-- **13 falsifiable behavioral hypotheses**;
-- **48 benchmark tasks across 12 task families**;
-- public-generation vs evaluator-hidden boundaries;
-- semantic mutations, targeted ablations and placebo controls;
-- model/runtime/prompt/tool-budget provenance;
-- treatment-blind pairwise judging;
-- matched comparison units;
-- exact statistical gates;
-- bounded promotion from structural evidence to empirical claims.
+NUI does not collapse all design quality into one “NUI score.” Product completeness, usability, visual craft, accessibility and other dimensions may move differently and should remain visible.
 
-NUI does not collapse this into one “NUI score.” Product completeness can improve while another dimension does not. Those trade-offs should remain visible.
-
-Repository-only CI currently supports a **structural evidence ceiling**. It does not pretend synthetic fixtures are proof that NUI is universally superior across real models.
+Repository-only CI supports a **structural evidence ceiling**. Synthetic fixtures are not treated as universal proof that NUI outperforms every model on every UI task.
 
 ---
 
-## What NUI is not
+# Verification and authority
+
+NUI is evidence-gated by design.
+
+Current authority principles include:
+
+- user/product requirements outrank heuristics;
+- direct measured evidence outranks model preference;
+- missing required evidence blocks bounded completion claims;
+- self-certification is disabled;
+- unresolved critical/major findings cannot be silently ignored;
+- discovery confidence is not severity;
+- impact priority is not enforcement;
+- browser behavior does not prove user intent;
+- visual appearance does not prove semantic success;
+- runtime claims require runtime-capable evidence.
+
+Run the repository checks with:
+
+```bash
+python -m unittest discover -s tests -v
+python scripts/nui-validate .
+```
+
+Repository validation proves structural and evidence-contract invariants for the checked revision. It does not, by itself, prove that a future interface is beautiful, usable, accessible, safe, lawful or empirically superior.
+
+---
+
+# Current verified state
+
+As of **2026-09-06**, UX Intelligence v3 is merged into `main` at:
+
+```text
+6421da9b6343e24952ccea5d8c177773230c28fd
+```
+
+The merge tree is:
+
+```text
+2a8320427e2c3d4a23e7bc31dff73730722889a8
+```
+
+Post-merge **Verify NUI #1299** completed successfully on that exact `main` revision:
+
+- Core Python 3.10 — success
+- Core Python 3.11 — success
+- Core Python 3.12 — success
+- Real Chromium runtime — success
+- Current-head release gate — success
+
+The verified repository metrics for this revision include:
+
+```text
+canonical skills:        874
+V13 rules:               813
+V13 provenance records:   87
+V13 duplicate pairs:       0
+V13 boilerplate clusters:  0
+```
+
+---
+
+# Repository map
+
+```text
+skills/                                canonical design faculties
+skills/skill-graph.json               routing / ownership graph
+knowledge/                            provenance, ontologies and evidence knowledge
+schemas/                              typed evidence contracts
+src/nolane_ui/                        deterministic kernels and public Python API
+src/nolane_ui/rules_v13/              V13 operational rule intelligence
+src/nolane_ui/runtime_v11/            runtime/browser evidence plane
+src/nolane_ui/ux_intelligence/        UX cognition, journeys, discovery and regression
+benchmarks/v10/                       behavioral benchmark corpus
+evals/                                adversarial and behavioral fixtures
+.agents/skills/nolane-ui/             Codex / Agent Skills bridge
+.claude/skills/nolane-ui/             Claude Code bridge
+scripts/nui-agent-export              agent projection CLI
+scripts/nui-mcp-server                local MCP entry point
+docs/AGENT-INTEGRATION.md             complete AI-agent setup guide
+docs/superpowers/specs/               architecture/design specifications
+docs/superpowers/plans/               implementation plans
+docs/research/                        research provenance and bounded synthesis
+```
+
+---
+
+# What NUI is not
 
 NUI is not:
 
@@ -385,42 +615,10 @@ NUI is not:
 - a collection of trendy screenshots;
 - an automatic accessibility certification service;
 - a universal numerical beauty function;
-- permission to copy Apple, Linear, Stripe, Canva, CapCut, VS Code or any other product;
-- proof that every AI output becomes excellent just because NUI is present.
+- a license to clone another product’s visual identity;
+- proof that every AI output becomes excellent merely because NUI is installed.
 
-It is an attempt to build a **design cognition layer around an AI agent** and make that layer inspectable, routable and testable.
-
----
-
-## Repository map
-
-```text
-skills/                         canonical design faculties
-skills/skill-graph.json        routing / ownership graph
-knowledge/                     authority, ontology, benchmark and evidence knowledge
-schemas/                       typed evidence contracts
-src/nolane_ui/                 deterministic routing / validation kernels
-evals/                         adversarial and behavioral fixtures
-benchmarks/v10/                V10 behavioral benchmark corpus
-.adapters / bridges            thin agent-specific discovery surfaces
-.agents/skills/nolane-ui/      Codex / Agent Skills bridge
-.claude/skills/nolane-ui/      Claude Code bridge
-scripts/nui-agent-export       agent projection CLI
-scripts/nui-mcp-server         local MCP entry point
-docs/AGENT-INTEGRATION.md      complete AI-agent setup guide
-docs/research/                 research provenance and bounded synthesis
-```
-
----
-
-## Verify NUI
-
-```bash
-python -m unittest discover -s tests -v
-python scripts/nui-validate .
-```
-
-Repository validation proves structural and evidence-contract invariants for the checked revision. It does not, by itself, prove that a future interface is beautiful, usable, accessible, safe, lawful or empirically superior.
+It is an attempt to build a **design and UX cognition layer around AI agents** and make that layer inspectable, routable, testable and evidence-bound.
 
 ---
 
@@ -433,7 +631,7 @@ MIT. See [`LICENSE`](LICENSE).
 <div align="center">
 
 ### AI already knows how to generate UI.
-### Nolane UI Intelligence is an attempt to make it learn how to **design, inspect and justify** one.
+### Nolane UI Intelligence is built to make it **understand the product, test the journey, inspect the runtime and justify the result**.
 
 **Start:** [`skills/using-nolane-ui/SKILL.md`](skills/using-nolane-ui/SKILL.md) · **Agent setup:** [`docs/AGENT-INTEGRATION.md`](docs/AGENT-INTEGRATION.md)
 
