@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Build a first-class UX Intelligence subsystem with canonical UX mechanisms, 32 cognitive skills, 16 falsifiable operational rules, deterministic query/status APIs, public Python/MCP integration, and quality gates that preserve NUI's no-quota and evidence-honesty principles.
+**Goal:** Build a first-class UX Intelligence subsystem with canonical UX mechanisms, 32 cognitive registry entries, 16 falsifiable operational rules, deterministic query/status APIs, public Python/MCP integration, and semantic quality gates that preserve NUI's no-quota and evidence-honesty principles.
 
 **Architecture:** Add an isolated `src/nolane_ui/ux_intelligence/` package rather than modifying the mature V13 contract in the first iteration. The package separates semantic mechanisms, cognitive skills, operational rules and catalog/query validation. Public API and MCP expose this subsystem through an explicitly distinct UX namespace so V13 rule authority is not blurred.
 
@@ -16,6 +16,8 @@
 - Rule/skill counts are descriptive, never quality quotas.
 - Contextual and convergence rules must never block.
 - All UX rules must bind to a known mechanism and known owner skill.
+- At least one owner skill for every UX rule must explicitly cover that rule's mechanism.
+- Exact normalized `(failure_modes, repairs, verification)` signature clones are rejected even under a new rule ID.
 - Query limits are strict integers in the range 1..100.
 - Canonical outputs are sorted deterministically by stable ID.
 - No generated rule loops or template-generated prose.
@@ -66,7 +68,7 @@ Mechanism prose is literal and authored rather than loop-generated.
 
 ---
 
-### Task 3: Implement 32 canonical UX cognitive skills
+### Task 3: Implement 32 canonical UX cognitive registry entries
 
 **Files:**
 - Create: `src/nolane_ui/ux_intelligence/skills.py`
@@ -75,13 +77,13 @@ Mechanism prose is literal and authored rather than loop-generated.
 - Consumes: known mechanism IDs from `mechanisms.py`.
 - Produces: `UX_SKILLS: tuple[dict[str, object], ...]`.
 
-- [x] **Step 1: Add four skills per UX domain**
+- [x] **Step 1: Add four entries per UX domain**
 
 Covers `goal-task`, `mental-model`, `information-architecture`, `journey-flow`, `cognitive-friction`, `comprehension`, `recovery`, and `evaluation` with four distinct cognitive operations each.
 
-- [x] **Step 2: Bind each skill to relevant mechanisms**
+- [x] **Step 2: Bind each entry to relevant mechanisms**
 
-Every `related_mechanisms` entry resolves to an existing mechanism ID.
+Every `related_mechanisms` entry resolves to an existing mechanism ID. These entries remain a UX cognition registry in v1 and are not silently promoted into canonical `skills/<slug>/SKILL.md` graph nodes.
 
 ---
 
@@ -91,7 +93,7 @@ Every `related_mechanisms` entry resolves to an existing mechanism ID.
 - Create: `src/nolane_ui/ux_intelligence/rules.py`
 
 **Interfaces:**
-- Consumes: mechanism IDs and skill IDs.
+- Consumes: mechanism IDs and cognitive registry IDs.
 - Produces: `UX_RULES: tuple[dict[str, object], ...]`.
 
 - [x] **Step 1: Author rules explicitly**
@@ -104,18 +106,19 @@ Mechanical/behavioral directly reproducible failures may block at major/critical
 
 ---
 
-### Task 5: Add validation and deterministic query APIs
+### Task 5: Add validation, semantic court and deterministic query APIs
 
 **Files:**
 - Create: `src/nolane_ui/ux_intelligence/catalog.py`
 - Create: `src/nolane_ui/ux_intelligence/__init__.py`
+- Test: `tests/test_ux_intelligence_v1.py`
 
 **Interfaces:**
 - Produces: `get_ux_mechanism`, `query_ux_mechanisms`, `get_ux_skill`, `query_ux_skills`, `get_ux_rule`, `query_ux_rules`, `ux_intelligence_status`.
 
 - [x] **Step 1: Validate registries on import**
 
-Reject duplicate IDs, unknown references, missing required fields, forbidden quota fields, blocking contextual/convergence rules, invalid enforcement/class/status values, and empty operational planes.
+Reject duplicate IDs, unknown references, missing required fields, forbidden quota fields, blocking contextual/convergence rules, invalid enforcement/class/status values, empty operational planes, and rules whose declared owner IDs exist but none semantically covers the rule mechanism.
 
 - [x] **Step 2: Implement deterministic exact lookup**
 
@@ -129,6 +132,14 @@ Optional domain/mechanism/class/status/text filters are supported where relevant
 
 Status reports validity, version, counts by UX domain, mechanism coverage, orphan mechanisms, rule class counts, and explicitly reports `rule_count_is_quality_target: False` and `skill_count_is_quality_target: False`.
 
+- [x] **Step 5: Add semantic-owner and operational-signature mutation tests before production enforcement**
+
+Observed local RED on the reconstructed CI-green project artifact: 9 focused UX tests ran, exactly 2 failed because the validator did not yet reject an existing-but-mechanism-unrelated owner or an ID-renamed rule clone with the same operational signature. After implementing the two courts, the same 9 focused tests passed.
+
+- [x] **Step 6: Keep near-neighbor semantics distinct**
+
+Signature comparison is exact after case/whitespace normalization of `(failure_modes, repairs, verification)`. v1 does not use fuzzy similarity as automatic blocking authority, so semantically distinct recovery rules are not collapsed merely because they share a domain/mechanism family.
+
 ---
 
 ### Task 6: Verify core GREEN and regression safety
@@ -137,21 +148,21 @@ Status reports validity, version, counts by UX domain, mechanism coverage, orpha
 - Test: `tests/test_ux_intelligence_v1.py`
 - Existing suite: unchanged.
 
-- [x] **Step 1: Verify the focused UX contract inside the real runner**
+- [x] **Step 1: Verify focused UX contracts locally**
 
-The seven UX core tests pass in the GitHub Actions `unittest discover` run.
+The final focused UX core suite is 9/9 GREEN after the semantic court implementation. The public/MCP integration suite is 6/6 GREEN on a reconstructed project artifact produced by an earlier successful repository CI run.
 
-- [x] **Step 2: Verify V13 regression surfaces**
+- [x] **Step 2: Investigate full local suite environmental failure without hiding it**
 
-V13 contract, catalog, provenance, authorship, wave-quality and anti-duplication tests continue to pass in the same full suite before the intentionally failing public-integration test.
+A 719-test local discovery run produced exactly one error: the real Playwright smoke attempted to launch Chromium because the local Python environment contains Playwright, but the browser binary is not installed. The traceback is outside UX code. The official workflow handles this intentionally: core CI installs no Playwright extra, while the independent browser job installs Playwright plus Chromium before requiring the smoke test.
 
 - [ ] **Step 3: Verify latest-head project CI / workflow gates**
 
-Required evidence before completion: Python 3.10, 3.11 and 3.12 core jobs pass, real Chromium passes, and any downstream release gate succeeds on the latest feature head.
+Required evidence before completion: Python 3.10, 3.11 and 3.12 core jobs pass, real Chromium passes, and the downstream current-head release gate succeeds on the final frozen feature head.
 
 - [x] **Step 4: Review for generated-prose/quota regressions**
 
-UX v1 retains explicit authored records and no count target field is admitted as quality authority.
+UX v1 retains explicitly authored records and no count target field is admitted as quality authority.
 
 ---
 
@@ -178,15 +189,21 @@ Run `34017813154`, Python 3.12, executed 717 tests and failed only in the six ne
 
 Top-level `nolane_ui` now re-exports the UX registries/query/status surface. `mcp_server.py` exposes read-only, bounded UX wrappers and registers the seven distinct UX MCP tools without modifying V13 rule semantics.
 
-- [ ] **Step 4: Verify integration GREEN on latest head**
+- [x] **Step 4: Verify focused integration GREEN locally**
 
-Require all new integration tests plus the complete repository regression matrix to pass before this task is closed.
+The reconstructed CI-green repository artifact with the post-artifact integration diff applied passes all 6 public/MCP integration tests.
+
+- [ ] **Step 5: Verify integration GREEN on final remote head**
+
+Require the complete GitHub Actions matrix and release gate to pass on the final feature-head SHA before closing this task.
 
 ---
 
 ### Task 8: Final quality court and delivery state
 
-- [ ] Inspect the full PR diff for accidental authority mixing, duplicate API names, broad mutation surfaces, quota regressions, or generated-rule patterns.
-- [ ] Confirm latest-head CI evidence rather than reusing an earlier run.
-- [ ] Update PR description so it reflects GREEN/RED evidence accurately rather than the obsolete pre-implementation state.
-- [ ] Keep `main` unchanged until the feature branch is review-ready with verified evidence.
+- [x] Inspect the PR integration diff for accidental authority mixing, API collisions and mutation surfaces: UX additions are read-only and namespaced separately from V13.
+- [x] Remove implicit count-pressure language from the design spec; scale is defined by semantic novelty rather than a target rule/skill count.
+- [x] Add semantic-owner compatibility and exact normalized operational-signature courts through observed RED→GREEN tests.
+- [ ] Confirm final frozen-head CI evidence rather than reusing an earlier run.
+- [ ] Update PR description so it reflects final RED/GREEN evidence rather than the obsolete pre-implementation state.
+- [x] Keep `main` unchanged until the feature branch is review-ready with verified evidence.
