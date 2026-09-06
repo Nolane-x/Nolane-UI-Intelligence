@@ -1,1 +1,0 @@
-Contract-first phase complete. Production implementation follows.
