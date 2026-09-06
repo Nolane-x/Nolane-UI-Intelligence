@@ -1,0 +1,318 @@
+{
+  "version": 13,
+  "reviewed_at": "2026-09-05",
+  "records": [
+    {
+      "provenance_id": "nui-security-alert-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-security-alert-triage",
+      "source_role": "canonical security alert triage owner graph",
+      "reporter": "NUI security alert triage skill owner",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Security-alert ownership separates source evidence, triage lifecycle, suppression scope, severity changes, deduplication, assignment, bulk disposition, and stale-state reconciliation.",
+      "contraindications": [
+        "This owner graph does not establish detector accuracy, incident severity standards, or organization-specific security response policy."
+      ],
+      "transfer_boundary": "V13 derives operator-facing state and evidence contracts only; detection efficacy and incident policy remain separate authorities."
+    },
+    {
+      "provenance_id": "nui-security-case-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-security-case-evidence-management",
+      "source_role": "canonical security case evidence owner graph",
+      "reporter": "NUI security case evidence skill owner",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Case-evidence ownership distinguishes immutable provenance, redaction scope, merge lineage, export manifests, relationship history, access revocation, lifecycle transitions, and external retrieval failure.",
+      "contraindications": [
+        "Internal case guidance does not certify legal chain-of-custody sufficiency, forensic admissibility, or jurisdiction-specific retention duties."
+      ],
+      "transfer_boundary": "V13 uses these responsibilities for product truth and traceability without claiming legal evidentiary authority."
+    },
+    {
+      "provenance_id": "nui-threat-hunt-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-threat-hunting-workspaces",
+      "source_role": "canonical threat hunting workspace owner graph",
+      "reporter": "NUI threat hunting skill owner",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Threat-hunt ownership separates evaluated time range, backend coverage, schema context, result snapshots, evidence bookmarks, query revision, asynchronous attempt authority, and detection gaps.",
+      "contraindications": [
+        "These UI responsibilities cannot prove threat hypotheses, telemetry completeness, parser correctness, or detection coverage beyond available evidence."
+      ],
+      "transfer_boundary": "V13 governs truthful hunt interaction state while preserving separate analytic and detection-validity authorities."
+    },
+    {
+      "provenance_id": "nui-auth-review-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-authentication-anomaly-review",
+      "source_role": "canonical authentication anomaly review owner graph",
+      "reporter": "NUI authentication anomaly review skill owner",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Authentication-review ownership distinguishes risk freshness, session identity, challenge outcome, device trust, false-positive scope, exceptional access, investigation lifecycle, and linked audit actions.",
+      "contraindications": [
+        "The owner graph does not determine whether a risk signal is statistically valid or define an organization’s authentication policy."
+      ],
+      "transfer_boundary": "V13 derives review-surface authority boundaries without elevating UI labels into proof of identity or compromise."
+    },
+    {
+      "provenance_id": "nui-clinical-order-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-clinical-order-status",
+      "source_role": "canonical clinical order status owner graph",
+      "reporter": "NUI clinical order status skill owner",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Clinical-order ownership separates downstream status authority, discontinuation, signatures, patient context, duplicate differentiation, result linkage, facility routing, and stale-command reconciliation.",
+      "contraindications": [
+        "This internal source does not provide medical advice, prescribing policy, standard-of-care determinations, or regulatory ordering requirements."
+      ],
+      "transfer_boundary": "V13 limits transfer to interface state integrity and requires separate clinical authority for treatment correctness."
+    },
+    {
+      "provenance_id": "nui-lab-result-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-lab-result-review",
+      "source_role": "canonical laboratory result review owner graph",
+      "reporter": "NUI laboratory result review skill owner",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Laboratory-result ownership separates value units, reference ranges, preliminary and corrected status, specimen time, abnormality source, identity linkage, missingness, and trend comparability.",
+      "contraindications": [
+        "Internal UI ownership cannot validate laboratory methods, clinical interpretation, reference interval appropriateness, or diagnostic conclusions."
+      ],
+      "transfer_boundary": "V13 governs faithful display and lineage of laboratory evidence while medical interpretation remains outside the rule authority."
+    },
+    {
+      "provenance_id": "nui-medication-order-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-medication-order-entry",
+      "source_role": "canonical medication order entry owner graph",
+      "reporter": "NUI medication order entry skill owner",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Medication-order ownership distinguishes product identity, instruction coupling, pending safety checks, interaction provenance, discontinuation timing, PRN conditions, taper sequence, and duplicate therapy review.",
+      "contraindications": [
+        "This owner source does not establish correct medication choice, dose, interaction severity, allergy significance, or clinical treatment policy."
+      ],
+      "transfer_boundary": "V13 carries only interaction and state-integrity obligations; clinical prescribing decisions require separate qualified authority."
+    },
+    {
+      "provenance_id": "nui-radiology-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-radiology-study-navigation",
+      "source_role": "canonical radiology study navigation owner graph",
+      "reporter": "NUI radiology study navigation skill owner",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Radiology ownership distinguishes study identity, report status, series completeness, measurement reference, comparison identity, hanging fallback, orientation semantics, and partial loading.",
+      "contraindications": [
+        "The owner graph cannot diagnose images, validate modality acquisition, certify DICOM conformance, or replace radiologist interpretation."
+      ],
+      "transfer_boundary": "V13 derives viewer truth and workflow integrity only; diagnostic meaning remains a clinical authority."
+    },
+    {
+      "provenance_id": "nui-assessment-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-assessment-question-navigation + skills/designing-timed-assessment-interfaces",
+      "source_role": "canonical assessment attempt and timing owner graph",
+      "reporter": "NUI assessment navigation and timing skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Assessment ownership separates attempt identity, unsaved response protection, review flags, submission versus scoring, timing authority, accommodations, randomized item identity, and section locks.",
+      "contraindications": [
+        "These owners do not determine psychometric validity, test fairness, academic policy, or the substantive correctness of assessment content."
+      ],
+      "transfer_boundary": "V13 applies to delivery-state fidelity and interaction contracts while assessment validity remains separately governed."
+    },
+    {
+      "provenance_id": "nui-quiz-author-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-quiz-authoring",
+      "source_role": "canonical quiz authoring owner graph",
+      "reporter": "NUI quiz authoring skill owner",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Quiz-authoring ownership distinguishes draft and published versions, answer-key secrecy, scoring configuration, randomization pools, delivery preview, reference impacts, media readiness, and publication identity.",
+      "contraindications": [
+        "Internal authoring guidance cannot certify pedagogical quality, exam security policy, grading fairness, or learning-objective alignment."
+      ],
+      "transfer_boundary": "V13 derives versioning and authoring-state contracts without claiming educational validity of the assessment itself."
+    },
+    {
+      "provenance_id": "nui-learning-progress-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-learning-progress-tracking",
+      "source_role": "canonical learning progress owner graph",
+      "reporter": "NUI learning progress tracking skill owner",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Learning-progress ownership separates completion from mastery, freshness, cross-device reconciliation, prerequisites, reset scope, partial credit, hidden-content effects, and course-version migration.",
+      "contraindications": [
+        "This owner does not define what constitutes mastery, educational effectiveness, accessibility accommodation policy, or credential validity."
+      ],
+      "transfer_boundary": "V13 governs truthful progress state and migration behavior while learning-outcome authority remains external."
+    },
+    {
+      "provenance_id": "nui-instructor-analytics-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-instructor-cohort-analytics",
+      "source_role": "canonical instructor cohort analytics owner graph",
+      "reporter": "NUI instructor analytics skill owner",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Instructor-analytics ownership separates cohort scope, denominators, temporal basis, privacy aggregation, late-work inclusion, grade freshness, drilldown populations, and export filters.",
+      "contraindications": [
+        "Internal analytics ownership does not validate causal inference, learning science conclusions, privacy law compliance, or institutional grading policy."
+      ],
+      "transfer_boundary": "V13 carries population and freshness truth into UI contracts without asserting that the resulting educational interpretation is valid."
+    },
+    {
+      "provenance_id": "nui-booking-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-resource-booking",
+      "source_role": "canonical resource booking owner graph",
+      "reporter": "NUI resource booking skill owner",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Booking ownership distinguishes timezone basis, holds, capacity commit, recurrence scope, resource dependencies, cancellation scope, waitlist promotion, and stale availability conflicts.",
+      "contraindications": [
+        "The owner graph does not define business capacity policy, refund rights, legal reservation terms, or venue-specific scheduling rules."
+      ],
+      "transfer_boundary": "V13 derives reservation-state and commitment integrity while commercial policy remains product-owned."
+    },
+    {
+      "provenance_id": "nui-market-ops-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-marketplace-operations",
+      "source_role": "canonical marketplace operations owner graph",
+      "reporter": "NUI marketplace operations skill owner",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Marketplace-operations ownership separates moderation, fulfillment and payout state, seller scope, inventory reservations, bulk operations, policy holds, dispute linkage, and search propagation.",
+      "contraindications": [
+        "Internal operations guidance does not define marketplace law, prohibited-goods policy, seller-contract terms, or fraud adjudication standards."
+      ],
+      "transfer_boundary": "V13 applies to operational state truth and action scope without creating substantive marketplace policy."
+    },
+    {
+      "provenance_id": "nui-dispute-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-marketplace-dispute-resolution",
+      "source_role": "canonical marketplace dispute owner graph",
+      "reporter": "NUI marketplace dispute resolution skill owner",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Dispute ownership distinguishes deadlines, evidence receipts, monetary adjustments, party identity, evidence audience, appeal lifecycle, provider reconciliation, and merge lineage.",
+      "contraindications": [
+        "These owners cannot determine legal entitlement, payment-network rules, final dispute merits, or jurisdictional evidence requirements."
+      ],
+      "transfer_boundary": "V13 governs case workflow fidelity while provider and legal decisions remain independent authorities."
+    },
+    {
+      "provenance_id": "nui-inventory-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-marketplace-inventory-availability",
+      "source_role": "canonical marketplace inventory owner graph",
+      "reporter": "NUI marketplace inventory skill owner",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Inventory ownership separates on-hand, reserved and available stock, variant identity, location sources, oversell conflicts, supply policies, bundle dependencies, freshness, and reservation expiry.",
+      "contraindications": [
+        "The owner graph does not prescribe replenishment strategy, accounting valuation, warehouse policy, or contractual inventory commitments."
+      ],
+      "transfer_boundary": "V13 derives sellability and reservation truth at the interface without replacing business inventory policy."
+    },
+    {
+      "provenance_id": "nui-payout-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-marketplace-payout-status",
+      "source_role": "canonical marketplace payout owner graph",
+      "reporter": "NUI marketplace payout skill owner",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Payout ownership separates gross and net basis, settlement lifecycle, destination identity, conversion basis, failure recovery, adjustment lineage, reserves, and reconciliation exports.",
+      "contraindications": [
+        "Internal payout ownership does not establish tax treatment, banking settlement law, FX correctness, or contractual payout entitlements."
+      ],
+      "transfer_boundary": "V13 governs transparent settlement state and accounting lineage while financial and legal policy remain separate."
+    },
+    {
+      "provenance_id": "nui-trading-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-trading-order-entry",
+      "source_role": "canonical trading order entry owner graph",
+      "reporter": "NUI trading order entry skill owner",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Trading ownership distinguishes target identity, quantity basis, order-type parameters, indicative pricing, market session, partial fills, cancel-replace races, and quote freshness.",
+      "contraindications": [
+        "These rules do not provide investment advice, guarantee execution, validate market data, or define broker and exchange regulatory obligations."
+      ],
+      "transfer_boundary": "V13 applies strictly to interaction and execution-state truth while trading suitability and market authority remain external."
+    },
+    {
+      "provenance_id": "nui-portfolio-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-portfolio-position-monitoring",
+      "source_role": "canonical portfolio position monitoring owner graph",
+      "reporter": "NUI portfolio monitoring skill owner",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Portfolio ownership separates holding and pricing sources, freshness, settlement, base currency, cost basis, corporate actions, rollup populations, and unavailable values.",
+      "contraindications": [
+        "Internal portfolio UI guidance cannot guarantee pricing accuracy, tax calculations, investment suitability, or custodian correctness."
+      ],
+      "transfer_boundary": "V13 carries provenance and aggregation truth without claiming financial correctness beyond the supplied authorities."
+    },
+    {
+      "provenance_id": "nui-reconciliation-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-bank-reconciliation",
+      "source_role": "canonical bank reconciliation owner graph",
+      "reporter": "NUI bank reconciliation skill owner",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Reconciliation ownership distinguishes statement period, matched identities, split arithmetic, duplicate feeds, balance equations, locks, post-close arrivals, and unresolved exports.",
+      "contraindications": [
+        "The owner graph does not establish accounting standards, audit assurance, bank correctness, or jurisdictional recordkeeping requirements."
+      ],
+      "transfer_boundary": "V13 governs reconciliation interface consistency while accounting policy and certification remain separate authorities."
+    },
+    {
+      "provenance_id": "nui-live-stream-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-live-stream-player-states + skills/designing-live-stream-latency-control",
+      "source_role": "canonical live stream playback owner graph",
+      "reporter": "NUI live stream playback skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Live-stream ownership separates live edge, latency mode, reconnect state, track synchronization, terminal state, interaction timing, quality limitation, and caption availability.",
+      "contraindications": [
+        "These owners do not guarantee broadcast rights, caption accuracy, source production quality, or service-level availability."
+      ],
+      "transfer_boundary": "V13 derives playback and accessibility state truth without elevating transport observations into content or rights claims."
+    },
+    {
+      "provenance_id": "nui-conference-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-call-join-device-checks + skills/designing-call-participant-layouts",
+      "source_role": "canonical real-time call join and participant owner graph",
+      "reporter": "NUI conferencing interaction skill network",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Conference ownership separates effective devices, prejoin publication state, participant identity, degradation scope, share source, host authority, meeting termination, and recording visibility.",
+      "contraindications": [
+        "Internal conferencing ownership does not establish consent law, recording legality, identity assurance, or network-service guarantees."
+      ],
+      "transfer_boundary": "V13 carries real-time interaction authority and disclosure state while legal consent and platform policy remain external."
+    },
+    {
+      "provenance_id": "nui-pipeline-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-software-delivery-pipelines",
+      "source_role": "canonical software delivery pipeline owner graph",
+      "reporter": "NUI software delivery pipeline skill owner",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Delivery-pipeline ownership separates environment target, artifact revision, stage dependencies, approval binding, rollback target, terminal outcomes, progressive rollout, and retry attempt identity.",
+      "contraindications": [
+        "These owners cannot prove software correctness, deployment safety, security posture, or organization-specific release governance."
+      ],
+      "transfer_boundary": "V13 governs release workflow truth and authority boundaries while executable quality remains separately verified."
+    },
+    {
+      "provenance_id": "nui-build-artifact-owners-v13",
+      "evidence_class": "internal-derived",
+      "source_id": "skills/designing-build-status-and-artifacts",
+      "source_role": "canonical build status and artifact owner graph",
+      "reporter": "NUI build status and artifact skill owner",
+      "reviewed_at": "2026-09-05",
+      "support_role": "Build-artifact ownership separates build outcome, artifact availability, log ordering, retention, shard completeness, flaky retries, cache semantics, digests, and source revision lineage.",
+      "contraindications": [
+        "Internal build UI guidance does not prove test adequacy, artifact correctness, supply-chain integrity, or reproducible-build guarantees."
+      ],
+      "transfer_boundary": "V13 applies to build evidence presentation and identity while correctness claims remain bounded by actual tests and verification."
+    }
+  ]
+}
