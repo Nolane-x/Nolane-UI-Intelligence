@@ -36,6 +36,32 @@ class ReviewRegressions(unittest.TestCase):
         ids = [finding["finding_id"] for finding in report["findings"]]
         self.assertEqual(len(ids), len(set(ids)))
 
+    def test_duplicate_rule_finding_merges_evidence_lineage(self):
+        report = verify_ux_journey(
+            VALID_JOURNEY,
+            {
+                "steps": {
+                    "review-cart": {
+                        "route": "/checkout",
+                        "object_id": "cart-2",
+                        "same_goal_navigation": True,
+                        "context_preserved": False,
+                        "_evidence_refs": {
+                            "object_id": "runtime:object",
+                            "same_goal_navigation": "runtime:same-goal",
+                            "context_preserved": "runtime:preserved",
+                        },
+                    }
+                },
+                "success": {"completion_confirmed": True},
+            },
+        )
+        self.assertEqual(len(report["findings"]), 1)
+        self.assertEqual(
+            set(report["findings"][0]["evidence_refs"]),
+            {"runtime:object", "runtime:same-goal", "runtime:preserved"},
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
