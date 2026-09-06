@@ -1,8 +1,8 @@
 """End-to-end deterministic UX journey verification.
 
-The verifier accepts plain provider-neutral mappings.  Browser transport stays
-owned by V11; this module binds supplied observations to explicit journey
-expectations and UX rules without importing Playwright or a browser adapter.
+The verifier accepts either verifier-ready provider-neutral mappings or a real
+V11 browser observation packet plus an explicit binding map. Browser collection
+stays owned by V11 and no Playwright-specific object crosses this boundary.
 """
 from __future__ import annotations
 
@@ -13,6 +13,23 @@ from .evaluators import UX_JOURNEY_EVALUATORS, evaluate_ux_journey_rule
 from .journeys import normalize_ux_journey_spec
 from .provenance import UX_PROVENANCE
 from .rules import UX_RULES
+from .runtime_adapter import adapt_v11_browser_observation
+
+
+def _prepare_observations(observations: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any] | None]:
+    if "runtime_v11" not in observations:
+        runtime_evidence = observations.get("runtime_evidence")
+        if runtime_evidence is not None and not isinstance(runtime_evidence, dict):
+            raise TypeError("observations.runtime_evidence must be an object when supplied")
+        return observations, deepcopy(runtime_evidence)
+    packet = observations.get("runtime_v11")
+    bindings = observations.get("bindings")
+    if not isinstance(packet, dict):
+        raise TypeError("observations.runtime_v11 must be an object")
+    if not isinstance(bindings, dict):
+        raise TypeError("V11 UX verification requires explicit observations.bindings object")
+    adapted = adapt_v11_browser_observation(packet, bindings)
+    return adapted, deepcopy(adapted["runtime_evidence"])
 
 
 def _step_observations(packet: dict[str, Any]) -> dict[str, dict[str, Any]]:
@@ -37,6 +54,17 @@ def _step_observations(packet: dict[str, Any]) -> dict[str, dict[str, Any]]:
             result[step_id] = {key: deepcopy(item) for key, item in value.items() if key != "step_id"}
         return result
     raise TypeError("observations.steps must be an object or sequence")
+
+
+def _evidence_refs(observation: dict[str, Any], fields: Iterable[str]) -> tuple[str, ...]:
+    mapped = observation.get("_evidence_refs", {})
+    if mapped is not None and not isinstance(mapped, dict):
+        raise TypeError("step _evidence_refs must be an object when supplied")
+    refs: list[str] = []
+    for field in fields:
+        ref = mapped.get(field) if isinstance(mapped, dict) else None
+        refs.append(ref if isinstance(ref, str) and ref.strip() else field)
+    return tuple(refs)
 
 
 def _finding(
@@ -92,7 +120,8 @@ def verify_ux_journey(
     if required_runtime_provenance not in provenance_ids:
         raise ValueError("UX verifier requires uxp.v11-runtime-observation provenance")
 
-    step_observations = _step_observations(observations)
+    prepared_observations, runtime_evidence = _prepare_observations(observations)
+    step_observations = _step_observations(prepared_observations)
     findings: list[dict[str, Any]] = []
     evidence_gaps: list[dict[str, Any]] = []
     step_results: list[dict[str, Any]] = []
@@ -125,9 +154,9 @@ def verify_ux_journey(
         for field in missing_fields:
             evidence_gaps.append(_gap(normalized["journey_id"], step_id, field, "required step evidence is absent"))
 
-        for field in step["required_context"]:
-            if field not in current_context:
-                evidence_gaps.append(_gap(normalized["journey_id"], step_id, field, "required incoming context is not evidenced"))
+        missing_incoming_context = [field for field in step["required_context"] if field not in current_context]
+        for field in missing_incoming_context:
+            evidence_gaps.append(_gap(normalized["journey_id"], step_id, field, "required incoming context is not evidenced"))
 
         for field, expected_value in step["expected_transition"].items():
             if field not in observation:
@@ -140,6 +169,7 @@ def verify_ux_journey(
                     "field": field,
                     "expected": deepcopy(expected_value),
                     "observed": deepcopy(observed_value),
+                    "evidence_refs": _evidence_refs(observation, (field,)),
                 })
 
         for field in step["preserved_context"]:
@@ -151,6 +181,7 @@ def verify_ux_journey(
                     "field": field,
                     "expected": deepcopy(current_context[field]),
                     "observed": deepcopy(observation[field]),
+                    "evidence_refs": _evidence_refs(observation, (field,)),
                 })
                 rule = rules.get("ux.task.same-goal-navigation-preserves-context")
                 if rule is not None:
@@ -160,7 +191,7 @@ def verify_ux_journey(
                         rule=rule,
                         observed={field: observation[field]},
                         expected={field: current_context[field]},
-                        evidence_refs=(field,),
+                        evidence_refs=_evidence_refs(observation, (field,)),
                         provenance_ids=tuple(normalized["provenance_ids"]) + (
                             "uxp.product-journey-contract",
                             "uxp.rule-authority-inheritance",
@@ -183,13 +214,14 @@ def verify_ux_journey(
                     )
             elif result["status"] == "fail":
                 rule = rules[evaluator["rule_id"]]
+                evidence_fields = tuple(field for field in evaluator["required_evidence"] if field in observation)
                 finding = _finding(
                     journey_id=normalized["journey_id"],
                     step_id=step_id,
                     rule=rule,
                     observed=result["observed"],
                     expected=result["expected"],
-                    evidence_refs=(field for field in evaluator["required_evidence"] if field in observation),
+                    evidence_refs=_evidence_refs(observation, evidence_fields),
                     provenance_ids=tuple(normalized["provenance_ids"]) + tuple(evaluator["provenance_ids"]),
                     verification_mode=evaluator["verification_mode"],
                 )
@@ -200,7 +232,7 @@ def verify_ux_journey(
         has_eval_gap = any(item["status"] == "insufficient-evidence" for item in evaluator_results)
         if contract_failures or has_eval_failure:
             status = "fail"
-        elif missing_fields or has_eval_gap or any(field not in current_context for field in step["required_context"]):
+        elif missing_fields or has_eval_gap or missing_incoming_context:
             status = "insufficient-evidence"
         else:
             status = "pass"
@@ -213,9 +245,10 @@ def verify_ux_journey(
             "evaluator_results": tuple(evaluator_results),
         })
         for key, value in observation.items():
-            current_context[key] = deepcopy(value)
+            if not key.startswith("_"):
+                current_context[key] = deepcopy(value)
 
-    success_packet = observations.get("success", {})
+    success_packet = prepared_observations.get("success", {})
     if success_packet is None:
         success_packet = {}
     if not isinstance(success_packet, dict):
@@ -246,6 +279,7 @@ def verify_ux_journey(
         "evidence_gaps": tuple(evidence_gaps),
         "success_criteria_results": tuple(success_results),
         "provenance_ids": tuple(sorted(set(normalized["provenance_ids"]) | {required_runtime_provenance})),
+        "runtime_evidence": runtime_evidence,
     }
 
 
