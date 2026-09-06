@@ -76,6 +76,18 @@ def _unique_ids(records: Iterable[dict[str, Any]], field: str, label: str) -> se
     return set(identifiers)
 
 
+def _normalize_signature_text(value: str) -> str:
+    return " ".join(value.casefold().split())
+
+
+def _operational_signature(rule: dict[str, Any]) -> tuple[tuple[str, ...], tuple[str, ...], tuple[str, ...]]:
+    return (
+        tuple(_normalize_signature_text(item) for item in rule["failure_modes"]),
+        tuple(_normalize_signature_text(item) for item in rule["repairs"]),
+        tuple(_normalize_signature_text(item) for item in rule["verification"]),
+    )
+
+
 def _validate_mechanisms() -> set[str]:
     mechanism_ids = _unique_ids(UX_MECHANISMS, "mechanism_id", "UX mechanisms")
     for mechanism in UX_MECHANISMS:
@@ -111,6 +123,11 @@ def _validate_skills(mechanism_ids: set[str]) -> set[str]:
 
 def _validate_rules(mechanism_ids: set[str], skill_ids: set[str]) -> set[str]:
     rule_ids = _unique_ids(UX_RULES, "rule_id", "UX rules")
+    skill_mechanisms = {
+        skill["skill_id"]: set(skill["related_mechanisms"])
+        for skill in UX_SKILLS
+    }
+    seen_signatures: dict[tuple[tuple[str, ...], tuple[str, ...], tuple[str, ...]], str] = {}
     for rule in UX_RULES:
         owner = rule["rule_id"]
         _reject_quota_fields(rule, owner)
@@ -137,6 +154,17 @@ def _validate_rules(mechanism_ids: set[str], skill_ids: set[str]) -> set[str]:
         unknown_owners = set(rule["owner_skill_ids"]) - skill_ids
         if unknown_owners:
             raise ValueError(f"{owner}: unknown owner skills {sorted(unknown_owners)}")
+        if not any(
+            rule["mechanism_id"] in skill_mechanisms[skill_id]
+            for skill_id in rule["owner_skill_ids"]
+        ):
+            raise ValueError(f"{owner}: rule requires at least one mechanism-compatible owner skill")
+        signature = _operational_signature(rule)
+        if signature in seen_signatures:
+            raise ValueError(
+                f"{owner}: duplicate operational signature with {seen_signatures[signature]}"
+            )
+        seen_signatures[signature] = owner
     if [item["rule_id"] for item in UX_RULES] != sorted(rule_ids):
         raise ValueError("UX rules must be canonically sorted by rule_id")
     return rule_ids
