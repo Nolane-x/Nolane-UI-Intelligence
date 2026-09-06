@@ -2,11 +2,11 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Build a first-class UX Intelligence subsystem with canonical UX mechanisms, 32 cognitive skills, 16 falsifiable operational rules, deterministic query/status APIs, and quality gates that preserve NUI's no-quota and evidence-honesty principles.
+**Goal:** Build a first-class UX Intelligence subsystem with canonical UX mechanisms, 32 cognitive skills, 16 falsifiable operational rules, deterministic query/status APIs, public Python/MCP integration, and quality gates that preserve NUI's no-quota and evidence-honesty principles.
 
-**Architecture:** Add an isolated `src/nolane_ui/ux_intelligence/` package rather than modifying the mature V13 contract in the first iteration. The package separates semantic mechanisms, cognitive skills, operational rules and catalog/query validation. Tests lock the ontology before production code is added.
+**Architecture:** Add an isolated `src/nolane_ui/ux_intelligence/` package rather than modifying the mature V13 contract in the first iteration. The package separates semantic mechanisms, cognitive skills, operational rules and catalog/query validation. Public API and MCP expose this subsystem through an explicitly distinct UX namespace so V13 rule authority is not blurred.
 
-**Tech Stack:** Python 3.10+, pytest, dependency-free data/validation modules.
+**Tech Stack:** Python 3.10+, standard-library `unittest`, dependency-free data/validation modules, GitHub Actions matrix on Python 3.10/3.11/3.12 plus the real Chromium smoke gate.
 
 **Spec:** `docs/superpowers/specs/2026-09-06-ux-intelligence-v1-design.md`
 
@@ -19,6 +19,7 @@
 - Query limits are strict integers in the range 1..100.
 - Canonical outputs are sorted deterministically by stable ID.
 - No generated rule loops or template-generated prose.
+- Public UX tools remain read-only and use a distinct namespace from V13 rule tools.
 
 ---
 
@@ -31,18 +32,19 @@
 - Consumes: none.
 - Produces: expected imports and invariants for `nolane_ui.ux_intelligence`.
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
-Create tests that import `UX_MECHANISMS`, `UX_SKILLS`, `UX_RULES`, `get_ux_mechanism`, `query_ux_mechanisms`, `get_ux_skill`, `query_ux_skills`, `get_ux_rule`, `query_ux_rules`, and `ux_intelligence_status`. Assert 14 mechanism IDs, 32 skill IDs, 16 rule IDs, unique IDs, exact ontology references, owner resolution, no quota fields, no blocking contextual/convergence rules, deterministic sorting and bounded query behavior.
+The contract imports `UX_MECHANISMS`, `UX_SKILLS`, `UX_RULES`, `get_ux_mechanism`, `query_ux_mechanisms`, `get_ux_skill`, `query_ux_skills`, `get_ux_rule`, `query_ux_rules`, and `ux_intelligence_status`. It locks 14 mechanism IDs, 32 skill IDs, 16 rule IDs, unique IDs, exact ontology references, owner resolution, no quota fields, non-blocking contextual/convergence rules, deterministic sorting and bounded query behavior.
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run the repository's real test runner and verify RED**
 
-Run: `pytest tests/test_ux_intelligence_v1.py -q`
-Expected: FAIL during import because `nolane_ui.ux_intelligence` does not exist.
+Actual CI command: `PYTHONPATH=src python -m unittest discover -s tests -v`
 
-- [ ] **Step 3: Commit RED state**
+Observed RED baseline: import failed because `nolane_ui.ux_intelligence` did not yet exist, while prior repository behavior remained independently testable.
 
-Commit only the test file with message `test: define UX Intelligence v1 contract`.
+- [x] **Step 3: Commit RED state**
+
+Committed the contract before production implementation.
 
 ---
 
@@ -54,13 +56,13 @@ Commit only the test file with message `test: define UX Intelligence v1 contract
 **Interfaces:**
 - Produces: `UX_MECHANISMS: tuple[dict[str, object], ...]` containing 14 semantic primitives.
 
-- [ ] **Step 1: Add the minimal mechanism registry**
+- [x] **Step 1: Add the minimal mechanism registry**
 
-Define the 14 canonical mechanisms from the spec with non-empty `mechanism_id`, `title`, `definition`, `diagnostic_question`, `signals`, and `non_examples` fields.
+The 14 canonical mechanisms use non-empty `mechanism_id`, `title`, `definition`, `diagnostic_question`, `signals`, and `non_examples` fields.
 
-- [ ] **Step 2: Keep data explicitly authored**
+- [x] **Step 2: Keep data explicitly authored**
 
-Use literal records, not loops that manufacture mechanism prose.
+Mechanism prose is literal and authored rather than loop-generated.
 
 ---
 
@@ -73,13 +75,13 @@ Use literal records, not loops that manufacture mechanism prose.
 - Consumes: known mechanism IDs from `mechanisms.py`.
 - Produces: `UX_SKILLS: tuple[dict[str, object], ...]`.
 
-- [ ] **Step 1: Add four skills per UX domain**
+- [x] **Step 1: Add four skills per UX domain**
 
-Cover `goal-task`, `mental-model`, `information-architecture`, `journey-flow`, `cognitive-friction`, `comprehension`, `recovery`, and `evaluation` with four distinct cognitive operations each.
+Covers `goal-task`, `mental-model`, `information-architecture`, `journey-flow`, `cognitive-friction`, `comprehension`, `recovery`, and `evaluation` with four distinct cognitive operations each.
 
-- [ ] **Step 2: Bind each skill to relevant mechanisms**
+- [x] **Step 2: Bind each skill to relevant mechanisms**
 
-Every `related_mechanisms` entry must resolve to an existing mechanism ID.
+Every `related_mechanisms` entry resolves to an existing mechanism ID.
 
 ---
 
@@ -92,11 +94,11 @@ Every `related_mechanisms` entry must resolve to an existing mechanism ID.
 - Consumes: mechanism IDs and skill IDs.
 - Produces: `UX_RULES: tuple[dict[str, object], ...]`.
 
-- [ ] **Step 1: Author rules explicitly**
+- [x] **Step 1: Author rules explicitly**
 
-Create 16 rules covering progress preservation, task-context preservation, destructive-consequence disclosure, false completion, dead-end recovery, cross-step consistency, navigation identity, stale task context, repeated-input elimination when semantically redundant, recovery reachability, scope disclosure, interruption recovery, mental-model mismatch, hidden dependencies, premature commitment and product-template convergence.
+Rules cover progress preservation, task-context preservation, destructive-consequence disclosure, false completion, dead-end recovery, cross-step consistency, navigation identity, stale task context, semantically redundant re-entry, recovery reachability, scope disclosure, interruption recovery, mental-model mismatch, hidden dependencies, premature commitment and product-template convergence.
 
-- [ ] **Step 2: Preserve enforcement boundaries**
+- [x] **Step 2: Preserve enforcement boundaries**
 
 Mechanical/behavioral directly reproducible failures may block at major/critical severity. Contextual/convergence rules use `warn` or `review` only.
 
@@ -111,48 +113,80 @@ Mechanical/behavioral directly reproducible failures may block at major/critical
 **Interfaces:**
 - Produces: `get_ux_mechanism`, `query_ux_mechanisms`, `get_ux_skill`, `query_ux_skills`, `get_ux_rule`, `query_ux_rules`, `ux_intelligence_status`.
 
-- [ ] **Step 1: Validate registries on import**
+- [x] **Step 1: Validate registries on import**
 
 Reject duplicate IDs, unknown references, missing required fields, forbidden quota fields, blocking contextual/convergence rules, invalid enforcement/class/status values, and empty operational planes.
 
-- [ ] **Step 2: Implement deterministic exact lookup**
+- [x] **Step 2: Implement deterministic exact lookup**
 
-Return `None` for missing IDs and immutable canonical dict copies for hits.
+Missing IDs return `None`; hits return independent canonical record copies.
 
-- [ ] **Step 3: Implement bounded queries**
+- [x] **Step 3: Implement bounded queries**
 
-Support optional filters by domain/mechanism/class/status/text where relevant. Require `1 <= limit <= 100`; reject booleans and non-integers.
+Optional domain/mechanism/class/status/text filters are supported where relevant. `1 <= limit <= 100`; booleans and non-integers are rejected.
 
-- [ ] **Step 4: Implement status**
+- [x] **Step 4: Implement status**
 
-Report validity, version, counts by UX domain, mechanism coverage, orphan mechanisms, rule class counts, and `rule_count_is_quality_target: False`, `skill_count_is_quality_target: False`.
+Status reports validity, version, counts by UX domain, mechanism coverage, orphan mechanisms, rule class counts, and explicitly reports `rule_count_is_quality_target: False` and `skill_count_is_quality_target: False`.
 
 ---
 
-### Task 6: Verify GREEN and regression safety
+### Task 6: Verify core GREEN and regression safety
 
 **Files:**
 - Test: `tests/test_ux_intelligence_v1.py`
 - Existing suite: unchanged.
 
+- [x] **Step 1: Verify the focused UX contract inside the real runner**
+
+The seven UX core tests pass in the GitHub Actions `unittest discover` run.
+
+- [x] **Step 2: Verify V13 regression surfaces**
+
+V13 contract, catalog, provenance, authorship, wave-quality and anti-duplication tests continue to pass in the same full suite before the intentionally failing public-integration test.
+
+- [ ] **Step 3: Verify latest-head project CI / workflow gates**
+
+Required evidence before completion: Python 3.10, 3.11 and 3.12 core jobs pass, real Chromium passes, and any downstream release gate succeeds on the latest feature head.
+
+- [x] **Step 4: Review for generated-prose/quota regressions**
+
+UX v1 retains explicit authored records and no count target field is admitted as quality authority.
+
+---
+
+### Task 7: Expose UX Intelligence through public Python API and MCP
+
+**Files:**
+- Create: `tests/test_ux_intelligence_v1_api_mcp.py`
+- Modify: `src/nolane_ui/__init__.py`
+- Modify: `src/nolane_ui/mcp_server.py`
+
 **Interfaces:**
-- Consumes: completed UX Intelligence package.
-- Produces: evidence that the new subsystem is green without weakening V13.
+- Public Python: three registries plus exact lookup, bounded query and status functions.
+- MCP: `nui_ux_status`, exact mechanism/skill/rule lookups, and bounded mechanism/skill/rule queries.
 
-- [ ] **Step 1: Run focused suite**
+- [x] **Step 1: Write public/MCP integration tests first**
 
-Run: `pytest tests/test_ux_intelligence_v1.py -q`
-Expected: PASS.
+The test requires the exact public exports, distinct `nui_ux_*`/`nui_get_ux_*` namespace, exact missing-ID failure behavior in MCP wrappers, bounded filters and preserved no-quota status.
 
-- [ ] **Step 2: Run V13 quality suites**
+- [x] **Step 2: Verify integration RED in real GitHub Actions**
 
-Run: `pytest tests/test_rules_v13_contracts.py tests/test_rules_v13_catalog.py tests/test_rules_v13_similarity.py tests/test_rules_v13_authorship_quality.py -q`
-Expected: PASS.
+Run `34017813154`, Python 3.12, executed 717 tests and failed only in the six new integration assertions/errors: missing top-level UX exports and missing MCP UX wrappers/tools. Core UX tests passed and the independent Chromium job passed. This is the production-integration RED baseline.
 
-- [ ] **Step 3: Run project CI / workflow gates**
+- [x] **Step 3: Implement the minimal GREEN integration**
 
-Confirm branch CI succeeds on supported Python versions and existing repository gates.
+Top-level `nolane_ui` now re-exports the UX registries/query/status surface. `mcp_server.py` exposes read-only, bounded UX wrappers and registers the seven distinct UX MCP tools without modifying V13 rule semantics.
 
-- [ ] **Step 4: Review diff for generated-prose/quota regressions**
+- [ ] **Step 4: Verify integration GREEN on latest head**
 
-Confirm no count quota is encoded and every UX rule is explicitly authored.
+Require all new integration tests plus the complete repository regression matrix to pass before this task is closed.
+
+---
+
+### Task 8: Final quality court and delivery state
+
+- [ ] Inspect the full PR diff for accidental authority mixing, duplicate API names, broad mutation surfaces, quota regressions, or generated-rule patterns.
+- [ ] Confirm latest-head CI evidence rather than reusing an earlier run.
+- [ ] Update PR description so it reflects GREEN/RED evidence accurately rather than the obsolete pre-implementation state.
+- [ ] Keep `main` unchanged until the feature branch is review-ready with verified evidence.
