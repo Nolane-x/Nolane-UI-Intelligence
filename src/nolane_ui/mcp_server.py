@@ -20,13 +20,19 @@ from .rules_v13.catalog import (
 )
 from .runtime_v11.doctor import diagnose_runtime_state
 from .ux_intelligence import (
+    get_ux_canonical_skill_bridge,
     get_ux_mechanism,
+    get_ux_provenance,
     get_ux_rule,
     get_ux_skill,
+    query_ux_canonical_skill_bridge,
     query_ux_mechanisms,
+    query_ux_provenance,
     query_ux_rules,
     query_ux_skills,
     ux_intelligence_status,
+    ux_v2_status,
+    verify_ux_journey,
 )
 from .validators import validate_repository
 
@@ -190,12 +196,85 @@ def get_ux_status(root: Path | str) -> dict[str, Any]:
     return ux_intelligence_status()
 
 
+def get_ux_provenance_record(provenance_id: str, root: Path | str | None = None) -> dict[str, Any]:
+    if root is not None:
+        _ = Path(root).resolve()
+    record = get_ux_provenance(provenance_id)
+    if record is None:
+        raise ValueError(f"unknown UX provenance id: {provenance_id}")
+    return record
+
+
+def query_ux_provenance_records(
+    root: Path | str | None = None,
+    *,
+    source_kind: str | None = None,
+    verification_mode: str | None = None,
+    text: str | None = None,
+    limit: int = 25,
+) -> dict[str, Any]:
+    if root is not None:
+        _ = Path(root).resolve()
+    records = query_ux_provenance(
+        source_kind=source_kind,
+        verification_mode=verification_mode,
+        text=text,
+        limit=limit,
+    )
+    return {"count": len(records), "provenance": records, "limit": limit}
+
+
+def get_ux_canonical_skill_bridge_record(skill_id: str, root: Path | str | None = None) -> dict[str, Any]:
+    if root is not None:
+        _ = Path(root).resolve()
+    record = get_ux_canonical_skill_bridge(skill_id)
+    if record is None:
+        raise ValueError(f"unknown UX canonical bridge skill id: {skill_id}")
+    return record
+
+
+def query_ux_canonical_skill_bridge_records(
+    root: Path | str | None = None,
+    *,
+    mechanism_id: str | None = None,
+    canonical_slug: str | None = None,
+    text: str | None = None,
+    limit: int = 25,
+) -> dict[str, Any]:
+    if root is not None:
+        _ = Path(root).resolve()
+    records = query_ux_canonical_skill_bridge(
+        mechanism_id=mechanism_id,
+        canonical_slug=canonical_slug,
+        text=text,
+        limit=limit,
+    )
+    return {"count": len(records), "bridge": records, "limit": limit}
+
+
+def get_ux_v2_status(root: Path | str | None = None) -> dict[str, Any]:
+    if root is not None:
+        _ = Path(root).resolve()
+    return ux_v2_status()
+
+
+def verify_ux_journey_record(
+    journey: dict[str, Any],
+    observations: dict[str, Any],
+    root: Path | str | None = None,
+) -> dict[str, Any]:
+    if root is not None:
+        _ = Path(root).resolve()
+    return verify_ux_journey(journey, observations)
+
+
 def get_runtime_doctor(root: Path | str) -> dict[str, Any]:
     return diagnose_runtime_state(Path(root).resolve())
 
 
-def tool_catalog(root: Path | str) -> list[dict[str, str]]:
-    _ = Path(root)
+def tool_catalog(root: Path | str | None = None) -> list[dict[str, str]]:
+    if root is not None:
+        _ = Path(root)
     return [
         {"name": "nui_status", "description": "Validate the local NUI repository and return bounded current-head structural metrics."},
         {"name": "nui_install_plan", "description": "Return a permission-preserving adapter plan for a supported agent harness."},
@@ -213,6 +292,12 @@ def tool_catalog(root: Path | str) -> list[dict[str, str]]:
         {"name": "nui_query_ux_skills", "description": "Query at most 100 UX cognitive skills by bounded domain, mechanism, or text filters."},
         {"name": "nui_get_ux_rule", "description": "Read one UX operational rule by exact id without changing V13 rule authority."},
         {"name": "nui_query_ux_rules", "description": "Query at most 100 UX operational rules by bounded domain, mechanism, class, status, or text filters."},
+        {"name": "nui_ux_v2_status", "description": "Return UX v2 bridge, provenance, deterministic evaluator, and authority-boundary integrity status."},
+        {"name": "nui_get_ux_provenance", "description": "Read one bounded UX v2 provenance record by exact id."},
+        {"name": "nui_query_ux_provenance", "description": "Query at most 100 UX v2 provenance records by source kind, verification mode, or text."},
+        {"name": "nui_get_ux_canonical_skill_bridge", "description": "Read one explicit bridge from a UX cognition record to an existing canonical NUI skill."},
+        {"name": "nui_query_ux_canonical_skill_bridge", "description": "Query at most 100 UX-to-canonical skill bridge records without modifying the canonical graph."},
+        {"name": "nui_verify_ux_journey", "description": "Verify a structured UX journey against provider-neutral runtime observations and return evidence-bounded findings."},
         {"name": "nui_runtime_doctor", "description": "Run the read-only V11 runtime installation and evidence doctor."},
     ]
 
@@ -261,14 +346,7 @@ def run_server(root: Path | str | None = None) -> None:
         text: str | None = None,
         limit: int = 25,
     ) -> dict[str, Any]:
-        return query_rule_records(
-            root_path,
-            domain=domain,
-            rule_class=rule_class,
-            status=status,
-            text=text,
-            limit=limit,
-        )
+        return query_rule_records(root_path, domain=domain, rule_class=rule_class, status=status, text=text, limit=limit)
 
     @mcp.tool()
     def nui_rule_provenance(provenance_id: str) -> dict[str, Any]:
@@ -283,10 +361,7 @@ def run_server(root: Path | str | None = None) -> None:
         return get_ux_mechanism_record(root_path, mechanism_id)
 
     @mcp.tool()
-    def nui_query_ux_mechanisms(
-        text: str | None = None,
-        limit: int = 25,
-    ) -> dict[str, Any]:
+    def nui_query_ux_mechanisms(text: str | None = None, limit: int = 25) -> dict[str, Any]:
         return query_ux_mechanism_records(root_path, text=text, limit=limit)
 
     @mcp.tool()
@@ -300,13 +375,7 @@ def run_server(root: Path | str | None = None) -> None:
         text: str | None = None,
         limit: int = 25,
     ) -> dict[str, Any]:
-        return query_ux_skill_records(
-            root_path,
-            domain=domain,
-            mechanism_id=mechanism_id,
-            text=text,
-            limit=limit,
-        )
+        return query_ux_skill_records(root_path, domain=domain, mechanism_id=mechanism_id, text=text, limit=limit)
 
     @mcp.tool()
     def nui_get_ux_rule(rule_id: str) -> dict[str, Any]:
@@ -322,14 +391,47 @@ def run_server(root: Path | str | None = None) -> None:
         limit: int = 25,
     ) -> dict[str, Any]:
         return query_ux_rule_records(
-            root_path,
-            domain=domain,
-            mechanism_id=mechanism_id,
-            rule_class=rule_class,
-            status=status,
-            text=text,
-            limit=limit,
+            root_path, domain=domain, mechanism_id=mechanism_id, rule_class=rule_class,
+            status=status, text=text, limit=limit,
         )
+
+    @mcp.tool()
+    def nui_ux_v2_status() -> dict[str, Any]:
+        return get_ux_v2_status(root_path)
+
+    @mcp.tool()
+    def nui_get_ux_provenance(provenance_id: str) -> dict[str, Any]:
+        return get_ux_provenance_record(provenance_id, root_path)
+
+    @mcp.tool()
+    def nui_query_ux_provenance(
+        source_kind: str | None = None,
+        verification_mode: str | None = None,
+        text: str | None = None,
+        limit: int = 25,
+    ) -> dict[str, Any]:
+        return query_ux_provenance_records(
+            root_path, source_kind=source_kind, verification_mode=verification_mode, text=text, limit=limit
+        )
+
+    @mcp.tool()
+    def nui_get_ux_canonical_skill_bridge(skill_id: str) -> dict[str, Any]:
+        return get_ux_canonical_skill_bridge_record(skill_id, root_path)
+
+    @mcp.tool()
+    def nui_query_ux_canonical_skill_bridge(
+        mechanism_id: str | None = None,
+        canonical_slug: str | None = None,
+        text: str | None = None,
+        limit: int = 25,
+    ) -> dict[str, Any]:
+        return query_ux_canonical_skill_bridge_records(
+            root_path, mechanism_id=mechanism_id, canonical_slug=canonical_slug, text=text, limit=limit
+        )
+
+    @mcp.tool()
+    def nui_verify_ux_journey(journey: dict[str, Any], observations: dict[str, Any]) -> dict[str, Any]:
+        return verify_ux_journey_record(journey, observations, root_path)
 
     @mcp.tool()
     def nui_runtime_doctor() -> dict[str, Any]:
