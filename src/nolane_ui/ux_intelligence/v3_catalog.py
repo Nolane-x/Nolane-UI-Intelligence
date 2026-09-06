@@ -13,6 +13,25 @@ UX_DISCOVERY_SCORE_WEIGHTS = {
     "novelty_against_verified_journeys": 0.10,
 }
 
+UX_IMPACT_SCORE_WEIGHTS = {
+    "goal_criticality": 0.22,
+    "task_frequency": 0.12,
+    "completion_blockage": 0.22,
+    "recoverability_cost": 0.14,
+    "affected_scope": 0.12,
+    "regression_confidence": 0.10,
+    "evidence_completeness": 0.08,
+}
+
+UX_REQUIRED_IMPACT_COMPONENTS = frozenset({
+    "goal_criticality",
+    "completion_blockage",
+    "regression_confidence",
+    "evidence_completeness",
+})
+
+UX_PRIORITY_BANDS = ((0.85, "p0"), (0.70, "p1"), (0.50, "p2"), (0.0, "p3"))
+
 CANDIDATE_STATUSES = {"hypothesis", "promotable", "promoted", "rejected"}
 
 
@@ -53,6 +72,9 @@ validate_discovery_score_weights()
 __all__ = [
     "CANDIDATE_STATUSES",
     "UX_DISCOVERY_SCORE_WEIGHTS",
+    "UX_IMPACT_SCORE_WEIGHTS",
+    "UX_PRIORITY_BANDS",
+    "UX_REQUIRED_IMPACT_COMPONENTS",
     "UX_RULE_REGRESSION_CLASSES",
     "VERSION",
     "validate_discovery_score_weights",
