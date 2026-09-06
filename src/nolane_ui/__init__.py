@@ -70,6 +70,18 @@ from .rules_v13.catalog import (
 from .rules_v13.contracts import validate_catalog_v13, validate_rule_v13
 from .rules_v13.provenance import validate_provenance_ledger_v13
 from .rules_v13.similarity import audit_catalog_similarity, compare_rule_similarity
+from .ux_intelligence import (
+    UX_MECHANISMS,
+    UX_RULES,
+    UX_SKILLS,
+    get_ux_mechanism,
+    get_ux_rule,
+    get_ux_skill,
+    query_ux_mechanisms,
+    query_ux_rules,
+    query_ux_skills,
+    ux_intelligence_status,
+)
 from .runtime_v11 import (
     accept_live_visual_preview as accept_runtime_live_visual_preview,
     adjudicate_findings as adjudicate_runtime_findings,
@@ -154,6 +166,9 @@ __all__ = [
     "get_rule_v13", "query_rules_v13", "load_rule_catalog_v13", "rule_catalog_status_v13",
     "get_rule_provenance_v13", "explain_rule_capabilities_v13", "validate_rule_v13",
     "validate_catalog_v13", "validate_provenance_ledger_v13", "compare_rule_similarity", "audit_catalog_similarity",
+    "UX_MECHANISMS", "UX_SKILLS", "UX_RULES",
+    "get_ux_mechanism", "query_ux_mechanisms", "get_ux_skill", "query_ux_skills",
+    "get_ux_rule", "query_ux_rules", "ux_intelligence_status",
     "query_ui_ecosystem", "validate_ui_ecosystem_registry", "validate_reference_ledger",
     "validate_source_selection", "validate_rich_interaction_contract", "validate_ui_integration_audit",
     "adjudicate_runtime_findings", "append_runtime_live_event", "assess_runtime_evidence_staleness",
