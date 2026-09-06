@@ -1,0 +1,95 @@
+name: Materialize V13 Wave 8
+
+on:
+  push:
+    branches:
+      - "transport/v13-wave8-v2"
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout transport payload
+        uses: actions/checkout@v4
+        with:
+          path: transport
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Reassemble and verify payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat transport/.nui-wave8/parts/part-* > /tmp/wave8.bz2.b64
+          base64 -d /tmp/wave8.bz2.b64 > /tmp/wave8.tar.bz2
+          echo "e88e17f336d8fe186359e978bbcf52bd7962355db161c23ffc1381ed9a364dd5  /tmp/wave8.tar.bz2" | sha256sum -c -
+          mkdir payload
+          tar -xjf /tmp/wave8.tar.bz2 -C payload
+          (cd payload && sha256sum -c ../transport/.nui-wave8/SHA256SUMS)
+          test "$(find payload -type f | wc -l)" -eq 28
+
+      - name: Checkout exact 621-rule base
+        uses: actions/checkout@v4
+        with:
+          ref: 91b5aa0e084af697d1ee43da839b5586d870d1a9
+          path: repo
+          fetch-depth: 0
+
+      - name: Materialize exact Wave 8 files
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r f; do
+            mkdir -p "repo/$(dirname "$f")"
+            cp "payload/$f" "repo/$f"
+          done < transport/.nui-wave8/files.txt
+          (cd repo && sha256sum -c ../transport/.nui-wave8/SHA256SUMS)
+          cd repo
+          git status --porcelain
+          test "$(git status --porcelain | wc -l)" -eq 28
+
+      - name: Install core package
+        run: cd repo && python -m pip install -e .
+
+      - name: Run V13 regression suite
+        run: cd repo && PYTHONPATH=src python -m unittest discover -s tests -p 'test_rules_v13*.py' -v
+
+      - name: Validate unified current head
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd repo
+          PYTHONPATH=src python scripts/nui-validate . > /tmp/w8-validator.json
+          python - <<'PY'
+          import json
+          d = json.load(open("/tmp/w8-validator.json"))
+          assert d["repository"]["valid"] is True
+          m = d["repository"]["metrics"]
+          assert m["skill_count"] == 874
+          assert m["v10_claim_ceiling"] == "STRUCTURAL_ONLY"
+          assert m["v13_rule_count"] == 813
+          assert m["v13_provenance_record_count"] == 87
+          assert m["v13_duplicate_pair_count"] == 0
+          assert m["v13_boilerplate_cluster_count"] == 0
+          PY
+
+      - name: Commit exact materialized Wave 8
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd repo
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B v13-eighth-authored-wave
+          while IFS= read -r f; do git add -- "$f"; done < ../transport/.nui-wave8/files.txt
+          diff -u <(sort ../transport/.nui-wave8/files.txt) <(git diff --cached --name-only | sort)
+          test "$(git diff --cached --name-only | wc -l)" -eq 28
+          git commit -m "V13 Rule Intelligence eighth authored wave"
+          git push origin HEAD:refs/heads/v13-eighth-authored-wave
