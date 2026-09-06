@@ -9,7 +9,7 @@ from ..reality_catalog_v12 import REALITY_RULES_V12
 from .compat_v12 import normalize_v12_rule
 from .contracts import validate_catalog_v13
 from .provenance import validate_provenance_ledger_v13
-from .shards import FIRST_WAVE_RULES_V13, FOUNDATION_RULES_V13, SECOND_WAVE_RULES_V13, THIRD_WAVE_RULES_V13, FOURTH_WAVE_RULES_V13, FIFTH_WAVE_RULES_V13, SIXTH_WAVE_RULES_V13, SEVENTH_WAVE_RULES_V13
+from .shards import FIRST_WAVE_RULES_V13, FOUNDATION_RULES_V13, SECOND_WAVE_RULES_V13, THIRD_WAVE_RULES_V13, FOURTH_WAVE_RULES_V13, FIFTH_WAVE_RULES_V13, SIXTH_WAVE_RULES_V13, SEVENTH_WAVE_RULES_V13, EIGHTH_WAVE_RULES_V13
 from .similarity import audit_catalog_similarity
 
 _PROVENANCE_PATHS = (
@@ -18,6 +18,7 @@ _PROVENANCE_PATHS = (
     Path("knowledge/rule-provenance-v13-owners.json"),
     Path("knowledge/rule-provenance-v13-wave6-owners.json"),
     Path("knowledge/rule-provenance-v13-wave7-owners.json"),
+    Path("knowledge/rule-provenance-v13-wave8-owners.json"),
 )
 
 
@@ -54,6 +55,7 @@ def load_rule_catalog_v13(root: str | Path | None = None) -> dict[str, Any]:
     rules.extend(dict(rule) for rule in FIFTH_WAVE_RULES_V13)
     rules.extend(dict(rule) for rule in SIXTH_WAVE_RULES_V13)
     rules.extend(dict(rule) for rule in SEVENTH_WAVE_RULES_V13)
+    rules.extend(dict(rule) for rule in EIGHTH_WAVE_RULES_V13)
     rules.sort(key=lambda rule: rule["rule_id"])
     catalog = {
         "version": 13,
@@ -69,6 +71,7 @@ def load_rule_catalog_v13(root: str | Path | None = None) -> dict[str, Any]:
             "v13_fifth_wave_rule_count": len(FIFTH_WAVE_RULES_V13),
             "v13_sixth_wave_rule_count": len(SIXTH_WAVE_RULES_V13),
             "v13_seventh_wave_rule_count": len(SEVENTH_WAVE_RULES_V13),
+            "v13_eighth_wave_rule_count": len(EIGHTH_WAVE_RULES_V13),
             "rule_count_is_quality_target": False,
         },
     }
