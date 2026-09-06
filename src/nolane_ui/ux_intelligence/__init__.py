@@ -30,6 +30,7 @@ from .provenance import (
     validate_ux_provenance,
 )
 from .rules import UX_RULES
+from .runtime_adapter import adapt_v11_browser_observation
 from .skills import UX_SKILLS
 from .v2_catalog import ux_v2_status
 from .verifier import verify_ux_journey
@@ -42,6 +43,7 @@ __all__ = [
     "UX_PROVENANCE",
     "UX_RULES",
     "UX_SKILLS",
+    "adapt_v11_browser_observation",
     "evaluate_ux_journey_rule",
     "get_ux_canonical_skill_bridge",
     "get_ux_journey_evaluators",
