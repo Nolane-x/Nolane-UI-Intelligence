@@ -25,6 +25,15 @@ from .ux_intelligence import (
     get_ux_provenance,
     get_ux_rule,
     get_ux_skill,
+    build_ux_product_model,
+    build_ux_goal_graph,
+    discover_ux_journeys,
+    query_ux_journey_candidates,
+    promote_ux_journey_candidate,
+    plan_ux_discovery,
+    create_ux_evidence_snapshot,
+    compare_ux_snapshots,
+    rank_ux_impacts,
     query_ux_canonical_skill_bridge,
     query_ux_mechanisms,
     query_ux_provenance,
@@ -32,6 +41,7 @@ from .ux_intelligence import (
     query_ux_skills,
     ux_intelligence_status,
     ux_v2_status,
+    ux_v3_status,
     verify_ux_journey,
 )
 from .validators import validate_repository
@@ -268,6 +278,124 @@ def verify_ux_journey_record(
     return verify_ux_journey(journey, observations)
 
 
+def get_ux_v3_status(root: Path | str | None = None) -> dict[str, Any]:
+    if root is not None:
+        _ = Path(root).resolve()
+    return ux_v3_status()
+
+
+def build_ux_product_model_record(packet: dict[str, Any], root: Path | str | None = None) -> dict[str, Any]:
+    if root is not None:
+        _ = Path(root).resolve()
+    return build_ux_product_model(packet)
+
+
+def build_ux_goal_graph_record(
+    product_model: dict[str, Any],
+    *,
+    declared_goals: list[dict[str, Any]] | tuple[dict[str, Any], ...] = (),
+    inferred_goals: list[dict[str, Any]] | tuple[dict[str, Any], ...] = (),
+    root: Path | str | None = None,
+) -> dict[str, Any]:
+    if root is not None:
+        _ = Path(root).resolve()
+    return build_ux_goal_graph(product_model, declared_goals=declared_goals, inferred_goals=inferred_goals)
+
+
+def discover_ux_journey_records(
+    product_model: dict[str, Any],
+    goal_graph: dict[str, Any],
+    *,
+    max_depth: int = 8,
+    root: Path | str | None = None,
+) -> dict[str, Any]:
+    if root is not None:
+        _ = Path(root).resolve()
+    candidates = discover_ux_journeys(product_model, goal_graph, max_depth=max_depth)
+    return {"count": len(candidates), "candidates": candidates}
+
+
+def query_ux_journey_candidate_records(
+    candidates: list[dict[str, Any]] | tuple[dict[str, Any], ...],
+    *,
+    goal_node_id: str | None = None,
+    status: str | None = None,
+    min_score: float | None = None,
+    limit: int = 25,
+    root: Path | str | None = None,
+) -> dict[str, Any]:
+    if root is not None:
+        _ = Path(root).resolve()
+    records = query_ux_journey_candidates(
+        candidates, goal_node_id=goal_node_id, status=status, min_score=min_score, limit=limit
+    )
+    return {"count": len(records), "candidates": records, "limit": limit}
+
+
+def promote_ux_journey_candidate_record(
+    candidate: dict[str, Any],
+    product_model: dict[str, Any],
+    goal_graph: dict[str, Any],
+    root: Path | str | None = None,
+) -> dict[str, Any]:
+    if root is not None:
+        _ = Path(root).resolve()
+    return promote_ux_journey_candidate(candidate, product_model, goal_graph)
+
+
+def plan_ux_discovery_record(
+    subject: dict[str, Any],
+    available_capabilities: list[str] | tuple[str, ...],
+    *,
+    limit: int = 25,
+    root: Path | str | None = None,
+) -> dict[str, Any]:
+    if root is not None:
+        _ = Path(root).resolve()
+    requests = plan_ux_discovery(subject, available_capabilities, limit=limit)
+    return {"count": len(requests), "requests": requests, "limit": limit}
+
+
+def create_ux_evidence_snapshot_record(
+    product_id: str,
+    revision: str,
+    journey: dict[str, Any],
+    verification: dict[str, Any],
+    *,
+    created_from: str,
+    provenance_ids: list[str] | tuple[str, ...] = (),
+    root: Path | str | None = None,
+) -> dict[str, Any]:
+    if root is not None:
+        _ = Path(root).resolve()
+    return create_ux_evidence_snapshot(
+        product_id, revision, journey, verification, created_from=created_from, provenance_ids=provenance_ids
+    )
+
+
+def compare_ux_snapshot_records(
+    baseline: dict[str, Any],
+    candidate: dict[str, Any],
+    *,
+    history: list[dict[str, Any]] | tuple[dict[str, Any], ...] = (),
+    root: Path | str | None = None,
+) -> dict[str, Any]:
+    if root is not None:
+        _ = Path(root).resolve()
+    return compare_ux_snapshots(baseline, candidate, history=history)
+
+
+def rank_ux_impact_records(
+    items: list[dict[str, Any]] | tuple[dict[str, Any], ...],
+    impact_evidence: dict[str, dict[str, Any]],
+    root: Path | str | None = None,
+) -> dict[str, Any]:
+    if root is not None:
+        _ = Path(root).resolve()
+    assessments = rank_ux_impacts(items, impact_evidence)
+    return {"count": len(assessments), "assessments": assessments}
+
+
 def get_runtime_doctor(root: Path | str) -> dict[str, Any]:
     return diagnose_runtime_state(Path(root).resolve())
 
@@ -298,6 +426,16 @@ def tool_catalog(root: Path | str | None = None) -> list[dict[str, str]]:
         {"name": "nui_get_ux_canonical_skill_bridge", "description": "Read one explicit bridge from a UX cognition record to an existing canonical NUI skill."},
         {"name": "nui_query_ux_canonical_skill_bridge", "description": "Query at most 100 UX-to-canonical skill bridge records without modifying the canonical graph."},
         {"name": "nui_verify_ux_journey", "description": "Verify a structured UX journey against provider-neutral runtime observations and return evidence-bounded findings."},
+        {"name": "nui_ux_v3_status", "description": "Return UX v3 autonomous-discovery integrity and authority-boundary status."},
+        {"name": "nui_build_ux_product_model", "description": "Build an evidence-bounded UX product model from explicit discovery evidence."},
+        {"name": "nui_build_ux_goal_graph", "description": "Build a declared/inferred UX goal graph without promoting browser traversal into user intent."},
+        {"name": "nui_discover_ux_journeys", "description": "Discover and rank bounded UX journey hypotheses without creating findings."},
+        {"name": "nui_query_ux_journey_candidates", "description": "Query bounded UX journey hypotheses by goal, status, and score."},
+        {"name": "nui_promote_ux_journey_candidate", "description": "Promote a sufficiently evidenced candidate into the unchanged UX v2 journey contract."},
+        {"name": "nui_plan_ux_discovery", "description": "Plan evidence requests only; does not execute a browser or claim observations."},
+        {"name": "nui_create_ux_evidence_snapshot", "description": "Create a defensive temporal UX evidence snapshot in memory."},
+        {"name": "nui_compare_ux_snapshots", "description": "Compare same-product temporal UX snapshots without escalating finding authority."},
+        {"name": "nui_rank_ux_impacts", "description": "Rank verified UX findings/regressions without changing severity or enforcement."},
         {"name": "nui_runtime_doctor", "description": "Run the read-only V11 runtime installation and evidence doctor."},
     ]
 
@@ -432,6 +570,73 @@ def run_server(root: Path | str | None = None) -> None:
     @mcp.tool()
     def nui_verify_ux_journey(journey: dict[str, Any], observations: dict[str, Any]) -> dict[str, Any]:
         return verify_ux_journey_record(journey, observations, root_path)
+
+    @mcp.tool()
+    def nui_ux_v3_status() -> dict[str, Any]:
+        return get_ux_v3_status(root_path)
+
+    @mcp.tool()
+    def nui_build_ux_product_model(packet: dict[str, Any]) -> dict[str, Any]:
+        return build_ux_product_model_record(packet, root_path)
+
+    @mcp.tool()
+    def nui_build_ux_goal_graph(
+        product_model: dict[str, Any],
+        declared_goals: list[dict[str, Any]] = [],
+        inferred_goals: list[dict[str, Any]] = [],
+    ) -> dict[str, Any]:
+        return build_ux_goal_graph_record(
+            product_model, declared_goals=declared_goals, inferred_goals=inferred_goals, root=root_path
+        )
+
+    @mcp.tool()
+    def nui_discover_ux_journeys(
+        product_model: dict[str, Any], goal_graph: dict[str, Any], max_depth: int = 8
+    ) -> dict[str, Any]:
+        return discover_ux_journey_records(product_model, goal_graph, max_depth=max_depth, root=root_path)
+
+    @mcp.tool()
+    def nui_query_ux_journey_candidates(
+        candidates: list[dict[str, Any]],
+        goal_node_id: str | None = None, status: str | None = None, min_score: float | None = None, limit: int = 25,
+    ) -> dict[str, Any]:
+        return query_ux_journey_candidate_records(
+            candidates, goal_node_id=goal_node_id, status=status, min_score=min_score, limit=limit, root=root_path
+        )
+
+    @mcp.tool()
+    def nui_promote_ux_journey_candidate(
+        candidate: dict[str, Any], product_model: dict[str, Any], goal_graph: dict[str, Any]
+    ) -> dict[str, Any]:
+        return promote_ux_journey_candidate_record(candidate, product_model, goal_graph, root_path)
+
+    @mcp.tool()
+    def nui_plan_ux_discovery(
+        subject: dict[str, Any], available_capabilities: list[str], limit: int = 25
+    ) -> dict[str, Any]:
+        return plan_ux_discovery_record(subject, available_capabilities, limit=limit, root=root_path)
+
+    @mcp.tool()
+    def nui_create_ux_evidence_snapshot(
+        product_id: str, revision: str, journey: dict[str, Any], verification: dict[str, Any],
+        created_from: str, provenance_ids: list[str] = [],
+    ) -> dict[str, Any]:
+        return create_ux_evidence_snapshot_record(
+            product_id, revision, journey, verification, created_from=created_from,
+            provenance_ids=provenance_ids, root=root_path,
+        )
+
+    @mcp.tool()
+    def nui_compare_ux_snapshots(
+        baseline: dict[str, Any], candidate: dict[str, Any], history: list[dict[str, Any]] = []
+    ) -> dict[str, Any]:
+        return compare_ux_snapshot_records(baseline, candidate, history=history, root=root_path)
+
+    @mcp.tool()
+    def nui_rank_ux_impacts(
+        items: list[dict[str, Any]], impact_evidence: dict[str, dict[str, Any]]
+    ) -> dict[str, Any]:
+        return rank_ux_impact_records(items, impact_evidence, root_path)
 
     @mcp.tool()
     def nui_runtime_doctor() -> dict[str, Any]:
