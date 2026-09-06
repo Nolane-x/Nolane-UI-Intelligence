@@ -1,8 +1,8 @@
 """Deterministic UX rule evaluators for structured journey evidence.
 
-Evaluators are deliberately narrow.  They activate only when an observation
-contains a rule-specific activation signal, distinguish absent evidence from a
-proven failure, and never perform fuzzy text matching.
+Evaluators are deliberately narrow. They activate only when a rule-specific
+condition is materially present, distinguish absent evidence from a proven
+failure, and never perform fuzzy text matching.
 """
 from __future__ import annotations
 
@@ -17,43 +17,97 @@ Evaluator = Callable[[dict[str, Any], dict[str, Any]], tuple[bool, str, str]]
 
 
 def _hidden_dependency(step: dict[str, Any], observation: dict[str, Any]) -> tuple[bool, str, str]:
-    failed = bool(observation["dependency_required"] and observation["commit_available"] and not observation["dependency_visible"])
-    return (not failed, "required dependency is visible before commit", "commit exposed while a required dependency remained hidden")
+    failed = bool(
+        observation["dependency_required"]
+        and observation["commit_available"]
+        and not observation["dependency_visible"]
+    )
+    return (
+        not failed,
+        "required dependency is visible before commit",
+        "commit exposed while a required dependency remained hidden",
+    )
 
 
 def _premature_commitment(step: dict[str, Any], observation: dict[str, Any]) -> tuple[bool, str, str]:
-    failed = bool(observation["commit_available"] and not observation["required_decisions_complete"])
-    return (not failed, "commit is unavailable until required decisions are complete", "commit became available before required decisions were complete")
+    failed = bool(
+        observation["commit_available"]
+        and not observation["required_decisions_complete"]
+    )
+    return (
+        not failed,
+        "commit is unavailable until required decisions are complete",
+        "commit became available before required decisions were complete",
+    )
 
 
 def _same_goal_context(step: dict[str, Any], observation: dict[str, Any]) -> tuple[bool, str, str]:
-    failed = bool(observation["same_goal_navigation"] and not observation["context_preserved"])
-    return (not failed, "same-goal navigation preserves task context", "same-goal navigation lost task context")
+    failed = bool(
+        observation["same_goal_navigation"]
+        and not observation["context_preserved"]
+    )
+    return (
+        not failed,
+        "same-goal navigation preserves task context",
+        "same-goal navigation lost task context",
+    )
 
 
 def _cross_step_consistency(step: dict[str, Any], observation: dict[str, Any]) -> tuple[bool, str, str]:
     failed = observation["shared_state_consistent"] is False
-    return (not failed, "shared workflow state remains coherent across steps", "shared workflow state contradicted an earlier actionable state")
+    return (
+        not failed,
+        "shared workflow state remains coherent across steps",
+        "shared workflow state contradicted an earlier actionable state",
+    )
 
 
 def _interruption_context(step: dict[str, Any], observation: dict[str, Any]) -> tuple[bool, str, str]:
-    failed = bool(observation["interrupted"] and not observation["resumable_context_preserved"])
-    return (not failed, "predictable interruption preserves resumable context", "predictable interruption lost context required for safe resumption")
+    failed = bool(
+        observation["interrupted"]
+        and not observation["resumable_context_preserved"]
+    )
+    return (
+        not failed,
+        "predictable interruption preserves resumable context",
+        "predictable interruption lost context required for safe resumption",
+    )
 
 
 def _stale_context(step: dict[str, Any], observation: dict[str, Any]) -> tuple[bool, str, str]:
-    failed = bool(observation["context_may_be_stale"] and not observation["context_revalidated"])
-    return (not failed, "stale-capable context is revalidated before consequential continuation", "stale-capable context remained actionable without revalidation")
+    failed = bool(
+        observation["context_may_be_stale"]
+        and not observation["context_revalidated"]
+    )
+    return (
+        not failed,
+        "stale-capable context is revalidated before consequential continuation",
+        "stale-capable context remained actionable without revalidation",
+    )
 
 
 def _false_completion(step: dict[str, Any], observation: dict[str, Any]) -> tuple[bool, str, str]:
-    failed = bool(observation["completion_claimed"] and not observation["completion_confirmed"])
-    return (not failed, "success language follows authoritative completion", "completion was claimed before authoritative completion was confirmed")
+    failed = bool(
+        observation["completion_claimed"]
+        and not observation["completion_confirmed"]
+    )
+    return (
+        not failed,
+        "success language follows authoritative completion",
+        "completion was claimed before authoritative completion was confirmed",
+    )
 
 
 def _dead_end(step: dict[str, Any], observation: dict[str, Any]) -> tuple[bool, str, str]:
-    failed = bool(observation["recoverable_failure"] and not observation["recovery_path_exists"])
-    return (not failed, "recoverable failure exposes a viable next path", "recoverable failure exposed no retry, revise, return, or continuation path")
+    failed = bool(
+        observation["recoverable_failure"]
+        and not observation["recovery_path_exists"]
+    )
+    return (
+        not failed,
+        "recoverable failure exposes a viable next path",
+        "recoverable failure exposed no retry, revise, return, or continuation path",
+    )
 
 
 def _recovery_reachable(step: dict[str, Any], observation: dict[str, Any]) -> tuple[bool, str, str]:
@@ -62,16 +116,60 @@ def _recovery_reachable(step: dict[str, Any], observation: dict[str, Any]) -> tu
         and observation["recovery_path_exists"]
         and not observation["recovery_path_reachable"]
     )
-    return (not failed, "the affected user can reach the declared recovery path", "a recovery path existed but was unreachable from the affected failure state")
+    return (
+        not failed,
+        "the affected user can reach the declared recovery path",
+        "a recovery path existed but was unreachable from the affected failure state",
+    )
 
 
 def _progress_destroyed(step: dict[str, Any], observation: dict[str, Any]) -> tuple[bool, str, str]:
     failed = bool(
         observation["progress_was_valuable"]
         and observation["progress_destroyed"]
-        and not (observation["discard_authorized"] and observation["discard_explained"])
+        and not (
+            observation["discard_authorized"]
+            and observation["discard_explained"]
+        )
     )
-    return (not failed, "valuable progress is preserved or explicitly authorized and explained before discard", "valuable progress was destroyed without both discard authority and visible explanation")
+    return (
+        not failed,
+        "valuable progress is preserved or explicitly authorized and explained before discard",
+        "valuable progress was destroyed without both discard authority and visible explanation",
+    )
+
+
+def _is_activated(evaluator_id: str, observation: dict[str, Any]) -> bool:
+    """Return whether the rule-specific condition is materially applicable.
+
+    Presence of a boolean field is not enough. A false signal such as
+    ``completion_claimed=False`` means the false-completion rule is not active
+    and therefore must not manufacture an evidence requirement.
+    """
+    if evaluator_id == "cross-step-consistency":
+        return "shared_state_consistent" in observation
+    if evaluator_id == "dead-end-recovery":
+        return observation.get("recoverable_failure") is True
+    if evaluator_id == "false-completion":
+        return observation.get("completion_claimed") is True
+    if evaluator_id == "hidden-dependency":
+        return observation.get("dependency_required") is True
+    if evaluator_id == "interruption-context":
+        return observation.get("interrupted") is True
+    if evaluator_id == "premature-commitment":
+        return observation.get("required_decisions_complete") is False
+    if evaluator_id == "progress-destruction":
+        return observation.get("progress_destroyed") is True
+    if evaluator_id == "recovery-reachability":
+        return (
+            observation.get("recoverable_failure") is True
+            and observation.get("recovery_path_exists") is True
+        )
+    if evaluator_id == "same-goal-context":
+        return observation.get("same_goal_navigation") is True
+    if evaluator_id == "stale-context":
+        return observation.get("context_may_be_stale") is True
+    raise ValueError(f"unknown UX evaluator activation contract: {evaluator_id}")
 
 
 _EVALUATOR_FUNCTIONS: dict[str, Evaluator] = {
@@ -229,11 +327,10 @@ def evaluate_ux_journey_rule(
     step: dict[str, Any],
     observation: dict[str, Any],
 ) -> dict[str, Any]:
-    """Evaluate one explicit rule without interpreting absent evidence as failure."""
+    """Evaluate one explicit rule without interpreting non-applicability as missing evidence."""
     if not isinstance(observation, dict):
         raise TypeError("UX step observation must be an object")
-    activation = tuple(evaluator["activation_evidence"])
-    if not any(key in observation for key in activation):
+    if not _is_activated(evaluator["evaluator_id"], observation):
         return {"status": "not-executed", "missing_evidence": (), "expected": None, "observed": None}
     missing = tuple(key for key in evaluator["required_evidence"] if key not in observation)
     if missing:

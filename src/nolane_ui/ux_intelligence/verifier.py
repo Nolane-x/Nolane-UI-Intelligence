@@ -199,8 +199,9 @@ def verify_ux_journey(
                         ),
                         verification_mode="runtime-observation",
                     )
-                    findings.append(finding)
-                    step_findings.append(finding["finding_id"])
+                    if finding["finding_id"] not in step_findings:
+                        findings.append(finding)
+                        step_findings.append(finding["finding_id"])
 
         for evaluator in UX_JOURNEY_EVALUATORS:
             if evaluator["rule_id"] not in rules:
@@ -225,8 +226,9 @@ def verify_ux_journey(
                     provenance_ids=tuple(normalized["provenance_ids"]) + tuple(evaluator["provenance_ids"]),
                     verification_mode=evaluator["verification_mode"],
                 )
-                findings.append(finding)
-                step_findings.append(finding["finding_id"])
+                if finding["finding_id"] not in step_findings:
+                    findings.append(finding)
+                    step_findings.append(finding["finding_id"])
 
         has_eval_failure = any(item["status"] == "fail" for item in evaluator_results)
         has_eval_gap = any(item["status"] == "insufficient-evidence" for item in evaluator_results)
