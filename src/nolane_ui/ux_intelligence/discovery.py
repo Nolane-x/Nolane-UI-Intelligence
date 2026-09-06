@@ -61,6 +61,94 @@ def _outcome_index(model: dict[str, Any]) -> dict[str, dict[str, Any]]:
     return {item["outcome_id"]: item for item in model.get("outcomes", ())}
 
 
+def _object_index(model: dict[str, Any]) -> dict[str, dict[str, Any]]:
+    return {item["object_id"]: item for item in model["objects"]}
+
+
+def _state_index(model: dict[str, Any]) -> dict[str, dict[str, Any]]:
+    return {item["state_id"]: item for item in model["states"]}
+
+
+def _relationships_for(model: dict[str, Any], source_id: str, relation: str) -> tuple[dict[str, Any], ...]:
+    return tuple(
+        item
+        for item in model["relationships"]
+        if item["source_id"] == source_id and item["relation"] == relation
+    )
+
+
+def _action_semantics(action: dict[str, Any]) -> dict[str, Any]:
+    """Return operational action identity without transport/local alias IDs."""
+    return {
+        "action_kind": action["action_kind"],
+        "source_surface_id": action["source_surface_id"],
+        "object_id": action["object_id"],
+        "targets": tuple(action["observed_target_surface_ids"]),
+        "state_changes": deepcopy(action["observed_state_changes"]),
+        "commitment_level": action["commitment_level"],
+    }
+
+
+def _action_semantic_key(action: dict[str, Any]) -> str:
+    return _semantic_hash(_action_semantics(action))
+
+
+def _preserved_context(model: dict[str, Any], action: dict[str, Any]) -> tuple[tuple[str, ...], tuple[str, ...]]:
+    objects = _object_index(model)
+    fields: set[str] = set()
+    refs: set[str] = set()
+    for relationship in _relationships_for(model, action["action_id"], "preserves"):
+        target = objects.get(relationship["target_id"])
+        if target is None:
+            continue
+        fields.update(target["identity_fields"])
+        refs.update(relationship["evidence_refs"])
+        refs.update(target["evidence_refs"])
+    return tuple(sorted(fields)), tuple(sorted(refs))
+
+
+def _recovery_hypotheses(model: dict[str, Any], action: dict[str, Any]) -> tuple[tuple[str, ...], tuple[str, ...]]:
+    surfaces = _surface_index(model)
+    actions = _action_index(model)
+    values: set[str] = set()
+    refs: set[str] = set()
+    for relationship in _relationships_for(model, action["action_id"], "recovers-via"):
+        target_id = relationship["target_id"]
+        if target_id in surfaces:
+            values.add(f"return-via:{surfaces[target_id]['locator']}")
+            refs.update(surfaces[target_id]["evidence_refs"])
+        elif target_id in actions:
+            values.add(f"recover-via-action:{actions[target_id]['action_kind']}:{actions[target_id]['object_id']}")
+            refs.update(actions[target_id]["evidence_refs"])
+        else:
+            values.add(f"recover-via:{target_id}")
+        refs.update(relationship["evidence_refs"])
+    return tuple(sorted(values)), tuple(sorted(refs))
+
+
+def _entry_context(model: dict[str, Any], action: dict[str, Any], fields: tuple[str, ...]) -> dict[str, Any]:
+    if not fields:
+        return {}
+    objects = _object_index(model)
+    states = _state_index(model)
+    obj = objects.get(action["object_id"])
+    if obj is None:
+        return {}
+    context: dict[str, Any] = {}
+    for field in fields:
+        if field == "object_id":
+            context[field] = obj["object_id"]
+            continue
+        values = []
+        for state_id in obj["state_ids"]:
+            state = states.get(state_id)
+            if state is not None and field in state["attributes"]:
+                values.append(state["attributes"][field])
+        if values and all(value == values[0] for value in values[1:]):
+            context[field] = deepcopy(values[0])
+    return context
+
+
 def _goal_outcomes(graph: dict[str, Any], goal_id: str) -> tuple[str, ...]:
     prefix = "outcome:"
     result = []
@@ -107,7 +195,7 @@ def _enumerate_paths(
     def walk(
         surface_id: str,
         path: tuple[dict[str, Any], ...],
-        seen_transitions: frozenset[tuple[str, str, tuple[str, ...]]],
+        seen_transitions: frozenset[str],
     ) -> None:
         if path and surface_id in success_surfaces:
             paths.append(path)
@@ -116,7 +204,7 @@ def _enumerate_paths(
             return
         for action in adjacency.get(surface_id, ()):
             targets = tuple(action["observed_target_surface_ids"])
-            transition = (surface_id, action["action_id"], targets)
+            transition = _action_semantic_key(action)
             if transition in seen_transitions:
                 continue
             for target in targets:
@@ -131,22 +219,25 @@ def _enumerate_paths(
 
     unique: dict[tuple[str, ...], tuple[dict[str, Any], ...]] = {}
     for path in paths:
-        key = tuple(action["action_id"] for action in path)
+        key = tuple(_action_semantic_key(action) for action in path)
         unique.setdefault(key, path)
     return tuple(unique[key] for key in sorted(unique))
 
 
-def _step_hypothesis(action: dict[str, Any], index: int) -> dict[str, Any]:
+def _step_hypothesis(model: dict[str, Any], action: dict[str, Any], index: int) -> dict[str, Any]:
+    preserved_context, preserve_refs = _preserved_context(model, action)
+    recovery_hypotheses, recovery_refs = _recovery_hypotheses(model, action)
+    refs = tuple(sorted(set(action["evidence_refs"]) | set(preserve_refs) | set(recovery_refs)))
     return {
         "candidate_step_id": f"step-{index + 1}:{action['action_id']}",
         "intent_hypothesis": f"Use {action['label']}",
         "action_id": action["action_id"],
         "source_surface_id": action["source_surface_id"],
         "expected_target_surface_ids": tuple(action["observed_target_surface_ids"]),
-        "required_context_hypotheses": (),
-        "preserved_context_hypotheses": (),
-        "recovery_hypotheses": (),
-        "evidence_refs": tuple(action["evidence_refs"]),
+        "required_context_hypotheses": preserved_context,
+        "preserved_context_hypotheses": preserved_context,
+        "recovery_hypotheses": recovery_hypotheses,
+        "evidence_refs": refs,
         "origin": action["origin"],
         "confidence": action["confidence"],
     }
@@ -156,14 +247,7 @@ def _path_fingerprint(goal_id: str, path: tuple[dict[str, Any], ...], outcome_id
     return _semantic_hash(
         {
             "goal_node_id": goal_id,
-            "actions": [
-                {
-                    "action_id": action["action_id"],
-                    "source_surface_id": action["source_surface_id"],
-                    "targets": list(action["observed_target_surface_ids"]),
-                }
-                for action in path
-            ],
+            "actions": [_action_semantics(action) for action in path],
             "outcomes": list(outcome_ids),
         }
     )
@@ -254,17 +338,17 @@ def discover_ux_journeys(
             components = _score_components(goal, path, matched_outcomes, fingerprint, verified)
             score = _weighted_score(components)
             refs = set(goal["evidence_refs"])
-            for action in path:
-                refs.update(action["evidence_refs"])
-            for outcome in matched_outcomes:
-                refs.update(outcome["evidence_refs"])
             first_surface = surfaces[path[0]["source_surface_id"]]
             critical_actions = tuple(
                 action["action_id"]
                 for action in path
                 if action["commitment_level"] in {"state-changing", "destructive", "external-effect"}
             )
-            steps = tuple(_step_hypothesis(action, index) for index, action in enumerate(path))
+            steps = tuple(_step_hypothesis(model, action, index) for index, action in enumerate(path))
+            for step in steps:
+                refs.update(step["evidence_refs"])
+            for outcome in matched_outcomes:
+                refs.update(outcome["evidence_refs"])
             success_hypotheses = tuple(
                 {
                     "outcome_id": outcome["outcome_id"],
@@ -287,6 +371,7 @@ def discover_ux_journeys(
                 "entry_state": {
                     "surface_id": first_surface["surface_id"],
                     "route": first_surface["locator"],
+                    **_entry_context(model, path[0], steps[0]["required_context_hypotheses"]),
                 },
                 "step_hypotheses": steps,
                 "success_hypotheses": success_hypotheses,
