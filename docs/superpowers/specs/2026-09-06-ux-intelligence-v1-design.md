@@ -17,7 +17,7 @@ Introduce `src/nolane_ui/ux_intelligence/` as a backward-compatible subsystem wi
 1. `mechanisms.py` — canonical UX failure mechanisms. Mechanisms are not rules and do not block by themselves.
 2. `skills.py` — canonical UX cognitive-skill registry. Skills define reasoning capabilities, not policy claims.
 3. `rules.py` — a deliberately small first wave of falsifiable UX operational rules. Every UX rule binds to exactly one mechanism and declares observable/falsifiable/repair/verification planes.
-4. `catalog.py` — deterministic read-only APIs, status, mechanism coverage and rule/skill queries.
+4. `catalog.py` — deterministic read-only APIs, status, mechanism coverage, semantic-owner integrity, operational-signature uniqueness and rule/skill queries.
 
 The subsystem is independent from the V13 canonical catalog in v1 so no existing V13 rule is forced to migrate. A future bridge may add optional mechanism-family metadata to V13 after empirical review. v1 therefore proves the ontology and integration boundary before mutating the mature V13 contract.
 
@@ -98,6 +98,14 @@ The first wave contains 16 rules focused on high-confidence failures: progress l
 
 Rules in `contextual` or `convergence` classes never block. Blocking is reserved for clearly mechanical/behavioral loss or deception with directly reproducible consequences.
 
+`owner_skill_ids` is not merely referential metadata. Every rule must have at least one declared cognitive owner whose `related_mechanisms` includes the rule's `mechanism_id`; an existing-but-semantically-unrelated skill cannot satisfy ownership integrity.
+
+## Semantic quality court
+
+UX v1 rejects exact operational duplication independently of rule IDs. For each rule, the court normalizes case and whitespace in the `(failure_modes, repairs, verification)` planes and rejects a second rule with the same normalized operational signature. This catches ID-renamed clones while deliberately avoiding fuzzy similarity at v1, so legitimate near-neighbor rules can remain distinct when their failure/repair/verification semantics differ.
+
+For example, “a recoverable failure has a viable recovery path” and “that recovery path is actually reachable by the affected user from the failure state” are related but distinct claims; the court must not collapse them simply because both belong to recovery and workflow-fragmentation.
+
 ## Determinism and quality gates
 
 The subsystem must:
@@ -106,6 +114,8 @@ The subsystem must:
 - reject duplicate mechanism, skill and rule IDs;
 - reject unknown mechanism references;
 - reject unknown owner skill references;
+- require at least one mechanism-compatible owner skill for every rule;
+- reject duplicate normalized failure/repair/verification operational signatures;
 - reject missing operational planes;
 - reject count-quota fields;
 - keep contextual/convergence findings non-blocking;
@@ -142,10 +152,12 @@ These tools do not mutate rules, write product state, escalate permissions, or u
 
 ## Testing strategy
 
-TDD is mandatory. Tests first assert missing imports/API, schema integrity, ontology references, non-quota behavior, non-blocking convergence/contextual rules, deterministic bounded queries, exact first-wave inventory, top-level exposure and MCP separation. The repository's actual test runner is `PYTHONPATH=src python -m unittest discover -s tests -v`, exercised in GitHub Actions across Python 3.10/3.11/3.12 plus the independent real Chromium smoke gate.
+TDD is mandatory. Tests first assert missing imports/API, schema integrity, ontology references, non-quota behavior, non-blocking convergence/contextual rules, deterministic bounded queries, exact first-wave inventory, top-level exposure, MCP separation, semantic-owner compatibility and duplicate operational-signature rejection. The repository's actual test runner is `PYTHONPATH=src python -m unittest discover -s tests -v`, exercised in GitHub Actions across Python 3.10/3.11/3.12 plus the independent real Chromium smoke gate.
 
 RED evidence must fail for the intended missing behavior before production integration is added. GREEN evidence must come from the latest feature head; an earlier successful run cannot certify later changes. Existing V13 tests remain untouched.
 
+The semantic court is itself mutation-tested in unit tests: a rule whose owner skill exists but does not cover its mechanism must fail validation, and an ID-renamed clone with the same normalized operational signature must fail validation. These tests were observed RED before the court implementation was added.
+
 ## Non-goals
 
-v1 does not modify V13 rule contracts, does not claim empirical usability superiority, does not impose hard UX folklore, does not auto-generate hundreds of rules, does not make mechanism membership itself an enforcement signal, and does not silently convert the 32 cognitive registry entries into canonical skill-graph nodes.
+v1 does not modify V13 rule contracts, does not claim empirical usability superiority, does not impose hard UX folklore, does not auto-generate hundreds of rules, does not make mechanism membership itself an enforcement signal, does not use fuzzy similarity as an automatic UX blocking authority, and does not silently convert the 32 cognitive registry entries into canonical skill-graph nodes.
