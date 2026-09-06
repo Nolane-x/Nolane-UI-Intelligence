@@ -1,0 +1,48 @@
+"""Versioned selection metadata for UX Intelligence v3."""
+from __future__ import annotations
+
+
+VERSION = 3
+
+UX_DISCOVERY_SCORE_WEIGHTS = {
+    "goal_confidence": 0.25,
+    "success_evidence_strength": 0.20,
+    "path_evidence_coverage": 0.20,
+    "critical_action_presence": 0.15,
+    "recovery_relevance": 0.10,
+    "novelty_against_verified_journeys": 0.10,
+}
+
+CANDIDATE_STATUSES = {"hypothesis", "promotable", "promoted", "rejected"}
+
+
+def validate_discovery_score_weights(weights=UX_DISCOVERY_SCORE_WEIGHTS):
+    required = {
+        "goal_confidence",
+        "success_evidence_strength",
+        "path_evidence_coverage",
+        "critical_action_presence",
+        "recovery_relevance",
+        "novelty_against_verified_journeys",
+    }
+    if set(weights) != required:
+        raise ValueError("UX v3 discovery score weights must expose the complete closed component set")
+    for key, value in weights.items():
+        if isinstance(value, bool) or not isinstance(value, (int, float)):
+            raise TypeError(f"{key} weight must be numeric")
+        if not 0.0 <= float(value) <= 1.0:
+            raise ValueError(f"{key} weight must be within [0, 1]")
+    if abs(sum(float(value) for value in weights.values()) - 1.0) > 1e-12:
+        raise ValueError("UX v3 discovery score weights must sum to 1.0")
+    return {"valid": True, "version": VERSION, "component_count": len(weights), "errors": []}
+
+
+validate_discovery_score_weights()
+
+
+__all__ = [
+    "CANDIDATE_STATUSES",
+    "UX_DISCOVERY_SCORE_WEIGHTS",
+    "VERSION",
+    "validate_discovery_score_weights",
+]
